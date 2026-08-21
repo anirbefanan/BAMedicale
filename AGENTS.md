@@ -717,6 +717,7 @@ MEDIA AND INTERACTION RULES
 
 - Use click-to-load embeds for third-party video so pages remain fast and source branding remains intact.
 - Provide an accessible modal or fallback to the original source; ESC, close controls, focus visibility, and mobile viewport fit are mandatory.
+- Reserve an explicit aspect ratio for every asynchronous media surface. For small, high-value collections in the initial experience, load thumbnails eagerly so users never encounter empty visual cards.
 - When public discovery is blocked or incomplete, preserve verified entries and show an honest, low-emphasis availability state rather than fabricating content.
 - Deduplicate public-source content by canonical URL or platform ID before presentation.
 
