@@ -107,4 +107,38 @@ function initLightbox() {
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 
-shell(); renderHome(); renderLibrary(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox();
+async function renderVideoHub() {
+  const hub = document.querySelector("[data-video-hub]");
+  const preview = document.querySelector("[data-video-preview-list]");
+  if (!hub && !preview) return;
+  let videos = [];
+  try {
+    const response = await fetch("data/videos.json");
+    if (!response.ok) throw new Error("Video catalog unavailable");
+    videos = (await response.json()).videos.filter((video) => video.verified_identity);
+  } catch (error) {
+    if (hub) hub.innerHTML = `<div class="video-hub__empty"><p class="eyebrow">Video collection</p><h2>The public video catalog is being refreshed.</h2><p>Source verification is required before a video is shown here.</p></div>`;
+    return;
+  }
+  const card = (video, featured = false) => `<article class="video-card ${featured ? "video-card--featured" : ""}"><button type="button" class="video-card__play" data-video-play="${video.id}" aria-label="Play ${video.title}"><img src="${video.thumbnail}" alt="${video.title}" width="480" height="360" loading="lazy"><span>Play</span></button><div class="video-card__copy"><p><b>${video.source_label}</b><i>${video.topic}</i></p><h2>${video.title}</h2><small>${video.person}</small><a href="${video.url}" target="_blank" rel="noreferrer">View original source <strong>↗</strong></a></div></article>`;
+  const featured = videos.find((video) => video.featured) || videos[0];
+  const remaining = videos.filter((video) => video.id !== featured.id);
+  if (hub) hub.innerHTML = `<section class="video-feature"><div>${card(featured, true)}</div><aside><p class="eyebrow">Verified Dr. Bob appearances</p><h2>Public educational videos with source attribution.</h2><p>Each entry is retained only when the public title and publisher clearly identify Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K).</p><div class="video-topics">${[...new Set(videos.map((video) => video.topic))].map((topic) => `<span>${topic}</span>`).join("")}</div></aside></section><section class="video-hub__section"><div class="section-head"><div><p class="eyebrow">Latest verified videos</p><h2>Watch and learn in context.</h2></div></div><div class="video-grid">${remaining.map((video) => card(video)).join("")}</div></section><section class="video-hub__section video-source-state"><div><p class="eyebrow">BAMedicale Instagram</p><h2>Public reels will appear after public discovery exposes verifiable post links.</h2></div><p>The profile was reachable during the latest scan, but its unauthenticated response did not expose reel URLs. No Instagram entries are displayed rather than guessing or linking to unavailable posts.</p></section>`;
+  if (preview) preview.innerHTML = videos.slice(0, 4).map((video) => `<article class="video-preview"><button type="button" data-video-play="${video.id}" aria-label="Play ${video.title}"><img src="${video.thumbnail}" alt="${video.title}" width="480" height="360" loading="lazy"><span>▶</span></button><p>${video.source_label}</p><h3>${video.title}</h3></article>`).join("");
+  const dialog = document.createElement("dialog");
+  dialog.className = "video-player";
+  dialog.innerHTML = `<button type="button" aria-label="Close video">×</button><div></div><a target="_blank" rel="noreferrer">View original source ↗</a>`;
+  document.body.append(dialog);
+  const openVideo = (id) => {
+    const video = videos.find((item) => item.id === id);
+    if (!video) return;
+    dialog.querySelector("div").innerHTML = `<iframe src="${video.embed_url}?autoplay=1" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    dialog.querySelector("a").href = video.url;
+    dialog.showModal();
+  };
+  document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay)));
+  dialog.addEventListener("close", () => { dialog.querySelector("div").innerHTML = ""; });
+  dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
+}
+
+shell(); renderHome(); renderLibrary(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); renderVideoHub();
