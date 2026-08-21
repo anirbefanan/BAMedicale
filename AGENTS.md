@@ -265,6 +265,9 @@ Maintain BAMedicale’s established premium visual DNA:
 \- dense but organized layouts
 
 
+When a visual improves understanding or medical storytelling, prefer meaningful, medically relevant imagery, diagrams, anatomy, pathology, imaging, or evidence-led illustration over generic decorative icons. Decorative elements must never replace explanatory visual content.
+
+
 
 Avoid:
 
@@ -675,6 +678,7 @@ Treat physician and institutional identity as clinical editorial content, never 
 
 
 - Use the verified full professional name and credentials consistently when supplied.
+- For Dr. Bob, use the verified identity exactly: `Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)`. Do not abbreviate, omit credentials, or substitute an unverified variation in any route, card, profile, metadata item, or media attribution.
 - Use the established premium sans-serif type system for physician identity, credentials, roles, and institutional labels.
 - Never use handwriting, script, signature, marker, chalkboard, or playful type treatments in professional identity components.
 - Keep the person’s name visually dominant; use a compact uppercase eyebrow for context such as physician-led education.
@@ -695,6 +699,7 @@ For any panel containing layered text, metadata, actions, or image-adjacent cont
 - Let panels expand and reflow from content; never force text into fixed-height boxes.
 - Test all metadata groups, labels, credentials, and CTAs at narrow mobile, tablet, standard desktop, and wide desktop widths.
 - Preserve visual depth through background layers and media placement, not by allowing text to collide with imagery.
+- Maintain automatically readable text contrast on every route, surface, state, and breakpoint. Assess text against its actual rendered background, including smoked glass and image overlays, then adjust foreground, overlay, or surface treatment until labels, body copy, controls, and metadata remain comfortably legible.
 
 
 
