@@ -664,3 +664,77 @@ The standard is:
 
 “BAMedicale looks and feels like a premium, modern, sophisticated, medically credible platform worth exploring for a long time.”
 
+
+
+PROFESSIONAL IDENTITY
+
+
+
+Treat physician and institutional identity as clinical editorial content, never as decoration.
+
+
+
+- Use the verified full professional name and credentials consistently when supplied.
+- Use the established premium sans-serif type system for physician identity, credentials, roles, and institutional labels.
+- Never use handwriting, script, signature, marker, chalkboard, or playful type treatments in professional identity components.
+- Keep the person’s name visually dominant; use a compact uppercase eyebrow for context such as physician-led education.
+- Preserve natural wrapping for names, credentials, roles, and metadata. Do not rely on fixed text heights, clipping, or font sizes that make credentials unreadable.
+
+
+
+RESILIENT CONTENT PANELS
+
+
+
+For any panel containing layered text, metadata, actions, or image-adjacent content:
+
+
+
+- Prefer normal document flow, grid, or flex layout over absolute positioning for text-bearing components.
+- Use `min-width: 0`, flexible tracks, natural height, `overflow-wrap` where appropriate, and fluid `clamp()` typography.
+- Let panels expand and reflow from content; never force text into fixed-height boxes.
+- Test all metadata groups, labels, credentials, and CTAs at narrow mobile, tablet, standard desktop, and wide desktop widths.
+- Preserve visual depth through background layers and media placement, not by allowing text to collide with imagery.
+
+
+
+ASSET AND SOURCE INTEGRITY
+
+
+
+- Use supplied official brand assets and real physician photography without generating, reconstructing, or materially altering a person’s appearance.
+- Preserve focal content with responsive crops and provide zoom/lightbox treatment when educational image text cannot be read at small sizes.
+- Keep production markup free of local absolute paths.
+- For external media, retain the original publisher, canonical URL, and visible attribution.
+- Do not rehost copyrighted video, invent metadata, or present uncertain identity matches as verified.
+- Keep source-backed catalogs in one maintainable data file and render cards from that source of truth rather than duplicating entries in page markup.
+
+
+
+MEDIA AND INTERACTION RULES
+
+
+
+- Use click-to-load embeds for third-party video so pages remain fast and source branding remains intact.
+- Provide an accessible modal or fallback to the original source; ESC, close controls, focus visibility, and mobile viewport fit are mandatory.
+- When public discovery is blocked or incomplete, preserve verified entries and show an honest, low-emphasis availability state rather than fabricating content.
+- Deduplicate public-source content by canonical URL or platform ID before presentation.
+
+
+
+QA GATES
+
+
+
+Before committing a meaningful frontend change:
+
+
+
+1\. Validate HTML, CSS, JavaScript, and structured data or JSON affected by the change.
+2\. Verify every affected image, media thumbnail, and local data request resolves.
+3\. Test all affected interactions, including modal close behavior, keyboard operation, and fallbacks.
+4\. Check the requested responsive widths and explicitly inspect text wrapping, panel growth, metadata density, image focal points, navigation, and overflow.
+5\. Run an internal link audit and local HTTP smoke check.
+6\. Stage only intended files; preserve unrelated user changes.
+7\. After push, verify the live staging route, assets, and project-path behavior before reporting completion.
+
