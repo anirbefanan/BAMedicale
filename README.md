@@ -1,7 +1,7 @@
 # BAMedicale
 
 Local website for BAMedicale: medical learning library, ebook commerce preview,
-symposium hub, login area, and video wall for dr. Bob Andinata content.
+symposium hub, login area, and video wall for Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) content.
 
 ## Run locally
 
