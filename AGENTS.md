@@ -745,3 +745,16 @@ Before committing a meaningful frontend change:
 6\. Stage only intended files; preserve unrelated user changes.
 7\. After push, verify the live staging route, assets, and project-path behavior before reporting completion.
 
+
+
+APPROVED VISUAL REFERENCES
+
+
+
+- Treat a supplied approved mockup as the visual source of truth for the relevant experience. Translate its hierarchy and responsive intent into the existing BAMedicale system rather than copying it blindly or preserving a visibly weaker implementation.
+- Never use repository imagery merely because it is available. Every visual must have semantic purpose, composition fit, intentional crop, sufficient contrast, and continuity with its surrounding module.
+- Build educational journeys as coherent progression graphics with one illustration language and connected stages. Do not use unrelated thumbnails, portraits, X-rays, or infographic crops as stage icons.
+- When no suitable repository asset exists, create a purposeful CSS or SVG composition instead of forcing an inappropriate image into the layout.
+- Long external-media titles may use concise, verified display titles where needed for responsive presentation; retain original title and source metadata in the canonical data record.
+- Major visual sections must be rendered and visually inspected before release. Proactively correct hierarchy, contrast, spacing, crops, density, and collisions across text, badges, imagery, CTAs, and metadata.
+
