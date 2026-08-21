@@ -725,6 +725,7 @@ MEDIA AND INTERACTION RULES
 - Reserve an explicit aspect ratio for every asynchronous media surface. For small, high-value collections in the initial experience, load thumbnails eagerly so users never encounter empty visual cards.
 - When public discovery is blocked or incomplete, preserve verified entries and show an honest, low-emphasis availability state rather than fabricating content.
 - Deduplicate public-source content by canonical URL or platform ID before presentation.
+- For public-video discovery, search comprehensively across legitimate sources and relevant query variants. Compare every candidate with the full existing catalog before addition; enrich matching records rather than creating duplicates.
 
 
 

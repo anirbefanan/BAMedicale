@@ -61,6 +61,7 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
 .approved-infographics__rail>button{aspect-ratio:16/9}.approved-infographics__rail>button>img{width:100%;height:100%;object-fit:cover}
 .video-card__play{aspect-ratio:16/9}.video-card__play>img{display:block;width:100%;height:100%;object-fit:cover}
 .video-preview button{aspect-ratio:16/9}.video-preview button>img{width:100%;height:100%;object-fit:cover}
+.video-topics button{padding:5px 8px;color:#ffd6ce;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:999px;font:inherit;font-size:.7rem;font-weight:700;cursor:pointer}.video-topics button:hover,.video-topics button:focus-visible,.video-topics button.is-active{color:#fff;background:rgba(190,40,42,.72);border-color:rgba(255,190,181,.54)}.video-card[hidden]{display:none}
 
 /* Consolidated medical visual and utility-surface correction. */
 :root{--glass-ink:rgba(31,3,6,.82);--glass-burgundy:rgba(78,8,13,.76);--ivory:#fff7ed;--ivory-muted:rgba(255,242,230,.72);--glass-line:rgba(255,174,162,.24)}
