@@ -1,5 +1,7 @@
 const data = window.BAMEDICALE_DATA;
 const icon = (name) => `<svg aria-hidden="true"><use href="#i-${name}"></use></svg>`;
+const route = window.location.pathname.split("/").pop().replace(".html", "") || "index";
+document.body.classList.add(`route-${route}`);
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
@@ -89,4 +91,20 @@ function initMotion() {
   document.querySelectorAll(".section, .knowledge-card, .mosaic-card, .event-card, .ebook-card, .source-card").forEach((item) => { item.classList.add("reveal"); observer.observe(item); });
 }
 
-shell(); renderHome(); renderLibrary(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion();
+function initLightbox() {
+  const triggers = document.querySelectorAll("[data-lightbox-image]");
+  if (!triggers.length) return;
+  const dialog = document.createElement("dialog");
+  dialog.className = "medical-lightbox";
+  dialog.innerHTML = `<button type="button" aria-label="Close image">×</button><img alt="">`;
+  document.body.append(dialog);
+  const image = dialog.querySelector("img");
+  triggers.forEach((trigger) => trigger.addEventListener("click", () => {
+    image.src = trigger.dataset.lightboxImage;
+    image.alt = trigger.dataset.lightboxAlt || "Medical education illustration";
+    dialog.showModal();
+  }));
+  dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
+}
+
+shell(); renderHome(); renderLibrary(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox();
