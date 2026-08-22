@@ -61,6 +61,13 @@ function renderEvents() {
   document.querySelectorAll("[data-events]").forEach((target) => target.innerHTML = data.events.map((item) => `<article class="event-card"><div><span>${item.date}</span><i>${item.format}</i></div><h2>${item.title}</h2><p>${item.text}</p><a class="text-link" href="resources.html">Explore related resources <span>→</span></a></article>`).join(""));
 }
 
+function renderFeaturedSeminar() {
+  const target = document.querySelector("[data-featured-seminar]");
+  const seminar = data.featuredSeminar;
+  if (!target || !seminar) return;
+  target.innerHTML = `<div class="featured-seminar__hero"><div class="featured-seminar__intro"><p class="eyebrow">Upcoming program</p><p class="featured-seminar__format">${seminar.format}</p><h1>${seminar.title}</h1><p class="featured-seminar__lead">A focused national webinar for physicians, connecting diagnostic assessment, ultrasound interpretation, cytology reporting, and treatment decision-making for thyroid nodules.</p><dl class="featured-seminar__meta"><div><dt>Date</dt><dd>${seminar.date}</dd></div><div><dt>Time</dt><dd>${seminar.time}</dd></div><div><dt>Format</dt><dd>${seminar.location}</dd></div></dl></div><figure class="featured-seminar__poster"><img src="${seminar.artwork}" alt="Official event poster for ${seminar.title}" width="1440" height="2048" loading="eager"><figcaption>Official program artwork</figcaption></figure></div><div class="featured-seminar__details"><article class="featured-seminar__context"><p class="eyebrow">Program context</p><h2>A practical diagnostic-to-decision discussion.</h2><p>${seminar.organizer}</p></article><article class="featured-seminar__audience"><p class="eyebrow">Who it is for</p><h2>Open to doctors across Indonesia.</h2><ul>${seminar.audience.map((item) => `<li>${item}</li>`).join("")}</ul></article></div><section class="featured-seminar__program" aria-labelledby="featured-program-title"><div class="featured-seminar__section-head"><p class="eyebrow">Program schedule</p><h2 id="featured-program-title">Three focused clinical sessions.</h2></div><ol>${seminar.sessions.map(([time, title, speaker], index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><time>${time}</time><h3>${title}</h3><p>${speaker}</p></li>`).join("")}</ol></section><section class="featured-seminar__outcomes" aria-labelledby="featured-outcomes-title"><div class="featured-seminar__section-head"><p class="eyebrow">Learning focus</p><h2 id="featured-outcomes-title">What the program will cover.</h2></div><div>${seminar.outcomes.map((item, index) => `<p><span>${String(index + 1).padStart(2, "0")}</span>${item}</p>`).join("")}</div></section><section class="featured-seminar__faculty" aria-labelledby="featured-faculty-title"><div class="featured-seminar__section-head"><p class="eyebrow">Faculty and moderation</p><h2 id="featured-faculty-title">A focused multidisciplinary faculty.</h2></div><div>${seminar.faculty.map(([role, name]) => `<article><span>${role}</span><h3>${name}</h3></article>`).join("")}</div></section>`;
+}
+
 function renderSources() {
   document.querySelectorAll("[data-sources]").forEach((target) => target.innerHTML = data.sources.map((item) => `<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.label}</b><span>${item.note}</span><i>↗</i></a>`).join(""));
 }
@@ -145,4 +152,4 @@ async function renderVideoHub() {
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 
-shell(); renderHome(); renderLibrary(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); renderVideoHub();
+shell(); renderHome(); renderLibrary(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); renderVideoHub();

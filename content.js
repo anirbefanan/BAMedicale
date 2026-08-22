@@ -23,5 +23,22 @@ window.BAMEDICALE_DATA = {
   events: [
     { date: "Coming soon", format: "Live seminar", title: "Cancer diagnosis: from finding to tissue confirmation", text: "Program details will be published once the faculty, date, and official registration channel are confirmed." }, { date: "Coming soon", format: "Case discussion", title: "Multidisciplinary thinking in solid tumor", text: "A future learning format for discussing clinical questions across diagnosis, treatment, and follow-up." }, { date: "Coming soon", format: "On-demand", title: "Public understanding of tumor and cancer", text: "A planned patient-facing session on symptoms, diagnosis, treatment language, and questions to ask." }
   ],
+  featuredSeminar: {
+    format: "Webinar Nasional",
+    title: "Update Management of Thyroid Nodules — From Diagnosis to Treatment Decision",
+    date: "Saturday, 19 September 2026",
+    time: "09.00–11.00 WIB",
+    location: "Online / Zoom",
+    organizer: "Departemen Kepala dan Leher RS Kanker Dharmais, working together with the Education and Training Working Team and Public Relations Working Team.",
+    audience: ["Target participants: 1,000 doctors.", "Primary participants: surgical oncology subspecialty surgeons.", "Other participants: surgery, pediatric surgery, otolaryngology, internal medicine, endocrine-metabolic internal medicine, nuclear medicine, anatomical pathology, radiology, radiation oncology, general practitioners, and residents."],
+    faculty: [
+      ["Speaker", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"], ["Speaker", "dr. Achmad Fachri, SpRad.(K)"], ["Speaker", "dr. Vinesia L. Riddi, SpPA., MPH"], ["Moderator", "dr. Adlina, SpB."]
+    ],
+    sessions: [
+      ["09.00–09.40", "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"], ["09.40–10.20", "Ultrasound Image and TIRADS Classification in Thyroid Nodules", "dr. Achmad Fachri, SpRad.(K)"], ["10.20–11.00", "BETHESDA Classification in Thyroid Nodules", "dr. Vinesia L. Riddi, SpPA., MPH"]
+    ],
+    outcomes: ["Initial evaluation of patients with thyroid nodules", "Ultrasound interpretation using ACR TI-RADS", "When FNAB is needed", "Interpreting the Bethesda System", "When surgery is needed", "Selecting patients for active surveillance", "Indications for radioiodine", "Targeted therapy for advanced thyroid cancer", "Applying ATA, NCCN, and ETA guidelines in daily practice"],
+    artwork: "assets/events/thyroid-nodule-webinar-2026.png"
+  },
   profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BAMedicale physician educator", text: "BAMedicale is shaped around clear, responsible oncology education: enough context to help people ask better questions, and enough structure to help clinicians continue learning.", image: "assets/people/dr-bob-approved-bob13.png" }
 };
