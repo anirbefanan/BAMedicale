@@ -24,7 +24,8 @@ function renderHome() {
     });
   }
   const updates = document.querySelector("[data-mosaic]");
-  if (updates) updates.innerHTML = data.updates.map((item, index) => `<a class="mosaic-card mosaic-card--${item.tone}" href="${item.href}"><span>${item.eyebrow}</span><h3>${item.title}</h3><p>${item.text}</p>${index === 0 ? `<b>${icon("spark")}</b>` : `<b>→</b>`}</a>`).join("");
+  const mosaicIcons = { anatomy: "cell", public: "path", clinical: "book", courses: "cap", media: "play" };
+  if (updates) updates.innerHTML = data.updates.map((item) => `<a class="mosaic-card mosaic-card--${item.tone}" href="${item.href}"><i class="mosaic-card__symbol">${icon(mosaicIcons[item.tone] || "spark")}</i><span>${item.eyebrow}</span><h3>${item.title}</h3><p>${item.text}</p><b aria-hidden="true">→</b></a>`).join("");
   const library = document.querySelector("[data-library-preview]");
   if (library) library.innerHTML = data.library.map((item) => `<article class="knowledge-card"><span>${item.type}</span><h3>${item.title}</h3><p>${item.text}</p><a href="${item.href}" class="text-link">Read guide <span>→</span></a></article>`).join("");
   const profile = document.querySelector("[data-profile]");
