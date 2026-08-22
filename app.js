@@ -115,7 +115,7 @@ async function renderVideoHub() {
   if (!hub && !preview) return;
   let videos = [];
   try {
-    const response = await fetch("data/videos.json");
+    const response = await fetch("data/videos.json?v=doctor-lounge-gap-20260822");
     if (!response.ok) throw new Error("Video catalog unavailable");
     videos = (await response.json()).videos.filter((video) => video.verified_identity);
   } catch (error) {

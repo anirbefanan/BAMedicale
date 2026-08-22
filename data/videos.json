@@ -587,6 +587,72 @@
       },
       "discovered_at": "2026-08-22",
       "last_verified_at": "2026-08-22"
+    },
+    {
+      "id": "youtube-gOTlu1-iSuA",
+      "youtube_id": "gOTlu1-iSuA",
+      "title": "Ada keluhan ini pada payudara anda? Waspada Kanker! [Dr.Bob] - Part 1",
+      "short_description": "Public YouTube education on Breast Cancer, published by Doctor's Lounge.",
+      "source": "youtube",
+      "source_label": "Doctor's Lounge",
+      "url": "https://www.youtube.com/watch?v=gOTlu1-iSuA",
+      "embed_url": "https://www.youtube-nocookie.com/embed/gOTlu1-iSuA",
+      "thumbnail": "https://i.ytimg.com/vi/gOTlu1-iSuA/hqdefault.jpg",
+      "publish_date": "2022-11-04",
+      "topic": "Breast Cancer",
+      "audience": "Public education",
+      "featured": false,
+      "person": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+      "duration_seconds": 965,
+      "verified_identity": true,
+      "discovery_queries": [
+        "Dr.Bob kanker",
+        "Dr.Bob payudara",
+        "Doctor's Lounge Dr.Bob",
+        "Bob Andinata kanker"
+      ],
+      "verification": {
+        "identity_evidence": "The public title labels Dr.Bob; the official Doctor's Lounge thumbnail visibly depicts Dr. Bob Andinata, and the paired channel episodes show the same physician.",
+        "metadata_source": "YouTube public metadata, official thumbnail, channel scan, and YouTube oEmbed",
+        "embed_verified": true,
+        "existing_catalog_entry": false,
+        "last_verified_at": "2026-08-22"
+      },
+      "discovered_at": "2026-08-22",
+      "last_verified_at": "2026-08-22"
+    },
+    {
+      "id": "youtube-leq1GVS65F0",
+      "youtube_id": "leq1GVS65F0",
+      "title": "Laki-laki bisa terkena kanker payudara, kapan ? [Dr.Bob] - Part 2",
+      "short_description": "Public YouTube education on Breast Cancer, published by Doctor's Lounge.",
+      "source": "youtube",
+      "source_label": "Doctor's Lounge",
+      "url": "https://www.youtube.com/watch?v=leq1GVS65F0",
+      "embed_url": "https://www.youtube-nocookie.com/embed/leq1GVS65F0",
+      "thumbnail": "https://i.ytimg.com/vi/leq1GVS65F0/hqdefault.jpg",
+      "publish_date": "2022-11-06",
+      "topic": "Breast Cancer",
+      "audience": "Public education",
+      "featured": false,
+      "person": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+      "duration_seconds": 912,
+      "verified_identity": true,
+      "discovery_queries": [
+        "Dr.Bob kanker",
+        "Dr.Bob payudara",
+        "Doctor's Lounge Dr.Bob",
+        "Bob Andinata kanker"
+      ],
+      "verification": {
+        "identity_evidence": "The public title labels Dr.Bob; the official Doctor's Lounge thumbnail visibly depicts Dr. Bob Andinata, and this is the verified Part 2 companion to gOTlu1-iSuA.",
+        "metadata_source": "YouTube public metadata, official thumbnail, channel scan, and YouTube oEmbed",
+        "embed_verified": true,
+        "existing_catalog_entry": false,
+        "last_verified_at": "2026-08-22"
+      },
+      "discovered_at": "2026-08-22",
+      "last_verified_at": "2026-08-22"
     }
   ]
 }
