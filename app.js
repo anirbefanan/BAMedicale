@@ -25,7 +25,8 @@ function renderHome() {
   }
   const updates = document.querySelector("[data-mosaic]");
   const mosaicIcons = { anatomy: "cell", public: "path", clinical: "book", courses: "cap", media: "play" };
-  if (updates) updates.innerHTML = data.updates.map((item) => `<a class="mosaic-card mosaic-card--${item.tone}" href="${item.href}"><i class="mosaic-card__symbol">${icon(mosaicIcons[item.tone] || "spark")}</i><span>${item.eyebrow}</span><h3>${item.title}</h3><p>${item.text}</p><b aria-hidden="true">→</b></a>`).join("");
+  const mosaicImages = { anatomy: "assets/home/mosaic-anatomy.png", public: "assets/home/mosaic-public.png", clinical: "assets/home/mosaic-clinical.png", courses: "assets/home/mosaic-courses.png", media: "assets/home/mosaic-media.png" };
+  if (updates) updates.innerHTML = data.updates.map((item) => `<a class="mosaic-card mosaic-card--${item.tone}" href="${item.href}"><span class="mosaic-card__media" aria-hidden="true"><img src="${mosaicImages[item.tone]}" alt="" width="360" height="275"></span><i class="mosaic-card__symbol">${icon(mosaicIcons[item.tone] || "spark")}</i><span>${item.eyebrow}</span><h3>${item.title}</h3><p>${item.text}</p><b aria-hidden="true">→</b></a>`).join("");
   const library = document.querySelector("[data-library-preview]");
   if (library) library.innerHTML = data.library.map((item) => `<article class="knowledge-card"><span>${item.type}</span><h3>${item.title}</h3><p>${item.text}</p><a href="${item.href}" class="text-link">Read guide <span>→</span></a></article>`).join("");
   const profile = document.querySelector("[data-profile]");
