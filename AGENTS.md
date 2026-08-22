@@ -56,7 +56,7 @@ MISSION
 
 
 
-BAMedicale is a premium education platform for the full spectrum of neoplasia — tumors and cancers — serving:
+BAMedicale is a premium education platform for the full spectrum of neoplasia — tumor and cancer — serving:
 
 
 
