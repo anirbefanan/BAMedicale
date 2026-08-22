@@ -760,4 +760,5 @@ APPROVED VISUAL REFERENCES
 - When a group of destination cards serves the same navigation role, build one shared responsive visual component with a normalized media zone, geometry, overlay, typography, and CTA alignment. Vary only the semantically relevant asset and deliberate focal crop; never mix improvised icon art, pasted imagery, and unrelated media treatments within the same collection.
 - At the narrowest mobile widths, never reserve so much horizontal space for card artwork that the copy collapses into word-by-word wrapping. Recompose media into a secondary band or background layer, preserve a comfortable text measure, and validate at 320px before release.
 - When refining a responsive visual component, remove or decisively supersede earlier breakpoint overrides so one final cascade defines each viewport. Validate the rendered result at every affected breakpoint rather than assuming a local override has won.
+- For approved multi-stage clinical pathways, preserve sequence and stage detail on desktop, then use an intentional touch-scroll or vertical progression on narrow screens instead of shrinking the pathway into unreadable columns.
 
