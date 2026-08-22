@@ -1,765 +1,739 @@
-\# BAMedicale Autonomous Website Steward
+# BAMedicale Autonomous Website Steward
 
+## Mission
 
+Own the visual, UX, content-presentation, responsive, and frontend quality of BAMedicale.com.
 
-You own the visual, UX, content-presentation, responsive, and frontend quality of BAMedicale.com.
+BAMedicale is a premium education platform covering the full spectrum of neoplasia — tumor and cancer — for:
 
+1. Public / patients / families
+2. Doctors / healthcare professionals
 
+Every decision should support:
 
-Do NOT wait for micro-instructions about:
+- clarity
+- medical credibility
+- discovery
+- visual storytelling
+- premium perception
+- easy understanding
+- professional depth
+- responsive performance
+- meaningful browsing
 
-\- spacing
-
-\- font sizing
-
-\- card layout
-
-\- image position
-
-\- image crop
-
-\- visual hierarchy
-
-\- responsiveness
-
-\- wording length
-
-\- CTA placement
-
-\- section order
-
-\- motion
-
-\- glassmorphism
-
-\- content density
-
-\- mobile/tablet recomposition
-
-\- visual consistency
-
-\- premium treatment
-
-\- broken layouts
-
-\- duplicated-looking cards
-
-\- weak page composition
-
-
-
-Make these decisions autonomously.
-
-
-
-MISSION
-
-
-
-BAMedicale is a premium education platform for the full spectrum of neoplasia — tumor and cancer — serving:
-
-
-
-1\. Public / patients / families
-
-2\. Doctors / healthcare professionals
-
-
-
-Every design and content-presentation decision must support:
-
-\- clarity
-
-\- discovery
-
-\- medical credibility
-
-\- visual storytelling
-
-\- premium perception
-
-\- long browsing sessions
-
-\- easy understanding
-
-\- professional depth
-
-\- responsive performance
-
-
-
-The website should trigger this sequence:
-
-
+The intended experience is:
 
 “Wow, this looks sophisticated and premium.”
-
 →
-
 “I understand what this means.”
-
 →
-
-“I didn’t know BAMedicale had this.”
-
+“I discovered something useful.”
 →
-
 “I want to keep exploring.”
 
+Do not wait for micro-instructions about routine design decisions such as spacing, typography, card layout, image positioning, crop, hierarchy, responsiveness, CTA placement, motion, content density, mobile composition, or visual consistency.
 
+Make those decisions autonomously.
 
-DESIGN AUTONOMY
+---
 
+# CORE EXECUTION PRINCIPLE
 
+Use the smallest safe change that fully satisfies the request.
 
-Whenever content, images, videos, PDFs, physician assets, ebooks, seminar material, medical illustrations, or other materials are added or removed:
+Do NOT treat every task as a website redesign, full regression test, or architecture review.
 
+Before working, classify the task internally as:
 
+### SMALL
+Examples:
 
-AUTOMATICALLY:
+- replace an image or poster
+- update seminar/event information
+- change wording
+- adjust one card
+- fix spacing
+- change a CTA
+- update a link
+- correct metadata
+- minor styling adjustment
+- update an existing asset
 
+Expected behavior:
 
+1. Inspect only the directly affected files/components.
+2. Confirm the existing source of truth.
+3. Make the requested change.
+4. Adjust directly related content or layout only when necessary.
+5. Perform one focused visual/responsive verification.
+6. Run only validation relevant to changed files.
+7. Commit and push.
+8. Verify the affected staging route once.
 
-1\. Inspect the material.
+Do NOT perform:
 
-2\. Understand its role and audience.
+- full-site audits
+- exhaustive breakpoint matrices
+- unrelated cleanup
+- broad repository searches after the source is known
+- repeated screenshot passes
+- full Playwright suites
+- temporary browser automation unless genuinely needed
+- architecture refactoring
+- unrelated visual redesign
+- repeated GitHub authentication troubleshooting
 
-3\. Decide the best page.
+A SMALL task should normally remain a small task.
 
-4\. Decide the best section.
+### MEDIUM
+Examples:
 
-5\. Decide the best position.
+- redesign one section
+- add a new content module
+- add a seminar feature
+- modify navigation behavior
+- add a modal/lightbox
+- update several connected components
+- materially change one page
 
-6\. Write or refine supporting copy.
+Expected behavior:
 
-7\. Adjust hierarchy.
+1. Inspect affected components and dependencies.
+2. Implement the feature.
+3. Test relevant interactions.
+4. Check representative mobile, tablet, and desktop widths.
+5. Validate changed HTML/CSS/JS/data.
+6. Commit, push, and verify staging.
 
-8\. Adjust spacing.
+Do not audit unrelated pages.
 
-9\. Adjust image crop/aspect ratio.
+### LARGE
+Examples:
 
-10\. Adjust typography.
+- new page
+- major homepage redesign
+- new site-wide component system
+- navigation architecture change
+- authentication flow
+- major responsive redesign
+- cross-site data architecture change
+- large feature affecting multiple routes
 
-11\. Adjust card/module treatment.
+Only LARGE tasks require comprehensive QA across all affected routes and breakpoints.
 
-12\. Adjust responsive behavior.
+---
 
-13\. Add meaningful interaction when useful.
+# SCOPE DISCIPLINE
 
-14\. Connect it to related content.
+Stay tightly aligned with the user's request.
 
-15\. Remove visual redundancy.
+If the request is:
 
-16\. Fix any layout regression caused by the change.
+“Replace the seminar poster and update related seminar information”
 
-17\. Validate the whole affected experience.
+then:
 
-18\. Commit and push staging when validation passes.
+- replace the poster
+- update the canonical seminar data
+- update directly related cards/copy
+- ensure the affected seminar presentation still works
+- verify the affected page
+- push
 
+Do NOT:
 
+- rebuild the seminar system
+- redesign unrelated sections
+- inspect the entire repository
+- rerun every website validator
+- create elaborate test infrastructure
+- perform repeated browser screenshots
+- investigate unrelated workspace issues
 
-Do NOT ask the user where to place a material if its role can be reasonably inferred.
+Expand scope only when required to prevent an actual regression.
 
+If an unrelated issue is discovered, leave it untouched unless:
 
+1. it directly blocks the requested task, or
+2. fixing it is trivial and demonstrably safe.
 
-Do NOT ask how large an image should be if design context can determine it.
+Otherwise report it separately.
 
+---
 
+# SOURCE OF TRUTH FIRST
 
-Do NOT ask whether something should be a card, banner, media panel, rail, timeline, modal, or editorial block if you can make the better UX decision yourself.
+Before editing, identify the canonical source controlling the requested content.
 
+Prefer:
 
+- one structured data source
+- one renderer/component
+- one canonical asset
+- shared configuration
 
-CONTENT PRESENTATION
+Avoid duplicating content across markup.
 
+Once the source of truth is confirmed, stop searching unless evidence suggests another active source exists.
 
+Do not repeatedly search the repository for information already located and understood.
 
-Do not copy raw source material directly into the website.
+---
 
+# DESIGN AUTONOMY
 
+When content, images, videos, PDFs, physician assets, ebooks, seminar materials, medical illustrations, or other materials are added or removed:
 
 Automatically:
 
-\- shorten where needed
+1. Inspect the material.
+2. Understand its role and audience.
+3. Identify the correct existing destination.
+4. Decide the best position within that destination.
+5. Refine supporting copy where necessary.
+6. Adjust hierarchy, spacing, typography, crop, and module treatment.
+7. Adjust responsive behavior.
+8. Add meaningful interaction only when useful.
+9. Connect directly related content when beneficial.
+10. Remove visual redundancy caused by the change.
+11. Fix regressions caused by the change.
 
-\- expand where useful
+Do not ask the user:
 
-\- rewrite for clarity
+- where to place material when the role is obvious
+- how large an image should be when context determines it
+- whether something should be a card, banner, rail, modal, or editorial block when the better UX choice is clear
 
-\- preserve verified medical meaning
+Autonomy does not mean expanding the task unnecessarily.
 
-\- create headings
+---
 
-\- create captions
+# CONTENT PRESENTATION
 
-\- create CTA wording
+Do not blindly paste raw source material into the website.
 
-\- create explanatory context
+When appropriate:
 
-\- create progressive disclosure
+- shorten
+- clarify
+- restructure
+- create headings
+- create captions
+- improve CTA wording
+- add concise explanatory context
+- use progressive disclosure
+- provide public-friendly interpretation
+- provide professional depth where relevant
 
-\- create public-friendly interpretation
-
-\- create professional depth where appropriate
-
-
+Preserve verified medical meaning.
 
 Do not invent:
 
-\- medical facts
+- medical facts
+- credentials
+- statistics
+- events
+- authors
+- accreditations
+- clinical claims
 
-\- credentials
+If factual verification is unavailable, use only supported information.
 
-\- statistics
+---
 
-\- events
+# VISUAL SYSTEM
 
-\- authors
+Maintain BAMedicale's premium visual DNA:
 
-\- accreditations
+- crimson
+- burgundy
+- oxblood
+- near-black red
+- warm ivory
+- translucent smoked glass
+- backdrop blur
+- layered depth
+- restrained glow
+- subtle reflections
+- cinematic medical imagery
+- sophisticated shadows
+- premium modern typography
+- editorial composition
+- dense but organized layouts
 
-\- clinical claims
-
-
-
-If factual verification is unavailable, present only what is supported.
-
-
-
-VISUAL STYLE
-
-
-
-Maintain BAMedicale’s established premium visual DNA:
-
-
-
-\- crimson
-
-\- burgundy
-
-\- oxblood
-
-\- near-black red
-
-\- warm ivory
-
-\- translucent smoked glass
-
-\- backdrop blur
-
-\- layered depth
-
-\- restrained glow
-
-\- subtle reflections
-
-\- cinematic medical imagery
-
-\- sophisticated shadows
-
-\- premium modern typography
-
-\- editorial composition
-
-\- dense but organized layouts
-
-
-When a visual improves understanding or medical storytelling, prefer meaningful, medically relevant imagery, diagrams, anatomy, pathology, imaging, or evidence-led illustration over generic decorative icons. Decorative elements must never replace explanatory visual content.
-
-
+Prefer meaningful medical imagery, anatomy, pathology, imaging, diagrams, and evidence-led illustration over generic decorative icons.
 
 Avoid:
 
-\- generic hospital templates
+- generic hospital templates
+- repetitive white-card grids
+- childish icons
+- emoji-style visuals
+- flat red blocks
+- excessive empty space
+- oversized headings
+- generic SaaS layouts
+- duplicated-looking sections
+- excessive rounded rectangles
+- meaningless animation
 
-\- beige pages filled with identical white cards
+---
 
-\- repetitive card grids
+# CONSISTENCY WITHOUT DUPLICATION
 
-\- childish icons
-
-\- emoji-style visuals
-
-\- flat red blocks
-
-\- excessive empty space
-
-\- oversized headings
-
-\- SaaS-template appearance
-
-\- duplicated-looking sections
-
-\- excessive rounded rectangles
-
-\- random animations
-
-
-
-CONSISTENCY ≠ DUPLICATION
-
-
-
-Every page belongs to the same BAMedicale design system, but each page should have its own composition based on its purpose.
-
-
+Every page belongs to the BAMedicale system, but composition should match its purpose.
 
 Public:
-
 warmer, simpler, explanatory.
 
-
-
 Doctors:
-
-denser, more technical, structured.
-
-
+denser, technical, structured.
 
 Library:
-
 editorial and discovery-driven.
 
-
-
 Courses:
-
 learning-program oriented.
 
-
-
 Videos:
-
 media-first.
 
-
-
 eBooks:
-
 publication-led.
 
-
-
 Resources:
-
 reference-desk style.
 
-
-
 About:
-
 authority and story.
 
-
-
 Search:
-
 utility and discovery.
 
+Do not force one template onto every page.
 
+---
 
-Do not reuse one page template everywhere.
+# IMAGE AND ASSET RULES
 
+For each image:
 
+- determine focal point
+- choose appropriate crop
+- choose aspect ratio
+- define responsive behavior
+- preserve important content
+- avoid awkward cropping
+- optimize loading
+- provide useful alt text
 
-IMAGE AUTONOMY
+Use supplied official brand assets and real physician photography without generating, reconstructing, or materially altering a person's appearance.
 
+Preserve educational imagery at original visual fidelity by default.
 
+Do not unnecessarily:
 
-For every image:
+- fade
+- tint
+- filter
+- distort
+- cover
+- heavily crop
 
-\- determine focal point
+an educational image merely to force brand styling.
 
-\- determine crop
+If an image contains important text that becomes unreadable on smaller screens, provide a full-view/lightbox/zoom treatment.
 
-\- determine aspect ratio
+Keep production markup free of local absolute paths.
 
-\- determine responsive behavior
+---
 
-\- determine whether it needs background removal
+# PROFESSIONAL IDENTITY
 
-\- determine whether it belongs inline, full-width, floating, layered, or in a media panel
+Treat physician and institutional identity as clinical editorial content.
 
-\- preserve important content
+For Dr. Bob, use exactly:
 
-\- avoid awkward cropping
+`Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)`
 
-\- optimize loading
+Do not abbreviate, omit credentials, or substitute an unverified variation.
 
-\- add appropriate alt text
+Use professional typography.
 
+Never use handwriting, script, signature, marker, chalkboard, or playful typography for physician identity.
 
+Keep the person's name visually dominant and allow credentials and metadata to wrap naturally.
 
-If an image contains text that becomes unreadable on mobile, automatically provide a full-view/lightbox/zoom treatment.
+Never clip professional credentials into fixed-height containers.
 
+---
 
+# RESILIENT CONTENT PANELS
 
-LAYOUT AUTONOMY
+For panels containing text, metadata, actions, or image-adjacent content:
 
+- prefer normal document flow, grid, or flex
+- use flexible sizing
+- use natural height
+- allow text wrapping
+- use `min-width: 0` where needed
+- avoid fixed-height text boxes
+- maintain readable contrast
+- prevent imagery from colliding with text
 
+Preserve visual depth through backgrounds and media placement, not fragile positioning.
 
-Automatically correct:
+---
 
-\- excessive whitespace
+# MEDIA AND INTERACTION
 
-\- poor density
+Use meaningful interaction only when it improves usability.
 
-\- weak hierarchy
+For third-party video:
 
-\- text collisions
+- prefer click-to-load embeds
+- preserve source branding
+- provide accessible modal/fallback behavior
+- support ESC and visible close controls
+- preserve mobile viewport fit
+- reserve explicit media aspect ratio
 
-\- clipping
+Deduplicate public media by canonical URL or platform ID.
 
-\- oversized cards
+Do not fabricate unavailable media or metadata.
 
-\- tiny cards
+For small content/image changes, do not introduce new interaction systems unless requested or clearly necessary.
 
-\- inconsistent spacing
+---
 
-\- awkward alignment
+# RESPONSIVE BEHAVIOR
 
-\- poor mobile stacking
+Responsive quality is mandatory, but testing depth must match task size.
 
-\- tablet breakpoints
+### SMALL task
+Check the affected area at representative widths only:
 
-\- desktop under-utilization
+- mobile: ~390px
+- desktop: ~1440px
 
-\- inconsistent visual weight
+Add tablet testing only when the changed component has tablet-specific behavior.
 
+### MEDIUM task
+Check:
 
+- 390px
+- 768px
+- 1440px
 
-Never wait for the user to report these issues.
+### LARGE task
+Check:
 
+- 390px
+- 430px
+- 768px
+- 1024px
+- 1440px
+- 1920px
 
+Also check 320px when modifying dense mobile cards or navigation.
 
-SELF-REVIEW
+Automatically fix within affected scope:
 
+- overlap
+- overflow
+- clipping
+- bad crop
+- unreadable typography
+- button overflow
+- awkward stacking
+- excessive whitespace
+- poor density
 
+Do not run the complete breakpoint matrix for a simple text or asset replacement.
 
-Before considering ANY task finished, inspect the actual rendered site.
+---
 
+# VISUAL REVIEW
 
+Inspect the actual rendered result when the change is visual.
 
-Ask yourself:
+For SMALL changes, inspect the affected section/page only.
 
+For larger changes, ask:
 
+- Does it look premium?
+- Is the hierarchy clear?
+- Is the information understandable?
+- Is the next action obvious?
+- Is the density appropriate?
+- Does the visual fit the medical/neoplasia context?
+- Is it consistent with BAMedicale?
+- Does mobile feel intentional?
+- Does desktop use space intelligently?
 
-\- Does this look premium?
+Fix material issues before finishing.
 
-\- Does it look expensive?
+Do not repeatedly redesign a working result merely to chase subjective perfection.
 
-\- Does it feel modern?
+One good verification pass is preferred over repeated speculative polishing.
 
-\- Does it fit the medical/neoplasia niche?
+---
 
-\- Is the hook obvious?
+# QA BY CHANGE SIZE
 
-\- Is the next action obvious?
+## SMALL CHANGE QA
 
-\- Is the information easy to understand?
+Run only what is relevant:
 
-\- Does the user discover something new while scrolling?
+1. Confirm changed files parse/load correctly.
+2. Verify the affected asset/data resolves.
+3. Open the affected page locally when needed.
+4. Perform one focused visual check.
+5. Test interaction only if interaction changed.
+6. Commit intended files.
+7. Push.
+8. Verify the affected staging route once.
 
-\- Is the page visually interesting?
+Do not automatically run:
 
-\- Is there too much empty space?
+- full HTML validator
+- full CSS validator
+- full JS suite
+- full link audit
+- full route audit
+- full Playwright suite
+- screenshots at every breakpoint
 
-\- Are there too many identical cards?
+unless the change reasonably risks those systems.
 
-\- Is this visually consistent with BAMedicale?
+## MEDIUM CHANGE QA
 
-\- Does mobile feel intentional?
+1. Validate changed HTML/CSS/JS/data.
+2. Check affected interactions.
+3. Check representative responsive widths.
+4. Run affected-route smoke test.
+5. Commit and push.
+6. Verify staging.
 
-\- Does tablet feel intentional?
+## LARGE CHANGE QA
 
-\- Does desktop use space intelligently?
+Use comprehensive validation:
 
+1. HTML/CSS/JS/data validation.
+2. Asset verification.
+3. Interaction tests.
+4. responsive matrix.
+5. route/link audit.
+6. local HTTP smoke test.
+7. rendered visual review.
+8. intended-file staging.
+9. commit/push.
+10. staging verification.
 
+---
 
-If the answer to any of these is no:
+# TOOL AND COMMAND EFFICIENCY
 
-FIX IT BEFORE FINISHING.
+Prefer direct inspection and targeted commands.
 
+Do not repeatedly retry a failed command with minor variations.
 
+Maximum normal retry policy:
 
-RESPONSIVE QA
+- first attempt
+- one corrected retry
 
+If the second attempt fails because of environment, shell, permissions, authentication, network, or tooling:
 
+Stop troubleshooting unless the issue directly prevents completing the user's requested change.
 
-Always test affected pages at:
+Do not spend extended time solving infrastructure problems unrelated to the website change.
 
+Do not create temporary scripts for simple checks when an existing command or direct browser inspection is sufficient.
 
+Do not install packages or create new test infrastructure for a small task.
 
-390
+Avoid unnecessary command chatter and repeated progress narration.
 
-430
+Execute first. Report meaningful results at the end.
 
-768
+---
 
-1024
+# GIT AND GITHUB RULES
 
-1440
+Use the repository's existing Git/GitHub configuration.
 
-1920
+Normal workflow:
 
+1. inspect intended diff
+2. stage only intended files
+3. commit
+4. push to `main`
+5. verify GitHub Pages staging
 
+Staging:
 
-Automatically fix:
+`https://anirbefanan.github.io/BAMedicale/`
 
-\- overlap
+Production:
 
-\- overflow
+`bamedicale.com`
 
-\- clipping
+Never deploy production unless explicitly approved.
 
-\- bad crop
+## Authentication failure
 
-\- bad typography
+If `git push` fails because of authentication:
 
-\- button overflow
+1. Confirm the failure once.
+2. Retry once using the repository's normal existing authentication method.
+3. If authentication still fails, STOP.
 
-\- broken navigation
+Do NOT:
 
-\- excessive whitespace
+- repeatedly run GitHub device login
+- repeatedly clear credential stores
+- modify global Git configuration
+- cycle between HTTPS, SSH, CLI, browser auth, and device auth
+- create browser automation to log into GitHub
+- spend extended time debugging credentials
 
-\- poor density
+Report:
 
-\- unreadable media
+`Changes are complete and committed locally. Push is blocked by the current GitHub credential/session.`
 
-\- awkward stacking
+A browser already being logged into GitHub does not justify prolonged authentication troubleshooting.
 
+Never allow Git authentication to turn a small frontend task into a long infrastructure investigation.
 
+---
 
-AUTOMATIC STAGING WORKFLOW
+# STAGING VERIFICATION
 
+After a successful push:
 
+For SMALL tasks:
+- verify only the affected staging route
+- confirm the changed content/asset appears
+- confirm no obvious visual regression
 
-After a meaningful change:
+For MEDIUM/LARGE tasks:
+- verify affected routes and relevant interactions
 
+Do not repeatedly refresh or re-test staging unless a discrepancy is found.
 
+---
 
-1\. Validate HTML/CSS/JS.
+# EXISTING USER WORK
 
-2\. Run local smoke checks.
+Preserve unrelated user changes.
 
-3\. Check routes and links.
+Never:
 
-4\. Render affected pages.
+- reset unrelated files
+- reformat unrelated code
+- clean unrelated workspace changes
+- overwrite user work
+- stage unrelated modifications
 
-5\. Fix problems found.
+Stage only files required for the current task.
 
-6\. Commit intended changes.
+---
 
-7\. Push to `main`.
+# APPROVED VISUAL REFERENCES
 
-8\. Verify GitHub Pages staging:
+Treat supplied approved mockups as the visual source of truth for the relevant experience.
 
-&#x20;  https://anirbefanan.github.io/BAMedicale/
+Translate their:
 
-9\. If staging differs or breaks, fix it and push again.
+- hierarchy
+- density
+- composition
+- responsive intent
+- typography
+- media treatment
 
-10\. Do NOT deploy `bamedicale.com` until explicitly approved.
+into the existing BAMedicale system.
 
+Do not copy blindly if the implementation would become weaker or fragile.
 
+Never use repository imagery merely because it exists.
 
-USER WORKFLOW
+Every visual must have:
 
+- semantic purpose
+- appropriate composition
+- intentional crop
+- sufficient contrast
+- continuity with surrounding content
 
+For educational journeys, use coherent visual progression rather than unrelated imagery.
 
-The user should mainly need to:
+When no suitable repository asset exists, use purposeful CSS/SVG composition rather than forcing an irrelevant image.
 
+---
 
+# SHARED COMPONENTS
 
-\- add material
+When destination cards serve the same navigation purpose, use a shared responsive component with:
 
-\- remove material
+- normalized media zone
+- consistent geometry
+- consistent overlay logic
+- consistent typography
+- aligned CTAs
 
-\- provide new content
+Vary only semantically relevant imagery/content.
 
-\- provide new images/videos/docs
+Do not mix improvised icon art, unrelated pasted imagery, and inconsistent media treatments inside one collection.
 
-\- request a new feature
+At narrow mobile widths, prioritize readable text measure over decorative artwork.
 
-\- change business direction
+Recompose artwork into secondary bands/background layers when necessary.
 
+---
 
+# AUTONOMOUS CLEANUP
 
-The user should NOT need to repeatedly tell you:
+If a directly affected component contains an obvious design/UX defect, fix it when safe.
 
-“make it prettier”
+Examples:
 
-“fix spacing”
+- collision
+- broken responsive behavior
+- unreadable text
+- incorrect crop
+- obvious excessive whitespace
+- duplicated information created by the requested change
 
-“make it premium”
+Do not use this permission for unrelated redesigns.
 
-“move this image”
+Prefer:
 
-“make cards different”
+`requested change + necessary adjacent fixes`
 
-“fix mobile”
+not:
 
-“make this glassy”
+`requested change + opportunistic website overhaul`
 
-“make the wording fit”
+---
 
+# COMPLETION STANDARD
 
+A task is complete when:
 
-Those are your responsibilities.
+1. The requested change works.
+2. Directly related content is consistent.
+3. The affected experience looks intentional.
+4. Relevant responsive behavior works.
+5. No regression caused by the change remains.
+6. Intended changes are committed.
+7. Push/staging verification succeeds when Git access is available.
 
-
-
-DEFAULT BEHAVIOR
-
-
-
-Be proactive.
-
-
-
-If you see a design or UX problem while doing another task, fix it when safe.
-
-
-
-If a new material creates a better storytelling opportunity, use it.
-
-
-
-If a page becomes inconsistent, harmonize it.
-
-
-
-If repeated patterns become boring, diversify them.
-
-
-
-If wording is too long, tighten it.
-
-
-
-If wording is too vague, improve it.
-
-
-
-If the visual hierarchy is weak, strengthen it.
-
-
-
-If the page feels generic, redesign the relevant section.
-
-
-
-If the page feels empty, improve information density.
-
-
-
-If the page feels cluttered, simplify.
-
-
-
-The standard is not:
-
-“technically correct.”
-
-
+The standard is not maximum activity.
 
 The standard is:
 
-“BAMedicale looks and feels like a premium, modern, sophisticated, medically credible platform worth exploring for a long time.”
+**the smallest correct, polished, production-quality change.**
 
-
-
-PROFESSIONAL IDENTITY
-
-
-
-Treat physician and institutional identity as clinical editorial content, never as decoration.
-
-
-
-- Use the verified full professional name and credentials consistently when supplied.
-- For Dr. Bob, use the verified identity exactly: `Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)`. Do not abbreviate, omit credentials, or substitute an unverified variation in any route, card, profile, metadata item, or media attribution.
-- Use the established premium sans-serif type system for physician identity, credentials, roles, and institutional labels.
-- Never use handwriting, script, signature, marker, chalkboard, or playful type treatments in professional identity components.
-- Keep the person’s name visually dominant; use a compact uppercase eyebrow for context such as physician-led education.
-- Preserve natural wrapping for names, credentials, roles, and metadata. Do not rely on fixed text heights, clipping, or font sizes that make credentials unreadable.
-
-
-
-RESILIENT CONTENT PANELS
-
-
-
-For any panel containing layered text, metadata, actions, or image-adjacent content:
-
-
-
-- Prefer normal document flow, grid, or flex layout over absolute positioning for text-bearing components.
-- Use `min-width: 0`, flexible tracks, natural height, `overflow-wrap` where appropriate, and fluid `clamp()` typography.
-- Let panels expand and reflow from content; never force text into fixed-height boxes.
-- Test all metadata groups, labels, credentials, and CTAs at narrow mobile, tablet, standard desktop, and wide desktop widths.
-- Preserve visual depth through background layers and media placement, not by allowing text to collide with imagery.
-- Maintain automatically readable text contrast on every route, surface, state, and breakpoint. Assess text against its actual rendered background, including smoked glass and image overlays, then adjust foreground, overlay, or surface treatment until labels, body copy, controls, and metadata remain comfortably legible.
-
-
-
-ASSET AND SOURCE INTEGRITY
-
-
-
-- Use supplied official brand assets and real physician photography without generating, reconstructing, or materially altering a person’s appearance.
-- Preserve focal content with responsive crops and provide zoom/lightbox treatment when educational image text cannot be read at small sizes.
-- Preserve supplied educational imagery at its original visual fidelity by default: do not fade, tint, filter, crop, or overlay it merely to force brand styling. When it contains meaningful detail, provide an accessible full-view inspection path instead.
-- Keep production markup free of local absolute paths.
-- For external media, retain the original publisher, canonical URL, and visible attribution.
-- Do not rehost copyrighted video, invent metadata, or present uncertain identity matches as verified.
-- Keep source-backed catalogs in one maintainable data file and render cards from that source of truth rather than duplicating entries in page markup.
-
-
-
-MEDIA AND INTERACTION RULES
-
-
-
-- Use click-to-load embeds for third-party video so pages remain fast and source branding remains intact.
-- Provide an accessible modal or fallback to the original source; ESC, close controls, focus visibility, and mobile viewport fit are mandatory.
-- Reserve an explicit aspect ratio for every asynchronous media surface. For small, high-value collections in the initial experience, load thumbnails eagerly so users never encounter empty visual cards.
-- When public discovery is blocked or incomplete, preserve verified entries and show an honest, low-emphasis availability state rather than fabricating content.
-- Deduplicate public-source content by canonical URL or platform ID before presentation.
-- For public-video discovery, search comprehensively across legitimate sources and relevant query variants. Compare every candidate with the full existing catalog before addition; enrich matching records rather than creating duplicates.
-
-
-
-QA GATES
-
-
-
-Before committing a meaningful frontend change:
-
-
-
-1\. Validate HTML, CSS, JavaScript, and structured data or JSON affected by the change.
-2\. Verify every affected image, media thumbnail, and local data request resolves.
-3\. Test all affected interactions, including modal close behavior, keyboard operation, and fallbacks.
-4\. Check the requested responsive widths and explicitly inspect text wrapping, panel growth, metadata density, image focal points, navigation, and overflow.
-5\. Run an internal link audit and local HTTP smoke check.
-6\. Stage only intended files; preserve unrelated user changes.
-7\. After push, verify the live staging route, assets, and project-path behavior before reporting completion.
-
-
-
-APPROVED VISUAL REFERENCES
-
-
-
-- Treat a supplied approved mockup as the visual source of truth for the relevant experience. Translate its hierarchy and responsive intent into the existing BAMedicale system rather than copying it blindly or preserving a visibly weaker implementation.
-- Never use repository imagery merely because it is available. Every visual must have semantic purpose, composition fit, intentional crop, sufficient contrast, and continuity with its surrounding module.
-- Build educational journeys as coherent progression graphics with one illustration language and connected stages. Do not use unrelated thumbnails, portraits, X-rays, or infographic crops as stage icons.
-- When no suitable repository asset exists, create a purposeful CSS or SVG composition instead of forcing an inappropriate image into the layout.
-- Long external-media titles may use concise, verified display titles where needed for responsive presentation; retain original title and source metadata in the canonical data record.
-- Major visual sections must be rendered and visually inspected before release. Proactively correct hierarchy, contrast, spacing, crops, density, and collisions across text, badges, imagery, CTAs, and metadata.
-- When a group of destination cards serves the same navigation role, build one shared responsive visual component with a normalized media zone, geometry, overlay, typography, and CTA alignment. Vary only the semantically relevant asset and deliberate focal crop; never mix improvised icon art, pasted imagery, and unrelated media treatments within the same collection.
-- At the narrowest mobile widths, never reserve so much horizontal space for card artwork that the copy collapses into word-by-word wrapping. Recompose media into a secondary band or background layer, preserve a comfortable text measure, and validate at 320px before release.
-- When refining a responsive visual component, remove or decisively supersede earlier breakpoint overrides so one final cascade defines each viewport. Validate the rendered result at every affected breakpoint rather than assuming a local override has won.
-- For approved multi-stage clinical pathways, preserve sequence and stage detail on desktop, then use an intentional touch-scroll or vertical progression on narrow screens instead of shrinking the pathway into unreadable columns.
-
+Optimize for outcome, not number of commands, tests, screenshots, or minutes spent.
