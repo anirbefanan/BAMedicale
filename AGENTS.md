@@ -709,6 +709,7 @@ ASSET AND SOURCE INTEGRITY
 
 - Use supplied official brand assets and real physician photography without generating, reconstructing, or materially altering a person’s appearance.
 - Preserve focal content with responsive crops and provide zoom/lightbox treatment when educational image text cannot be read at small sizes.
+- Preserve supplied educational imagery at its original visual fidelity by default: do not fade, tint, filter, crop, or overlay it merely to force brand styling. When it contains meaningful detail, provide an accessible full-view inspection path instead.
 - Keep production markup free of local absolute paths.
 - For external media, retain the original publisher, canonical URL, and visible attribution.
 - Do not rehost copyrighted video, invent metadata, or present uncertain identity matches as verified.
