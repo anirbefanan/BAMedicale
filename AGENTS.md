@@ -757,4 +757,5 @@ APPROVED VISUAL REFERENCES
 - When no suitable repository asset exists, create a purposeful CSS or SVG composition instead of forcing an inappropriate image into the layout.
 - Long external-media titles may use concise, verified display titles where needed for responsive presentation; retain original title and source metadata in the canonical data record.
 - Major visual sections must be rendered and visually inspected before release. Proactively correct hierarchy, contrast, spacing, crops, density, and collisions across text, badges, imagery, CTAs, and metadata.
+- When a group of destination cards serves the same navigation role, build one shared responsive visual component with a normalized media zone, geometry, overlay, typography, and CTA alignment. Vary only the semantically relevant asset and deliberate focal crop; never mix improvised icon art, pasted imagery, and unrelated media treatments within the same collection.
 
