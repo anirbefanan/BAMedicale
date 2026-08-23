@@ -310,3 +310,11 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .approved-home .approved-more .mosaic-card__media{background:transparent;overflow:hidden}
 .approved-home .approved-more .mosaic-card__media img{width:100%;height:100%;object-fit:cover;object-position:center top;-webkit-mask-image:none;mask-image:none}
 .approved-home .approved-more .mosaic-card__media::after{background:linear-gradient(180deg,rgba(24,2,4,.02) 0%,rgba(27,2,4,.16) 30%,rgba(27,2,4,.56) 57%,rgba(23,2,4,.98) 86%,#170204 100%)}
+
+/* Text-led physician identity: cellular artwork replaces portrait photography. */
+.approved-hero__portrait{overflow:hidden;background:#160204}
+.approved-hero__portrait>img{inset:0;right:auto;bottom:auto;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;mix-blend-mode:normal;filter:contrast(1.05) saturate(.9) brightness(.82)}
+.approved-hero__portrait::after{position:absolute;inset:0;z-index:2;pointer-events:none;content:"";background:linear-gradient(90deg,rgba(19,2,4,.24),transparent 52%),linear-gradient(0deg,rgba(17,2,4,.66),transparent 48%)}
+.approved-physician{z-index:3}
+.approved-discovery__card--courses::before{background-image:linear-gradient(rgba(51,2,5,.2),rgba(51,2,5,.6)),url('assets/medical/oncology-cellular-hero.png')}
+.approved-journey .journey-art--survivorship{background-image:linear-gradient(rgba(27,2,4,.1),rgba(27,2,4,.36)),url('assets/medical/oncology-cellular-hero.png');background-size:cover;background-position:center}
