@@ -281,12 +281,12 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 
 /* Reference composition for “Knowledge for every next question”: one continuous artwork-and-reading surface. */
 @media (min-width:641px){
-  .approved-home .approved-more .mosaic-card{display:grid;height:clamp(390px,32vw,610px);min-height:0;grid-template-rows:auto auto 1fr auto;padding:51% clamp(18px,1.55vw,30px) clamp(18px,1.45vw,27px);overflow:hidden;border-radius:clamp(15px,1.05vw,21px);background:linear-gradient(155deg,#3b070a,#180204)}
+  .approved-home .approved-more .mosaic-card{display:grid;height:clamp(340px,28vw,520px);min-height:0;grid-template-rows:auto auto 1fr auto;padding:48% clamp(18px,1.35vw,26px) clamp(16px,1.2vw,23px);overflow:hidden;border-radius:clamp(15px,1.05vw,21px);background:linear-gradient(155deg,#3b070a,#180204)}
   .approved-home .approved-more .mosaic-card__media{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;overflow:hidden;background:transparent;border-radius:inherit}
   .approved-home .approved-more .mosaic-card__media::before{display:none}
   .approved-home .approved-more .mosaic-card__media::after{position:absolute;inset:0;z-index:1;display:block;content:"";background:linear-gradient(180deg,rgba(25,2,4,.02) 0%,rgba(29,2,5,.1) 22%,rgba(30,2,5,.48) 49%,rgba(27,2,4,.89) 72%,rgba(23,2,4,.99) 100%),linear-gradient(90deg,rgba(37,3,6,.22),transparent 24%,transparent 74%,rgba(23,2,4,.28))}
-  .approved-home .approved-more .mosaic-card__media img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.06) brightness(.86);transform:scale(1.025);-webkit-mask-image:none;mask-image:none}
-  .approved-home .approved-more .mosaic-card:hover .mosaic-card__media img{filter:saturate(.96) contrast(1.04) brightness(.94);transform:scale(1.045)}
+  .approved-home .approved-more .mosaic-card__media img{display:block;width:100%;height:100%;object-fit:contain;object-position:center top;filter:saturate(.88) contrast(1.06) brightness(.86);transform:none;-webkit-mask-image:none;mask-image:none}
+  .approved-home .approved-more .mosaic-card:hover .mosaic-card__media img{filter:saturate(.96) contrast(1.04) brightness(.94);transform:scale(1.012)}
   .approved-home .approved-more .mosaic-card__symbol{top:clamp(16px,1.25vw,24px);right:clamp(16px,1.25vw,24px);z-index:3;display:grid;width:clamp(39px,3vw,59px);height:clamp(39px,3vw,59px);border-radius:14px}
   .approved-home .approved-more .mosaic-card__symbol svg{width:clamp(19px,1.35vw,27px);height:clamp(19px,1.35vw,27px)}
   .approved-home .approved-more .mosaic-card>span:not(.mosaic-card__media),.approved-home .approved-more .mosaic-card h3,.approved-home .approved-more .mosaic-card p,.approved-home .approved-more .mosaic-card__cta{position:relative;z-index:2}
@@ -297,10 +297,10 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 }
 
 @media (max-width:640px){
-  .approved-home .approved-more .mosaic-card{display:grid;height:224px;min-height:224px;grid-template-rows:auto auto 1fr auto;padding:45% 16px 15px;overflow:hidden;background:linear-gradient(155deg,#3b070a,#180204)}
+  .approved-home .approved-more .mosaic-card{display:grid;height:202px;min-height:202px;grid-template-rows:auto auto 1fr auto;padding:44% 15px 13px;overflow:hidden;background:linear-gradient(155deg,#3b070a,#180204)}
   .approved-home .approved-more .mosaic-card__media{inset:0;width:100%;height:100%}
   .approved-home .approved-more .mosaic-card__media::after{background:linear-gradient(180deg,rgba(25,2,4,.02),rgba(29,2,5,.36) 42%,rgba(23,2,4,.98) 79%),linear-gradient(90deg,rgba(37,3,6,.2),transparent 70%)}
-  .approved-home .approved-more .mosaic-card__media img{width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.05) brightness(.84);-webkit-mask-image:none;mask-image:none}
+  .approved-home .approved-more .mosaic-card__media img{width:100%;height:100%;object-fit:contain;object-position:center top;filter:saturate(.86) contrast(1.05) brightness(.84);-webkit-mask-image:none;mask-image:none}
   .approved-home .approved-more .mosaic-card__symbol{display:grid;z-index:3}
   .approved-home .approved-more .mosaic-card h3{font-size:1.1rem}
   .approved-home .approved-more .mosaic-card p{font-size:.7rem}
