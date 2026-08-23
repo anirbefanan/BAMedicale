@@ -23,10 +23,6 @@ function renderHome() {
       explorer.querySelector("[data-explorer-detail]").innerHTML = `<p class="eyebrow">Body system</p><h3>${button.dataset.title}</h3><p>${button.dataset.text}. BA Medicale will connect this system to public guides, diagnosis, treatment concepts, clinical references, and related learning.</p><a class="text-link" href="library.html">Open related learning <span>→</span></a>`;
     });
   }
-  const updates = document.querySelector("[data-mosaic]");
-  const mosaicIcons = { anatomy: "cell", public: "path", clinical: "book", courses: "cap", media: "play" };
-  const mosaicImages = { anatomy: "assets/home/mosaic-anatomy.png", public: "assets/home/mosaic-public.png", clinical: "assets/home/mosaic-clinical.png", courses: "assets/home/mosaic-courses.png", media: "assets/home/mosaic-media.png" };
-  if (updates) updates.innerHTML = data.updates.map((item) => `<a class="mosaic-card mosaic-card--${item.tone}" href="${item.href}"><span class="mosaic-card__media" aria-hidden="true"><img src="${mosaicImages[item.tone]}" alt="" width="250" height="195"></span><i class="mosaic-card__symbol">${icon(mosaicIcons[item.tone] || "spark")}</i><span>${item.eyebrow}</span><h3>${item.title}</h3><p>${item.text}</p><span class="mosaic-card__cta">Read more <i aria-hidden="true">→</i></span></a>`).join("");
   const library = document.querySelector("[data-library-preview]");
   if (library) library.innerHTML = data.library.map((item) => `<article class="knowledge-card"><span>${item.type}</span><h3>${item.title}</h3><p>${item.text}</p><a href="${item.href}" class="text-link">Read guide <span>→</span></a></article>`).join("");
   const profile = document.querySelector("[data-profile]");
