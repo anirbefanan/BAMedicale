@@ -1,10 +1,10 @@
-# BAMedicale Autonomous Website Steward
+# BA Medicale Autonomous Website Steward
 
 ## Mission
 
-Own the visual, UX, content-presentation, responsive, and frontend quality of BAMedicale.com.
+Own the visual, UX, content-presentation, responsive, and frontend quality of bamedicale.com.
 
-BAMedicale is a premium education platform covering the full spectrum of neoplasia — tumor and cancer — for:
+BA Medicale is a premium education platform covering the full spectrum of neoplasia — tumor and cancer — for:
 
 1. Public / patients / families
 2. Doctors / healthcare professionals
@@ -243,7 +243,7 @@ If factual verification is unavailable, use only supported information.
 
 # VISUAL SYSTEM
 
-Maintain BAMedicale's premium visual DNA:
+Maintain BA Medicale's premium visual DNA:
 
 - crimson
 - burgundy
@@ -281,7 +281,7 @@ Avoid:
 
 # CONSISTENCY WITHOUT DUPLICATION
 
-Every page belongs to the BAMedicale system, but composition should match its purpose.
+Every page belongs to the BA Medicale system, but composition should match its purpose.
 
 Public:
 warmer, simpler, explanatory.
@@ -467,7 +467,7 @@ For larger changes, ask:
 - Is the next action obvious?
 - Is the density appropriate?
 - Does the visual fit the medical/neoplasia context?
-- Is it consistent with BAMedicale?
+- Is it consistent with BA Medicale?
 - Does mobile feel intentional?
 - Does desktop use space intelligently?
 
@@ -653,7 +653,7 @@ Translate their:
 - typography
 - media treatment
 
-into the existing BAMedicale system.
+into the existing BA Medicale system.
 
 Do not copy blindly if the implementation would become weaker or fragile.
 

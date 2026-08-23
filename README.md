@@ -1,6 +1,6 @@
-# BAMedicale
+# BA Medicale
 
-Local website for BAMedicale: medical learning library, ebook commerce preview,
+Local website for BA Medicale: medical learning library, ebook commerce preview,
 symposium hub, login area, and video wall for Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) content.
 
 ## Run locally

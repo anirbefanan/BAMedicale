@@ -52,5 +52,5 @@ window.BAMEDICALE_DATA = {
     outcomes: ["Initial evaluation of patients with thyroid nodules", "Ultrasound interpretation using ACR TI-RADS", "When FNAB is needed", "Interpreting the Bethesda System", "When surgery is needed", "Selecting patients for active surveillance", "Indications for radioiodine", "Targeted therapy for advanced thyroid cancer", "Applying ATA, NCCN, and ETA guidelines in daily practice"],
     artwork: "assets/events/thyroid-nodule-webinar-2026.png"
   },
-  profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BAMedicale physician educator", text: "BAMedicale is shaped around clear, responsible oncology education: enough context to help people ask better questions, and enough structure to help clinicians continue learning.", image: "assets/people/dr-bob-approved-bob13.png" }
+  profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible oncology education: enough context to help people ask better questions, and enough structure to help clinicians continue learning.", image: "assets/people/dr-bob-approved-bob13.png" }
 };
