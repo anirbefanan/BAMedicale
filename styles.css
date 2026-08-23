@@ -243,3 +243,8 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
   .approved-home .approved-more .mosaic-card__media img{object-position:center;filter:saturate(.9) contrast(1.02) brightness(.9)}
   .approved-home .approved-more .mosaic-card__cta{margin-top:6px;font-size:.67rem}
 }
+
+/* Dissolve editorial media into its card instead of ending it on a hard frame. */
+.approved-home .approved-more .mosaic-card__media{background:transparent}
+.approved-home .approved-more .mosaic-card__media::after{background:linear-gradient(180deg,rgba(28,2,4,.01) 4%,rgba(28,2,4,.12) 39%,rgba(26,2,4,.72) 76%,rgba(23,2,4,1) 100%),linear-gradient(90deg,rgba(28,2,4,.38) 0%,rgba(28,2,4,0) 17%,rgba(28,2,4,0) 73%,rgba(23,2,4,.84) 100%)}
+@media (max-width:640px){.approved-home .approved-more .mosaic-card__media::after{background:linear-gradient(90deg,rgba(24,2,4,.94) 0%,rgba(28,2,4,.55) 36%,rgba(28,2,4,.04) 100%),linear-gradient(0deg,rgba(23,2,4,.32),transparent 70%)}}
