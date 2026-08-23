@@ -223,4 +223,4 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 @media(max-width:560px){.featured-seminar__subtitle{font-size:.9rem}.featured-seminar__access .button{width:100%;justify-content:center}.featured-seminar__access-link{font-size:.7rem}}
 
 /* Preserve the requested title case for the text brand; the official logo asset remains unchanged. */
-.brand b{text-transform:none}
+.brand b,.approved-home .brand b{text-transform:none}
