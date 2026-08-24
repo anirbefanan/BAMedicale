@@ -561,7 +561,7 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .route-library .knowledge-card--with-media{grid-row:auto;min-height:0}
 .knowledge-card--with-media>div,.knowledge-card--with-media .text-link{margin-top:14px;padding-top:0}
 .knowledge-card--full-media{display:flex;min-height:0;flex-direction:column;padding-top:0}.knowledge-card--full-media .knowledge-card__media{position:relative;inset:auto;flex:none;width:100%;height:auto;aspect-ratio:16/9}.knowledge-card--full-media .knowledge-card__media img{object-fit:cover;object-position:center}.knowledge-card--full-media>span,.knowledge-card--full-media h3,.knowledge-card--full-media p,.knowledge-card--full-media>div{margin-left:20px;margin-right:20px}.knowledge-card--full-media>span{margin-top:20px}.knowledge-card--full-media>div{margin-bottom:20px}
-@media(max-width:700px){.knowledge-card--with-media{min-height:0;padding-top:178px}.knowledge-card__media{height:156px}.knowledge-card__media img{object-position:center}}
+@media(max-width:700px){.knowledge-card--with-media:not(.knowledge-card--full-media){min-height:0;padding-top:178px}.knowledge-card__media{height:156px}.knowledge-card--full-media .knowledge-card__media{height:auto}.knowledge-card__media img{object-position:center}}
 
 /* Approved discovery module: mockup-matched destination cards. */
 .approved-discovery-shell{width:min(100% - 96px,1440px);margin:12px auto 0;padding:22px;border:1px solid rgba(246,121,110,.32);border-radius:15px;background:radial-gradient(circle at 50% 0,rgba(114,20,23,.22),transparent 42%),linear-gradient(155deg,rgba(10,4,5,.96),rgba(28,3,5,.98) 58%,rgba(14,3,4,.98));box-shadow:inset 0 1px rgba(255,255,255,.06),0 16px 35px rgba(0,0,0,.16)}
