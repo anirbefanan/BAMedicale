@@ -30,6 +30,15 @@ function renderHome() {
   if (profile) profile.innerHTML = `<img src="${data.profile.image}" alt="${data.profile.name}" loading="lazy" width="1254" height="1254"><div><p class="eyebrow">Physician-led education</p><h2>${data.profile.name}</h2><p class="profile-role">${data.profile.role}</p><p>${data.profile.text}</p><a href="about.html" class="button button-outline">About BA Medicale</a></div>`;
   const journey = document.querySelector("[data-journey]");
   if (journey) journey.innerHTML = data.journey.map(([number, title, text], index) => `<details class="journey-step" ${index === 0 ? "open" : ""}><summary><span>${number}</span><b>${title}</b>${icon("plus")}</summary><p>${text}</p></details>`).join("");
+  const updates = document.querySelector("[data-home-updates]");
+  if (updates) {
+    const fillToFive = (items) => items.concat(Array.from({ length: Math.max(0, 5 - items.length) }, () => ({ title: "Coming soon", meta: "New learning update in preparation", pending: true })));
+    const list = (items, href) => fillToFive(items).slice(0, 5).map((item) => `<a class="home-update-item${item.pending ? " is-pending" : ""}" href="${href}"><span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">→</i></a>`).join("");
+    const articles = data.library.map((item) => ({ title: item.title, meta: item.type }));
+    const seminars = [{ title: data.featuredSeminar.title, meta: `${data.featuredSeminar.date} · ${data.featuredSeminar.time}` }].concat(data.events.map((item) => ({ title: item.title, meta: `${item.date} · ${item.format}` })));
+    const ebooks = data.ebooks.map((item) => ({ title: item.title, meta: item.state }));
+    updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>New reading, upcoming learning, and recently added eBooks in one practical overview.</p></div><div class="approved-home-updates__grid"><section class="home-update-card"><div><p>Articles</p><h3>Latest reading</h3></div>${list(articles, "library.html")}</section><section class="home-update-card"><div><p>Upcoming event</p><h3>Seminars &amp; courses</h3></div>${list(seminars, "seminar.html")}</section><section class="home-update-card"><div><p>eBooks</p><h3>Recently added</h3></div>${list(ebooks, "ebooks.html")}</section></div>`;
+  }
 }
 
 function renderLibrary() {
