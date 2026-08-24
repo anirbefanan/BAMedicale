@@ -193,7 +193,7 @@ Automatically:
 1. Read all `ready` drafts first.
 2. Inspect each draft's notes, links, local copied files, posters, PDFs, documents, images, GIFs, and videos.
 3. Determine the correct destination route and section.
-4. Generate professional English BA Medicale title, summary, metadata, captions, and supporting copy from the supplied material only.
+4. Preserve complete substantive article/PDF/video/image content from the user's submitted originals; generate only source-based title, summary, excerpt, metadata, captions, CTA/context, and presentation wording from that material.
 5. Choose the best visual/card/page treatment without asking the user where to put it when the destination is clear.
 6. Preserve factual meaning and never invent medical claims, credentials, events, prices, affiliations, registration details, or source claims.
 7. Connect the item to related routes when useful.
@@ -249,6 +249,8 @@ When appropriate:
 - provide professional depth where relevant
 
 Preserve verified medical meaning.
+
+Submitted PDFs, images, videos, posters, and documents are source-of-truth content, not loose prompts. Use their original substantive content and media assets; do not replace them with invented article body text, generated substitute imagery, or unrelated video content.
 
 Do not invent:
 
