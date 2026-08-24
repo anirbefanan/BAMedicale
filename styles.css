@@ -555,6 +555,7 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .knowledge-card__media{position:absolute;inset:0 0 auto;margin:0;height:clamp(186px,17.2vw,244px);overflow:hidden;background:#230406;border-radius:inherit}
 .knowledge-card__media::after{position:absolute;inset:0;content:"";background:linear-gradient(180deg,rgba(39,3,6,0) 56%,rgba(42,4,8,.68) 86%,rgba(31,2,5,.98)),linear-gradient(90deg,rgba(38,3,6,.2),transparent 34%,rgba(38,3,6,.14));pointer-events:none}
 .knowledge-card__media img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.96) contrast(1.04) brightness(.92);transform:scale(1.01)}
+.knowledge-card__media-trigger{display:block;width:100%;height:100%;padding:0;overflow:hidden;color:inherit;background:transparent;border:0;cursor:zoom-in;text-align:inherit}.knowledge-card__media-trigger:focus-visible{outline:3px solid #fff;outline-offset:-3px}.knowledge-card__media-trigger img{display:block}
 .knowledge-card--with-media>span,.knowledge-card--with-media h3,.knowledge-card--with-media p,.knowledge-card--with-media>div{position:relative;z-index:1}
 .knowledge-card--with-media h3{color:#fff}
 .knowledge-card--with-media p{color:rgba(255,255,255,.76)}
