@@ -26,7 +26,7 @@ window.BAMEDICALE_DATA = {
       title: "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
       dek: "A comprehensive public health review of the 2026 epidemiological update, adapted from the submitted BA Medicale PDF into a web-readable digital magazine view.",
       sourcePdf: "assets/articles/indonesia-cancer-statistics-report.pdf",
-      cover: "assets/articles/indonesia-cancer-statistics-2026-cover.png",
+      cover: "assets/articles/indonesia-cancer-statistics-2026-cover.jpg",
       label: "Health policy brief",
       stats: [
         ["396,914", "Projected new cancer cases in 2026"],

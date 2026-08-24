@@ -560,6 +560,7 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .knowledge-card--with-media p{color:rgba(255,255,255,.76)}
 .route-library .knowledge-card--with-media{grid-row:auto;min-height:0}
 .knowledge-card--with-media>div,.knowledge-card--with-media .text-link{margin-top:14px;padding-top:0}
+.knowledge-card--full-media{display:flex;min-height:0;flex-direction:column;padding-top:0}.knowledge-card--full-media .knowledge-card__media{position:relative;inset:auto;flex:none;width:100%;height:auto;aspect-ratio:16/9}.knowledge-card--full-media .knowledge-card__media img{object-fit:cover;object-position:center}.knowledge-card--full-media>span,.knowledge-card--full-media h3,.knowledge-card--full-media p,.knowledge-card--full-media>div{margin-left:20px;margin-right:20px}.knowledge-card--full-media>span{margin-top:20px}.knowledge-card--full-media>div{margin-bottom:20px}
 @media(max-width:700px){.knowledge-card--with-media{min-height:0;padding-top:178px}.knowledge-card__media{height:156px}.knowledge-card__media img{object-position:center}}
 
 /* Approved discovery module: mockup-matched destination cards. */

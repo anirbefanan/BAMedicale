@@ -60,7 +60,7 @@ function renderLibrary() {
       const article = item.reader && data.articles ? data.articles[item.reader] : null;
       const action = item.reader ? `<a href="${item.href}" class="text-link" data-article-reader="${item.reader}">Open overview <span>→</span></a>` : `<a href="${item.href}" class="text-link">Open overview <span>→</span></a>`;
       const media = article?.cover ? `<figure class="knowledge-card__media"><img src="${escapeHtml(article.cover)}" alt="Editorial visual for ${escapeHtml(item.title)}" width="1448" height="1086" loading="lazy"></figure>` : "";
-      return `<article class="knowledge-card ${article?.cover ? "knowledge-card--with-media" : ""} ${index > 4 ? "is-pro" : ""}">${media}<span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div>${action}${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`;
+      return `<article class="knowledge-card ${article?.cover ? "knowledge-card--with-media knowledge-card--full-media" : ""} ${index > 4 ? "is-pro" : ""}">${media}<span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div>${action}${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`;
     }).join("");
   });
 }
