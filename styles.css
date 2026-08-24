@@ -473,4 +473,48 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
   }
 }
 
+/* Homepage journey iconlist treatment. */
+.approved-journey--timeline .journey-art{
+  overflow:hidden;
+  background-color:#f7f0e5;
+  background-size:cover;
+  background-position:center;
+  border-color:rgba(255,128,118,.74);
+  box-shadow:inset 0 1px rgba(255,255,255,.45),0 0 0 1px rgba(255,98,88,.08),0 0 26px rgba(197,34,31,.24);
+}
+.approved-journey--timeline .journey-art::after{
+  position:absolute;
+  inset:0;
+  content:"";
+  background:radial-gradient(circle at 50% 42%,transparent 48%,rgba(40,2,5,.15) 68%,rgba(29,2,4,.46) 100%);
+  pointer-events:none;
+}
+.approved-journey--timeline .journey-art svg{
+  display:none;
+}
+.approved-journey--timeline .journey-art--normal{
+  background-image:url("assets/journey/journey-01-normal-cell.png");
+}
+.approved-journey--timeline .journey-art--abnormal{
+  background-image:url("assets/journey/journey-02-abnormal-cell.png");
+}
+.approved-journey--timeline .journey-art--neoplasm{
+  background-image:url("assets/journey/journey-03-neoplasia.png");
+}
+.approved-journey--timeline .journey-art--detection{
+  background-image:url("assets/journey/journey-04-detection.png");
+}
+.approved-journey--timeline .journey-art--diagnosis{
+  background-image:url("assets/journey/journey-05-diagnosis.png");
+}
+.approved-journey--timeline .journey-art--staging{
+  background-image:url("assets/journey/journey-06-staging.png");
+}
+.approved-journey--timeline .journey-art--treatment{
+  background-image:url("assets/journey/journey-07-treatment.png");
+}
+.approved-journey--timeline .journey-art--survivorship{
+  background-image:url("assets/journey/journey-08-survivorship.png");
+}
+
 
