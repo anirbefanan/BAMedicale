@@ -326,3 +326,10 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .approved-hero__portrait::after{inset:10px;border-radius:calc(clamp(22px,2vw,34px) - 8px)}
 @media(max-width:820px){.approved-hero__portrait{margin:10px 0;padding:9px}.approved-hero__portrait>img,.approved-hero__portrait::after{inset:9px}}
 @media(max-width:560px){.approved-hero__portrait{margin:8px 0;padding:7px;border-radius:19px}.approved-hero__portrait>img,.approved-hero__portrait::after{inset:7px;border-radius:13px}}
+
+/* Keep the hero composition inside the viewport at intermediate desktop widths. */
+.approved-hero__inner{width:min(calc(100% - 96px),1440px);grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);column-gap:clamp(24px,3vw,48px)}
+.approved-hero__copy,.approved-hero__portrait{min-width:0}
+@media (min-width:821px) and (max-width:1100px){.approved-hero__inner{width:min(calc(100% - 48px),1440px);grid-template-columns:minmax(0,.92fr) minmax(420px,1.08fr)}}
+@media (max-width:820px){.approved-hero__inner{width:min(calc(100% - 32px),1440px)}}
+@media (max-width:560px){.approved-hero__inner{width:min(calc(100% - 28px),1440px)}}
