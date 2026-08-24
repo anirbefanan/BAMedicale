@@ -41,6 +41,19 @@ function renderHome() {
   }
 }
 
+function initJourneyWorkflow() {
+  const workflow = document.querySelector(".approved-journey--timeline");
+  if (!workflow) return;
+  const stages = workflow.querySelectorAll("[data-journey-stage]");
+  stages.forEach((stage) => stage.addEventListener("click", () => {
+    stages.forEach((item) => {
+      const active = item === stage;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+  }));
+}
+
 function renderLibrary() {
   document.querySelectorAll("[data-library-list]").forEach((target) => {
     target.innerHTML = data.library.concat(data.library.filter((item) => item.type !== "Indonesia report")).map((item, index) => {
@@ -242,4 +255,4 @@ async function renderVideoHub() {
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 
-shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); renderVideoHub();
+shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initJourneyWorkflow(); renderVideoHub();
