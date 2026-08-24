@@ -10,7 +10,7 @@
       "audience": "Public education",
       "url": "assets/videos/ba-medicale-clinical-learning-preview.mp4",
       "video_url": "assets/videos/ba-medicale-clinical-learning-preview.mp4",
-      "thumbnail": "",
+      "thumbnail": "assets/medical/neoplasia-before-after.png",
       "publish_state": "Original upload",
       "source_draft_id": "20260824083444-video-d5770d",
       "verified_identity": true
@@ -25,7 +25,7 @@
       "audience": "Public education",
       "url": "assets/videos/ba-medicale-original-initial-scene.mp4",
       "video_url": "assets/videos/ba-medicale-original-initial-scene.mp4",
-      "thumbnail": "",
+      "thumbnail": "assets/home/discovery-videos-portrait.png",
       "publish_state": "Original upload",
       "source_file": "Material/Video/Initial_Scene_-_2026-08-23_202608231233.mp4",
       "verified_identity": true
@@ -40,7 +40,7 @@
       "audience": "Public education",
       "url": "assets/videos/ba-medicale-medical-office-learning-brief.mp4",
       "video_url": "assets/videos/ba-medicale-medical-office-learning-brief.mp4",
-      "thumbnail": "",
+      "thumbnail": "assets/home/discovery-courses-portrait.png",
       "publish_state": "Original upload",
       "source_file": "Material/Video/Woman_in_medical_office_speaking_202608231325.mp4",
       "verified_identity": true
@@ -55,7 +55,7 @@
       "audience": "Public education",
       "url": "assets/videos/ba-medicale-neoplasia-definition-early-detection.mp4",
       "video_url": "assets/videos/ba-medicale-neoplasia-definition-early-detection.mp4",
-      "thumbnail": "",
+      "thumbnail": "assets/medical/neoplasia-development.png",
       "publish_state": "Original upload",
       "source_file": "Material/Video/Neoplasma_definition_and_early_d…_202608172158.mp4",
       "verified_identity": true
@@ -70,7 +70,7 @@
       "audience": "Public education",
       "url": "assets/videos/ba-medicale-medical-office-platform-brief.mp4",
       "video_url": "assets/videos/ba-medicale-medical-office-platform-brief.mp4",
-      "thumbnail": "",
+      "thumbnail": "assets/medical/oncology-cellular-hero.png",
       "publish_state": "Original upload",
       "source_file": "Material/Video/Woman_speaks_in_medical_office_202608221844.mp4",
       "verified_identity": true
