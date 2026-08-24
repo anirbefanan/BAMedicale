@@ -143,18 +143,26 @@ async function renderVideoHub() {
   const preview = document.querySelector("[data-video-preview-list]");
   if (!hub && !preview) return;
   let videos = [];
+  let originalVideos = [];
   try {
     const response = await fetch("data/videos.json?v=doctor-lounge-gap-20260822");
     if (!response.ok) throw new Error("Video catalog unavailable");
     videos = (await response.json()).videos.filter((video) => video.verified_identity);
+    try {
+      const originalResponse = await fetch("data/original-videos.json?v=original-video-20260824");
+      if (originalResponse.ok) originalVideos = (await originalResponse.json()).videos || [];
+    } catch {
+      originalVideos = [];
+    }
   } catch (error) {
     if (hub) hub.innerHTML = `<div class="video-hub__empty"><p class="eyebrow">Video collection</p><h2>The public video catalog is being refreshed.</h2><p>Source verification is required before a video is shown here.</p></div>`;
     return;
   }
   const card = (video, featured = false) => `<article class="video-card ${featured ? "video-card--featured" : ""}" data-video-topic="${video.topic}"><button type="button" class="video-card__play" data-video-play="${video.id}" aria-label="Play ${video.title}"><img src="${video.thumbnail}" alt="${video.title}" width="480" height="360" loading="eager"><span>Play</span></button><div class="video-card__copy"><p><b>${video.source_label}</b><i>${video.topic}</i></p><h2>${video.title}</h2><small>${video.person}</small><a href="${video.url}" target="_blank" rel="noreferrer">View original source <strong>↗</strong></a></div></article>`;
+  const localCard = (video) => `<article class="video-card video-card--original" data-video-topic="${video.topic}"><button type="button" class="video-card__play video-card__play--local" data-video-local="${video.id}" aria-label="Play ${video.title}"><video src="${video.video_url}" muted playsinline preload="metadata"></video><span>Watch</span></button><div class="video-card__copy"><p><b>${video.source_label}</b><i>${video.topic}</i></p><h2>${video.title}</h2><small>${video.short_description}</small><a href="${video.video_url}" target="_blank" rel="noreferrer">Open video file <strong>↗</strong></a></div></article>`;
   const featured = videos.find((video) => video.featured) || videos[0];
   const remaining = videos.filter((video) => video.id !== featured.id);
-  if (hub) { const topics = [...new Set(videos.map((video) => video.topic))]; hub.innerHTML = `<section class="video-feature"><div>${card(featured, true)}</div><aside><p class="eyebrow">Verified physician appearances</p><h2>Public educational videos with source attribution.</h2><p>Each entry is retained only when the public title and publisher clearly identify Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K).</p><div class="video-topics" role="group" aria-label="Filter verified videos"><button class="is-active" type="button" data-video-filter="all">All topics</button>${topics.map((topic) => `<button type="button" data-video-filter="${topic}">${topic}</button>`).join("")}</div></aside></section><section class="video-hub__section"><div class="section-head"><div><p class="eyebrow">Latest verified videos</p><h2>Watch and learn in context.</h2></div></div><div class="video-grid">${remaining.map((video) => card(video)).join("")}</div></section><section class="video-hub__section video-source-state"><div><p class="eyebrow">BA Medicale Instagram</p><h2>Public reels will appear after public discovery exposes verifiable post links.</h2></div><p>The profile was reachable during the latest scan, but its unauthenticated response did not expose reel URLs. No Instagram entries are displayed rather than guessing or linking to unavailable posts.</p></section>`; hub.querySelectorAll("[data-video-filter]").forEach((filter) => filter.addEventListener("click", () => { const topic = filter.dataset.videoFilter; hub.querySelectorAll("[data-video-filter]").forEach((item) => item.classList.toggle("is-active", item === filter)); hub.querySelectorAll(".video-grid .video-card").forEach((item) => { item.hidden = topic !== "all" && item.dataset.videoTopic !== topic; }); })); }
+  if (hub) { const topics = [...new Set(videos.map((video) => video.topic))]; const originalSection = originalVideos.length ? `<section class="video-hub__section video-originals"><div class="section-head"><div><p class="eyebrow">BA Medicale originals</p><h2>Original videos prepared for the BA Medicale learning experience.</h2></div><p>These videos are hosted by BA Medicale and use the original uploaded media assets.</p></div><div class="video-grid video-grid--original">${originalVideos.map((video) => localCard(video)).join("")}</div></section>` : ""; hub.innerHTML = `${originalSection}<section class="video-feature"><div>${card(featured, true)}</div><aside><p class="eyebrow">Verified physician appearances</p><h2>Public educational videos with source attribution.</h2><p>Each entry is retained only when the public title and publisher clearly identify Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K).</p><div class="video-topics" role="group" aria-label="Filter verified videos"><button class="is-active" type="button" data-video-filter="all">All topics</button>${topics.map((topic) => `<button type="button" data-video-filter="${topic}">${topic}</button>`).join("")}</div></aside></section><section class="video-hub__section"><div class="section-head"><div><p class="eyebrow">Latest verified videos</p><h2>Watch and learn in context.</h2></div></div><div class="video-grid">${remaining.map((video) => card(video)).join("")}</div></section><section class="video-hub__section video-source-state"><div><p class="eyebrow">BA Medicale Instagram</p><h2>Public reels will appear after public discovery exposes verifiable post links.</h2></div><p>The profile was reachable during the latest scan, but its unauthenticated response did not expose reel URLs. No Instagram entries are displayed rather than guessing or linking to unavailable posts.</p></section>`; hub.querySelectorAll("[data-video-filter]").forEach((filter) => filter.addEventListener("click", () => { const topic = filter.dataset.videoFilter; hub.querySelectorAll("[data-video-filter]").forEach((item) => item.classList.toggle("is-active", item === filter)); hub.querySelectorAll(".video-grid .video-card:not(.video-card--original)").forEach((item) => { item.hidden = topic !== "all" && item.dataset.videoTopic !== topic; }); })); }
   if (preview) preview.innerHTML = videos.slice(0, 4).map((video) => `<article class="video-preview"><button type="button" data-video-play="${video.id}" aria-label="Play ${video.title}"><img src="${video.thumbnail}" alt="${video.title}" width="480" height="360" loading="eager"><span>▶</span></button><p>${video.source_label}</p><h3>${video.title}</h3></article>`).join("");
   const dialog = document.createElement("dialog");
   dialog.className = "video-player";
@@ -167,7 +175,15 @@ async function renderVideoHub() {
     dialog.querySelector("a").href = video.url;
     dialog.showModal();
   };
+  const openLocalVideo = (id) => {
+    const video = originalVideos.find((item) => item.id === id);
+    if (!video) return;
+    dialog.querySelector("div").innerHTML = `<video src="${video.video_url}" title="${video.title}" controls autoplay playsinline></video>`;
+    dialog.querySelector("a").href = video.video_url;
+    dialog.showModal();
+  };
   document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay)));
+  document.querySelectorAll("[data-video-local]").forEach((button) => button.addEventListener("click", () => openLocalVideo(button.dataset.videoLocal)));
   dialog.addEventListener("close", () => { dialog.querySelector("div").innerHTML = ""; });
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }

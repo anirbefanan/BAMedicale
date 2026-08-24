@@ -282,12 +282,18 @@ async function loadWebsiteData() {
   const sandbox = { window: {} };
   vm.runInNewContext(contentRaw, sandbox, { filename: "content.js" });
   let videoData = { videos: [] };
+  let originalVideoData = { videos: [] };
   try {
     videoData = JSON.parse(await fsp.readFile(path.join(rootDir, "data", "videos.json"), "utf8"));
   } catch {
     videoData = { videos: [] };
   }
-  return { data: sandbox.window.BAMEDICALE_DATA || {}, videoData };
+  try {
+    originalVideoData = JSON.parse(await fsp.readFile(path.join(rootDir, "data", "original-videos.json"), "utf8"));
+  } catch {
+    originalVideoData = { videos: [] };
+  }
+  return { data: sandbox.window.BAMEDICALE_DATA || {}, videoData, originalVideoData };
 }
 
 function publishedItem(id, type, destination, title, summary, route, sourceFile, sourcePath, raw) {
@@ -305,7 +311,7 @@ function publishedItem(id, type, destination, title, summary, route, sourceFile,
 }
 
 async function listPublishedItems() {
-  const { data, videoData } = await loadWebsiteData();
+  const { data, videoData, originalVideoData } = await loadWebsiteData();
   const items = [];
   (data.library || []).forEach((item, index) => items.push(publishedItem(`library-${index}`, "Library", "library", item.title, item.text, item.href || "library.html", "content.js", `BAMEDICALE_DATA.library[${index}]`, item)));
   (data.ebooks || []).forEach((item, index) => items.push(publishedItem(`ebook-${item.slug || index}`, "eBook", "ebooks", item.title, `${item.audience || ""} ${item.text || ""}`.trim(), `ebook-detail.html?book=${item.slug}`, "content.js", `BAMEDICALE_DATA.ebooks[${index}]`, item)));
@@ -314,6 +320,7 @@ async function listPublishedItems() {
     items.push(publishedItem("featured-seminar", "Featured seminar", "seminar", data.featuredSeminar.title, `${data.featuredSeminar.subtitle || ""} ${data.featuredSeminar.date || ""} ${data.featuredSeminar.time || ""}`.trim(), "seminar.html", "content.js", "BAMEDICALE_DATA.featuredSeminar", data.featuredSeminar));
   }
   (videoData.videos || []).forEach((item, index) => items.push(publishedItem(`video-${item.youtube_id || index}`, "Video", "videos", item.title, item.short_description, "videos.html", "data/videos.json", `videos[${index}]`, item)));
+  (originalVideoData.videos || []).forEach((item, index) => items.push(publishedItem(`original-video-${item.id || index}`, "BA Medicale original video", "videos", item.title, item.short_description, "videos.html", "data/original-videos.json", `videos[${index}]`, item)));
   return items;
 }
 

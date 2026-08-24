@@ -1,0 +1,19 @@
+{
+  "videos": [
+    {
+      "id": "ba-medicale-clinical-learning-preview",
+      "title": "BA Medicale Clinical Learning Preview",
+      "short_description": "An original BA Medicale visual learning asset for introducing structured tumor and cancer education in a clinical setting.",
+      "source_label": "BA Medicale Original",
+      "source": "ba-medicale",
+      "topic": "Clinical education",
+      "audience": "Public education",
+      "url": "assets/videos/ba-medicale-clinical-learning-preview.mp4",
+      "video_url": "assets/videos/ba-medicale-clinical-learning-preview.mp4",
+      "thumbnail": "",
+      "publish_state": "Original upload",
+      "source_draft_id": "20260824083444-video-d5770d",
+      "verified_identity": true
+    }
+  ]
+}
