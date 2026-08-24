@@ -331,6 +331,15 @@ Use supplied official brand assets and real physician photography without genera
 
 Preserve educational imagery at original visual fidelity by default.
 
+## Media Composition Is Mandatory
+
+Every image, poster, GIF, and video must be placed as an intentional media surface, never as a raw pasted rectangle. Before completing any media-related work:
+
+- fit media to its destination frame with an appropriate aspect ratio, `object-fit`, and focal position;
+- blend edges into the surrounding surface with restrained gradients, masks, or overlays when that improves the composition, without muddy blur or loss of fidelity;
+- preserve embedded poster text and provide a full-view interaction when inspection requires it;
+- verify the relevant desktop and mobile states for crop, edge transition, contrast, collision, and overflow.
+
 Do not unnecessarily:
 
 - fade
