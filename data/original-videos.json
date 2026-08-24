@@ -29,6 +29,51 @@
       "publish_state": "Original upload",
       "source_file": "Material/Video/Initial_Scene_-_2026-08-23_202608231233.mp4",
       "verified_identity": true
+    },
+    {
+      "id": "ba-medicale-medical-office-learning-brief",
+      "title": "BA Medicale Medical Office Learning Brief",
+      "short_description": "An original BA Medicale office-based learning video for introducing clear tumor and cancer education in a calm clinical setting.",
+      "source_label": "BA Medicale Original",
+      "source": "ba-medicale",
+      "topic": "Clinical education",
+      "audience": "Public education",
+      "url": "assets/videos/ba-medicale-medical-office-learning-brief.mp4",
+      "video_url": "assets/videos/ba-medicale-medical-office-learning-brief.mp4",
+      "thumbnail": "",
+      "publish_state": "Original upload",
+      "source_file": "Material/Video/Woman_in_medical_office_speaking_202608231325.mp4",
+      "verified_identity": true
+    },
+    {
+      "id": "ba-medicale-neoplasia-definition-early-detection",
+      "title": "Neoplasia Definition and Early Detection",
+      "short_description": "An original BA Medicale educational video explaining neoplasia fundamentals and the importance of recognizing early warning signs.",
+      "source_label": "BA Medicale Original",
+      "source": "ba-medicale",
+      "topic": "Neoplasia basics",
+      "audience": "Public education",
+      "url": "assets/videos/ba-medicale-neoplasia-definition-early-detection.mp4",
+      "video_url": "assets/videos/ba-medicale-neoplasia-definition-early-detection.mp4",
+      "thumbnail": "",
+      "publish_state": "Original upload",
+      "source_file": "Material/Video/Neoplasma_definition_and_early_d…_202608172158.mp4",
+      "verified_identity": true
+    },
+    {
+      "id": "ba-medicale-medical-office-platform-brief",
+      "title": "BA Medicale Medical Office Platform Brief",
+      "short_description": "An original BA Medicale medical-office video introducing the platform's educational direction for tumor and cancer learning.",
+      "source_label": "BA Medicale Original",
+      "source": "ba-medicale",
+      "topic": "Platform introduction",
+      "audience": "Public education",
+      "url": "assets/videos/ba-medicale-medical-office-platform-brief.mp4",
+      "video_url": "assets/videos/ba-medicale-medical-office-platform-brief.mp4",
+      "thumbnail": "",
+      "publish_state": "Original upload",
+      "source_file": "Material/Video/Woman_speaks_in_medical_office_202608221844.mp4",
+      "verified_identity": true
     }
   ]
 }

@@ -149,7 +149,7 @@ async function renderVideoHub() {
     if (!response.ok) throw new Error("Video catalog unavailable");
     videos = (await response.json()).videos.filter((video) => video.verified_identity);
     try {
-      const originalResponse = await fetch("data/original-videos.json?v=original-video-20260824");
+      const originalResponse = await fetch("data/original-videos.json?v=original-video-5-20260824");
       if (originalResponse.ok) originalVideos = (await originalResponse.json()).videos || [];
     } catch {
       originalVideos = [];
