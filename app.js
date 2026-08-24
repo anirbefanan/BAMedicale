@@ -212,7 +212,7 @@ async function renderVideoHub() {
     if (!response.ok) throw new Error("Video catalog unavailable");
     videos = (await response.json()).videos.filter((video) => video.verified_identity);
     try {
-      const originalResponse = await fetch("data/original-videos.json?v=video-posters-20260824");
+      const originalResponse = await fetch("data/original-videos.json?v=video-frame-posters-20260825");
       if (originalResponse.ok) originalVideos = (await originalResponse.json()).videos || [];
     } catch {
       originalVideos = [];
@@ -222,7 +222,7 @@ async function renderVideoHub() {
     return;
   }
   const card = (video, featured = false) => `<article class="video-card ${featured ? "video-card--featured" : ""}" data-video-topic="${video.topic}"><button type="button" class="video-card__play" data-video-play="${video.id}" aria-label="Play ${video.title}"><img src="${video.thumbnail}" alt="${video.title}" width="480" height="360" loading="eager"><span>Play</span></button><div class="video-card__copy"><p><b>${video.source_label}</b><i>${video.topic}</i></p><h2>${video.title}</h2><small>${video.person}</small><a href="${video.url}" target="_blank" rel="noreferrer">View original source <strong>↗</strong></a></div></article>`;
-  const localThumbnail = (video) => video.thumbnail || "assets/medical/oncology-cellular-hero.png";
+  const localThumbnail = (video) => video.thumbnail;
   const localCard = (video) => `<article class="video-card video-card--original" data-video-topic="${video.topic}"><button type="button" class="video-card__play video-card__play--local" data-video-local="${video.id}" aria-label="Play ${video.title}"><img src="${localThumbnail(video)}" alt="Preview of ${video.title}" width="960" height="540" loading="lazy"><span>Watch</span></button><div class="video-card__copy"><p><b>${video.source_label}</b><i>${video.topic}</i></p><h2>${video.title}</h2><small>${video.short_description}</small><a href="${video.video_url}" target="_blank" rel="noreferrer">Open video file <strong>↗</strong></a></div></article>`;
   const latestOriginals = originalVideos.slice(-4).reverse();
   const latestYouTube = videos.slice().sort((a, b) => String(b.publish_date || "").localeCompare(String(a.publish_date || ""))).slice(0, 4);
