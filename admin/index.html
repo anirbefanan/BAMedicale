@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BA Medicale Local Admin Intake</title>
+    <link rel="stylesheet" href="admin.css">
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="hero-panel">
+        <div>
+          <p class="eyebrow">Local admin intake</p>
+          <h1>Prepare BA Medicale content without touching code.</h1>
+          <p class="lead">Create drafts for articles, seminars, videos, eBooks, courses, and resources. Add files, links, topic hints, and audience notes; Codex will later transform ready drafts into polished website content.</p>
+        </div>
+        <div class="process-card" aria-label="Publishing flow">
+          <span>Draft</span>
+          <span>Review queue</span>
+          <span>Ready for Codex</span>
+          <span>Publish live</span>
+        </div>
+      </section>
+
+      <section class="workspace-grid">
+        <form class="intake-card" id="draftForm">
+          <div class="section-heading">
+            <p class="eyebrow">Create draft</p>
+            <h2>Upload once. Let the system place it later.</h2>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              Content type
+              <select name="contentType" required>
+                <option value="article">Article / library</option>
+                <option value="seminar">Seminar / webinar</option>
+                <option value="video">Video</option>
+                <option value="ebook">eBook</option>
+                <option value="course">Course</option>
+                <option value="resource">Resource / tool</option>
+              </select>
+            </label>
+            <label>
+              Destination
+              <select name="destination" required>
+                <option value="auto">Auto decide</option>
+                <option value="library">Medical Library</option>
+                <option value="courses">Courses</option>
+                <option value="seminar">Seminar</option>
+                <option value="videos">Videos</option>
+                <option value="ebooks">eBooks</option>
+                <option value="resources">Resources</option>
+              </select>
+            </label>
+            <label>
+              Audience
+              <select name="audience" required>
+                <option value="auto">Auto decide</option>
+                <option value="public">Public / patients</option>
+                <option value="doctors">Doctors / professionals</option>
+                <option value="both">Both audiences</option>
+              </select>
+            </label>
+            <label>
+              Draft status
+              <select name="status" required>
+                <option value="draft">Draft</option>
+                <option value="ready">Ready for Codex</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Topic hint
+            <input name="topicHint" type="text" placeholder="Example: thyroid nodule webinar, public article about biopsy, BA Medicale YouTube video">
+          </label>
+
+          <label>
+            Source links
+            <textarea name="sourceLinks" rows="3" placeholder="One URL per line: YouTube, Instagram, article references, registration page, source page"></textarea>
+          </label>
+
+          <label>
+            Notes for Codex
+            <textarea name="sourceNotes" rows="5" placeholder="Write the rough instruction only. Codex will create title, summary, placement, card treatment, and website wording based on the uploaded material."></textarea>
+          </label>
+
+          <label>
+            Upload files
+            <input name="files" type="file" multiple>
+            <span class="hint">Images, PDFs, posters, documents, or small video assets. For large folders/videos, paste local paths below.</span>
+          </label>
+
+          <label>
+            Local file or folder paths
+            <textarea name="localPaths" rows="4" placeholder="One Windows path per line, for example D:\BAMedicale\BAMedicale\Material\Seminar\poster.png"></textarea>
+            <span class="hint">Folder paths are scanned and copied with a safe file-count and size limit.</span>
+          </label>
+
+          <fieldset class="checks">
+            <legend>Codex automation contract</legend>
+            <label><input type="checkbox" name="autoTitle" checked> Auto title and headline</label>
+            <label><input type="checkbox" name="autoSummary" checked> Auto summary and humanized website wording</label>
+            <label><input type="checkbox" name="autoPlacement" checked> Auto page, section, card, and journey placement</label>
+            <label><input type="checkbox" name="autoVisualTreatment" checked> Auto crop, blend, frame, and responsive media treatment</label>
+            <label><input type="checkbox" name="createDetailPage" checked> Create detail page when useful</label>
+          </fieldset>
+
+          <div class="actions">
+            <button type="submit" class="primary">Save draft</button>
+            <button type="button" id="clearForm">Clear</button>
+          </div>
+          <p class="status-line" id="formStatus" role="status"></p>
+        </form>
+
+        <aside class="queue-card">
+          <div class="section-heading">
+            <p class="eyebrow">Draft queue</p>
+            <h2>Items waiting for publication work</h2>
+          </div>
+          <div class="filters" id="filters" aria-label="Draft filters">
+            <button class="active" data-filter="all" type="button">All</button>
+            <button data-filter="ready" type="button">Ready</button>
+            <button data-filter="draft" type="button">Draft</button>
+            <button data-filter="published" type="button">Published</button>
+            <button data-filter="archived" type="button">Archived</button>
+          </div>
+          <div class="queue-list" id="draftList"></div>
+        </aside>
+      </section>
+
+      <section class="command-panel">
+        <p class="eyebrow">Publishing command</p>
+        <h2>When the drafts are ready, tell Codex:</h2>
+        <code>Process admin drafts and publish.</code>
+        <p>Codex will read the ready drafts, inspect the uploaded source material, generate medically responsible English wording, choose the correct route and visual treatment, commit, push, and verify GitHub Pages when authorization is available.</p>
+      </section>
+    </main>
+
+    <dialog id="draftDialog">
+      <form method="dialog" class="dialog-panel">
+        <button class="icon-close" value="close" aria-label="Close">x</button>
+        <div id="draftDetail"></div>
+      </form>
+    </dialog>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

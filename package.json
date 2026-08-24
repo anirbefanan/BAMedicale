@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "admin": "node admin/server.js",
+    "admin:check": "node admin/server.js --check"
+  },
+  "private": true,
+  "devDependencies": {}
+}

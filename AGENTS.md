@@ -180,6 +180,29 @@ Do not repeatedly search the repository for information already located and unde
 
 ---
 
+# LOCAL ADMIN INTAKE WORKFLOW
+
+The local admin intake lives under `admin/` and saves draft source material under `admin-drafts/items/`.
+
+When the user says:
+
+`Process admin drafts and publish.`
+
+Automatically:
+
+1. Read all `ready` drafts first.
+2. Inspect each draft's notes, links, local copied files, posters, PDFs, documents, images, GIFs, and videos.
+3. Determine the correct destination route and section.
+4. Generate professional English BA Medicale title, summary, metadata, captions, and supporting copy from the supplied material only.
+5. Choose the best visual/card/page treatment without asking the user where to put it when the destination is clear.
+6. Preserve factual meaning and never invent medical claims, credentials, events, prices, affiliations, registration details, or source claims.
+7. Connect the item to related routes when useful.
+8. Mark processed drafts as `published` only after the website change is committed, pushed, and staging is verified when Git access is available.
+
+Draft assets are local source material and should not be committed unless intentionally promoted into production website assets.
+
+---
+
 # DESIGN AUTONOMY
 
 When content, images, videos, PDFs, physician assets, ebooks, seminar materials, medical illustrations, or other materials are added or removed:
