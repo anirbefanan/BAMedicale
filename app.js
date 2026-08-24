@@ -186,11 +186,11 @@ async function renderVideoHub() {
   let videos = [];
   let originalVideos = [];
   try {
-    const response = await fetch("data/videos.json?v=doctor-lounge-gap-20260822");
+    const response = await fetch("data/videos.json?v=video-catalog-20260824-2");
     if (!response.ok) throw new Error("Video catalog unavailable");
     videos = (await response.json()).videos.filter((video) => video.verified_identity);
     try {
-      const originalResponse = await fetch("data/original-videos.json?v=original-video-5-20260824");
+      const originalResponse = await fetch("data/original-videos.json?v=video-catalog-20260824-2");
       if (originalResponse.ok) originalVideos = (await originalResponse.json()).videos || [];
     } catch {
       originalVideos = [];
