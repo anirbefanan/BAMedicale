@@ -317,7 +317,6 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .approved-hero__portrait::after{position:absolute;inset:0;z-index:2;pointer-events:none;content:"";background:linear-gradient(90deg,rgba(19,2,4,.24),transparent 52%),linear-gradient(0deg,rgba(17,2,4,.66),transparent 48%)}
 .approved-physician{z-index:3}
 .approved-discovery__card--courses::before{background-image:linear-gradient(rgba(51,2,5,.2),rgba(51,2,5,.6)),url('assets/medical/oncology-cellular-hero.png')}
-.approved-journey .journey-art--survivorship{background-image:linear-gradient(rgba(27,2,4,.1),rgba(27,2,4,.36)),url('assets/medical/oncology-cellular-hero.png');background-size:cover;background-position:center}
 
 /* Liquid-glass frame for the animated hero media. */
 .approved-hero__portrait{
