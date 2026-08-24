@@ -3,11 +3,14 @@ const list = document.querySelector("#draftList");
 const statusLine = document.querySelector("#formStatus");
 const clearButton = document.querySelector("#clearForm");
 const filters = document.querySelector("#filters");
+const viewSwitch = document.querySelector(".view-switch");
 const dialog = document.querySelector("#draftDialog");
 const detail = document.querySelector("#draftDetail");
 
 let drafts = [];
+let publishedItems = [];
 let activeFilter = "all";
+let activeView = "drafts";
 
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => ({
@@ -99,7 +102,13 @@ async function api(path, options = {}) {
 async function refreshDrafts() {
   const body = await api("/api/drafts");
   drafts = body.drafts || [];
-  renderDrafts();
+  if (activeView === "drafts") renderDrafts();
+}
+
+async function refreshPublished() {
+  const body = await api("/api/published");
+  publishedItems = body.items || [];
+  if (activeView === "published") renderPublished();
 }
 
 function renderDrafts() {
@@ -130,6 +139,50 @@ function renderDrafts() {
       </div>
     </article>
   `).join("");
+}
+
+function renderPublished() {
+  filters.hidden = true;
+  if (!publishedItems.length) {
+    list.innerHTML = `<article class="draft-item"><h3>No published items detected.</h3><p>The admin server could not find current website content in content.js or data/videos.json.</p></article>`;
+    return;
+  }
+  list.innerHTML = publishedItems.map((item) => `
+    <article class="draft-item">
+      <div class="chips">
+        <span class="chip ready">Live</span>
+        <span class="chip">${escapeHtml(item.type)}</span>
+        <span class="chip">${escapeHtml(item.destination)}</span>
+        <span class="chip">${escapeHtml(item.sourceFile)}</span>
+      </div>
+      <h3>${escapeHtml(item.title)}</h3>
+      <p>${escapeHtml(item.summary || "Published item with structured source data.")}</p>
+      <div class="draft-meta">
+        <span class="chip">${escapeHtml(item.route)}</span>
+        <span class="chip">${escapeHtml(item.sourcePath)}</span>
+      </div>
+      <div class="draft-actions">
+        <a class="button-like" href="../${escapeHtml(item.route)}" target="_blank" rel="noreferrer">Open live route</a>
+        <button type="button" data-live-action="edit" data-id="${escapeHtml(item.id)}">Edit draft</button>
+        <button type="button" data-live-action="republish" data-id="${escapeHtml(item.id)}">Republish draft</button>
+        <button type="button" data-live-action="remove" data-id="${escapeHtml(item.id)}">Remove draft</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function setView(view) {
+  activeView = view;
+  viewSwitch.querySelectorAll("button").forEach((item) => item.classList.toggle("active", item.dataset.view === view));
+  filters.hidden = view !== "drafts";
+  if (view === "drafts") {
+    renderDrafts();
+  } else {
+    renderPublished();
+    refreshPublished().catch((error) => {
+      list.innerHTML = `<article class="draft-item"><h3>Published list is not available.</h3><p>${escapeHtml(error.message)}</p></article>`;
+    });
+  }
 }
 
 function renderDetail(draft) {
@@ -203,7 +256,31 @@ filters.addEventListener("click", (event) => {
   renderDrafts();
 });
 
+viewSwitch.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-view]");
+  if (!button) return;
+  setView(button.dataset.view);
+});
+
 list.addEventListener("click", async (event) => {
+  const liveButton = event.target.closest("button[data-live-action]");
+  if (liveButton) {
+    const action = liveButton.dataset.liveAction;
+    const item = publishedItems.find((entry) => entry.id === liveButton.dataset.id);
+    if (!item) return;
+    const notes = action === "remove"
+      ? "Remove this item from the website source and update any related navigation/cards safely."
+      : "Create a source-based revision draft for this live item.";
+    await api(`/api/published/${item.id}/draft`, {
+      method: "POST",
+      body: JSON.stringify({ requestedAction: action, notes })
+    });
+    activeFilter = "ready";
+    filters.querySelectorAll("button").forEach((entry) => entry.classList.toggle("active", entry.dataset.filter === "ready"));
+    setView("drafts");
+    await refreshDrafts();
+    return;
+  }
   const button = event.target.closest("button[data-action]");
   if (!button) return;
   const draft = drafts.find((item) => item.id === button.dataset.id);

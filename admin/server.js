@@ -3,6 +3,7 @@ const fs = require("fs");
 const fsp = require("fs/promises");
 const path = require("path");
 const crypto = require("crypto");
+const vm = require("vm");
 
 const rootDir = path.resolve(__dirname, "..");
 const adminDir = path.join(rootDir, "admin");
@@ -249,7 +250,9 @@ function draftFromBody(body, existing = {}) {
       autoPlacement: body.autoPlacement ?? existing.requirements?.autoPlacement ?? true,
       autoVisualTreatment: body.autoVisualTreatment ?? existing.requirements?.autoVisualTreatment ?? true,
       createDetailPage: body.createDetailPage ?? existing.requirements?.createDetailPage ?? true
-    }
+    },
+    requestedAction: cleanText(body.requestedAction ?? existing.requestedAction),
+    liveSource: body.liveSource ?? existing.liveSource
   };
 }
 
@@ -272,6 +275,69 @@ async function createDraft(body) {
   draft.intakeIssues = copied.issues;
   await writeDraft(draft);
   return publicDraft(draft);
+}
+
+async function loadWebsiteData() {
+  const contentRaw = await fsp.readFile(path.join(rootDir, "content.js"), "utf8");
+  const sandbox = { window: {} };
+  vm.runInNewContext(contentRaw, sandbox, { filename: "content.js" });
+  let videoData = { videos: [] };
+  try {
+    videoData = JSON.parse(await fsp.readFile(path.join(rootDir, "data", "videos.json"), "utf8"));
+  } catch {
+    videoData = { videos: [] };
+  }
+  return { data: sandbox.window.BAMEDICALE_DATA || {}, videoData };
+}
+
+function publishedItem(id, type, destination, title, summary, route, sourceFile, sourcePath, raw) {
+  return {
+    id,
+    type,
+    destination,
+    title: cleanText(title) || "Untitled live item",
+    summary: cleanText(summary),
+    route,
+    sourceFile,
+    sourcePath,
+    raw
+  };
+}
+
+async function listPublishedItems() {
+  const { data, videoData } = await loadWebsiteData();
+  const items = [];
+  (data.library || []).forEach((item, index) => items.push(publishedItem(`library-${index}`, "Library", "library", item.title, item.text, item.href || "library.html", "content.js", `BAMEDICALE_DATA.library[${index}]`, item)));
+  (data.ebooks || []).forEach((item, index) => items.push(publishedItem(`ebook-${item.slug || index}`, "eBook", "ebooks", item.title, `${item.audience || ""} ${item.text || ""}`.trim(), `ebook-detail.html?book=${item.slug}`, "content.js", `BAMEDICALE_DATA.ebooks[${index}]`, item)));
+  (data.events || []).forEach((item, index) => items.push(publishedItem(`event-${index}`, "Course / seminar", "seminar", item.title, item.text, "seminar.html", "content.js", `BAMEDICALE_DATA.events[${index}]`, item)));
+  if (data.featuredSeminar) {
+    items.push(publishedItem("featured-seminar", "Featured seminar", "seminar", data.featuredSeminar.title, `${data.featuredSeminar.subtitle || ""} ${data.featuredSeminar.date || ""} ${data.featuredSeminar.time || ""}`.trim(), "seminar.html", "content.js", "BAMEDICALE_DATA.featuredSeminar", data.featuredSeminar));
+  }
+  (videoData.videos || []).forEach((item, index) => items.push(publishedItem(`video-${item.youtube_id || index}`, "Video", "videos", item.title, item.short_description, "videos.html", "data/videos.json", `videos[${index}]`, item)));
+  return items;
+}
+
+async function createDraftFromPublished(id, body) {
+  const item = (await listPublishedItems()).find((entry) => entry.id === id);
+  if (!item) throw new Error("Live item not found.");
+  const action = cleanText(body.requestedAction) || "edit";
+  const actionLabel = { edit: "Edit live item", remove: "Remove from website", republish: "Republish live item" }[action] || "Edit live item";
+  return createDraft({
+    contentType: item.destination === "seminar" ? "seminar" : item.destination === "videos" ? "video" : item.destination === "ebooks" ? "ebook" : item.destination === "resources" ? "resource" : "article",
+    destination: item.destination,
+    audience: "auto",
+    status: "ready",
+    topicHint: `${actionLabel}: ${item.title}`,
+    sourceLinks: item.raw?.url ? [item.raw.url] : [],
+    sourceNotes: [`${actionLabel}.`, cleanText(body.notes), "", "Current live website item:", JSON.stringify(item.raw, null, 2)].filter(Boolean).join("\n"),
+    requestedAction: action,
+    liveSource: item,
+    autoTitle: action !== "remove",
+    autoSummary: action !== "remove",
+    autoPlacement: true,
+    autoVisualTreatment: action !== "remove",
+    createDetailPage: action !== "remove"
+  });
 }
 
 async function patchDraft(id, body) {
@@ -326,6 +392,16 @@ async function handleApi(req, res, pathname) {
   }
   if (req.method === "POST" && pathname === "/api/drafts") {
     json(res, 201, { draft: await createDraft(await readBody(req)) });
+    return;
+  }
+  if (req.method === "GET" && pathname === "/api/published") {
+    json(res, 200, { items: await listPublishedItems() });
+    return;
+  }
+
+  const publishedMatch = pathname.match(/^\/api\/published\/([^/]+)\/draft$/);
+  if (publishedMatch && req.method === "POST") {
+    json(res, 201, { draft: await createDraftFromPublished(publishedMatch[1], await readBody(req)) });
     return;
   }
 

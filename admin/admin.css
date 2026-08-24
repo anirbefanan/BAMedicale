@@ -273,6 +273,7 @@ textarea {
 
 .actions,
 .filters,
+.view-switch,
 .draft-actions {
   display: flex;
   flex-wrap: wrap;
@@ -290,6 +291,18 @@ textarea {
   margin-bottom: 14px;
 }
 
+.view-switch {
+  margin: 0 0 12px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.view-switch button {
+  flex: 1 1 150px;
+}
+
 .filters button {
   min-height: 36px;
   border-radius: 999px;
@@ -297,9 +310,24 @@ textarea {
   font-size: 0.82rem;
 }
 
-.filters .active {
+.filters .active,
+.view-switch .active {
   background: rgba(255, 106, 95, 0.22);
   border-color: rgba(255, 106, 95, 0.58);
+}
+
+.button-like {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 0.72rem 1rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .queue-list {
