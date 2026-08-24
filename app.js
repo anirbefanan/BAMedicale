@@ -35,8 +35,10 @@ function renderHome() {
 function renderLibrary() {
   document.querySelectorAll("[data-library-list]").forEach((target) => {
     target.innerHTML = data.library.concat(data.library.filter((item) => item.type !== "Indonesia report")).map((item, index) => {
+      const article = item.reader && data.articles ? data.articles[item.reader] : null;
       const action = item.reader ? `<a href="${item.href}" class="text-link" data-article-reader="${item.reader}">Open overview <span>→</span></a>` : `<a href="${item.href}" class="text-link">Open overview <span>→</span></a>`;
-      return `<article class="knowledge-card ${index > 4 ? "is-pro" : ""}"><span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div>${action}${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`;
+      const media = article?.cover ? `<figure class="knowledge-card__media"><img src="${escapeHtml(article.cover)}" alt="Editorial visual for ${escapeHtml(item.title)}" width="1448" height="1086" loading="lazy"></figure>` : "";
+      return `<article class="knowledge-card ${article?.cover ? "knowledge-card--with-media" : ""} ${index > 4 ? "is-pro" : ""}">${media}<span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div>${action}${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`;
     }).join("");
   });
 }
@@ -61,8 +63,7 @@ function initArticleReader() {
     const article = data.articles[id];
     if (!article) return;
     pdf.href = article.sourcePdf;
-    const cover = article.cover ? `<figure class="article-reader__cover"><img src="${escapeHtml(article.cover)}" alt="Editorial visual for ${escapeHtml(article.title)}" width="1448" height="1086" loading="eager"></figure>` : "";
-    body.innerHTML = `<header class="article-reader__hero"><div class="article-reader__hero-copy"><p class="eyebrow">${escapeHtml(article.label)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.dek)}</p><div class="article-reader__stats">${article.stats.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div></div>${cover}</header><section class="article-reader__intro">${article.intro.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>${article.sections.map(renderSection).join("")}<section class="article-reader__takeaways"><p class="eyebrow">Key policy takeaways</p><h2>What this means for public education.</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section><section class="article-reader__references"><p class="eyebrow">References and sources</p>${article.references.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>`;
+    body.innerHTML = `<header class="article-reader__hero"><p class="eyebrow">${escapeHtml(article.label)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.dek)}</p><div class="article-reader__stats">${article.stats.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div></header><section class="article-reader__intro">${article.intro.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>${article.sections.map(renderSection).join("")}<section class="article-reader__takeaways"><p class="eyebrow">Key policy takeaways</p><h2>What this means for public education.</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section><section class="article-reader__references"><p class="eyebrow">References and sources</p>${article.references.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>`;
     dialog.dataset.returnFocus = opener ? "true" : "false";
     dialog.showModal();
     body.scrollTop = 0;
