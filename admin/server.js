@@ -164,6 +164,7 @@ async function saveUploadedFiles(id, files = []) {
       originalName: String(file.name),
       storedPath: path.relative(rootDir, storedPath).replace(/\\/g, "/"),
       mimeType: String(file.type || "application/octet-stream"),
+      category: cleanText(file.category) || "uploaded-source",
       size: buffer.length,
       kind: "uploaded",
       addedAt: new Date().toISOString()
@@ -219,6 +220,7 @@ async function copyLocalPaths(id, localPaths = []) {
           sourcePath: source,
           storedPath: path.relative(rootDir, storedPath).replace(/\\/g, "/"),
           mimeType: "application/octet-stream",
+          category: "local-path-source",
           size: stat.size,
           kind: "local-copy",
           addedAt: new Date().toISOString()

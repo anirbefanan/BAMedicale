@@ -86,11 +86,31 @@
             <textarea name="sourceNotes" rows="5" placeholder="Write the rough instruction only. Codex will create title, summary, placement, card treatment, and website wording based on the uploaded material."></textarea>
           </label>
 
-          <label>
-            Upload files
-            <input name="files" type="file" multiple>
-            <span class="hint">Images, PDFs, posters, documents, or small video assets. For large folders/videos, paste local paths below.</span>
-          </label>
+          <div class="upload-grid" aria-label="Upload source files by type">
+            <label>
+              Image / poster
+              <input name="imageFiles" type="file" accept="image/*" multiple>
+              <span class="hint">Cover art, posters, thumbnails, infographics, or supporting images.</span>
+            </label>
+
+            <label>
+              PDF / document
+              <input name="documentFiles" type="file" accept=".pdf,.doc,.docx,.txt,.md,.rtf,application/pdf" multiple>
+              <span class="hint">Articles, abstracts, seminar briefs, references, manuscripts, or handouts.</span>
+            </label>
+
+            <label>
+              Video / GIF
+              <input name="mediaFiles" type="file" accept="video/*,image/gif" multiple>
+              <span class="hint">Original BA Medicale video, GIF, animation, or short preview media.</span>
+            </label>
+
+            <label>
+              Other source files
+              <input name="otherFiles" type="file" multiple>
+              <span class="hint">Anything extra Codex should inspect when preparing the website entry.</span>
+            </label>
+          </div>
 
           <label>
             Local file or folder paths

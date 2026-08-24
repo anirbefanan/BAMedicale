@@ -39,13 +39,14 @@ function bytes(size) {
   return `${value.toFixed(value >= 10 || index === 0 ? 0 : 1)} ${units[index]}`;
 }
 
-function readFileAsBase64(file) {
+function readFileAsBase64(file, category) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve({
       name: file.name,
       type: file.type || "application/octet-stream",
       size: file.size,
+      category,
       dataBase64: reader.result
     });
     reader.onerror = () => reject(reader.error);
@@ -55,10 +56,17 @@ function readFileAsBase64(file) {
 
 async function payloadFromForm() {
   const data = new FormData(form);
-  const uploads = [...form.elements.files.files];
   const files = [];
-  for (const file of uploads) {
-    files.push(await readFileAsBase64(file));
+  const uploadFields = [
+    ["imageFiles", "image-poster"],
+    ["documentFiles", "pdf-document"],
+    ["mediaFiles", "video-gif"],
+    ["otherFiles", "other-source"]
+  ];
+  for (const [fieldName, category] of uploadFields) {
+    for (const file of [...form.elements[fieldName].files]) {
+      files.push(await readFileAsBase64(file, category));
+    }
   }
   return {
     contentType: data.get("contentType"),
@@ -129,7 +137,7 @@ function renderDetail(draft) {
     <li>
       <strong>${escapeHtml(file.originalName)}</strong><br>
       ${escapeHtml(file.storedPath)}<br>
-      ${escapeHtml(file.kind)} · ${bytes(file.size)}
+      ${escapeHtml(file.category || file.kind)} · ${escapeHtml(file.kind)} · ${bytes(file.size)}
     </li>
   `).join("") || "<li>No files attached yet.</li>";
   const issues = (draft.intakeIssues || []).map((issue) => `<li>${escapeHtml(issue)}</li>`).join("");

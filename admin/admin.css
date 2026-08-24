@@ -187,6 +187,22 @@ h2 {
   gap: 12px;
 }
 
+.upload-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.upload-grid label {
+  min-height: 100%;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
 label {
   display: grid;
   gap: 8px;
@@ -409,6 +425,7 @@ dialog::backdrop {
   .hero-panel,
   .workspace-grid,
   .field-grid,
+  .upload-grid,
   .checks,
   .detail-grid {
     grid-template-columns: 1fr;
