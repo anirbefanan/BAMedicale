@@ -33,7 +33,7 @@ function renderHome() {
 
 function renderLibrary() {
   document.querySelectorAll("[data-library-list]").forEach((target) => {
-    target.innerHTML = data.library.concat(data.library).map((item, index) => `<article class="knowledge-card ${index > 3 ? "is-pro" : ""}"><span>${index > 3 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div><a href="${item.href}" class="text-link">Open overview <span>→</span></a>${index > 3 ? `<i>Professional depth</i>` : ""}</div></article>`).join("");
+    target.innerHTML = data.library.concat(data.library.filter((item) => item.type !== "Indonesia report")).map((item, index) => `<article class="knowledge-card ${index > 4 ? "is-pro" : ""}"><span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div><a href="${item.href}" class="text-link">Open overview <span>→</span></a>${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`).join("");
   });
 }
 
@@ -98,9 +98,10 @@ function initSearch() {
   if (!input || !output) return;
   const results = [
     ["I found a lump", "Public guide", "A lump can have many causes. Learn how clinical evaluation, imaging, and biopsy may each contribute.", "public.html#diagnosis"], ["Tumor vs cancer", "Public guide", "Understand why a tumor is not always cancer, and why a malignant tumor can invade or spread.", "public.html#tumor-cancer"], ["Biopsy", "Diagnosis", "How tissue or cell sampling can help establish a diagnosis and guide further testing.", "public.html#diagnosis"], ["Cancer staging", "Professional", "An orientation to stage, TNM language, and how staging supports treatment planning.", "clinical.html#staging"], ["Immunotherapy", "Treatment", "A treatment concept that uses the immune system in selected cancer settings.", "public.html#treatment"], ["Thyroid nodule", "Disease explorer", "Start with thyroid and endocrine neoplasms, then follow diagnosis and clinical routes.", "index.html#explorer"]
-  ];
+  ].concat(data.library.map((item) => [item.title, item.type, item.text, item.href]));
   const show = (query = "") => {
-    const filtered = results.filter((item) => item.join(" ").toLowerCase().includes(query.toLowerCase()));
+    const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+    const filtered = results.filter((item) => terms.every((term) => item.join(" ").toLowerCase().includes(term)));
     output.innerHTML = filtered.length ? filtered.map(([title, label, text, href]) => `<a class="search-result" href="${href}"><span>${label}</span><h2>${title}</h2><p>${text}</p><b>→</b></a>`).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a symptom, test, body system, or treatment term.</h2><p>Search is currently an editorial navigation tool. More indexed content can be added through the central content registry.</p></div>`;
   };
   input.addEventListener("input", () => show(input.value)); show();
