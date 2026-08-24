@@ -2,6 +2,7 @@ const data = window.BAMEDICALE_DATA;
 const icon = (name) => `<svg aria-hidden="true"><use href="#i-${name}"></use></svg>`;
 const route = window.location.pathname.split("/").pop().replace(".html", "") || "index";
 document.body.classList.add(`route-${route}`);
+const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[char]));
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
@@ -33,8 +34,45 @@ function renderHome() {
 
 function renderLibrary() {
   document.querySelectorAll("[data-library-list]").forEach((target) => {
-    target.innerHTML = data.library.concat(data.library.filter((item) => item.type !== "Indonesia report")).map((item, index) => `<article class="knowledge-card ${index > 4 ? "is-pro" : ""}"><span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div><a href="${item.href}" class="text-link">Open overview <span>→</span></a>${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`).join("");
+    target.innerHTML = data.library.concat(data.library.filter((item) => item.type !== "Indonesia report")).map((item, index) => {
+      const action = item.reader ? `<a href="${item.href}" class="text-link" data-article-reader="${item.reader}">Open overview <span>→</span></a>` : `<a href="${item.href}" class="text-link">Open overview <span>→</span></a>`;
+      return `<article class="knowledge-card ${index > 4 ? "is-pro" : ""}"><span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div>${action}${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`;
+    }).join("");
   });
+}
+
+function initArticleReader() {
+  const triggers = document.querySelectorAll("[data-article-reader]");
+  if (!triggers.length || !data.articles) return;
+  const dialog = document.createElement("dialog");
+  dialog.className = "article-reader";
+  dialog.innerHTML = `<div class="article-reader__shell"><div class="article-reader__bar"><p>BA Medicale digital reader</p><div><a data-article-pdf target="_blank" rel="noreferrer">Open source PDF</a><button type="button" data-article-close aria-label="Close article reader">Close</button></div></div><article class="article-reader__body" tabindex="0"></article></div>`;
+  document.body.append(dialog);
+  const body = dialog.querySelector(".article-reader__body");
+  const pdf = dialog.querySelector("[data-article-pdf]");
+  const close = dialog.querySelector("[data-article-close]");
+  const renderCompare = (rows = []) => {
+    if (!rows.length) return "";
+    const [head, ...bodyRows] = rows;
+    return `<div class="article-reader__table" role="table" aria-label="Clinical comparison">${head.map((cell) => `<b role="columnheader">${escapeHtml(cell)}</b>`).join("")}${bodyRows.map((row) => row.map((cell) => `<span role="cell">${escapeHtml(cell)}</span>`).join("")).join("")}</div>`;
+  };
+  const renderSection = (section, index) => `<section class="article-reader__section"><span>${String(index + 1).padStart(2, "0")}</span><h2>${escapeHtml(section.title)}</h2>${(section.body || []).map((item) => `<p>${escapeHtml(item)}</p>`).join("")}${renderCompare(section.compare)}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}</section>`;
+  const open = (id, opener) => {
+    const article = data.articles[id];
+    if (!article) return;
+    pdf.href = article.sourcePdf;
+    body.innerHTML = `<header class="article-reader__hero"><p class="eyebrow">${escapeHtml(article.label)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.dek)}</p><div class="article-reader__stats">${article.stats.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div></header><section class="article-reader__intro">${article.intro.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>${article.sections.map(renderSection).join("")}<section class="article-reader__takeaways"><p class="eyebrow">Key policy takeaways</p><h2>What this means for public education.</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section><section class="article-reader__references"><p class="eyebrow">References and sources</p>${article.references.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>`;
+    dialog.dataset.returnFocus = opener ? "true" : "false";
+    dialog.showModal();
+    body.scrollTop = 0;
+    body.focus();
+  };
+  triggers.forEach((trigger) => trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    open(trigger.dataset.articleReader, trigger);
+  }));
+  close.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 }
 
 function renderEbooks() {
@@ -193,4 +231,4 @@ async function renderVideoHub() {
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 
-shell(); renderHome(); renderLibrary(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); renderVideoHub();
+shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); renderVideoHub();

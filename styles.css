@@ -517,4 +517,41 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
   background-image:url("assets/journey/journey-08-survivorship.png?v=journey08-final-20260824");
 }
 
+.article-reader{width:min(1180px,calc(100% - 28px));height:min(92dvh,920px);padding:0;overflow:hidden;color:#fff;background:#090102;border:1px solid rgba(255,150,138,.42);border-radius:18px;box-shadow:0 30px 90px rgba(0,0,0,.72)}
+.article-reader::backdrop{background:rgba(0,0,0,.78);backdrop-filter:blur(8px)}
+.article-reader__shell{display:grid;height:100%;grid-template-rows:auto minmax(0,1fr);background:radial-gradient(circle at 15% 0,rgba(195,44,39,.24),transparent 34rem),linear-gradient(145deg,#190305,#070102)}
+.article-reader__bar{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 12px 10px 18px;border-bottom:1px solid rgba(255,139,128,.25);background:linear-gradient(90deg,rgba(39,3,7,.94),rgba(12,1,2,.82));backdrop-filter:blur(14px)}
+.article-reader__bar p{margin:0;color:#ffd7d0;font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.article-reader__bar div{display:flex;gap:8px;align-items:center}
+.article-reader__bar a,.article-reader__bar button{min-height:34px;padding:8px 11px;color:#fff;background:rgba(120,18,21,.72);border:1px solid rgba(255,165,154,.36);border-radius:9px;font:inherit;font-size:.72rem;font-weight:820}
+.article-reader__bar a:hover,.article-reader__bar button:hover,.article-reader__bar a:focus-visible,.article-reader__bar button:focus-visible{background:#c23330}
+.article-reader__body{overflow:auto;padding:clamp(18px,3vw,36px);scrollbar-color:#c13a36 #190305}
+.article-reader__hero{display:grid;gap:16px;padding:clamp(22px,4vw,42px);overflow:hidden;background:linear-gradient(145deg,rgba(93,12,16,.9),rgba(21,2,5,.88));border:1px solid rgba(255,156,144,.25);border-radius:18px;box-shadow:inset 0 1px rgba(255,255,255,.08),0 18px 42px rgba(0,0,0,.27)}
+.article-reader__hero h1{max-width:850px;margin:0;font-family:var(--display);font-size:clamp(2rem,4.2vw,4.45rem);line-height:.96;letter-spacing:-.04em}
+.article-reader__hero>p:not(.eyebrow){max-width:760px;margin:0;color:rgba(255,255,255,.76);font-size:clamp(.92rem,1.25vw,1.05rem)}
+.article-reader__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.article-reader__stats div{padding:15px;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.13);border-radius:12px}
+.article-reader__stats strong{display:block;color:#fff;font-family:var(--display);font-size:clamp(1.45rem,2.8vw,2.45rem);line-height:1}
+.article-reader__stats span{display:block;margin-top:5px;color:#ffb8ad;font-size:.68rem;font-weight:820;letter-spacing:.06em;text-transform:uppercase}
+.article-reader__intro,.article-reader__section,.article-reader__takeaways,.article-reader__references{margin-top:14px;padding:clamp(18px,2.4vw,28px);background:rgba(255,253,251,.94);border:1px solid rgba(255,255,255,.72);border-radius:15px;box-shadow:0 14px 34px rgba(0,0,0,.18);color:#1c0d0d}
+.article-reader__intro{display:grid;grid-template-columns:1fr 1fr;gap:18px;font-size:1rem}
+.article-reader__intro p,.article-reader__section p{margin:0;color:#4a3432}
+.article-reader__intro p+p,.article-reader__section p+p{margin-top:10px}
+.article-reader__section{position:relative}
+.article-reader__section>span{display:inline-grid;width:34px;aspect-ratio:1;place-items:center;margin-bottom:10px;color:#fff;background:#9d2823;border-radius:50%;font-size:.72rem;font-weight:850}
+.article-reader__section h2,.article-reader__takeaways h2{margin:0 0 12px;font-family:var(--display);font-size:clamp(1.35rem,2vw,2rem);line-height:1.05;letter-spacing:-.02em;color:#250606}
+.article-reader__section ul,.article-reader__takeaways ul{display:grid;gap:9px;margin:16px 0 0;padding:0;list-style:none}
+.article-reader__section li,.article-reader__takeaways li{position:relative;padding:10px 12px 10px 32px;background:#fff8f4;border:1px solid rgba(103,24,20,.12);border-radius:10px;color:#4a3432;font-size:.9rem}
+.article-reader__section li::before,.article-reader__takeaways li::before{position:absolute;top:15px;left:13px;width:7px;aspect-ratio:1;content:"";background:#c73631;border-radius:50%}
+.article-reader__table{display:grid;grid-template-columns:.78fr 1fr 1fr;margin-top:18px;overflow:hidden;border:1px solid rgba(103,24,20,.14);border-radius:12px}
+.article-reader__table>*{padding:11px;border-right:1px solid rgba(103,24,20,.12);border-bottom:1px solid rgba(103,24,20,.12);font-size:.82rem;line-height:1.38}
+.article-reader__table b{color:#fff;background:#5a0d10;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}
+.article-reader__table span{color:#3b2928;background:#fffdfb}
+.article-reader__takeaways{color:#fff;background:linear-gradient(145deg,rgba(91,10,14,.96),rgba(22,2,4,.98));border-color:rgba(255,153,141,.27)}
+.article-reader__takeaways h2{color:#fff}
+.article-reader__takeaways li{color:rgba(255,255,255,.84);background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.13)}
+.article-reader__references p:not(.eyebrow){margin:8px 0 0;color:#5b4441;font-size:.84rem}
+@media(max-width:700px){.article-reader{width:calc(100% - 12px);height:calc(100dvh - 12px);border-radius:12px}.article-reader__bar{align-items:flex-start;padding:9px 10px}.article-reader__bar div{flex-wrap:wrap;justify-content:flex-end}.article-reader__bar a,.article-reader__bar button{min-height:31px;padding:7px 9px;font-size:.66rem}.article-reader__body{padding:12px}.article-reader__hero{padding:21px 17px;border-radius:14px}.article-reader__hero h1{font-size:clamp(2rem,10vw,2.75rem)}.article-reader__stats,.article-reader__intro{grid-template-columns:1fr}.article-reader__stats div{padding:12px}.article-reader__intro,.article-reader__section,.article-reader__takeaways,.article-reader__references{padding:17px 15px;border-radius:13px}.article-reader__table{display:block}.article-reader__table>*{display:block;border-right:0}.article-reader__table b:not(:first-child){display:none}.article-reader__table b:first-child{border-radius:0}.article-reader__table span:nth-of-type(3n+1){color:#fff;background:#5a0d10;font-weight:800}.article-reader__table span{font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){.article-reader__bar a,.article-reader__bar button{transition:none}}
+
 
