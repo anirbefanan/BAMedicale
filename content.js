@@ -277,7 +277,7 @@ window.BAMEDICALE_DATA = {
     topics: ["Diagnosis", "Imaging", "Pathology", "Treatment Planning"],
     contentType: "Seminar",
     format: "Live webinar nasional",
-    title: "Management of Thyroid Nodules",
+    title: "Manajemen of Thyroid Nodules",
     subtitle: "\"How to Make a Good Diagnosis yang Tepat?\"",
     date: "Saturday, 19 September 2026",
     time: "09.00–11.00 WIB",
@@ -287,8 +287,8 @@ window.BAMEDICALE_DATA = {
     contact: "Melati: 0821-236-6331 · bamedicale@gmail.com",
     quota: "Limited to 1,000 participants",
     organizer: "Organized by Rumah Sakit Kanker Dharmais.",
-    host: "Department of Head and Neck proudly presents the program.",
-    audience: ["Doctors and specialists across Indonesia.", "Target participants: 1,000 doctors.", "Primary participants: general practitioners and specialist doctors; also relevant clinicians in surgery, otolaryngology, internal medicine, nuclear medicine, pathology, radiology, and oncology."],
+    host: "Department of Head and Neck proudly presents this program.",
+    audience: ["General practitioners and specialist doctors across Indonesia.", "Limited to 1,000 participants."],
     faculty: [
       ["Keynote speech", "dr. Eniarti, M.Sc., Sp.K.J., M.M.R., QHIA"],
       ["Speaker", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"],
@@ -297,12 +297,12 @@ window.BAMEDICALE_DATA = {
       ["Moderator", "dr. Adlina Karisyah, SpB"]
     ],
     sessions: [
-      ["09.00–09.40", "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"],
-      ["09.40–10.20", "Ultrasound Image and TI-RADS Classification in Thyroid Nodules", "dr. Achmad Fachri, SpRad.(K)"],
-      ["10.20–11.00", "BETHESDA Classification in Thyroid Nodules", "dr. Vinesia Lestari Riddi, SpPA., MPH"]
+      ["Current Diagnostic Approach and Therapy Selection for Thyroid Nodules", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"],
+      ["Ultrasound Image and TIRADS Classification in Thyroid Nodules", "dr. Achmad Fachri, SpRad(K)"],
+      ["BETHESDA Classification in Thyroid Nodules", "dr. Vinesia Lestari Riddi, SpPA, MPH"]
     ],
-    outcomes: ["Initial evaluation of patients with thyroid nodules", "Ultrasound interpretation using ACR TI-RADS", "When FNAB is needed", "Interpreting the Bethesda System", "When surgery is needed", "Selecting patients for active surveillance", "Indications for radioiodine", "Targeted therapy for advanced thyroid cancer", "Applying ATA, NCCN, and ETA guidelines in daily practice"],
-    artwork: "assets/events/thyroid-nodule-webinar-2026.png",
+    outcomes: ["Kemenkes SKP value", "Current evidence-based topic", "Experienced faculty", "Interactive live question-and-answer session"],
+    artwork: "assets/events/thyroid-nodule-webinar-sept19-2026.png",
     detailUrl: "events/management-thyroid-nodules-2026.html"
   },
   profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible medical education: enough context to help people ask better questions, and enough structure to help doctors and healthcare workers continue learning across medical disciplines.", image: "assets/medical/oncology-cellular-hero.png" }
