@@ -111,14 +111,13 @@ window.BAMEDICALE_DATA = {
         "WHO: Cancer Country Profiles - Indonesia Epidemiological and Infrastructure Indicators."
       ],
       promotion: {
-        hook: "What do Indonesia's 2026 cancer projections mean for public awareness and health-system planning?",
-        value: [
-          "Tumor and cancer are related terms, but they do not describe the same clinical behavior.",
-          "Incidence and mortality patterns differ across cancer sites and require different responses.",
-          "Prevention, early detection, and access to appropriate care remain central public-health priorities."
+        hook: "Does every tumor mean cancer? Not exactly.",
+        teaser: [
+          "Knowing the difference can help people respond thoughtfully to a new or changing lump.",
+          "Indonesia's 2026 cancer update also shows why prevention, screening, and timely care matter."
         ],
-        caption: "A concise evidence-aware review of Indonesia's projected cancer burden, the distinction between tumor and cancer, and priorities for prevention and early detection.",
-        hashtags: ["#BAMedicaleCom", "#CancerEducation", "#EarlyDetection", "#Oncology", "#IndonesiaHealth"]
+        cta: "Read the full article at BAMedicale.com",
+        hashtags: ["#CancerEducation", "#TumorAwareness", "#BAMedicaleCom"]
       }
     }
   },

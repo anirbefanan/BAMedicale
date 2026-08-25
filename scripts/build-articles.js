@@ -32,12 +32,28 @@ const renderCompare = (rows = []) => {
 const renderSection = (section) => `<section class="seo-article-section"><h2>${escape(section.title)}</h2>${(section.body || []).map((text) => `<p>${escape(text)}</p>`).join("")}${renderCompare(section.compare)}${section.bullets ? `<ul>${section.bullets.map((text) => `<li>${escape(text)}</li>`).join("")}</ul>` : ""}</section>`;
 const shareUrl = (article) => `${domain}/articles/${article.slug}.html`;
 const json = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+const toHashtag = (value) => {
+  const compact = String(value || "").replace(/[^a-z0-9]+/gi, "");
+  return compact ? `#${compact}` : "";
+};
+const socialPromotion = (article, canonical) => {
+  const promotion = article.promotion || {};
+  const teaser = Array.isArray(promotion.teaser) ? promotion.teaser : [promotion.teaser || promotion.caption || article.excerpt];
+  const hashtags = [...new Set((promotion.hashtags || [toHashtag(article.primaryTopic), "#BAMedicaleCom"]).map((tag) => String(tag || "").trim()).filter(Boolean))].slice(0, 3);
+  return {
+    hook: promotion.hook || article.title,
+    teaser: teaser.filter(Boolean).slice(0, 2),
+    cta: promotion.cta || "Read the full article at BAMedicale.com",
+    hashtags,
+    text: [promotion.hook || article.title, ...teaser.filter(Boolean).slice(0, 2), promotion.cta || "Read the full article at BAMedicale.com", canonical, hashtags.join(" ")].filter(Boolean).join("\n\n")
+  };
+};
 
 const renderPage = (article, index) => {
   const canonical = shareUrl(article);
   const previous = articles[index - 1];
   const next = articles[index + 1];
-  const promotion = article.promotion || {};
+  const promotion = socialPromotion(article, canonical);
   const socialText = `${article.title} — ${canonical}`;
   const schema = {
     "@context": "https://schema.org",
@@ -84,7 +100,7 @@ const renderPage = (article, index) => {
       <nav class="article-page-nav" aria-label="Article navigation">${previous ? `<a href="${previous.slug}.html">← <span>Previous Article</span><b>${escape(previous.title)}</b></a>` : `<span aria-hidden="true"></span>`}<a href="../library.html"><span>Back to</span><b>Medical Library</b></a>${next ? `<a href="${next.slug}.html"><span>Next Article</span><b>${escape(next.title)}</b> →</a>` : `<span aria-hidden="true"></span>`}</nav>
     </article>
   </main>
-  <dialog class="article-promotion" data-promotion-dialog><div class="article-promotion__bar"><p>BA Medicale promotion toolkit</p><button type="button" data-promote-close>Close</button></div><div class="article-promotion__body"><p>This prepares source-faithful copy; it does not publish to social platforms.</p><div class="article-promotion__grid">${formats.map((format) => `<article><span>${format}</span><h2>${escape(promotion.hook || article.title)}</h2><p>${escape(promotion.caption || article.excerpt)}</p><ul>${(promotion.value || article.takeaways.slice(0, 3)).map((text) => `<li>${escape(text)}</li>`).join("")}</ul><b>Read the full article at BAMedicale.com</b><small>${canonical}</small><p>${escape((promotion.hashtags || []).join(" "))}</p><button type="button" data-copy-promotion>Copy ${format} copy</button></article>`).join("")}</div></div></dialog>
+  <dialog class="article-promotion" data-promotion-dialog><div class="article-promotion__bar"><p>BA Medicale promotion toolkit</p><button type="button" data-promote-close>Close</button></div><div class="article-promotion__body"><p>This prepares source-faithful social teasers; it does not publish to social platforms.</p><div class="article-promotion__grid">${formats.map((format) => `<article><span>${format}</span><h2>${escape(promotion.hook)}</h2>${promotion.teaser.map((text) => `<p>${escape(text)}</p>`).join("")}<b>${escape(promotion.cta)}</b><small>${canonical}</small><p>${escape(promotion.hashtags.join(" "))}</p><button type="button" data-copy-promotion="${escape(promotion.text)}">Copy ${format} copy</button></article>`).join("")}</div></div></dialog>
   <footer class="seo-static-footer"><p>BA Medicale provides education, not individual diagnosis or treatment advice.</p><a href="../library.html">Return to the Medical Library</a></footer>
   <script src="../content.js?v=article-library-system-20260825"></script><script src="../app.js?v=article-library-system-20260825"></script>
 </body></html>`;

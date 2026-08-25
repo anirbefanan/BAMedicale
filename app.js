@@ -18,6 +18,24 @@ const safeUrl = (value, { external = false, hosts = [] } = {}) => {
 const safeInternalUrl = (value) => safeUrl(value);
 const safeExternalUrl = (value) => safeUrl(value, { external: true });
 const safeImageUrl = (value) => safeUrl(value, { external: true, hosts: ["i.ytimg.com"] });
+const copyText = async (value) => {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(value);
+      return true;
+    } catch {}
+  }
+  const fallback = document.createElement("textarea");
+  fallback.value = value;
+  fallback.setAttribute("readonly", "");
+  fallback.style.position = "fixed";
+  fallback.style.opacity = "0";
+  document.body.append(fallback);
+  fallback.select();
+  const copied = document.execCommand("copy");
+  fallback.remove();
+  return copied;
+};
 const safeYouTubeEmbedUrl = (value) => {
   const safe = safeUrl(value, { external: true, hosts: ["www.youtube-nocookie.com"] });
   if (!safe) return "";
@@ -380,7 +398,7 @@ function initArticlePageTools() {
   document.querySelectorAll("[data-copy-link]").forEach((button) => button.addEventListener("click", async () => {
     const value = safeExternalUrl(button.dataset.copyLink);
     if (!value) return;
-    await navigator.clipboard?.writeText(value);
+    await copyText(value);
     button.textContent = "Link copied";
     closeShare();
   }));
@@ -389,9 +407,9 @@ function initArticlePageTools() {
   dialog?.querySelector("[data-promote-close]")?.addEventListener("click", () => dialog.close());
   dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
   dialog?.querySelectorAll("[data-copy-promotion]").forEach((button) => button.addEventListener("click", async () => {
-    const card = button.closest("article");
-    const copy = Array.from(card.querySelectorAll("h2,p,li,b,small")).map((node) => node.textContent.trim()).filter(Boolean).join("\n");
-    await navigator.clipboard?.writeText(copy);
+    const copy = button.dataset.copyPromotion;
+    if (!copy) return;
+    await copyText(copy);
     button.textContent = "Copy ready";
   }));
 }
