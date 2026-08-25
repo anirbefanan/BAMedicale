@@ -819,6 +819,14 @@ When sufficient source material or context exists, automatically turn it into co
 - For every new Article, eBook, Seminar/Event, or Video, Primary Audience remains mandatory and user-defined as `PUBLIC`, `DOCTOR`, or `HEALTHCARE WORKER`. If omitted, stop before implementation and ask only: “Primary audience: Public, Doctor, or Healthcare Worker?” Then automatically infer disease classification and continue the established content-specific workflow.
 - Homepage disease links route to `library.html?disease=<controlled-id>` and the Library must read the same registry. Keep disease labels compact and useful in cards, readers, breadcrumbs, filtering, related content, and SEO without badge overload or thin disease pages.
 
+## BA MEDICALE POSITIONING PROVEN PATTERN
+
+- BA Medicale is a physician-led medical education platform covering diseases and health conditions across medical disciplines. Core promise: **Understand disease. Navigate care. Make informed decisions.**
+- Primary audiences remain `PUBLIC`, `DOCTOR`, and `HEALTHCARE WORKER`; Disease Explorer is the shared discovery architecture, while audience remains a separate classification dimension.
+- Oncology and neoplasia remain an important disease domain, not the platform's exclusive scope. Keep specialty terminology in disease-specific content, verified physician expertise, articles, events, and metadata where medically relevant.
+- Platform-level copy, metadata, shared UI, and future Content Intelligence output must not revert to tumor/cancer-only positioning. Use prevention, screening, and early-detection language only where medically applicable.
+- BA Medicale provides education, not individualized diagnosis or treatment. Preserve this boundary in public, professional, and shared surfaces.
+
 ---
 
 # 20. COMPLETION

@@ -305,5 +305,5 @@ window.BAMEDICALE_DATA = {
     artwork: "assets/events/thyroid-nodule-webinar-2026.png",
     detailUrl: "events/management-thyroid-nodules-2026.html"
   },
-  profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible oncology education: enough context to help people ask better questions, and enough structure to help clinicians continue learning.", image: "assets/medical/oncology-cellular-hero.png" }
+  profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible medical education: enough context to help people ask better questions, and enough structure to help doctors and healthcare workers continue learning across medical disciplines.", image: "assets/medical/oncology-cellular-hero.png" }
 };

@@ -3,7 +3,7 @@
     {
       "id": "ba-medicale-clinical-learning-preview",
       "title": "BA Medicale Clinical Learning Preview",
-      "short_description": "An original BA Medicale visual learning asset for introducing structured tumor and cancer education in a clinical setting.",
+      "short_description": "An original BA Medicale visual learning asset for introducing structured medical education across diseases and health conditions in a clinical setting.",
       "source_label": "BA Medicale Original",
       "source": "ba-medicale",
       "topic": "Clinical education",
@@ -23,7 +23,7 @@
     {
       "id": "ba-medicale-original-initial-scene",
       "title": "BA Medicale Original Visual Opening",
-      "short_description": "An original BA Medicale opening-scene video asset for introducing the platform's tumor and cancer education experience.",
+      "short_description": "An original BA Medicale opening-scene video asset for introducing the platform's physician-led medical education experience.",
       "source_label": "BA Medicale Original",
       "source": "ba-medicale",
       "topic": "Platform introduction",
@@ -43,7 +43,7 @@
     {
       "id": "ba-medicale-medical-office-learning-brief",
       "title": "BA Medicale Medical Office Learning Brief",
-      "short_description": "An original BA Medicale office-based learning video for introducing clear tumor and cancer education in a calm clinical setting.",
+      "short_description": "An original BA Medicale office-based learning video for introducing clear medical education in a calm clinical setting.",
       "source_label": "BA Medicale Original",
       "source": "ba-medicale",
       "topic": "Clinical education",
