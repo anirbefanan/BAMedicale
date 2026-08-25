@@ -822,17 +822,18 @@ When sufficient source material or context exists, automatically turn it into co
 
 ## DISEASE TAXONOMY / CONTENT CLASSIFICATION PROVEN PATTERN
 
-- `content.js` `diseaseTaxonomy` is the single controlled top-level classification for the homepage Disease Explorer, Library discovery, Articles, eBooks, Seminars, Videos, and future educational content. It contains 26 groups; Cancer & Neoplastic Diseases is one category within BA Medicale's broader medical scope. Never create a competing taxonomy.
+- `content.js` `diseaseTaxonomy` is the single controlled top-level classification for the homepage Disease Explorer, Library discovery, Articles, eBooks, Seminars, Videos, and future educational content. It must contain exactly 26 groups. Never create a competing taxonomy or delete, merge, rename, replace, or casually re-key a group.
 - Every content record has exactly one source-derived `primaryDiseaseGroup`, an identifiable `diseaseCondition` when supported, and restrained topic/tags; genuinely cross-system items may use `secondaryDiseaseGroups` for discovery only. Classification must come from the actual source, remain separate from audience, and never duplicate primary audience placement.
 - For every new Article, eBook, Seminar/Event, or Video, Primary Audience remains mandatory and user-defined as `PUBLIC`, `DOCTOR`, or `HEALTHCARE WORKER`. If omitted, stop before implementation and ask only: “Primary audience: Public, Doctor, or Healthcare Worker?” Then automatically infer disease classification and continue the established content-specific workflow.
 - Homepage disease links route to `library.html?disease=<controlled-id>` and the Library must read the same registry. Keep disease labels compact and useful in cards, readers, breadcrumbs, filtering, related content, and SEO without badge overload or thin disease pages.
 
-## BA MEDICALE POSITIONING PROVEN PATTERN
+## BA MEDICALE POSITIONING / ONCOLOGY FLAGSHIP PROVEN PATTERN
 
 - BA Medicale is a physician-led medical education platform covering diseases and health conditions across medical disciplines. Core promise: **Understand disease. Navigate care. Make informed decisions.**
 - Primary audiences remain `PUBLIC`, `DOCTOR`, and `HEALTHCARE WORKER`; Disease Explorer is the shared discovery architecture, while audience remains a separate classification dimension.
-- Oncology and neoplasia remain an important disease domain, not the platform's exclusive scope. Keep specialty terminology in disease-specific content, verified physician expertise, articles, events, and metadata where medically relevant.
-- Platform-level copy, metadata, shared UI, and future Content Intelligence output must not revert to tumor/cancer-only positioning. Use prevention, screening, and early-detection language only where medically applicable.
+- Cancer & Neoplastic Diseases is the permanent #1 Disease Explorer flagship and receives stronger visual/discovery hierarchy without making BA Medicale cancer-only. All other groups remain first-class supported domains with stable IDs, mappings, and routes.
+- Initial editorial depth prioritizes neoplasia, tumor, cancer, oncology, surgical oncology, Head & Neck oncology, and breast cancer in alignment with verified physician expertise. Use cross-system metadata rather than duplicate records.
+- Platform copy and SEO communicate broad medical education plus genuine oncology/neoplasia depth. Never keyword-stuff, create unsupported authority claims, or let editorial priority override a more relevant unrelated search result.
 - BA Medicale provides education, not individualized diagnosis or treatment. Preserve this boundary in public, professional, and shared surfaces.
 
 ---

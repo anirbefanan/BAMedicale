@@ -6,6 +6,7 @@ window.BAMEDICALE_DATA = {
     { label: "Kementerian Kesehatan RI", note: "Indonesia cancer policy and early detection context", url: "https://www.kemkes.go.id/" }
   ],
   diseaseTaxonomy: [
+    { id: "cancer-neoplastic", name: "Cancer & Neoplastic Diseases", descriptor: "Tumor, neoplasia, cancer, oncology, and cancer-related care", icon: "ribbon" },
     { id: "cardiovascular", name: "Cardiovascular Diseases", descriptor: "Heart, blood vessels, and circulation", icon: "heart" },
     { id: "respiratory", name: "Respiratory Diseases", descriptor: "Lungs, airways, and breathing", icon: "lungs" },
     { id: "neurological", name: "Neurological Diseases", descriptor: "Brain, nerves, and spinal cord", icon: "brain" },
@@ -14,7 +15,6 @@ window.BAMEDICALE_DATA = {
     { id: "kidney-urinary", name: "Kidney & Urinary Diseases", descriptor: "Kidneys, urinary tract, and bladder", icon: "kidney" },
     { id: "endocrine-metabolic", name: "Endocrine & Metabolic Diseases", descriptor: "Hormones, diabetes, and metabolism", icon: "molecule" },
     { id: "hematologic", name: "Hematologic Diseases", descriptor: "Blood, bone marrow, and blood disorders", icon: "blood" },
-    { id: "cancer-neoplastic", name: "Cancer & Neoplastic Diseases", descriptor: "Benign and malignant tumor and neoplasia", icon: "ribbon" },
     { id: "infectious", name: "Infectious Diseases", descriptor: "Bacterial, viral, fungal, and parasitic infections", icon: "microbe" },
     { id: "musculoskeletal", name: "Musculoskeletal Diseases", descriptor: "Bones, muscles, joints, and soft tissues", icon: "bone" },
     { id: "rheumatologic-autoimmune", name: "Rheumatologic & Autoimmune Diseases", descriptor: "Autoimmune and inflammatory disorders", icon: "shield" },
