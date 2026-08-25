@@ -3,7 +3,9 @@
     "admin": "node admin/server.js",
     "admin:check": "node admin/server.js --check",
     "articles:build": "node scripts/build-articles.js",
-    "articles:check": "node scripts/build-articles.js --check"
+    "articles:check": "node scripts/build-articles.js --check",
+    "seminars:build": "node scripts/build-articles.js",
+    "seminars:check": "node scripts/build-articles.js --check"
   },
   "private": true,
   "devDependencies": {}

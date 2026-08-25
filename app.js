@@ -116,7 +116,7 @@ function renderHome() {
     const fillToFive = (items) => items.concat(Array.from({ length: Math.max(0, 5 - items.length) }, () => ({ title: "Coming soon", meta: "New learning update in preparation", pending: true })));
     const list = (items, href) => fillToFive(items).slice(0, 5).map((item) => `<a class="home-update-item${item.pending ? " is-pending" : ""}" href="${href}"><span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">→</i></a>`).join("");
     const articles = articleRecords().map((item) => ({ title: item.title, meta: item.primaryTopic }));
-    const seminars = [{ title: data.featuredSeminar.title, meta: `${data.featuredSeminar.date} · ${data.featuredSeminar.time}` }].concat(data.events.map((item) => ({ title: item.title, meta: `${item.date} · ${item.format}` })));
+    const seminars = Object.values(data.seminars || {}).sort((a, b) => String(a.startDate).localeCompare(String(b.startDate))).map((item) => ({ title: item.title, meta: `${item.date} · ${item.time}` }));
     const ebooks = data.ebooks.map((item) => ({ title: item.title, meta: item.state }));
     updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>New reading, upcoming learning, and recently added eBooks in one practical overview.</p></div><div class="approved-home-updates__grid"><section class="home-update-card"><div><p>Articles</p><h3>Latest reading</h3></div>${list(articles, "library.html")}</section><section class="home-update-card"><div><p>Upcoming event</p><h3>Seminars &amp; courses</h3></div>${list(seminars, "seminar.html")}</section><section class="home-update-card"><div><p>eBooks</p><h3>Recently added</h3></div>${list(ebooks, "ebooks.html")}</section></div>`;
   }
@@ -221,43 +221,100 @@ function renderEbookDetail() {
   target.innerHTML = `<article class="ebook-card"><div class="ebook-visual ebook-visual--1"><img src="${art}" alt="Contextual editorial artwork for ${item.title}" width="1024" height="1024" loading="lazy"><span>01</span></div><div><p class="eyebrow">${item.state}</p><h2>${item.title}</h2><p class="audience">${item.audience}</p><p>${item.text}</p><div class="ebook-actions"><strong>${item.price}</strong><a class="button button-outline" href="ebooks.html">Back to catalog</a><a class="button button-dark" href="login.html">Unlock on release</a></div></div></article>`;
 }
 
-function renderEvents() {
-  document.querySelectorAll("[data-events]").forEach((target) => target.innerHTML = data.events.map((item) => `<article class="event-card"><div><span>${item.date}</span><i>${item.format}</i></div><h2>${item.title}</h2><p>${item.text}</p><a class="text-link" href="resources.html">Explore related resources <span>→</span></a></article>`).join(""));
+function seminarRecords() {
+  return Object.values(data.seminars || {}).filter((item) => item.startDate && item.endDate);
 }
 
-function renderFeaturedSeminar() {
-  const target = document.querySelector("[data-featured-seminar]");
-  if (!target || !data?.featuredSeminar) return;
-  const seminar = data.featuredSeminar;
-  const meta = [
-    ["Date", seminar.date],
-    ["Time", seminar.time],
-    ["Format", seminar.location]
-  ];
-  target.innerHTML = `<div class="featured-seminar__hero"><div class="featured-seminar__intro"><p class="eyebrow">Upcoming program</p><p class="featured-seminar__format">${seminar.format}</p><h1>${seminar.title}</h1>${seminar.subtitle ? `<p class="featured-seminar__subtitle">${seminar.subtitle}</p>` : ""}<p class="featured-seminar__lead">A live physician webinar focused on diagnostic assessment and treatment selection for thyroid nodules, including ultrasound imaging and pathology classification.</p><dl class="featured-seminar__meta">${meta.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join("")}</dl>${seminar.detailUrl ? `<a class="text-link" href="${seminar.detailUrl}">Open crawlable event details <span>→</span></a>` : ""}</div><figure class="featured-seminar__poster"><button type="button" class="featured-seminar__poster-trigger" data-seminar-poster="${seminar.artwork}" data-seminar-poster-alt="Official event poster for ${seminar.title}" aria-haspopup="dialog"><img src="${seminar.artwork}" alt="Official event poster for ${seminar.title}" width="1086" height="1448" loading="eager"><span>Inspect full program poster <b aria-hidden="true">↗</b></span></button><figcaption>Original official program artwork</figcaption></figure></div><div class="featured-seminar__details"><article class="featured-seminar__context"><p class="eyebrow">Program context</p><h2>Department-led thyroid nodule education with Kemenkes accreditation.</h2><p>${seminar.host} ${seminar.organizer}</p><p>Accreditation: ${seminar.accreditation}</p></article><article class="featured-seminar__audience"><p class="eyebrow">Who it is for</p><h2>For general practitioners and specialist doctors across Indonesia.</h2><ul>${seminar.audience.map((item) => `<li>${item}</li>`).join("")}</ul></article><article class="featured-seminar__access"><p class="eyebrow">Registration and access</p><h2>Live on Zoom with limited places.</h2><p>${seminar.quota}</p><p>${seminar.contact}</p><a class="button button-dark" href="https://${seminar.registration}" target="_blank" rel="noopener noreferrer">Open registration</a><p class="featured-seminar__access-link">${seminar.registration}</p></article></div><section class="featured-seminar__program" aria-labelledby="featured-program-title"><div class="featured-seminar__section-head"><p class="eyebrow">Program focus</p><h2 id="featured-program-title">Three verified clinical topics.</h2></div><ol>${seminar.sessions.map(([title, speaker], index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><h3>${title}</h3><p>${speaker}</p></li>`).join("")}</ol></section><section class="featured-seminar__outcomes" aria-labelledby="featured-outcomes-title"><div class="featured-seminar__section-head"><p class="eyebrow">Program value</p><h2 id="featured-outcomes-title">Designed for current clinical learning.</h2></div><div>${seminar.outcomes.map((item, index) => `<p><span>${String(index + 1).padStart(2, "0")}</span>${item}</p>`).join("")}</div></section><section class="featured-seminar__faculty" aria-labelledby="featured-faculty-title"><div class="featured-seminar__section-head"><p class="eyebrow">Faculty and moderation</p><h2 id="featured-faculty-title">A focused specialist faculty.</h2></div><div>${seminar.faculty.map(([role, name]) => `<article><span>${role}</span><h3>${name}</h3></article>`).join("")}</div></section>`;
+function renderEvents() {
+  const target = document.querySelector("[data-seminar-library]");
+  if (!target) return;
+  const records = seminarRecords();
+  const now = new Date();
+  let audience = "ALL";
+  let pastPage = 0;
+  const pageSize = 10;
+  const groupName = (item) => diseaseGroupById(item.primaryDiseaseGroup)?.name || "General medical education";
+  const isUpcoming = (item) => new Date(item.endDate) >= now;
+  const filtered = () => records.filter((item) => audience === "ALL" || item.primaryAudience === audience);
+  const upcomingCard = (item) => `<article class="seminar-card"><div class="seminar-card__poster"><button type="button" data-seminar-poster="${escapeHtml(safeImageUrl(item.artwork))}" data-seminar-poster-alt="Official event poster for ${escapeHtml(item.title)}" aria-label="Inspect official poster for ${escapeHtml(item.title)}"><img src="${escapeHtml(safeImageUrl(item.artwork))}" alt="Official event poster for ${escapeHtml(item.title)}" width="1086" height="1448" loading="eager"></button></div><div class="seminar-card__copy"><div class="seminar-card__badges"><span>${escapeHtml(item.primaryAudience)}</span><span>${escapeHtml(groupName(item))}</span></div><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.summary)}</p><dl><div><dt>Date</dt><dd>${escapeHtml(item.date)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(item.time)}</dd></div><div><dt>Format</dt><dd>${escapeHtml(item.location)}</dd></div></dl><div class="seminar-card__actions"><button type="button" data-event-quick-read="${escapeHtml(item.id)}">Quick Read</button><a href="${escapeHtml(safeInternalUrl(item.detailUrl))}">View Event</a></div></div></article>`;
+  const pastRow = (item) => `<article class="seminar-past-row"><img src="${escapeHtml(safeImageUrl(item.artwork))}" alt="Official event poster for ${escapeHtml(item.title)}" width="1086" height="1448" loading="lazy"><div><div class="seminar-card__badges"><span>${escapeHtml(item.primaryAudience)}</span><span>${escapeHtml(groupName(item))}</span></div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><small>${escapeHtml(item.date)} · ${escapeHtml(item.topics.slice(0, 2).join(" · "))}</small></div><div class="seminar-past-row__actions"><button type="button" data-event-quick-read="${escapeHtml(item.id)}">Quick Read</button><a href="${escapeHtml(safeInternalUrl(item.detailUrl))}">View Event</a></div></article>`;
+  const render = () => {
+    const visible = filtered();
+    const upcoming = visible.filter(isUpcoming).sort((a, b) => new Date(a.startDate) - new Date(b.startDate)).slice(0, 5);
+    const past = visible.filter((item) => !isUpcoming(item)).sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
+    const pageCount = Math.max(1, Math.ceil(past.length / pageSize));
+    pastPage = Math.min(pastPage, pageCount - 1);
+    target.querySelector("[data-upcoming-events]").innerHTML = upcoming.length ? upcoming.map(upcomingCard).join("") : `<div class="seminar-empty"><h2>No upcoming events in this audience yet.</h2><p>Verified programs will appear here automatically when dates and official details are published.</p></div>`;
+    target.querySelector("[data-past-events]").innerHTML = past.length ? past.slice(pastPage * pageSize, (pastPage + 1) * pageSize).map(pastRow).join("") : `<div class="seminar-empty"><h2>No past events in this audience yet.</h2><p>Completed programs will move here automatically while their event pages remain available.</p></div>`;
+    const status = target.querySelector("[data-event-page-status]");
+    status.textContent = past.length ? `Page ${pastPage + 1} of ${pageCount}` : "No archived events";
+    target.querySelector('[data-event-page="previous"]').disabled = !past.length || pastPage === 0;
+    target.querySelector('[data-event-page="next"]').disabled = !past.length || pastPage >= pageCount - 1;
+    initSeminarPosterLightbox();
+    bindEventQuickRead();
+  };
+  target.innerHTML = `<nav class="seminar-audience" aria-label="Filter events by audience"><button type="button" class="is-active" data-event-audience="ALL">All events</button><button type="button" data-event-audience="PUBLIC">Public</button><button type="button" data-event-audience="DOCTOR">Doctors</button><button type="button" data-event-audience="HEALTHCARE WORKER">Healthcare workers</button></nav><section class="seminar-library__section"><header class="seminar-library__heading"><div><p class="eyebrow">Upcoming events</p><h2>The nearest verified learning programs.</h2></div><p>Dates, participation details, and faculty information come from official event material.</p></header><div class="seminar-upcoming-rail" data-upcoming-events></div></section><section class="seminar-library__section"><header class="seminar-library__heading"><div><p class="eyebrow">Past events</p><h2>Programs retained for reference and discovery.</h2></div><p>Completed events remain available through their canonical event pages.</p></header><div class="seminar-past-list" data-past-events></div><nav class="seminar-pagination" aria-label="Past event pages"><button type="button" data-event-page="previous">Previous</button><span data-event-page-status></span><button type="button" data-event-page="next">Next</button></nav></section>`;
+  target.querySelectorAll("[data-event-audience]").forEach((button) => button.addEventListener("click", () => { audience = button.dataset.eventAudience; pastPage = 0; target.querySelectorAll("[data-event-audience]").forEach((item) => item.classList.toggle("is-active", item === button)); render(); }));
+  target.querySelector('[data-event-page="previous"]').addEventListener("click", () => { pastPage -= 1; render(); });
+  target.querySelector('[data-event-page="next"]').addEventListener("click", () => { pastPage += 1; render(); });
+  render();
+}
+
+function bindEventQuickRead() {
+  let dialog = document.querySelector("[data-event-reader]");
+  if (!dialog) {
+    dialog = document.createElement("dialog");
+    dialog.className = "event-reader";
+    dialog.dataset.eventReader = "";
+    dialog.innerHTML = `<div class="event-reader__bar"><b>BA Medicale Event Quick Reader</b><button type="button" data-event-reader-close>Close</button></div><div class="event-reader__body" tabindex="-1"></div>`;
+    document.body.append(dialog);
+    dialog.querySelector("[data-event-reader-close]").addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+  }
+  document.querySelectorAll("[data-event-quick-read]:not([data-event-reader-bound])").forEach((button) => {
+    button.dataset.eventReaderBound = "true";
+    button.addEventListener("click", () => {
+      const item = data.seminars?.[button.dataset.eventQuickRead];
+      if (!item) return;
+      const group = diseaseGroupById(item.primaryDiseaseGroup)?.name || "General medical education";
+      const registration = item.registration ? `<a class="button button-dark" href="https://${escapeHtml(item.registration)}" target="_blank" rel="noopener noreferrer">Open registration</a>` : "";
+      dialog.querySelector(".event-reader__body").innerHTML = `<header><div><p class="eyebrow">${escapeHtml(item.format)}</p><div class="seminar-card__badges"><span>${escapeHtml(item.primaryAudience)}</span><span>${escapeHtml(group)}</span><span>${escapeHtml(item.diseaseCondition)}</span></div><h1>${escapeHtml(item.title)}</h1><p>${escapeHtml(item.summary)}</p><dl><div><dt>Date</dt><dd>${escapeHtml(item.date)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(item.time)}</dd></div><div><dt>Format</dt><dd>${escapeHtml(item.location)}</dd></div></dl>${registration}<a class="text-link" href="${escapeHtml(safeInternalUrl(item.detailUrl))}">View full Event page <span>→</span></a></div><button type="button" data-seminar-poster="${escapeHtml(safeImageUrl(item.artwork))}" data-seminar-poster-alt="Official event poster for ${escapeHtml(item.title)}"><img src="${escapeHtml(safeImageUrl(item.artwork))}" alt="Official event poster for ${escapeHtml(item.title)}" width="1086" height="1448"></button></header><section><p class="eyebrow">Program focus</p><ol>${item.sessions.map(([title, speaker]) => `<li><h2>${escapeHtml(title)}</h2><p>${escapeHtml(speaker)}</p></li>`).join("")}</ol></section><section><p class="eyebrow">Faculty and moderation</p><ul>${item.faculty.map(([role, name]) => `<li><b>${escapeHtml(role)}</b><span>${escapeHtml(name)}</span></li>`).join("")}</ul></section><footer><span>${escapeHtml(item.topics.join(" · "))}</span><small>${escapeHtml(item.organizer)}</small></footer>`;
+      dialog.showModal();
+      dialog.querySelector(".event-reader__body").focus();
+      initSeminarPosterLightbox();
+    });
+  });
 }
 
 function initSeminarPosterLightbox() {
-  const trigger = document.querySelector("[data-seminar-poster]");
-  if (!trigger) return;
-  const dialog = document.createElement("dialog");
-  dialog.className = "seminar-poster-lightbox";
-  dialog.innerHTML = `<div class="seminar-poster-lightbox__bar"><p>Program poster</p><div><button type="button" data-poster-zoom aria-pressed="false">Zoom</button><button type="button" data-poster-close aria-label="Close full program poster">Close</button></div></div><div class="seminar-poster-lightbox__viewport" tabindex="0"><img alt=""></div>`;
-  document.body.append(dialog);
+  const triggers = document.querySelectorAll("[data-seminar-poster]:not([data-poster-bound])");
+  if (!triggers.length) return;
+  let dialog = document.querySelector(".seminar-poster-lightbox");
+  if (!dialog) {
+    dialog = document.createElement("dialog");
+    dialog.className = "seminar-poster-lightbox";
+    dialog.innerHTML = `<div class="seminar-poster-lightbox__bar"><p>Program poster</p><div><button type="button" data-poster-zoom aria-pressed="false">Zoom</button><button type="button" data-poster-close aria-label="Close full program poster">Close</button></div></div><div class="seminar-poster-lightbox__viewport" tabindex="0"><img alt=""></div>`;
+    document.body.append(dialog);
+  }
   const image = dialog.querySelector("img");
   const viewport = dialog.querySelector(".seminar-poster-lightbox__viewport");
   const zoom = dialog.querySelector("[data-poster-zoom]");
   const close = dialog.querySelector("[data-poster-close]");
   const setZoom = (expanded) => { dialog.classList.toggle("is-zoomed", expanded); zoom.setAttribute("aria-pressed", String(expanded)); zoom.textContent = expanded ? "Fit" : "Zoom"; };
-  trigger.addEventListener("click", () => {
-    const source = safeInternalUrl(trigger.dataset.seminarPoster);
-    if (!source) return;
-    image.src = source;
-    image.alt = trigger.dataset.seminarPosterAlt || "Official program poster";
-    setZoom(false);
-    dialog.showModal();
-    close.focus();
+  triggers.forEach((trigger) => {
+    trigger.dataset.posterBound = "true";
+    trigger.addEventListener("click", () => {
+      const source = safeInternalUrl(trigger.dataset.seminarPoster);
+      if (!source) return;
+      image.src = source;
+      image.alt = trigger.dataset.seminarPosterAlt || "Official program poster";
+      setZoom(false);
+      dialog.showModal();
+      close.focus();
+    });
   });
+  if (dialog.dataset.bound) return;
+  dialog.dataset.bound = "true";
   zoom.addEventListener("click", () => { setZoom(!dialog.classList.contains("is-zoomed")); viewport.focus(); });
   close.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
@@ -436,4 +493,4 @@ function initArticlePageTools() {
   }));
 }
 
-shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();
+shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();

@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
+const renderEventPage = require("./event-template");
 
 const root = path.resolve(__dirname, "..");
 const domain = "https://bamedicale.com";
@@ -13,6 +14,7 @@ const articles = Object.values(context.window.BAMEDICALE_DATA.articles || {}).so
   const dateOrder = String(b.updatedDate || b.publishedDate || "").localeCompare(String(a.updatedDate || a.publishedDate || ""));
   return dateOrder || Number(b.sortOrder || 0) - Number(a.sortOrder || 0);
 });
+const seminars = Object.values(context.window.BAMEDICALE_DATA.seminars || {}).sort((a, b) => String(a.startDate).localeCompare(String(b.startDate)));
 
 const escape = (value = "") => String(value).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character]));
 const absolute = (value) => `${domain}/${String(value || "").replace(/^\//, "")}`;
@@ -28,6 +30,15 @@ for (const article of articles) {
   assert(article.promotion && article.promotion.hook && Array.isArray(article.promotion.teaser) && article.promotion.teaser.length, `${article.id}: source-specific promotion hook and teaser are required`);
   assert(Array.isArray(article.promotion.hashtags) && article.promotion.hashtags.length >= 2 && article.promotion.hashtags.length <= 3, `${article.id}: use two or three source-specific promotion hashtags`);
   assert(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug), `${article.id}: invalid slug`);
+}
+for (const seminar of seminars) {
+  for (const field of ["id", "slug", "title", "summary", "startDate", "endDate", "date", "time", "format", "artwork", "detailUrl"]) assert(seminar[field], `${seminar.id || "Seminar"}: missing ${field}`);
+  assert(["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].includes(seminar.primaryAudience), `${seminar.id}: valid primaryAudience is required`);
+  assert(diseaseGroups.has(seminar.primaryDiseaseGroup), `${seminar.id}: valid primaryDiseaseGroup is required`);
+  assert(Array.isArray(seminar.sessions) && seminar.sessions.length, `${seminar.id}: verified program sessions are required`);
+  assert(Array.isArray(seminar.faculty) && seminar.faculty.length, `${seminar.id}: verified faculty is required`);
+  assert(seminar.promotion?.hook && seminar.promotion?.teaser?.length, `${seminar.id}: source-specific event promotion is required`);
+  assert(seminar.detailUrl === `events/${seminar.slug}.html`, `${seminar.id}: detailUrl must match its canonical event slug`);
 }
 
 const renderCompare = (rows = []) => {
@@ -115,8 +126,9 @@ const renderPage = (article, index) => {
 };
 
 const outputs = new Map(articles.map((article, index) => [path.join(root, "articles", `${article.slug}.html`), renderPage(article, index)]));
-const baseUrls = ["/", "/public.html", "/clinical.html", "/library.html", "/seminar.html", "/events/management-thyroid-nodules-2026.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html"];
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${baseUrls.concat(articles.map((article) => `/articles/${article.slug}.html`)).map((url) => `  <url><loc>${domain}${url}</loc></url>`).join("\n")}\n</urlset>\n`;
+seminars.forEach((event, index) => outputs.set(path.join(root, "events", `${event.slug}.html`), renderEventPage({ event, index, seminars, diseaseGroup: diseaseGroups.get(event.primaryDiseaseGroup), domain })));
+const baseUrls = ["/", "/public.html", "/clinical.html", "/library.html", "/seminar.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html"];
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${baseUrls.concat(articles.map((article) => `/articles/${article.slug}.html`), seminars.map((event) => `/${event.detailUrl}`)).map((url) => `  <url><loc>${domain}${url}</loc></url>`).join("\n")}\n</urlset>\n`;
 outputs.set(path.join(root, "sitemap.xml"), sitemap);
 
 let mismatches = 0;
@@ -134,4 +146,4 @@ for (const [file, expected] of outputs) {
   }
 }
 if (checkOnly && mismatches) process.exitCode = 1;
-if (!mismatches) console.log(`article outputs current (${articles.length} article${articles.length === 1 ? "" : "s"})`);
+if (!mismatches) console.log(`content outputs current (${articles.length} article${articles.length === 1 ? "" : "s"}, ${seminars.length} seminar${seminars.length === 1 ? "" : "s"})`);

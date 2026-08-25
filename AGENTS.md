@@ -812,6 +812,14 @@ When sufficient source material or context exists, automatically turn it into co
 - Run `npm run articles:build` after article-record changes and `npm run articles:check` before commit. Preserve the 16:9 IMAGE FILL hero, desktop Latest 5 grid, viewport-safe touch-scrollable mobile Latest rail, ten-item audience pagination, canonical `https://bamedicale.com/articles/<slug>.html`, Quick Read, full article navigation, share tools, source PDF, SEO, and sitemap inclusion. Share menus stay anchored on desktop and recompose as a viewport-contained mobile sheet with Close, outside-tap, and Escape dismissal.
 - Future BAU is: **SOURCE → VERIFY → CLASSIFY → CREATE RECORD → BUILD → RESPONSIVE/SEO CHECK → COMMIT → PUSH → STOP**. Adding an article must not require manual library rearrangement, pagination, URL creation, metadata duplication, or sitemap editing.
 
+## SEMINAR LIBRARY PROVEN PATTERN
+
+- Maintain one seminar record in `content.js`; it drives Upcoming/Past discovery, audience filtering, Quick Read, the canonical Event page, poster, faculty, taxonomy, SEO/Event schema, sitemap, sharing, promotion, and navigation. Never duplicate event facts across presentations.
+- Official posters default to a portrait 9:16 presentation with intrinsic proportions, legible content, no distortion or transparency, and a viewport-safe click/zoom viewer. Preserve critical poster text, dates, faculty, logos, and registration details over aggressive cropping.
+- Upcoming Events are the nearest five verified events ordered by date; completed events move automatically into the newest-first Past Events list, ten per page. Ambiguous or incomplete timing must not be guessed.
+- Every event requires a user-defined `PUBLIC`, `DOCTOR`, or `HEALTHCARE WORKER` Primary Audience. If missing, stop and ask only: “Primary audience: Public, Doctor, or Healthcare Worker?” Infer disease group, condition, and restrained tags from the verified source using the shared taxonomy.
+- Quick Read and a crawlable canonical Event page are standard. Apply the existing SEO, Event schema, sitemap, security, physician-identity, viewport-safe share, and source-specific promotion patterns automatically. Future BAU requires only verified poster/source plus Primary Audience; run `npm run seminars:build` and `npm run seminars:check` before committing.
+
 ## DISEASE TAXONOMY / CONTENT CLASSIFICATION PROVEN PATTERN
 
 - `content.js` `diseaseTaxonomy` is the single controlled top-level classification for the homepage Disease Explorer, Library discovery, Articles, eBooks, Seminars, Videos, and future educational content. It contains 26 groups; Cancer & Neoplastic Diseases is one category within BA Medicale's broader medical scope. Never create a competing taxonomy.

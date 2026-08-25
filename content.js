@@ -264,12 +264,10 @@ window.BAMEDICALE_DATA = {
     { slug: "practical-surgical-oncology", title: "Practical Surgical Oncology", primaryAudience: "DOCTOR", audience: "Residents and surgical learners", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Solid tumor", topics: ["Surgery", "Treatment Planning"], contentType: "eBook", price: "Rp249.000", state: "Planned release", text: "A study pathway for surgical thinking, multidisciplinary planning, and perioperative oncology context." },
     { slug: "breast-cancer-clinical-guide", title: "Breast Cancer Clinical Guide", primaryAudience: "DOCTOR", audience: "Clinicians and advanced learners", primaryDiseaseGroup: "breast", secondaryDiseaseGroups: ["cancer-neoplastic"], diseaseCondition: "Breast cancer", topics: ["Diagnosis", "Treatment", "Patient Education"], contentType: "eBook", price: "Rp299.000", state: "Planned release", text: "A focused guide to breast symptoms, diagnostic pathways, treatment concepts, and patient education." }
   ],
-  events: [
-    { date: "Coming soon", format: "Live seminar", title: "Cancer diagnosis: from finding to tissue confirmation", primaryAudience: "DOCTOR", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Cancer across organ systems", topics: ["Diagnosis", "Pathology", "Biopsy"], contentType: "Seminar", text: "Program details will be published once the faculty, date, and official registration channel are confirmed." },
-    { date: "Coming soon", format: "Case discussion", title: "Multidisciplinary thinking in solid tumor", primaryAudience: "DOCTOR", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Solid tumor", topics: ["Treatment Planning", "Multidisciplinary Care"], contentType: "Seminar", text: "A future learning format for discussing clinical questions across diagnosis, treatment, and follow-up." },
-    { date: "Coming soon", format: "On-demand", title: "Public understanding of tumor and cancer", primaryAudience: "PUBLIC", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Tumor and cancer", topics: ["Signs & Symptoms", "Diagnosis", "Treatment"], contentType: "Seminar", text: "A planned patient-facing session on symptoms, diagnosis, treatment language, and questions to ask." }
-  ],
-  featuredSeminar: {
+  seminars: {
+    "management-thyroid-nodules-2026": {
+    id: "management-thyroid-nodules-2026",
+    slug: "management-thyroid-nodules-2026",
     primaryAudience: "DOCTOR",
     primaryDiseaseGroup: "endocrine-metabolic",
     secondaryDiseaseGroups: ["cancer-neoplastic"],
@@ -279,14 +277,18 @@ window.BAMEDICALE_DATA = {
     format: "Live webinar nasional",
     title: "Manajemen of Thyroid Nodules",
     subtitle: "\"How to Make a Good Diagnosis yang Tepat?\"",
+    summary: "A national physician webinar focused on diagnostic assessment and therapy selection for thyroid nodules, including ultrasound imaging, TIRADS, and BETHESDA classification.",
+    startDate: "2026-09-19T09:00:00+07:00",
+    endDate: "2026-09-19T11:00:00+07:00",
     date: "Saturday, 19 September 2026",
     time: "09.00–11.00 WIB",
     location: "Zoom Meeting",
+    attendanceMode: "Online",
     accreditation: "HK.02.02/F/3868/2023",
     registration: "s.kemkes.go.id/WebinarMTN",
     contact: "Melati: 0821-236-6331 · bamedicale@gmail.com",
     quota: "Limited to 1,000 participants",
-    organizer: "Organized by Rumah Sakit Kanker Dharmais.",
+    organizer: "Rumah Sakit Kanker Dharmais",
     host: "Department of Head and Neck proudly presents this program.",
     audience: ["General practitioners and specialist doctors across Indonesia.", "Limited to 1,000 participants."],
     faculty: [
@@ -303,7 +305,14 @@ window.BAMEDICALE_DATA = {
     ],
     outcomes: ["Kemenkes SKP value", "Current evidence-based topic", "Experienced faculty", "Interactive live question-and-answer session"],
     artwork: "assets/events/thyroid-nodule-webinar-sept19-2026.png",
-    detailUrl: "events/management-thyroid-nodules-2026.html"
+    detailUrl: "events/management-thyroid-nodules-2026.html",
+    promotion: {
+      hook: "How should thyroid nodules be assessed before treatment is selected?",
+      teaser: ["Join a focused national webinar on diagnostic approach, TIRADS ultrasound classification, and BETHESDA pathology classification."],
+      cta: "View the complete event program at BAMedicale.com",
+      hashtags: ["#ThyroidNodules", "#MedicalEducation", "#BAMedicaleCom"]
+    }
+    }
   },
   profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible medical education: enough context to help people ask better questions, and enough structure to help doctors and healthcare workers continue learning across medical disciplines.", image: "assets/medical/oncology-cellular-hero.png" }
 };
