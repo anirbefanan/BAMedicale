@@ -775,6 +775,19 @@ Apply the established SEO system automatically whenever creating or materially u
 
 ---
 
+## SECURITY PROVEN PATTERN
+
+Apply this automatically to every future change; the user does not need to request a separate security pass.
+
+- Never place secrets, private credentials, protected data, or server-side API keys in public/static code. Authentication, private medical data, and secret-backed AI/API features require an approved backend.
+- Treat user-entered and imported content as untrusted: prefer `textContent` and DOM APIs; otherwise escape text and validate URLs through the shared allowlist helpers. Never use `eval()` or insert untrusted HTML.
+- Keep symptom and medical inputs ephemeral. Do not persist or expose them through URLs, browser storage, analytics, static files, or logs without an explicitly approved privacy architecture.
+- Use HTTPS resources, minimal trusted third parties, privacy-enhanced embeds, and `rel="noopener noreferrer"` for new-window links. Do not weaken sandboxing or add dependencies without a concrete need.
+- Keep local admin, draft, test, environment, and credential artifacts out of the deployed site. Do not mistake public source code or legitimate `Material` assets for secrets.
+- Respect static-hosting limits: GitHub Pages cannot enforce server-side authentication or arbitrary HTTP security headers. Do not fake those controls in HTML; introduce CSP or edge headers only after compatibility testing through supported hosting/CDN configuration.
+
+---
+
 # 20. COMPLETION
 
 A task is complete when:

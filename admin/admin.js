@@ -162,7 +162,7 @@ function renderPublished() {
         <span class="chip">${escapeHtml(item.sourcePath)}</span>
       </div>
       <div class="draft-actions">
-        <a class="button-like" href="../${escapeHtml(item.route)}" target="_blank" rel="noreferrer">Open live route</a>
+        <a class="button-like" href="../${escapeHtml(item.route)}" target="_blank" rel="noopener noreferrer">Open live route</a>
         <button type="button" data-live-action="edit" data-id="${escapeHtml(item.id)}">Edit draft</button>
         <button type="button" data-live-action="republish" data-id="${escapeHtml(item.id)}">Republish draft</button>
         <button type="button" data-live-action="remove" data-id="${escapeHtml(item.id)}">Remove draft</button>

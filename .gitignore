@@ -1,2 +1,13 @@
 admin-drafts/items/
 admin-drafts/tmp/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.log
+coverage/
+playwright-report/
+test-results/

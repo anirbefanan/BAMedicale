@@ -1,0 +1,6 @@
+exclude:
+  - admin
+  - admin-drafts
+  - test-results
+  - AGENTS.md
+  - package.json

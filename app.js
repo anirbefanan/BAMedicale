@@ -3,13 +3,42 @@ const icon = (name) => `<svg aria-hidden="true"><use href="#i-${name}"></use></s
 const route = window.location.pathname.split("/").pop().replace(".html", "") || "index";
 document.body.classList.add(`route-${route}`);
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[char]));
+const safeUrl = (value, { external = false, hosts = [] } = {}) => {
+  try {
+    const url = new URL(String(value || "").trim(), window.location.href);
+    const sameOrigin = url.origin === window.location.origin;
+    if (!sameOrigin && (!external || url.protocol !== "https:")) return "";
+    if (sameOrigin && !["http:", "https:"].includes(url.protocol)) return "";
+    if (!sameOrigin && hosts.length && !hosts.includes(url.hostname)) return "";
+    return sameOrigin ? `${url.pathname}${url.search}${url.hash}` : url.href;
+  } catch {
+    return "";
+  }
+};
+const safeInternalUrl = (value) => safeUrl(value);
+const safeExternalUrl = (value) => safeUrl(value, { external: true });
+const safeImageUrl = (value) => safeUrl(value, { external: true, hosts: ["i.ytimg.com"] });
+const safeYouTubeEmbedUrl = (value) => {
+  const safe = safeUrl(value, { external: true, hosts: ["www.youtube-nocookie.com"] });
+  if (!safe) return "";
+  const url = new URL(safe);
+  return /^\/embed\/[A-Za-z0-9_-]{6,}$/.test(url.pathname) ? url : "";
+};
+const protectExternalLinks = (root = document) => {
+  root.querySelectorAll('a[target="_blank"]').forEach((link) => {
+    const href = safeExternalUrl(link.getAttribute("href"));
+    if (href) link.setAttribute("href", href);
+    else link.removeAttribute("href");
+    link.setAttribute("rel", "noopener noreferrer");
+  });
+};
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
     target.innerHTML = `<header class="site-header"><a class="brand" href="index.html" aria-label="BA Medicale home"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary"><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Library</a><a href="seminar.html">Courses</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a></nav><div class="nav-actions"><a class="search-button" href="search.html" aria-label="Search BA Medicale">${icon("search")}</a><a class="button button-dark" href="login.html">Member access</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">${icon("menu")}</button></div></header><nav class="nav-mobile" aria-label="Mobile navigation"><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Library</a><a href="seminar.html">Courses & seminars</a><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a><a href="about.html">About BA Medicale</a><a href="login.html">Member access</a></nav>`;
   });
   document.querySelectorAll("[data-footer]").forEach((target) => {
-    target.innerHTML = `<footer class="site-footer"><div><a class="brand brand--footer" href="index.html"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>Comprehensive tumor and cancer education</small></span></a><p>Education for public understanding and professional cancer practice. Information on this site supports learning and is not a substitute for personal medical care.</p></div><div><h2>Explore</h2><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Medical Library</a><a href="seminar.html">Courses & seminars</a></div><div><h2>Knowledge</h2><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a><a href="about.html">About</a></div><div><h2>Editorial sources</h2>${data.sources.map((item) => `<a href="${item.url}" target="_blank" rel="noreferrer">${item.label} ↗</a>`).join("")}</div><small class="footer-note">© 2026 BA Medicale. Site content and features are under continuing editorial development.</small></footer>`;
+    target.innerHTML = `<footer class="site-footer"><div><a class="brand brand--footer" href="index.html"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>Comprehensive tumor and cancer education</small></span></a><p>Education for public understanding and professional cancer practice. Information on this site supports learning and is not a substitute for personal medical care.</p></div><div><h2>Explore</h2><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Medical Library</a><a href="seminar.html">Courses & seminars</a></div><div><h2>Knowledge</h2><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a><a href="about.html">About</a></div><div><h2>Editorial sources</h2>${data.sources.map((item) => `<a href="${escapeHtml(safeExternalUrl(item.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.label)} ↗</a>`).join("")}</div><small class="footer-note">© 2026 BA Medicale. Site content and features are under continuing editorial development.</small></footer>`;
   });
 }
 
@@ -70,7 +99,7 @@ function initArticleReader() {
   if (!triggers.length || !data.articles) return;
   const dialog = document.createElement("dialog");
   dialog.className = "article-reader";
-  dialog.innerHTML = `<div class="article-reader__shell"><div class="article-reader__bar"><p>BA Medicale digital reader</p><div><a data-article-pdf target="_blank" rel="noreferrer">Open source PDF</a><button type="button" data-article-close aria-label="Close article reader">Close</button></div></div><article class="article-reader__body" tabindex="0"></article></div>`;
+  dialog.innerHTML = `<div class="article-reader__shell"><div class="article-reader__bar"><p>BA Medicale digital reader</p><div><a data-article-pdf target="_blank" rel="noopener noreferrer">Open source PDF</a><button type="button" data-article-close aria-label="Close article reader">Close</button></div></div><article class="article-reader__body" tabindex="0"></article></div>`;
   document.body.append(dialog);
   const body = dialog.querySelector(".article-reader__body");
   const pdf = dialog.querySelector("[data-article-pdf]");
@@ -84,7 +113,7 @@ function initArticleReader() {
   const open = (id, opener) => {
     const article = data.articles[id];
     if (!article) return;
-    pdf.href = article.sourcePdf;
+    pdf.href = safeInternalUrl(article.sourcePdf);
     body.innerHTML = `<header class="article-reader__hero"><p class="eyebrow">${escapeHtml(article.label)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.dek)}</p><div class="article-reader__stats">${article.stats.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div></header><section class="article-reader__intro">${article.intro.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>${article.sections.map(renderSection).join("")}<section class="article-reader__takeaways"><p class="eyebrow">Key policy takeaways</p><h2>What this means for public education.</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section><section class="article-reader__references"><p class="eyebrow">References and sources</p>${article.references.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>`;
     dialog.dataset.returnFocus = opener ? "true" : "false";
     dialog.showModal();
@@ -143,7 +172,15 @@ function initSeminarPosterLightbox() {
   const zoom = dialog.querySelector("[data-poster-zoom]");
   const close = dialog.querySelector("[data-poster-close]");
   const setZoom = (expanded) => { dialog.classList.toggle("is-zoomed", expanded); zoom.setAttribute("aria-pressed", String(expanded)); zoom.textContent = expanded ? "Fit" : "Zoom"; };
-  trigger.addEventListener("click", () => { image.src = trigger.dataset.seminarPoster; image.alt = trigger.dataset.seminarPosterAlt; setZoom(false); dialog.showModal(); close.focus(); });
+  trigger.addEventListener("click", () => {
+    const source = safeInternalUrl(trigger.dataset.seminarPoster);
+    if (!source) return;
+    image.src = source;
+    image.alt = trigger.dataset.seminarPosterAlt || "Official program poster";
+    setZoom(false);
+    dialog.showModal();
+    close.focus();
+  });
   zoom.addEventListener("click", () => { setZoom(!dialog.classList.contains("is-zoomed")); viewport.focus(); });
   close.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
@@ -151,7 +188,7 @@ function initSeminarPosterLightbox() {
 }
 
 function renderSources() {
-  document.querySelectorAll("[data-sources]").forEach((target) => target.innerHTML = data.sources.map((item) => `<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.label}</b><span>${item.note}</span><i>↗</i></a>`).join(""));
+  document.querySelectorAll("[data-sources]").forEach((target) => target.innerHTML = data.sources.map((item) => `<a href="${escapeHtml(safeExternalUrl(item.url))}" target="_blank" rel="noopener noreferrer"><b>${escapeHtml(item.label)}</b><span>${escapeHtml(item.note)}</span><i>↗</i></a>`).join(""));
 }
 
 function initSearch() {
@@ -164,7 +201,7 @@ function initSearch() {
   const show = (query = "") => {
     const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
     const filtered = results.filter((item) => terms.every((term) => item.join(" ").toLowerCase().includes(term)));
-    output.innerHTML = filtered.length ? filtered.map(([title, label, text, href]) => `<a class="search-result" href="${href}"><span>${label}</span><h2>${title}</h2><p>${text}</p><b>→</b></a>`).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a symptom, test, body system, or treatment term.</h2><p>Search is currently an editorial navigation tool. More indexed content can be added through the central content registry.</p></div>`;
+    output.innerHTML = filtered.length ? filtered.map(([title, label, text, href]) => `<a class="search-result" href="${escapeHtml(safeInternalUrl(href))}"><span>${escapeHtml(label)}</span><h2>${escapeHtml(title)}</h2><p>${escapeHtml(text)}</p><b>→</b></a>`).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a symptom, test, body system, or treatment term.</h2><p>Search is currently an editorial navigation tool. More indexed content can be added through the central content registry.</p></div>`;
   };
   input.addEventListener("input", () => show(input.value)); show();
 }
@@ -194,7 +231,9 @@ function initLightbox() {
   document.body.append(dialog);
   const image = dialog.querySelector("img");
   triggers.forEach((trigger) => trigger.addEventListener("click", () => {
-    image.src = trigger.dataset.lightboxImage;
+    const source = safeInternalUrl(trigger.dataset.lightboxImage);
+    if (!source) return;
+    image.src = source;
     image.alt = trigger.dataset.lightboxAlt || "Medical education illustration";
     dialog.showModal();
   }));
@@ -221,39 +260,60 @@ async function renderVideoHub() {
     if (hub) hub.innerHTML = `<div class="video-hub__empty"><p class="eyebrow">Video collection</p><h2>The public video catalog is being refreshed.</h2><p>Source verification is required before a video is shown here.</p></div>`;
     return;
   }
-  const card = (video, featured = false) => `<article class="video-card ${featured ? "video-card--featured" : ""}" data-video-topic="${video.topic}"><button type="button" class="video-card__play" data-video-play="${video.id}" aria-label="Play ${video.title}"><img src="${video.thumbnail}" alt="${video.title}" width="480" height="360" loading="eager"><span>Play</span></button><div class="video-card__copy"><p><b>${video.source_label}</b><i>${video.topic}</i></p><h2>${video.title}</h2><small>${video.person}</small><a href="${video.url}" target="_blank" rel="noreferrer">View original source <strong>↗</strong></a></div></article>`;
-  const localThumbnail = (video) => video.thumbnail;
-  const localCard = (video) => `<article class="video-card video-card--original" data-video-topic="${video.topic}"><button type="button" class="video-card__play video-card__play--local" data-video-local="${video.id}" aria-label="Play ${video.title}"><img src="${localThumbnail(video)}" alt="Preview of ${video.title}" width="960" height="540" loading="lazy"><span>Watch</span></button><div class="video-card__copy"><p><b>${video.source_label}</b><i>${video.topic}</i></p><h2>${video.title}</h2><small>${video.short_description}</small><a href="${video.video_url}" target="_blank" rel="noreferrer">Open video file <strong>↗</strong></a></div></article>`;
+  const card = (video, featured = false) => `<article class="video-card ${featured ? "video-card--featured" : ""}" data-video-topic="${escapeHtml(video.topic)}"><button type="button" class="video-card__play" data-video-play="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>Play</span></button><div class="video-card__copy"><p><b>${escapeHtml(video.source_label)}</b><i>${escapeHtml(video.topic)}</i></p><h2>${escapeHtml(video.title)}</h2><small>${escapeHtml(video.person)}</small><a href="${escapeHtml(safeExternalUrl(video.url))}" target="_blank" rel="noopener noreferrer">View original source <strong>↗</strong></a></div></article>`;
+  const localThumbnail = (video) => safeImageUrl(video.thumbnail);
+  const localCard = (video) => `<article class="video-card video-card--original" data-video-topic="${escapeHtml(video.topic)}"><button type="button" class="video-card__play video-card__play--local" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>Watch</span></button><div class="video-card__copy"><p><b>${escapeHtml(video.source_label)}</b><i>${escapeHtml(video.topic)}</i></p><h2>${escapeHtml(video.title)}</h2><small>${escapeHtml(video.short_description)}</small><a href="${escapeHtml(safeInternalUrl(video.video_url))}" target="_blank" rel="noopener noreferrer">Open video file <strong>↗</strong></a></div></article>`;
   const latestOriginals = originalVideos.slice(-4).reverse();
   const latestYouTube = videos.slice().sort((a, b) => String(b.publish_date || "").localeCompare(String(a.publish_date || ""))).slice(0, 4);
-  const previewLocalCard = (video) => `<article class="video-preview video-preview--original"><button type="button" data-video-local="${video.id}" aria-label="Play ${video.title}"><img src="${localThumbnail(video)}" alt="Preview of ${video.title}" width="960" height="540" loading="lazy"><span>▶</span></button><p>${video.source_label}</p><h3>${video.title}</h3></article>`;
-  const previewYouTubeCard = (video) => `<article class="video-preview"><button type="button" data-video-play="${video.id}" aria-label="Play ${video.title}"><img src="${video.thumbnail}" alt="${video.title}" width="480" height="360" loading="eager"><span>▶</span></button><p>${video.source_label}</p><h3>${video.title}</h3></article>`;
+  const previewLocalCard = (video) => `<article class="video-preview video-preview--original"><button type="button" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
+  const previewYouTubeCard = (video) => `<article class="video-preview"><button type="button" data-video-play="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
   const featured = videos.find((video) => video.featured) || videos[0];
   const remaining = videos.filter((video) => video.id !== featured.id);
   if (hub) { const topics = [...new Set(videos.map((video) => video.topic))]; const originalSection = originalVideos.length ? `<section class="video-hub__section video-originals"><div class="section-head"><div><p class="eyebrow">BA Medicale originals</p><h2>Original videos prepared for the BA Medicale learning experience.</h2></div><p>These videos are hosted by BA Medicale and use the original uploaded media assets.</p></div><div class="video-grid video-grid--original">${originalVideos.map((video) => localCard(video)).join("")}</div></section>` : ""; hub.innerHTML = `${originalSection}<section class="video-feature"><div>${card(featured, true)}</div><aside><p class="eyebrow">Verified physician appearances</p><h2>Public educational videos with source attribution.</h2><p>Each entry is retained only when the public title and publisher clearly identify Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K).</p><div class="video-topics" role="group" aria-label="Filter verified videos"><button class="is-active" type="button" data-video-filter="all">All topics</button>${topics.map((topic) => `<button type="button" data-video-filter="${topic}">${topic}</button>`).join("")}</div></aside></section><section class="video-hub__section"><div class="section-head"><div><p class="eyebrow">Latest verified videos</p><h2>Watch and learn in context.</h2></div></div><div class="video-grid">${remaining.map((video) => card(video)).join("")}</div></section><section class="video-hub__section video-source-state"><div><p class="eyebrow">BA Medicale Instagram</p><h2>Public reels will appear after public discovery exposes verifiable post links.</h2></div><p>The profile was reachable during the latest scan, but its unauthenticated response did not expose reel URLs. No Instagram entries are displayed rather than guessing or linking to unavailable posts.</p></section>`; hub.querySelectorAll("[data-video-filter]").forEach((filter) => filter.addEventListener("click", () => { const topic = filter.dataset.videoFilter; hub.querySelectorAll("[data-video-filter]").forEach((item) => item.classList.toggle("is-active", item === filter)); hub.querySelectorAll(".video-grid .video-card:not(.video-card--original)").forEach((item) => { item.hidden = topic !== "all" && item.dataset.videoTopic !== topic; }); })); }
   if (preview) preview.innerHTML = `${latestOriginals.map(previewLocalCard).join("")}${latestYouTube.map(previewYouTubeCard).join("")}`;
   const dialog = document.createElement("dialog");
   dialog.className = "video-player";
-  dialog.innerHTML = `<button type="button" aria-label="Close video">×</button><div></div><a target="_blank" rel="noreferrer">View original source ↗</a>`;
+  dialog.innerHTML = `<button type="button" aria-label="Close video">×</button><div></div><a target="_blank" rel="noopener noreferrer">View original source ↗</a>`;
   document.body.append(dialog);
+  const player = dialog.querySelector("div");
+  const sourceLink = dialog.querySelector("a");
   const openVideo = (id) => {
     const video = videos.find((item) => item.id === id);
     if (!video) return;
-    dialog.querySelector("div").innerHTML = `<iframe src="${video.embed_url}?autoplay=1" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-    dialog.querySelector("a").href = video.url;
+    const embedUrl = safeYouTubeEmbedUrl(video.embed_url);
+    const sourceUrl = safeExternalUrl(video.url);
+    if (!embedUrl || !sourceUrl) return;
+    embedUrl.searchParams.set("autoplay", "1");
+    const frame = document.createElement("iframe");
+    frame.src = embedUrl.href;
+    frame.title = String(video.title || "BA Medicale video");
+    frame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share";
+    frame.referrerPolicy = "strict-origin-when-cross-origin";
+    frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-presentation");
+    frame.allowFullscreen = true;
+    player.replaceChildren(frame);
+    sourceLink.href = sourceUrl;
     dialog.showModal();
   };
   const openLocalVideo = (id) => {
     const video = originalVideos.find((item) => item.id === id);
     if (!video) return;
-    dialog.querySelector("div").innerHTML = `<video src="${video.video_url}" title="${video.title}" controls autoplay playsinline></video>`;
-    dialog.querySelector("a").href = video.video_url;
+    const videoUrl = safeInternalUrl(video.video_url);
+    if (!videoUrl) return;
+    const media = document.createElement("video");
+    media.src = videoUrl;
+    media.title = String(video.title || "BA Medicale video");
+    media.controls = true;
+    media.autoplay = true;
+    media.playsInline = true;
+    player.replaceChildren(media);
+    sourceLink.href = videoUrl;
     dialog.showModal();
   };
   document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay)));
   document.querySelectorAll("[data-video-local]").forEach((button) => button.addEventListener("click", () => openLocalVideo(button.dataset.videoLocal)));
-  dialog.addEventListener("close", () => { dialog.querySelector("div").innerHTML = ""; });
+  dialog.addEventListener("close", () => { player.replaceChildren(); });
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 
-shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initJourneyWorkflow(); renderVideoHub();
+shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initJourneyWorkflow(); renderVideoHub(); protectExternalLinks();
