@@ -119,6 +119,112 @@ window.BAMEDICALE_DATA = {
         cta: "Read the full article at BAMedicale.com",
         hashtags: ["#IndonesiaCancer", "#CancerStatistics", "#BAMedicaleCom"]
       }
+    },
+    "tumor-vs-cancer-guide": {
+      id: "tumor-vs-cancer-guide",
+      slug: "tumor-vs-cancer-understanding-the-difference",
+      title: "Tumor vs Cancer: Understanding the Difference",
+      seoTitle: "Tumor vs Cancer: Understanding the Difference | BA Medicale",
+      dek: "A clear, non-technical guide to two commonly confused terms: what a tumor is, what cancer means, and why appropriate evaluation matters.",
+      excerpt: "A practical guide to benign and malignant tumor, cancer, metastasis, biopsy, and when a new or changing lump needs medical assessment.",
+      audiences: ["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"],
+      primaryTopic: "Tumor & Cancer Basics",
+      tags: ["Benign Tumor", "Malignant Tumor", "Biopsy & Pathology"],
+      diseaseSite: "All cancer sites",
+      contentType: "Educational guide",
+      sourceAttribution: "Submitted BA Medicale educational article",
+      publishedDate: "",
+      updatedDate: "",
+      sortOrder: 2,
+      focalPosition: "50% 50%",
+      sourcePdf: "assets/articles/tumor-vs-cancer-educational-article.pdf",
+      cover: "assets/articles/tumor-vs-cancer-educational-guide.jpg",
+      label: "Public education guide",
+      intro: [
+        "A tumor and cancer are related terms, but they do not mean exactly the same thing. A tumor is an abnormal mass of tissue that may be benign or malignant. Cancer is malignant disease, in which abnormal cells can invade nearby tissues and may spread to other parts of the body.",
+        "Understanding the difference can reduce unnecessary fear while reinforcing the value of proper evaluation. The appearance, size, location, or growth rate of a lump alone cannot establish a diagnosis. Examination, imaging, and sometimes biopsy help healthcare professionals determine what an abnormal growth represents."
+      ],
+      sections: [
+        {
+          title: "What is a tumor?",
+          body: [
+            "The body is made of cells that normally grow, divide, perform specific functions, and die in a controlled way. When this regulation is disrupted, cells may grow or accumulate abnormally. A collection of these cells can form a mass called a tumor, also known as a neoplasm.",
+            "Tumors are commonly described as benign or malignant. A benign tumor is non-cancerous and generally remains localized. Many benign tumors grow slowly and may never cause serious problems, but benign does not automatically mean harmless. A benign tumor can still matter if it grows large, presses on nerves or organs, causes bleeding, produces hormones, or develops in a confined space such as the brain."
+          ],
+          bullets: [
+            "Examples of benign tumors include lipomas from fat tissue, adenomas from glandular tissue, uterine fibroids, some meningiomas, and hemangiomas involving blood vessels.",
+            "A benign tumor does not invade surrounding tissues or spread to distant organs."
+          ]
+        },
+        {
+          title: "What is cancer?",
+          body: [
+            "Cancer is a broad term for diseases characterized by malignant cells. These cells have acquired biological changes that allow them to grow abnormally, invade nearby structures, and potentially spread.",
+            "A malignant tumor is cancerous. Cancer cells can infiltrate surrounding tissue and may enter blood vessels or lymphatic channels. Some can travel to distant organs and establish new cancer deposits, a process called metastasis."
+          ],
+          bullets: [
+            "Breast, lung, colon, and liver cancers commonly form solid malignant tumors.",
+            "Not every cancer forms a solid lump. Leukemia is a cancer of blood-forming tissues and is generally not described as a single solid tumor."
+          ]
+        },
+        {
+          title: "The main differences",
+          body: [
+            "Biological behavior is more complex than a simple checklist, but several characteristics help explain the difference between benign tumors and malignant tumors."
+          ],
+          compare: [
+            ["Clinical dimension", "Benign tumor", "Malignant tumor or cancer"],
+            ["Nature", "Non-cancerous.", "Cancerous."],
+            ["Local behavior", "Usually remains localized and may have relatively clear boundaries.", "Can invade nearby tissue and may have irregular or infiltrative borders."],
+            ["Growth", "Often grows slowly, although growth rate alone cannot determine whether a mass is cancerous.", "May grow more rapidly or unpredictably, but growth rate alone is not diagnostic."],
+            ["Spread", "Does not metastasize.", "May spread through blood or lymphatic pathways."],
+            ["Health impact", "Can still cause important problems because of size or location.", "Can become life-threatening when it invades vital structures or spreads to distant organs."]
+          ]
+        },
+        {
+          title: "How normal cells can become cancerous",
+          body: [
+            "Cancer usually develops through an accumulation of changes in the genetic material and regulatory systems of cells. These changes can occur over time. Aging, inherited genetic factors, environmental exposures, infections, radiation, tobacco, alcohol, and other lifestyle or biological influences may contribute depending on the cancer type.",
+            "The process is not simply normal cell, then benign tumor, then cancer in every person. Some cancers develop without a previously recognized benign tumor, and most benign tumors never become malignant. This sequence is best understood as a simplified educational model, not a universal pathway."
+          ]
+        },
+        {
+          title: "Why appearance alone is not enough",
+          body: [
+            "A lump that feels smooth or grows slowly is not automatically benign, and a rapidly growing or irregular mass is not automatically cancer. Symptoms, physical examination, imaging, laboratory tests, and the person's overall clinical context can provide important clues, but they may not establish the final diagnosis.",
+            "When necessary, a biopsy allows tissue or cells to be examined by a pathologist. This microscopic evaluation can determine whether a lesion is benign, malignant, or has another diagnosis. Additional tests may help identify the tumor type, molecular characteristics, extent of disease, or stage."
+          ]
+        },
+        {
+          title: "Why early evaluation matters",
+          body: [
+            "Many lumps and abnormal findings are not cancer. Nevertheless, a new or changing mass should not be classified by appearance or assumption alone. Appropriate evaluation can identify benign conditions that need little or no treatment, benign tumors that need management because of size or location, and cancers for which earlier diagnosis may provide more treatment options."
+          ],
+          bullets: [
+            "Seek medical assessment for a new persistent lump or an existing lump that changes in size or character.",
+            "Unexplained bleeding, persistent swelling, unexplained weight loss, or symptoms that do not resolve can also justify assessment. These findings can have many causes and are not proof of cancer.",
+            "The same organ can develop benign and malignant growths. The distinction depends on the cells and biological behavior of the lesion, not simply on where it appears."
+          ]
+        }
+      ],
+      takeaways: [
+        "A tumor is an abnormal growth or mass and can be benign or malignant. Cancer is malignant disease.",
+        "Not every tumor is cancer, and some cancers, such as leukemia, do not form a typical solid tumor.",
+        "A diagnosis should be based on appropriate medical assessment rather than the appearance, size, location, or growth rate of a lump alone."
+      ],
+      references: [
+        "Submitted source: BAMedicale_Tumor_vs_Cancer_Educational_Article.pdf.",
+        "Educational scope: this guide supports general understanding and does not replace individualized medical evaluation, diagnosis, or treatment."
+      ],
+      promotion: {
+        hook: "A tumor is not automatically cancer. Here is the difference that matters.",
+        teaser: [
+          "Benign and malignant growths can behave very differently, and a lump cannot be classified by appearance alone.",
+          "Learn why examination, imaging, and sometimes biopsy guide the next step."
+        ],
+        cta: "Read the full guide at BAMedicale.com",
+        hashtags: ["#TumorVsCancer", "#CancerEducation", "#BAMedicaleCom"]
+      }
     }
   },
   ebooks: [

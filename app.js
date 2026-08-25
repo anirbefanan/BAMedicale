@@ -407,7 +407,11 @@ function initArticlePageTools() {
   dialog?.querySelector("[data-promote-close]")?.addEventListener("click", () => dialog.close());
   dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
   dialog?.querySelectorAll("[data-copy-promotion]").forEach((button) => button.addEventListener("click", async () => {
-    const copy = button.dataset.copyPromotion;
+    let copy = "";
+    try {
+      const bytes = Uint8Array.from(atob(button.dataset.copyPromotion || ""), (character) => character.charCodeAt(0));
+      copy = new TextDecoder().decode(bytes);
+    } catch {}
     if (!copy) return;
     await copyText(copy);
     button.textContent = "Copy ready";
