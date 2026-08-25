@@ -360,16 +360,29 @@ async function renderVideoHub() {
 function initArticlePageTools() {
   const shareToggle = document.querySelector("[data-share-toggle]");
   const shareMenu = document.querySelector("[data-share-menu]");
+  const closeShare = () => {
+    if (!shareMenu) return;
+    shareMenu.setAttribute("hidden", "");
+    shareToggle?.setAttribute("aria-expanded", "false");
+  };
   shareToggle?.addEventListener("click", () => {
     const open = shareMenu.hasAttribute("hidden");
     shareMenu.toggleAttribute("hidden", !open);
     shareToggle.setAttribute("aria-expanded", String(open));
+  });
+  shareMenu?.querySelector("[data-share-close]")?.addEventListener("click", closeShare);
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".article-share")) closeShare();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeShare();
   });
   document.querySelectorAll("[data-copy-link]").forEach((button) => button.addEventListener("click", async () => {
     const value = safeExternalUrl(button.dataset.copyLink);
     if (!value) return;
     await navigator.clipboard?.writeText(value);
     button.textContent = "Link copied";
+    closeShare();
   }));
   const dialog = document.querySelector("[data-promotion-dialog]");
   document.querySelector("[data-promote-open]")?.addEventListener("click", () => dialog?.showModal());
