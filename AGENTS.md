@@ -835,6 +835,11 @@ When sufficient source material or context exists, automatically turn it into co
 - For every new Article, eBook, Seminar/Event, or Video, Primary Audience remains mandatory and user-defined as `PUBLIC`, `DOCTOR`, or `HEALTHCARE WORKER`. If omitted, stop before implementation and ask only: “Primary audience: Public, Doctor, or Healthcare Worker?” Then automatically infer disease classification and continue the established content-specific workflow.
 - Homepage disease links route to `library.html?disease=<controlled-id>` and the Library must read the same registry. Keep disease labels compact and useful in cards, readers, breadcrumbs, filtering, related content, and SEO without badge overload or thin disease pages.
 
+## NAVIGATION / AUDIENCE PROVEN PATTERN
+
+- Desktop and mobile primary navigation must derive from one canonical source and retain this exact order: **For Doctors → For Healthcare Workers → For Public → Library & Articles → Courses & Seminars → eBooks → Videos → About BA Medicale & Team → Resources → Member Login**. Use the shared menu at widths where the desktop header cannot remain readable.
+- PUBLIC, DOCTOR, and HEALTHCARE WORKER each require a dedicated audience destination. Healthcare Worker discovery reuses shared taxonomy and content records, shows only its primary-audience content, and accepts an intentional empty state; future HEALTHCARE WORKER content becomes discoverable there automatically.
+
 ## BA MEDICALE POSITIONING / ONCOLOGY FLAGSHIP PROVEN PATTERN
 
 - BA Medicale is a physician-led medical education platform covering diseases and health conditions across medical disciplines. Core promise: **Understand disease. Navigate care. Make informed decisions.**

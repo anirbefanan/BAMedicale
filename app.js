@@ -150,14 +150,57 @@ const diseaseGroupById = (id) => (data.diseaseTaxonomy || []).find((group) => gr
 const articleDiseaseGroups = (article) => [article.primaryDiseaseGroup, ...(article.secondaryDiseaseGroups || [])].filter(Boolean);
 const articleDiseaseCondition = (article) => article.diseaseCondition || article.diseaseSite || "";
 const groupLabelForSearch = (article) => diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education";
+const PRIMARY_NAVIGATION = Object.freeze([
+  { label: "For Doctors", href: "clinical.html" },
+  { label: "For Healthcare Workers", href: "healthcare-workers.html" },
+  { label: "For Public", href: "public.html" },
+  { label: "Library & Articles", href: "library.html" },
+  { label: "Courses & Seminars", href: "seminar.html" },
+  { label: "eBooks", href: "ebooks.html" },
+  { label: "Videos", href: "videos.html" },
+  { label: "About BA Medicale & Team", href: "about.html" },
+  { label: "Resources", href: "resources.html" },
+  { label: "Member Login", href: "login.html", member: true }
+]);
+const navigationLink = (item) => `<a href="${item.href}">${item.label}</a>`;
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
-    target.innerHTML = `<header class="site-header"><a class="brand" href="index.html" aria-label="BA Medicale home"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary"><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Library</a><a href="seminar.html">Courses</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a></nav><div class="nav-actions"><a class="search-button" href="search.html" aria-label="Search BA Medicale">${icon("search")}</a><a class="button button-dark" href="login.html">Member access</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">${icon("menu")}</button></div></header><nav class="nav-mobile" aria-label="Mobile navigation"><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Library</a><a href="seminar.html">Courses & seminars</a><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a><a href="about.html">About BA Medicale</a><a href="login.html">Member access</a></nav>`;
+    const member = PRIMARY_NAVIGATION.find((item) => item.member);
+    const primaryLinks = PRIMARY_NAVIGATION.filter((item) => !item.member).map(navigationLink).join("");
+    const mobileLinks = PRIMARY_NAVIGATION.map(navigationLink).join("");
+    target.innerHTML = `<header class="site-header"><a class="brand" href="index.html" aria-label="BA Medicale home"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary">${primaryLinks}</nav><div class="nav-actions"><a class="search-button" href="search.html" aria-label="Search BA Medicale">${icon("search")}</a><a class="button button-dark" href="${member.href}">${member.label}</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">${icon("menu")}</button></div></header><nav class="nav-mobile" aria-label="Mobile navigation">${mobileLinks}</nav>`;
   });
   document.querySelectorAll("[data-footer]").forEach((target) => {
     target.innerHTML = `<footer class="site-footer"><div><a class="brand brand--footer" href="index.html"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>Physician-led medical education</small></span></a><p>Education across diseases and health conditions, with dedicated depth in cancer, neoplasia, and surgical oncology. Information supports learning and does not replace individualized medical care.</p></div><div><h2>Explore</h2><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Medical Library</a><a href="seminar.html">Courses & seminars</a></div><div><h2>Knowledge</h2><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a><a href="about.html">About</a></div><div><h2>Editorial sources</h2>${data.sources.map((item) => `<a href="${escapeHtml(safeExternalUrl(item.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.label)} ↗</a>`).join("")}</div><small class="footer-note">© 2026 BA Medicale. Site content and features are under continuing editorial development.</small></footer>`;
   });
+}
+
+async function renderHealthcareWorkerPage() {
+  const target = document.querySelector("[data-healthcare-worker-content]");
+  if (!target) return;
+  const audience = "HEALTHCARE WORKER";
+  const baseRecords = [
+    ...articleRecords().map((item) => ({ audience: articlePrimaryAudience(item), type: "Article", title: item.title, text: item.excerpt, href: articlePath(item), topic: item.primaryTopic })),
+    ...Object.values(data.seminars || {}).map((item) => ({ audience: item.primaryAudience, type: "Course & seminar", title: item.title, text: item.summary || item.description || "Verified seminar information will appear here.", href: item.detailUrl || "seminar.html", topic: (item.topics || [])[0] || "Professional learning" })),
+    ...(data.ebooks || []).map((item) => ({ audience: item.primaryAudience, type: "eBook", title: item.title, text: item.text, href: "ebooks.html", topic: (item.topics || [])[0] || "Professional learning" }))
+  ].filter((item) => item.audience === audience);
+  const show = (records) => {
+    target.innerHTML = records.length
+    ? records.map((item) => `<article class="knowledge-card"><span>${escapeHtml(item.type)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p><i>${escapeHtml(item.topic)}</i><a class="text-link" href="${escapeHtml(item.href)}">Open learning <span>→</span></a></article>`).join("")
+    : `<article class="audience-content-empty"><p class="eyebrow">Growing collection</p><h2>Healthcare Worker learning is being prepared.</h2><p>New articles, courses, videos, eBooks, and resources will appear here when they are published with Healthcare Worker as their primary audience.</p><a class="text-link" href="library.html">Browse the full Library <span>→</span></a></article>`;
+  };
+  show(baseRecords.slice(0, 6));
+  try {
+    const response = await fetch("data/videos.json?v=video-catalog-20260824-2");
+    if (!response.ok) return;
+    const videos = ((await response.json()).videos || []).filter((item) => item.primaryAudience === audience).map((item) => ({
+      type: "Video", title: item.title, text: item.short_description || "Verified educational video.", href: "videos.html", topic: item.topic || "Professional learning"
+    }));
+    show([...baseRecords, ...videos].slice(0, 6));
+  } catch {
+    // The empty state remains available when the video catalog cannot be loaded.
+  }
 }
 
 function renderHome() {
@@ -647,4 +690,4 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();
+initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();
