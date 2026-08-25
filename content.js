@@ -6,7 +6,7 @@ window.BAMEDICALE_DATA = {
     { label: "Kementerian Kesehatan RI", note: "Indonesia cancer policy and early detection context", url: "https://www.kemkes.go.id/" }
   ],
   diseaseTaxonomy: [
-    { id: "cancer-neoplastic", name: "Cancer & Neoplastic Diseases", descriptor: "Tumor, neoplasia, cancer, oncology, and cancer-related care", icon: "ribbon" },
+    { id: "cancer-neoplastic", name: "Cancer & Neoplastic Diseases", descriptor: "Explore neoplasia, benign and malignant tumors, cancer diagnosis, pathology, staging, treatment planning, and supportive oncology care across the continuum of disease care.", icon: "ribbon" },
     { id: "cardiovascular", name: "Cardiovascular Diseases", descriptor: "Heart, blood vessels, and circulation", icon: "heart" },
     { id: "respiratory", name: "Respiratory Diseases", descriptor: "Lungs, airways, and breathing", icon: "lungs" },
     { id: "neurological", name: "Neurological Diseases", descriptor: "Brain, nerves, and spinal cord", icon: "brain" },
