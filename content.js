@@ -111,13 +111,13 @@ window.BAMEDICALE_DATA = {
         "WHO: Cancer Country Profiles - Indonesia Epidemiological and Infrastructure Indicators."
       ],
       promotion: {
-        hook: "Does every tumor mean cancer? Not exactly.",
+        hook: "Indonesia's cancer burden is changing. What does the 2026 picture show?",
         teaser: [
-          "Knowing the difference can help people respond thoughtfully to a new or changing lump.",
-          "Indonesia's 2026 cancer update also shows why prevention, screening, and timely care matter."
+          "This update brings projected cancer cases, deaths, and prevalence into one national view.",
+          "It also shows why prevention, screening, and access to timely care remain public-health priorities."
         ],
         cta: "Read the full article at BAMedicale.com",
-        hashtags: ["#CancerEducation", "#TumorAwareness", "#BAMedicaleCom"]
+        hashtags: ["#IndonesiaCancer", "#CancerStatistics", "#BAMedicaleCom"]
       }
     }
   },

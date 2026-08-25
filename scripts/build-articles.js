@@ -21,6 +21,8 @@ for (const article of articles) {
   for (const field of ["id", "slug", "title", "dek", "excerpt", "cover", "primaryTopic", "contentType", "sourceAttribution"]) assert(article[field], `${article.id || "Article"}: missing ${field}`);
   assert(Array.isArray(article.audiences) && article.audiences.length, `${article.id}: audiences are required`);
   assert(Array.isArray(article.sections) && article.sections.length, `${article.id}: article body is required`);
+  assert(article.promotion && article.promotion.hook && Array.isArray(article.promotion.teaser) && article.promotion.teaser.length, `${article.id}: source-specific promotion hook and teaser are required`);
+  assert(Array.isArray(article.promotion.hashtags) && article.promotion.hashtags.length >= 2 && article.promotion.hashtags.length <= 3, `${article.id}: use two or three source-specific promotion hashtags`);
   assert(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug), `${article.id}: invalid slug`);
 }
 
@@ -32,20 +34,16 @@ const renderCompare = (rows = []) => {
 const renderSection = (section) => `<section class="seo-article-section"><h2>${escape(section.title)}</h2>${(section.body || []).map((text) => `<p>${escape(text)}</p>`).join("")}${renderCompare(section.compare)}${section.bullets ? `<ul>${section.bullets.map((text) => `<li>${escape(text)}</li>`).join("")}</ul>` : ""}</section>`;
 const shareUrl = (article) => `${domain}/articles/${article.slug}.html`;
 const json = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
-const toHashtag = (value) => {
-  const compact = String(value || "").replace(/[^a-z0-9]+/gi, "");
-  return compact ? `#${compact}` : "";
-};
 const socialPromotion = (article, canonical) => {
-  const promotion = article.promotion || {};
-  const teaser = Array.isArray(promotion.teaser) ? promotion.teaser : [promotion.teaser || promotion.caption || article.excerpt];
-  const hashtags = [...new Set((promotion.hashtags || [toHashtag(article.primaryTopic), "#BAMedicaleCom"]).map((tag) => String(tag || "").trim()).filter(Boolean))].slice(0, 3);
+  const promotion = article.promotion;
+  const teaser = promotion.teaser.filter(Boolean).slice(0, 2);
+  const hashtags = [...new Set(promotion.hashtags.map((tag) => String(tag || "").trim()).filter(Boolean))].slice(0, 3);
   return {
-    hook: promotion.hook || article.title,
-    teaser: teaser.filter(Boolean).slice(0, 2),
+    hook: promotion.hook,
+    teaser,
     cta: promotion.cta || "Read the full article at BAMedicale.com",
     hashtags,
-    text: [promotion.hook || article.title, ...teaser.filter(Boolean).slice(0, 2), promotion.cta || "Read the full article at BAMedicale.com", canonical, hashtags.join(" ")].filter(Boolean).join("\n\n")
+    text: [promotion.hook, ...teaser, promotion.cta || "Read the full article at BAMedicale.com", canonical, hashtags.join(" ")].filter(Boolean).join("\n\n")
   };
 };
 
