@@ -16,7 +16,7 @@ window.BAMEDICALE_DATA = {
       type: "Indonesia report",
       title: "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
       text: "A public health review of projected cancer burden in Indonesia, including incidence, mortality, prevalence, prevention context, and the clinical distinction between tumor and cancer.",
-      href: "assets/articles/indonesia-cancer-statistics-report.pdf",
+      href: "articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
       reader: "indonesia-cancer-statistics-2026"
     },
     { type: "Public guide", title: "Tumor, cancer, and the words clinicians use", text: "A clear starting point for understanding benign growths, malignant disease, and why terms matter.", href: "public.html#tumor-cancer" }, { type: "Diagnosis", title: "From imaging to biopsy", text: "What different tests can and cannot answer when a lesion needs investigation.", href: "public.html#diagnosis" }, { type: "Professional", title: "Staging and treatment selection", text: "A structured orientation to stage, pathology, biomarkers, and multidisciplinary planning.", href: "clinical.html#staging" }, { type: "Care", title: "Living with and beyond cancer", text: "Supportive care, follow-up, survivorship, and practical questions for appointments.", href: "public.html#living" }
@@ -138,7 +138,8 @@ window.BAMEDICALE_DATA = {
       ["10.20–11.00", "BETHESDA Classification in Thyroid Nodules", "dr. Vinesia Lestari Riddi, SpPA., MPH"]
     ],
     outcomes: ["Initial evaluation of patients with thyroid nodules", "Ultrasound interpretation using ACR TI-RADS", "When FNAB is needed", "Interpreting the Bethesda System", "When surgery is needed", "Selecting patients for active surveillance", "Indications for radioiodine", "Targeted therapy for advanced thyroid cancer", "Applying ATA, NCCN, and ETA guidelines in daily practice"],
-    artwork: "assets/events/thyroid-nodule-webinar-2026.png"
+    artwork: "assets/events/thyroid-nodule-webinar-2026.png",
+    detailUrl: "events/management-thyroid-nodules-2026.html"
   },
   profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible oncology education: enough context to help people ask better questions, and enough structure to help clinicians continue learning.", image: "assets/medical/oncology-cellular-hero.png" }
 };

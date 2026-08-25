@@ -762,6 +762,19 @@ Public-facing URLs should resolve through `bamedicale.com`.
 
 ---
 
+## SEO PROVEN PATTERN
+
+Apply the established SEO system automatically whenever creating or materially updating public, indexable content. The user does not need to request SEO separately.
+
+- Use a unique title, meta description, one clear H1, absolute `https://bamedicale.com/` canonical, Open Graph metadata, social metadata where useful, semantic headings, descriptive alt text, and crawlable internal links.
+- Important articles and events require static, crawlable HTML detail URLs; a modal, PDF, or JavaScript-rendered catalog may enhance the experience but must not be the only public content route.
+- Use factual JSON-LD only: Article for articles, Event for verified events, BreadcrumbList for detail routes, and site/organization/person patterns only where repository evidence supports them.
+- Add canonical, indexable public HTML routes to `sitemap.xml`. Keep utility-only or duplicate routes out of the sitemap and mark them `noindex,follow` when appropriate.
+- Never use the GitHub Pages infrastructure URL in canonical metadata, structured data, sitemap entries, social URLs, or public-facing SEO identity.
+- Preserve BAMedicale's public and professional learning tracks, connect related topics through real HTML links, and never create thin pages, keyword stuffing, unsupported medical claims, or fabricated authority signals.
+
+---
+
 # 20. COMPLETION
 
 A task is complete when:
