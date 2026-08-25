@@ -788,6 +788,20 @@ Apply this automatically to every future change; the user does not need to reque
 
 ---
 
+## CONTENT INTELLIGENCE / AUTO-COPY PROVEN PATTERN
+
+When sufficient source material or context exists, automatically turn it into complete, fit-for-purpose BAMedicale website copy. The user should normally provide the material and intended outcome, not every title, summary, CTA, or metadata field.
+
+- Follow: **USER CONTEXT → UNDERSTAND CONTENT → VERIFY AVAILABLE FACTS → IDENTIFY AUDIENCE + SEARCH INTENT → GENERATE FIT-FOR-PURPOSE COPY → APPLY THE SEO PATTERN → AUTO-FIT RESPONSIVELY → IMPLEMENT → CHECK → COMMIT → PUSH → STOP**.
+- Infer the appropriate title, subtitle, excerpt, summary, section headings, card copy, CTA, breadcrumb label, internal-link wording, search wording, and supported metadata from the canonical source. Do not ask the user to supply wording that can be derived reliably.
+- Classify content as Public, Clinical, or legitimately dual-audience. Keep Public copy calm and plain-language; preserve appropriate terminology and specificity for Clinical material.
+- Write for real search intent and connect the item to the relevant BAMedicale topic cluster without keyword stuffing. Reuse the established SEO, security, content-data, design, IMAGE FILL, and Public/Clinical patterns rather than duplicating them.
+- Adapt source wording to the component: concise for cards and mobile, fuller for detail pages, and never excessively long merely because the source is long. Improve wording before reducing readable typography.
+- Preserve the source's medical meaning and original substantive content. Never invent medical facts, statistics, diagnosis, prognosis, outcomes, credentials, affiliations, authorship, pricing, event details, accreditation, or personalized medical advice.
+- For articles, events, videos, eBooks, previews, and future indexable pages, automatically create the appropriate content hierarchy and internal connections supported by available facts; preserve original files/media as their canonical substantive source.
+
+---
+
 # 20. COMPLETION
 
 A task is complete when:
