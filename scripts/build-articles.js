@@ -19,7 +19,8 @@ const assert = (condition, message) => { if (!condition) throw new Error(message
 
 for (const article of articles) {
   for (const field of ["id", "slug", "title", "dek", "excerpt", "cover", "primaryTopic", "contentType", "sourceAttribution"]) assert(article[field], `${article.id || "Article"}: missing ${field}`);
-  assert(Array.isArray(article.audiences) && article.audiences.length, `${article.id}: audiences are required`);
+  assert(["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].includes(article.primaryAudience), `${article.id}: valid primaryAudience is required`);
+  assert(article.author?.name && ["Organization", "Person"].includes(article.author.type), `${article.id}: valid author metadata is required`);
   assert(Array.isArray(article.sections) && article.sections.length, `${article.id}: article body is required`);
   assert(article.promotion && article.promotion.hook && Array.isArray(article.promotion.teaser) && article.promotion.teaser.length, `${article.id}: source-specific promotion hook and teaser are required`);
   assert(Array.isArray(article.promotion.hashtags) && article.promotion.hashtags.length >= 2 && article.promotion.hashtags.length <= 3, `${article.id}: use two or three source-specific promotion hashtags`);
@@ -49,6 +50,10 @@ const socialPromotion = (article, canonical) => {
 
 const renderPage = (article, index) => {
   const canonical = shareUrl(article);
+  const audienceTypes = [article.primaryAudience, ...(article.secondaryAudiences || [])];
+  const author = article.author.type === "Person"
+    ? { "@type": "Person", name: article.author.name }
+    : { "@type": "Organization", name: article.author.name, url: `${domain}/` };
   const previous = articles[index - 1];
   const next = articles[index + 1];
   const promotion = socialPromotion(article, canonical);
@@ -61,7 +66,8 @@ const renderPage = (article, index) => {
     image: absolute(article.cover),
     mainEntityOfPage: canonical,
     publisher: { "@type": "Organization", name: "BA Medicale", url: `${domain}/`, logo: { "@type": "ImageObject", url: `${domain}/assets/brand/bamedicale-approved-logo.jpg` } },
-    audience: article.audiences.map((audienceType) => ({ "@type": "Audience", audienceType })),
+    author,
+    audience: audienceTypes.map((audienceType) => ({ "@type": "Audience", audienceType })),
     about: [article.primaryTopic, ...(article.tags || [])]
   };
   if (article.publishedDate) schema.datePublished = article.publishedDate;
@@ -77,7 +83,7 @@ const renderPage = (article, index) => {
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escape(article.seoTitle || `${article.title} | BA Medicale`)}</title>
-  <meta name="description" content="${escape(article.excerpt)}"><link rel="canonical" href="${canonical}">
+  <meta name="description" content="${escape(article.excerpt)}"><meta name="author" content="${escape(article.author.name)}"><link rel="canonical" href="${canonical}">
   <meta property="og:type" content="article"><meta property="og:site_name" content="BA Medicale"><meta property="og:title" content="${escape(article.title)}"><meta property="og:description" content="${escape(article.excerpt)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${absolute(article.cover)}"><meta property="og:image:alt" content="${escape(article.title)} editorial artwork">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(article.title)}"><meta name="twitter:description" content="${escape(article.excerpt)}"><meta name="twitter:image" content="${absolute(article.cover)}">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
@@ -88,7 +94,7 @@ const renderPage = (article, index) => {
   <header class="seo-static-header"><a class="brand" href="../index.html"><img src="../assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo" width="64" height="64"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><a class="button button-outline" href="../library.html">Medical Library</a></header>
   <main class="seo-article-page"><nav class="seo-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../library.html">Medical Library</a><span>/</span><span>${escape(article.primaryTopic)}</span></nav>
     <article>
-      <header class="seo-article-hero seo-article-hero--publication"><div><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges">${article.audiences.map((audience) => `<span>${escape(audience)}</span>`).join("")}<span>${escape(article.primaryTopic)}</span></div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><small>Sources: ${escape(article.sourceAttribution)}</small></div><button type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button></header>
+      <header class="seo-article-hero seo-article-hero--publication"><div><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges"><span>${escape(article.primaryAudience)}</span><span>${escape(article.primaryTopic)}</span></div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><small class="article-byline">By ${escape(article.author.name)}</small><small>Sources: ${escape(article.sourceAttribution)}</small></div><button type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button></header>
       ${article.stats?.length ? `<section class="seo-article-stats">${article.stats.map(([value, label]) => `<div><strong>${escape(value)}</strong><span>${escape(label)}</span></div>`).join("")}</section>` : ""}
       <section class="seo-article-section">${article.intro.map((text) => `<p>${escape(text)}</p>`).join("")}</section>
       ${article.sections.map(renderSection).join("")}

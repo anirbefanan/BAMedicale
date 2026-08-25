@@ -56,7 +56,9 @@ const articleRecords = () => Object.values(data.articles || {}).sort((a, b) => {
 });
 const articlePath = (article) => `articles/${article.slug}.html`;
 const articleDate = (article) => article.updatedDate || article.publishedDate || "";
-const compactAudience = (audiences = []) => audiences.length > 1 ? `${audiences[0]} +${audiences.length - 1}` : (audiences[0] || "GENERAL");
+const articlePrimaryAudience = (article) => article.primaryAudience || "PUBLIC";
+const articleAudiences = (article) => [articlePrimaryAudience(article), ...(article.secondaryAudiences || [])];
+const articleAuthor = (article) => article.author?.name || "BA Medicale";
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
@@ -116,8 +118,8 @@ function renderLibrary() {
   const sites = [...new Set(records.map((article) => article.diseaseSite).filter(Boolean))];
   const types = [...new Set(records.map((article) => article.contentType).filter(Boolean))];
   const option = (value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`;
-  const latestCard = (article) => `<article class="article-latest-card"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="${escapeHtml(article.title)} editorial artwork" width="1280" height="720" loading="lazy"><div><span>${escapeHtml(compactAudience(article.audiences))}</span><p>${escapeHtml(article.primaryTopic)}</p><h3>${escapeHtml(article.title)}</h3><small>${escapeHtml(article.sourceAttribution)}</small><a href="${escapeHtml(articlePath(article))}">Read full article <b aria-hidden="true">→</b></a></div></article>`;
-  const listItem = (article) => `<article class="article-list-item"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="" width="320" height="180" loading="lazy"><div class="article-list-item__copy"><div class="article-list-item__meta"><span>${escapeHtml(compactAudience(article.audiences))}</span><b>${escapeHtml(article.primaryTopic)}</b>${articleDate(article) ? `<time datetime="${escapeHtml(articleDate(article))}">${escapeHtml(articleDate(article))}</time>` : ""}</div><h3>${escapeHtml(article.title)}</h3><p>${escapeHtml(article.excerpt)}</p><div class="article-list-item__tags">${(article.tags || []).slice(0, 3).map((tag) => `<i>${escapeHtml(tag)}</i>`).join("")}</div><small>Sources: ${escapeHtml(article.sourceAttribution)}</small></div><div class="article-list-item__actions"><a href="${escapeHtml(articlePath(article))}" data-article-reader="${escapeHtml(article.id)}">Quick Read</a><a href="${escapeHtml(articlePath(article))}">Read Full Article</a></div></article>`;
+  const latestCard = (article) => `<article class="article-latest-card"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="${escapeHtml(article.title)} editorial artwork" width="1280" height="720" loading="lazy"><div><span>${escapeHtml(articlePrimaryAudience(article))}</span><p>${escapeHtml(article.primaryTopic)}</p><h3>${escapeHtml(article.title)}</h3><small>By ${escapeHtml(articleAuthor(article))}</small><a href="${escapeHtml(articlePath(article))}">Read full article <b aria-hidden="true">→</b></a></div></article>`;
+  const listItem = (article) => `<article class="article-list-item"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="" width="320" height="180" loading="lazy"><div class="article-list-item__copy"><div class="article-list-item__meta"><span>${escapeHtml(articlePrimaryAudience(article))}</span><b>${escapeHtml(article.primaryTopic)}</b>${articleDate(article) ? `<time datetime="${escapeHtml(articleDate(article))}">${escapeHtml(articleDate(article))}</time>` : ""}</div><h3>${escapeHtml(article.title)}</h3><p>${escapeHtml(article.excerpt)}</p><div class="article-list-item__tags">${(article.tags || []).slice(0, 3).map((tag) => `<i>${escapeHtml(tag)}</i>`).join("")}</div><small>By ${escapeHtml(articleAuthor(article))} · Sources: ${escapeHtml(article.sourceAttribution)}</small></div><div class="article-list-item__actions"><a href="${escapeHtml(articlePath(article))}" data-article-reader="${escapeHtml(article.id)}">Quick Read</a><a href="${escapeHtml(articlePath(article))}">Read Full Article</a></div></article>`;
   const sections = [
     ["PUBLIC", "Public Education", "Clear explanations for patients, families, and anyone building a stronger understanding."],
     ["DOCTOR", "Professional Education — Doctors", "Clinical context for doctors, specialists, and physician-level learners."],
@@ -130,11 +132,12 @@ function renderLibrary() {
     const values = Object.fromEntries(new FormData(filterForm));
     target.querySelectorAll("[data-article-audience]").forEach((section) => {
       const audience = section.dataset.articleAudience;
-      const filtered = records.filter((article) => article.audiences.includes(audience) && (!values.audience || article.audiences.includes(values.audience)) && (!values.topic || article.primaryTopic === values.topic) && (!values.site || article.diseaseSite === values.site) && (!values.type || article.contentType === values.type));
+      const filtered = records.filter((article) => articlePrimaryAudience(article) === audience && (!values.audience || articleAudiences(article).includes(values.audience)) && (!values.topic || article.primaryTopic === values.topic) && (!values.site || article.diseaseSite === values.site) && (!values.type || article.contentType === values.type));
       const maxPage = Math.max(1, Math.ceil(filtered.length / 10));
       const page = Math.min(pages.get(audience) || 1, maxPage);
       pages.set(audience, page);
-      section.querySelector("[data-article-list]").innerHTML = filtered.length ? filtered.slice((page - 1) * 10, page * 10).map(listItem).join("") : `<p class="article-list__empty">No articles match these filters yet.</p>`;
+      const hasFilters = Object.values(values).some(Boolean);
+      section.querySelector("[data-article-list]").innerHTML = filtered.length ? filtered.slice((page - 1) * 10, page * 10).map(listItem).join("") : `<p class="article-list__empty">${hasFilters ? "No articles match these filters yet." : "Articles for this primary audience are in preparation."}</p>`;
       section.querySelector("[data-article-count]").textContent = `${filtered.length} article${filtered.length === 1 ? "" : "s"}`;
       section.querySelector("[data-page-status]").textContent = `Page ${page} of ${maxPage}`;
       section.querySelector('[data-page="previous"]').disabled = page <= 1;
@@ -173,7 +176,7 @@ function initArticleReader() {
     const article = data.articles[id];
     if (!article) return;
     pdf.href = safeInternalUrl(article.sourcePdf);
-    body.innerHTML = `<header class="article-reader__hero"><p class="eyebrow">${escapeHtml(article.label)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.dek)}</p><div class="article-reader__stats">${article.stats.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div></header><section class="article-reader__intro">${article.intro.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>${article.sections.map(renderSection).join("")}<section class="article-reader__takeaways"><p class="eyebrow">Key policy takeaways</p><h2>What this means for public education.</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section><section class="article-reader__references"><p class="eyebrow">References and sources</p>${article.references.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>`;
+    body.innerHTML = `<header class="article-reader__hero"><p class="eyebrow">${escapeHtml(article.label)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.dek)}</p><small class="article-byline">By ${escapeHtml(articleAuthor(article))}</small>${article.stats?.length ? `<div class="article-reader__stats">${article.stats.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div>` : ""}</header><section class="article-reader__intro">${article.intro.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>${article.sections.map(renderSection).join("")}<section class="article-reader__takeaways"><p class="eyebrow">Key educational takeaways</p><h2>What to carry into the next conversation.</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section><section class="article-reader__references"><p class="eyebrow">References and sources</p>${article.references.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>`;
     dialog.dataset.returnFocus = opener ? "true" : "false";
     dialog.showModal();
     body.scrollTop = 0;
