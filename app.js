@@ -32,6 +32,13 @@ const protectExternalLinks = (root = document) => {
     link.setAttribute("rel", "noopener noreferrer");
   });
 };
+const articleRecords = () => Object.values(data.articles || {}).sort((a, b) => {
+  const dateOrder = String(b.updatedDate || b.publishedDate || "").localeCompare(String(a.updatedDate || a.publishedDate || ""));
+  return dateOrder || Number(b.sortOrder || 0) - Number(a.sortOrder || 0);
+});
+const articlePath = (article) => `articles/${article.slug}.html`;
+const articleDate = (article) => article.updatedDate || article.publishedDate || "";
+const compactAudience = (audiences = []) => audiences.length > 1 ? `${audiences[0]} +${audiences.length - 1}` : (audiences[0] || "GENERAL");
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
@@ -63,7 +70,7 @@ function renderHome() {
   if (updates) {
     const fillToFive = (items) => items.concat(Array.from({ length: Math.max(0, 5 - items.length) }, () => ({ title: "Coming soon", meta: "New learning update in preparation", pending: true })));
     const list = (items, href) => fillToFive(items).slice(0, 5).map((item) => `<a class="home-update-item${item.pending ? " is-pending" : ""}" href="${href}"><span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">→</i></a>`).join("");
-    const articles = data.library.map((item) => ({ title: item.title, meta: item.type }));
+    const articles = articleRecords().map((item) => ({ title: item.title, meta: item.primaryTopic }));
     const seminars = [{ title: data.featuredSeminar.title, meta: `${data.featuredSeminar.date} · ${data.featuredSeminar.time}` }].concat(data.events.map((item) => ({ title: item.title, meta: `${item.date} · ${item.format}` })));
     const ebooks = data.ebooks.map((item) => ({ title: item.title, meta: item.state }));
     updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>New reading, upcoming learning, and recently added eBooks in one practical overview.</p></div><div class="approved-home-updates__grid"><section class="home-update-card"><div><p>Articles</p><h3>Latest reading</h3></div>${list(articles, "library.html")}</section><section class="home-update-card"><div><p>Upcoming event</p><h3>Seminars &amp; courses</h3></div>${list(seminars, "seminar.html")}</section><section class="home-update-card"><div><p>eBooks</p><h3>Recently added</h3></div>${list(ebooks, "ebooks.html")}</section></div>`;
@@ -84,14 +91,48 @@ function initJourneyWorkflow() {
 }
 
 function renderLibrary() {
-  document.querySelectorAll("[data-library-list]").forEach((target) => {
-    target.innerHTML = data.library.concat(data.library.filter((item) => item.type !== "Indonesia report")).map((item, index) => {
-      const article = item.reader && data.articles ? data.articles[item.reader] : null;
-      const action = item.reader ? `<a href="${item.href}" class="text-link" data-article-reader="${item.reader}">Open overview <span>→</span></a>` : `<a href="${item.href}" class="text-link">Open overview <span>→</span></a>`;
-      const media = article?.cover ? `<figure class="knowledge-card__media"><button type="button" class="knowledge-card__media-trigger" data-lightbox-image="${escapeHtml(article.cover)}" data-lightbox-alt="Editorial visual for ${escapeHtml(item.title)}" aria-label="Open image for ${escapeHtml(item.title)}"><img src="${escapeHtml(article.cover)}" alt="Editorial visual for ${escapeHtml(item.title)}" width="1448" height="1086" loading="lazy"></button></figure>` : "";
-      return `<article class="knowledge-card ${article?.cover ? "knowledge-card--with-media knowledge-card--full-media" : ""} ${index > 4 ? "is-pro" : ""}">${media}<span>${index > 4 ? "Member library" : item.type}</span><h3>${item.title}</h3><p>${item.text}</p><div>${action}${index > 4 ? `<i>Professional depth</i>` : ""}</div></article>`;
-    }).join("");
-  });
+  const target = document.querySelector("[data-article-library]");
+  if (!target) return;
+  const records = articleRecords();
+  const topics = [...new Set(records.map((article) => article.primaryTopic))];
+  const sites = [...new Set(records.map((article) => article.diseaseSite).filter(Boolean))];
+  const types = [...new Set(records.map((article) => article.contentType).filter(Boolean))];
+  const option = (value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`;
+  const latestCard = (article) => `<article class="article-latest-card"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="${escapeHtml(article.title)} editorial artwork" width="1280" height="720" loading="lazy"><div><span>${escapeHtml(compactAudience(article.audiences))}</span><p>${escapeHtml(article.primaryTopic)}</p><h3>${escapeHtml(article.title)}</h3><small>${escapeHtml(article.sourceAttribution)}</small><a href="${escapeHtml(articlePath(article))}">Read full article <b aria-hidden="true">→</b></a></div></article>`;
+  const listItem = (article) => `<article class="article-list-item"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="" width="320" height="180" loading="lazy"><div class="article-list-item__copy"><div class="article-list-item__meta"><span>${escapeHtml(compactAudience(article.audiences))}</span><b>${escapeHtml(article.primaryTopic)}</b>${articleDate(article) ? `<time datetime="${escapeHtml(articleDate(article))}">${escapeHtml(articleDate(article))}</time>` : ""}</div><h3>${escapeHtml(article.title)}</h3><p>${escapeHtml(article.excerpt)}</p><div class="article-list-item__tags">${(article.tags || []).slice(0, 3).map((tag) => `<i>${escapeHtml(tag)}</i>`).join("")}</div><small>Sources: ${escapeHtml(article.sourceAttribution)}</small></div><div class="article-list-item__actions"><a href="${escapeHtml(articlePath(article))}" data-article-reader="${escapeHtml(article.id)}">Quick Read</a><a href="${escapeHtml(articlePath(article))}">Read Full Article</a></div></article>`;
+  const sections = [
+    ["PUBLIC", "Public Education", "Clear explanations for patients, families, and anyone building a stronger understanding."],
+    ["DOCTOR", "Professional Education — Doctors", "Clinical context for doctors, specialists, and physician-level learners."],
+    ["HEALTHCARE WORKER", "Professional Education — Healthcare Workers", "Practical learning for nursing, allied health, pharmacy, laboratory, imaging, and multidisciplinary care."]
+  ];
+  target.innerHTML = `<section class="article-latest"><div class="article-library__heading"><div><p class="eyebrow">Latest articles</p><h2>Recently published and updated.</h2></div><p>${records.length >= 5 ? "Five current entry points" : `${records.length} current article${records.length === 1 ? "" : "s"}`}, ordered automatically from the article registry.</p></div><div class="article-latest__rail">${records.slice(0, 5).map(latestCard).join("")}</div></section><form class="article-filters" data-article-filters><label>Audience<select name="audience"><option value="">All audiences</option>${["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].map(option).join("")}</select></label><label>Primary topic<select name="topic"><option value="">All topics</option>${topics.map(option).join("")}</select></label><label>Disease or site<select name="site"><option value="">All sites</option>${sites.map(option).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map(option).join("")}</select></label><button type="reset">Clear filters</button></form><div data-article-audiences>${sections.map(([audience, title, description]) => `<section class="article-audience" data-article-audience="${audience}"><header><div><p class="eyebrow">${title}</p><h2>${description}</h2></div><span data-article-count></span></header><div class="article-list" data-article-list></div><nav class="article-pagination" aria-label="${title} pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`).join("")}</div>`;
+  const filterForm = target.querySelector("[data-article-filters]");
+  const pages = new Map();
+  const update = () => {
+    const values = Object.fromEntries(new FormData(filterForm));
+    target.querySelectorAll("[data-article-audience]").forEach((section) => {
+      const audience = section.dataset.articleAudience;
+      const filtered = records.filter((article) => article.audiences.includes(audience) && (!values.audience || article.audiences.includes(values.audience)) && (!values.topic || article.primaryTopic === values.topic) && (!values.site || article.diseaseSite === values.site) && (!values.type || article.contentType === values.type));
+      const maxPage = Math.max(1, Math.ceil(filtered.length / 10));
+      const page = Math.min(pages.get(audience) || 1, maxPage);
+      pages.set(audience, page);
+      section.querySelector("[data-article-list]").innerHTML = filtered.length ? filtered.slice((page - 1) * 10, page * 10).map(listItem).join("") : `<p class="article-list__empty">No articles match these filters yet.</p>`;
+      section.querySelector("[data-article-count]").textContent = `${filtered.length} article${filtered.length === 1 ? "" : "s"}`;
+      section.querySelector("[data-page-status]").textContent = `Page ${page} of ${maxPage}`;
+      section.querySelector('[data-page="previous"]').disabled = page <= 1;
+      section.querySelector('[data-page="next"]').disabled = page >= maxPage;
+    });
+  };
+  filterForm.addEventListener("change", () => { pages.clear(); update(); });
+  filterForm.addEventListener("reset", () => { pages.clear(); requestAnimationFrame(update); });
+  target.querySelectorAll("[data-page]").forEach((button) => button.addEventListener("click", () => {
+    const section = button.closest("[data-article-audience]");
+    const audience = section.dataset.articleAudience;
+    pages.set(audience, Math.max(1, (pages.get(audience) || 1) + (button.dataset.page === "next" ? 1 : -1)));
+    update();
+    section.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  }));
+  update();
 }
 
 function initArticleReader() {
@@ -197,7 +238,7 @@ function initSearch() {
   if (!input || !output) return;
   const results = [
     ["I found a lump", "Public guide", "A lump can have many causes. Learn how clinical evaluation, imaging, and biopsy may each contribute.", "public.html#diagnosis"], ["Tumor vs cancer", "Public guide", "Understand why a tumor is not always cancer, and why a malignant tumor can invade or spread.", "public.html#tumor-cancer"], ["Biopsy", "Diagnosis", "How tissue or cell sampling can help establish a diagnosis and guide further testing.", "public.html#diagnosis"], ["Cancer staging", "Professional", "An orientation to stage, TNM language, and how staging supports treatment planning.", "clinical.html#staging"], ["Immunotherapy", "Treatment", "A treatment concept that uses the immune system in selected cancer settings.", "public.html#treatment"], ["Thyroid nodule", "Disease explorer", "Start with thyroid and endocrine neoplasms, then follow diagnosis and clinical routes.", "index.html#explorer"]
-  ].concat(data.library.map((item) => [item.title, item.type, item.text, item.href]));
+  ].concat(data.library.map((item) => [item.title, item.type, item.text, item.href])).concat(articleRecords().map((article) => [article.title, article.primaryTopic, article.excerpt, articlePath(article)]));
   const show = (query = "") => {
     const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
     const filtered = results.filter((item) => terms.every((term) => item.join(" ").toLowerCase().includes(term)));
@@ -316,4 +357,30 @@ async function renderVideoHub() {
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 
-shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initJourneyWorkflow(); renderVideoHub(); protectExternalLinks();
+function initArticlePageTools() {
+  const shareToggle = document.querySelector("[data-share-toggle]");
+  const shareMenu = document.querySelector("[data-share-menu]");
+  shareToggle?.addEventListener("click", () => {
+    const open = shareMenu.hasAttribute("hidden");
+    shareMenu.toggleAttribute("hidden", !open);
+    shareToggle.setAttribute("aria-expanded", String(open));
+  });
+  document.querySelectorAll("[data-copy-link]").forEach((button) => button.addEventListener("click", async () => {
+    const value = safeExternalUrl(button.dataset.copyLink);
+    if (!value) return;
+    await navigator.clipboard?.writeText(value);
+    button.textContent = "Link copied";
+  }));
+  const dialog = document.querySelector("[data-promotion-dialog]");
+  document.querySelector("[data-promote-open]")?.addEventListener("click", () => dialog?.showModal());
+  dialog?.querySelector("[data-promote-close]")?.addEventListener("click", () => dialog.close());
+  dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+  dialog?.querySelectorAll("[data-copy-promotion]").forEach((button) => button.addEventListener("click", async () => {
+    const card = button.closest("article");
+    const copy = Array.from(card.querySelectorAll("h2,p,li,b,small")).map((node) => node.textContent.trim()).filter(Boolean).join("\n");
+    await navigator.clipboard?.writeText(copy);
+    button.textContent = "Copy ready";
+  }));
+}
+
+shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderFeaturedSeminar(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initJourneyWorkflow(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();

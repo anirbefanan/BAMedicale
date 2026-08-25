@@ -12,19 +12,26 @@ window.BAMEDICALE_DATA = {
     ["01", "Concern or discovery", "A symptom, a screening result, or an unexpected finding may begin the conversation."], ["02", "Clinical evaluation", "History, examination, and targeted tests help clarify what needs attention."], ["03", "Imaging", "Scans and imaging describe anatomy and guide the next diagnostic step."], ["04", "Pathology or biopsy", "Tissue and cell analysis can establish the diagnosis and disease type."], ["05", "Diagnosis and staging", "Type, grade, biomarkers, and extent of disease inform the clinical picture."], ["06", "Treatment planning", "Options are selected around tumor type, stage, health, and individual goals."], ["07", "Treatment and support", "Care may include surgery, radiation, systemic therapy, and supportive care."], ["08", "Follow-up and beyond", "Survivorship, recurrence concerns, advanced care, and caregiver support remain important."]
   ],
   library: [
-    {
-      type: "Indonesia report",
-      title: "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-      text: "A public health review of projected cancer burden in Indonesia, including incidence, mortality, prevalence, prevention context, and the clinical distinction between tumor and cancer.",
-      href: "articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-      reader: "indonesia-cancer-statistics-2026"
-    },
     { type: "Public guide", title: "Tumor, cancer, and the words clinicians use", text: "A clear starting point for understanding benign growths, malignant disease, and why terms matter.", href: "public.html#tumor-cancer" }, { type: "Diagnosis", title: "From imaging to biopsy", text: "What different tests can and cannot answer when a lesion needs investigation.", href: "public.html#diagnosis" }, { type: "Professional", title: "Staging and treatment selection", text: "A structured orientation to stage, pathology, biomarkers, and multidisciplinary planning.", href: "clinical.html#staging" }, { type: "Care", title: "Living with and beyond cancer", text: "Supportive care, follow-up, survivorship, and practical questions for appointments.", href: "public.html#living" }
   ],
   articles: {
     "indonesia-cancer-statistics-2026": {
+      id: "indonesia-cancer-statistics-2026",
+      slug: "indonesia-cancer-tumor-statistics-2026-policy-update",
       title: "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+      seoTitle: "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
       dek: "A comprehensive public health review of the 2026 epidemiological update, adapted from the submitted BA Medicale PDF into a web-readable digital magazine view.",
+      excerpt: "A public health review of Indonesia's projected cancer burden, prevention context, and the clinical distinction between tumor and cancer.",
+      audiences: ["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"],
+      primaryTopic: "Epidemiology & Statistics",
+      tags: ["Health Policy", "Prevention & Risk", "Early Detection", "Tumor & Cancer Basics"],
+      diseaseSite: "All cancer sites",
+      contentType: "Article",
+      sourceAttribution: "GLOBOCAN, IARC, WHO, Kementerian Kesehatan RI, and PERABOI",
+      publishedDate: "",
+      updatedDate: "",
+      sortOrder: 1,
+      focalPosition: "50% 50%",
       sourcePdf: "assets/articles/indonesia-cancer-statistics-report.pdf",
       cover: "assets/articles/indonesia-cancer-statistics-2026-cover.jpg",
       label: "Health policy brief",
@@ -102,7 +109,17 @@ window.BAMEDICALE_DATA = {
         "Kementerian Kesehatan RI (Kemenkes): National Cancer Control Guidelines and Registries.",
         "PERABOI (2021-2024): Panduan Penatalaksanaan Kanker di Indonesia.",
         "WHO: Cancer Country Profiles - Indonesia Epidemiological and Infrastructure Indicators."
-      ]
+      ],
+      promotion: {
+        hook: "What do Indonesia's 2026 cancer projections mean for public awareness and health-system planning?",
+        value: [
+          "Tumor and cancer are related terms, but they do not describe the same clinical behavior.",
+          "Incidence and mortality patterns differ across cancer sites and require different responses.",
+          "Prevention, early detection, and access to appropriate care remain central public-health priorities."
+        ],
+        caption: "A concise evidence-aware review of Indonesia's projected cancer burden, the distinction between tumor and cancer, and priorities for prevention and early detection.",
+        hashtags: ["#BAMedicaleCom", "#CancerEducation", "#EarlyDetection", "#Oncology", "#IndonesiaHealth"]
+      }
     }
   },
   ebooks: [
