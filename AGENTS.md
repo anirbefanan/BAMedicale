@@ -812,6 +812,13 @@ When sufficient source material or context exists, automatically turn it into co
 - Run `npm run articles:build` after article-record changes and `npm run articles:check` before commit. Preserve the 16:9 IMAGE FILL hero, desktop Latest 5 grid, viewport-safe touch-scrollable mobile Latest rail, ten-item audience pagination, canonical `https://bamedicale.com/articles/<slug>.html`, Quick Read, full article navigation, share tools, source PDF, SEO, and sitemap inclusion. Share menus stay anchored on desktop and recompose as a viewport-contained mobile sheet with Close, outside-tap, and Escape dismissal.
 - Future BAU is: **SOURCE → VERIFY → CLASSIFY → CREATE RECORD → BUILD → RESPONSIVE/SEO CHECK → COMMIT → PUSH → STOP**. Adding an article must not require manual library rearrangement, pagination, URL creation, metadata duplication, or sitemap editing.
 
+## DISEASE TAXONOMY / CONTENT CLASSIFICATION PROVEN PATTERN
+
+- `content.js` `diseaseTaxonomy` is the single controlled top-level classification for the homepage Disease Explorer, Library discovery, Articles, eBooks, Seminars, Videos, and future educational content. It contains 26 groups; Cancer & Neoplastic Diseases is one category within BA Medicale's broader medical scope. Never create a competing taxonomy.
+- Every content record has exactly one source-derived `primaryDiseaseGroup`, an identifiable `diseaseCondition` when supported, and restrained topic/tags; genuinely cross-system items may use `secondaryDiseaseGroups` for discovery only. Classification must come from the actual source, remain separate from audience, and never duplicate primary audience placement.
+- For every new Article, eBook, Seminar/Event, or Video, Primary Audience remains mandatory and user-defined as `PUBLIC`, `DOCTOR`, or `HEALTHCARE WORKER`. If omitted, stop before implementation and ask only: “Primary audience: Public, Doctor, or Healthcare Worker?” Then automatically infer disease classification and continue the established content-specific workflow.
+- Homepage disease links route to `library.html?disease=<controlled-id>` and the Library must read the same registry. Keep disease labels compact and useful in cards, readers, breadcrumbs, filtering, related content, and SEO without badge overload or thin disease pages.
+
 ---
 
 # 20. COMPLETION

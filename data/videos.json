@@ -42,7 +42,15 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Cancer across organ systems",
+      "topics": [
+        "Early Detection"
+      ]
     },
     {
       "id": "youtube-RA-zSwLqahk",
@@ -76,7 +84,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "HEALTHCARE WORKER",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-1RtDXdvRYYM",
@@ -110,7 +128,15 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "HEALTHCARE WORKER",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Cancer across organ systems",
+      "topics": [
+        "Gynecologic Cancer"
+      ]
     },
     {
       "id": "youtube-EQqz7aDegkI",
@@ -144,7 +170,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "hematologic",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Lymphoma",
+      "topics": [
+        "Lymphoma"
+      ]
     },
     {
       "id": "youtube-48u0x7GCQac",
@@ -178,7 +214,15 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Cancer across organ systems",
+      "topics": [
+        "Early Detection"
+      ]
     },
     {
       "id": "youtube-pGpUFn1iemU",
@@ -212,7 +256,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-QbLWYN_cx1g",
@@ -246,7 +300,15 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Cancer across organ systems",
+      "topics": [
+        "Early Detection"
+      ]
     },
     {
       "id": "youtube-prgdE-XB5T4",
@@ -280,7 +342,15 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Cancer across organ systems",
+      "topics": [
+        "Early Detection"
+      ]
     },
     {
       "id": "youtube-lsRfRsSreGc",
@@ -314,7 +384,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-yT5W5tNjKBM",
@@ -348,7 +428,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Thyroid cancer and nodules",
+      "topics": [
+        "Thyroid Cancer"
+      ]
     },
     {
       "id": "youtube-gQmNFv22moU",
@@ -382,7 +472,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Thyroid cancer and nodules",
+      "topics": [
+        "Thyroid Cancer"
+      ]
     },
     {
       "id": "youtube-TAoYsmnM904",
@@ -416,7 +516,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-f11c-gLv-Ks",
@@ -450,7 +560,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "HEALTHCARE WORKER",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Thyroid cancer and nodules",
+      "topics": [
+        "Thyroid Cancer"
+      ]
     },
     {
       "id": "youtube-zTutu90gfPo",
@@ -484,7 +604,15 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "HEALTHCARE WORKER",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Cancer across organ systems",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-wcRnBoa0EIE",
@@ -518,7 +646,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-Uhjkia1Svvo",
@@ -552,7 +690,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-Dn1GCm3lrFQ",
@@ -586,7 +734,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-gOTlu1-iSuA",
@@ -619,7 +777,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     },
     {
       "id": "youtube-leq1GVS65F0",
@@ -652,7 +820,17 @@
         "last_verified_at": "2026-08-22"
       },
       "discovered_at": "2026-08-22",
-      "last_verified_at": "2026-08-22"
+      "last_verified_at": "2026-08-22",
+      "primaryAudience": "PUBLIC",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "breast",
+      "secondaryDiseaseGroups": [
+        "cancer-neoplastic"
+      ],
+      "diseaseCondition": "Breast cancer",
+      "topics": [
+        "Breast Cancer"
+      ]
     }
   ]
 }

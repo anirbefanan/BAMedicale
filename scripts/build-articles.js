@@ -7,6 +7,8 @@ const domain = "https://bamedicale.com";
 const checkOnly = process.argv.includes("--check");
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, "content.js"), "utf8"), context, { filename: "content.js" });
+const diseaseTaxonomy = context.window.BAMEDICALE_DATA.diseaseTaxonomy || [];
+const diseaseGroups = new Map(diseaseTaxonomy.map((group) => [group.id, group]));
 const articles = Object.values(context.window.BAMEDICALE_DATA.articles || {}).sort((a, b) => {
   const dateOrder = String(b.updatedDate || b.publishedDate || "").localeCompare(String(a.updatedDate || a.publishedDate || ""));
   return dateOrder || Number(b.sortOrder || 0) - Number(a.sortOrder || 0);
@@ -20,6 +22,7 @@ const assert = (condition, message) => { if (!condition) throw new Error(message
 for (const article of articles) {
   for (const field of ["id", "slug", "title", "dek", "excerpt", "cover", "primaryTopic", "contentType", "sourceAttribution"]) assert(article[field], `${article.id || "Article"}: missing ${field}`);
   assert(["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].includes(article.primaryAudience), `${article.id}: valid primaryAudience is required`);
+  assert(diseaseGroups.has(article.primaryDiseaseGroup), `${article.id}: valid primaryDiseaseGroup is required`);
   assert(article.author?.name && ["Organization", "Person"].includes(article.author.type), `${article.id}: valid author metadata is required`);
   assert(Array.isArray(article.sections) && article.sections.length, `${article.id}: article body is required`);
   assert(article.promotion && article.promotion.hook && Array.isArray(article.promotion.teaser) && article.promotion.teaser.length, `${article.id}: source-specific promotion hook and teaser are required`);
@@ -57,6 +60,7 @@ const renderPage = (article, index) => {
   const previous = articles[index - 1];
   const next = articles[index + 1];
   const promotion = socialPromotion(article, canonical);
+  const diseaseGroup = diseaseGroups.get(article.primaryDiseaseGroup);
   const socialText = `${article.title} — ${canonical}`;
   const schema = {
     "@context": "https://schema.org",
@@ -68,7 +72,7 @@ const renderPage = (article, index) => {
     publisher: { "@type": "Organization", name: "BA Medicale", url: `${domain}/`, logo: { "@type": "ImageObject", url: `${domain}/assets/brand/bamedicale-approved-logo.jpg` } },
     author,
     audience: audienceTypes.map((audienceType) => ({ "@type": "Audience", audienceType })),
-    about: [article.primaryTopic, ...(article.tags || [])]
+    about: [diseaseGroup.name, article.diseaseCondition, article.primaryTopic, ...(article.tags || [])].filter(Boolean)
   };
   if (article.publishedDate) schema.datePublished = article.publishedDate;
   if (article.updatedDate) schema.dateModified = article.updatedDate;
@@ -87,14 +91,14 @@ const renderPage = (article, index) => {
   <meta property="og:type" content="article"><meta property="og:site_name" content="BA Medicale"><meta property="og:title" content="${escape(article.title)}"><meta property="og:description" content="${escape(article.excerpt)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${absolute(article.cover)}"><meta property="og:image:alt" content="${escape(article.title)} editorial artwork">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(article.title)}"><meta name="twitter:description" content="${escape(article.excerpt)}"><meta name="twitter:image" content="${absolute(article.cover)}">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="stylesheet" href="../styles.css?v=article-library-system-20260825">
+  <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="stylesheet" href="../styles.css?v=disease-explorer-20260825">
   <script type="application/ld+json">${json(schema)}</script><script type="application/ld+json">${json(breadcrumb)}</script>
 </head>
 <body class="route-article">
   <header class="seo-static-header"><a class="brand" href="../index.html"><img src="../assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo" width="64" height="64"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><a class="button button-outline" href="../library.html">Medical Library</a></header>
-  <main class="seo-article-page"><nav class="seo-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../library.html">Medical Library</a><span>/</span><span>${escape(article.primaryTopic)}</span></nav>
+  <main class="seo-article-page"><nav class="seo-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../library.html?disease=${encodeURIComponent(article.primaryDiseaseGroup)}">${escape(diseaseGroup.name)}</a><span>/</span><span>${escape(article.primaryTopic)}</span></nav>
     <article>
-      <header class="seo-article-hero seo-article-hero--publication"><div><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges"><span>${escape(article.primaryAudience)}</span><span>${escape(article.primaryTopic)}</span></div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><small class="article-byline">By ${escape(article.author.name)}</small><small>Sources: ${escape(article.sourceAttribution)}</small></div><button type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button></header>
+      <header class="seo-article-hero seo-article-hero--publication"><div><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges"><span>${escape(article.primaryAudience)}</span><span>${escape(diseaseGroup.name)}</span>${article.diseaseCondition ? `<span>${escape(article.diseaseCondition)}</span>` : ""}</div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><small class="article-byline">By ${escape(article.author.name)}</small><small>Sources: ${escape(article.sourceAttribution)}</small></div><button type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button></header>
       ${article.stats?.length ? `<section class="seo-article-stats">${article.stats.map(([value, label]) => `<div><strong>${escape(value)}</strong><span>${escape(label)}</span></div>`).join("")}</section>` : ""}
       <section class="seo-article-section">${article.intro.map((text) => `<p>${escape(text)}</p>`).join("")}</section>
       ${article.sections.map(renderSection).join("")}
@@ -106,7 +110,7 @@ const renderPage = (article, index) => {
   </main>
   <dialog class="article-promotion" data-promotion-dialog><div class="article-promotion__bar"><p>BA Medicale promotion toolkit</p><button type="button" data-promote-close>Close</button></div><div class="article-promotion__body"><p>This prepares source-faithful social teasers; it does not publish to social platforms.</p><div class="article-promotion__grid">${formats.map((format) => `<article><span>${format}</span><h2>${escape(promotion.hook)}</h2>${promotion.teaser.map((text) => `<p>${escape(text)}</p>`).join("")}<b>${escape(promotion.cta)}</b><small>${canonical}</small><p>${escape(promotion.hashtags.join(" "))}</p><button type="button" data-copy-promotion="${Buffer.from(promotion.text).toString("base64")}">Copy ${format} copy</button></article>`).join("")}</div></div></dialog>
   <footer class="seo-static-footer"><p>BA Medicale provides education, not individual diagnosis or treatment advice.</p><a href="../library.html">Return to the Medical Library</a></footer>
-  <script src="../content.js?v=article-library-system-20260825"></script><script src="../app.js?v=article-library-system-20260825"></script>
+  <script src="../content.js?v=disease-explorer-20260825"></script><script src="../app.js?v=disease-explorer-20260825"></script>
 </body></html>`.replace(/[ \t]+\n/g, "\n");
 };
 

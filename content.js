@@ -5,11 +5,33 @@ window.BAMEDICALE_DATA = {
     { label: "IARC Global Cancer Observatory", note: "Global cancer data and registry context", url: "https://gco.iarc.who.int/today" },
     { label: "Kementerian Kesehatan RI", note: "Indonesia cancer policy and early detection context", url: "https://www.kemkes.go.id/" }
   ],
-  systems: [
-    ["brain", "Brain & CNS", "Brain, spinal cord, and neuro-oncology"], ["head", "Head & neck", "Oral cavity, nasopharynx, larynx, and salivary glands"], ["thyroid", "Thyroid & endocrine", "Thyroid, adrenal, and endocrine neoplasms"], ["breast", "Breast", "Breast symptoms, diagnosis, treatment, and survivorship"], ["lung", "Thoracic", "Lung, pleura, mediastinum, and thoracic tumor"], ["gi", "Digestive system", "Esophagus, stomach, bowel, and gastrointestinal tumor"], ["liver", "Liver & pancreas", "Hepatobiliary and pancreatic neoplasms"], ["gu", "Genitourinary", "Kidney, bladder, prostate, and testicular tumor"], ["gyn", "Gynecologic", "Cervix, uterus, ovary, and related cancers"], ["skin", "Skin", "Melanoma and non-melanoma skin cancers"], ["bone", "Bone & soft tissue", "Bone tumor, soft-tissue tumor, and sarcoma"], ["blood", "Blood & lymph", "Leukemia, lymphoma, myeloma, and related disorders"], ["rare", "Rare & pediatric", "Uncommon tumor and childhood neoplasms"]
-  ],
-  journey: [
-    ["01", "Concern or discovery", "A symptom, a screening result, or an unexpected finding may begin the conversation."], ["02", "Clinical evaluation", "History, examination, and targeted tests help clarify what needs attention."], ["03", "Imaging", "Scans and imaging describe anatomy and guide the next diagnostic step."], ["04", "Pathology or biopsy", "Tissue and cell analysis can establish the diagnosis and disease type."], ["05", "Diagnosis and staging", "Type, grade, biomarkers, and extent of disease inform the clinical picture."], ["06", "Treatment planning", "Options are selected around tumor type, stage, health, and individual goals."], ["07", "Treatment and support", "Care may include surgery, radiation, systemic therapy, and supportive care."], ["08", "Follow-up and beyond", "Survivorship, recurrence concerns, advanced care, and caregiver support remain important."]
+  diseaseTaxonomy: [
+    { id: "cardiovascular", name: "Cardiovascular Diseases", descriptor: "Heart, blood vessels, and circulation", icon: "heart" },
+    { id: "respiratory", name: "Respiratory Diseases", descriptor: "Lungs, airways, and breathing", icon: "lungs" },
+    { id: "neurological", name: "Neurological Diseases", descriptor: "Brain, nerves, and spinal cord", icon: "brain" },
+    { id: "gastrointestinal", name: "Gastrointestinal Diseases", descriptor: "Digestive tract, stomach, and intestines", icon: "digestive" },
+    { id: "liver-biliary-pancreatic", name: "Liver, Biliary & Pancreatic Diseases", descriptor: "Liver, gallbladder, bile ducts, and pancreas", icon: "liver" },
+    { id: "kidney-urinary", name: "Kidney & Urinary Diseases", descriptor: "Kidneys, urinary tract, and bladder", icon: "kidney" },
+    { id: "endocrine-metabolic", name: "Endocrine & Metabolic Diseases", descriptor: "Hormones, diabetes, and metabolism", icon: "molecule" },
+    { id: "hematologic", name: "Hematologic Diseases", descriptor: "Blood, bone marrow, and blood disorders", icon: "blood" },
+    { id: "cancer-neoplastic", name: "Cancer & Neoplastic Diseases", descriptor: "Benign and malignant tumor and neoplasia", icon: "ribbon" },
+    { id: "infectious", name: "Infectious Diseases", descriptor: "Bacterial, viral, fungal, and parasitic infections", icon: "microbe" },
+    { id: "musculoskeletal", name: "Musculoskeletal Diseases", descriptor: "Bones, muscles, joints, and soft tissues", icon: "bone" },
+    { id: "rheumatologic-autoimmune", name: "Rheumatologic & Autoimmune Diseases", descriptor: "Autoimmune and inflammatory disorders", icon: "shield" },
+    { id: "dermatologic", name: "Dermatologic Diseases", descriptor: "Skin, hair, nails, and related conditions", icon: "skin" },
+    { id: "obstetric-gynecologic", name: "Obstetric & Gynecologic Diseases", descriptor: "Women's reproductive and hormonal health", icon: "female" },
+    { id: "male-reproductive", name: "Male Reproductive Diseases", descriptor: "Men's reproductive and sexual health", icon: "male" },
+    { id: "breast", name: "Breast Diseases", descriptor: "Benign and malignant breast conditions", icon: "breast" },
+    { id: "eye", name: "Eye Diseases", descriptor: "Eye health and vision disorders", icon: "eye" },
+    { id: "ear-nose-throat", name: "Ear, Nose & Throat Diseases", descriptor: "Ear, nose, throat, and related structures", icon: "ear" },
+    { id: "oral-dental", name: "Oral & Dental Diseases", descriptor: "Mouth, teeth, gums, and oral health", icon: "tooth" },
+    { id: "allergic-immunologic", name: "Allergic & Immunologic Diseases", descriptor: "Allergies, asthma, and immune disorders", icon: "immune" },
+    { id: "mental-behavioral", name: "Mental & Behavioral Disorders", descriptor: "Mental health and behavioral conditions", icon: "mind" },
+    { id: "pediatric-congenital", name: "Pediatric & Congenital Diseases", descriptor: "Children's health and congenital conditions", icon: "child" },
+    { id: "genetic-rare", name: "Genetic & Rare Diseases", descriptor: "Genetic disorders and rare conditions", icon: "dna" },
+    { id: "nutritional", name: "Nutritional Diseases", descriptor: "Nutrition-related health conditions", icon: "nutrition" },
+    { id: "injury-poisoning-other", name: "Injury, Poisoning & Other Conditions", descriptor: "Injuries, poisoning, and other conditions", icon: "aid" },
+    { id: "preventive-public-health", name: "Preventive Medicine & Public Health", descriptor: "Prevention, wellness, and population health", icon: "prevention" }
   ],
   library: [
     { type: "Public guide", title: "Tumor, cancer, and the words clinicians use", text: "A clear starting point for understanding benign growths, malignant disease, and why terms matter.", href: "public.html#tumor-cancer" }, { type: "Diagnosis", title: "From imaging to biopsy", text: "What different tests can and cannot answer when a lesion needs investigation.", href: "public.html#diagnosis" }, { type: "Professional", title: "Staging and treatment selection", text: "A structured orientation to stage, pathology, biomarkers, and multidisciplinary planning.", href: "clinical.html#staging" }, { type: "Care", title: "Living with and beyond cancer", text: "Supportive care, follow-up, survivorship, and practical questions for appointments.", href: "public.html#living" }
@@ -27,6 +49,9 @@ window.BAMEDICALE_DATA = {
       author: { name: "BA Medicale", type: "Organization" },
       primaryTopic: "Epidemiology & Statistics",
       tags: ["Health Policy", "Prevention & Risk", "Early Detection", "Tumor & Cancer Basics"],
+      primaryDiseaseGroup: "cancer-neoplastic",
+      secondaryDiseaseGroups: ["preventive-public-health"],
+      diseaseCondition: "Cancer across organ systems",
       diseaseSite: "All cancer sites",
       contentType: "Article",
       sourceAttribution: "GLOBOCAN, IARC, WHO, Kementerian Kesehatan RI, and PERABOI",
@@ -134,6 +159,9 @@ window.BAMEDICALE_DATA = {
       author: { name: "BA Medicale", type: "Organization" },
       primaryTopic: "Tumor & Cancer Basics",
       tags: ["Benign Tumor", "Malignant Tumor", "Biopsy & Pathology"],
+      primaryDiseaseGroup: "cancer-neoplastic",
+      secondaryDiseaseGroups: [],
+      diseaseCondition: "Tumor and cancer",
       diseaseSite: "All cancer sites",
       contentType: "Educational guide",
       sourceAttribution: "Submitted BA Medicale educational article",
@@ -232,12 +260,22 @@ window.BAMEDICALE_DATA = {
     }
   },
   ebooks: [
-    { slug: "clinical-oncology-foundations", title: "Clinical Oncology Foundations", audience: "Medical students and general physicians", price: "Rp149.000", state: "Planned release", text: "A structured foundation for cancer terminology, diagnostic workup, staging, biopsy, and risk communication." }, { slug: "practical-surgical-oncology", title: "Practical Surgical Oncology", audience: "Residents and surgical learners", price: "Rp249.000", state: "Planned release", text: "A study pathway for surgical thinking, multidisciplinary planning, and perioperative oncology context." }, { slug: "breast-cancer-clinical-guide", title: "Breast Cancer Clinical Guide", audience: "Clinicians and advanced learners", price: "Rp299.000", state: "Planned release", text: "A focused guide to breast symptoms, diagnostic pathways, treatment concepts, and patient education." }
+    { slug: "clinical-oncology-foundations", title: "Clinical Oncology Foundations", primaryAudience: "DOCTOR", audience: "Medical students and general physicians", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Cancer across organ systems", topics: ["Diagnosis", "Staging", "Biopsy"], contentType: "eBook", price: "Rp149.000", state: "Planned release", text: "A structured foundation for cancer terminology, diagnostic workup, staging, biopsy, and risk communication." },
+    { slug: "practical-surgical-oncology", title: "Practical Surgical Oncology", primaryAudience: "DOCTOR", audience: "Residents and surgical learners", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Solid tumor", topics: ["Surgery", "Treatment Planning"], contentType: "eBook", price: "Rp249.000", state: "Planned release", text: "A study pathway for surgical thinking, multidisciplinary planning, and perioperative oncology context." },
+    { slug: "breast-cancer-clinical-guide", title: "Breast Cancer Clinical Guide", primaryAudience: "DOCTOR", audience: "Clinicians and advanced learners", primaryDiseaseGroup: "breast", secondaryDiseaseGroups: ["cancer-neoplastic"], diseaseCondition: "Breast cancer", topics: ["Diagnosis", "Treatment", "Patient Education"], contentType: "eBook", price: "Rp299.000", state: "Planned release", text: "A focused guide to breast symptoms, diagnostic pathways, treatment concepts, and patient education." }
   ],
   events: [
-    { date: "Coming soon", format: "Live seminar", title: "Cancer diagnosis: from finding to tissue confirmation", text: "Program details will be published once the faculty, date, and official registration channel are confirmed." }, { date: "Coming soon", format: "Case discussion", title: "Multidisciplinary thinking in solid tumor", text: "A future learning format for discussing clinical questions across diagnosis, treatment, and follow-up." }, { date: "Coming soon", format: "On-demand", title: "Public understanding of tumor and cancer", text: "A planned patient-facing session on symptoms, diagnosis, treatment language, and questions to ask." }
+    { date: "Coming soon", format: "Live seminar", title: "Cancer diagnosis: from finding to tissue confirmation", primaryAudience: "DOCTOR", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Cancer across organ systems", topics: ["Diagnosis", "Pathology", "Biopsy"], contentType: "Seminar", text: "Program details will be published once the faculty, date, and official registration channel are confirmed." },
+    { date: "Coming soon", format: "Case discussion", title: "Multidisciplinary thinking in solid tumor", primaryAudience: "DOCTOR", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Solid tumor", topics: ["Treatment Planning", "Multidisciplinary Care"], contentType: "Seminar", text: "A future learning format for discussing clinical questions across diagnosis, treatment, and follow-up." },
+    { date: "Coming soon", format: "On-demand", title: "Public understanding of tumor and cancer", primaryAudience: "PUBLIC", primaryDiseaseGroup: "cancer-neoplastic", diseaseCondition: "Tumor and cancer", topics: ["Signs & Symptoms", "Diagnosis", "Treatment"], contentType: "Seminar", text: "A planned patient-facing session on symptoms, diagnosis, treatment language, and questions to ask." }
   ],
   featuredSeminar: {
+    primaryAudience: "DOCTOR",
+    primaryDiseaseGroup: "endocrine-metabolic",
+    secondaryDiseaseGroups: ["cancer-neoplastic"],
+    diseaseCondition: "Thyroid nodules",
+    topics: ["Diagnosis", "Imaging", "Pathology", "Treatment Planning"],
+    contentType: "Seminar",
     format: "Live webinar nasional",
     title: "Management of Thyroid Nodules",
     subtitle: "\"How to Make a Good Diagnosis yang Tepat?\"",
