@@ -786,6 +786,13 @@ Apply this automatically to every future change; the user does not need to reque
 - Keep local admin, draft, test, environment, and credential artifacts out of the deployed site. Do not mistake public source code or legitimate `Material` assets for secrets.
 - Respect static-hosting limits: GitHub Pages cannot enforce server-side authentication or arbitrary HTTP security headers. Do not fake those controls in HTML; introduce CSP or edge headers only after compatibility testing through supported hosting/CDN configuration.
 
+## GA4 / ANALYTICS PROVEN PATTERN
+
+- BA Medicale uses GA4 Measurement ID `G-5Q36DG7PTC` through the shared `app.js` architecture; current and future public pages inherit one initialization and one page view automatically.
+- Track meaningful content discovery, readers, content opens, poster/video engagement, eBook opens, share/promotion actions, safe filters, and registration conversions with the established shared event names and existing content metadata. Reuse content type, ID/slug, primary audience, disease group, and topic; do not duplicate classification logic.
+- Preserve enhanced measurement where privacy-safe and never intentionally duplicate its page-view or generic outbound-link events. Add monetization events only when the underlying conversion exists.
+- Never transmit PII, medical/symptom inputs, free text, search terms, recipients, or sensitive URL parameters. Internal search records `search_used` only; safe controlled taxonomy filters may be tracked without their users' medical input.
+
 ---
 
 ## CONTENT INTELLIGENCE / AUTO-COPY PROVEN PATTERN

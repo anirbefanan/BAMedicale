@@ -1,4 +1,56 @@
 const data = window.BAMEDICALE_DATA;
+const GA4_MEASUREMENT_ID = "G-5Q36DG7PTC";
+const ANALYTICS_SAFE_QUERY_KEYS = new Set(["disease", "book"]);
+const analyticsEnabled = () => /(^|\.)bamedicale\.com$/i.test(window.location.hostname);
+const analyticsPageUrl = () => {
+  const url = new URL(window.location.href);
+  const safe = new URL(`${url.origin}${url.pathname}`);
+  [...url.searchParams.entries()].forEach(([key, value]) => {
+    if (ANALYTICS_SAFE_QUERY_KEYS.has(key) && /^[a-z0-9-]{1,80}$/i.test(value)) safe.searchParams.set(key, value);
+  });
+  safe.hash = "";
+  return safe.href;
+};
+const analyticsReferrer = () => {
+  if (!document.referrer) return "";
+  try {
+    const source = new URL(document.referrer);
+    if (source.origin !== window.location.origin) return `${source.origin}/`;
+    const safe = new URL(`${source.origin}${source.pathname}`);
+    [...source.searchParams.entries()].forEach(([key, value]) => {
+      if (ANALYTICS_SAFE_QUERY_KEYS.has(key) && /^[a-z0-9-]{1,80}$/i.test(value)) safe.searchParams.set(key, value);
+    });
+    return safe.href;
+  } catch {
+    return "";
+  }
+};
+const analyticsPageType = () => {
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+  if (path.startsWith("articles/")) return "article";
+  if (path.startsWith("events/")) return "event";
+  return path.replace(/\.html$/i, "") || "home";
+};
+const analyticsParams = (params = {}) => Object.fromEntries(Object.entries(params).filter(([, value]) => typeof value === "string" && value && value.length <= 100));
+const trackAnalytics = (name, params = {}) => {
+  if (!analyticsEnabled() || typeof window.gtag !== "function") return;
+  window.gtag("event", name, analyticsParams({ page_type: analyticsPageType(), ...params }));
+};
+const analyticsContent = (contentType, content) => {
+  if (!content) return analyticsParams({ content_type: contentType });
+  return analyticsParams({
+    content_type: contentType,
+    content_id: String(content.id || content.slug || ""),
+    content_slug: String(content.slug || ""),
+    primary_audience: String(content.primaryAudience || ""),
+    disease_group: String(content.primaryDiseaseGroup || ""),
+    topic: String(content.primaryTopic || content.topic || "")
+  });
+};
+const articleByPath = () => Object.values(data.articles || {}).find((item) => window.location.pathname.endsWith(`/articles/${item.slug}.html`));
+const seminarByPath = () => Object.values(data.seminars || {}).find((item) => window.location.pathname.endsWith(`/${item.detailUrl}`));
+const seminarByArtwork = (artwork) => Object.values(data.seminars || {}).find((item) => String(artwork || "").endsWith(String(item.artwork || "")));
+const ebookBySlug = (slug) => (data.ebooks || []).find((item) => item.slug === slug);
 const icon = (name) => `<svg aria-hidden="true"><use href="#i-${name}"></use></svg>`;
 const diseaseIconPaths = {
   heart: '<path d="M3 12h4l2-5 4 10 2-5h6"/><path d="M12 21S4 16 4 9a4 4 0 0 1 7-2.6A4 4 0 0 1 20 9c0 7-8 12-8 12Z"/>',
@@ -340,7 +392,14 @@ function initSearch() {
     const filtered = results.filter((item) => terms.every((term) => item.join(" ").toLowerCase().includes(term)));
     output.innerHTML = filtered.length ? filtered.map(([title, label, text, href]) => `<a class="search-result" href="${escapeHtml(safeInternalUrl(href))}"><span>${escapeHtml(label)}</span><h2>${escapeHtml(title)}</h2><p>${escapeHtml(text)}</p><b>→</b></a>`).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a symptom, test, body system, or treatment term.</h2><p>Search is currently an editorial navigation tool. More indexed content can be added through the central content registry.</p></div>`;
   };
-  input.addEventListener("input", () => show(input.value)); show();
+  let searchTracked = false;
+  input.addEventListener("input", () => {
+    if (!searchTracked && input.value.trim()) {
+      searchTracked = true;
+      trackAnalytics("search_used");
+    }
+    show(input.value);
+  }); show();
 }
 
 function initShell() {
@@ -496,4 +555,90 @@ function initArticlePageTools() {
   }));
 }
 
-shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();
+function initAnalytics() {
+  if (!analyticsEnabled() || window.__baMedicaleAnalyticsReady) return;
+  window.__baMedicaleAnalyticsReady = true;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
+  window.gtag("js", new Date());
+  window.gtag("config", GA4_MEASUREMENT_ID, {
+    allow_ad_personalization_signals: false,
+    allow_google_signals: false,
+    page_location: analyticsPageUrl(),
+    page_path: window.location.pathname,
+    page_referrer: analyticsReferrer()
+  });
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA4_MEASUREMENT_ID)}`;
+  script.referrerPolicy = "strict-origin-when-cross-origin";
+  document.head.append(script);
+
+  const currentArticle = articleByPath();
+  const currentSeminar = seminarByPath();
+  const currentBook = ebookBySlug(new URLSearchParams(window.location.search).get("book"));
+  if (currentArticle) trackAnalytics("content_open", analyticsContent("article", currentArticle));
+  if (currentSeminar) trackAnalytics("content_open", analyticsContent("seminar", currentSeminar));
+  if (currentBook) trackAnalytics("ebook_open", analyticsContent("ebook", currentBook));
+
+  document.addEventListener("click", (event) => {
+    const control = event.target.closest("a, button");
+    if (!control) return;
+    if (control.matches(".disease-group")) {
+      const disease = new URL(control.href, window.location.href).searchParams.get("disease");
+      trackAnalytics("disease_explorer_click", { disease_group: disease || "" });
+      return;
+    }
+    if (control.matches("[data-article-reader]")) {
+      trackAnalytics("quick_read_open", analyticsContent("article", data.articles?.[control.dataset.articleReader]));
+      return;
+    }
+    if (control.matches("[data-event-quick-read]")) {
+      trackAnalytics("quick_read_open", analyticsContent("seminar", data.seminars?.[control.dataset.eventQuickRead]));
+      return;
+    }
+    if (control.matches("[data-seminar-poster]")) {
+      trackAnalytics("poster_zoom", analyticsContent("seminar", seminarByArtwork(control.dataset.seminarPoster) || currentSeminar));
+      return;
+    }
+    if (control.matches("[data-video-play], [data-video-local]")) {
+      const videoCard = control.closest("[data-video-topic]");
+      trackAnalytics("video_engagement", analyticsParams({ content_type: "video", content_id: control.dataset.videoPlay || control.dataset.videoLocal || "", topic: videoCard?.dataset.videoTopic || "", destination: "play" }));
+      return;
+    }
+    if (control.matches("[data-share-toggle]")) {
+      trackAnalytics("share", analyticsContent(currentArticle ? "article" : "seminar", currentArticle || currentSeminar));
+      return;
+    }
+    if (control.closest("[data-share-menu]") && (control.matches("a") || control.matches("[data-copy-link]"))) {
+      const destination = control.matches("[data-copy-link]") ? "copy_link" : control.textContent.trim().toLowerCase().replace(/\s+/g, "_");
+      trackAnalytics("share", analyticsParams({ ...analyticsContent(currentArticle ? "article" : "seminar", currentArticle || currentSeminar), share_destination: destination }));
+      return;
+    }
+    if (control.matches("[data-promote-open], [data-copy-promotion]")) {
+      trackAnalytics("promote_content", analyticsParams({ ...analyticsContent(currentArticle ? "article" : "seminar", currentArticle || currentSeminar), destination: control.matches("[data-copy-promotion]") ? "copy" : "open" }));
+      return;
+    }
+    if (control.matches("[data-event-audience]")) {
+      trackAnalytics("audience_filter", { primary_audience: control.dataset.eventAudience || "all", content_type: "seminar" });
+      return;
+    }
+    if (control.matches("[data-video-filter]")) {
+      trackAnalytics("content_type_filter", { content_type: "video", topic: control.dataset.videoFilter || "all" });
+      return;
+    }
+    if (control.matches('a[target="_blank"]') && /open registration|register/i.test(control.textContent)) {
+      trackAnalytics("outbound_registration", analyticsContent("seminar", currentSeminar));
+    }
+  });
+
+  document.addEventListener("change", (event) => {
+    const control = event.target;
+    if (!(control instanceof HTMLSelectElement)) return;
+    if (control.name === "audience") trackAnalytics("audience_filter", { primary_audience: control.value || "all" });
+    if (control.name === "diseaseGroup") trackAnalytics("disease_filter", { disease_group: control.value || "all" });
+    if (control.name === "type") trackAnalytics("content_type_filter", { content_type: control.value || "all" });
+  });
+}
+
+initAnalytics(); shell(); renderHome(); renderLibrary(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();
