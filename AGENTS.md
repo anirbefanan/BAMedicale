@@ -822,10 +822,11 @@ When sufficient source material or context exists, automatically turn it into co
 ## SEMINAR LIBRARY PROVEN PATTERN
 
 - Maintain one seminar record in `content.js`; it drives Upcoming/Past discovery, audience filtering, Quick Read, the canonical Event page, poster, faculty, taxonomy, SEO/Event schema, sitemap, sharing, promotion, and navigation. Never duplicate event facts across presentations.
-- Official posters default to a portrait 9:16 presentation with intrinsic proportions, legible content, no distortion or transparency, and a viewport-safe click/zoom viewer. Preserve critical poster text, dates, faculty, logos, and registration details over aggressive cropping.
+- Official posters use a reusable 3:4 presentation across cards, Quick Read, and event pages. Preserve the source image at its natural ratio with `contain` over a restrained blurred background fill when needed; never distort, fade, or crop critical poster text, dates, faculty, logos, or registration details. Keep the viewport-safe click/zoom viewer on the original source.
 - Upcoming Events are the nearest five verified events ordered by date; completed events move automatically into the newest-first Past Events list, ten per page. Ambiguous or incomplete timing must not be guessed.
 - Every event requires a user-defined `PUBLIC`, `DOCTOR`, or `HEALTHCARE WORKER` Primary Audience. If missing, stop and ask only: “Primary audience: Public, Doctor, or Healthcare Worker?” Infer disease group, condition, and restrained tags from the verified source using the shared taxonomy.
 - Quick Read and a crawlable canonical Event page are standard. Apply the existing SEO, Event schema, sitemap, security, physician-identity, viewport-safe share, and source-specific promotion patterns automatically. Future BAU requires only verified poster/source plus Primary Audience; run `npm run seminars:build` and `npm run seminars:check` before committing.
+- First-party BA Medicale articles, seminars, and original videos require one canonical, verified `publishedDate` stored in their record. Reuse it for visible publication metadata, Article/Event structured data, and applicable social metadata; preserve it after first publication and never fabricate a BA publication date for external sources such as YouTube.
 
 ## DISEASE TAXONOMY / CONTENT CLASSIFICATION PROVEN PATTERN
 

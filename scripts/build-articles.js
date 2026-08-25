@@ -20,9 +20,16 @@ const escape = (value = "") => String(value).replace(/[&<>"']/g, (character) => 
 const absolute = (value) => `${domain}/${String(value || "").replace(/^\//, "")}`;
 const relative = (value) => `../${String(value || "").replace(/^\//, "")}`;
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
+const formatPublishedDate = (value) => {
+  const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  assert(match, `invalid publishedDate: ${value || "missing"}`);
+  return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
+    .format(new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]))));
+};
 
 for (const article of articles) {
-  for (const field of ["id", "slug", "title", "dek", "excerpt", "cover", "primaryTopic", "contentType", "sourceAttribution"]) assert(article[field], `${article.id || "Article"}: missing ${field}`);
+  for (const field of ["id", "slug", "title", "dek", "excerpt", "cover", "primaryTopic", "contentType", "sourceAttribution", "publishedDate"]) assert(article[field], `${article.id || "Article"}: missing ${field}`);
+  formatPublishedDate(article.publishedDate);
   assert(["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].includes(article.primaryAudience), `${article.id}: valid primaryAudience is required`);
   assert(diseaseGroups.has(article.primaryDiseaseGroup), `${article.id}: valid primaryDiseaseGroup is required`);
   assert(article.author?.name && ["Organization", "Person"].includes(article.author.type), `${article.id}: valid author metadata is required`);
@@ -32,7 +39,8 @@ for (const article of articles) {
   assert(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug), `${article.id}: invalid slug`);
 }
 for (const seminar of seminars) {
-  for (const field of ["id", "slug", "title", "summary", "startDate", "endDate", "date", "time", "format", "artwork", "detailUrl"]) assert(seminar[field], `${seminar.id || "Seminar"}: missing ${field}`);
+  for (const field of ["id", "slug", "title", "summary", "startDate", "endDate", "date", "time", "format", "artwork", "detailUrl", "publishedDate"]) assert(seminar[field], `${seminar.id || "Seminar"}: missing ${field}`);
+  formatPublishedDate(seminar.publishedDate);
   assert(["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].includes(seminar.primaryAudience), `${seminar.id}: valid primaryAudience is required`);
   assert(diseaseGroups.has(seminar.primaryDiseaseGroup), `${seminar.id}: valid primaryDiseaseGroup is required`);
   assert(Array.isArray(seminar.sessions) && seminar.sessions.length, `${seminar.id}: verified program sessions are required`);
@@ -99,7 +107,7 @@ const renderPage = (article, index) => {
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escape(article.seoTitle || `${article.title} | BA Medicale`)}</title>
   <meta name="description" content="${escape(article.excerpt)}"><meta name="author" content="${escape(article.author.name)}"><link rel="canonical" href="${canonical}">
-  <meta property="og:type" content="article"><meta property="og:site_name" content="BA Medicale"><meta property="og:title" content="${escape(article.title)}"><meta property="og:description" content="${escape(article.excerpt)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${absolute(article.cover)}"><meta property="og:image:alt" content="${escape(article.title)} editorial artwork">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="BA Medicale"><meta property="og:title" content="${escape(article.title)}"><meta property="og:description" content="${escape(article.excerpt)}"><meta property="og:url" content="${canonical}"><meta property="article:published_time" content="${escape(article.publishedDate)}"><meta property="og:image" content="${absolute(article.cover)}"><meta property="og:image:alt" content="${escape(article.title)} editorial artwork">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(article.title)}"><meta name="twitter:description" content="${escape(article.excerpt)}"><meta name="twitter:image" content="${absolute(article.cover)}">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="stylesheet" href="../styles.css?v=disease-explorer-20260825">
@@ -109,7 +117,7 @@ const renderPage = (article, index) => {
   <header class="seo-static-header"><a class="brand" href="../index.html"><img src="../assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo" width="64" height="64"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><a class="button button-outline" href="../library.html">Medical Library</a></header>
   <main class="seo-article-page"><nav class="seo-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../library.html?disease=${encodeURIComponent(article.primaryDiseaseGroup)}">${escape(diseaseGroup.name)}</a><span>/</span><span>${escape(article.primaryTopic)}</span></nav>
     <article>
-      <header class="seo-article-hero seo-article-hero--publication"><div><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges"><span>${escape(article.primaryAudience)}</span><span>${escape(diseaseGroup.name)}</span>${article.diseaseCondition ? `<span>${escape(article.diseaseCondition)}</span>` : ""}</div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><small class="article-byline">By ${escape(article.author.name)}</small><small>Sources: ${escape(article.sourceAttribution)}</small></div><button type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button></header>
+      <header class="seo-article-hero seo-article-hero--publication"><div><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges"><span>${escape(article.primaryAudience)}</span><span>${escape(diseaseGroup.name)}</span>${article.diseaseCondition ? `<span>${escape(article.diseaseCondition)}</span>` : ""}</div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><small class="article-byline">By ${escape(article.author.name)} · Published: ${escape(formatPublishedDate(article.publishedDate))}</small><small class="article-source-meta">Sources: ${escape(article.sourceAttribution)}</small></div><button type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button></header>
       ${article.stats?.length ? `<section class="seo-article-stats">${article.stats.map(([value, label]) => `<div><strong>${escape(value)}</strong><span>${escape(label)}</span></div>`).join("")}</section>` : ""}
       <section class="seo-article-section">${article.intro.map((text) => `<p>${escape(text)}</p>`).join("")}</section>
       ${article.sections.map(renderSection).join("")}
