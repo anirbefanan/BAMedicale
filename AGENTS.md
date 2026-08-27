@@ -786,6 +786,11 @@ Apply this automatically to every future change; the user does not need to reque
 - Keep local admin, draft, test, environment, and credential artifacts out of the deployed site. Do not mistake public source code or legitimate `Material` assets for secrets.
 - Respect static-hosting limits: GitHub Pages cannot enforce server-side authentication or arbitrary HTTP security headers. Do not fake those controls in HTML; introduce CSP or edge headers only after compatibility testing through supported hosting/CDN configuration.
 
+## PRIVACY POLICY PROVEN PATTERN
+
+- `privacy-policy.html` is BA Medicale's dedicated public Privacy Policy and User Data Deletion page, including the Meta/WhatsApp policy and deletion URL. Its wording must substantively mirror the current approved Privacy Policy & User Data Deletion PDF until explicitly replaced; do not create competing policy versions.
+- Link it from the shared footer and About BA Medicale & Team. The only public privacy/support contact is `support@bamedicale.com`; never publish private phone numbers, private emails, passwords, tokens, API keys, or other non-public credentials.
+
 ## GA4 / ANALYTICS PROVEN PATTERN
 
 - BA Medicale uses GA4 Measurement ID `G-5Q36DG7PTC` through the shared `app.js` architecture; current and future public pages inherit one initialization and one page view automatically.
