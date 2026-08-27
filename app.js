@@ -485,6 +485,49 @@ function initLightbox() {
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 
+function shouldShowHomeSeminarPromotion(now = new Date()) {
+  return now <= new Date(2026, 8, 19, 23, 59, 59, 999);
+}
+
+function initHomeSeminarPromotion() {
+  if (!document.body.classList.contains("approved-home") || !shouldShowHomeSeminarPromotion()) return;
+  const seminar = data.seminars?.["management-thyroid-nodules-2026"];
+  const destination = safeInternalUrl(seminar?.detailUrl);
+  const poster = safeImageUrl(seminar?.artwork);
+  if (!seminar || !destination || !poster) return;
+
+  const dialog = document.createElement("dialog");
+  dialog.className = "home-seminar-promo";
+  dialog.setAttribute("aria-labelledby", "home-seminar-promo-title");
+  dialog.innerHTML = `<button class="home-seminar-promo__close" type="button" aria-label="Close seminar promotion">×</button><div class="home-seminar-promo__content"><a class="home-seminar-promo__poster" href="${escapeHtml(destination)}" aria-label="View seminar details"><img src="${escapeHtml(poster)}" alt="Official poster for ${escapeHtml(seminar.title)}" width="1086" height="1448"></a><div class="home-seminar-promo__copy"><p class="eyebrow">Upcoming live webinar</p><h2 id="home-seminar-promo-title">Thyroid Nodules — From Diagnosis to Treatment Decision</h2><p>${escapeHtml(seminar.date)} · ${escapeHtml(seminar.time)}</p><a class="button button-dark" href="${escapeHtml(destination)}">View Seminar Details</a></div></div>`;
+  document.body.append(dialog);
+
+  const close = dialog.querySelector(".home-seminar-promo__close");
+  const body = document.body;
+  let restoreScroll = null;
+  const lockScroll = () => {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    restoreScroll = { overflow: body.style.overflow, paddingRight: body.style.paddingRight };
+    body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+  };
+  const unlockScroll = () => {
+    if (!restoreScroll) return;
+    body.style.overflow = restoreScroll.overflow;
+    body.style.paddingRight = restoreScroll.paddingRight;
+    restoreScroll = null;
+  };
+  const dismiss = () => dialog.close();
+
+  close.addEventListener("click", dismiss);
+  dialog.addEventListener("click", (event) => { if (event.target === dialog) dismiss(); });
+  dialog.addEventListener("close", unlockScroll);
+  dialog.addEventListener("cancel", () => unlockScroll());
+  lockScroll();
+  dialog.showModal();
+  close.focus();
+}
+
 async function renderVideoHub() {
   const hub = document.querySelector("[data-video-hub]");
   const preview = document.querySelector("[data-video-preview-list]");
@@ -690,4 +733,4 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); protectExternalLinks();
+initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
