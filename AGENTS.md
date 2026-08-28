@@ -430,6 +430,8 @@ BA Medicale is a bright premium crimson + ivory medical editorial brand. Maintai
 
 Dark/black UI surfaces are not approved. Use light surfaces for every page, header, card, form, modal, and footer; crimson provides depth and hierarchy. Reuse the shared light-theme tokens, keep accessible text/focus contrast, and never reintroduce dark variants. Preserve original editorial media and official assets without recoloring their content.
 
+Long-reading comfort is mandatory: use deep charcoal supporting text, readable metadata and visible borders, never pale/low-opacity copy. Keep imagery clear rather than washing it out with full-image ivory overlays; protect text through separate reading areas or localized contrast. Latest Article thumbnails sit above dedicated title/byline/CTA content, never behind it. Reserve restrained warm-white liquid glass for navigation, footer and selected floating UI, not long-reading surfaces or every card. Readability takes priority over decorative transparency.
+
 Prefer meaningful:
 - tumor/cancer imagery
 - oncology
