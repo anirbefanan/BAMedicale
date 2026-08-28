@@ -417,19 +417,18 @@ Do not use design autonomy to expand into unrelated sections.
 
 # 10. BAMEDICALE VISUAL SYSTEM
 
-Maintain the established premium identity:
+BA Medicale is a bright premium crimson + ivory medical editorial brand. Maintain:
 
 - crimson
 - burgundy
-- oxblood
-- near-black red
 - warm ivory
-- smoked/translucent glass
-- restrained glow
-- layered depth
+- soft white and cream surfaces
+- subtle neutral borders and soft depth
 - cinematic medical imagery
 - premium modern typography
 - compact editorial composition
+
+Dark/black UI surfaces are not approved. Use light surfaces for every page, header, card, form, modal, and footer; crimson provides depth and hierarchy. Reuse the shared light-theme tokens, keep accessible text/focus contrast, and never reintroduce dark variants. Preserve original editorial media and official assets without recoloring their content.
 
 Prefer meaningful:
 - tumor/cancer imagery
@@ -521,7 +520,7 @@ When artwork should visually merge with a card:
 - blend peripheral edges naturally
 - preserve sharp focal subject
 - use restrained masks/gradients/overlays
-- maintain crimson/black continuity
+- maintain light ivory/crimson continuity
 - avoid muddy blur
 - avoid excessive transparency
 
