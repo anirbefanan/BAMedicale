@@ -151,25 +151,30 @@ const articleDiseaseGroups = (article) => [article.primaryDiseaseGroup, ...(arti
 const articleDiseaseCondition = (article) => article.diseaseCondition || article.diseaseSite || "";
 const groupLabelForSearch = (article) => diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education";
 const PRIMARY_NAVIGATION = Object.freeze([
-  { label: "For Doctors", href: "clinical.html" },
-  { label: "For Healthcare Workers", href: "healthcare-workers.html" },
-  { label: "For Public", href: "public.html" },
-  { label: "Library & Articles", href: "library.html" },
-  { label: "Courses & Seminars", href: "seminar.html" },
-  { label: "eBooks", href: "ebooks.html" },
-  { label: "Videos", href: "videos.html" },
-  { label: "About BA Medicale & Team", href: "about.html" },
-  { label: "Resources", href: "resources.html" },
-  { label: "Member Login", href: "login.html", member: true }
+  { label: "Education", items: [
+    { label: "For Public", href: "public.html" },
+    { label: "For Doctors", href: "clinical.html" },
+    { label: "For Healthcare Workers", href: "healthcare-workers.html" }
+  ] },
+  { label: "Knowledge", items: [
+    { label: "Library & Articles", href: "library.html" },
+    { label: "Videos", href: "videos.html" },
+    { label: "eBooks", href: "ebooks.html" },
+    { label: "Resources", href: "resources.html" }
+  ] },
+  { label: "Learning", items: [{ label: "Courses & Seminars", href: "seminar.html" }] },
+  { label: "About", items: [{ label: "About BA Medicale & Team", href: "about.html" }] }
 ]);
-const navigationLink = (item) => `<a href="${item.href}">${item.label}</a>`;
+const MEMBER_NAVIGATION = Object.freeze({ label: "Member Login", href: "login.html" });
+const navigationIsCurrent = (item) => window.location.pathname.endsWith(`/${item.href}`);
+const navigationLink = (item) => `<a href="${item.href}"${navigationIsCurrent(item) ? ' aria-current="page"' : ""}>${item.label}</a>`;
+const navigationGroups = () => PRIMARY_NAVIGATION.map((group) => `<details class="nav-group${group.items.some(navigationIsCurrent) ? " nav-group--current" : ""}"><summary>${group.label}</summary><div class="nav-group__panel">${group.items.map(navigationLink).join("")}</div></details>`).join("");
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
-    const member = PRIMARY_NAVIGATION.find((item) => item.member);
-    const primaryLinks = PRIMARY_NAVIGATION.filter((item) => !item.member).map(navigationLink).join("");
-    const mobileLinks = PRIMARY_NAVIGATION.map(navigationLink).join("");
-    target.innerHTML = `<header class="site-header"><a class="brand" href="index.html" aria-label="BA Medicale home"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary">${primaryLinks}</nav><div class="nav-actions"><a class="search-button" href="search.html" aria-label="Search BA Medicale">${icon("search")}</a><a class="button button-dark" href="${member.href}">${member.label}</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">${icon("menu")}</button></div></header><nav class="nav-mobile" aria-label="Mobile navigation">${mobileLinks}</nav>`;
+    const member = MEMBER_NAVIGATION;
+    const groups = navigationGroups();
+    target.innerHTML = `<header class="site-header"><a class="brand" href="index.html" aria-label="BA Medicale home"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary">${groups}</nav><div class="nav-actions"><a class="search-button" href="search.html" aria-label="Search BA Medicale">${icon("search")}</a><a class="button button-dark" href="${member.href}">${member.label}</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation">${icon("menu")}</button></div></header><nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation">${groups}<a class="button button-dark nav-mobile__member" href="${member.href}">${member.label}</a></nav>`;
   });
   document.querySelectorAll("[data-footer]").forEach((target) => {
     target.innerHTML = `<footer class="site-footer"><div><a class="brand brand--footer" href="index.html"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>Physician-led medical education</small></span></a><p>Education across diseases and health conditions, with dedicated depth in cancer, neoplasia, and surgical oncology. Information supports learning and does not replace individualized medical care.</p></div><div><h2>Explore</h2><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Medical Library</a><a href="seminar.html">Courses & seminars</a></div><div><h2>Knowledge</h2><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="privacy-policy.html">Privacy Policy</a></div><div><h2>Editorial sources</h2>${data.sources.map((item) => `<a href="${escapeHtml(safeExternalUrl(item.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.label)} ↗</a>`).join("")}</div><small class="footer-note">© 2026 BA Medicale. Site content and features are under continuing editorial development.</small></footer>`;
@@ -455,10 +460,80 @@ function initShell() {
   const header = document.querySelector(".site-header");
   const button = document.querySelector(".menu-button");
   const nav = document.querySelector(".nav-mobile");
-  button?.addEventListener("click", () => { const open = nav.toggleAttribute("data-open"); button.setAttribute("aria-expanded", String(open)); });
-  nav?.addEventListener("click", () => { nav.removeAttribute("data-open"); button?.setAttribute("aria-expanded", "false"); });
+  const groups = [...document.querySelectorAll(".nav-group")];
+  const closeGroups = () => groups.forEach((group) => { group.open = false; });
+  const closeMobile = () => {
+    nav?.removeAttribute("data-open");
+    button?.setAttribute("aria-expanded", "false");
+    button?.setAttribute("aria-label", "Open navigation");
+    closeGroups();
+  };
+  button?.addEventListener("click", () => {
+    if (nav.hasAttribute("data-open")) closeMobile();
+    else {
+      nav.setAttribute("data-open", "");
+      button.setAttribute("aria-expanded", "true");
+      button.setAttribute("aria-label", "Close navigation");
+    }
+  });
+  nav?.addEventListener("click", (event) => { if (event.target.closest("a")) closeMobile(); });
+  groups.forEach((group) => {
+    group.addEventListener("toggle", () => {
+      if (group.open) groups.forEach((other) => { if (other !== group) other.open = false; });
+    });
+    group.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" && event.target.tagName === "SUMMARY") {
+        event.preventDefault();
+        group.open = true;
+        group.querySelector("a")?.focus();
+      }
+      if (event.key === "Escape" && group.open) {
+        event.preventDefault();
+        event.stopPropagation();
+        group.open = false;
+        group.querySelector("summary").focus();
+      }
+    });
+    group.addEventListener("focusout", (event) => {
+      if (group.closest(".nav-main") && !group.contains(event.relatedTarget)) group.open = false;
+    });
+  });
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".nav-group")) closeGroups();
+    if (!event.target.closest(".site-header,.nav-mobile")) closeMobile();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav?.hasAttribute("data-open")) {
+      closeMobile();
+      button?.focus();
+    }
+  });
+  window.matchMedia("(max-width: 1050px)").addEventListener("change", closeMobile);
   const update = () => header?.classList.toggle("is-scrolled", window.scrollY > 8);
   update(); window.addEventListener("scroll", update, { passive: true });
+}
+
+function initHeroMedia() {
+  const video = document.querySelector("[data-hero-video]");
+  if (!video) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let visible = false;
+  video.muted = true;
+  video.defaultMuted = true;
+  const update = () => {
+    if (!visible || document.hidden || reducedMotion.matches) {
+      video.pause();
+      return;
+    }
+    // Some mobile browsers defer autoplay until the media is visibly on screen.
+    if (video.paused) video.play().catch(() => {});
+  };
+  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); }, { threshold: .05 }).observe(video);
+  video.addEventListener("loadeddata", update);
+  document.addEventListener("visibilitychange", update);
+  window.addEventListener("pageshow", update);
+  reducedMotion.addEventListener("change", update);
+  document.addEventListener("pointerdown", update, { once: true, passive: true });
 }
 
 function initMotion() {
@@ -734,4 +809,4 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
+initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
