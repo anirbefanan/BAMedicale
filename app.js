@@ -404,6 +404,8 @@ function bindEventQuickRead() {
       if (!item) return;
       const group = diseaseGroupById(item.primaryDiseaseGroup)?.name || "General medical education";
       const poster = seminarPosterDimensions(item);
+      const registrationUrl = safeExternalUrl(/^https?:\/\//i.test(item.registration || "") ? item.registration : `https://${item.registration || ""}`);
+      const registration = registrationUrl ? `<a class="button button-dark" href="${escapeHtml(registrationUrl)}" target="_blank" rel="noopener noreferrer">Open registration</a>` : "";
       dialog.querySelector(".event-reader__body").innerHTML = `<header><div><p class="eyebrow">${escapeHtml(item.format)}</p><div class="seminar-card__badges"><span>${escapeHtml(item.primaryAudience)}</span><span>${escapeHtml(group)}</span><span>${escapeHtml(item.diseaseCondition)}</span></div><h1>${escapeHtml(item.title)}</h1><p>${escapeHtml(item.summary)}</p><dl><div><dt>Date</dt><dd>${escapeHtml(item.date)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(item.time)}</dd></div><div><dt>Format</dt><dd>${escapeHtml(item.location)}</dd></div></dl>${item.publishedDate ? `<small class="event-published">Published: ${escapeHtml(formatPublishedDate(item.publishedDate))}</small>` : ""}${registration}<a class="text-link" href="${escapeHtml(safeInternalUrl(item.detailUrl))}">View full Event page <span>→</span></a></div><button class="seminar-poster-frame" type="button" style="${seminarPosterStyle(item)}" data-seminar-poster="${escapeHtml(safeImageUrl(item.artwork))}" data-seminar-poster-alt="Official event poster for ${escapeHtml(item.title)}"><img src="${escapeHtml(safeImageUrl(item.artwork))}" alt="Official event poster for ${escapeHtml(item.title)}" width="${poster.width}" height="${poster.height}"></button></header><section><p class="eyebrow">Program focus</p><ol>${item.sessions.map(([title, speaker]) => `<li><h2>${escapeHtml(title)}</h2><p>${escapeHtml(speaker)}</p></li>`).join("")}</ol></section><section><p class="eyebrow">Faculty and moderation</p><ul>${item.faculty.map(([role, name]) => `<li><b>${escapeHtml(role)}</b><span>${escapeHtml(name)}</span></li>`).join("")}</ul></section><footer><span>${escapeHtml(item.topics.join(" · "))}</span><small>${escapeHtml(item.organizer)}</small></footer>`;
       dialog.showModal();
       dialog.querySelector(".event-reader__body").focus();
@@ -554,9 +556,74 @@ function initHeroMedia() {
 }
 
 function initMotion() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); } }), { threshold: .08 });
-  document.querySelectorAll(".section, .knowledge-card, .mosaic-card, .event-card, .ebook-card, .source-card").forEach((item) => { item.classList.add("reveal"); observer.observe(item); });
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const targets = new Set(document.querySelectorAll([
+    ".section",
+    ".editorial-band",
+    ".company-values",
+    ".company-section",
+    ".company-learning",
+    ".company-direction",
+    ".company-closing",
+    ".team-directory",
+    ".physician-profile",
+    ".contact-layout",
+    ".contact-note",
+    ".disease-explorer",
+    ".approved-infographics",
+    ".approved-discovery-shell",
+    ".approved-videos",
+    ".approved-home-updates",
+    ".profile-page__hero"
+  ].join(", ")));
+  const groups = document.querySelectorAll([
+    ".knowledge-grid",
+    ".mosaic",
+    ".ebook-grid",
+    ".event-grid",
+    ".source-grid",
+    ".resource-grid",
+    ".article-latest-grid",
+    ".article-latest__rail",
+    ".article-list",
+    ".seminar-grid",
+    ".seminar-upcoming-rail",
+    ".seminar-past-list",
+    ".video-grid",
+    ".disease-explorer-grid",
+    ".team-grid",
+    ".contact-methods",
+    ".profile-record",
+    ".profile-detail-grid",
+    ".company-offerings",
+    ".disease-explorer__grid",
+    ".approved-discovery",
+    ".approved-videos__rail",
+    ".approved-home-updates__grid"
+  ].join(", "));
+
+  groups.forEach((group) => [...group.children].forEach((item, index) => {
+    if (!(item instanceof HTMLElement) || item.hidden) return;
+    item.style.setProperty("--reveal-order", String(Math.min(index, 5)));
+    targets.add(item);
+  }));
+
+  if (!targets.size || reducedMotion || !("IntersectionObserver" in window)) {
+    targets.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  document.documentElement.classList.add("motion-enabled");
+  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("is-visible");
+    observer.unobserve(entry.target);
+  }), { rootMargin: "0px 0px -6%", threshold: .06 });
+
+  targets.forEach((item) => {
+    item.classList.add("reveal");
+    observer.observe(item);
+  });
 }
 
 function initLightbox() {
