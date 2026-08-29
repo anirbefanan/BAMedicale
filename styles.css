@@ -104,7 +104,7 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
 .company-hero__media video{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--surface)}
 .company-hero__media figcaption{padding:13px 16px;color:var(--text-secondary);background:var(--surface);border-top:1px solid var(--border);font-size:.8rem;font-weight:650;line-height:1.45}
 .editorial-band{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,80px);align-items:start;padding:clamp(30px,4.2vw,58px);background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
-.editorial-band h2,.company-values h2,.company-section__head h2,.company-learning h2,.company-direction h2,.company-closing h2,.team-directory header h2,.physician-profile h2,.profile-story h3,.profile-record h3,.contact-form h2,.contact-note h2{margin:0;color:var(--text-primary);font-family:var(--display);line-height:1.05;letter-spacing:-.03em}
+.editorial-band h2,.company-values h2,.company-section__head h2,.company-learning h2,.company-direction h2,.company-closing h2,.team-directory header h2,.physician-profile h1,.physician-profile h2,.profile-story h3,.profile-record h3,.contact-form h2,.contact-note h2{margin:0;color:var(--text-primary);font-family:var(--display);line-height:1.05;letter-spacing:-.03em}
 .editorial-band h2{max-width:17ch;font-size:clamp(1.8rem,3vw,3.15rem)}
 .company-intro__copy p{max-width:66ch;margin:0;color:var(--text-secondary);font-size:clamp(.92rem,1.08vw,1.03rem);line-height:1.67}
 .company-intro__copy p+p{margin-top:16px}
@@ -166,8 +166,9 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
 .team-card--featured .team-card__copy p{color:var(--brand-primary)}
 .physician-profile{scroll-margin-top:90px;margin-top:14px;margin-bottom:14px;padding:clamp(25px,3.4vw,48px);background:linear-gradient(145deg,var(--surface),var(--bg-primary));border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
 .physician-profile__intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:clamp(28px,5vw,76px);align-items:end}
-.physician-profile h2{max-width:16ch;font-size:clamp(2rem,4.2vw,4.5rem);line-height:.98}
-.physician-profile h2 em{display:block;margin-top:.1em;color:var(--brand-primary);font-style:normal;font-size:.72em}
+.physician-profile h1,.physician-profile h2{max-width:16ch;font-size:clamp(2rem,4.2vw,4.5rem);line-height:.98}
+.physician-profile h1 em,.physician-profile h2 em{display:block;margin-top:.1em;color:var(--brand-primary);font-style:normal;font-size:.72em}
+.physician-profile>.approved-button{margin-bottom:clamp(28px,4vw,50px)}
 .physician-profile__intro>div:last-child p{margin:0;color:var(--text-secondary);font-size:.94rem;line-height:1.6}
 .physician-profile__intro .physician-profile__role{margin-bottom:12px;color:var(--brand-primary);font-weight:800}
 .physician-profile__facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:34px 0 0;padding:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);list-style:none}
@@ -246,7 +247,7 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
   .team-directory header{grid-template-columns:1fr}
   .team-directory header .approved-kicker{grid-column:auto}
   .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .physician-profile h2{max-width:20ch}
+  .physician-profile h1,.physician-profile h2{max-width:20ch}
   .physician-profile__principles{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 0}
   .physician-profile__principles>div:nth-child(3){padding-left:0;border-left:0}
   .contact-layout{grid-template-columns:1fr}
@@ -290,7 +291,7 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
   .team-card__placeholder span{width:56px}
   .physician-profile{scroll-margin-top:76px;padding:21px 15px;border-radius:14px}
   .physician-profile__intro{gap:17px}
-  .physician-profile h2{font-size:clamp(2rem,10vw,2.8rem)}
+  .physician-profile h1,.physician-profile h2{font-size:clamp(2rem,10vw,2.8rem)}
   .physician-profile__intro>div:last-child p{font-size:.86rem}
   .physician-profile__facts{grid-template-columns:1fr;margin-top:23px}
   .physician-profile__facts>li,.physician-profile__facts>li:nth-child(3){padding:14px 0;border-top:1px solid var(--border);border-left:0}
