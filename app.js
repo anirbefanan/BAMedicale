@@ -163,7 +163,11 @@ const PRIMARY_NAVIGATION = Object.freeze([
     { label: "Resources", href: "resources.html" }
   ] },
   { label: "Learning", items: [{ label: "Courses & Seminars", href: "seminar.html" }] },
-  { label: "About", items: [{ label: "About BA Medicale & Team", href: "about.html" }] }
+  { label: "About", items: [
+    { label: "BA Medicale", href: "about.html" },
+    { label: "Team", href: "team.html" },
+    { label: "Contact Us", href: "contact.html" }
+  ] }
 ]);
 const MEMBER_NAVIGATION = Object.freeze({ label: "Member Login", href: "login.html" });
 const navigationIsCurrent = (item) => window.location.pathname.endsWith(`/${item.href}`);
@@ -177,7 +181,7 @@ function shell() {
     target.innerHTML = `<header class="site-header"><a class="brand" href="index.html" aria-label="BA Medicale home"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary">${groups}</nav><div class="nav-actions"><a class="search-button" href="search.html" aria-label="Search BA Medicale">${icon("search")}</a><a class="button button-dark" href="${member.href}">${member.label}</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation">${icon("menu")}</button></div></header><nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation">${groups}<a class="button button-dark nav-mobile__member" href="${member.href}">${member.label}</a></nav>`;
   });
   document.querySelectorAll("[data-footer]").forEach((target) => {
-    target.innerHTML = `<footer class="site-footer"><div><a class="brand brand--footer" href="index.html"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>Physician-led medical education</small></span></a><p>Education across diseases and health conditions, with dedicated depth in cancer, neoplasia, and surgical oncology. Information supports learning and does not replace individualized medical care.</p></div><div><h2>Explore</h2><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="library.html">Medical Library</a><a href="seminar.html">Courses & seminars</a></div><div><h2>Knowledge</h2><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="privacy-policy.html">Privacy Policy</a></div><div><h2>Editorial sources</h2>${data.sources.map((item) => `<a href="${escapeHtml(safeExternalUrl(item.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.label)} ↗</a>`).join("")}</div><small class="footer-note">© 2026 BA Medicale. Site content and features are under continuing editorial development.</small></footer>`;
+    target.innerHTML = `<footer class="site-footer"><div><a class="brand brand--footer" href="index.html"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>Physician-led medical education</small></span></a><p>Education across diseases and health conditions, with dedicated depth in cancer, neoplasia, and surgical oncology. Information supports learning and does not replace individualized medical care.</p></div><div><h2>Explore</h2><a href="public.html">For public</a><a href="clinical.html">For doctors</a><a href="healthcare-workers.html">For healthcare workers</a><a href="library.html">Medical Library</a><a href="seminar.html">Courses & seminars</a></div><div><h2>BA Medicale</h2><a href="about.html">About BA Medicale</a><a href="team.html">Team</a><a href="contact.html">Contact Us</a><a href="privacy-policy.html">Privacy Policy</a></div><div><h2>Editorial sources</h2>${data.sources.map((item) => `<a href="${escapeHtml(safeExternalUrl(item.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.label)} ↗</a>`).join("")}</div><small class="footer-note">© 2026 BA Medicale. Site content and features are under continuing editorial development.</small></footer>`;
   });
 }
 
@@ -737,6 +741,26 @@ function initArticlePageTools() {
   }));
 }
 
+function initContactForm() {
+  const form = document.querySelector("[data-contact-form]");
+  if (!(form instanceof HTMLFormElement)) return;
+  const status = form.querySelector("[data-contact-status]");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const fields = new FormData(form);
+    const name = String(fields.get("name") || "").trim();
+    const email = String(fields.get("email") || "").trim();
+    const topic = String(fields.get("topic") || "").trim();
+    const message = String(fields.get("message") || "").trim();
+    const subject = `BA Medicale enquiry: ${topic}`;
+    const body = [`Name: ${name}`, `Email: ${email}`, `Topic: ${topic}`, "", "Message:", message].join("\n");
+    const mailto = `mailto:support@bamedicale.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (status) status.textContent = "Your email application is opening. Review the message before sending.";
+    window.location.assign(mailto);
+  });
+}
+
 function initAnalytics() {
   if (!analyticsEnabled() || window.__baMedicaleAnalyticsReady) return;
   window.__baMedicaleAnalyticsReady = true;
@@ -823,4 +847,4 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
+initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();

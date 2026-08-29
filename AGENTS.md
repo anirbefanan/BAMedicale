@@ -790,7 +790,7 @@ Apply this automatically to every future change; the user does not need to reque
 ## PRIVACY POLICY PROVEN PATTERN
 
 - `privacy-policy.html` is BA Medicale's dedicated public Privacy Policy and User Data Deletion page, including the Meta/WhatsApp policy and deletion URL. Its wording must substantively mirror the current approved Privacy Policy & User Data Deletion PDF until explicitly replaced; do not create competing policy versions.
-- Link it from the shared footer and About BA Medicale & Team. The only public privacy/support contact is `support@bamedicale.com`; never publish private phone numbers, private emails, passwords, tokens, API keys, or other non-public credentials.
+- Link it from the shared footer and the institutional About/Contact experience where relevant. The only public privacy/support email is `support@bamedicale.com`; never publish private emails, passwords, tokens, API keys, or other non-public credentials.
 
 ## GA4 / ANALYTICS PROVEN PATTERN
 
@@ -844,7 +844,7 @@ When sufficient source material or context exists, automatically turn it into co
 
 ## NAVIGATION / AUDIENCE PROVEN PATTERN
 
-- Desktop and mobile primary navigation derive from the same grouped source: **Education** (Public, Doctors, Healthcare Workers), **Knowledge** (Library & Articles, Videos, eBooks, Resources), **Learning** (Courses & Seminars), **About** (About BA Medicale & Team). Keep Search visible and Member Login compact; use accessible dropdowns on desktop and grouped mobile disclosures before the header becomes cramped. Preserve keyboard, Escape and outside-dismiss behavior.
+- Desktop and mobile primary navigation derive from the same grouped source: **Education** (Public, Doctors, Healthcare Workers), **Knowledge** (Library & Articles, Videos, eBooks, Resources), **Learning** (Courses & Seminars), **About** (BA Medicale, Team, Contact Us). Keep Search visible and Member Login compact; use accessible dropdowns on desktop and grouped mobile disclosures before the header becomes cramped. Preserve keyboard, Escape and outside-dismiss behavior.
 - PUBLIC, DOCTOR, and HEALTHCARE WORKER each require a dedicated audience destination. Healthcare Worker discovery reuses shared taxonomy and content records, shows only its primary-audience content, and accepts an intentional empty state; future HEALTHCARE WORKER content becomes discoverable there automatically.
 
 ## BA MEDICALE POSITIONING / ONCOLOGY FLAGSHIP PROVEN PATTERN
