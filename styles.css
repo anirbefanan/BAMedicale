@@ -149,6 +149,7 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
 .team-hero h1,.contact-hero h1{max-width:17ch;margin:0;color:var(--text-primary);font-family:var(--display);font-size:clamp(2.5rem,5vw,5.2rem);line-height:.95;letter-spacing:-.045em}
 .team-hero>p,.contact-hero>p{max-width:56ch;margin:0;color:var(--text-secondary);font-size:clamp(.94rem,1.1vw,1.06rem);line-height:1.62}
 .team-directory{padding:clamp(28px,3vw,42px);background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
+.route-team .company-closing{margin-top:clamp(28px,4vw,56px)}
 .team-directory header{display:grid;grid-template-columns:minmax(0,.75fr) minmax(260px,1.25fr);gap:10px 48px;align-items:end;margin-bottom:24px}
 .team-directory header .approved-kicker{grid-column:1/-1}
 .team-directory header h2{font-size:clamp(1.65rem,2.6vw,2.7rem)}
@@ -195,6 +196,47 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
 .physician-profile__principles>div+div{border-left:1px solid var(--border)}
 .physician-profile__principles b{display:block;color:var(--brand-primary);font-size:.7rem;text-transform:uppercase}
 .physician-profile__principles span{display:block;margin-top:7px;color:var(--text-secondary);font-size:.77rem;line-height:1.42}
+.profile-page{width:min(100% - 48px,1400px);margin-inline:auto;padding:clamp(34px,5vw,72px) 0}
+.profile-page h1,.profile-page h2,.profile-page h3{overflow-wrap:normal;word-break:normal}
+.profile-page__hero{display:grid;grid-template-columns:minmax(290px,.7fr) minmax(0,1.3fr);gap:clamp(30px,5vw,78px);align-items:center;padding:clamp(24px,3.5vw,48px);background:linear-gradient(135deg,var(--surface),var(--bg-secondary));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow)}
+.profile-page__hero-media{align-self:stretch;min-height:440px;overflow:hidden;background:radial-gradient(circle at 50% 22%,rgba(169,32,52,.14),transparent 62%),var(--surface-muted);border:1px solid var(--border);border-radius:15px}
+.profile-page__hero-media img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.profile-page__hero-copy{min-width:0;max-width:760px}
+.profile-back-link{display:inline-flex;gap:8px;align-items:center;margin-bottom:clamp(30px,4vw,54px);color:var(--brand-primary);font-size:.78rem;font-weight:800;text-decoration:none}
+.profile-back-link:hover,.profile-back-link:focus-visible{text-decoration:underline}
+.profile-page__hero h1{max-width:13ch;margin:0;color:var(--text-primary);font-family:var(--display);font-size:clamp(2.45rem,4.4vw,5.1rem);line-height:.98;letter-spacing:-.04em}
+.profile-page__hero h1 em{display:block;margin-top:.1em;color:var(--brand-primary);font-style:normal;font-size:.69em}
+.profile-page__hero-copy>p:not(.approved-kicker){max-width:60ch;margin:16px 0 0;color:var(--text-secondary);font-size:clamp(.95rem,1.1vw,1.08rem);line-height:1.62}
+.profile-page__hero-copy .profile-page__lead{color:var(--text-primary);font-weight:700}
+.profile-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:14px;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
+.profile-overview article{min-width:0;padding:clamp(18px,2.2vw,28px)}
+.profile-overview article+article{border-left:1px solid var(--border)}
+.profile-overview span,.profile-detail-grid .approved-kicker{display:block;color:var(--brand-primary);font-size:.67rem;font-weight:850;letter-spacing:.07em;text-transform:uppercase}
+.profile-overview strong{display:block;margin-top:8px;color:var(--text-primary);font-size:clamp(.88rem,1.05vw,1rem);line-height:1.42}
+.profile-journey{margin-top:clamp(40px,6vw,78px);padding:clamp(25px,3.5vw,48px);background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
+.profile-section-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.8fr);gap:clamp(24px,4vw,64px);align-items:end}
+.profile-section-heading h2,.profile-detail-grid h2{margin:0;color:var(--text-primary);font-family:var(--display);font-size:clamp(1.45rem,2.4vw,2.45rem);line-height:1.08;letter-spacing:-.025em}
+.profile-section-heading>p{max-width:48ch;margin:0;color:var(--text-secondary);font-size:.9rem;line-height:1.6}
+.profile-journey__timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:clamp(26px,4vw,46px) 0 0;padding:0;list-style:none;counter-reset:journey}
+.profile-journey__timeline li{position:relative;min-width:0;padding:20px 18px 20px 22px;background:var(--bg-primary);border:1px solid var(--border);border-radius:13px}
+.profile-journey__timeline li::before{position:absolute;top:20px;left:0;width:3px;height:30px;background:var(--brand-primary);content:""}
+.profile-journey__timeline span{color:var(--brand-primary);font-size:.68rem;font-weight:850;letter-spacing:.08em}
+.profile-journey__timeline h3{margin:10px 0 0;color:var(--text-primary);font-size:1rem;line-height:1.25}
+.profile-journey__timeline p{margin:9px 0 0;color:var(--text-secondary);font-size:.82rem;line-height:1.52}
+.profile-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.profile-detail-grid article{min-width:0;padding:clamp(22px,3vw,34px);background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
+.profile-detail-grid h2{max-width:24ch;margin-top:12px;font-size:clamp(1.2rem,1.8vw,1.65rem);line-height:1.18}
+.profile-detail-grid ul{display:grid;gap:12px;margin:22px 0 0;padding:0;list-style:none}
+.profile-detail-grid li{display:grid;gap:4px;padding-top:12px;border-top:1px solid var(--border)}
+.profile-detail-grid li:first-child{padding-top:0;border-top:0}
+.profile-detail-grid b{color:var(--text-primary);font-size:.89rem;line-height:1.35}
+.profile-detail-grid li span{color:var(--text-secondary);font-size:.83rem;line-height:1.5}
+.profile-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:14px 0 20px;padding:clamp(20px,3vw,30px);background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
+.profile-principles article{min-width:0;padding:0 clamp(14px,2vw,28px)}
+.profile-principles article:first-child{padding-left:0}
+.profile-principles article+article{border-left:1px solid var(--border)}
+.profile-principles b{display:block;color:var(--brand-primary);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase}
+.profile-principles span{display:block;margin-top:8px;color:var(--text-secondary);font-size:.82rem;line-height:1.48}
 
 .contact-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(420px,1.2fr);gap:14px;align-items:start;padding-bottom:14px}
 .contact-methods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -231,6 +273,8 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
   .profile-story{grid-template-columns:1fr}
   .profile-story__heading h3{max-width:22ch}
   .profile-record{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .profile-page__hero{grid-template-columns:minmax(250px,.75fr) minmax(0,1.25fr)}
+  .profile-journey__timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contact-layout{grid-template-columns:minmax(0,.75fr) minmax(380px,1.25fr)}
   .contact-methods{grid-template-columns:1fr}
 }
@@ -252,6 +296,12 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
   .physician-profile__principles>div:nth-child(3){padding-left:0;border-left:0}
   .contact-layout{grid-template-columns:1fr}
   .contact-methods{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .profile-page__hero,.profile-section-heading{grid-template-columns:1fr}
+  .profile-page__hero-media{min-height:360px;max-height:520px}
+  .profile-page__hero h1{max-width:16ch}
+  .profile-overview,.profile-principles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .profile-overview article:nth-child(3),.profile-principles article:nth-child(3){border-left:0}
+  .profile-overview article:nth-child(n+3),.profile-principles article:nth-child(n+3){border-top:1px solid var(--border)}
 }
 @media(max-width:560px){
   .company-hero,.team-hero,.contact-hero,.editorial-band,.company-values,.company-section,.company-learning,.company-direction,.company-closing,.team-directory,.physician-profile,.contact-layout,.contact-note{width:min(100% - 28px,1400px)}
@@ -275,6 +325,23 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
   .company-audiences h3{margin-top:18px;font-size:1.4rem}
   .company-learning{gap:20px;padding:22px 17px;border-radius:14px}
   .company-offerings{grid-template-columns:1fr;gap:8px}
+  .profile-page{width:min(100% - 28px,1400px);padding:28px 0}
+  .profile-page__hero{gap:22px;padding:15px;border-radius:14px}
+  .profile-page__hero-media{min-height:390px;border-radius:11px}
+  .profile-back-link{margin-bottom:19px}
+  .profile-page__hero h1{max-width:15ch;font-size:clamp(2.2rem,10.8vw,3.1rem)}
+  .profile-page__hero-copy>p:not(.approved-kicker){font-size:.9rem}
+  .profile-overview,.profile-detail-grid,.profile-principles,.profile-journey__timeline{grid-template-columns:1fr}
+  .profile-overview article,.profile-overview article:nth-child(3),.profile-principles article,.profile-principles article:nth-child(3){padding:15px 0;border-top:1px solid var(--border);border-left:0}
+  .profile-overview article:first-child,.profile-principles article:first-child{padding-top:0;border-top:0}
+  .profile-overview,.profile-principles{padding:18px 16px}
+  .profile-journey{margin-top:28px;padding:21px 15px;border-radius:14px}
+  .profile-section-heading h2{font-size:clamp(1.55rem,7.8vw,2.05rem)}
+  .profile-journey__timeline li{padding:18px 16px 18px 20px}
+  .profile-detail-grid{gap:9px}
+  .profile-detail-grid article{padding:21px 17px;border-radius:14px}
+  .profile-detail-grid h2{font-size:1.3rem}
+  .profile-principles{margin-bottom:14px;border-radius:14px}
   .company-offerings article{padding:17px}
   .company-direction{gap:9px;padding-bottom:40px}
   .company-closing{display:grid;gap:18px;margin-bottom:28px;padding:22px 17px;border-radius:14px}
