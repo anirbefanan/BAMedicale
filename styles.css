@@ -984,7 +984,7 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 @media(max-width:560px){.site-footer{grid-template-columns:minmax(0,1fr);gap:20px;padding:26px 20px}.site-footer>div:first-child{grid-column:auto}.site-footer>div:not(:first-child){padding-top:17px;border-top:1px solid var(--border)}.site-footer>div:not(:first-child) a{min-height:44px;padding:11px 0}.site-footer h2{margin:0 0 5px}}
 
 /* Hero imagery is a clear visual, not an all-over fog layer behind reading. */
-.approved-hero{position:relative;isolation:isolate;background:var(--bg-primary);color:var(--text-primary)}
+.approved-hero{position:relative;isolation:isolate;background:transparent;color:var(--text-primary)}
 .approved-hero__ambient,.approved-hero__rings,.approved-hero__monogram{display:none}
 .approved-hero__inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:center;width:min(100% - 96px,1440px);margin:auto;padding:110px 0 32px}
 .approved-hero__copy,.approved-hero__portrait{min-width:0}
@@ -1092,7 +1092,7 @@ body:not(.approved-home) .hero-aside{background:var(--glass);border-color:var(--
 .profile-overview,.company-offerings article,.company-values article,.company-direction article{background:var(--glass);border-color:var(--glass-border);box-shadow:var(--glass-shadow),var(--glass-highlight);backdrop-filter:blur(16px) saturate(1.06);-webkit-backdrop-filter:blur(16px) saturate(1.06)}
 .institutional-page{background:transparent}
 .institutional-page main{position:relative;isolation:isolate}
-.institutional-page main::before{position:absolute;inset:0;z-index:-1;content:"";background:radial-gradient(ellipse at 12% 16%,rgba(var(--brand-rgb),.07),transparent 28rem),radial-gradient(ellipse at 92% 58%,rgba(var(--brand-rgb),.055),transparent 32rem);pointer-events:none}
+.institutional-page main::before{content:none}
 @media(max-width:560px){.page-hero::after{right:-18%;width:78vw;opacity:.28}.contact-methods>a{padding:16px}.contact-methods{gap:9px}}
 
 /* Shared premium interaction, motion, rhythm, and light-glass system. */
@@ -1214,36 +1214,34 @@ dialog[open]::backdrop{animation:glass-backdrop-in var(--motion-base) ease-out b
   .motion-enabled .reveal{transform:translateY(12px);transition-delay:calc(var(--reveal-order,0) * 38ms)}
 }
 
-/* Premium depth pass: visible light glass, layered medical ambience, and varied editorial grouping. */
+/* One viewport-sized panorama continues behind every section without tiling. */
 .approved-home,
 body:not(.approved-home){
-  background:
-    radial-gradient(ellipse at 50% 100%,rgba(var(--brand-rgb),.18),transparent 30rem),
-    radial-gradient(ellipse at 8% 100%,rgba(184,108,120,.14),transparent 24rem),
-    radial-gradient(ellipse at 88% 3%,rgba(var(--brand-rgb),.16),transparent 31rem),
-    radial-gradient(ellipse at 9% 35%,rgba(var(--brand-rgb),.09),transparent 38rem),
-    radial-gradient(ellipse at 78% 76%,rgba(255,255,255,.96),transparent 34rem),
-    radial-gradient(ellipse at 48% 54%,rgba(184,108,120,.055),transparent 27rem),
-    linear-gradient(145deg,var(--bg-primary),var(--bg-secondary) 46%,#f8f1eb 73%,var(--bg-primary));
-  background-attachment:fixed;
+  isolation:isolate;
+  background:var(--bg-primary);
+  background-attachment:scroll;
 }
-body::before{
+body.approved-home::before,
+body:not(.approved-home)::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:1;
   background:
-    radial-gradient(circle at 16% 22%,rgba(var(--brand-rgb),.105) 0 1.4px,transparent 2px),
-    radial-gradient(circle at 76% 68%,rgba(var(--brand-rgb),.08) 0 2px,transparent 2.7px);
-  background-position:0 0,28px 28px;
-  background-size:56px 56px;
-  opacity:.58;
-  -webkit-mask-image:linear-gradient(120deg,transparent 6%,rgba(0,0,0,.36) 29%,transparent 58%,rgba(0,0,0,.24) 84%,transparent);
-  mask-image:linear-gradient(120deg,transparent 6%,rgba(0,0,0,.36) 29%,transparent 58%,rgba(0,0,0,.24) 84%,transparent);
-}
-body::after{
-  opacity:.42;
-  background:
-    radial-gradient(ellipse at 84% 17%,rgba(var(--brand-rgb),.16),transparent 19rem),
-    radial-gradient(ellipse at 13% 79%,rgba(255,255,255,.9),transparent 25rem);
+    linear-gradient(to bottom,rgba(var(--bg-rgb),0) 40%,rgba(var(--bg-rgb),.35)),
+    linear-gradient(90deg,rgba(var(--bg-rgb),.2),rgba(var(--bg-rgb),.72)),
+    url("assets/medical/site-background-panorama.webp") center / cover no-repeat;
   -webkit-mask-image:none;
   mask-image:none;
+}
+body::after{content:none}
+@media(max-width:1000px){
+  body.approved-home::before,body:not(.approved-home)::before{background-position:center,center,64% center}
+}
+@media(max-width:560px){
+  body.approved-home::before,body:not(.approved-home)::before{background-position:center,center,72% center}
 }
 
 .site-header,.site-footer,.nav-group__panel,.nav-mobile,.hero-aside,.authority-glass,.approved-physician{
@@ -1306,7 +1304,7 @@ body::after{
 .approved-videos{
   margin-top:clamp(22px,3vw,44px);
   padding:24px 0 18px;
-  background:radial-gradient(ellipse at 24% 18%,rgba(var(--brand-rgb),.055),transparent 28rem);
+  background:transparent;
   border:0;
   border-radius:0;
   box-shadow:none;
@@ -1332,9 +1330,8 @@ body::after{
   -webkit-backdrop-filter:blur(24px) saturate(1.18);
 }
 
-/* Shared title-and-info-card headers; media-led and institutional heroes stay separate. */
+/* Shared headers expose the continuous body artwork; their content stays unmasked. */
 body:not(.approved-home) .page-hero{
-  --header-blend-depth:112px;
   display:flex;
   align-items:center;
   min-height:400px;
@@ -1343,19 +1340,7 @@ body:not(.approved-home) .page-hero{
   background:transparent;
   border-bottom:1px solid transparent;
 }
-/* Fade the artwork alone, revealing the same background as the following section. */
-body:not(.approved-home) .page-hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  opacity:1;
-  pointer-events:none;
-  background:#faf6f1 url("assets/medical/page-header-ivory-crimson.png") center 64% / cover no-repeat;
-  -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - var(--header-blend-depth)),rgba(0,0,0,.8) calc(100% - var(--header-blend-depth) * .65),rgba(0,0,0,.25) calc(100% - var(--header-blend-depth) * .25),transparent 100%);
-  mask-image:linear-gradient(to bottom,#000 calc(100% - var(--header-blend-depth)),rgba(0,0,0,.8) calc(100% - var(--header-blend-depth) * .65),rgba(0,0,0,.25) calc(100% - var(--header-blend-depth) * .25),transparent 100%);
-}
-body:not(.approved-home) .page-hero::after{content:none}
+body:not(.approved-home) .page-hero::before,body:not(.approved-home) .page-hero::after{content:none}
 body:not(.approved-home) .page-hero-inner{
   width:min(100% - 64px,1400px);
   grid-template-columns:minmax(0,1fr) minmax(280px,.46fr);
@@ -1396,15 +1381,13 @@ body:not(.approved-home) .page-hero .hero-aside b{margin:0 0 10px;font-size:1.05
 body:not(.approved-home) .page-hero .hero-aside>span{display:block;font-size:.9rem;line-height:1.6}
 body:not(.approved-home) .page-hero .hero-aside .text-link{display:inline-flex;margin-top:16px;font-size:.85rem;line-height:1.45}
 @media(max-width:1000px){
-  body:not(.approved-home) .page-hero{--header-blend-depth:96px;padding:40px 0}
-  body:not(.approved-home) .page-hero::before{background-position:58% center}
+  body:not(.approved-home) .page-hero{padding:40px 0}
   body:not(.approved-home) .page-hero-inner{width:calc(100% - 48px);grid-template-columns:minmax(0,1fr) minmax(240px,.65fr);gap:28px}
   body:not(.approved-home) .page-hero h1{font-size:2.25rem}
   body:not(.approved-home) .page-hero .hero-aside{padding:20px}
 }
 @media(max-width:680px){
-  body:not(.approved-home) .page-hero{--header-blend-depth:56px;min-height:0;padding:32px 0}
-  body:not(.approved-home) .page-hero::before{background-image:linear-gradient(to bottom,#faf6f1,rgba(250,246,241,0) 28px),url("assets/medical/page-header-ivory-crimson.png");background-size:100% 38.1vw,100% auto;background-position:center bottom}
+  body:not(.approved-home) .page-hero{min-height:0;padding:32px 0}
   body:not(.approved-home) .page-hero-inner{width:calc(100% - 32px);grid-template-columns:minmax(0,1fr);gap:24px}
   body:not(.approved-home) .page-hero .eyebrow{margin-bottom:12px}
   body:not(.approved-home) .page-hero h1{max-width:24ch;margin-bottom:16px;font-size:1.875rem;line-height:1.16}
@@ -1425,12 +1408,6 @@ body:not(.approved-home) .page-hero .hero-aside .text-link{display:inline-flex;m
 .route-library .article-audience{background:rgba(255,255,255,.56);border-color:var(--glass-border);box-shadow:0 12px 32px rgba(91,30,43,.06)}
 .route-library [data-article-audiences] .article-audience:nth-child(even){background:rgba(255,253,249,.28);border-right:0;border-left:0;border-radius:4px;box-shadow:none}
 
-.route-contact main::before{
-  background:
-    radial-gradient(ellipse at 14% 18%,rgba(var(--brand-rgb),.12),transparent 28rem),
-    radial-gradient(ellipse at 86% 56%,rgba(var(--brand-rgb),.085),transparent 32rem),
-    radial-gradient(circle at 53% 42%,rgba(255,255,255,.8),transparent 24rem);
-}
 .contact-methods>a{
   background:linear-gradient(145deg,rgba(255,255,255,.48),rgba(255,253,249,.22));
   border-color:var(--glass-border);
@@ -1457,7 +1434,6 @@ body:not(.approved-home) .page-hero .hero-aside .text-link{display:inline-flex;m
   .route-library [data-article-audiences] .article-audience:nth-child(even){border-right:1px solid var(--glass-border);border-left:1px solid var(--glass-border);border-radius:12px}
 }
 /* Editorial summaries stay open-edged; long-form reading surfaces stay solid. */
-:is(.route-team,.route-contact) main{background:rgba(var(--bg-rgb),.72)}
 .editorial-summary{
   min-width:0;
   max-width:56ch;
