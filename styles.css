@@ -1334,15 +1334,28 @@ body::after{
 
 /* Shared title-and-info-card headers; media-led and institutional heroes stay separate. */
 body:not(.approved-home) .page-hero{
+  --header-blend-depth:112px;
   display:flex;
   align-items:center;
   min-height:400px;
   padding:48px 0;
   overflow:visible;
-  background:#faf6f1 url("assets/medical/page-header-ivory-crimson.png") center 64% / cover no-repeat;
-  border-bottom:1px solid rgba(var(--brand-rgb),.2);
+  background:transparent;
+  border-bottom:1px solid transparent;
 }
-body:not(.approved-home) .page-hero::before,body:not(.approved-home) .page-hero::after{content:none}
+/* Fade the artwork alone, revealing the same background as the following section. */
+body:not(.approved-home) .page-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  opacity:1;
+  pointer-events:none;
+  background:#faf6f1 url("assets/medical/page-header-ivory-crimson.png") center 64% / cover no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - var(--header-blend-depth)),rgba(0,0,0,.8) calc(100% - var(--header-blend-depth) * .65),rgba(0,0,0,.25) calc(100% - var(--header-blend-depth) * .25),transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 calc(100% - var(--header-blend-depth)),rgba(0,0,0,.8) calc(100% - var(--header-blend-depth) * .65),rgba(0,0,0,.25) calc(100% - var(--header-blend-depth) * .25),transparent 100%);
+}
+body:not(.approved-home) .page-hero::after{content:none}
 body:not(.approved-home) .page-hero-inner{
   width:min(100% - 64px,1400px);
   grid-template-columns:minmax(0,1fr) minmax(280px,.46fr);
@@ -1383,13 +1396,15 @@ body:not(.approved-home) .page-hero .hero-aside b{margin:0 0 10px;font-size:1.05
 body:not(.approved-home) .page-hero .hero-aside>span{display:block;font-size:.9rem;line-height:1.6}
 body:not(.approved-home) .page-hero .hero-aside .text-link{display:inline-flex;margin-top:16px;font-size:.85rem;line-height:1.45}
 @media(max-width:1000px){
-  body:not(.approved-home) .page-hero{padding:40px 0;background-position:58% center}
+  body:not(.approved-home) .page-hero{--header-blend-depth:96px;padding:40px 0}
+  body:not(.approved-home) .page-hero::before{background-position:58% center}
   body:not(.approved-home) .page-hero-inner{width:calc(100% - 48px);grid-template-columns:minmax(0,1fr) minmax(240px,.65fr);gap:28px}
   body:not(.approved-home) .page-hero h1{font-size:2.25rem}
   body:not(.approved-home) .page-hero .hero-aside{padding:20px}
 }
 @media(max-width:680px){
-  body:not(.approved-home) .page-hero{min-height:0;padding:32px 0;background-image:linear-gradient(to bottom,#faf6f1,rgba(250,246,241,0) 28px),url("assets/medical/page-header-ivory-crimson.png");background-size:100% 38.1vw,100% auto;background-position:center bottom}
+  body:not(.approved-home) .page-hero{--header-blend-depth:56px;min-height:0;padding:32px 0}
+  body:not(.approved-home) .page-hero::before{background-image:linear-gradient(to bottom,#faf6f1,rgba(250,246,241,0) 28px),url("assets/medical/page-header-ivory-crimson.png");background-size:100% 38.1vw,100% auto;background-position:center bottom}
   body:not(.approved-home) .page-hero-inner{width:calc(100% - 32px);grid-template-columns:minmax(0,1fr);gap:24px}
   body:not(.approved-home) .page-hero .eyebrow{margin-bottom:12px}
   body:not(.approved-home) .page-hero h1{max-width:24ch;margin-bottom:16px;font-size:1.875rem;line-height:1.16}
