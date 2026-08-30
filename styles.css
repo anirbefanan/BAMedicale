@@ -1,6 +1,22 @@
 /* One light editorial palette. Legacy component token names resolve here. */
 :root {
   color-scheme: light;
+  --card-surface: rgba(255,253,249,.74);
+  --card-reading-surface: rgba(255,253,249,.82);
+  --card-tint: linear-gradient(135deg,rgba(119,47,63,.04),transparent 65%);
+  --card-border: rgba(255,255,255,.42);
+  --card-radius: 16px;
+  --card-padding: 24px;
+  --card-gap: 18px;
+  --card-filter: blur(24px) saturate(1.25);
+  --card-highlight: inset 0 1px 0 rgba(255,255,255,.28),inset 0 0 0 1px rgba(119,47,63,.055);
+  --card-shadow: 0 12px 30px rgba(91,30,43,.065),0 3px 10px rgba(91,30,43,.035),var(--card-highlight);
+  --card-action-shadow: 0 16px 36px rgba(91,30,43,.085),0 4px 12px rgba(91,30,43,.04),var(--card-highlight);
+  --card-hover-shadow: 0 20px 40px rgba(91,30,43,.12),0 5px 14px rgba(91,30,43,.05),var(--card-highlight);
+  --control-surface: rgba(255,253,249,.76);
+  --control-border: rgba(119,47,63,.24);
+  --control-radius: 10px;
+  --control-height: 44px;
   --bg-primary: #faf8f3;
   --bg-rgb: 250,248,243;
   --bg-secondary: #f3eee7;
@@ -464,7 +480,7 @@ body:not(.approved-home) .knowledge-card p,body:not(.approved-home) .resource-ca
 body:not(.approved-home) .filter-bar a{color:var(--text-primary);background:rgba(var(--bg-rgb),0.5);border-color:var(--border)}
 body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-bar a:focus-visible{color:var(--text-primary);background:var(--surface);border-color:var(--border)}
 .ebook-visual{isolation:isolate;background:var(--bg-secondary)}.ebook-visual::before{z-index:1}.ebook-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;filter:none}.ebook-visual span{z-index:2;text-shadow:none}
-.ebook-card{background:var(--surface);border-color:var(--border);box-shadow:var(--shadow)}.ebook-card>div:last-child{background:var(--surface)}.ebook-card h2{color:var(--text-primary)}.ebook-card p:not(.eyebrow){color:var(--text-secondary)}.ebook-card .audience{color:var(--brand-primary)}.ebook-card .ebook-actions strong{color:var(--text-primary)}.ebook-card .button-outline{color:var(--text-primary);border-color:var(--border)}
+.ebook-card h2{color:var(--text-primary)}.ebook-card p:not(.eyebrow){color:var(--text-secondary)}.ebook-card .audience{color:var(--brand-primary)}.ebook-card .ebook-actions strong{color:var(--text-primary)}.ebook-card .button-outline{color:var(--text-primary);border-color:var(--border)}
 .route-search .search-wrap{max-width:930px;padding:clamp(16px,3vw,30px);background:linear-gradient(145deg,rgba(var(--bg-rgb),0.73),rgba(var(--bg-rgb),0.78));border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);backdrop-filter:none}
 .route-search .search-field{background:var(--surface);border-color:var(--border);box-shadow:var(--shadow)}.route-search .search-field svg{color:var(--brand-primary)}.route-search .search-field input{color:var(--text-primary)}.route-search .search-field input::placeholder{color:var(--text-secondary)}
 .route-search .search-result,.route-search .empty-panel{background:var(--surface);border-color:var(--border);box-shadow:none}.route-search .search-result:hover,.route-search .search-result:focus-visible{background:var(--surface);border-color:var(--border);box-shadow:var(--shadow)}.route-search .search-result h2,.route-search .empty-panel h2{color:var(--text-primary)}.route-search .search-result p,.route-search .empty-panel p{color:var(--text-secondary)}.route-search .search-result span,.route-search .search-result b{color:var(--brand-primary)}
@@ -1360,25 +1376,6 @@ body::after{content:none}
   box-shadow:none;
 }
 .approved-home-updates{margin-top:clamp(18px,2.5vw,36px);padding-inline:0;background:transparent;border-inline:0;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-.approved-discovery__card,.disease-group,.article-latest-card,.article-list-item,.seminar-card,.event-card,.ebook-card,.video-card,.video-preview,.team-card--featured,.source-grid a,.search-result{
-  background:linear-gradient(150deg,rgba(255,255,255,.58),rgba(255,253,249,.3));
-  border-color:var(--glass-border);
-  box-shadow:0 17px 38px rgba(91,30,43,.09),var(--glass-highlight);
-  backdrop-filter:blur(20px) saturate(1.15);
-  -webkit-backdrop-filter:blur(20px) saturate(1.15);
-}
-.home-update-card,.resource-card,.team-card:not(.team-card--featured),.company-offerings article,.company-values article,.company-direction article{
-  background:rgba(255,253,249,.68);
-  border-color:rgba(119,47,63,.2);
-  box-shadow:0 8px 24px rgba(91,30,43,.045),inset 0 1px rgba(255,255,255,.9);
-}
-.profile-overview{
-  background:linear-gradient(145deg,rgba(255,255,255,.56),rgba(255,253,249,.3));
-  border-color:var(--glass-border);
-  box-shadow:0 22px 56px rgba(91,30,43,.105),var(--glass-highlight);
-  backdrop-filter:blur(24px) saturate(1.18);
-  -webkit-backdrop-filter:blur(24px) saturate(1.18);
-}
 
 /* Shared headers expose the continuous body artwork; their content stays unmasked. */
 body:not(.approved-home) .page-hero{
@@ -1448,15 +1445,6 @@ body:not(.approved-home) .page-hero .hero-aside .text-link{display:inline-flex;m
 }
 .route-library .article-latest{padding:0 0 24px;border-bottom:1px solid rgba(119,47,63,.18)}
 .route-library [data-article-audiences]{display:grid;gap:24px}
-.route-library .article-filters{
-  background:linear-gradient(145deg,rgba(255,255,255,.52),rgba(255,253,249,.28));
-  border-color:var(--glass-border);
-  box-shadow:0 18px 42px rgba(91,30,43,.08),var(--glass-highlight);
-  backdrop-filter:blur(26px) saturate(1.18);
-  -webkit-backdrop-filter:blur(26px) saturate(1.18);
-}
-.route-library .article-audience{background:rgba(255,255,255,.56);border-color:var(--glass-border);box-shadow:0 12px 32px rgba(91,30,43,.06)}
-.route-library [data-article-audiences] .article-audience:nth-child(even){background:rgba(255,253,249,.28);border-right:0;border-left:0;border-radius:4px;box-shadow:none}
 
 .contact-methods>a{
   background:linear-gradient(145deg,rgba(255,255,255,.48),rgba(255,253,249,.22));
@@ -1481,7 +1469,6 @@ body:not(.approved-home) .page-hero .hero-aside .text-link{display:inline-flex;m
   .approved-videos{padding:18px 0 12px}
   .route-library .article-latest{padding-bottom:18px}
   .route-library [data-article-audiences]{gap:18px}
-  .route-library [data-article-audiences] .article-audience:nth-child(even){border-right:1px solid var(--glass-border);border-left:1px solid var(--glass-border);border-radius:12px}
 }
 /* Editorial summaries stay open-edged; long-form reading surfaces stay solid. */
 .editorial-summary{
@@ -1527,9 +1514,7 @@ body:not(.approved-home) :is(.section-head,.company-section__head) .eyebrow{lett
 .company-intro__copy{padding-left:24px;border-left:2px solid rgba(var(--brand-rgb),.3)}
 .company-intro__copy p{font-size:1rem;line-height:1.7}
 .company-intro__copy p:first-child{color:var(--text-primary);font-weight:500}
-.company-values article,.company-direction article{border:0;border-top:2px solid rgba(var(--brand-rgb),.28);border-radius:0;background:rgba(255,253,249,.74);box-shadow:none}
 .company-values h2,.company-direction h2{font-size:1.75rem;line-height:1.25;letter-spacing:0;max-width:29ch}
-.profile-detail-grid article{border-color:rgba(var(--brand-rgb),.14);box-shadow:none}
 .profile-detail-grid article>.approved-kicker{padding-bottom:12px;border-bottom:1px solid rgba(var(--brand-rgb),.24);letter-spacing:0}
 .profile-detail-grid li{border-color:rgba(var(--brand-rgb),.12)}
 
@@ -1540,12 +1525,7 @@ body:not(.approved-home) :is(.section-head,.company-section__head) .eyebrow{lett
   min-width:0;
   min-height:0;
   padding:24px;
-  border-color:rgba(var(--brand-rgb),.16);
-  border-radius:8px;
-  background:rgba(255,253,249,.88);
-  box-shadow:inset 0 1px #fff,0 8px 22px rgba(91,30,43,.045);
 }
-:is(.route-public,.route-clinical,.route-resources) :is(.knowledge-card,.resource-card):first-child{background:rgba(255,255,255,.94);border-top:2px solid rgba(var(--brand-rgb),.65)}
 :is(.route-public,.route-clinical,.route-healthcare-workers,.route-resources) :is(.knowledge-card h3,.resource-card h2),.route-public .knowledge-card:first-child h3,.route-clinical .resource-card:first-child h2{font-size:1.375rem;line-height:1.3;letter-spacing:0}
 :is(.route-public,.route-clinical,.route-healthcare-workers,.route-resources) :is(.knowledge-card p,.resource-card p){max-width:55ch;font-size:.94rem;line-height:1.65;margin:10px 0 20px}
 .route-public .knowledge-card>span{letter-spacing:0;margin-bottom:12px}
@@ -1562,10 +1542,7 @@ body:not(.approved-home) .track .eyebrow{color:var(--brand-primary);font-size:.7
 
 /* Static reading blocks do not need entrance motion or hover movement. */
 .motion-enabled :is(.team-directory,.contact-note,.editorial-band,.company-values,.company-direction,.profile-detail-grid article,.resource-card).reveal{opacity:1;transform:none;transition:none}
-body:not(.approved-home) :is(.knowledge-card,.resource-card,.event-card):not(:is(a,button,:has(a,button))){transform:none;transition:none;border-color:rgba(var(--brand-rgb),.16);box-shadow:inset 0 1px #fff,0 8px 22px rgba(91,30,43,.045)}
-@media(hover:hover) and (pointer:fine){
-  body:not(.approved-home) :is(.knowledge-card,.resource-card,.event-card,a.team-card,.contact-methods>a,.source-grid a,.ebook-card,.video-card,.seminar-card,.article-latest-card,.article-list-item):is(a,button,:has(a,button)):is(:hover,:focus-within){transform:translateY(-2px);box-shadow:0 12px 30px rgba(91,30,43,.1),var(--glass-highlight)}
-}
+body:not(.approved-home) :is(.knowledge-card,.resource-card,.event-card):not(:is(a,button,:has(a,button))){transform:none;transition:none}
 body:not(.approved-home) :is(.knowledge-card,.resource-card,.track,.team-card,.contact-methods,.source-grid,.profile-detail-grid) :is(a,button):focus-visible,
 body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand-primary);outline-offset:5px}
 @media(max-width:1000px){
@@ -1604,4 +1581,132 @@ body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand
   .motion-enabled .reveal,.motion-enabled .reveal.is-visible{opacity:1;transform:none;transition:none}
   .nav-group[open]>.nav-group__panel,.nav-mobile[data-open],.journey-step[open]>:not(summary),dialog[open],dialog[open]::backdrop{animation:none}
   :where(.approved-discovery__card,.mosaic-card,.article-latest-card,.seminar-card,.ebook-card,.video-card,.video-preview,.team-card--featured) img{transition:none}
+}
+
+/* Shared collection skin. Layouts, media frames, forms and full readers stay independent. */
+body[class] :is(
+  .knowledge-card,.knowledge-card:first-child,.resource-card,.resource-card:first-child,
+  .event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,
+  .video-card,.video-preview,.team-card,.source-grid a,.search-result,.empty-panel,.seminar-empty,
+  .approved-discovery__card,.disease-group,.home-update-card,.contact-methods>a,
+  .company-offerings article,.company-values article,.company-direction article,
+  .profile-overview,.profile-principles,.profile-detail-grid article,.profile-record article,.journey-step
+){
+  min-width:0;
+  color:var(--text-primary);
+  background:var(--card-tint),var(--component-surface,var(--card-surface));
+  border:1px solid var(--card-border);
+  border-radius:var(--card-radius);
+  box-shadow:var(--component-shadow,var(--card-shadow));
+  backdrop-filter:var(--card-filter);
+  -webkit-backdrop-filter:var(--card-filter);
+}
+body[class] :is(.home-update-card,.article-list-item,.seminar-past-row,.profile-principles,.profile-detail-grid article,.profile-record article,.journey-step){
+  --component-surface:var(--card-reading-surface);
+}
+body[class] :is(.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a):is(a,:has(a,button)){
+  --component-shadow:var(--card-action-shadow);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+/* Grouping sections stay unframed, so glass cards do not sit inside another card. */
+body[class] :is(.article-audience,.seminar-library,.approved-discovery-shell,.disease-explorer,.search-wrap){
+  background:transparent;
+  border-color:transparent;
+  border-radius:0;
+  box-shadow:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+body[class] :is(.knowledge-grid,.resource-grid,.ebook-grid,.event-grid,.source-grid,.team-grid,.profile-detail-grid,.profile-record,.company-offerings,.company-values,.company-direction){gap:var(--card-gap)}
+body[class] :is(.article-latest__rail,.article-list,.video-grid,.approved-videos__rail,.search-results){gap:16px}
+body[class] :is(.knowledge-card,.resource-card,.event-card,.company-offerings article,.company-values article,.company-direction article,.profile-detail-grid article,.profile-record article){padding:var(--card-padding)}
+body[class] :is(.ebook-card>div:last-child,.team-card__copy){padding:20px;background:transparent}
+body[class] :is(.article-latest-card>div,.seminar-card__copy,.video-card__copy){padding:16px;background:transparent}
+body[class] :is(.knowledge-card,.resource-card,.event-card){display:flex;flex-direction:column;align-items:flex-start}
+body[class] :is(.knowledge-card,.resource-card,.event-card)>.text-link{margin-top:auto;padding-top:12px}
+body[class] :is(.knowledge-card h3,.resource-card h2,.event-card h2,.ebook-card h2){font-size:1.375rem;line-height:1.3;letter-spacing:0}
+body[class] :is(.knowledge-card,.resource-card,.event-card,.ebook-card) p{color:var(--text-secondary);line-height:1.65}
+body[class] :is(.article-latest-card,.video-preview,.team-card,.seminar-card,.video-card) :is(h2,h3){line-height:1.35;letter-spacing:0}
+body[class] :is(.knowledge-card>span,.resource-card>span,.ebook-card .audience,.video-preview>p){color:var(--brand-primary);letter-spacing:0}
+body[class] :is(.article-list-item__tags i,.seminar-card__badges span,.video-topics span){
+  color:var(--brand-primary);
+  background:rgba(var(--brand-rgb),.055);
+  border:1px solid rgba(var(--brand-rgb),.12);
+  border-radius:999px;
+  line-height:1.4;
+}
+
+/* One control family: panels, fields, navigation pills and pagination. */
+body[class] :is(.filter-bar,.article-filters,.search-field){
+  background:var(--card-tint),var(--card-surface);
+  border:1px solid var(--card-border);
+  border-radius:var(--card-radius);
+  box-shadow:var(--card-shadow);
+  backdrop-filter:var(--card-filter);
+  -webkit-backdrop-filter:var(--card-filter);
+}
+body[class] :is(.filter-bar,.article-filters){gap:12px;padding:16px}
+body[class] :is(.seminar-audience,.video-topics){gap:8px}
+body[class] :is(.filter-bar a,.article-filters select,.article-filters button,.seminar-audience button,.video-topics button,.system-chip,.article-pagination button,.seminar-pagination button){
+  min-width:0;
+  min-height:var(--control-height);
+  height:auto;
+  padding:10px 14px;
+  color:var(--text-primary);
+  background:var(--control-surface);
+  border:1px solid var(--control-border);
+  border-radius:var(--control-radius);
+  box-shadow:inset 0 1px rgba(255,255,255,.28);
+  backdrop-filter:var(--card-filter);
+  -webkit-backdrop-filter:var(--card-filter);
+  font-family:var(--body);
+  font-size:.8125rem;
+  font-weight:700;
+  line-height:1.4;
+  letter-spacing:0;
+  transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+body[class] :is(.filter-bar a,.seminar-audience button,.video-topics button){border-radius:999px}
+body[class] .filter-bar a{display:inline-flex;align-items:center}
+body[class] .article-filters select{width:100%;padding-right:26px;font-weight:500}
+body[class] .article-filters option{color:var(--text-primary);background:var(--surface)}
+body[class] .article-filters label{gap:8px;letter-spacing:0}
+body[class] .search-field{padding:8px 16px;gap:12px}
+body[class] .search-field input{width:100%;min-height:var(--control-height);color:var(--text-primary);font-family:var(--body);font-size:1rem;line-height:1.5}
+body[class] .search-field input::placeholder{color:var(--text-secondary);opacity:1}
+body[class] :is(.filter-bar a,.article-filters button,.seminar-audience button,.video-topics button,.system-chip,.article-pagination button,.seminar-pagination button):where(:not(:disabled)):hover{
+  color:var(--brand-primary);
+  background:rgba(250,239,237,.86);
+  border-color:rgba(var(--brand-rgb),.45);
+  transform:none;
+}
+body[class] :is(.filter-bar a,.seminar-audience button,.video-topics button,.system-chip):is(.is-active,[aria-current="page"],[aria-pressed="true"]){
+  color:var(--on-brand);
+  background:var(--brand-primary);
+  border-color:var(--brand-primary);
+}
+body[class] .system-chip.is-active span{color:inherit}
+body[class] :is(.filter-bar a,.article-filters select,.article-filters button,.seminar-audience button,.video-topics button,.system-chip,.article-pagination button,.seminar-pagination button):focus-visible,
+body[class] .search-field:focus-within{
+  outline:2px solid var(--brand-primary);
+  outline-offset:3px;
+  border-color:var(--brand-primary);
+  box-shadow:0 0 0 4px rgba(var(--brand-rgb),.08),var(--card-highlight);
+}
+body[class] :is(.article-pagination button,.seminar-pagination button):disabled{opacity:.6;cursor:not-allowed}
+body[class] :is(.article-pagination,.seminar-pagination){flex-wrap:wrap;gap:10px}
+@media(hover:hover) and (pointer:fine){
+  body[class] :is(.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a):is(a,:has(a,button)):is(:hover,:focus-within){
+    transform:translateY(-2px);
+    border-color:rgba(var(--brand-rgb),.3);
+    box-shadow:var(--card-hover-shadow);
+  }
+}
+@media(max-width:560px){
+  :root{--card-padding:20px;--card-gap:14px}
+  body[class] :is(.ebook-card>div:last-child,.team-card__copy){padding:18px}
+  body[class] :is(.filter-bar,.article-filters){gap:10px;padding:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  body[class] :is(.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a):is(a,:has(a,button)):is(:hover,:focus-within){transform:none;transition:none}
 }
