@@ -1332,7 +1332,72 @@ body::after{
   -webkit-backdrop-filter:blur(24px) saturate(1.18);
 }
 
-.route-library .page-hero{background:linear-gradient(120deg,rgba(255,255,255,.68),rgba(250,248,243,.32))}
+/* Shared title-and-info-card headers; media-led and institutional heroes stay separate. */
+body:not(.approved-home) .page-hero{
+  display:flex;
+  align-items:center;
+  min-height:400px;
+  padding:48px 0;
+  overflow:visible;
+  background:#faf6f1 url("assets/medical/page-header-ivory-crimson.png") center 64% / cover no-repeat;
+  border-bottom:1px solid rgba(var(--brand-rgb),.2);
+}
+body:not(.approved-home) .page-hero::before,body:not(.approved-home) .page-hero::after{content:none}
+body:not(.approved-home) .page-hero-inner{
+  width:min(100% - 64px,1400px);
+  grid-template-columns:minmax(0,1fr) minmax(280px,.46fr);
+  gap:56px;
+  align-items:center;
+}
+body:not(.approved-home) .page-hero .eyebrow{
+  margin:0 0 14px;
+  color:var(--brand-primary);
+  font-size:.75rem;
+  font-weight:800;
+  line-height:1.4;
+  letter-spacing:0;
+}
+body:not(.approved-home) .page-hero h1{
+  max-width:27ch;
+  margin:0 0 18px;
+  font-size:2.75rem;
+  line-height:1.12;
+  letter-spacing:0;
+  overflow-wrap:normal;
+  text-wrap:balance;
+}
+body:not(.approved-home) .page-hero p:not(.eyebrow){max-width:62ch;margin:0;font-size:1rem;line-height:1.6;overflow-wrap:normal}
+body:not(.approved-home) .page-hero .hero-aside{
+  width:100%;
+  max-width:420px;
+  justify-self:end;
+  padding:24px;
+  background:rgba(255,253,249,.72);
+  border:1px solid rgba(var(--brand-rgb),.27);
+  border-radius:12px;
+  box-shadow:0 16px 40px rgba(91,30,43,.1),inset 0 1px 0 rgba(255,255,255,.98),inset 0 0 0 3px rgba(255,255,255,.2);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+body:not(.approved-home) .page-hero .hero-aside b{margin:0 0 10px;font-size:1.05rem;line-height:1.35;letter-spacing:0}
+body:not(.approved-home) .page-hero .hero-aside>span{display:block;font-size:.9rem;line-height:1.6}
+body:not(.approved-home) .page-hero .hero-aside .text-link{display:inline-flex;margin-top:16px;font-size:.85rem;line-height:1.45}
+@media(max-width:1000px){
+  body:not(.approved-home) .page-hero{padding:40px 0;background-position:58% center}
+  body:not(.approved-home) .page-hero-inner{width:calc(100% - 48px);grid-template-columns:minmax(0,1fr) minmax(240px,.65fr);gap:28px}
+  body:not(.approved-home) .page-hero h1{font-size:2.25rem}
+  body:not(.approved-home) .page-hero .hero-aside{padding:20px}
+}
+@media(max-width:680px){
+  body:not(.approved-home) .page-hero{min-height:0;padding:32px 0;background-image:linear-gradient(to bottom,#faf6f1,rgba(250,246,241,0) 28px),url("assets/medical/page-header-ivory-crimson.png");background-size:100% 38.1vw,100% auto;background-position:center bottom}
+  body:not(.approved-home) .page-hero-inner{width:calc(100% - 32px);grid-template-columns:minmax(0,1fr);gap:24px}
+  body:not(.approved-home) .page-hero .eyebrow{margin-bottom:12px}
+  body:not(.approved-home) .page-hero h1{max-width:24ch;margin-bottom:16px;font-size:1.875rem;line-height:1.16}
+  body:not(.approved-home) .page-hero p:not(.eyebrow){font-size:.94rem;line-height:1.6}
+  body:not(.approved-home) .page-hero .hero-aside{max-width:none;justify-self:stretch;padding:18px;background:rgba(255,253,249,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  body:not(.approved-home) .page-hero .hero-aside b{margin-bottom:8px;font-size:1rem}
+  body:not(.approved-home) .page-hero .hero-aside>span{font-size:.875rem}
+}
 .route-library .article-latest{padding:0 0 24px;border-bottom:1px solid rgba(119,47,63,.18)}
 .route-library [data-article-audiences]{display:grid;gap:24px}
 .route-library .article-filters{
