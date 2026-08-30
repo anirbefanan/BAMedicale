@@ -104,8 +104,8 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
 .company-hero__copy h1 em{color:var(--brand-primary);font-style:normal}
 .company-hero__copy>p:last-of-type{max-width:56ch;margin:21px 0 0;color:var(--text-secondary);font-size:clamp(.96rem,1.15vw,1.12rem);line-height:1.62}
 .company-hero__actions,.company-closing>div:last-child{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
-.company-hero__media{min-width:0;margin:0;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow)}
-.company-hero__media video{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--surface)}
+.company-hero__media{width:100%;max-width:320px;min-width:0;justify-self:center;margin:0;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow)}
+.company-hero__media video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;object-position:center;background:var(--surface)}
 .company-hero__media figcaption{padding:13px 16px;color:var(--text-secondary);background:var(--surface);border-top:1px solid var(--border);font-size:.8rem;font-weight:650;line-height:1.45}
 .editorial-band{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,80px);align-items:start;padding:clamp(30px,4.2vw,58px);background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
 .editorial-band h2,.company-values h2,.company-section__head h2,.company-learning h2,.company-direction h2,.company-closing h2,.team-directory header h2,.physician-profile h1,.physician-profile h2,.profile-story h3,.profile-record h3,.contact-form h2,.contact-note h2{margin:0;color:var(--text-primary);font-family:var(--display);line-height:1.05;letter-spacing:-.03em}
@@ -371,7 +371,6 @@ body:not(.approved-home) .knowledge-card,body:not(.approved-home) .resource-card
   .company-hero__actions,.company-closing>div:last-child{display:grid;width:100%}
   .company-hero__actions .approved-button,.company-closing .approved-button{width:100%}
   .company-hero__media{border-radius:14px}
-  .company-hero__media video{aspect-ratio:4/3}
   .editorial-band{gap:19px;padding:22px 17px;border-radius:14px}
   .editorial-band h2{font-size:1.7rem}
   .company-intro__copy p{font-size:.88rem}
