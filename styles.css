@@ -1276,7 +1276,13 @@ body::after{content:none}
   backdrop-filter:blur(30px) saturate(1.32);
   -webkit-backdrop-filter:blur(30px) saturate(1.32);
 }
-.nav-group__panel,.nav-mobile{background:linear-gradient(145deg,rgba(255,255,255,.66),rgba(255,253,249,.43));backdrop-filter:blur(34px) saturate(1.3);-webkit-backdrop-filter:blur(34px) saturate(1.3)}
+.nav-main .nav-group__panel,.nav-mobile{
+  background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(255,253,249,.86));
+  border-color:rgba(255,255,255,.45);
+  box-shadow:0 24px 56px rgba(91,30,43,.2),0 8px 20px rgba(91,30,43,.1),0 0 0 1px rgba(119,47,63,.16),inset 0 1px 0 rgba(255,255,255,.28);
+  backdrop-filter:blur(22px) saturate(1.2);
+  -webkit-backdrop-filter:blur(22px) saturate(1.2);
+}
 
 .home-seminar-promo,.medical-lightbox,.video-player{
   background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,253,249,.48));
