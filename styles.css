@@ -972,7 +972,7 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 
 /* A single light-glass footer surface, with quiet columns rather than nested panels. */
 .site-header{-webkit-backdrop-filter:blur(18px)}
-.site-footer{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:32px;padding:36px 20px;color:var(--text-secondary);background:var(--glass);border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(91,30,43,.045),inset 0 1px rgba(255,255,255,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.site-footer{display:grid;grid-template-columns:minmax(0,1.45fr) repeat(3,minmax(0,1fr));gap:36px;padding:36px 20px;color:var(--text-secondary);background:var(--glass);border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(91,30,43,.045),inset 0 1px rgba(255,255,255,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .site-footer>div{min-width:0}
 .site-footer .brand{min-width:0;margin-bottom:16px;align-items:center}
 .site-footer .brand span{min-width:0;gap:6px;line-height:1.3}
@@ -980,8 +980,9 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .site-footer .brand small{color:var(--text-secondary);font-size:.75rem;letter-spacing:0}
 .site-footer p{max-width:45ch;margin:0;color:var(--text-secondary);font-size:.875rem;line-height:1.65}
 .site-footer h2{margin:4px 0 12px;color:var(--brand-primary);font-family:var(--body);font-size:.875rem;font-weight:750;line-height:1.4}
-.site-footer>div:not(:first-child) a{display:block;width:fit-content;max-width:100%;padding:7px 0;color:var(--text-primary);font-size:.875rem;line-height:1.4;overflow-wrap:anywhere}
-.site-footer a:hover,.site-footer a:focus-visible{color:var(--brand-primary);text-decoration:underline;text-underline-offset:4px}
+.site-footer>div:not(:first-child) a{display:block;width:fit-content;max-width:100%;padding:7px 0;color:var(--text-primary);font-size:.875rem;line-height:1.4;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:4px;transition:color .18s ease,text-decoration-color .18s ease,text-underline-offset .18s ease}
+.site-footer>div a:hover,.site-footer>div a:focus-visible{color:var(--brand-primary);text-decoration:underline;text-decoration-color:currentColor;text-underline-offset:6px}
+@media(prefers-reduced-motion:reduce){.site-footer>div:not(:first-child) a{transition:none}}
 .footer-note{grid-column:1/-1;margin:0;padding-top:18px;border-top:1px solid var(--border);color:var(--text-secondary);font-size:.8125rem;line-height:1.5}
 @media(max-width:1050px){.site-footer{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.site-footer>div:first-child{grid-column:1/-1}.site-footer p{max-width:65ch}}
 @media(max-width:560px){.site-footer{grid-template-columns:minmax(0,1fr);gap:20px;padding:26px 20px}.site-footer>div:first-child{grid-column:auto}.site-footer>div:not(:first-child){padding-top:17px;border-top:1px solid var(--border)}.site-footer>div:not(:first-child) a{min-height:44px;padding:11px 0}.site-footer h2{margin:0 0 5px}}
@@ -1261,19 +1262,21 @@ body::after{content:none}
   width:min(calc(100% - 24px),1180px);
   margin:clamp(16px,2vw,24px) auto 12px;
   background:
-    radial-gradient(circle at 12% 0%,rgba(var(--brand-rgb),.07),transparent 34%),
-    linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,253,249,.54));
-  border:1px solid rgba(255,255,255,.5);
+    linear-gradient(115deg,rgba(var(--brand-rgb),.065),transparent 48%,rgba(255,255,255,.16)),
+    linear-gradient(135deg,rgba(255,255,255,.56),rgba(255,253,249,.4));
+  border:1px solid rgba(255,255,255,.62);
   border-radius:15px;
   box-shadow:
-    0 30px 76px rgba(91,30,43,.1),
-    0 8px 24px rgba(91,30,43,.055),
+    0 -12px 64px rgba(var(--brand-rgb),.055),
+    0 30px 76px rgba(91,30,43,.13),
+    0 8px 24px rgba(91,30,43,.075),
     0 0 0 1px rgba(119,47,63,.1),
-    inset 0 1px rgba(255,255,255,.36),
-    inset 0 0 28px rgba(255,255,255,.1),
+    inset 0 1px rgba(255,255,255,.72),
+    inset 1px 0 rgba(255,255,255,.26),
+    inset 0 0 28px rgba(255,255,255,.08),
     inset 0 -1px rgba(var(--brand-rgb),.065);
-  backdrop-filter:blur(30px) saturate(1.32);
-  -webkit-backdrop-filter:blur(30px) saturate(1.32);
+  backdrop-filter:blur(32px) saturate(1.32);
+  -webkit-backdrop-filter:blur(32px) saturate(1.32);
 }
 .nav-main .nav-group__panel,.nav-mobile{
   background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(255,253,249,.86));
