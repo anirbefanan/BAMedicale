@@ -51,7 +51,13 @@ const articleByPath = () => Object.values(data.articles || {}).find((item) => wi
 const seminarByPath = () => Object.values(data.seminars || {}).find((item) => window.location.pathname.endsWith(`/${item.detailUrl}`));
 const seminarByArtwork = (artwork) => Object.values(data.seminars || {}).find((item) => String(artwork || "").endsWith(String(item.artwork || "")));
 const ebookBySlug = (slug) => (data.ebooks || []).find((item) => item.slug === slug);
-const icon = (name) => `<svg aria-hidden="true"><use href="#i-${name}"></use></svg>`;
+const icon = (name) => {
+  const shellIcons = {
+    menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/>'
+  };
+  return shellIcons[name] ? `<svg aria-hidden="true" viewBox="0 0 24 24">${shellIcons[name]}</svg>` : `<svg aria-hidden="true"><use href="#i-${name}"></use></svg>`;
+};
 const diseaseIconPaths = {
   heart: '<path d="M3 12h4l2-5 4 10 2-5h6"/><path d="M12 21S4 16 4 9a4 4 0 0 1 7-2.6A4 4 0 0 1 20 9c0 7-8 12-8 12Z"/>',
   lungs: '<path d="M12 4v8M10 8c-2-2-4-1-5 2l-2 7c-.5 2 1 3 3 3 3 0 5-2 5-5V9M14 8c2-2 4-1 5 2l2 7c.5 2-1 3-3 3-3 0-5-2-5-5V9"/>',
@@ -152,9 +158,9 @@ const articleDiseaseCondition = (article) => article.diseaseCondition || article
 const groupLabelForSearch = (article) => diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education";
 const PRIMARY_NAVIGATION = Object.freeze([
   { label: "Education", items: [
-    { label: "For Public", href: "public.html" },
     { label: "For Doctors", href: "clinical.html" },
-    { label: "For Healthcare Workers", href: "healthcare-workers.html" }
+    { label: "For Healthcare Workers", href: "healthcare-workers.html" },
+    { label: "For Public", href: "public.html" }
   ] },
   { label: "Knowledge", items: [
     { label: "Library & Articles", href: "library.html" },
@@ -169,16 +175,44 @@ const PRIMARY_NAVIGATION = Object.freeze([
     { label: "Contact Us", href: "contact.html" }
   ] }
 ]);
+const HOME_NAVIGATION = Object.freeze({ label: "Home", href: "index.html" });
 const MEMBER_NAVIGATION = Object.freeze({ label: "Member Login", href: "login.html" });
-const navigationIsCurrent = (item) => window.location.pathname.endsWith(`/${item.href}`);
-const navigationLink = (item) => `<a href="${item.href}"${navigationIsCurrent(item) ? ' aria-current="page"' : ""}>${item.label}</a>`;
-const navigationGroups = () => PRIMARY_NAVIGATION.map((group) => `<details class="nav-group${group.items.some(navigationIsCurrent) ? " nav-group--current" : ""}"><summary>${group.label}</summary><div class="nav-group__panel">${group.items.map(navigationLink).join("")}</div></details>`).join("");
+const navigationRoot = () => window.location.pathname.replace(/^\/+/, "").split("/").filter(Boolean).length > 1 ? "../" : "";
+const navigationHref = (href) => `${navigationRoot()}${href}`;
+const navigationContext = () => {
+  const pathname = window.location.pathname.toLowerCase();
+  const route = pathname.split("/").pop() || "index.html";
+  if (pathname === "/" || route === "index.html") return { top: "home" };
+  if (["public.html", "clinical.html", "healthcare-workers.html"].includes(route)) return { group: "Education", child: route };
+  if (pathname.includes("/articles/")) return { group: "Knowledge", child: "library.html" };
+  if (["library.html", "videos.html", "ebooks.html", "ebook-detail.html", "resources.html"].includes(route)) return { group: "Knowledge", child: route === "ebook-detail.html" ? "ebooks.html" : route };
+  if (route === "search.html") return { group: "Knowledge", top: "search" };
+  if (pathname.includes("/events/") || ["seminar.html", "symposia.html"].includes(route)) return { group: "Learning", child: "seminar.html" };
+  if (route === "login.html") return { top: "member" };
+  if (route === "about.html") return { group: "About", child: "about.html" };
+  if (route === "team.html" || route.endsWith("-profile.html")) return { group: "About", child: "team.html" };
+  return { group: "About", child: route === "contact.html" ? "contact.html" : null };
+};
+const navigationLink = (item, className = "") => {
+  const context = navigationContext();
+  const current = item.href === HOME_NAVIGATION.href ? context.top === "home" : context.child === item.href;
+  return `<a${className ? ` class="${className}"` : ""} href="${navigationHref(item.href)}"${current ? ' aria-current="page"' : ""}>${item.label}</a>`;
+};
+const navigationGroups = () => {
+  const context = navigationContext();
+  return PRIMARY_NAVIGATION.map((group) => `<details class="nav-group${context.group === group.label ? " nav-group--current" : ""}"><summary>${group.label}</summary><div class="nav-group__panel">${group.items.map(navigationLink).join("")}</div></details>`).join("");
+};
 
 function shell() {
   document.querySelectorAll("[data-shell]").forEach((target) => {
     const member = MEMBER_NAVIGATION;
     const groups = navigationGroups();
-    target.innerHTML = `<header class="site-header"><a class="brand" href="index.html" aria-label="BA Medicale home"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary">${groups}</nav><div class="nav-actions"><a class="search-button" href="search.html" aria-label="Search BA Medicale">${icon("search")}</a><a class="button button-dark" href="${member.href}">${member.label}</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation">${icon("menu")}</button></div></header><nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation">${groups}<a class="button button-dark nav-mobile__member" href="${member.href}">${member.label}</a></nav>`;
+    const context = navigationContext();
+    const home = navigationLink(HOME_NAVIGATION, "nav-main__home");
+    const mobileHome = navigationLink(HOME_NAVIGATION, "nav-mobile__home");
+    const memberCurrent = context.top === "member" ? ' aria-current="page"' : "";
+    const searchCurrent = context.top === "search" ? ' aria-current="page"' : "";
+    target.innerHTML = `<header class="site-header"><a class="brand" href="${navigationHref("index.html")}" aria-label="BA Medicale home"><img src="${navigationHref("assets/brand/bamedicale-approved-logo.jpg")}" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><nav class="nav-main" aria-label="Primary">${home}${groups}</nav><div class="nav-actions"><a class="search-button" href="${navigationHref("search.html")}" aria-label="Search BA Medicale"${searchCurrent}>${icon("search")}</a><a class="button button-dark" href="${navigationHref(member.href)}"${memberCurrent}>${member.label}</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation">${icon("menu")}</button></div></header><nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation">${mobileHome}${groups}<a class="nav-mobile__search" href="${navigationHref("search.html")}"${searchCurrent}>${icon("search")}<span>Search</span></a><a class="button button-dark nav-mobile__member" href="${navigationHref(member.href)}"${memberCurrent}>${member.label}</a></nav>`;
   });
   document.querySelectorAll("[data-footer]").forEach((target) => {
     target.innerHTML = `<footer class="site-footer">

@@ -110,11 +110,11 @@ const renderPage = (article, index) => {
   <meta property="og:type" content="article"><meta property="og:site_name" content="BA Medicale"><meta property="og:title" content="${escape(article.title)}"><meta property="og:description" content="${escape(article.excerpt)}"><meta property="og:url" content="${canonical}"><meta property="article:published_time" content="${escape(article.publishedDate)}"><meta property="og:image" content="${absolute(article.cover)}"><meta property="og:image:alt" content="${escape(article.title)} editorial artwork">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(article.title)}"><meta name="twitter:description" content="${escape(article.excerpt)}"><meta name="twitter:image" content="${absolute(article.cover)}">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="stylesheet" href="../styles.css?v=ivory-20260828-v5">
+  <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="stylesheet" href="../styles.css?v=shared-navigation-20260901">
   <script type="application/ld+json">${json(schema)}</script><script type="application/ld+json">${json(breadcrumb)}</script>
 </head>
 <body class="route-article">
-  <header class="seo-static-header"><a class="brand" href="../index.html"><img src="../assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo" width="64" height="64"><span><b>BA Medicale</b><small>EST. 2024</small></span></a><a class="button button-outline" href="../library.html">Medical Library</a></header>
+  <div data-shell></div>
   <main class="seo-article-page"><nav class="seo-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../library.html?disease=${encodeURIComponent(article.primaryDiseaseGroup)}">${escape(diseaseGroup.name)}</a><span>/</span><span>${escape(article.primaryTopic)}</span></nav>
     <article>
       <header class="seo-article-hero seo-article-hero--publication">
@@ -134,7 +134,7 @@ const renderPage = (article, index) => {
   </main>
   <dialog class="article-promotion" data-promotion-dialog><div class="article-promotion__bar"><p>BA Medicale promotion toolkit</p><button type="button" data-promote-close>Close</button></div><div class="article-promotion__body"><p>This prepares source-faithful social teasers; it does not publish to social platforms.</p><div class="article-promotion__grid">${formats.map((format) => `<article><span>${format}</span><h2>${escape(promotion.hook)}</h2>${promotion.teaser.map((text) => `<p>${escape(text)}</p>`).join("")}<b>${escape(promotion.cta)}</b><small>${canonical}</small><p>${escape(promotion.hashtags.join(" "))}</p><button type="button" data-copy-promotion="${Buffer.from(promotion.text).toString("base64")}">Copy ${format} copy</button></article>`).join("")}</div></div></dialog>
   <footer class="seo-static-footer"><p>BA Medicale provides education, not individual diagnosis or treatment advice.</p><a href="../library.html">Return to the Medical Library</a><a href="../privacy-policy.html">Privacy Policy</a></footer>
-  <script src="../content.js?v=disease-explorer-20260825"></script><script src="../app.js?v=disease-explorer-20260825"></script>
+  <script src="../content.js?v=disease-explorer-20260825"></script><script src="../app.js?v=shared-navigation-20260901"></script>
 </body></html>`.replace(/[ \t]+\n/g, "\n");
 };
 

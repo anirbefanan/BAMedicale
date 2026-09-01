@@ -1003,6 +1003,34 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 
 /* Final shared navigation sizing: approved and editorial headers use the same canonical source. */
 
+/* One shared floating navigation system, using the homepage positioning exactly. */
+body:not(.approved-home) [data-shell]{min-height:96px}
+body:not(.approved-home) .site-header{position:absolute;inset:13px max(24px,calc((100% - 1440px)/2)) auto;width:auto;margin:0}
+body:not(.approved-home) .site-header.is-scrolled{position:fixed;top:8px}
+.nav-main__home,.nav-mobile__home,.nav-mobile__search{
+  display:flex;
+  min-height:44px;
+  align-items:center;
+  gap:8px;
+  padding:10px 13px;
+  border-radius:8px;
+  color:var(--text-primary);
+  font-size:.9375rem;
+  font-weight:650;
+  transition:background var(--motion-base) var(--ease-premium),color var(--motion-base) var(--ease-premium);
+}
+.nav-main__home:hover,.nav-main__home:focus-visible,.nav-main__home[aria-current="page"],.search-button[aria-current="page"],.nav-mobile__home:hover,.nav-mobile__home:focus-visible,.nav-mobile__home[aria-current="page"],.nav-mobile__search:hover,.nav-mobile__search:focus-visible,.nav-mobile__search[aria-current="page"]{color:var(--brand-primary);background:var(--surface-muted)}
+.nav-actions .button-dark[aria-current="page"]{background:var(--brand-secondary);box-shadow:var(--card-hover-shadow)}
+@media(max-width:1050px){
+  .nav-mobile__home,.nav-mobile__search{min-height:48px;border-bottom:1px solid var(--border);border-radius:0;font-size:.9375rem;font-weight:700}
+  .nav-mobile__search svg{width:1.05rem;height:1.05rem;color:var(--brand-primary)}
+}
+@media(max-width:560px){
+  body:not(.approved-home) [data-shell]{min-height:80px}
+  body:not(.approved-home) .site-header{inset:8px 10px auto;width:auto;margin:0}
+  body:not(.approved-home) .site-header.is-scrolled{top:5px}
+}
+
 
 /* Homepage seminar promotion: reuses the verified event record and source poster. */
 .home-seminar-promo{width:min(880px,calc(100% - 32px));max-height:min(860px,calc(100dvh - 32px));padding:0;overflow:auto;color:var(--text-primary);background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
