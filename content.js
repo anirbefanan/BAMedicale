@@ -41,6 +41,14 @@ window.BAMEDICALE_DATA = {
     { id: "multidisciplinary-care", label: "Multidisciplinary care", area: "Case discussions", icon: "book", description: "Disease-specific clinical questions and multidisciplinary discussion, prepared through reviewed case architecture." },
     { id: "professional-tools", label: "Professional tools", area: "Professional tools", icon: "spark", description: "Clinical references, calculators, templates, checklists, and downloadable resources will be added when validated.", independent: true }
   ],
+  publicContentCategories: [
+    { id: "public-tumor-cancer", anchor: "tumor-cancer", label: "Tumor vs cancer", kicker: "Starting point", area: "Tumor versus cancer", description: "A tumor is an abnormal growth. A tumor may be benign. Cancer is a malignant disease that can invade nearby tissue and may spread.", fallbackHref: "index.html#disease-explorer", fallbackLabel: "Explore body systems" },
+    { id: "public-signs", anchor: "signs", label: "Signs & symptoms", kicker: "When something changes", area: "Signs and symptoms", description: "Symptoms can have many causes. Persistent, worsening, or unusual changes are reasons to seek clinical advice.", fallbackHref: "search.html", fallbackLabel: "Search a concern" },
+    { id: "public-diagnosis", anchor: "diagnosis", label: "Diagnosis", kicker: "Finding an answer", area: "Diagnosis", description: "History, examination, imaging, laboratory tests, and biopsy each answer different questions. A biopsy is often needed to confirm cancer.", fallbackHref: "clinical.html#diagnosis", fallbackLabel: "See clinical depth" },
+    { id: "public-treatment", anchor: "treatment", label: "Treatment", kicker: "Planning care", area: "Treatment options", description: "Depending on disease type and stage, care may include surgery, radiotherapy, systemic therapy, supportive care, or a combination.", fallbackHref: "resources.html", fallbackLabel: "Open treatment resources" },
+    { id: "public-living", anchor: "living", label: "Living with cancer", kicker: "Beyond treatment", area: "Living with cancer", description: "Supportive care, follow-up, rehabilitation, survivorship, advanced disease, and caregiver support remain part of the wider journey.", fallbackHref: "resources.html#patient", fallbackLabel: "Find patient resources" },
+    { id: "public-questions", anchor: "questions", label: "Questions to ask", kicker: "Prepare", area: "Questions to ask", description: "Write down what changed, how long it has been happening, family history, medications, and questions about tests or the plan.", fallbackHref: "resources.html#checklists", fallbackLabel: "Open checklists", independent: true }
+  ],
   library: [
     { type: "Public guide", title: "Tumor, cancer, and the words clinicians use", text: "A clear starting point for understanding benign growths, malignant disease, and why terms matter.", href: "public.html#tumor-cancer" }, { type: "Diagnosis", title: "From imaging to biopsy", text: "What different tests can and cannot answer when a lesion needs investigation.", href: "public.html#diagnosis" }, { type: "Professional", title: "Staging and treatment selection", text: "A structured orientation to stage, pathology, biomarkers, and multidisciplinary planning.", href: "clinical.html#staging" }, { type: "Care", title: "Living with and beyond cancer", text: "Supportive care, follow-up, survivorship, and practical questions for appointments.", href: "public.html#living" }
   ],
@@ -54,6 +62,7 @@ window.BAMEDICALE_DATA = {
       excerpt: "A public health review of Indonesia's projected cancer burden, prevention context, and the clinical distinction between tumor and cancer.",
       primaryAudience: "PUBLIC",
       secondaryAudiences: ["DOCTOR", "HEALTHCARE WORKER"],
+      publicCategories: ["public-tumor-cancer"],
       author: { name: "BA Medicale", type: "Organization" },
       primaryTopic: "Epidemiology & Statistics",
       tags: ["Health Policy", "Prevention & Risk", "Early Detection", "Tumor & Cancer Basics"],
@@ -164,6 +173,7 @@ window.BAMEDICALE_DATA = {
       excerpt: "A practical guide to benign and malignant tumor, cancer, metastasis, biopsy, and when a new or changing lump needs medical assessment.",
       primaryAudience: "PUBLIC",
       secondaryAudiences: ["DOCTOR", "HEALTHCARE WORKER"],
+      publicCategories: ["public-tumor-cancer", "public-diagnosis"],
       author: { name: "BA Medicale", type: "Organization" },
       primaryTopic: "Tumor & Cancer Basics",
       tags: ["Benign Tumor", "Malignant Tumor", "Biopsy & Pathology"],

@@ -158,6 +158,11 @@ const articleDiseaseCondition = (article) => article.diseaseCondition || article
 const groupLabelForSearch = (article) => diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education";
 const doctorContentCategories = () => data.doctorContentCategories || [];
 const doctorCategoryById = (id) => doctorContentCategories().find((category) => category.id === id);
+const publicContentCategories = () => data.publicContentCategories || [];
+const publicCategoryById = (id) => publicContentCategories().find((category) => category.id === id);
+const contentCategoryById = (id) => doctorCategoryById(id) || publicCategoryById(id);
+const articleContentCategories = (article) => [article.professionalCategory, ...(article.publicCategories || [])].filter(Boolean);
+const publishedContentForAudience = (audience) => articleRecords().filter((article) => articlePrimaryAudience(article) === audience && article.publishedDate);
 const publishedDoctorScientificContent = () => articleRecords().filter((article) => articlePrimaryAudience(article) === "DOCTOR" && article.publishedDate && doctorCategoryById(article.professionalCategory));
 const libraryPath = (params = {}) => {
   const query = new URLSearchParams(Object.entries(params).filter(([, value]) => value));
@@ -165,10 +170,13 @@ const libraryPath = (params = {}) => {
 };
 const doctorScientificContentForCategory = (category) => publishedDoctorScientificContent().filter((article) => article.professionalCategory === category);
 const doctorContentDestination = (records, params = {}) => records.length === 1 ? articlePath(records[0]) : libraryPath({ audience: "DOCTOR", ...params });
+const publicContentForCategory = (category) => publishedContentForAudience("PUBLIC").filter((article) => articleContentCategories(article).includes(category));
+const publicContentDestination = (records, params = {}) => records.length === 1 ? articlePath(records[0]) : libraryPath({ audience: "PUBLIC", ...params });
 const publicationSearchText = (article) => [
   article.title, articleAuthor(article), article.contentType, article.professionalCategory,
   article.professionalArea, doctorCategoryById(article.professionalCategory)?.label,
   doctorCategoryById(article.professionalCategory)?.area, article.primaryTopic,
+  ...(article.publicCategories || []).flatMap((id) => [publicCategoryById(id)?.label, publicCategoryById(id)?.area]),
   articleDiseaseCondition(article), article.excerpt, ...(article.tags || []),
   article.paper?.keywords, ...(article.paper?.affiliations || []),
   ...articleDiseaseGroups(article).map((id) => diseaseGroupById(id)?.name || "")
@@ -330,6 +338,31 @@ function renderDoctorClinicalPage() {
   publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "DOCTOR" }))}">Browse professional publications in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card"><div><p>Professional publications</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Professional publication in preparation")}</section>`;
 }
 
+function renderPublicPage() {
+  const categoriesTarget = document.querySelector("[data-public-categories]");
+  const chipsTarget = document.querySelector("[data-public-category-chips]");
+  const publicationsTarget = document.querySelector("[data-public-publications]");
+  const categories = publicContentCategories();
+  if (chipsTarget) chipsTarget.innerHTML = categories.filter((category) => !category.independent).map((category) => {
+    const articles = publicContentForCategory(category.id);
+    const href = articles.length ? publicContentDestination(articles, { category: category.id }) : `#${category.anchor}`;
+    return `<a class="${articles.length ? "is-available" : ""}" href="${escapeHtml(href)}"${articles.length ? ` aria-label="Open ${escapeHtml(category.label)} articles"` : ""}>${escapeHtml(category.label)}</a>`;
+  }).join("");
+  if (categoriesTarget) categoriesTarget.innerHTML = categories.map((category) => {
+    const articles = publicContentForCategory(category.id);
+    if (articles.length) {
+      const latest = articles[0];
+      const destination = publicContentDestination(articles, { category: category.id });
+      return `<a class="knowledge-card doctor-content-card--active" id="${escapeHtml(category.anchor)}" href="${escapeHtml(destination)}"><span>${escapeHtml(category.kicker)}</span><h3>${escapeHtml(category.area)}</h3><p>${escapeHtml(category.description)}</p><b class="resource-card__latest">${articles.length} published ${articles.length === 1 ? "article" : "articles"} · Latest: ${escapeHtml(latest.title)}</b><span class="text-link">${articles.length === 1 ? "Read full article" : "Explore in Library"} <span aria-hidden="true">→</span></span></a>`;
+    }
+    return `<article class="knowledge-card" id="${escapeHtml(category.anchor)}"><span>${escapeHtml(category.kicker)}</span><h3>${escapeHtml(category.area)}</h3><p>${escapeHtml(category.description)}</p><a class="text-link" href="${escapeHtml(category.fallbackHref)}">${escapeHtml(category.fallbackLabel)} <span aria-hidden="true">→</span></a></article>`;
+  }).join("");
+  if (!publicationsTarget) return;
+  const records = publishedContentForAudience("PUBLIC");
+  const items = records.map((article) => ({ title: article.title, meta: `${article.contentType} · Published ${formatPublishedDate(article.publishedDate)}`, href: articlePath(article) }));
+  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card"><div><p>Public articles</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Public education in preparation")}</section>`;
+}
+
 function renderLibrary() {
   const target = document.querySelector("[data-article-library]");
   if (!target) return;
@@ -337,12 +370,12 @@ function renderLibrary() {
   const topics = [...new Set(records.map((article) => article.primaryTopic))];
   const conditions = [...new Set(records.map(articleDiseaseCondition).filter(Boolean))];
   const types = [...new Set(records.map((article) => article.contentType).filter(Boolean))];
-  const categories = doctorContentCategories().filter((category) => !category.independent);
+  const categories = [...publicContentCategories(), ...doctorContentCategories()].filter((category) => !category.independent);
   const params = new URLSearchParams(window.location.search);
   const requestedDisease = params.get("disease") || "";
   const selectedDisease = diseaseGroupById(requestedDisease) ? requestedDisease : "";
   const selectedAudience = ["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].includes(params.get("audience")) ? params.get("audience") : "";
-  const selectedCategory = doctorCategoryById(params.get("category")) ? params.get("category") : "";
+  const selectedCategory = contentCategoryById(params.get("category")) ? params.get("category") : "";
   const selectedCondition = conditions.includes(params.get("condition")) ? params.get("condition") : "";
   const selectedTopic = topics.includes(params.get("topic")) ? params.get("topic") : "";
   const selectedType = types.includes(params.get("type")) ? params.get("type") : "";
@@ -355,7 +388,7 @@ function renderLibrary() {
     ["DOCTOR", "Professional Education — Doctors", "Clinical context for doctors, specialists, and physician-level learners."],
     ["HEALTHCARE WORKER", "Professional Education — Healthcare Workers", "Practical learning for nursing, allied health, pharmacy, laboratory, imaging, and multidisciplinary care."]
   ];
-  target.innerHTML = `<section class="article-latest"><div class="article-library__heading"><div><p class="eyebrow">Latest articles and publications</p><h2>Recently published and updated.</h2></div><p>${records.length >= 5 ? "Five current entry points" : `${records.length} current item${records.length === 1 ? "" : "s"}`}, ordered automatically from the article registry.</p></div><div class="article-latest__rail">${records.slice(0, 5).map(latestCard).join("")}</div></section><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].map((value) => option(value, value, value === selectedAudience)).join("")}</select></label><label>Professional category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map((value) => option(value, value, value === selectedCondition)).join("")}</select></label><label>Primary topic<select name="topic"><option value="">All topics</option>${topics.map((value) => option(value, value, value === selectedTopic)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map((value) => option(value, value, value === selectedType)).join("")}</select></label><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div data-article-audiences>${sections.map(([audience, title, description]) => `<section class="article-audience" data-article-audience="${audience}"><header><div><p class="eyebrow">${title}</p><h2>${description}</h2></div><span data-article-count></span></header><div class="article-list" data-article-list></div><nav class="article-pagination" aria-label="${title} pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`).join("")}</div>`;
+  target.innerHTML = `<section class="article-latest"><div class="article-library__heading"><div><p class="eyebrow">Latest articles and publications</p><h2>Recently published and updated.</h2></div><p>${records.length >= 5 ? "Five current entry points" : `${records.length} current item${records.length === 1 ? "" : "s"}`}, ordered automatically from the article registry.</p></div><div class="article-latest__rail">${records.slice(0, 5).map(latestCard).join("")}</div></section><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].map((value) => option(value, value, value === selectedAudience)).join("")}</select></label><label>Content category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map((value) => option(value, value, value === selectedCondition)).join("")}</select></label><label>Primary topic<select name="topic"><option value="">All topics</option>${topics.map((value) => option(value, value, value === selectedTopic)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map((value) => option(value, value, value === selectedType)).join("")}</select></label><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div data-article-audiences>${sections.map(([audience, title, description]) => `<section class="article-audience" data-article-audience="${audience}"><header><div><p class="eyebrow">${title}</p><h2>${description}</h2></div><span data-article-count></span></header><div class="article-list" data-article-list></div><nav class="article-pagination" aria-label="${title} pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`).join("")}</div>`;
   const filterForm = target.querySelector("[data-article-filters]");
   const filterContext = target.querySelector("[data-library-filter-context]");
   const pages = new Map();
@@ -363,7 +396,7 @@ function renderLibrary() {
     const values = Object.fromEntries(new FormData(filterForm));
     const activeLabels = [
       values.audience,
-      values.category && doctorCategoryById(values.category)?.label,
+      values.category && contentCategoryById(values.category)?.label,
       values.diseaseGroup && diseaseGroupById(values.diseaseGroup)?.name,
       values.condition,
       values.topic,
@@ -374,7 +407,7 @@ function renderLibrary() {
     target.querySelectorAll("[data-article-audience]").forEach((section) => {
       const audience = section.dataset.articleAudience;
       const query = values.query.trim().toLowerCase();
-      const filtered = records.filter((article) => articlePrimaryAudience(article) === audience && (!values.audience || articleAudiences(article).includes(values.audience)) && (!values.category || article.professionalCategory === values.category) && (!values.diseaseGroup || articleDiseaseGroups(article).includes(values.diseaseGroup)) && (!values.condition || articleDiseaseCondition(article) === values.condition) && (!values.topic || article.primaryTopic === values.topic) && (!values.type || article.contentType === values.type) && (!query || publicationSearchText(article).includes(query)));
+      const filtered = records.filter((article) => articlePrimaryAudience(article) === audience && (!values.audience || articleAudiences(article).includes(values.audience)) && (!values.category || articleContentCategories(article).includes(values.category)) && (!values.diseaseGroup || articleDiseaseGroups(article).includes(values.diseaseGroup)) && (!values.condition || articleDiseaseCondition(article) === values.condition) && (!values.topic || article.primaryTopic === values.topic) && (!values.type || article.contentType === values.type) && (!query || publicationSearchText(article).includes(query)));
       const maxPage = Math.max(1, Math.ceil(filtered.length / 10));
       const page = Math.min(pages.get(audience) || 1, maxPage);
       pages.set(audience, page);
@@ -1100,4 +1133,4 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderDoctorClinicalPage(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); renderTrafficPage(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
+initAnalytics(); shell(); renderHome(); renderDoctorClinicalPage(); renderPublicPage(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); renderTrafficPage(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
