@@ -1,18 +1,172 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-09-01T08:15:03.364Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": null,
-    "endDate": null
+    "startDate": "2026-08-04",
+    "endDate": "2026-08-31"
   },
   "summary": {
-    "activeUsers": 0,
-    "newUsers": 0,
-    "averageEngagementTimeSeconds": 0,
-    "eventCount": 0
+    "activeUsers": 35,
+    "newUsers": 35,
+    "averageEngagementTimeSeconds": 471.22857142857146,
+    "eventCount": 1602
   },
-  "topPages": [],
-  "firstUserSources": [],
-  "sessionSources": [],
-  "cities": []
+  "topPages": [
+    {
+      "title": "BA Medicale | Physician-Led Medical Education",
+      "views": 123,
+      "activeUsers": 27,
+      "eventCount": 341,
+      "bounceRate": 0.3380281690140845
+    },
+    {
+      "title": "BA Medicale | Medical Education for Public & Professionals",
+      "views": 67,
+      "activeUsers": 12,
+      "eventCount": 180,
+      "bounceRate": 0.2222222222222222
+    },
+    {
+      "title": "Medical Library | BA Medicale",
+      "views": 61,
+      "activeUsers": 8,
+      "eventCount": 136,
+      "bounceRate": 0
+    },
+    {
+      "title": "Courses & Seminars | BA Medicale",
+      "views": 58,
+      "activeUsers": 9,
+      "eventCount": 162,
+      "bounceRate": 0
+    },
+    {
+      "title": "BA Medicale Team | Physician-Led Medical Education",
+      "views": 56,
+      "activeUsers": 6,
+      "eventCount": 133,
+      "bounceRate": 0.05
+    },
+    {
+      "title": "About BA Medicale | Medical Learning for Better Care",
+      "views": 32,
+      "activeUsers": 5,
+      "eventCount": 78,
+      "bounceRate": 0
+    },
+    {
+      "title": "For Public | BA Medicale",
+      "views": 30,
+      "activeUsers": 6,
+      "eventCount": 61,
+      "bounceRate": 0
+    },
+    {
+      "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
+      "views": 25,
+      "activeUsers": 5,
+      "eventCount": 60,
+      "bounceRate": 0
+    },
+    {
+      "title": "Contact BA Medicale | Medical Education Enquiries",
+      "views": 23,
+      "activeUsers": 5,
+      "eventCount": 53,
+      "bounceRate": 0
+    },
+    {
+      "title": "Videos | BA Medicale",
+      "views": 22,
+      "activeUsers": 6,
+      "eventCount": 64,
+      "bounceRate": 0
+    }
+  ],
+  "firstUserSources": [
+    {
+      "label": "(direct) / (none)",
+      "activeUsers": 25
+    },
+    {
+      "label": "google / organic",
+      "activeUsers": 4
+    },
+    {
+      "label": "facebook.com / referral",
+      "activeUsers": 3
+    },
+    {
+      "label": "l.instagram.com / referral",
+      "activeUsers": 2
+    },
+    {
+      "label": "m.facebook.com / referral",
+      "activeUsers": 1
+    }
+  ],
+  "sessionSources": [
+    {
+      "label": "(direct) / (none)",
+      "sessions": 87
+    },
+    {
+      "label": "google / organic",
+      "sessions": 10
+    },
+    {
+      "label": "facebook.com / referral",
+      "sessions": 3
+    },
+    {
+      "label": "l.instagram.com / referral",
+      "sessions": 2
+    },
+    {
+      "label": "m.facebook.com / referral",
+      "sessions": 1
+    }
+  ],
+  "cities": [
+    {
+      "label": "Jakarta",
+      "activeUsers": 12
+    },
+    {
+      "label": "Sukabumi",
+      "activeUsers": 5
+    },
+    {
+      "label": "Council Bluffs",
+      "activeUsers": 4
+    },
+    {
+      "label": "Depok",
+      "activeUsers": 4
+    },
+    {
+      "label": "Ashburn",
+      "activeUsers": 2
+    },
+    {
+      "label": "San Jose",
+      "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
+    },
+    {
+      "label": "Bandar Lampung",
+      "activeUsers": 1
+    },
+    {
+      "label": "Bekasi Regency",
+      "activeUsers": 1
+    },
+    {
+      "label": "Denpasar",
+      "activeUsers": 1
+    }
+  ]
 }
