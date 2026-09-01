@@ -311,25 +311,25 @@ body:not(.approved-home) .knowledge-card>span,body:not(.approved-home) .resource
 .route-adlina-karisyah-profile .profile-research-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin:24px 0 0;padding:0;list-style:none}
 .route-adlina-karisyah-profile .profile-research-list li{min-width:0;padding:18px 0;border-top:1px solid var(--border);color:var(--text-primary);font-size:.94rem;line-height:1.6;overflow-wrap:break-word}
 @media(max-width:600px){.route-adlina-karisyah-profile .profile-research-list{grid-template-columns:1fr}}
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-page__hero h1{max-width:30ch;font-size:var(--title-profile);line-height:1.15;letter-spacing:0}
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-page__hero-media{align-self:center;min-height:0;max-height:none}
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-page__hero-media img{height:auto;object-position:center}
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-page__hero h1{max-width:30ch;font-size:var(--title-profile);line-height:1.15;letter-spacing:0}
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-page__hero-media{align-self:center;min-height:0;max-height:none}
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-page__hero-media img{height:auto;object-position:center}
 :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-section-heading h2{font-size:2rem;line-height:1.2;letter-spacing:0}
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-detail-grid h2{font-size:1.5rem;line-height:1.25;letter-spacing:0}
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-journey__timeline p,
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-detail-grid li span{font-size:.94rem;line-height:1.6}
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-journey__timeline span{font-size:.78rem;letter-spacing:0}
-:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-journey__timeline li:last-child{grid-column:1/-1}
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-detail-grid h2{font-size:1.5rem;line-height:1.25;letter-spacing:0}
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-journey__timeline p,
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-detail-grid li span{font-size:.94rem;line-height:1.6}
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-journey__timeline span{font-size:.78rem;letter-spacing:0}
+:is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-journey__timeline li:last-child{grid-column:1/-1}
 :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-impact-note{margin:18px 0 0;color:var(--text-secondary);font-size:.94rem;line-height:1.6}
 :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-overview{box-shadow:none}
 :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-journey .profile-overview{background:transparent;border:0;border-radius:0;backdrop-filter:none;-webkit-backdrop-filter:none}
 :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) main>nav .profile-back-link{margin:12px 0 0}
 :is(.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-journey__timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:900px){
-  :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-page__hero-media{width:min(100%,360px);justify-self:center}
+  :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-page__hero-media{width:min(100%,360px);justify-self:center}
 }
 @media(max-width:600px){
-  :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-page__hero h1{font-size:var(--title-profile)}
+  :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile,.route-yudi-febriadi-profile) .profile-page__hero h1{font-size:var(--title-profile)}
   :is(.route-nana-febrina-profile,.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-section-heading h2{font-size:1.6rem}
   :is(.route-melati-noerwa-profile,.route-adlina-karisyah-profile) .profile-journey__timeline{grid-template-columns:1fr}
 }
