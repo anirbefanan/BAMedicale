@@ -5,7 +5,10 @@
     "articles:build": "node scripts/build-articles.js",
     "articles:check": "node scripts/build-articles.js --check",
     "seminars:build": "node scripts/build-articles.js",
-    "seminars:check": "node scripts/build-articles.js --check"
+    "seminars:check": "node scripts/build-articles.js --check",
+    "traffic:bootstrap": "node scripts/fetch-ga4-traffic.js --bootstrap",
+    "traffic:validate": "node scripts/fetch-ga4-traffic.js --validate data/traffic-summary.json --allow-pending",
+    "traffic:test": "node --test scripts/traffic-data.test.js scripts/traffic-page.test.js"
   },
   "private": true,
   "devDependencies": {}

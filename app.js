@@ -172,6 +172,7 @@ const PRIMARY_NAVIGATION = Object.freeze([
   { label: "About", items: [
     { label: "BA Medicale", href: "about.html" },
     { label: "Team", href: "team.html" },
+    { label: "Traffic", href: "traffic.html" },
     { label: "Contact Us", href: "contact.html" }
   ] }
 ]);
@@ -191,6 +192,7 @@ const navigationContext = () => {
   if (route === "login.html") return { top: "member" };
   if (route === "about.html") return { group: "About", child: "about.html" };
   if (route === "team.html" || route.endsWith("-profile.html")) return { group: "About", child: "team.html" };
+  if (route === "traffic.html") return { group: "About", child: "traffic.html" };
   return { group: "About", child: route === "contact.html" ? "contact.html" : null };
 };
 const navigationLink = (item, className = "") => {
@@ -218,7 +220,7 @@ function shell() {
     target.innerHTML = `<footer class="site-footer">
       <div class="footer-brand"><a class="brand brand--footer" href="index.html"><img src="assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><span><b>BA Medicale</b><small>Physician-led medical education</small></span></a><p>Education across diseases and health conditions, with dedicated depth in cancer, neoplasia, and surgical oncology. Information supports learning and does not replace individualized medical care.</p></div>
       <div class="footer-group"><h2>Explore</h2><a href="public.html">For Public</a><a href="clinical.html">For Doctors</a><a href="healthcare-workers.html">For Healthcare Workers</a><a href="library.html">Medical Library</a><a href="seminar.html">Courses &amp; Seminars</a><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a></div>
-      <div class="footer-group"><h2>BA Medicale</h2><a href="about.html">About BA Medicale</a><a href="team.html">Team</a><a href="contact.html">Contact Us</a><a href="privacy-policy.html">Privacy Policy</a></div>
+      <div class="footer-group"><h2>BA Medicale</h2><a href="about.html">About BA Medicale</a><a href="team.html">Team</a><a href="traffic.html">Traffic</a><a href="contact.html">Contact Us</a><a href="privacy-policy.html">Privacy Policy</a></div>
       <div class="footer-group footer-connect"><h2>Contact</h2><address><span>Email</span><a href="mailto:support@bamedicale.com">support@bamedicale.com</a><span>WhatsApp</span><a href="https://wa.me/628212366331" target="_blank" rel="noopener noreferrer">+62 821-236-6331</a></address>
         <h2 class="footer-follow-heading">Follow</h2><nav class="footer-social" aria-label="Follow BA Medicale">
           <a href="https://www.instagram.com/bamedicale/" target="_blank" rel="noopener noreferrer" aria-label="Follow BA Medicale on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -874,6 +876,71 @@ function initContactForm() {
   });
 }
 
+const trafficNumber = (value) => new Intl.NumberFormat("en-US").format(value);
+const trafficDuration = (seconds) => {
+  const total = Math.max(0, Math.round(seconds));
+  const minutes = Math.floor(total / 60);
+  const remainder = total % 60;
+  return minutes ? `${minutes}m ${remainder}s` : `${remainder}s`;
+};
+const trafficPercent = (value) => `${new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 1 }).format(value)}`;
+const trafficDate = (value) => {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return "";
+  return `${new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" }).format(date)} UTC`;
+};
+const isFiniteTrafficNumber = (value) => typeof value === "number" && Number.isFinite(value) && value >= 0;
+const trafficRowsAreValid = (rows, keys) => Array.isArray(rows) && rows.length <= 10 && rows.every((row) => row && keys.every((key) => key === "label" || key === "title" ? typeof row[key] === "string" && row[key].trim() : isFiniteTrafficNumber(row[key])));
+const validTrafficPayload = (payload) => Boolean(
+  payload
+  && typeof payload.generatedAt === "string"
+  && !Number.isNaN(Date.parse(payload.generatedAt))
+  && payload.reportingPeriod?.label === "Last 28 days"
+  && typeof payload.reportingPeriod.startDate === "string"
+  && typeof payload.reportingPeriod.endDate === "string"
+  && ["activeUsers", "newUsers", "averageEngagementTimeSeconds", "eventCount"].every((key) => isFiniteTrafficNumber(payload.summary?.[key]))
+  && trafficRowsAreValid(payload.topPages, ["title", "views", "activeUsers", "eventCount", "bounceRate"])
+  && payload.topPages.every((row) => row.bounceRate <= 1)
+  && trafficRowsAreValid(payload.firstUserSources, ["label", "activeUsers"])
+  && trafficRowsAreValid(payload.sessionSources, ["label", "sessions"])
+  && trafficRowsAreValid(payload.cities, ["label", "activeUsers"])
+);
+const trafficRanking = (rows, valueKey, valueLabel) => {
+  const maximum = Math.max(1, ...rows.map((row) => row[valueKey]));
+  return rows.length ? `<ol class="traffic-ranking">${rows.map((row) => {
+    const width = Math.max(3, Math.min(100, row[valueKey] / maximum * 100));
+    return `<li><div><span>${escapeHtml(row.label)}</span><strong>${trafficNumber(row[valueKey])} ${escapeHtml(valueLabel)}</strong></div><i aria-hidden="true"><span style="width:${width.toFixed(2)}%"></span></i></li>`;
+  }).join("")}</ol>` : `<p class="traffic-empty">No aggregate activity was recorded for this period.</p>`;
+};
+
+async function renderTrafficPage() {
+  const dashboard = document.querySelector("[data-traffic-dashboard]");
+  const content = dashboard?.querySelector("[data-traffic-content]");
+  const updated = dashboard?.querySelector("[data-traffic-updated]");
+  if (!dashboard || !content || !updated) return;
+  try {
+    const response = await fetch("data/traffic-summary.json", { cache: "no-store" });
+    if (!response.ok) return;
+    const payload = await response.json();
+    if (!validTrafficPayload(payload)) return;
+    updated.textContent = `Last updated: ${trafficDate(payload.generatedAt)}`;
+    const summaryCards = [
+      ["Active Users", trafficNumber(payload.summary.activeUsers), "People who actively used the site"],
+      ["New Users", trafficNumber(payload.summary.newUsers), "First-time visitors in the period"],
+      ["Average Engagement Time", trafficDuration(payload.summary.averageEngagementTimeSeconds), "Average active time per user"],
+      ["Event Count", trafficNumber(payload.summary.eventCount), "Recorded interactions across the site"]
+    ];
+    const topPages = payload.topPages.length ? `<div class="traffic-pages" role="table" aria-label="Top pages by views"><div class="traffic-pages__head" role="row"><span role="columnheader">Page</span><span role="columnheader">Views</span><span role="columnheader">Active users</span><span role="columnheader">Events</span><span role="columnheader">Bounce rate</span></div>${payload.topPages.map((page) => `<div class="traffic-pages__row" role="row"><strong role="cell">${escapeHtml(page.title)}</strong><span role="cell" data-label="Views">${trafficNumber(page.views)}</span><span role="cell" data-label="Active users">${trafficNumber(page.activeUsers)}</span><span role="cell" data-label="Events">${trafficNumber(page.eventCount)}</span><span role="cell" data-label="Bounce rate">${trafficPercent(page.bounceRate)}</span></div>`).join("")}</div>` : `<p class="traffic-empty">No aggregate page activity was recorded for this period.</p>`;
+    content.innerHTML = `<div class="traffic-summary">${summaryCards.map(([label, value, note]) => `<article><p>${label}</p><strong>${value}</strong><span>${note}</span></article>`).join("")}</div>
+      <section class="traffic-panel traffic-panel--pages" aria-labelledby="traffic-pages-title"><header><div><p class="eyebrow">Content activity</p><h2 id="traffic-pages-title">Top Pages</h2></div><span>${escapeHtml(payload.reportingPeriod.startDate)} to ${escapeHtml(payload.reportingPeriod.endDate)}</span></header>${topPages}</section>
+      <div class="traffic-split">
+        <section class="traffic-panel" aria-labelledby="first-source-title"><header><div><p class="eyebrow">Acquisition</p><h2 id="first-source-title">First User Source / Medium</h2></div></header>${trafficRanking(payload.firstUserSources, "activeUsers", "active users")}</section>
+        <section class="traffic-panel" aria-labelledby="session-source-title"><header><div><p class="eyebrow">Sessions</p><h2 id="session-source-title">Session Source / Medium</h2></div></header>${trafficRanking(payload.sessionSources, "sessions", "sessions")}</section>
+      </div>
+      <section class="traffic-panel" aria-labelledby="traffic-city-title"><header><div><p class="eyebrow">Geography</p><h2 id="traffic-city-title">Active Users by City</h2></div></header>${trafficRanking(payload.cities, "activeUsers", "active users")}</section>`;
+  } catch {}
+}
+
 function initAnalytics() {
   if (!analyticsEnabled() || window.__baMedicaleAnalyticsReady) return;
   window.__baMedicaleAnalyticsReady = true;
@@ -960,4 +1027,4 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
+initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); renderTrafficPage(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();

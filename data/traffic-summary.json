@@ -1,0 +1,18 @@
+{
+  "generatedAt": null,
+  "reportingPeriod": {
+    "label": "Last 28 days",
+    "startDate": null,
+    "endDate": null
+  },
+  "summary": {
+    "activeUsers": 0,
+    "newUsers": 0,
+    "averageEngagementTimeSeconds": 0,
+    "eventCount": 0
+  },
+  "topPages": [],
+  "firstUserSources": [],
+  "sessionSources": [],
+  "cities": []
+}

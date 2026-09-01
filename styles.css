@@ -123,6 +123,50 @@ body:not(.approved-home) .knowledge-card>span,body:not(.approved-home) .resource
 .institutional-page{background:var(--bg-secondary)}
 .institutional-page main{overflow:clip}
 .institutional-page h1,.institutional-page h2,.institutional-page h3,.institutional-page h4{overflow-wrap:anywhere}
+
+/* Public traffic dashboard: aggregate reporting in the shared light-glass system. */
+.traffic-page main{overflow:clip}
+.traffic-hero .hero-aside b{font-family:var(--body);font-size:.95rem;line-height:1.5}
+.traffic-dashboard{padding-top:30px!important}
+.traffic-dashboard__head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:20px}
+.traffic-dashboard__head h2{max-width:18ch;margin:0;font-family:var(--display);font-size:clamp(1.75rem,3vw,2.7rem);line-height:1.05}
+.traffic-dashboard__updated{max-width:34ch;margin:0;color:var(--text-secondary);font-size:.875rem;font-weight:650;text-align:right}
+.traffic-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--card-gap);margin-bottom:var(--card-gap)}
+.traffic-summary article,.traffic-panel,.traffic-preparing{background:var(--card-tint),var(--card-surface);border:1px solid var(--card-border);border-radius:var(--card-radius);box-shadow:var(--card-shadow);backdrop-filter:var(--card-filter);-webkit-backdrop-filter:var(--card-filter)}
+.traffic-summary article{display:flex;min-height:174px;flex-direction:column;padding:var(--card-padding)}
+.traffic-summary p{margin:0;color:var(--brand-primary);font-size:.75rem;font-weight:800;text-transform:uppercase}
+.traffic-summary strong{margin:18px 0 8px;color:var(--text-primary);font-family:var(--display);font-size:clamp(1.75rem,3vw,2.55rem);line-height:1}
+.traffic-summary span{margin-top:auto;color:var(--text-secondary);font-size:.8rem;line-height:1.45}
+.traffic-panel{min-width:0;margin-top:var(--card-gap);padding:clamp(20px,2.5vw,30px)}
+.traffic-panel>header{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:20px}
+.traffic-panel>header h2{margin:0;font-family:var(--display);font-size:clamp(1.2rem,2vw,1.65rem);line-height:1.15}
+.traffic-panel>header>span{color:var(--text-secondary);font-size:.8rem}
+.traffic-pages{overflow:hidden;border:1px solid rgba(119,47,63,.16);border-radius:12px}
+.traffic-pages__head,.traffic-pages__row{display:grid;grid-template-columns:minmax(230px,2fr) repeat(4,minmax(86px,.62fr));gap:12px;align-items:center;padding:13px 16px}
+.traffic-pages__head{color:var(--brand-primary);background:rgba(255,255,255,.38);font-size:.7rem;font-weight:800;text-transform:uppercase}
+.traffic-pages__row{min-height:58px;color:var(--text-primary);border-top:1px solid rgba(119,47,63,.12);font-size:.84rem}
+.traffic-pages__row strong{min-width:0;font-size:.87rem;line-height:1.4;overflow-wrap:anywhere}
+.traffic-pages__row span{color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.traffic-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--card-gap)}
+.traffic-ranking{display:grid;gap:16px;margin:0;padding:0;list-style:none;counter-reset:traffic-rank}
+.traffic-ranking li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;counter-increment:traffic-rank}
+.traffic-ranking li::before{display:grid;width:26px;height:26px;place-items:center;content:counter(traffic-rank,decimal-leading-zero);color:var(--brand-primary);background:rgba(255,255,255,.48);border:1px solid rgba(119,47,63,.16);border-radius:7px;font-size:.65rem;font-weight:800}
+.traffic-ranking li>div{display:flex;min-width:0;justify-content:space-between;gap:14px;line-height:1.4}
+.traffic-ranking li>div span{min-width:0;color:var(--text-primary);font-size:.84rem;overflow-wrap:anywhere}
+.traffic-ranking li>div strong{flex:0 0 auto;color:var(--text-secondary);font-size:.75rem;font-weight:700}
+.traffic-ranking i{grid-column:2;display:block;height:5px;overflow:hidden;background:rgba(119,47,63,.09);border-radius:999px}
+.traffic-ranking i span{display:block;height:100%;background:linear-gradient(90deg,var(--brand-primary),rgba(150,31,53,.42));border-radius:inherit}
+.traffic-empty{margin:0;color:var(--text-secondary);font-size:.88rem}
+.traffic-preparing{padding:clamp(30px,5vw,64px);text-align:center}
+.traffic-preparing h2{margin:8px 0;font-family:var(--display);font-size:clamp(1.6rem,3vw,2.5rem)}
+.traffic-preparing p:last-child{max-width:55ch;margin:0 auto;color:var(--text-secondary)}
+.traffic-disclosure{display:flex;gap:12px;align-items:flex-start;margin-top:var(--card-gap);padding:18px 20px;color:var(--text-secondary);border-top:1px solid rgba(119,47,63,.18);border-bottom:1px solid rgba(119,47,63,.18)}
+.traffic-disclosure>span{display:grid;width:28px;height:28px;flex:0 0 28px;place-items:center;color:var(--brand-primary);background:rgba(255,255,255,.46);border:1px solid rgba(119,47,63,.2);border-radius:50%;font-family:var(--display);font-weight:700}
+.traffic-disclosure p{margin:2px 0 0;font-size:.82rem;line-height:1.55}
+.traffic-disclosure strong{color:var(--text-primary)}
+@media(max-width:960px){.traffic-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.traffic-pages{overflow-x:auto}.traffic-pages__head,.traffic-pages__row{min-width:780px}}
+@media(max-width:900px){.traffic-dashboard__head{align-items:flex-start;flex-direction:column;gap:10px}.traffic-dashboard__updated{text-align:left}.traffic-split{grid-template-columns:1fr}.traffic-panel--pages{padding:20px}.traffic-pages{overflow:visible;border:0}.traffic-pages__head{display:none}.traffic-pages__row{display:grid;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px;margin-top:10px;padding:16px;background:rgba(255,255,255,.35);border:1px solid rgba(119,47,63,.14);border-radius:10px}.traffic-pages__row:first-of-type{margin-top:0}.traffic-pages__row strong{grid-column:1/-1;margin-bottom:5px}.traffic-pages__row span::before{display:block;margin-bottom:2px;content:attr(data-label);color:var(--brand-primary);font-size:.62rem;font-weight:800;text-transform:uppercase}}
+@media(max-width:560px){.traffic-dashboard{padding-top:24px!important}.traffic-summary{grid-template-columns:1fr;gap:10px}.traffic-summary article{min-height:142px;padding:20px}.traffic-summary strong{margin-top:14px}.traffic-panel{margin-top:10px;padding:18px}.traffic-panel>header{align-items:flex-start;flex-direction:column;gap:5px}.traffic-ranking li>div{align-items:flex-start;flex-direction:column;gap:2px}.traffic-ranking li>div strong{white-space:normal}.traffic-disclosure{padding:16px 0}}
 .company-hero,.team-hero,.contact-hero,.editorial-band,.company-values,.company-section,.company-learning,.company-direction,.company-closing,.team-directory,.physician-profile,.contact-layout,.contact-note{width:min(100% - 48px,1400px);margin-inline:auto}
 .company-hero{display:grid;width:min(100% - 64px,1040px);grid-template-columns:minmax(0,1fr) 386px;gap:36px;align-items:center;padding:32px 0 36px}
 .company-hero__copy{min-width:0}

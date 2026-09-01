@@ -1,0 +1,58 @@
+name: Refresh public traffic data
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-traffic-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Confirm required secrets
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$GA4_PROPERTY_ID" ] || [ -z "$GA4_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::Required GA4 repository secrets are not configured."
+            exit 1
+          fi
+
+      - name: Test and refresh aggregate traffic data
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+        run: |
+          npm run traffic:test
+          node scripts/fetch-ga4-traffic.js
+          node scripts/fetch-ga4-traffic.js --validate data/traffic-summary.json
+
+      - name: Commit changed traffic data
+        run: |
+          git add -- data/traffic-summary.json
+          if git diff --cached --quiet; then
+            echo "Traffic data is unchanged; no commit is needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh public traffic data"
+          git push origin HEAD:main

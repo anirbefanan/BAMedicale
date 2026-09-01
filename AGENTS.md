@@ -812,6 +812,10 @@ Apply this automatically to every future change; the user does not need to reque
 - Track meaningful content discovery, readers, content opens, poster/video engagement, eBook opens, share/promotion actions, safe filters, and registration conversions with the established shared event names and existing content metadata. Reuse content type, ID/slug, primary audience, disease group, and topic; do not duplicate classification logic.
 - Preserve enhanced measurement where privacy-safe and never intentionally duplicate its page-view or generic outbound-link events. Add monetization events only when the underlying conversion exists.
 - Never transmit PII, medical/symptom inputs, free text, search terms, recipients, or sensitive URL parameters. Internal search records `search_used` only; safe controlled taxonomy filters may be tracked without their users' medical input.
+- `traffic.html` is the public aggregate analytics dashboard. It reads only `data/traffic-summary.json`; client code must never call the GA4 Data API or contain a property ID, service-account credential, access token, or private analytics response.
+- `scripts/fetch-ga4-traffic.js` is the single generator and schema validator. It uses the read-only Analytics scope and five top-ten aggregate reports, writes stable numeric output, and retains no user-level or event-level records. `data/traffic-summary.json` is generated output; do not maintain analytics values by hand.
+- `.github/workflows/refresh-traffic-data.yml` runs every six hours and manually through `workflow_dispatch`. It requires repository secrets `GA4_PROPERTY_ID` and `GA4_SERVICE_ACCOUNT_JSON`, validates before writing, and stages only the generated traffic JSON when it changes. Setup and least-privilege access are documented in `docs/traffic-dashboard-setup.md`.
+- Missing, pending, stale, or invalid traffic JSON must remain visitor-safe: keep prior valid data when present, otherwise show `Traffic data is being prepared.` without public technical errors. Keep the public disclosure aggregate-only and never add individual visitor information.
 
 ---
 
@@ -858,7 +862,7 @@ When sufficient source material or context exists, automatically turn it into co
 
 ## NAVIGATION / AUDIENCE PROVEN PATTERN
 
-- Desktop and mobile primary navigation derive from the same grouped source: **Education** (Public, Doctors, Healthcare Workers), **Knowledge** (Library & Articles, Videos, eBooks, Resources), **Learning** (Courses & Seminars), **About** (BA Medicale, Team, Contact Us). Keep Search visible and Member Login compact; use accessible dropdowns on desktop and grouped mobile disclosures before the header becomes cramped. Preserve keyboard, Escape and outside-dismiss behavior.
+- Desktop and mobile primary navigation derive from the same grouped source: **Home**, **Education** (Doctors, Healthcare Workers, Public), **Knowledge** (Library & Articles, Videos, eBooks, Resources), **Learning** (Courses & Seminars), **About** (BA Medicale, Team, Traffic, Contact Us). Keep Search visible and Member Login compact; use accessible dropdowns on desktop and grouped mobile disclosures before the header becomes cramped. Preserve keyboard, Escape and outside-dismiss behavior. The shared footer BA Medicale group keeps About, Team, Traffic, Contact, and Privacy in that order.
 - PUBLIC, DOCTOR, and HEALTHCARE WORKER each require a dedicated audience destination. Healthcare Worker discovery reuses shared taxonomy and content records, shows only its primary-audience content, and accepts an intentional empty state; future HEALTHCARE WORKER content becomes discoverable there automatically.
 
 ## BA MEDICALE POSITIONING / ONCOLOGY FLAGSHIP PROVEN PATTERN
