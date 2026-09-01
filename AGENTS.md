@@ -315,6 +315,10 @@ Routine content should ideally require:
 
 If the same content type repeatedly requires manual edits across multiple files, consider SYSTEM mode.
 
+Doctor-facing scientific publications use one canonical registry entry and one generated full-read page. Library, internal Search, For Doctors cards and chips, Homepage Latest Updates, Disease Explorer availability, related publications, schema, and sitemap must derive from that registry. `doctor-papers.html` is compatibility-only and must redirect to the matching Library context; never restore duplicate publication data or a parallel listing flow.
+
+For source-locked scientific imports, classify only source-supported audience, content type, professional category, disease group, condition, topic, authors, original publication metadata, and BA Medicale publication date. Preserve the submitted title, authors, affiliations, abstract, headings, body, figures, tables, captions, references, DOI, and journal details exactly.
+
 Submitted:
 - PDFs
 - images

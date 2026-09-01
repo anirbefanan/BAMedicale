@@ -79,6 +79,26 @@ const socialPromotion = (article, canonical) => {
   };
 };
 
+const relatedScientificPublications = (article) => {
+  if (!article.scientificWork) return [];
+  const groups = new Set([article.primaryDiseaseGroup, ...(article.secondaryDiseaseGroups || [])]);
+  return articles
+    .filter((candidate) => candidate !== article && candidate.scientificWork)
+    .map((candidate) => {
+      const candidateGroups = [candidate.primaryDiseaseGroup, ...(candidate.secondaryDiseaseGroups || [])];
+      const score =
+        (candidateGroups.some((group) => groups.has(group)) ? 4 : 0) +
+        (candidate.diseaseCondition && candidate.diseaseCondition === article.diseaseCondition ? 3 : 0) +
+        (candidate.professionalCategory && candidate.professionalCategory === article.professionalCategory ? 2 : 0) +
+        (candidate.primaryTopic === article.primaryTopic ? 1 : 0);
+      return { candidate, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || String(b.candidate.publishedDate || "").localeCompare(String(a.candidate.publishedDate || "")))
+    .slice(0, 3)
+    .map((entry) => entry.candidate);
+};
+
 const renderPage = (article, index) => {
   const canonical = shareUrl(article);
   const audienceTypes = [article.primaryAudience, ...(article.secondaryAudiences || [])];
@@ -96,6 +116,7 @@ const renderPage = (article, index) => {
   const next = navigableArticles[navigationIndex + 1];
   const promotion = socialPromotion(article, canonical);
   const diseaseGroup = diseaseGroups.get(article.primaryDiseaseGroup);
+  const relatedPublications = relatedScientificPublications(article);
   const socialText = `${article.title} — ${canonical}`;
   const renderedReferences = `<section class="seo-article-section seo-article-references"><h2>${escape(article.referencesTitle || "References and sources")}</h2>${article.referencesOrdered ? `<ol>${article.references.map((text) => `<li>${escape(text)}</li>`).join("")}</ol>` : `<ul>${article.references.map((text) => `<li>${escape(text)}</li>`).join("")}</ul>`}${article.sourcePdf ? `<a class="button button-outline" href="${relative(article.sourcePdf)}">Open source PDF</a>` : ""}</section>`;
   const renderedSections = article.sections.map(renderSection).join("");
@@ -154,7 +175,8 @@ const renderPage = (article, index) => {
       </header>
       <div class="seo-article-body">
       ${bodySections}
-      </div>
+      </div>${relatedPublications.length ? `
+      <section class="seo-related seo-related--publications"><h2>Related publications</h2><div>${relatedPublications.map((related) => `<a href="${related.slug}.html"><span>${escape(related.contentType)}</span><b>${escape(related.title)}</b></a>`).join("")}</div></section>` : ""}
       <section class="article-page-tools"><div class="article-share"><button type="button" class="button button-outline" data-share-toggle aria-expanded="false">Share</button><div class="article-share__menu" data-share-menu hidden><div class="article-share__menu-head"><b>Share article</b><button type="button" data-share-close aria-label="Close share options">Close</button></div><a target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=${encodeURIComponent(socialText)}">WhatsApp</a><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonical)}">Facebook</a><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(canonical)}">X</a><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonical)}">LinkedIn</a><button type="button" data-copy-link="${canonical}">Copy Link</button></div></div><button type="button" class="button button-dark" data-promote-open>Promote Article</button></section>
       <nav class="article-page-nav" aria-label="Article navigation">${previous ? `<a href="${previous.slug}.html">← <span>Previous Article</span><b>${escape(previous.title)}</b></a>` : `<span aria-hidden="true"></span>`}<a href="../library.html"><span>Back to</span><b>Medical Library</b></a>${next ? `<a href="${next.slug}.html"><span>Next Article</span><b>${escape(next.title)}</b> →</a>` : `<span aria-hidden="true"></span>`}</nav>
     </article>
@@ -167,7 +189,7 @@ const renderPage = (article, index) => {
 
 const outputs = new Map(articles.map((article, index) => [path.join(root, "articles", `${article.slug}.html`), renderPage(article, index)]));
 seminars.forEach((event, index) => outputs.set(path.join(root, "events", `${event.slug}.html`), renderEventPage({ event, index, seminars, diseaseGroup: diseaseGroups.get(event.primaryDiseaseGroup), domain })));
-const baseUrls = ["/", "/public.html", "/clinical.html", "/doctor-papers.html", "/healthcare-workers.html", "/library.html", "/seminar.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html", "/team.html", "/traffic.html", "/dr-bob-profile.html", "/nana-febrina-profile.html", "/melati-noerwa-profile.html", "/adlina-karisyah-profile.html", "/yudi-febriadi-profile.html", "/contact.html", "/privacy-policy.html"];
+const baseUrls = ["/", "/public.html", "/clinical.html", "/healthcare-workers.html", "/library.html", "/seminar.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html", "/team.html", "/traffic.html", "/dr-bob-profile.html", "/nana-febrina-profile.html", "/melati-noerwa-profile.html", "/adlina-karisyah-profile.html", "/yudi-febriadi-profile.html", "/contact.html", "/privacy-policy.html"];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${baseUrls.concat(articles.map((article) => `/articles/${article.slug}.html`), seminars.map((event) => `/${event.detailUrl}`)).map((url) => `  <url><loc>${domain}${url}</loc></url>`).join("\n")}\n</urlset>\n`;
 outputs.set(path.join(root, "sitemap.xml"), sitemap);
 

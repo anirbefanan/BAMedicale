@@ -65,3 +65,21 @@ test("shared reading style reserves landscape media without cropping", () => {
   assert.match(css, /\.seo-article-artwork img\{[^}]*object-fit:contain/);
   assert.match(css, /--reading-surface:\s*rgba\(255,253,249,\.84\)/);
 });
+
+test("doctor scientific discovery uses Library without a duplicate listing flow", () => {
+  const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
+  const legacy = fs.readFileSync(path.join(root, "doctor-papers.html"), "utf8");
+  const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
+  const agents = fs.readFileSync(path.join(root, "AGENTS.md"), "utf8");
+  const scientific = Object.values(records.articles).filter((article) => article.scientificWork);
+
+  assert.ok(scientific.length > 0);
+  assert.doesNotMatch(app, /doctorPapersPath|renderDoctorPapers|doctor-publication-card|doctor-publication-rail/);
+  assert.match(app, /libraryPath/);
+  assert.match(app, /compactUpdateList/);
+  assert.match(legacy, /name="robots" content="noindex,follow"/);
+  assert.match(legacy, /rel="canonical" href="https:\/\/bamedicale\.com\/library\.html"/);
+  assert.match(legacy, /window\.location\.replace/);
+  assert.doesNotMatch(sitemap, /doctor-papers\.html/);
+  assert.match(agents, /source-locked scientific imports/);
+});
