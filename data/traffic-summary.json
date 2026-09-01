@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-01T15:42:38.144Z",
+  "generatedAt": "2026-09-01T20:16:18.974Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-04",
-    "endDate": "2026-08-31"
+    "startDate": "2026-08-05",
+    "endDate": "2026-09-01"
   },
   "summary": {
-    "activeUsers": 35,
-    "newUsers": 35,
-    "averageEngagementTimeSeconds": 471.22857142857146,
-    "eventCount": 1602
+    "activeUsers": 38,
+    "newUsers": 38,
+    "averageEngagementTimeSeconds": 491.05263157894734,
+    "eventCount": 1879
   },
   "topPages": [
     {
@@ -21,45 +21,52 @@
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 67,
-      "activeUsers": 12,
-      "eventCount": 180,
-      "bounceRate": 0.2222222222222222
+      "views": 106,
+      "activeUsers": 15,
+      "eventCount": 275,
+      "bounceRate": 0.475
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 61,
-      "activeUsers": 8,
-      "eventCount": 136,
-      "bounceRate": 0
+      "views": 74,
+      "activeUsers": 9,
+      "eventCount": 162,
+      "bounceRate": 0.1
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 58,
-      "activeUsers": 9,
-      "eventCount": 162,
-      "bounceRate": 0
+      "views": 61,
+      "activeUsers": 10,
+      "eventCount": 169,
+      "bounceRate": 0.1111111111111111
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 56,
-      "activeUsers": 6,
-      "eventCount": 133,
-      "bounceRate": 0.05
+      "views": 58,
+      "activeUsers": 7,
+      "eventCount": 138,
+      "bounceRate": 0.13636363636363635
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
-      "views": 32,
-      "activeUsers": 5,
-      "eventCount": 78,
-      "bounceRate": 0
+      "views": 33,
+      "activeUsers": 6,
+      "eventCount": 81,
+      "bounceRate": 0.09090909090909091
     },
     {
       "title": "For Public | BA Medicale",
-      "views": 30,
+      "views": 32,
       "activeUsers": 6,
-      "eventCount": 61,
-      "bounceRate": 0
+      "eventCount": 64,
+      "bounceRate": 0.08333333333333333
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 29,
+      "activeUsers": 6,
+      "eventCount": 69,
+      "bounceRate": 0.3333333333333333
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -70,31 +77,28 @@
     },
     {
       "title": "Contact BA Medicale | Medical Education Enquiries",
-      "views": 23,
+      "views": 24,
       "activeUsers": 5,
-      "eventCount": 53,
-      "bounceRate": 0
-    },
-    {
-      "title": "Videos | BA Medicale",
-      "views": 22,
-      "activeUsers": 6,
-      "eventCount": 64,
-      "bounceRate": 0
+      "eventCount": 55,
+      "bounceRate": 0.08333333333333333
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 25
+      "activeUsers": 26
     },
     {
       "label": "google / organic",
-      "activeUsers": 4
+      "activeUsers": 6
     },
     {
       "label": "facebook.com / referral",
       "activeUsers": 3
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -108,11 +112,15 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 87
+      "sessions": 98
     },
     {
       "label": "google / organic",
-      "sessions": 10
+      "sessions": 13
+    },
+    {
+      "label": "Not set",
+      "sessions": 9
     },
     {
       "label": "facebook.com / referral",
@@ -130,7 +138,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 12
+      "activeUsers": 14
     },
     {
       "label": "Sukabumi",
@@ -161,11 +169,11 @@
       "activeUsers": 1
     },
     {
-      "label": "Bekasi Regency",
+      "label": "Banjarnegara",
       "activeUsers": 1
     },
     {
-      "label": "Denpasar",
+      "label": "Bekasi Regency",
       "activeUsers": 1
     }
   ]
