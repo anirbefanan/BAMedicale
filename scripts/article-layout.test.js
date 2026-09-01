@@ -33,18 +33,23 @@ for (const article of Object.values(records.articles)) {
     assert.ok(html.includes(`<span>${escape(article.primaryTopic)}</span>`));
     assert.ok(html.includes(`src="../${article.cover.replace(/^\//, "")}"`));
     assert.ok(fs.existsSync(path.join(root, article.cover.replace(/^\//, ""))));
-    for (const text of [...article.intro, ...article.takeaways, ...article.references]) assert.ok(html.includes(escape(text)), `Missing source text: ${text}`);
+    for (const text of [...(article.intro || []), ...(article.paper?.abstract || []), ...(article.takeaways || []), ...article.references]) assert.ok(html.includes(escape(text)), `Missing source text: ${text}`);
     for (const section of article.sections) {
       const comparisonText = section.compare?.length ? [...section.compare[0].slice(1), ...section.compare.slice(1).flat()] : [];
-      for (const text of [section.title, ...(section.body || []), ...(section.bullets || []), ...comparisonText]) {
+      const figureCaptions = (section.figures || []).map((figure) => figure.caption);
+      const subsectionText = (section.subsections || []).flatMap((subsection) => [subsection.title, ...(subsection.body || [])]);
+      for (const text of [section.title, ...(section.body || []), ...(section.bullets || []), ...comparisonText, ...figureCaptions, ...subsectionText]) {
         assert.ok(html.includes(escape(text)), `Missing section content: ${text}`);
       }
     }
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
     const schema = schemas.find(item => item["@type"] === "Article");
     assert.equal(schema.headline, article.title);
-    assert.equal(schema.author.name, article.author.name);
-    assert.equal(schema.datePublished, article.publishedDate);
+    const expectedAuthors = article.authors || [article.author];
+    const schemaAuthors = Array.isArray(schema.author) ? schema.author : [schema.author];
+    assert.equal(schemaAuthors.map((author) => author.name).join("|"), expectedAuthors.map((author) => author.name).join("|"));
+    if (article.publishedDate) assert.equal(schema.datePublished, article.publishedDate);
+    else assert.equal(schema.datePublished, undefined);
     assert.equal(schema.mainEntityOfPage, `https://bamedicale.com/articles/${article.slug}.html`);
   });
 }

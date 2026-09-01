@@ -257,6 +257,128 @@ window.BAMEDICALE_DATA = {
         cta: "Read the full guide at BAMedicale.com",
         hashtags: ["#TumorVsCancer", "#CancerEducation", "#BAMedicaleCom"]
       }
+    },
+    "parotid-gland-metastasis-from-breast-cancer": {
+      id: "parotid-gland-metastasis-from-breast-cancer",
+      slug: "parotid-gland-metastasis-from-breast-cancer",
+      title: "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+      seoTitle: "Parotid Gland Metastasis From Breast Cancer: A Case Report | BA Medicale",
+      dek: "A published case report describing parotid gland metastasis from breast cancer, including diagnostic evaluation, local control, and systemic treatment planning.",
+      excerpt: "A published case report of parotid gland metastasis from breast cancer, with imaging, cytology, surgery, pathology, radiotherapy, and systemic treatment considerations.",
+      primaryAudience: "DOCTOR",
+      secondaryAudiences: ["HEALTHCARE WORKER"],
+      authors: [
+        { name: "Bob Andinata", type: "Person" },
+        { name: "Dewi Iriani", type: "Person" },
+        { name: "Adlina Karisyah", type: "Person" }
+      ],
+      primaryTopic: "Diagnostic advances",
+      tags: ["Breast Cancer", "Parotid Gland", "Metastasis"],
+      primaryDiseaseGroup: "breast",
+      secondaryDiseaseGroups: ["cancer-neoplastic"],
+      diseaseCondition: "Breast cancer with parotid gland metastasis",
+      diseaseSite: "Breast and parotid gland",
+      contentType: "Case report",
+      sourceAttribution: "Indonesian Journal of Cancer, Vol 14(3), 97-100, September 2020",
+      publicationDateLabel: "September 2020",
+      updatedDate: "",
+      sortOrder: 3,
+      focalPosition: "50% 50%",
+      cover: "assets/articles/parotid-gland-metastasis-from-breast-cancer/poster.png",
+      label: "Published case report",
+      quickRead: false,
+      inArticleNavigation: false,
+      intro: [],
+      paper: {
+        sourceTitle: "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+        authorsText: "Bob Andinata¹, Dewi Iriani², Adlina Karisyah¹",
+        publicationDetails: "Indonesian Journal of Cancer, Vol 14(3), 97-100, September 2020 · DOI: http://dx.doi.org/10.33371/ijoc.v14i3.723",
+        affiliations: [
+          "Department of Surgical Oncology, Dharmais Cancer Hospital - National Cancer Center, Jakarta, Indonesia",
+          "Department of Anatomical Pathology, Dharmais Cancer Hospital - National Cancer Center, Jakarta, Indonesia"
+        ],
+        articleInfo: [
+          ["Received", "16 March 2020"],
+          ["Reviewed", "10 June 2020"],
+          ["Accepted", "08 July 2020"]
+        ],
+        keywords: "breast cancer, metastasis, parotid gland, parotidectomy, systemic therapy",
+        abstract: [
+          "Introduction: Breast cancer metastasis at the parotid gland is uncommon. There were only 21 cases reported until the recent year, and none of them came from Indonesia. The reports showed that breast cancer metastasis is more often found at the liver, lung, bone, and brain. Therefore, any masses found on the parotid are usually considered as a double primer.",
+          "Case Presentation: We report a case of a woman, firstly diagnosed with luminal A stage IIA breast cancer at 39 years old. The patient had undergone breast-conserving therapy (BCT), followed by adjuvant hormonal therapy before being diagnosed with bone metastasis four years later. She also complained about a painful mass on her left upper neck. Ultrasonography and CT-scan resulted in insignificant abnormality. After a year with increasing painful mass, we performed FNAB. The result showed metastatic adenocarcinoma with a suspicious breast cancer origin. We did total parotidectomy with facial nerve preservation to alleviate the pain. Pathology results showed a confirmed diagnosis of breast cancer metastasis. The patient was given radiotherapy as local control and was scheduled to receive chemotherapy as systemic therapy.",
+          "Conclusions: Parotid mass with a clinical symptom in the patient with the history of breast cancer should be evaluated firstly by imaging and may be followed by cytology or pathology evaluation to confirm whether it is primary or secondary malignancy. If the parotid metastasis from breast cancer is confirmed, we should consider adding systemic therapy after completing the local control."
+        ]
+      },
+      sections: [
+        {
+          title: "Introduction",
+          body: [
+            "Breast cancer is the most common malignancy found in women, not only in Indonesia but also around the world. Indonesian Ministry of Health in 2013 published a report mentioning the breast cancer prevalence in Indonesia of 0.5%. Breast cancer was the second most common malignancy in women after cervical cancer [1]. The number has been increasing over the years. GLOBOCAN in 2018 reported breast cancer as the first most common malignancy in women in Indonesia with 16.7% of new cases compared to cervical cancer with 9.3% of new cases [2,3].",
+            "The high prevalence of breast cancer makes this malignancy one of the biggest health burdens in Indonesia. Patients who are diagnosed with breast cancer often neglect the mass until it enlarges, becomes painful, and even becomes an ulcer. They seek medical advice when their conditions have already become advanced with a high possibility of distant metastasis and an increased rate of mortality compared to the early stage [4]. Breast cancer metastasis is commonly found in regional axillary lymph nodes. It is also commonly found to metastasize to lungs, liver, brain, and bones [5,6]. Meanwhile, the parotid gland is a rare site for breast cancer metastasis. In salivary gland malignancies, metastases from other organs are counted less than 10%, which are often found from head and neck malignancies [7]. In this study, we report a case of parotid gland metastasis from breast cancer, a rare case with only 21 cases reported in the last 37 years."
+          ]
+        },
+        {
+          title: "Case presentation",
+          body: [
+            "A woman was firstly diagnosed with stage IIA (T2N0M0) breast cancer at 39 years old. Immunohistochemistry (IHC) results showed 30% positive ER, negative PR, negative HER2, and 3% of Ki67 detected. She came after completing breast-conserving surgery (BCS) in the previous hospital and was referred to our hospital for radiotherapy. After completing 25 sessions of radiotherapy, we gave her monthly injection of goserelin combined with 20 mg tamoxifen a day. We decided to do laparoscopic bilateral salpingo-oophorectomy (BSO) considering her age at that time which was still in the early 40s. Tamoxifen was switched to anastrozole after BSO. She continued oral hormonal therapy for the next three years without any significant complaint. Her first problem was pain in her right upper arm which was assessed as bone metastasis. We referred her to a radiooncologist to be given palliative radiotherapy. She was also given monthly bisphosphonate injection. We switched anastrozole to letrozole due to the progressivity of the disease. A few months later, she started complaining about a painful mass in her left upper neck. Initially, there was no facial asymmetry. We evaluated the mass using ultrasonography and CT-scan. The result showed parotid gland inflammation without any signs of malignancy.",
+            "We decided to observe the progressivity of the mass while giving her a course of antibiotics. A year after diagnosed with bone metastasis in the humerus, the patient had other metastases to the sacrum and iliac bone. Biphosphonate injection was planned to be given for the next two years. Because the pain persisted after the course of antibiotics, we decided to do fine-needle aspiration biopsy (FNAB). The result indicated the presence of adenocarcinoma suspicious breast cancer metastasis. The tumor board recommended parotidectomy surgery. Figure 1 shows the parotid mass found during total parotidectomy, and Figure 2 shows the condition after total parotidectomy. The pathology result showed a confirmed diagnosis of breast cancer metastasis. Figure 4, 5 show the histopathological image under the microscope with 4x and 20x magnification. The patient was given radiotherapy as local control and was scheduled to receive chemotherapy as systemic therapy. The local condition a month after receiving the radiotherapy is shown in Figure 3."
+          ],
+          figures: [
+            { src: "assets/articles/parotid-gland-metastasis-from-breast-cancer/figure-1.png", caption: "Figure 1. Parotid mass was found during total parotidectomy" },
+            { src: "assets/articles/parotid-gland-metastasis-from-breast-cancer/figure-2.png", caption: "Figure 2. Post total thyroidectomy" },
+            { src: "assets/articles/parotid-gland-metastasis-from-breast-cancer/figure-3.png", caption: "Figure 3. Tumor cells, some formed glandular structure, infiltrative in stroma (HE, 20x)" },
+            { src: "assets/articles/parotid-gland-metastasis-from-breast-cancer/figure-4.png", caption: "Figure 4. Tumor cell infiltrating some of salivary gland (HE, 4x)" },
+            { src: "assets/articles/parotid-gland-metastasis-from-breast-cancer/figure-5.png", caption: "Figure 5. A month after radiotherapy" }
+          ]
+        },
+        {
+          title: "Discussion",
+          body: [
+            "Parotid gland metastasis from other primary carcinoma contributed to less than 9-15% of the cases compared to primary carcinoma in parotid gland [7-9]. Furthermore, there is no valid data about the frequency of parotid gland metastases of breast cancer. Carcinoma can be metastasized through the lymphatic route, hematogenous, or direct invasion. Hematogenous metastases from infraclavicular primary carcinoma are usually found in the submandibular gland while, in the parotid gland, 2/3 cases of metastases are usually from head & neck cancer. Distant metastases from breast to parotid gland may occur through the thoracic duct or Batson’s paraspinal venous plexus avoiding pulmonary filter [7]. Ando et al. [10] in their study reported a relatively equal proportion of contralateral and ipsilateral parotid gland involvement in breast cancer metastasis cases. It supports the possibility of hematogenous spreading compared to the direct lymphatic route. Furthermore, Khurana et al. [11] in their case study also reported no axillary lymph node involvement in 25 lymph nodes dissected in the patient with parotid gland metastases of breast cancer. The patient in Khurana’s case also had been given infra and supraclavicular locoregional radiotherapy other than whole breast radiotherapy, so that she concluded that it was a hematogenous metastasis [11].",
+            "In this patient with stage IIA breast cancer, the initial complaint indicating the problem in the parotid gland was a painful mass in the upper left neck. After the ultrasonography evaluation, we should evaluate the mass using a contrast CT scan of the skull base to clavicle and thorax. The next important examination is a fine-needle aspiration biopsy [12]. The study by Alath et al. [13] reported that 85% of FNA cytology could differentiate malignant from benign lesions and metastatic from primary malignancy in the parotid gland. The diagnostic process is indeed a challenge because of histopathology and IHC similarities between primary parotid malignancy and metastases of breast cancer. In IHC, primary salivary gland carcinoma shares similar positive results with breast cancer metastases for CK7, GCDFP-15, AR, HER2/neu staining, and, rarely, positive for ER (1%) and PR (5%). Therefore, Alath et al. [13] concluded that in the case of the positive history of malignancy in other organs, the parotid mass should be considered as metastatic from other primary until proven otherwise.",
+            "The variety of biological characteristics in breast cancer brings out various clinical conditions. Thus, breast cancer treatment has to be tailored and individualized considering the stage, subtype, and personal medical condition [14]. We decided to do FNAB after evaluating a parotid CT scan in this patient. The result indicated the presence of adenocarcinoma suspicious breast cancer metastases. We treated the patient by doing total left parotidectomy. In addition, we referred the patient to do radiotherapy since there was visible residue left intraoperative. In the previous similar reports, single parotid gland metastasis from breast cancer was treated by doing superficial or total parotidectomy while preserving facial nerves to achieve a free margin [7,9,10]. Meanwhile, there is another distant metastasis reported by Cao et al. [8] in the study suggesting systemic therapy instead. The study recommended giving chemotherapy or hormonal therapy instead of surgery and radiotherapy for the patient with more than one distant metastasis [8]."
+          ]
+        },
+        {
+          title: "Conclusions",
+          body: [
+            "Parotid mass with a clinical symptom in the patient with the history of breast cancer should be evaluated firstly by imaging and may be followed by cytology or pathology evaluation to confirm whether it is primary or secondary malignancy. If parotid metastasis from breast cancer is confirmed, we should consider adding systemic therapy after completing local control."
+          ]
+        },
+        {
+          title: "Declarations",
+          subsections: [
+            { title: "Competing of Interest", body: ["The authors declare no competing interest in this study."] }
+          ]
+        }
+      ],
+      referencesTitle: "References",
+      referencesOrdered: true,
+      references: [
+        "INFODATIN. Situasi Penyakit Kanker. Jakarta: Kementerian Kesehatan RI, 2015.",
+        "Indonesia: Cancer Fact Sheet. United States: International Agency for Research on Cancer, 2018.",
+        "Bray F, Ferlay J, Soerjomataram I, Siegel RL, Torre LA, Jemal A. Global Cancer Statistics 2018: GLOBOCAN Estimates of Incidence and Mortality Worldwide for 36 Cancers in 185 Countries. CA Cancer J Clin. 2018;68:394-424.",
+        "Mardela AP, Manewat K, Sangchan H. Breast cancer awareness among Indonesian women at moderate-to-high risk. Nurs Health Sci. 2017;19:301-6.",
+        "Barsky SH, Gradishar WJ, Recht A, Urist MM. The breast: comprehensive management of benign and malignant disease. Philadelphia: Elsevier Saunders; 2009.",
+        "Dixon JM. ABC of breast disease. 3 ed. United Kingdom: Blackwell Publishing; 2006.",
+        "Kmeid M, Kamar FG, Nasser S, Moukarzel N. Metachronous, Single Metastasis to the Parotid, from Primary Breast Cancer: A Case Report and Review of the Literature. Case Rep Oncol Med. 2015;2016:1-5.",
+        "Cao X-S, Cong B-B, Yu Z-Y. Parotid gland metastasis from carcinoma of the breast detected by PET/CT. Medicine. 2018;97(21):1-4.",
+        "Bohli M, Tebra S, Jaffel H, Bouaounia N. Parotid gland metastasis from breast origin. J Clin Case Rep. 2018;8(6):1-3.",
+        "Ando K, Masumoto N, Sakamoto M, Teraoka K, Suzukia T, Kurihara T, et al. Parotid Gland Metastasis of Breast Cancer: Case Report and Review of the Literature. Breast Care. 2011;6:471-3.",
+        "Khurana R, Azam M. An unusual case of solitary parotid metastasis from early stage breast carcinoma. Clinical Cancer Investigation Journal. 2016;5(3):250-2.",
+        "NCCN clinical practice guidelines in oncology: head and neck cancers. Salivary gland tumors. United States: National Comprehensive Cancer Network; 2019.",
+        "Alath P, Kapila K, Hussein S, Amanguno H, Hebbar HG, George SS, et al. Parotid gland metastasis of breast cancer diagnosed on fine needle aspiration cytology: case report and review of literature. Cuytopathology. 2014;25(5):346-8.",
+        "Kurnia A, Brahma B, Hernowo B, Khambri D, Purwanto DJ, Suprabawati DGA, et al. Panduan petalaksanaan kanker payudara. Jakarta: PERABOI; 2015."
+      ],
+      promotion: {
+        hook: "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+        teaser: [
+          "Parotid mass with a clinical symptom in the patient with the history of breast cancer should be evaluated firstly by imaging and may be followed by cytology or pathology evaluation to confirm whether it is primary or secondary malignancy.",
+          "If parotid metastasis from breast cancer is confirmed, we should consider adding systemic therapy after completing local control."
+        ],
+        cta: "Read the full case report at BAMedicale.com",
+        hashtags: ["#BreastCancer", "#ParotidGland", "#BAMedicaleCom"]
+      }
     }
   },
   ebooks: [
