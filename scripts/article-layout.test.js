@@ -43,13 +43,17 @@ for (const article of Object.values(records.articles)) {
       }
     }
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
-    const schema = schemas.find(item => item["@type"] === "Article");
+    const schema = schemas.find(item => item["@type"] === (article.schemaType || "Article"));
     assert.equal(schema.headline, article.title);
     const expectedAuthors = article.authors || [article.author];
     const schemaAuthors = Array.isArray(schema.author) ? schema.author : [schema.author];
     assert.equal(schemaAuthors.map((author) => author.name).join("|"), expectedAuthors.map((author) => author.name).join("|"));
     if (article.publishedDate) assert.equal(schema.datePublished, article.publishedDate);
     else assert.equal(schema.datePublished, undefined);
+    if (article.scientificWork) {
+      assert.ok(html.includes(`Original publication: ${escape(article.originalPublicationDateLabel)}`));
+      assert.equal(schema.citation, article.paper.publicationDetails);
+    }
     assert.equal(schema.mainEntityOfPage, `https://bamedicale.com/articles/${article.slug}.html`);
   });
 }

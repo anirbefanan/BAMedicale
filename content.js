@@ -33,6 +33,14 @@ window.BAMEDICALE_DATA = {
     { id: "injury-poisoning-other", name: "Injury, Poisoning & Other Conditions", descriptor: "Injuries, poisoning, and other conditions", icon: "aid" },
     { id: "preventive-public-health", name: "Preventive Medicine & Public Health", descriptor: "Prevention, wellness, and population health", icon: "prevention" }
   ],
+  doctorContentCategories: [
+    { id: "diagnosis", label: "Diagnosis", area: "Diagnostic advances", icon: "search", description: "Clinical assessment, imaging, tissue acquisition, molecular diagnostics, and the limits of individual tests." },
+    { id: "pathology", label: "Pathology", area: "Pathology & cytology", icon: "cell", description: "Histology, cytology, grade, immunophenotyping, biomarkers, and how pathology contributes to decision-making." },
+    { id: "staging", label: "Staging", area: "Staging", icon: "path", description: "Stage describes disease extent. TNM is commonly used in solid tumor staging, while some malignancies use disease-specific systems." },
+    { id: "therapeutics", label: "Therapeutics", area: "Therapeutics", icon: "scalpel", description: "Surgery, radiation oncology, systemic therapy, treatment selection, toxicity, and supportive care." },
+    { id: "multidisciplinary-care", label: "Multidisciplinary care", area: "Case discussions", icon: "book", description: "Disease-specific clinical questions and multidisciplinary discussion, prepared through reviewed case architecture." },
+    { id: "professional-tools", label: "Professional tools", area: "Professional tools", icon: "spark", description: "Clinical references, calculators, templates, checklists, and downloadable resources will be added when validated.", independent: true }
+  ],
   library: [
     { type: "Public guide", title: "Tumor, cancer, and the words clinicians use", text: "A clear starting point for understanding benign growths, malignant disease, and why terms matter.", href: "public.html#tumor-cancer" }, { type: "Diagnosis", title: "From imaging to biopsy", text: "What different tests can and cannot answer when a lesion needs investigation.", href: "public.html#diagnosis" }, { type: "Professional", title: "Staging and treatment selection", text: "A structured orientation to stage, pathology, biomarkers, and multidisciplinary planning.", href: "clinical.html#staging" }, { type: "Care", title: "Living with and beyond cancer", text: "Supportive care, follow-up, survivorship, and practical questions for appointments.", href: "public.html#living" }
   ],
@@ -273,6 +281,10 @@ window.BAMEDICALE_DATA = {
         { name: "Adlina Karisyah", type: "Person" }
       ],
       primaryTopic: "Diagnostic advances",
+      professionalCategory: "diagnosis",
+      professionalArea: "Diagnostic advances",
+      scientificWork: true,
+      schemaType: "ScholarlyArticle",
       tags: ["Breast Cancer", "Parotid Gland", "Metastasis"],
       primaryDiseaseGroup: "breast",
       secondaryDiseaseGroups: ["cancer-neoplastic"],
@@ -280,7 +292,8 @@ window.BAMEDICALE_DATA = {
       diseaseSite: "Breast and parotid gland",
       contentType: "Case report",
       sourceAttribution: "Indonesian Journal of Cancer, Vol 14(3), 97-100, September 2020",
-      publicationDateLabel: "September 2020",
+      publishedDate: "2026-09-01",
+      originalPublicationDateLabel: "September 2020",
       updatedDate: "",
       sortOrder: 3,
       focalPosition: "50% 50%",

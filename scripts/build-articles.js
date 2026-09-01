@@ -88,7 +88,8 @@ const renderPage = (article, index) => {
     : { "@type": "Organization", name: entry.name, url: `${domain}/` });
   const schemaAuthor = author.length === 1 ? author[0] : author;
   const authorNames = authors.map((entry) => entry.name).join(", ");
-  const publicationDate = article.publicationDateLabel || formatPublishedDate(article.publishedDate);
+  const publicationDate = article.publishedDate ? formatPublishedDate(article.publishedDate) : article.publicationDateLabel;
+  const originalPublication = article.originalPublicationDateLabel || (article.scientificWork ? article.publicationDateLabel : "");
   const navigableArticles = article.inArticleNavigation === false ? [] : articles.filter((entry) => entry.inArticleNavigation !== false);
   const navigationIndex = navigableArticles.indexOf(article);
   const previous = navigableArticles[navigationIndex - 1];
@@ -112,7 +113,7 @@ const renderPage = (article, index) => {
   ].join("\n      ");
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": article.schemaType === "ScholarlyArticle" ? "ScholarlyArticle" : "Article",
     headline: article.title,
     description: article.excerpt,
     image: absolute(article.cover),
@@ -124,6 +125,7 @@ const renderPage = (article, index) => {
   };
   if (article.publishedDate) schema.datePublished = article.publishedDate;
   if (article.updatedDate) schema.dateModified = article.updatedDate;
+  if (article.scientificWork && article.paper?.publicationDetails) schema.citation = article.paper.publicationDetails;
   const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: `${domain}/` },
     { "@type": "ListItem", position: 2, name: "Medical Library", item: `${domain}/library.html` },
@@ -148,7 +150,7 @@ const renderPage = (article, index) => {
     <article>
       <header class="seo-article-hero seo-article-hero--publication">
         <button class="seo-article-artwork" type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button>
-        <div class="seo-article-heading"><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges"><span>${escape(article.primaryAudience)}</span><span>${escape(diseaseGroup.name)}</span>${article.diseaseCondition ? `<span>${escape(article.diseaseCondition)}</span>` : ""}<span>${escape(article.primaryTopic)}</span></div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><div class="seo-article-meta"><small class="article-byline">By ${escape(authorNames)} · Published: ${escape(publicationDate)}</small><small class="article-source-meta">Sources: ${escape(article.sourceAttribution)}</small></div></div>
+        <div class="seo-article-heading"><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges">${article.scientificWork ? [article.primaryAudience, ...(article.secondaryDiseaseGroups || []).map((id) => diseaseGroups.get(id)?.name).filter(Boolean), diseaseGroup.name, article.primaryTopic].map((label) => `<span>${escape(label)}</span>`).join("") : `<span>${escape(article.primaryAudience)}</span><span>${escape(diseaseGroup.name)}</span>${article.diseaseCondition ? `<span>${escape(article.diseaseCondition)}</span>` : ""}<span>${escape(article.primaryTopic)}</span>`}</div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><div class="seo-article-meta"><small class="article-byline">By ${escape(authorNames)} · Published: ${escape(publicationDate)}</small>${originalPublication ? `<small class="article-source-meta">Original publication: ${escape(originalPublication)}</small>` : ""}<small class="article-source-meta">${article.scientificWork ? "Journal" : "Sources"}: ${escape(article.sourceAttribution)}</small></div></div>
       </header>
       <div class="seo-article-body">
       ${bodySections}
@@ -159,13 +161,13 @@ const renderPage = (article, index) => {
   </main>
   <dialog class="article-promotion" data-promotion-dialog><div class="article-promotion__bar"><p>BA Medicale promotion toolkit</p><button type="button" data-promote-close>Close</button></div><div class="article-promotion__body"><p>This prepares source-faithful social teasers; it does not publish to social platforms.</p><div class="article-promotion__grid">${formats.map((format) => `<article><span>${format}</span><h2>${escape(promotion.hook)}</h2>${promotion.teaser.map((text) => `<p>${escape(text)}</p>`).join("")}<b>${escape(promotion.cta)}</b><small>${canonical}</small><p>${escape(promotion.hashtags.join(" "))}</p><button type="button" data-copy-promotion="${Buffer.from(promotion.text).toString("base64")}">Copy ${format} copy</button></article>`).join("")}</div></div></dialog>
   <footer class="seo-static-footer"><p>BA Medicale provides education, not individual diagnosis or treatment advice.</p><a href="../library.html">Return to the Medical Library</a><a href="../privacy-policy.html">Privacy Policy</a></footer>
-  <script src="../content.js?v=disease-explorer-20260825"></script><script src="../app.js?v=shared-navigation-20260901"></script>
+  <script src="../content.js?v=doctor-papers-20260901"></script><script src="../app.js?v=doctor-papers-20260901"></script>
 </body></html>`.replace(/[ \t]+\n/g, "\n");
 };
 
 const outputs = new Map(articles.map((article, index) => [path.join(root, "articles", `${article.slug}.html`), renderPage(article, index)]));
 seminars.forEach((event, index) => outputs.set(path.join(root, "events", `${event.slug}.html`), renderEventPage({ event, index, seminars, diseaseGroup: diseaseGroups.get(event.primaryDiseaseGroup), domain })));
-const baseUrls = ["/", "/public.html", "/clinical.html", "/healthcare-workers.html", "/library.html", "/seminar.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html", "/team.html", "/traffic.html", "/dr-bob-profile.html", "/nana-febrina-profile.html", "/melati-noerwa-profile.html", "/adlina-karisyah-profile.html", "/yudi-febriadi-profile.html", "/contact.html", "/privacy-policy.html"];
+const baseUrls = ["/", "/public.html", "/clinical.html", "/doctor-papers.html", "/healthcare-workers.html", "/library.html", "/seminar.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html", "/team.html", "/traffic.html", "/dr-bob-profile.html", "/nana-febrina-profile.html", "/melati-noerwa-profile.html", "/adlina-karisyah-profile.html", "/yudi-febriadi-profile.html", "/contact.html", "/privacy-policy.html"];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${baseUrls.concat(articles.map((article) => `/articles/${article.slug}.html`), seminars.map((event) => `/${event.detailUrl}`)).map((url) => `  <url><loc>${domain}${url}</loc></url>`).join("\n")}\n</urlset>\n`;
 outputs.set(path.join(root, "sitemap.xml"), sitemap);
 

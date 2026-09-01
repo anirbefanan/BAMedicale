@@ -1,6 +1,6 @@
 const data = window.BAMEDICALE_DATA;
 const GA4_MEASUREMENT_ID = "G-5Q36DG7PTC";
-const ANALYTICS_SAFE_QUERY_KEYS = new Set(["disease", "book"]);
+const ANALYTICS_SAFE_QUERY_KEYS = new Set(["disease", "book", "category"]);
 const analyticsEnabled = () => /(^|\.)bamedicale\.com$/i.test(window.location.hostname);
 const analyticsPageUrl = () => {
   const url = new URL(window.location.href);
@@ -156,6 +156,20 @@ const diseaseGroupById = (id) => (data.diseaseTaxonomy || []).find((group) => gr
 const articleDiseaseGroups = (article) => [article.primaryDiseaseGroup, ...(article.secondaryDiseaseGroups || [])].filter(Boolean);
 const articleDiseaseCondition = (article) => article.diseaseCondition || article.diseaseSite || "";
 const groupLabelForSearch = (article) => diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education";
+const doctorContentCategories = () => data.doctorContentCategories || [];
+const doctorCategoryById = (id) => doctorContentCategories().find((category) => category.id === id);
+const publishedDoctorPapers = () => articleRecords().filter((article) => articlePrimaryAudience(article) === "DOCTOR" && article.publishedDate && doctorCategoryById(article.professionalCategory));
+const doctorPapersPath = (params = {}) => {
+  const query = new URLSearchParams(Object.entries(params).filter(([, value]) => value));
+  return `doctor-papers.html${query.size ? `?${query}` : ""}`;
+};
+const doctorPapersForCategory = (category) => publishedDoctorPapers().filter((article) => article.professionalCategory === category);
+const doctorPaperSearchText = (article) => [
+  article.title, articleAuthor(article), article.contentType, article.professionalCategory,
+  doctorCategoryById(article.professionalCategory)?.area, article.primaryTopic,
+  articleDiseaseCondition(article), article.excerpt, ...(article.tags || []),
+  ...articleDiseaseGroups(article).map((id) => diseaseGroupById(id)?.name || "")
+].join(" ").toLowerCase();
 const PRIMARY_NAVIGATION = Object.freeze([
   { label: "Education", items: [
     { label: "For Doctors", href: "clinical.html" },
@@ -184,7 +198,7 @@ const navigationContext = () => {
   const pathname = window.location.pathname.toLowerCase();
   const route = pathname.split("/").pop() || "index.html";
   if (pathname === "/" || route === "index.html") return { top: "home" };
-  if (["public.html", "clinical.html", "healthcare-workers.html"].includes(route)) return { group: "Education", child: route };
+  if (["public.html", "clinical.html", "doctor-papers.html", "healthcare-workers.html"].includes(route)) return { group: "Education", child: route === "doctor-papers.html" ? "clinical.html" : route };
   if (pathname.includes("/articles/")) return { group: "Knowledge", child: "library.html" };
   if (["library.html", "videos.html", "ebooks.html", "ebook-detail.html", "resources.html"].includes(route)) return { group: "Knowledge", child: route === "ebook-detail.html" ? "ebooks.html" : route };
   if (route === "search.html") return { group: "Knowledge", top: "search" };
@@ -265,7 +279,9 @@ function renderHome() {
   if (diseaseExplorer) {
     diseaseExplorer.innerHTML = `<header class="disease-explorer__head"><div><p class="approved-kicker">Disease Explorer</p><h2 id="disease-explorer-title">Explore medical knowledge by disease area.</h2></div><p>Explore diseases and health conditions across medical disciplines, with dedicated depth in cancer, neoplasia, and surgical oncology.</p></header><nav class="disease-explorer__grid" aria-label="Explore medical knowledge by disease group">${data.diseaseTaxonomy.map((group, index) => {
       const flagship = group.id === "cancer-neoplastic";
-      return `<a class="disease-group${flagship ? " disease-group--flagship" : ""}" href="library.html?disease=${encodeURIComponent(group.id)}"${flagship ? ' aria-label="Explore Cancer and Neoplastic Diseases, BA Medicale flagship domain"' : ""}><span class="disease-group__icon">${diseaseIcon(group.icon)}</span><span class="disease-group__copy">${flagship ? '<em class="disease-group__flagship">Flagship depth</em>' : ""}<b><i>${String(index + 1).padStart(2, "0")}</i>${escapeHtml(group.name)}</b><small>${escapeHtml(group.descriptor)}</small></span><span class="disease-group__arrow" aria-hidden="true">›</span></a>`;
+      const hasDoctorContent = publishedDoctorPapers().some((article) => articleDiseaseGroups(article).includes(group.id));
+      const href = hasDoctorContent ? doctorPapersPath({ disease: group.id }) : `library.html?disease=${encodeURIComponent(group.id)}`;
+      return `<a class="disease-group${flagship ? " disease-group--flagship" : ""}${hasDoctorContent ? " disease-group--available" : ""}" href="${href}"${flagship ? ' aria-label="Explore Cancer and Neoplastic Diseases, BA Medicale flagship domain"' : ""}><span class="disease-group__icon">${diseaseIcon(group.icon)}</span><span class="disease-group__copy">${flagship ? '<em class="disease-group__flagship">Flagship depth</em>' : ""}${hasDoctorContent ? '<em class="disease-group__available">Doctor content available</em>' : ""}<b><i>${String(index + 1).padStart(2, "0")}</i>${escapeHtml(group.name)}</b><small>${escapeHtml(group.descriptor)}</small></span><span class="disease-group__arrow" aria-hidden="true">›</span></a>`;
     }).join("")}</nav><footer class="disease-explorer__footer"><div>${icon("book")}<p><b>Find the knowledge you need.</b><span>Browse all education or filter the Library by audience and disease area.</span></p></div><a class="approved-button approved-button--primary" href="library.html">Explore Medical Library <span aria-hidden="true">→</span></a></footer>`;
   }
   const library = document.querySelector("[data-library-preview]");
@@ -281,6 +297,70 @@ function renderHome() {
     const ebooks = data.ebooks.map((item) => ({ title: item.title, meta: item.state }));
     updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>New reading, upcoming learning, and recently added eBooks in one practical overview.</p></div><div class="approved-home-updates__grid"><section class="home-update-card"><div><p>Articles</p><h3>Latest reading</h3></div>${list(articles, "library.html")}</section><section class="home-update-card"><div><p>Upcoming event</p><h3>Seminars &amp; courses</h3></div>${list(seminars, "seminar.html")}</section><section class="home-update-card"><div><p>eBooks</p><h3>Recently added</h3></div>${list(ebooks, "ebooks.html")}</section></div>`;
   }
+}
+
+const doctorPublicationCard = (article) => {
+  const category = doctorCategoryById(article.professionalCategory);
+  return `<a class="doctor-publication-card" href="${escapeHtml(articlePath(article))}"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="${escapeHtml(article.title)} editorial artwork" width="1280" height="720" loading="lazy"><span class="doctor-publication-card__copy"><small>${escapeHtml(article.label)} · ${escapeHtml(category?.area || article.primaryTopic)}</small><h3>${escapeHtml(article.title)}</h3><p>${escapeHtml(article.excerpt)}</p><time datetime="${escapeHtml(article.publishedDate)}">Published: ${escapeHtml(formatPublishedDate(article.publishedDate))}</time></span></a>`;
+};
+
+function renderDoctorClinicalPage() {
+  const categoriesTarget = document.querySelector("[data-doctor-categories]");
+  const chipsTarget = document.querySelector("[data-doctor-category-chips]");
+  const publicationsTarget = document.querySelector("[data-doctor-publications]");
+  const categories = doctorContentCategories();
+  if (chipsTarget) chipsTarget.innerHTML = categories.filter((category) => !category.independent).map((category) => {
+    const count = doctorPapersForCategory(category.id).length;
+    return `<a class="${count ? "is-available" : ""}" href="${doctorPapersPath({ category: category.id })}"${count ? ` aria-label="Browse ${escapeHtml(category.label)} papers"` : ""}>${escapeHtml(category.label)}</a>`;
+  }).join("");
+  if (categoriesTarget) categoriesTarget.innerHTML = categories.map((category) => {
+    const papers = doctorPapersForCategory(category.id);
+    const latest = papers[0];
+    const active = papers.length > 0;
+    const content = `${icon(category.icon)}<h2>${escapeHtml(category.area)}</h2><p>${escapeHtml(category.description)}</p>${active ? `<span>${papers.length} published ${papers.length === 1 ? "paper" : "papers"}</span><b class="resource-card__latest">${escapeHtml(latest.title)}</b>` : `<span>${category.independent ? "Coming soon" : "Growing collection"}</span>`}`;
+    return active ? `<a class="resource-card resource-card--available" id="${escapeHtml(category.id)}" href="${doctorPapersPath({ category: category.id })}">${content}</a>` : `<article class="resource-card" id="${escapeHtml(category.id)}">${content}</article>`;
+  }).join("");
+  if (!publicationsTarget) return;
+  const records = publishedDoctorPapers();
+  publicationsTarget.innerHTML = records.length ? `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="doctor-papers.html">Browse all doctor publications <span>→</span></a></div><div class="doctor-publication-rail-wrap"><div class="doctor-publication-rail" data-doctor-publication-rail>${records.map(doctorPublicationCard).join("")}</div>${records.length > 5 ? '<div class="doctor-publication-rail__controls"><button type="button" data-doctor-rail-control="previous" aria-label="Previous doctor publications">Previous</button><button type="button" data-doctor-rail-control="next" aria-label="Next doctor publications">Next</button></div>' : ""}</div>` : "";
+  const rail = publicationsTarget.querySelector("[data-doctor-publication-rail]");
+  publicationsTarget.querySelectorAll("[data-doctor-rail-control]").forEach((button) => button.addEventListener("click", () => rail?.scrollBy({ left: rail.clientWidth * (button.dataset.doctorRailControl === "next" ? .9 : -.9), behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })));
+}
+
+function renderDoctorPapers() {
+  const target = document.querySelector("[data-doctor-papers]");
+  if (!target) return;
+  const params = new URLSearchParams(window.location.search);
+  const requestedCategory = params.get("category") || "";
+  const requestedDisease = params.get("disease") || "";
+  const selectedCategory = doctorCategoryById(requestedCategory) ? requestedCategory : "";
+  const selectedDisease = diseaseGroupById(requestedDisease) ? requestedDisease : "";
+  const option = (value, label, selected) => `<option value="${escapeHtml(value)}"${selected ? " selected" : ""}>${escapeHtml(label)}</option>`;
+  const categoryChips = doctorContentCategories().filter((category) => !category.independent).map((category) => `<a href="${doctorPapersPath({ category: category.id, disease: selectedDisease })}"${category.id === selectedCategory ? ' aria-current="page"' : ""}>${escapeHtml(category.label)}</a>`).join("");
+  target.innerHTML = `<nav class="filter-bar doctor-paper-category-chips" aria-label="Doctor paper categories">${categoryChips}</nav><form class="article-filters doctor-paper-filters" data-doctor-paper-filters><label>Search<input name="query" type="search" placeholder="Search title, author, disease, or category"></label><label>Professional category<select name="category"><option value="">All categories</option>${doctorContentCategories().filter((category) => !category.independent).map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="disease"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${[...new Set(publishedDoctorPapers().map((article) => article.contentType))].map((type) => option(type, type, false)).join("")}</select></label><button type="reset">Clear filters</button></form><p class="article-filter-context" data-doctor-paper-context></p><div class="doctor-paper-grid" data-doctor-paper-grid></div>`;
+  const form = target.querySelector("[data-doctor-paper-filters]");
+  const context = target.querySelector("[data-doctor-paper-context]");
+  const grid = target.querySelector("[data-doctor-paper-grid]");
+  const update = ({ syncUrl = true } = {}) => {
+    const values = Object.fromEntries(new FormData(form));
+    const category = doctorCategoryById(values.category);
+    const disease = diseaseGroupById(values.disease);
+    const records = publishedDoctorPapers().filter((article) => (!values.category || article.professionalCategory === values.category) && (!values.disease || articleDiseaseGroups(article).includes(values.disease)) && (!values.type || article.contentType === values.type) && (!values.query || doctorPaperSearchText(article).includes(values.query.trim().toLowerCase())));
+    context.innerHTML = category ? `Showing <b>${escapeHtml(category.area)}</b> publications${disease ? ` for <b>${escapeHtml(disease.name)}</b>` : ""}.` : disease ? `Showing doctor publications for <b>${escapeHtml(disease.name)}</b>.` : "Showing published doctor-facing scientific papers and case reports.";
+    grid.innerHTML = records.length ? records.map(doctorPublicationCard).join("") : `<p class="doctor-paper-empty">No published papers in this category yet.</p>`;
+    if (syncUrl) {
+      const url = new URL(window.location.href);
+      ["category", "disease"].forEach((key) => values[key] ? url.searchParams.set(key, values[key]) : url.searchParams.delete(key));
+      history.replaceState({}, "", `${url.pathname}${url.search}`);
+    }
+  };
+  form.addEventListener("input", () => update({ syncUrl: false }));
+  form.addEventListener("change", (event) => {
+    update();
+    if (event.target.name === "category" || event.target.name === "disease") trackAnalytics("doctor_papers_filter_used", { category: event.target.name === "category" ? event.target.value || "all" : "all", disease_group: event.target.name === "disease" ? event.target.value || "all" : "all" });
+  });
+  form.addEventListener("reset", () => requestAnimationFrame(() => update()));
+  update({ syncUrl: false });
 }
 
 function renderLibrary() {
@@ -507,7 +587,7 @@ function initSearch() {
   if (!input || !output) return;
   const results = [
     ["I found a lump", "Public guide", "A lump can have many causes. Learn how clinical evaluation, imaging, and biopsy may each contribute.", "public.html#diagnosis"], ["Tumor vs cancer", "Public guide", "Understand why a tumor is not always cancer, and why a malignant tumor can invade or spread.", "public.html#tumor-cancer"], ["Biopsy", "Diagnosis", "How tissue or cell sampling can help establish a diagnosis and guide further testing.", "public.html#diagnosis"], ["Cancer staging", "Professional", "An orientation to stage, TNM language, and how staging supports treatment planning.", "clinical.html#staging"], ["Immunotherapy", "Treatment", "A treatment concept that uses the immune system in selected cancer settings.", "public.html#treatment"], ["Thyroid nodule", "Disease Explorer", "Explore thyroid and endocrine learning across public and professional education.", "library.html?disease=endocrine-metabolic"]
-  ].concat(data.library.map((item) => [item.title, item.type, item.text, item.href])).concat(articleRecords().map((article) => [article.title, `${groupLabelForSearch(article)} · ${article.primaryTopic}`, `${articleDiseaseCondition(article)} ${article.excerpt}`, articlePath(article)]));
+  ].concat(data.library.map((item) => [item.title, item.type, item.text, item.href])).concat(articleRecords().map((article) => [article.title, `${groupLabelForSearch(article)} · ${article.primaryTopic}`, `${doctorPaperSearchText(article)} ${articleDiseaseCondition(article)} ${article.excerpt}`, articlePath(article)]));
   const show = (query = "") => {
     const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
     const filtered = results.filter((item) => terms.every((term) => item.join(" ").toLowerCase().includes(term)));
@@ -1027,4 +1107,4 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); renderTrafficPage(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
+initAnalytics(); shell(); renderHome(); renderDoctorClinicalPage(); renderDoctorPapers(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); renderTrafficPage(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
