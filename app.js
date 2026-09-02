@@ -1,6 +1,9 @@
 const data = window.BAMEDICALE_DATA;
+const registryApi = window.BAMEDICALE_REGISTRY;
+let contentRegistry = registryApi.create(data);
+let registryCatalogs = { videos: [], originalVideos: [] };
 const GA4_MEASUREMENT_ID = "G-5Q36DG7PTC";
-const ANALYTICS_SAFE_QUERY_KEYS = new Set(["disease", "book", "category", "audience", "type", "topic", "condition"]);
+const ANALYTICS_SAFE_QUERY_KEYS = new Set(["disease", "book", "category", "audience", "type", "topic", "condition", "author", "video"]);
 const analyticsEnabled = () => /(^|\.)bamedicale\.com$/i.test(window.location.hostname);
 const analyticsPageUrl = () => {
   const url = new URL(window.location.href);
@@ -142,7 +145,6 @@ const articleRecords = () => Object.values(data.articles || {}).sort((a, b) => {
   return dateOrder || Number(b.sortOrder || 0) - Number(a.sortOrder || 0);
 });
 const articlePath = (article) => `articles/${article.slug}.html`;
-const articleDate = (article) => article.updatedDate || article.publishedDate || "";
 const formatPublishedDate = (value) => {
   const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return "";
@@ -150,39 +152,43 @@ const formatPublishedDate = (value) => {
     .format(new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]))));
 };
 const articlePrimaryAudience = (article) => article.primaryAudience || "PUBLIC";
-const articleAudiences = (article) => [articlePrimaryAudience(article), ...(article.secondaryAudiences || [])];
 const articleAuthor = (article) => article.authors?.length ? article.authors.map((author) => author.name).join(", ") : article.author?.name || "BA Medicale";
 const diseaseGroupById = (id) => (data.diseaseTaxonomy || []).find((group) => group.id === id);
-const articleDiseaseGroups = (article) => [article.primaryDiseaseGroup, ...(article.secondaryDiseaseGroups || [])].filter(Boolean);
 const articleDiseaseCondition = (article) => article.diseaseCondition || article.diseaseSite || "";
-const publishedContentForDisease = (disease) => articleRecords().filter((article) => article.publishedDate && articleDiseaseGroups(article).includes(disease));
-const diseaseContentDestination = (records, disease) => records.length === 1 ? articlePath(records[0]) : libraryPath({ disease });
-const groupLabelForSearch = (article) => diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education";
+const publishedContentForDisease = (disease) => contentRegistry.query({ disease });
+const diseaseContentDestination = (records, disease) => contentRegistry.destination(records, { disease });
 const doctorContentCategories = () => data.doctorContentCategories || [];
 const doctorCategoryById = (id) => doctorContentCategories().find((category) => category.id === id);
 const publicContentCategories = () => data.publicContentCategories || [];
-const publicCategoryById = (id) => publicContentCategories().find((category) => category.id === id);
-const contentCategoryById = (id) => doctorCategoryById(id) || publicCategoryById(id);
-const articleContentCategories = (article) => [article.professionalCategory, ...(article.publicCategories || [])].filter(Boolean);
-const publishedContentForAudience = (audience) => articleRecords().filter((article) => articlePrimaryAudience(article) === audience && article.publishedDate);
-const publishedDoctorScientificContent = () => articleRecords().filter((article) => articlePrimaryAudience(article) === "DOCTOR" && article.publishedDate && doctorCategoryById(article.professionalCategory));
-const libraryPath = (params = {}) => {
-  const query = new URLSearchParams(Object.entries(params).filter(([, value]) => value));
-  return `library.html${query.size ? `?${query}` : ""}`;
+const allContentCategories = () => [...doctorContentCategories(), ...publicContentCategories(), ...(data.healthcareWorkerContentCategories || []), ...(data.resourceCategories || [])];
+const contentCategoryById = (id) => allContentCategories().find((category) => category.id === id);
+const publishedContentForAudience = (audience) => contentRegistry.query({ audience, primaryAudienceOnly: true });
+const publishedDoctorScientificContent = () => contentRegistry.query({ audience: "DOCTOR", primaryAudienceOnly: true, scientific: true });
+const libraryPath = (params = {}) => contentRegistry.libraryPath(params);
+const doctorContentForCategory = (category) => contentRegistry.query({ audience: "DOCTOR", primaryAudienceOnly: true, category });
+const doctorContentDestination = (records, params = {}) => contentRegistry.destination(records, { audience: "DOCTOR", ...params });
+const publicContentForCategory = (category) => contentRegistry.query({ audience: "PUBLIC", primaryAudienceOnly: true, category });
+const publicContentDestination = (records, params = {}) => contentRegistry.destination(records, { audience: "PUBLIC", ...params });
+const healthcareContentCategories = () => data.healthcareWorkerContentCategories || [];
+const healthcareContentForCategory = (category) => contentRegistry.query({ audience: "HEALTHCARE WORKER", primaryAudienceOnly: true, category });
+const contentRecordMeta = (record) => `${record.contentType}${record.publishedDate ? ` · Published ${formatPublishedDate(record.publishedDate)}` : record.originalPublicationDate ? ` · Original source ${formatPublishedDate(record.originalPublicationDate)}` : ""}`;
+const loadContentRegistry = async () => {
+  const needsCatalogs = document.querySelector("[data-disease-explorer], [data-article-library], [data-search-results], [data-video-hub], [data-video-preview-list], [data-doctor-categories], [data-public-categories], [data-healthcare-categories], [data-healthcare-worker-content], [data-home-updates]");
+  if (!needsCatalogs) return contentRegistry;
+  const load = async (path) => {
+    const response = await fetch(`${navigationRoot()}${path}`);
+    if (!response.ok) throw new Error(`${path} unavailable`);
+    return response.json();
+  };
+  try {
+    const [videos, originals] = await Promise.all([load("data/videos.json"), load("data/original-videos.json")]);
+    registryCatalogs = { videos: videos.videos || [], originalVideos: originals.videos || [] };
+    contentRegistry = registryApi.create(data, registryCatalogs);
+  } catch {
+    contentRegistry = registryApi.create(data);
+  }
+  return contentRegistry;
 };
-const doctorScientificContentForCategory = (category) => publishedDoctorScientificContent().filter((article) => article.professionalCategory === category);
-const doctorContentDestination = (records, params = {}) => records.length === 1 ? articlePath(records[0]) : libraryPath({ audience: "DOCTOR", ...params });
-const publicContentForCategory = (category) => publishedContentForAudience("PUBLIC").filter((article) => articleContentCategories(article).includes(category));
-const publicContentDestination = (records, params = {}) => records.length === 1 ? articlePath(records[0]) : libraryPath({ audience: "PUBLIC", ...params });
-const publicationSearchText = (article) => [
-  article.title, articleAuthor(article), article.contentType, article.professionalCategory,
-  article.professionalArea, doctorCategoryById(article.professionalCategory)?.label,
-  doctorCategoryById(article.professionalCategory)?.area, article.primaryTopic,
-  ...(article.publicCategories || []).flatMap((id) => [publicCategoryById(id)?.label, publicCategoryById(id)?.area]),
-  articleDiseaseCondition(article), article.excerpt, ...(article.tags || []),
-  article.paper?.keywords, ...(article.paper?.affiliations || []),
-  ...articleDiseaseGroups(article).map((id) => diseaseGroupById(id)?.name || "")
-].join(" ").toLowerCase();
 const PRIMARY_NAVIGATION = Object.freeze([
   { label: "Education", items: [
     { label: "For Doctors", href: "clinical.html" },
@@ -260,31 +266,26 @@ function shell() {
   });
 }
 
-async function renderHealthcareWorkerPage() {
+function renderHealthcareWorkerPage() {
+  const categoriesTarget = document.querySelector("[data-healthcare-categories]");
+  const chipsTarget = document.querySelector("[data-healthcare-category-chips]");
   const target = document.querySelector("[data-healthcare-worker-content]");
+  const categories = healthcareContentCategories();
+  if (chipsTarget) chipsTarget.innerHTML = categories.map((category) => {
+    const records = healthcareContentForCategory(category.id);
+    const href = records.length ? contentRegistry.destination(records, { audience: "HEALTHCARE WORKER", category: category.id }) : `#${category.anchor}`;
+    return `<a class="${records.length ? "is-available" : ""}" href="${escapeHtml(href)}">${escapeHtml(category.label)}</a>`;
+  }).join("");
+  if (categoriesTarget) categoriesTarget.innerHTML = categories.map((category) => {
+    const records = healthcareContentForCategory(category.id);
+    const destination = contentRegistry.destination(records, { audience: "HEALTHCARE WORKER", category: category.id });
+    const copy = `${icon(category.icon)}<h2>${escapeHtml(category.area)}</h2><p>${escapeHtml(category.description)}</p>${records.length ? `<span>${records.length} published ${records.length === 1 ? "item" : "items"}</span>` : `<span>${escapeHtml(category.emptyLabel)}</span>`}`;
+    return records.length ? `<a class="resource-card resource-card--available doctor-content-card--active" id="${escapeHtml(category.anchor)}" href="${escapeHtml(destination)}">${copy}</a>` : `<article class="resource-card" id="${escapeHtml(category.anchor)}">${copy}</article>`;
+  }).join("");
   if (!target) return;
-  const audience = "HEALTHCARE WORKER";
-  const baseRecords = [
-    ...articleRecords().map((item) => ({ audience: articlePrimaryAudience(item), type: "Article", title: item.title, text: item.excerpt, href: articlePath(item), topic: item.primaryTopic })),
-    ...Object.values(data.seminars || {}).map((item) => ({ audience: item.primaryAudience, type: "Course & seminar", title: item.title, text: item.summary || item.description || "Verified seminar information will appear here.", href: item.detailUrl || "seminar.html", topic: (item.topics || [])[0] || "Professional learning" })),
-    ...(data.ebooks || []).map((item) => ({ audience: item.primaryAudience, type: "eBook", title: item.title, text: item.text, href: "ebooks.html", topic: (item.topics || [])[0] || "Professional learning" }))
-  ].filter((item) => item.audience === audience);
-  const show = (records) => {
-    target.innerHTML = records.length
-    ? records.map((item) => `<article class="knowledge-card"><span>${escapeHtml(item.type)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p><i>${escapeHtml(item.topic)}</i><a class="text-link" href="${escapeHtml(item.href)}">Open learning <span>→</span></a></article>`).join("")
-    : `<article class="audience-content-empty"><p class="eyebrow">Growing collection</p><h2>Healthcare Worker learning is being prepared.</h2><p>New articles, courses, videos, eBooks, and resources will appear here when they are published with Healthcare Worker as their primary audience.</p><a class="text-link" href="library.html">Browse the full Library <span>→</span></a></article>`;
-  };
-  show(baseRecords.slice(0, 6));
-  try {
-    const response = await fetch("data/videos.json?v=video-catalog-20260824-2");
-    if (!response.ok) return;
-    const videos = ((await response.json()).videos || []).filter((item) => item.primaryAudience === audience).map((item) => ({
-      type: "Video", title: item.title, text: item.short_description || "Verified educational video.", href: "videos.html", topic: item.topic || "Professional learning"
-    }));
-    show([...baseRecords, ...videos].slice(0, 6));
-  } catch {
-    // The empty state remains available when the video catalog cannot be loaded.
-  }
+  const records = publishedContentForAudience("HEALTHCARE WORKER");
+  const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
+  target.innerHTML = `<section class="home-update-card doctor-recent-card"><div><p>Healthcare Worker learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Healthcare Worker learning in preparation")}</section>`;
 }
 
 function renderHome() {
@@ -295,20 +296,20 @@ function renderHome() {
       const publishedContent = publishedContentForDisease(group.id);
       const hasPublishedContent = publishedContent.length > 0;
       const href = diseaseContentDestination(publishedContent, group.id);
-      const availability = `${publishedContent.length} published ${publishedContent.length === 1 ? "item" : "items"} available`;
+      const availability = `${publishedContent.length} ${publishedContent.length === 1 ? "content" : "contents"} available`;
       const ariaLabel = hasPublishedContent ? `Open ${group.name}: ${availability}` : flagship ? "Explore Cancer and Neoplastic Diseases, BA Medicale flagship domain" : "";
-      return `<a class="disease-group${flagship ? " disease-group--flagship" : ""}${hasPublishedContent ? " disease-group--available doctor-content-card--active" : ""}" href="${escapeHtml(href)}"${ariaLabel ? ` aria-label="${escapeHtml(ariaLabel)}"` : ""}><span class="disease-group__icon">${diseaseIcon(group.icon)}</span><span class="disease-group__copy">${flagship ? '<em class="disease-group__flagship">Flagship depth</em>' : ""}${hasPublishedContent ? `<em class="disease-group__available">${escapeHtml(availability)}</em>` : ""}<b><i>${String(index + 1).padStart(2, "0")}</i>${escapeHtml(group.name)}</b><small>${escapeHtml(group.descriptor)}</small></span><span class="disease-group__arrow" aria-hidden="true">›</span></a>`;
+      return `<a class="disease-group${flagship ? " disease-group--flagship" : ""}${hasPublishedContent ? " disease-group--available doctor-content-card--active" : ""}" href="${escapeHtml(href)}" data-disease-group="${escapeHtml(group.id)}"${ariaLabel ? ` aria-label="${escapeHtml(ariaLabel)}"` : ""}><span class="disease-group__icon">${diseaseIcon(group.icon)}</span><span class="disease-group__copy">${flagship ? '<em class="disease-group__flagship">Flagship depth</em>' : ""}${hasPublishedContent ? `<em class="disease-group__available">${escapeHtml(availability)}</em>` : ""}<b><i>${String(index + 1).padStart(2, "0")}</i>${escapeHtml(group.name)}</b><small>${escapeHtml(group.descriptor)}</small></span><span class="disease-group__arrow" aria-hidden="true">›</span></a>`;
     }).join("")}</nav><footer class="disease-explorer__footer"><div>${icon("book")}<p><b>Find the knowledge you need.</b><span>Browse all education or filter the Library by audience and disease area.</span></p></div><a class="approved-button approved-button--primary" href="library.html">Explore Medical Library <span aria-hidden="true">→</span></a></footer>`;
   }
   const library = document.querySelector("[data-library-preview]");
-  if (library) library.innerHTML = data.library.map((item) => `<article class="knowledge-card"><span>${item.type}</span><h3>${item.title}</h3><p>${item.text}</p><a href="${item.href}" class="text-link">Read guide <span>→</span></a></article>`).join("");
+  if (library) library.innerHTML = contentRegistry.query({ family: "article" }).slice(0, 4).map((item) => `<article class="knowledge-card"><span>${escapeHtml(item.contentType)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><a href="${escapeHtml(item.route)}" class="text-link">Read ${item.scientificWork ? "publication" : "article"} <span>→</span></a></article>`).join("");
   const profile = document.querySelector("[data-profile]");
   if (profile) profile.innerHTML = `<img src="${data.profile.image}" alt="${data.profile.name}" loading="lazy" width="1254" height="1254"><div><p class="eyebrow">Physician-led education</p><h2>${data.profile.name}</h2><p class="profile-role">${data.profile.role}</p><p>${data.profile.text}</p><a href="about.html" class="button button-outline">About BA Medicale</a></div>`;
   const updates = document.querySelector("[data-home-updates]");
   if (updates) {
-    const articles = articleRecords().map((item) => ({ title: item.title, meta: `${item.contentType} · ${item.primaryTopic}`, href: articlePath(item) }));
-    const seminars = Object.values(data.seminars || {}).sort((a, b) => String(a.startDate).localeCompare(String(b.startDate))).map((item) => ({ title: item.title, meta: `${item.date} · ${item.time}`, href: item.detailUrl || "seminar.html" }));
-    const ebooks = data.ebooks.map((item) => ({ title: item.title, meta: item.state, href: `ebook-detail.html?book=${encodeURIComponent(item.slug)}` }));
+    const articles = contentRegistry.query({ family: "article" }).map((item) => ({ title: item.title, meta: `${item.contentType} · ${item.topics[0] || "Medical learning"}`, href: item.route }));
+    const seminars = contentRegistry.query({ family: "seminar" }).map((item) => ({ title: item.title, meta: `${item.sourceRecord.date} · ${item.sourceRecord.time}`, href: item.route }));
+    const ebooks = contentRegistry.query({ family: "ebook", publishedOnly: false }).map((item) => ({ title: item.title, meta: item.sourceRecord.state, href: item.route }));
     updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>New reading, upcoming learning, and recently added eBooks in one practical overview.</p></div><div class="approved-home-updates__grid"><section class="home-update-card"><div><p>Articles</p><h3>Latest reading</h3></div>${compactUpdateList(articles, "New learning update in preparation")}</section><section class="home-update-card"><div><p>Upcoming event</p><h3>Seminars &amp; courses</h3></div>${compactUpdateList(seminars, "New learning update in preparation")}</section><section class="home-update-card"><div><p>eBooks</p><h3>Recently added</h3></div>${compactUpdateList(ebooks, "New learning update in preparation")}</section></div>`;
   }
 }
@@ -323,22 +324,21 @@ function renderDoctorClinicalPage() {
   const publicationsTarget = document.querySelector("[data-doctor-publications]");
   const categories = doctorContentCategories();
   if (chipsTarget) chipsTarget.innerHTML = categories.filter((category) => !category.independent).map((category) => {
-    const papers = doctorScientificContentForCategory(category.id);
-    const href = doctorContentDestination(papers, { category: category.id });
-    return `<a class="${papers.length ? "is-available" : ""}" href="${escapeHtml(href)}"${papers.length ? ` aria-label="Open ${escapeHtml(category.label)} publications"` : ""}>${escapeHtml(category.label)}</a>`;
+    const records = doctorContentForCategory(category.id);
+    const href = doctorContentDestination(records, { category: category.id });
+    return `<a class="${records.length ? "is-available" : ""}" href="${escapeHtml(href)}"${records.length ? ` aria-label="Open ${escapeHtml(category.label)} content"` : ""}>${escapeHtml(category.label)}</a>`;
   }).join("");
   if (categoriesTarget) categoriesTarget.innerHTML = categories.map((category) => {
-    const papers = doctorScientificContentForCategory(category.id);
-    const latest = papers[0];
-    const active = papers.length > 0;
-    const content = `${icon(category.icon)}<h2>${escapeHtml(category.area)}</h2><p>${escapeHtml(category.description)}</p>${active ? `<span>${papers.length} published ${papers.length === 1 ? "paper" : "papers"}</span><b class="resource-card__latest">${escapeHtml(latest.title)}</b>` : `<span>${category.independent ? "Coming soon" : "Growing collection"}</span>`}`;
-    if (papers.length === 1) return `<a class="resource-card resource-card--available doctor-content-card--active" id="${escapeHtml(category.id)}" href="${escapeHtml(articlePath(papers[0]))}">${content}</a>`;
-    if (papers.length > 1) return `<details class="resource-card resource-card--available doctor-content-card--active doctor-category-chooser" id="${escapeHtml(category.id)}"><summary>${content}</summary><div class="doctor-category-chooser__list">${papers.map((article) => `<a href="${escapeHtml(articlePath(article))}">${escapeHtml(article.title)} <span aria-hidden="true">→</span></a>`).join("")}</div></details>`;
+    const records = doctorContentForCategory(category.id);
+    const latest = records[0];
+    const active = records.length > 0;
+    const content = `${icon(category.icon)}<h2>${escapeHtml(category.area)}</h2><p>${escapeHtml(category.description)}</p>${active ? `<span>${records.length} published ${records.length === 1 ? "item" : "items"}</span><b class="resource-card__latest">${escapeHtml(latest.title)}</b>` : `<span>${category.independent ? "Coming soon" : "Growing collection"}</span>`}`;
+    if (active) return `<a class="resource-card resource-card--available doctor-content-card--active" id="${escapeHtml(category.id)}" href="${escapeHtml(doctorContentDestination(records, { category: category.id }))}">${content}</a>`;
     return `<article class="resource-card" id="${escapeHtml(category.id)}">${content}</article>`;
   }).join("");
   if (!publicationsTarget) return;
   const records = publishedDoctorScientificContent();
-  const items = records.map((article) => ({ title: article.title, meta: `${article.contentType} · Published ${formatPublishedDate(article.publishedDate)}`, href: articlePath(article) }));
+  const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
   publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "DOCTOR" }))}">Browse professional publications in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card"><div><p>Professional publications</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Professional publication in preparation")}</section>`;
 }
 
@@ -357,42 +357,49 @@ function renderPublicPage() {
     if (articles.length) {
       const latest = articles[0];
       const destination = publicContentDestination(articles, { category: category.id });
-      return `<a class="knowledge-card doctor-content-card--active" id="${escapeHtml(category.anchor)}" href="${escapeHtml(destination)}"><span>${escapeHtml(category.kicker)}</span><h3>${escapeHtml(category.area)}</h3><p>${escapeHtml(category.description)}</p><b class="resource-card__latest">${articles.length} published ${articles.length === 1 ? "article" : "articles"} · Latest: ${escapeHtml(latest.title)}</b><span class="text-link">${articles.length === 1 ? "Read full article" : "Explore in Library"} <span aria-hidden="true">→</span></span></a>`;
+      return `<a class="knowledge-card doctor-content-card--active" id="${escapeHtml(category.anchor)}" href="${escapeHtml(destination)}"><span>${escapeHtml(category.kicker)}</span><h3>${escapeHtml(category.area)}</h3><p>${escapeHtml(category.description)}</p><b class="resource-card__latest">${articles.length} published ${articles.length === 1 ? "item" : "items"} · Latest: ${escapeHtml(latest.title)}</b><span class="text-link">${articles.length === 1 ? "Open learning" : "Explore in Library"} <span aria-hidden="true">→</span></span></a>`;
     }
     return `<article class="knowledge-card" id="${escapeHtml(category.anchor)}"><span>${escapeHtml(category.kicker)}</span><h3>${escapeHtml(category.area)}</h3><p>${escapeHtml(category.description)}</p><a class="text-link" href="${escapeHtml(category.fallbackHref)}">${escapeHtml(category.fallbackLabel)} <span aria-hidden="true">→</span></a></article>`;
   }).join("");
   if (!publicationsTarget) return;
-  const records = publishedContentForAudience("PUBLIC");
-  const items = records.map((article) => ({ title: article.title, meta: `${article.contentType} · Published ${formatPublishedDate(article.publishedDate)}`, href: articlePath(article) }));
-  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card"><div><p>Public articles</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Public education in preparation")}</section>`;
+  const records = contentRegistry.query({ audience: "PUBLIC", primaryAudienceOnly: true, family: "article" });
+  const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
+  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card"><div><p>Public learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Public education in preparation")}</section>`;
 }
 
 function renderLibrary() {
   const target = document.querySelector("[data-article-library]");
   if (!target) return;
-  const records = articleRecords();
-  const topics = [...new Set(records.map((article) => article.primaryTopic))];
-  const conditions = [...new Set(records.map(articleDiseaseCondition).filter(Boolean))];
-  const types = [...new Set(records.map((article) => article.contentType).filter(Boolean))];
-  const categories = [...publicContentCategories(), ...doctorContentCategories()].filter((category) => !category.independent);
+  const records = contentRegistry.query();
+  const topics = [...new Map(records.flatMap((record) => record.topics.map((topic) => [registryApi.slugify(topic), topic]))).entries()];
+  const conditions = [...new Map(records.filter((record) => record.diseaseCondition).map((record) => [registryApi.slugify(record.diseaseCondition), record.diseaseCondition])).entries()];
+  const types = [...new Map(records.map((record) => [record.typeId, record.contentType])).entries()];
+  const authors = [...new Map(records.flatMap((record) => record.authors.map((author) => [registryApi.slugify(author), author]))).entries()];
+  const categories = allContentCategories().filter((category) => !category.independent);
   const params = new URLSearchParams(window.location.search);
   const requestedDisease = params.get("disease") || "";
   const selectedDisease = diseaseGroupById(requestedDisease) ? requestedDisease : "";
-  const selectedAudience = ["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].includes(params.get("audience")) ? params.get("audience") : "";
+  const selectedAudience = registryApi.normalizeAudience(params.get("audience"));
   const selectedCategory = contentCategoryById(params.get("category")) ? params.get("category") : "";
-  const selectedCondition = conditions.includes(params.get("condition")) ? params.get("condition") : "";
-  const selectedTopic = topics.includes(params.get("topic")) ? params.get("topic") : "";
-  const selectedType = types.includes(params.get("type")) ? params.get("type") : "";
+  const selectedCondition = conditions.some(([id]) => id === params.get("condition")) ? params.get("condition") : "";
+  const selectedTopic = topics.some(([id]) => id === params.get("topic")) ? params.get("topic") : "";
+  const selectedType = types.some(([id]) => id === registryApi.slugify(params.get("type"))) ? registryApi.slugify(params.get("type")) : "";
+  const selectedAuthor = authors.some(([id]) => id === params.get("author")) ? params.get("author") : "";
   const option = (value, label = value, selected = false) => `<option value="${escapeHtml(value)}"${selected ? " selected" : ""}>${escapeHtml(label)}</option>`;
-  const groupLabel = (article) => diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education";
-  const latestCard = (article) => `<article class="article-latest-card"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="${escapeHtml(article.title)} editorial artwork" width="1280" height="720" loading="lazy"><div><span>${escapeHtml(articlePrimaryAudience(article))} · ${escapeHtml(article.contentType)}</span><p>${escapeHtml(groupLabel(article))}</p><h3>${escapeHtml(article.title)}</h3><small>By ${escapeHtml(articleAuthor(article))}</small><a href="${escapeHtml(articlePath(article))}">Read full ${article.scientificWork ? "publication" : "article"} <b aria-hidden="true">→</b></a></div></article>`;
-  const listItem = (article) => `<article class="article-list-item"><img src="${escapeHtml(safeImageUrl(article.cover))}" alt="" width="320" height="180" loading="lazy"><div class="article-list-item__copy"><div class="article-list-item__meta"><span>${escapeHtml(articlePrimaryAudience(article))} · ${escapeHtml(article.contentType)}</span><b>${escapeHtml(groupLabel(article))}</b>${articleDiseaseCondition(article) ? `<i>${escapeHtml(articleDiseaseCondition(article))}</i>` : ""}${articleDate(article) ? `<time datetime="${escapeHtml(articleDate(article))}">${escapeHtml(articleDate(article))}</time>` : ""}</div><h3>${escapeHtml(article.title)}</h3><p>${escapeHtml(article.excerpt)}</p><div class="article-list-item__tags">${(article.tags || []).slice(0, 3).map((tag) => `<i>${escapeHtml(tag)}</i>`).join("")}</div><small>By ${escapeHtml(articleAuthor(article))} · Sources: ${escapeHtml(article.sourceAttribution)}</small></div><div class="article-list-item__actions">${article.quickRead !== false ? `<a href="${escapeHtml(articlePath(article))}" data-article-reader="${escapeHtml(article.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(articlePath(article))}">Read Full ${article.scientificWork ? "Publication" : "Article"}</a></div></article>`;
+  const groupLabel = (record) => diseaseGroupById(record.primaryDiseaseGroup)?.name || "General medical education";
+  const latestCard = (record) => `<article class="article-latest-card" data-content-id="${escapeHtml(record.id)}">${record.cover ? `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="${escapeHtml(record.title)} artwork" width="1280" height="720" loading="lazy">` : ""}<div><span>${escapeHtml(record.primaryAudience)} · ${escapeHtml(record.contentType)}</span><p>${escapeHtml(groupLabel(record))}</p><h3>${escapeHtml(record.title)}</h3><small>${record.authors.length ? `By ${escapeHtml(record.authors.join(", "))}` : escapeHtml(record.source)}</small><a href="${escapeHtml(record.route)}">Open ${escapeHtml(record.contentType.toLowerCase())} <b aria-hidden="true">→</b></a></div></article>`;
+  const recordActions = (record) => {
+    if (record.family === "article") return `${record.sourceRecord.quickRead !== false ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}">Read Full ${record.scientificWork ? "Publication" : "Article"}</a>`;
+    if (record.family === "seminar") return `<a href="${escapeHtml(record.route)}" data-event-quick-read="${escapeHtml(record.id)}">Quick Read</a><a href="${escapeHtml(record.route)}">View Event</a>`;
+    return `<a href="${escapeHtml(record.route)}">Open ${escapeHtml(record.contentType)}</a>`;
+  };
+  const listItem = (record) => `<article class="article-list-item" data-content-id="${escapeHtml(record.id)}">${record.cover ? `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="320" height="180" loading="lazy">` : ""}<div class="article-list-item__copy"><div class="article-list-item__meta"><span>${escapeHtml(record.primaryAudience)} · ${escapeHtml(record.contentType)}</span><b>${escapeHtml(groupLabel(record))}</b>${record.diseaseCondition ? `<i>${escapeHtml(record.diseaseCondition)}</i>` : ""}${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(record.sortDate)}</time>` : ""}</div><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.summary)}</p><div class="article-list-item__tags">${record.topics.slice(0, 3).map((topic) => `<i>${escapeHtml(topic)}</i>`).join("")}</div>${record.authors.length || record.source ? `<small>${record.authors.length ? `By ${escapeHtml(record.authors.join(", "))}` : ""}${record.authors.length && record.source ? " · " : ""}${record.source ? `Source: ${escapeHtml(record.source)}` : ""}</small>` : ""}</div><div class="article-list-item__actions">${recordActions(record)}</div></article>`;
   const sections = [
     ["PUBLIC", "Public Education", "Clear explanations for patients, families, and anyone building a stronger understanding."],
     ["DOCTOR", "Professional Education — Doctors", "Clinical context for doctors, specialists, and physician-level learners."],
     ["HEALTHCARE WORKER", "Professional Education — Healthcare Workers", "Practical learning for nursing, allied health, pharmacy, laboratory, imaging, and multidisciplinary care."]
   ];
-  target.innerHTML = `<section class="article-latest"><div class="article-library__heading"><div><p class="eyebrow">Latest articles and publications</p><h2>Recently published and updated.</h2></div><p data-library-latest-summary></p></div><div class="article-latest__rail" data-library-latest></div></section><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"].map((value) => option(value, value, value === selectedAudience)).join("")}</select></label><label>Content category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map((value) => option(value, value, value === selectedCondition)).join("")}</select></label><label>Primary topic<select name="topic"><option value="">All topics</option>${topics.map((value) => option(value, value, value === selectedTopic)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map((value) => option(value, value, value === selectedType)).join("")}</select></label><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div data-article-audiences>${sections.map(([audience, title, description]) => `<section class="article-audience" data-article-audience="${audience}"><header><div><p class="eyebrow">${title}</p><h2>${description}</h2></div><span data-article-count></span></header><div class="article-list" data-article-list></div><nav class="article-pagination" aria-label="${title} pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`).join("")}</div>`;
+  target.innerHTML = `<section class="article-latest"><div class="article-library__heading"><div><p class="eyebrow">Latest learning</p><h2>Recently published and updated.</h2></div><p data-library-latest-summary></p></div><div class="article-latest__rail" data-library-latest></div></section><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${registryApi.AUDIENCES.map((value) => option(value, value, value === selectedAudience)).join("")}</select></label><label>Content category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map(([id, label]) => option(id, label, id === selectedCondition)).join("")}</select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(([id, label]) => option(id, label, id === selectedTopic)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map(([id, label]) => option(id, label, id === selectedType)).join("")}</select></label><label>Author / source<select name="author"><option value="">All authors and sources</option>${authors.map(([id, label]) => option(id, label, id === selectedAuthor)).join("")}</select></label><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div data-article-audiences>${sections.map(([audience, title, description]) => `<section class="article-audience" data-article-audience="${audience}"><header><div><p class="eyebrow">${title}</p><h2>${description}</h2></div><span data-article-count></span></header><div class="article-list" data-article-list></div><nav class="article-pagination" aria-label="${title} pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`).join("")}</div>`;
   const filterForm = target.querySelector("[data-article-filters]");
   const filterContext = target.querySelector("[data-library-filter-context]");
   const latestRail = target.querySelector("[data-library-latest]");
@@ -405,16 +412,15 @@ function renderLibrary() {
       values.category && contentCategoryById(values.category)?.label,
       values.diseaseGroup && diseaseGroupById(values.diseaseGroup)?.name,
       values.condition,
-      values.topic,
-      values.type,
+      values.topic && topics.find(([id]) => id === values.topic)?.[1],
+      values.type && types.find(([id]) => id === values.type)?.[1],
+      values.author && authors.find(([id]) => id === values.author)?.[1],
       values.query && `Search: “${values.query.trim()}”`
     ].filter(Boolean);
-    filterContext.textContent = activeLabels.length ? `Showing Library content for ${activeLabels.join(" · ")}.` : "Browse all editorial articles and professional scientific publications in one registry.";
-    const query = values.query.trim().toLowerCase();
-    const matchingRecords = records.filter((article) => (!values.audience || articleAudiences(article).includes(values.audience)) && (!values.category || articleContentCategories(article).includes(values.category)) && (!values.diseaseGroup || (article.publishedDate && articleDiseaseGroups(article).includes(values.diseaseGroup))) && (!values.condition || articleDiseaseCondition(article) === values.condition) && (!values.topic || article.primaryTopic === values.topic) && (!values.type || article.contentType === values.type) && (!query || publicationSearchText(article).includes(query)));
-    if (values.diseaseGroup) matchingRecords.sort((a, b) => String(b.publishedDate).localeCompare(String(a.publishedDate)) || Number(b.sortOrder || 0) - Number(a.sortOrder || 0));
+    filterContext.textContent = activeLabels.length ? `Showing Library content for ${activeLabels.join(" · ")}.` : "Browse all published medical learning from the canonical content registry.";
+    const matchingRecords = contentRegistry.query({ audience: values.audience, category: values.category, disease: values.diseaseGroup, condition: values.condition, topic: values.topic, type: values.type, author: values.author, text: values.query.trim() });
     latestRail.innerHTML = matchingRecords.length ? matchingRecords.slice(0, 5).map(latestCard).join("") : `<p class="article-list__empty">No published content matches these filters yet.</p>`;
-    latestSummary.textContent = `${matchingRecords.length} matching item${matchingRecords.length === 1 ? "" : "s"}${values.diseaseGroup ? ", newest BA Medicale publication first" : ", ordered automatically from the Library registry"}.`;
+    latestSummary.textContent = `${matchingRecords.length} matching item${matchingRecords.length === 1 ? "" : "s"}, newest publication or update first.`;
     target.querySelectorAll("[data-article-audience]").forEach((section) => {
       const audience = section.dataset.articleAudience;
       const filtered = matchingRecords.filter((article) => articlePrimaryAudience(article) === audience);
@@ -423,21 +429,29 @@ function renderLibrary() {
       pages.set(audience, page);
       const hasFilters = Object.values(values).some(Boolean);
       section.querySelector("[data-article-list]").innerHTML = filtered.length ? filtered.slice((page - 1) * 10, page * 10).map(listItem).join("") : `<p class="article-list__empty">${hasFilters ? "No articles match these filters yet." : "Articles for this primary audience are in preparation."}</p>`;
-      section.querySelector("[data-article-count]").textContent = `${filtered.length} article${filtered.length === 1 ? "" : "s"}`;
+      section.querySelector("[data-article-count]").textContent = `${filtered.length} item${filtered.length === 1 ? "" : "s"}`;
       section.querySelector("[data-page-status]").textContent = `Page ${page} of ${maxPage}`;
       section.querySelector('[data-page="previous"]').disabled = page <= 1;
       section.querySelector('[data-page="next"]').disabled = page >= maxPage;
     });
     if (syncUrl) {
-      const url = new URL(window.location.href);
-      const routeValues = { audience: values.audience, category: values.category, disease: values.diseaseGroup, condition: values.condition, topic: values.topic, type: values.type };
-      Object.entries(routeValues).forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key));
-      history.replaceState({}, "", `${url.pathname}${url.search}`);
+      const next = contentRegistry.libraryPath({ audience: values.audience, category: values.category, disease: values.diseaseGroup, condition: values.condition, topic: values.topic, type: values.type, author: values.author });
+      const nextUrl = new URL(next, window.location.href);
+      if (`${location.pathname}${location.search}` !== `${nextUrl.pathname}${nextUrl.search}`) history.pushState({}, "", `${nextUrl.pathname}${nextUrl.search}`);
     }
   };
   filterForm.addEventListener("input", (event) => { if (event.target.name === "query") { pages.clear(); update(); } });
   filterForm.addEventListener("change", () => { pages.clear(); update({ syncUrl: true }); });
   filterForm.addEventListener("reset", () => { pages.clear(); requestAnimationFrame(() => update({ syncUrl: true })); });
+  window.addEventListener("popstate", () => {
+    const routeParams = new URLSearchParams(location.search);
+    const values = {
+      audience: registryApi.normalizeAudience(routeParams.get("audience")), category: routeParams.get("category") || "", diseaseGroup: routeParams.get("disease") || "",
+      condition: routeParams.get("condition") || "", topic: routeParams.get("topic") || "", type: routeParams.get("type") || "", author: routeParams.get("author") || ""
+    };
+    Object.entries(values).forEach(([name, value]) => { const control = filterForm.elements.namedItem(name); if (control && [...control.options].some((option) => option.value === value)) control.value = value; });
+    pages.clear(); update();
+  });
   target.querySelectorAll("[data-page]").forEach((button) => button.addEventListener("click", () => {
     const section = button.closest("[data-article-audience]");
     const audience = section.dataset.articleAudience;
@@ -483,9 +497,8 @@ function initArticleReader() {
 }
 
 function renderEbooks() {
-  const ebookArt = ["assets/ebooks/clinical-oncology-foundations.png", "assets/ebooks/practical-surgical-oncology.png", "assets/ebooks/breast-cancer-clinical-guide.png"];
   document.querySelectorAll("[data-ebooks]").forEach((target) => {
-    target.innerHTML = data.ebooks.map((item, index) => `<article class="ebook-card"><div class="ebook-visual ebook-visual--${index + 1}"><img src="${ebookArt[index]}" alt="Contextual editorial artwork for ${item.title}" width="1024" height="1024" loading="lazy"><span>${String(index + 1).padStart(2, "0")}</span></div><div><p class="eyebrow">${item.state}</p><h2>${item.title}</h2><p class="audience">${item.audience}</p><p>${item.text}</p><div class="ebook-actions"><strong>${item.price}</strong><a class="button button-outline" href="ebook-detail.html?book=${item.slug}">View detail</a><a class="button button-dark" href="login.html">Unlock on release</a></div></div></article>`).join("");
+    target.innerHTML = data.ebooks.map((item, index) => `<article class="ebook-card"><div class="ebook-visual ebook-visual--${index + 1}"><img src="${escapeHtml(safeImageUrl(item.cover))}" alt="Contextual editorial artwork for ${escapeHtml(item.title)}" width="1024" height="1024" loading="lazy"><span>${String(index + 1).padStart(2, "0")}</span></div><div><p class="eyebrow">${escapeHtml(item.state)}</p><h2>${escapeHtml(item.title)}</h2><p class="audience">${escapeHtml(item.audience)}</p><p>${escapeHtml(item.text)}</p><div class="ebook-actions"><strong>${escapeHtml(item.price)}</strong><a class="button button-outline" href="ebook-detail.html?book=${escapeHtml(item.slug)}">View detail</a><a class="button button-dark" href="login.html">Unlock on release</a></div></div></article>`).join("");
   });
 }
 
@@ -494,8 +507,7 @@ function renderEbookDetail() {
   if (!target) return;
   const slug = new URLSearchParams(window.location.search).get("book");
   const item = data.ebooks.find((book) => book.slug === slug) || data.ebooks[0];
-  const art = { "clinical-oncology-foundations": "assets/ebooks/clinical-oncology-foundations.png", "practical-surgical-oncology": "assets/ebooks/practical-surgical-oncology.png", "breast-cancer-clinical-guide": "assets/ebooks/breast-cancer-clinical-guide.png" }[item.slug];
-  target.innerHTML = `<article class="ebook-card"><div class="ebook-visual ebook-visual--1"><img src="${art}" alt="Contextual editorial artwork for ${item.title}" width="1024" height="1024" loading="lazy"><span>01</span></div><div><p class="eyebrow">${item.state}</p><h2>${item.title}</h2><p class="audience">${item.audience}</p><p>${item.text}</p><div class="ebook-actions"><strong>${item.price}</strong><a class="button button-outline" href="ebooks.html">Back to catalog</a><a class="button button-dark" href="login.html">Unlock on release</a></div></div></article>`;
+  target.innerHTML = `<article class="ebook-card"><div class="ebook-visual ebook-visual--1"><img src="${escapeHtml(safeImageUrl(item.cover))}" alt="Contextual editorial artwork for ${escapeHtml(item.title)}" width="1024" height="1024" loading="lazy"><span>01</span></div><div><p class="eyebrow">${escapeHtml(item.state)}</p><h2>${escapeHtml(item.title)}</h2><p class="audience">${escapeHtml(item.audience)}</p><p>${escapeHtml(item.text)}</p><div class="ebook-actions"><strong>${escapeHtml(item.price)}</strong><a class="button button-outline" href="ebooks.html">Back to catalog</a><a class="button button-dark" href="login.html">Unlock on release</a></div></div></article>`;
 }
 
 function seminarRecords() {
@@ -563,7 +575,8 @@ function bindEventQuickRead() {
   }
   document.querySelectorAll("[data-event-quick-read]:not([data-event-reader-bound])").forEach((button) => {
     button.dataset.eventReaderBound = "true";
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
       const item = data.seminars?.[button.dataset.eventQuickRead];
       if (!item) return;
       const group = diseaseGroupById(item.primaryDiseaseGroup)?.name || "General medical education";
@@ -617,17 +630,23 @@ function renderSources() {
   document.querySelectorAll("[data-sources]").forEach((target) => target.innerHTML = data.sources.map((item) => `<a href="${escapeHtml(safeExternalUrl(item.url))}" target="_blank" rel="noopener noreferrer"><b>${escapeHtml(item.label)}</b><span>${escapeHtml(item.note)}</span><i>↗</i></a>`).join(""));
 }
 
+function renderResources() {
+  const target = document.querySelector("[data-resource-categories]") || (route === "resources" ? document.querySelector(".resource-grid") : null);
+  if (!target) return;
+  target.innerHTML = (data.resourceCategories || []).map((category) => {
+    const records = contentRegistry.query({ family: "resource", category: category.id });
+    const content = `${icon(category.icon)}<h2>${escapeHtml(category.label)}</h2><p>${escapeHtml(category.description)}</p><span>${records.length ? `${records.length} available` : "Coming soon"}</span>`;
+    return records.length ? `<a class="resource-card resource-card--available doctor-content-card--active"${category.anchor ? ` id="${escapeHtml(category.anchor)}"` : ""} href="${escapeHtml(contentRegistry.destination(records, { type: "resource", category: category.id }))}">${content}</a>` : `<article class="resource-card"${category.anchor ? ` id="${escapeHtml(category.anchor)}"` : ""}>${content}</article>`;
+  }).join("");
+}
+
 function initSearch() {
   const input = document.querySelector("[data-search-input]");
   const output = document.querySelector("[data-search-results]");
   if (!input || !output) return;
-  const results = [
-    ["I found a lump", "Public guide", "A lump can have many causes. Learn how clinical evaluation, imaging, and biopsy may each contribute.", "public.html#diagnosis"], ["Tumor vs cancer", "Public guide", "Understand why a tumor is not always cancer, and why a malignant tumor can invade or spread.", "public.html#tumor-cancer"], ["Biopsy", "Diagnosis", "How tissue or cell sampling can help establish a diagnosis and guide further testing.", "public.html#diagnosis"], ["Cancer staging", "Professional", "An orientation to stage, TNM language, and how staging supports treatment planning.", "clinical.html#staging"], ["Immunotherapy", "Treatment", "A treatment concept that uses the immune system in selected cancer settings.", "public.html#treatment"], ["Thyroid nodule", "Disease Explorer", "Explore thyroid and endocrine learning across public and professional education.", "library.html?disease=endocrine-metabolic"]
-  ].concat(data.library.map((item) => [item.title, item.type, item.text, item.href])).concat(articleRecords().map((article) => [article.title, `${groupLabelForSearch(article)} · ${article.primaryTopic}`, `${publicationSearchText(article)} ${articleDiseaseCondition(article)} ${article.excerpt}`, articlePath(article)]));
   const show = (query = "") => {
-    const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-    const filtered = results.filter((item) => terms.every((term) => item.join(" ").toLowerCase().includes(term)));
-    output.innerHTML = filtered.length ? filtered.map(([title, label, text, href]) => `<a class="search-result" href="${escapeHtml(safeInternalUrl(href))}"><span>${escapeHtml(label)}</span><h2>${escapeHtml(title)}</h2><p>${escapeHtml(text)}</p><b>→</b></a>`).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a symptom, test, body system, or treatment term.</h2><p>Search is currently an editorial navigation tool. More indexed content can be added through the central content registry.</p></div>`;
+    const filtered = contentRegistry.search(query);
+    output.innerHTML = filtered.length ? filtered.map((record) => `<a class="search-result" href="${escapeHtml(safeInternalUrl(record.route))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}><span>${escapeHtml(record.label || record.contentType)}</span><h2>${escapeHtml(record.title)}</h2><p>${escapeHtml(record.summary)}</p><b>→</b></a>`).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a condition, test, disease group, author, or treatment term.</h2><p>Published content and controlled navigation topics are indexed automatically from the canonical registry.</p></div>`;
   };
   let searchTracked = false;
   input.addEventListener("input", () => {
@@ -853,23 +872,14 @@ function initHomeSeminarPromotion() {
   close.focus();
 }
 
-async function renderVideoHub() {
+function renderVideoHub() {
   const hub = document.querySelector("[data-video-hub]");
   const preview = document.querySelector("[data-video-preview-list]");
   if (!hub && !preview) return;
-  let videos = [];
-  let originalVideos = [];
-  try {
-    const response = await fetch("data/videos.json?v=video-catalog-20260824-2");
-    if (!response.ok) throw new Error("Video catalog unavailable");
-    videos = (await response.json()).videos.filter((video) => video.verified_identity);
-    try {
-      const originalResponse = await fetch("data/original-videos.json?v=video-frame-posters-20260825");
-      if (originalResponse.ok) originalVideos = (await originalResponse.json()).videos || [];
-    } catch {
-      originalVideos = [];
-    }
-  } catch (error) {
+  const videoRecords = contentRegistry.query({ family: "video" });
+  const videos = videoRecords.filter((record) => record.sourceRecord.source !== "ba-medicale").map((record) => record.sourceRecord);
+  const originalVideos = videoRecords.filter((record) => record.sourceRecord.source === "ba-medicale").map((record) => record.sourceRecord);
+  if (!videos.length && !originalVideos.length) {
     if (hub) hub.innerHTML = `<div class="video-hub__empty"><p class="eyebrow">Video collection</p><h2>The public video catalog is being refreshed.</h2><p>Source verification is required before a video is shown here.</p></div>`;
     return;
   }
@@ -925,6 +935,9 @@ async function renderVideoHub() {
   };
   document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay)));
   document.querySelectorAll("[data-video-local]").forEach((button) => button.addEventListener("click", () => openLocalVideo(button.dataset.videoLocal)));
+  const requestedVideo = new URLSearchParams(location.search).get("video");
+  const requestedControl = requestedVideo ? document.querySelector(`[data-video-play="${CSS.escape(requestedVideo)}"], [data-video-local="${CSS.escape(requestedVideo)}"]`) : null;
+  if (requestedControl) requestAnimationFrame(() => requestedControl.click());
   dialog.addEventListener("close", () => { player.replaceChildren(); });
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
@@ -1087,7 +1100,7 @@ function initAnalytics() {
     const control = event.target.closest("a, button");
     if (!control) return;
     if (control.matches(".disease-group")) {
-      const disease = new URL(control.href, window.location.href).searchParams.get("disease");
+      const disease = control.dataset.diseaseGroup || new URL(control.href, window.location.href).searchParams.get("disease");
       trackAnalytics("disease_explorer_click", { disease_group: disease || "" });
       return;
     }
@@ -1129,6 +1142,11 @@ function initAnalytics() {
       trackAnalytics("content_type_filter", { content_type: "video", topic: control.dataset.videoFilter || "all" });
       return;
     }
+    const contentCard = control.closest("[data-content-id]");
+    if (contentCard) {
+      const record = contentRegistry.byId(contentCard.dataset.contentId);
+      if (record) trackAnalytics("content_open", analyticsParams({ content_type: record.typeId, content_id: record.id, primary_audience: record.primaryAudience, disease_group: record.primaryDiseaseGroup, topic: record.topics[0] || "" }));
+    }
     if (control.matches('a[target="_blank"]') && /open registration|register/i.test(control.textContent)) {
       trackAnalytics("outbound_registration", analyticsContent("seminar", currentSeminar));
     }
@@ -1143,4 +1161,34 @@ function initAnalytics() {
   });
 }
 
-initAnalytics(); shell(); renderHome(); renderDoctorClinicalPage(); renderPublicPage(); renderLibrary(); renderHealthcareWorkerPage(); initArticleReader(); renderEbooks(); renderEbookDetail(); renderEvents(); renderSources(); renderTrafficPage(); initShell(); initHeroMedia(); initSearch(); initMotion(); initLightbox(); initSeminarPosterLightbox(); initArticlePageTools(); initContactForm(); renderVideoHub(); initHomeSeminarPromotion(); protectExternalLinks();
+async function bootstrap() {
+  initAnalytics();
+  shell();
+  renderEbooks();
+  renderEbookDetail();
+  renderEvents();
+  renderSources();
+  renderTrafficPage();
+  initShell();
+  initHeroMedia();
+  initLightbox();
+  initSeminarPosterLightbox();
+  initArticlePageTools();
+  initContactForm();
+  initHomeSeminarPromotion();
+  await loadContentRegistry();
+  renderHome();
+  renderDoctorClinicalPage();
+  renderPublicPage();
+  renderLibrary();
+  initArticleReader();
+  bindEventQuickRead();
+  renderHealthcareWorkerPage();
+  renderResources();
+  initSearch();
+  renderVideoHub();
+  initMotion();
+  protectExternalLinks();
+}
+
+bootstrap();

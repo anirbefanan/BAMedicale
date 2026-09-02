@@ -2,19 +2,25 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 const renderEventPage = require("./event-template");
+const registryApi = require("../content-registry");
 
 const root = path.resolve(__dirname, "..");
 const domain = "https://bamedicale.com";
 const checkOnly = process.argv.includes("--check");
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, "content.js"), "utf8"), context, { filename: "content.js" });
-const diseaseTaxonomy = context.window.BAMEDICALE_DATA.diseaseTaxonomy || [];
+const sourceData = context.window.BAMEDICALE_DATA;
+const videoCatalog = JSON.parse(fs.readFileSync(path.join(root, "data", "videos.json"), "utf8"));
+const originalVideoCatalog = JSON.parse(fs.readFileSync(path.join(root, "data", "original-videos.json"), "utf8"));
+const contentRegistry = registryApi.create(sourceData, { videos: videoCatalog.videos || [], originalVideos: originalVideoCatalog.videos || [] });
+registryApi.validate(contentRegistry, sourceData, { root, exists: (base, asset) => fs.existsSync(path.join(base, asset)) });
+const diseaseTaxonomy = sourceData.diseaseTaxonomy || [];
 const diseaseGroups = new Map(diseaseTaxonomy.map((group) => [group.id, group]));
-const articles = Object.values(context.window.BAMEDICALE_DATA.articles || {}).sort((a, b) => {
+const articles = Object.values(sourceData.articles || {}).sort((a, b) => {
   const dateOrder = String(b.updatedDate || b.publishedDate || "").localeCompare(String(a.updatedDate || a.publishedDate || ""));
   return dateOrder || Number(b.sortOrder || 0) - Number(a.sortOrder || 0);
 });
-const seminars = Object.values(context.window.BAMEDICALE_DATA.seminars || {}).sort((a, b) => String(a.startDate).localeCompare(String(b.startDate)));
+const seminars = Object.values(sourceData.seminars || {}).sort((a, b) => String(a.startDate).localeCompare(String(b.startDate)));
 
 const escape = (value = "") => String(value).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character]));
 const absolute = (value) => `${domain}/${String(value || "").replace(/^\//, "")}`;
@@ -79,26 +85,6 @@ const socialPromotion = (article, canonical) => {
   };
 };
 
-const relatedScientificPublications = (article) => {
-  if (!article.scientificWork) return [];
-  const groups = new Set([article.primaryDiseaseGroup, ...(article.secondaryDiseaseGroups || [])]);
-  return articles
-    .filter((candidate) => candidate !== article && candidate.scientificWork)
-    .map((candidate) => {
-      const candidateGroups = [candidate.primaryDiseaseGroup, ...(candidate.secondaryDiseaseGroups || [])];
-      const score =
-        (candidateGroups.some((group) => groups.has(group)) ? 4 : 0) +
-        (candidate.diseaseCondition && candidate.diseaseCondition === article.diseaseCondition ? 3 : 0) +
-        (candidate.professionalCategory && candidate.professionalCategory === article.professionalCategory ? 2 : 0) +
-        (candidate.primaryTopic === article.primaryTopic ? 1 : 0);
-      return { candidate, score };
-    })
-    .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score || String(b.candidate.publishedDate || "").localeCompare(String(a.candidate.publishedDate || "")))
-    .slice(0, 3)
-    .map((entry) => entry.candidate);
-};
-
 const renderPage = (article, index) => {
   const canonical = shareUrl(article);
   const audienceTypes = [article.primaryAudience, ...(article.secondaryAudiences || [])];
@@ -116,7 +102,7 @@ const renderPage = (article, index) => {
   const next = navigableArticles[navigationIndex + 1];
   const promotion = socialPromotion(article, canonical);
   const diseaseGroup = diseaseGroups.get(article.primaryDiseaseGroup);
-  const relatedPublications = relatedScientificPublications(article);
+  const relatedContent = contentRegistry.related(article.id);
   const socialText = `${article.title} — ${canonical}`;
   const renderedReferences = `<section class="seo-article-section seo-article-references"><h2>${escape(article.referencesTitle || "References and sources")}</h2>${article.referencesOrdered ? `<ol>${article.references.map((text) => `<li>${escape(text)}</li>`).join("")}</ol>` : `<ul>${article.references.map((text) => `<li>${escape(text)}</li>`).join("")}</ul>`}${article.sourcePdf ? `<a class="button button-outline" href="${relative(article.sourcePdf)}">Open source PDF</a>` : ""}</section>`;
   const renderedSections = article.sections.map(renderSection).join("");
@@ -175,23 +161,48 @@ const renderPage = (article, index) => {
       </header>
       <div class="seo-article-body">
       ${bodySections}
-      </div>${relatedPublications.length ? `
-      <section class="seo-related seo-related--publications"><h2>Related publications</h2><div>${relatedPublications.map((related) => `<a href="${related.slug}.html"><span>${escape(related.contentType)}</span><b>${escape(related.title)}</b></a>`).join("")}</div></section>` : ""}
+      </div>${relatedContent.length ? `
+      <section class="seo-related seo-related--publications"><h2>Related learning</h2><div>${relatedContent.map((related) => `<a href="${relative(related.route)}"><span>${escape(related.contentType)}</span><b>${escape(related.title)}</b></a>`).join("")}</div></section>` : ""}
       <section class="article-page-tools"><div class="article-share"><button type="button" class="button button-outline" data-share-toggle aria-expanded="false">Share</button><div class="article-share__menu" data-share-menu hidden><div class="article-share__menu-head"><b>Share article</b><button type="button" data-share-close aria-label="Close share options">Close</button></div><a target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=${encodeURIComponent(socialText)}">WhatsApp</a><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonical)}">Facebook</a><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(canonical)}">X</a><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonical)}">LinkedIn</a><button type="button" data-copy-link="${canonical}">Copy Link</button></div></div><button type="button" class="button button-dark" data-promote-open>Promote Article</button></section>
       <nav class="article-page-nav" aria-label="Article navigation">${previous ? `<a href="${previous.slug}.html">← <span>Previous Article</span><b>${escape(previous.title)}</b></a>` : `<span aria-hidden="true"></span>`}<a href="../library.html"><span>Back to</span><b>Medical Library</b></a>${next ? `<a href="${next.slug}.html"><span>Next Article</span><b>${escape(next.title)}</b> →</a>` : `<span aria-hidden="true"></span>`}</nav>
     </article>
   </main>
   <dialog class="article-promotion" data-promotion-dialog><div class="article-promotion__bar"><p>BA Medicale promotion toolkit</p><button type="button" data-promote-close>Close</button></div><div class="article-promotion__body"><p>This prepares source-faithful social teasers; it does not publish to social platforms.</p><div class="article-promotion__grid">${formats.map((format) => `<article><span>${format}</span><h2>${escape(promotion.hook)}</h2>${promotion.teaser.map((text) => `<p>${escape(text)}</p>`).join("")}<b>${escape(promotion.cta)}</b><small>${canonical}</small><p>${escape(promotion.hashtags.join(" "))}</p><button type="button" data-copy-promotion="${Buffer.from(promotion.text).toString("base64")}">Copy ${format} copy</button></article>`).join("")}</div></div></dialog>
   <footer class="seo-static-footer"><p>BA Medicale provides education, not individual diagnosis or treatment advice.</p><a href="../library.html">Return to the Medical Library</a><a href="../privacy-policy.html">Privacy Policy</a></footer>
-  <script src="../content.js?v=doctor-papers-20260901"></script><script src="../app.js?v=doctor-papers-20260901"></script>
+  <script src="../content.js?v=doctor-papers-20260901"></script><script src="../content-registry.js"></script><script src="../app.js?v=doctor-papers-20260901"></script>
 </body></html>`.replace(/[ \t]+\n/g, "\n");
 };
 
 const outputs = new Map(articles.map((article, index) => [path.join(root, "articles", `${article.slug}.html`), renderPage(article, index)]));
-seminars.forEach((event, index) => outputs.set(path.join(root, "events", `${event.slug}.html`), renderEventPage({ event, index, seminars, diseaseGroup: diseaseGroups.get(event.primaryDiseaseGroup), domain })));
+seminars.forEach((event, index) => outputs.set(path.join(root, "events", `${event.slug}.html`), renderEventPage({ event, index, seminars, diseaseGroup: diseaseGroups.get(event.primaryDiseaseGroup), relatedContent: contentRegistry.related(event.id), domain })));
 const baseUrls = ["/", "/public.html", "/clinical.html", "/healthcare-workers.html", "/library.html", "/seminar.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html", "/team.html", "/traffic.html", "/dr-bob-profile.html", "/nana-febrina-profile.html", "/melati-noerwa-profile.html", "/adlina-karisyah-profile.html", "/yudi-febriadi-profile.html", "/contact.html", "/privacy-policy.html"];
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${baseUrls.concat(articles.map((article) => `/articles/${article.slug}.html`), seminars.map((event) => `/${event.detailUrl}`)).map((url) => `  <url><loc>${domain}${url}</loc></url>`).join("\n")}\n</urlset>\n`;
+const indexableContentUrls = contentRegistry.query().filter((record) => record.indexable).map((record) => `/${record.route.replace(/^\//, "")}`);
+const sitemapUrls = [...new Set([...baseUrls, ...indexableContentUrls])];
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.map((url) => `  <url><loc>${domain}${url}</loc></url>`).join("\n")}\n</urlset>\n`;
 outputs.set(path.join(root, "sitemap.xml"), sitemap);
+
+const walk = (directory) => fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+  if ([".git", "Material", "node_modules"].includes(entry.name)) return [];
+  const fullPath = path.join(directory, entry.name);
+  return entry.isDirectory() ? walk(fullPath) : [fullPath];
+});
+const htmlFiles = walk(root).filter((file) => file.endsWith(".html"));
+for (const file of htmlFiles) {
+  const html = outputs.get(file) || fs.readFileSync(file, "utf8");
+  if (/app\.js[^"']*["']><\/script>/.test(html)) {
+    assert(/content-registry\.js[^"']*["']><\/script>/.test(html), `${path.relative(root, file)}: app.js requires content-registry.js`);
+    assert(html.indexOf("content-registry.js") < html.indexOf("app.js"), `${path.relative(root, file)}: content-registry.js must load before app.js`);
+  }
+  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    const reference = match[1];
+    if (!reference || reference.startsWith("#") || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(reference)) continue;
+    const pathname = decodeURIComponent(reference.split(/[?#]/)[0]);
+    if (!pathname) continue;
+    const target = pathname.startsWith("/") ? path.join(root, pathname.replace(/^\/+/, "")) : path.resolve(path.dirname(file), pathname);
+    const resolved = pathname.endsWith("/") ? path.join(target, "index.html") : target;
+    assert(fs.existsSync(resolved) || outputs.has(resolved), `${path.relative(root, file)}: broken internal reference ${reference}`);
+  }
+}
 
 let mismatches = 0;
 for (const [file, expected] of outputs) {
@@ -208,4 +219,4 @@ for (const [file, expected] of outputs) {
   }
 }
 if (checkOnly && mismatches) process.exitCode = 1;
-if (!mismatches) console.log(`content outputs current (${articles.length} article${articles.length === 1 ? "" : "s"}, ${seminars.length} seminar${seminars.length === 1 ? "" : "s"})`);
+if (!mismatches) console.log(`content outputs current (${contentRegistry.query().length} published registry items; ${articles.length} article${articles.length === 1 ? "" : "s"}, ${seminars.length} seminar${seminars.length === 1 ? "" : "s"})`);

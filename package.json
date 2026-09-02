@@ -4,6 +4,8 @@
     "admin:check": "node admin/server.js --check",
     "articles:build": "node scripts/build-articles.js",
     "articles:check": "node scripts/build-articles.js --check",
+    "content:build": "node scripts/build-articles.js",
+    "content:check": "node scripts/build-articles.js --check && node --test scripts/content-registry.test.js scripts/article-layout.test.js",
     "seminars:build": "node scripts/build-articles.js",
     "seminars:check": "node scripts/build-articles.js --check",
     "traffic:bootstrap": "node scripts/fetch-ga4-traffic.js --bootstrap",

@@ -317,6 +317,17 @@ If the same content type repeatedly requires manual edits across multiple files,
 
 Doctor-facing scientific publications use one canonical registry entry and one generated full-read page. Library, internal Search, For Doctors cards and chips, Homepage Latest Updates, Disease Explorer availability, related publications, schema, and sitemap must derive from that registry. `doctor-papers.html` is compatibility-only and must redirect to the matching Library context; never restore duplicate publication data or a parallel listing flow.
 
+## Dynamic Content Operating Model
+
+- `content.js` and the verified video catalogs contain canonical source records; `content-registry.js` is the single normalized query, routing, count, search, and related-content layer. Never add page-specific publication arrays or duplicate metadata in destination pages.
+- Publish once: add or update the canonical record, classify its audience/taxonomy/category, preserve its approved media and source data, then run `npm run content:build`. Homepage, audience pages, Disease Explorer, Library, Search, related learning, sitemap, and generated SEO pages must update from registry queries.
+- Library is the central content hub. Controlled query filters are shareable and reload-safe. Use the shared count destination rule: zero keeps the honest default state, one opens the canonical content route, and more than one opens a pre-filtered Library URL.
+- Public, Doctor, and Healthcare Worker pages use the same registry-driven availability, destination, and compact recent-list behavior. Empty states remain honest; tests may use fixtures but must not publish invented production content.
+- Editorial articles follow the normal source-verified editorial workflow. Scientific papers, case reports, assessments, and research remain source-locked: never rewrite their title, authors, affiliations, abstract, body, headings, figures, tables, captions, references, journal details, DOI, or scientific terminology.
+- Reuse the shared visual-state classes and current ivory/crimson/glass system. Search, schema, sitemap, analytics-safe taxonomy state, and generated routes must derive from the canonical metadata.
+- Validate with `npm run content:check`. It must fail on invalid audiences, taxonomy references, duplicate identities/routes, missing dates/routes/assets, incomplete scientific source metadata, stale generated pages, or sitemap drift.
+- `Material/` remains protected source/reference material. Never casually modify, stage, clean, move, or delete it.
+
 For source-locked scientific imports, classify only source-supported audience, content type, professional category, disease group, condition, topic, authors, original publication metadata, and BA Medicale publication date. Preserve the submitted title, authors, affiliations, abstract, headings, body, figures, tables, captions, references, DOI, and journal details exactly.
 
 Submitted:

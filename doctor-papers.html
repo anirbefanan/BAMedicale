@@ -11,8 +11,8 @@
   <script>
     (() => {
       const source = new URLSearchParams(window.location.search);
-      const target = new URLSearchParams({ audience: "DOCTOR" });
-      ["category", "disease", "condition", "topic", "type"].forEach((key) => {
+      const target = new URLSearchParams({ audience: "doctor" });
+      ["category", "disease", "condition", "topic", "type", "author"].forEach((key) => {
         const value = source.get(key);
         if (value) target.set(key, value);
       });
@@ -23,7 +23,7 @@
 <body>
   <main>
     <h1>Doctor publications have moved to the Medical Library.</h1>
-    <p><a href="library.html?audience=DOCTOR">Continue to doctor-facing publications</a></p>
+    <p><a href="library.html?audience=doctor">Continue to doctor-facing publications</a></p>
   </main>
 </body>
 </html>
