@@ -92,6 +92,11 @@ const diseaseIconPaths = {
 const diseaseIcon = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${diseaseIconPaths[name] || diseaseIconPaths.prevention}</svg>`;
 const route = window.location.pathname.split("/").pop().replace(".html", "") || "index";
 document.body.classList.add(`route-${route}`);
+const routePath = window.location.pathname.toLowerCase();
+const mediumImmersionRoutes = new Set(["public", "clinical", "healthcare-workers", "about", "team", "seminar", "videos", "ebooks", "resources", "contact", "symposia"]);
+const readingImmersionRoutes = new Set(["library", "search", "privacy-policy", "login", "traffic", "ebook-detail", "dr-bob-profile", "nana-febrina-profile", "melati-noerwa-profile", "adlina-karisyah-profile", "yudi-febriadi-profile"]);
+const immersionLevel = route === "index" ? "high" : routePath.includes("/articles/") || routePath.includes("/events/") || readingImmersionRoutes.has(route) ? "reading" : mediumImmersionRoutes.has(route) ? "medium" : "reading";
+document.body.classList.add(`immersion-${immersionLevel}`);
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[char]));
 const safeUrl = (value, { external = false, hosts = [] } = {}) => {
   try {
@@ -289,6 +294,21 @@ function renderHealthcareWorkerPage() {
 }
 
 function renderHome() {
+  const pathways = document.querySelector("[data-home-pathways]");
+  if (pathways) {
+    const pathwayDefinitions = [
+      { audience: "PUBLIC", label: "For Public", title: "Understand health and navigate care.", description: "Clear education for recognizing changes, understanding disease, and preparing for informed conversations.", icon: "cell" },
+      { audience: "DOCTOR", label: "For Doctors", title: "Move from evidence to clinical context.", description: "Scientific publications, diagnostic thinking, and professional learning organized around clinical questions.", icon: "path" },
+      { audience: "HEALTHCARE WORKER", label: "For Healthcare Workers", title: "Connect knowledge across the care team.", description: "Practical learning for investigations, care pathways, coordination, and multidisciplinary support.", icon: "book" }
+    ];
+    pathways.innerHTML = `<header class="home-pathways__head"><p class="approved-kicker">Choose your pathway</p><h2>One medical-learning environment, shaped around your role in care.</h2></header><div class="home-pathways__grid">${pathwayDefinitions.map((pathway) => {
+      const records = publishedContentForAudience(pathway.audience);
+      const latest = records[0];
+      const href = contentRegistry.destination(records, { audience: pathway.audience });
+      const availability = `${records.length} published ${records.length === 1 ? "item" : "items"}`;
+      return `<a class="home-pathway" href="${escapeHtml(href)}" data-pathway-audience="${escapeHtml(pathway.audience)}"><span class="home-pathway__icon">${icon(pathway.icon)}</span><span class="home-pathway__index">${escapeHtml(pathway.label)}</span><h3>${escapeHtml(pathway.title)}</h3><p>${escapeHtml(pathway.description)}</p><span class="home-pathway__context"><b>${escapeHtml(availability)}</b>${latest ? `<small>Latest: ${escapeHtml(latest.title)}</small>` : ""}</span><span class="home-pathway__action">Enter pathway <i aria-hidden="true">→</i></span></a>`;
+    }).join("")}</div>`;
+  }
   const diseaseExplorer = document.querySelector("[data-disease-explorer]");
   if (diseaseExplorer) {
     diseaseExplorer.innerHTML = `<header class="disease-explorer__head"><div><p class="approved-kicker">Disease Explorer</p><h2 id="disease-explorer-title">Explore medical knowledge by disease area.</h2></div><p>Explore diseases and health conditions across medical disciplines, with dedicated depth in cancer, neoplasia, and surgical oncology.</p></header><nav class="disease-explorer__grid" aria-label="Explore medical knowledge by disease group">${data.diseaseTaxonomy.map((group, index) => {
@@ -809,6 +829,53 @@ function initMotion() {
   });
 }
 
+function initImmersiveExperience() {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const immersive = document.body.classList.contains("immersion-high") || document.body.classList.contains("immersion-medium");
+  const sections = [...document.querySelectorAll("main > section, main > article, .company-section, .team-directory, .contact-layout")];
+  sections.forEach((section, index) => {
+    section.classList.add("immersive-section");
+    section.style.setProperty("--section-order", String(index));
+  });
+  if (!immersive || reducedMotion.matches) return;
+
+  if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      entry.target.classList.toggle("is-immersive-active", entry.isIntersecting);
+    }), { rootMargin: "-24% 0px -42%", threshold: 0 });
+    sections.forEach((section) => sectionObserver.observe(section));
+  }
+
+  let scrollFrame = 0;
+  const updateScrollDepth = () => {
+    scrollFrame = 0;
+    const shift = Math.min(window.scrollY * .018, 24);
+    const range = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    document.body.style.setProperty("--ambient-shift", `${-shift}px`);
+    document.body.style.setProperty("--scroll-progress", String(Math.min(window.scrollY / range, 1)));
+  };
+  window.addEventListener("scroll", () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollDepth);
+  }, { passive: true });
+  updateScrollDepth();
+
+  if (document.body.classList.contains("immersion-high") && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    let pointerFrame = 0;
+    let pointerX = 50;
+    let pointerY = 20;
+    window.addEventListener("pointermove", (event) => {
+      pointerX = event.clientX / window.innerWidth * 100;
+      pointerY = event.clientY / window.innerHeight * 100;
+      if (pointerFrame) return;
+      pointerFrame = requestAnimationFrame(() => {
+        pointerFrame = 0;
+        document.body.style.setProperty("--pointer-x", `${pointerX}%`);
+        document.body.style.setProperty("--pointer-y", `${pointerY}%`);
+      });
+    }, { passive: true });
+  }
+}
+
 function initLightbox() {
   const triggers = document.querySelectorAll("[data-lightbox-image]");
   if (!triggers.length) return;
@@ -1104,6 +1171,10 @@ function initAnalytics() {
       trackAnalytics("disease_explorer_click", { disease_group: disease || "" });
       return;
     }
+    if (control.matches(".home-pathway")) {
+      trackAnalytics("audience_pathway_click", { audience: control.dataset.pathwayAudience || "" });
+      return;
+    }
     if (control.matches("[data-article-reader]")) {
       trackAnalytics("quick_read_open", analyticsContent("article", data.articles?.[control.dataset.articleReader]));
       return;
@@ -1187,6 +1258,7 @@ async function bootstrap() {
   renderResources();
   initSearch();
   renderVideoHub();
+  initImmersiveExperience();
   initMotion();
   protectExternalLinks();
 }

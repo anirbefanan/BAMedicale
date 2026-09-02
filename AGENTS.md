@@ -328,6 +328,15 @@ Doctor-facing scientific publications use one canonical registry entry and one g
 - Validate with `npm run content:check`. It must fail on invalid audiences, taxonomy references, duplicate identities/routes, missing dates/routes/assets, incomplete scientific source metadata, stale generated pages, or sitemap drift.
 - `Material/` remains protected source/reference material. Never casually modify, stage, clean, move, or delete it.
 
+## Immersive Experience Model
+
+- Homepage is the highest-immersion route; audience and discovery pages use medium immersion; Library, Search, articles, scientific works, Privacy, Login, Traffic, and long-form profiles remain reading-first with low immersion.
+- Use the shared depth, glass, continuous-background, motion, and interaction tokens. Future component refinements must remain consistent across every route that uses that component family.
+- Preserve native scrolling. Never add scroll-jacking, large parallax distances, heavy animation frameworks, WebGL, or motion that competes with medical reading.
+- `prefers-reduced-motion` support is required. Remove nonessential transforms, stagger, ambient movement, and parallax while preserving every content and interaction state.
+- Keep immersion performance-first: prefer CSS, opacity/transform, IntersectionObserver, existing optimized media, and stable dimensions that prevent layout shift.
+- Visual work must preserve the canonical registry, semantic/indexable HTML, URLs, SEO/schema, sitemap, GA4, navigation behavior, publishing pipeline, and scientific source-lock rules.
+
 For source-locked scientific imports, classify only source-supported audience, content type, professional category, disease group, condition, topic, authors, original publication metadata, and BA Medicale publication date. Preserve the submitted title, authors, affiliations, abstract, headings, body, figures, tables, captions, references, DOI, and journal details exactly.
 
 Submitted:
