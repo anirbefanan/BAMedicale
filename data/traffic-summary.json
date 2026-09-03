@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T01:55:44.366Z",
+  "generatedAt": "2026-09-03T10:19:04.943Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-06",
@@ -7,9 +7,9 @@
   },
   "summary": {
     "activeUsers": 39,
-    "newUsers": 38,
-    "averageEngagementTimeSeconds": 506,
-    "eventCount": 1962
+    "newUsers": 39,
+    "averageEngagementTimeSeconds": 505.53846153846155,
+    "eventCount": 1967
   },
   "topPages": [
     {
@@ -21,17 +21,17 @@
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 120,
+      "views": 122,
       "activeUsers": 16,
-      "eventCount": 312,
-      "bounceRate": 0.28888888888888886
+      "eventCount": 316,
+      "bounceRate": 0.2
     },
     {
       "title": "Medical Library | BA Medicale",
       "views": 78,
       "activeUsers": 9,
       "eventCount": 171,
-      "bounceRate": 0.0625
+      "bounceRate": 0
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -44,8 +44,8 @@
       "title": "BA Medicale Team | Physician-Led Medical Education",
       "views": 60,
       "activeUsers": 7,
-      "eventCount": 143,
-      "bounceRate": 0.125
+      "eventCount": 142,
+      "bounceRate": 0.041666666666666664
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -55,18 +55,18 @@
       "bounceRate": 0.08333333333333333
     },
     {
+      "title": "For Doctors | BA Medicale",
+      "views": 33,
+      "activeUsers": 6,
+      "eventCount": 79,
+      "bounceRate": 0
+    },
+    {
       "title": "For Public | BA Medicale",
       "views": 33,
       "activeUsers": 6,
       "eventCount": 67,
-      "bounceRate": 0.07692307692307693
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 32,
-      "activeUsers": 6,
-      "eventCount": 78,
-      "bounceRate": 0.11764705882352941
+      "bounceRate": 0
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 6
+      "activeUsers": 7
     },
     {
       "label": "facebook.com / referral",
@@ -99,10 +99,6 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     },
     {
       "label": "m.facebook.com / referral",
@@ -116,11 +112,7 @@
     },
     {
       "label": "google / organic",
-      "sessions": 13
-    },
-    {
-      "label": "Not set",
-      "sessions": 4
+      "sessions": 14
     },
     {
       "label": "facebook.com / referral",
