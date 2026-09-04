@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-04T15:21:35.747Z",
+  "generatedAt": "2026-09-04T20:00:04.310Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-07",
-    "endDate": "2026-09-03"
+    "startDate": "2026-08-08",
+    "endDate": "2026-09-04"
   },
   "summary": {
-    "activeUsers": 41,
-    "newUsers": 41,
-    "averageEngagementTimeSeconds": 499.9268292682927,
-    "eventCount": 2048
+    "activeUsers": 42,
+    "newUsers": 42,
+    "averageEngagementTimeSeconds": 491.73809523809524,
+    "eventCount": 2070
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 144,
-      "activeUsers": 19,
-      "eventCount": 364,
-      "bounceRate": 0.23636363636363636
+      "views": 149,
+      "activeUsers": 21,
+      "eventCount": 378,
+      "bounceRate": 0.27586206896551724
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -63,10 +63,10 @@
     },
     {
       "title": "For Public | BA Medicale",
-      "views": 33,
-      "activeUsers": 6,
-      "eventCount": 67,
-      "bounceRate": 0
+      "views": 34,
+      "activeUsers": 7,
+      "eventCount": 69,
+      "bounceRate": 0.07142857142857142
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 28
+      "activeUsers": 29
     },
     {
       "label": "google / organic",
@@ -101,6 +101,10 @@
       "activeUsers": 2
     },
     {
+      "label": "Not set",
+      "activeUsers": 1
+    },
+    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -108,15 +112,19 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 115
+      "sessions": 118
     },
     {
       "label": "google / organic",
-      "sessions": 15
+      "sessions": 16
     },
     {
       "label": "facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -146,7 +154,7 @@
     },
     {
       "label": "Ashburn",
-      "activeUsers": 2
+      "activeUsers": 3
     },
     {
       "label": "San Jose",
