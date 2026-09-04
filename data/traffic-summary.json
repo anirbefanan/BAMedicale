@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T01:50:03.875Z",
+  "generatedAt": "2026-09-04T10:06:44.894Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-07",
@@ -7,17 +7,17 @@
   },
   "summary": {
     "activeUsers": 41,
-    "newUsers": 40,
-    "averageEngagementTimeSeconds": 526.439024390244,
-    "eventCount": 2139
+    "newUsers": 41,
+    "averageEngagementTimeSeconds": 499.9268292682927,
+    "eventCount": 2048
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 201,
+      "views": 144,
       "activeUsers": 19,
-      "eventCount": 460,
-      "bounceRate": 0.34545454545454546
+      "eventCount": 364,
+      "bounceRate": 0.23636363636363636
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -28,17 +28,17 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 78,
-      "activeUsers": 9,
-      "eventCount": 171,
+      "views": 79,
+      "activeUsers": 10,
+      "eventCount": 173,
       "bounceRate": 0
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
       "views": 63,
       "activeUsers": 9,
-      "eventCount": 147,
-      "bounceRate": 0.11538461538461539
+      "eventCount": 148,
+      "bounceRate": 0.038461538461538464
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -58,8 +58,8 @@
       "title": "For Doctors | BA Medicale",
       "views": 34,
       "activeUsers": 7,
-      "eventCount": 80,
-      "bounceRate": 0.05555555555555555
+      "eventCount": 82,
+      "bounceRate": 0
     },
     {
       "title": "For Public | BA Medicale",
@@ -73,7 +73,7 @@
       "views": 26,
       "activeUsers": 6,
       "eventCount": 62,
-      "bounceRate": 0.05555555555555555
+      "bounceRate": 0
     },
     {
       "title": "Contact BA Medicale | Medical Education Enquiries",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 27
+      "activeUsers": 28
     },
     {
       "label": "google / organic",
@@ -95,10 +95,6 @@
     {
       "label": "facebook.com / referral",
       "activeUsers": 3
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -112,15 +108,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 114
+      "sessions": 115
     },
     {
       "label": "google / organic",
       "sessions": 15
-    },
-    {
-      "label": "Not set",
-      "sessions": 5
     },
     {
       "label": "facebook.com / referral",
@@ -173,7 +165,7 @@
       "activeUsers": 1
     },
     {
-      "label": "Bekasi Regency",
+      "label": "Batam",
       "activeUsers": 1
     }
   ]
