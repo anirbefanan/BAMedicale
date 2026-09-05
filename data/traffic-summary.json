@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T01:51:18.089Z",
+  "generatedAt": "2026-09-05T09:36:23.017Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-08",
@@ -9,15 +9,15 @@
     "activeUsers": 42,
     "newUsers": 42,
     "averageEngagementTimeSeconds": 491.73809523809524,
-    "eventCount": 2070
+    "eventCount": 2068
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 149,
+      "views": 148,
       "activeUsers": 21,
-      "eventCount": 378,
-      "bounceRate": 0.27586206896551724
+      "eventCount": 376,
+      "bounceRate": 0.2413793103448276
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -66,7 +66,7 @@
       "views": 34,
       "activeUsers": 7,
       "eventCount": 69,
-      "bounceRate": 0.07142857142857142
+      "bounceRate": 0
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -101,10 +101,6 @@
       "activeUsers": 2
     },
     {
-      "label": "Not set",
-      "activeUsers": 1
-    },
-    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -121,10 +117,6 @@
     {
       "label": "facebook.com / referral",
       "sessions": 3
-    },
-    {
-      "label": "Not set",
-      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
