@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-05T14:09:25.451Z",
+  "generatedAt": "2026-09-05T19:40:10.063Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-08",
-    "endDate": "2026-09-04"
+    "startDate": "2026-08-09",
+    "endDate": "2026-09-05"
   },
   "summary": {
     "activeUsers": 42,
     "newUsers": 42,
-    "averageEngagementTimeSeconds": 491.73809523809524,
-    "eventCount": 2068
+    "averageEngagementTimeSeconds": 496.76190476190476,
+    "eventCount": 2104
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 148,
-      "activeUsers": 21,
-      "eventCount": 376,
-      "bounceRate": 0.2413793103448276
+      "views": 155,
+      "activeUsers": 22,
+      "eventCount": 393,
+      "bounceRate": 0.30158730158730157
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -28,10 +28,10 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 79,
-      "activeUsers": 10,
-      "eventCount": 173,
-      "bounceRate": 0
+      "views": 80,
+      "activeUsers": 11,
+      "eventCount": 177,
+      "bounceRate": 0.029411764705882353
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -48,25 +48,25 @@
       "bounceRate": 0
     },
     {
+      "title": "For Public | BA Medicale",
+      "views": 36,
+      "activeUsers": 8,
+      "eventCount": 75,
+      "bounceRate": 0.125
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 35,
+      "activeUsers": 8,
+      "eventCount": 84,
+      "bounceRate": 0.05263157894736842
+    },
+    {
       "title": "About BA Medicale | Medical Learning for Better Care",
       "views": 34,
       "activeUsers": 6,
       "eventCount": 83,
       "bounceRate": 0.08333333333333333
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 34,
-      "activeUsers": 7,
-      "eventCount": 82,
-      "bounceRate": 0
-    },
-    {
-      "title": "For Public | BA Medicale",
-      "views": 34,
-      "activeUsers": 7,
-      "eventCount": 69,
-      "bounceRate": 0
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -108,11 +108,15 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 118
+      "sessions": 121
     },
     {
       "label": "google / organic",
-      "sessions": 16
+      "sessions": 18
+    },
+    {
+      "label": "Not set",
+      "sessions": 3
     },
     {
       "label": "facebook.com / referral",
