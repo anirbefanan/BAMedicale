@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-06T14:33:31.162Z",
+  "generatedAt": "2026-09-06T19:43:16.385Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-09",
-    "endDate": "2026-09-05"
+    "startDate": "2026-08-10",
+    "endDate": "2026-09-06"
   },
   "summary": {
-    "activeUsers": 42,
-    "newUsers": 42,
-    "averageEngagementTimeSeconds": 497.8095238095238,
-    "eventCount": 2111
+    "activeUsers": 43,
+    "newUsers": 43,
+    "averageEngagementTimeSeconds": 487.27906976744185,
+    "eventCount": 2136
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 158,
-      "activeUsers": 22,
-      "eventCount": 400,
-      "bounceRate": 0.265625
+      "views": 162,
+      "activeUsers": 23,
+      "eventCount": 414,
+      "bounceRate": 0.3188405797101449
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -42,10 +42,10 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 61,
+      "views": 62,
       "activeUsers": 10,
-      "eventCount": 169,
-      "bounceRate": 0
+      "eventCount": 172,
+      "bounceRate": 0.03571428571428571
     },
     {
       "title": "For Public | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 29
+      "activeUsers": 30
     },
     {
       "label": "google / organic",
@@ -108,15 +108,19 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 123
+      "sessions": 128
     },
     {
       "label": "google / organic",
-      "sessions": 18
+      "sessions": 19
     },
     {
       "label": "facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -133,12 +137,12 @@
       "activeUsers": 17
     },
     {
-      "label": "Sukabumi",
+      "label": "Council Bluffs",
       "activeUsers": 5
     },
     {
-      "label": "Council Bluffs",
-      "activeUsers": 4
+      "label": "Sukabumi",
+      "activeUsers": 5
     },
     {
       "label": "Depok",
