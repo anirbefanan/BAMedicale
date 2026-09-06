@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T01:45:21.345Z",
+  "generatedAt": "2026-09-06T09:51:16.144Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-09",
@@ -8,16 +8,16 @@
   "summary": {
     "activeUsers": 42,
     "newUsers": 42,
-    "averageEngagementTimeSeconds": 496.76190476190476,
-    "eventCount": 2104
+    "averageEngagementTimeSeconds": 497.8095238095238,
+    "eventCount": 2111
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 155,
+      "views": 158,
       "activeUsers": 22,
-      "eventCount": 393,
-      "bounceRate": 0.30158730158730157
+      "eventCount": 400,
+      "bounceRate": 0.265625
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -31,7 +31,7 @@
       "views": 80,
       "activeUsers": 11,
       "eventCount": 177,
-      "bounceRate": 0.029411764705882353
+      "bounceRate": 0
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -52,14 +52,14 @@
       "views": 36,
       "activeUsers": 8,
       "eventCount": 75,
-      "bounceRate": 0.125
+      "bounceRate": 0.0625
     },
     {
       "title": "For Doctors | BA Medicale",
       "views": 35,
       "activeUsers": 8,
       "eventCount": 84,
-      "bounceRate": 0.05263157894736842
+      "bounceRate": 0
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -108,15 +108,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 121
+      "sessions": 123
     },
     {
       "label": "google / organic",
       "sessions": 18
-    },
-    {
-      "label": "Not set",
-      "sessions": 3
     },
     {
       "label": "facebook.com / referral",
