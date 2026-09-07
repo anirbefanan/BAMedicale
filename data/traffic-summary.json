@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-07T16:48:09.124Z",
+  "generatedAt": "2026-09-07T20:53:11.716Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-10",
-    "endDate": "2026-09-06"
+    "startDate": "2026-08-11",
+    "endDate": "2026-09-07"
   },
   "summary": {
-    "activeUsers": 43,
-    "newUsers": 43,
-    "averageEngagementTimeSeconds": 487.27906976744185,
-    "eventCount": 2136
+    "activeUsers": 44,
+    "newUsers": 45,
+    "averageEngagementTimeSeconds": 476.52272727272725,
+    "eventCount": 2154
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 162,
-      "activeUsers": 23,
-      "eventCount": 414,
-      "bounceRate": 0.2898550724637681
+      "views": 166,
+      "activeUsers": 24,
+      "eventCount": 426,
+      "bounceRate": 0.33783783783783783
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 7
+      "activeUsers": 8
     },
     {
       "label": "facebook.com / referral",
@@ -108,11 +108,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 128
+      "sessions": 132
     },
     {
       "label": "google / organic",
-      "sessions": 19
+      "sessions": 20
     },
     {
       "label": "facebook.com / referral",
@@ -123,6 +123,10 @@
       "sessions": 2
     },
     {
+      "label": "Not set",
+      "sessions": 1
+    },
+    {
       "label": "m.facebook.com / referral",
       "sessions": 1
     }
@@ -130,7 +134,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 17
+      "activeUsers": 18
     },
     {
       "label": "Council Bluffs",
