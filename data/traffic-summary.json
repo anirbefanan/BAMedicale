@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T01:42:38.695Z",
+  "generatedAt": "2026-09-07T10:58:08.462Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-10",
@@ -17,7 +17,7 @@
       "views": 162,
       "activeUsers": 23,
       "eventCount": 414,
-      "bounceRate": 0.3188405797101449
+      "bounceRate": 0.2898550724637681
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -45,7 +45,7 @@
       "views": 62,
       "activeUsers": 10,
       "eventCount": 172,
-      "bounceRate": 0.03571428571428571
+      "bounceRate": 0
     },
     {
       "title": "For Public | BA Medicale",
@@ -117,10 +117,6 @@
     {
       "label": "facebook.com / referral",
       "sessions": 3
-    },
-    {
-      "label": "Not set",
-      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
