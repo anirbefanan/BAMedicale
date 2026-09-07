@@ -465,9 +465,9 @@ window.BAMEDICALE_DATA = {
     ],
     outcomes: ["SKP credit — Ministry of Health", "Latest evidence-based topic", "Expert speakers", "Interactive Q&A session"],
     artwork: "assets/events/management-thyroid-nodules-sept19-2026.png",
-    artworkWidth: 1240,
-    artworkHeight: 1754,
-    artworkAspectRatio: "1240 / 1754",
+    artworkWidth: 1055,
+    artworkHeight: 1491,
+    artworkAspectRatio: "1055 / 1491",
     detailUrl: "events/management-thyroid-nodules-2026.html",
     promotion: {
       hook: "What makes a thyroid nodule diagnosis accurate?",
