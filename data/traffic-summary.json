@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-08T01:54:00.155Z",
+  "generatedAt": "2026-09-08T10:14:08.742Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-11",
     "endDate": "2026-09-07"
   },
   "summary": {
-    "activeUsers": 44,
-    "newUsers": 45,
-    "averageEngagementTimeSeconds": 476.52272727272725,
-    "eventCount": 2154
+    "activeUsers": 45,
+    "newUsers": 46,
+    "averageEngagementTimeSeconds": 465.93333333333334,
+    "eventCount": 2159
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 166,
-      "activeUsers": 24,
-      "eventCount": 426,
-      "bounceRate": 0.33783783783783783
+      "views": 169,
+      "activeUsers": 25,
+      "eventCount": 431,
+      "bounceRate": 0.29333333333333333
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 30
+      "activeUsers": 31
     },
     {
       "label": "google / organic",
@@ -108,7 +108,7 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 132
+      "sessions": 133
     },
     {
       "label": "google / organic",
@@ -121,10 +121,6 @@
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
-    },
-    {
-      "label": "Not set",
-      "sessions": 1
     },
     {
       "label": "m.facebook.com / referral",
@@ -153,6 +149,10 @@
       "activeUsers": 3
     },
     {
+      "label": "Jonggol",
+      "activeUsers": 2
+    },
+    {
       "label": "San Jose",
       "activeUsers": 2
     },
@@ -166,10 +166,6 @@
     },
     {
       "label": "Banjarnegara",
-      "activeUsers": 1
-    },
-    {
-      "label": "Batam",
       "activeUsers": 1
     }
   ]
