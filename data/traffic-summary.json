@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-08T15:35:44.142Z",
+  "generatedAt": "2026-09-08T20:26:26.669Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-11",
-    "endDate": "2026-09-07"
+    "startDate": "2026-08-12",
+    "endDate": "2026-09-08"
   },
   "summary": {
-    "activeUsers": 45,
-    "newUsers": 46,
-    "averageEngagementTimeSeconds": 465.93333333333334,
-    "eventCount": 2159
+    "activeUsers": 49,
+    "newUsers": 48,
+    "averageEngagementTimeSeconds": 435.3469387755102,
+    "eventCount": 2233
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 169,
-      "activeUsers": 25,
-      "eventCount": 431,
-      "bounceRate": 0.29333333333333333
+      "views": 181,
+      "activeUsers": 27,
+      "eventCount": 461,
+      "bounceRate": 0.3614457831325301
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -34,18 +34,18 @@
       "bounceRate": 0
     },
     {
+      "title": "Courses & Seminars | BA Medicale",
+      "views": 66,
+      "activeUsers": 11,
+      "eventCount": 181,
+      "bounceRate": 0.06666666666666667
+    },
+    {
       "title": "BA Medicale Team | Physician-Led Medical Education",
       "views": 63,
       "activeUsers": 9,
       "eventCount": 148,
       "bounceRate": 0.038461538461538464
-    },
-    {
-      "title": "Courses & Seminars | BA Medicale",
-      "views": 62,
-      "activeUsers": 10,
-      "eventCount": 172,
-      "bounceRate": 0
     },
     {
       "title": "For Public | BA Medicale",
@@ -69,17 +69,17 @@
       "bounceRate": 0.08333333333333333
     },
     {
+      "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
+      "views": 30,
+      "activeUsers": 12,
+      "eventCount": 106,
+      "bounceRate": 0.36
+    },
+    {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
       "views": 26,
       "activeUsers": 6,
       "eventCount": 62,
-      "bounceRate": 0
-    },
-    {
-      "title": "Contact BA Medicale | Medical Education Enquiries",
-      "views": 24,
-      "activeUsers": 5,
-      "eventCount": 55,
       "bounceRate": 0
     }
   ],
@@ -93,38 +93,46 @@
       "activeUsers": 8
     },
     {
+      "label": "Not set",
+      "activeUsers": 3
+    },
+    {
       "label": "facebook.com / referral",
+      "activeUsers": 3
+    },
+    {
+      "label": "m.facebook.com / referral",
       "activeUsers": 3
     },
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "m.facebook.com / referral",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 133
+      "sessions": 136
     },
     {
       "label": "google / organic",
-      "sessions": 20
+      "sessions": 24
+    },
+    {
+      "label": "Not set",
+      "sessions": 6
     },
     {
       "label": "facebook.com / referral",
       "sessions": 3
     },
     {
-      "label": "l.instagram.com / referral",
-      "sessions": 2
+      "label": "m.facebook.com / referral",
+      "sessions": 3
     },
     {
-      "label": "m.facebook.com / referral",
-      "sessions": 1
+      "label": "l.instagram.com / referral",
+      "sessions": 2
     }
   ],
   "cities": [
@@ -134,7 +142,7 @@
     },
     {
       "label": "Council Bluffs",
-      "activeUsers": 5
+      "activeUsers": 6
     },
     {
       "label": "Sukabumi",
@@ -150,6 +158,10 @@
     },
     {
       "label": "Jonggol",
+      "activeUsers": 3
+    },
+    {
+      "label": "Prineville",
       "activeUsers": 2
     },
     {
@@ -162,10 +174,6 @@
     },
     {
       "label": "Bandar Lampung",
-      "activeUsers": 1
-    },
-    {
-      "label": "Banjarnegara",
       "activeUsers": 1
     }
   ]
