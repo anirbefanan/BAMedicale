@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-09T15:29:47.685Z",
+  "generatedAt": "2026-09-09T20:09:34.902Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-12",
-    "endDate": "2026-09-08"
+    "startDate": "2026-08-13",
+    "endDate": "2026-09-09"
   },
   "summary": {
     "activeUsers": 50,
     "newUsers": 51,
-    "averageEngagementTimeSeconds": 428.32,
-    "eventCount": 2247
+    "averageEngagementTimeSeconds": 430.18,
+    "eventCount": 2268
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 184,
+      "views": 188,
       "activeUsers": 27,
-      "eventCount": 471,
-      "bounceRate": 0.2891566265060241
+      "eventCount": 479,
+      "bounceRate": 0.313953488372093
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -35,10 +35,10 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 66,
+      "views": 67,
       "activeUsers": 11,
-      "eventCount": 181,
-      "bounceRate": 0
+      "eventCount": 183,
+      "bounceRate": 0.03225806451612903
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -70,10 +70,10 @@
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 31,
-      "activeUsers": 13,
-      "eventCount": 110,
-      "bounceRate": 0.12
+      "views": 34,
+      "activeUsers": 14,
+      "eventCount": 121,
+      "bounceRate": 0.21428571428571427
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -108,11 +108,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 138
+      "sessions": 139
     },
     {
       "label": "google / organic",
-      "sessions": 24
+      "sessions": 26
     },
     {
       "label": "facebook.com / referral",
@@ -125,6 +125,10 @@
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 1
     }
   ],
   "cities": [
@@ -153,6 +157,10 @@
       "activeUsers": 3
     },
     {
+      "label": "Bekasi",
+      "activeUsers": 2
+    },
+    {
       "label": "Prineville",
       "activeUsers": 2
     },
@@ -162,10 +170,6 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 1
-    },
-    {
-      "label": "Bandar Lampung",
       "activeUsers": 1
     }
   ]
