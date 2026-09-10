@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T01:56:11.194Z",
+  "generatedAt": "2026-09-10T10:12:04.690Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-13",
@@ -9,7 +9,7 @@
     "activeUsers": 50,
     "newUsers": 51,
     "averageEngagementTimeSeconds": 430.18,
-    "eventCount": 2268
+    "eventCount": 2270
   },
   "topPages": [
     {
@@ -17,7 +17,7 @@
       "views": 188,
       "activeUsers": 27,
       "eventCount": 479,
-      "bounceRate": 0.313953488372093
+      "bounceRate": 0.29069767441860467
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -38,7 +38,7 @@
       "views": 67,
       "activeUsers": 11,
       "eventCount": 183,
-      "bounceRate": 0.03225806451612903
+      "bounceRate": 0
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -62,18 +62,18 @@
       "bounceRate": 0
     },
     {
+      "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
+      "views": 35,
+      "activeUsers": 14,
+      "eventCount": 123,
+      "bounceRate": 0.10714285714285714
+    },
+    {
       "title": "About BA Medicale | Medical Learning for Better Care",
       "views": 34,
       "activeUsers": 6,
       "eventCount": 83,
       "bounceRate": 0.08333333333333333
-    },
-    {
-      "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 34,
-      "activeUsers": 14,
-      "eventCount": 121,
-      "bounceRate": 0.21428571428571427
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -112,7 +112,7 @@
     },
     {
       "label": "google / organic",
-      "sessions": 26
+      "sessions": 27
     },
     {
       "label": "facebook.com / referral",
@@ -125,10 +125,6 @@
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
-    },
-    {
-      "label": "Not set",
-      "sessions": 1
     }
   ],
   "cities": [
