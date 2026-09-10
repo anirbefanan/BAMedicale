@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-10T15:25:05.378Z",
+  "generatedAt": "2026-09-10T20:11:41.495Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-13",
-    "endDate": "2026-09-09"
+    "startDate": "2026-08-14",
+    "endDate": "2026-09-10"
   },
   "summary": {
-    "activeUsers": 50,
-    "newUsers": 51,
-    "averageEngagementTimeSeconds": 430.18,
-    "eventCount": 2270
+    "activeUsers": 56,
+    "newUsers": 56,
+    "averageEngagementTimeSeconds": 395.82142857142856,
+    "eventCount": 2320
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 188,
-      "activeUsers": 27,
-      "eventCount": 479,
-      "bounceRate": 0.29069767441860467
+      "views": 195,
+      "activeUsers": 33,
+      "eventCount": 503,
+      "bounceRate": 0.33695652173913043
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -28,10 +28,10 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 80,
-      "activeUsers": 11,
-      "eventCount": 177,
-      "bounceRate": 0
+      "views": 82,
+      "activeUsers": 12,
+      "eventCount": 180,
+      "bounceRate": 0.02857142857142857
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -48,6 +48,20 @@
       "bounceRate": 0.038461538461538464
     },
     {
+      "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
+      "views": 37,
+      "activeUsers": 15,
+      "eventCount": 131,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 36,
+      "activeUsers": 9,
+      "eventCount": 86,
+      "bounceRate": 0.05
+    },
+    {
       "title": "For Public | BA Medicale",
       "views": 36,
       "activeUsers": 8,
@@ -55,25 +69,11 @@
       "bounceRate": 0.0625
     },
     {
-      "title": "For Doctors | BA Medicale",
-      "views": 35,
-      "activeUsers": 8,
-      "eventCount": 84,
-      "bounceRate": 0
-    },
-    {
-      "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 35,
-      "activeUsers": 14,
-      "eventCount": 123,
-      "bounceRate": 0.10714285714285714
-    },
-    {
       "title": "About BA Medicale | Medical Learning for Better Care",
-      "views": 34,
-      "activeUsers": 6,
-      "eventCount": 83,
-      "bounceRate": 0.08333333333333333
+      "views": 35,
+      "activeUsers": 7,
+      "eventCount": 86,
+      "bounceRate": 0.21428571428571427
     },
     {
       "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -86,51 +86,71 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 33
+      "activeUsers": 34
     },
     {
       "label": "google / organic",
-      "activeUsers": 8
+      "activeUsers": 9
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 4
+    },
+    {
+      "label": "l.instagram.com / referral",
+      "activeUsers": 4
     },
     {
       "label": "facebook.com / referral",
       "activeUsers": 3
     },
     {
-      "label": "l.instagram.com / referral",
+      "label": "m.facebook.com / referral",
       "activeUsers": 3
     },
     {
-      "label": "m.facebook.com / referral",
-      "activeUsers": 3
+      "label": "(data not available)",
+      "activeUsers": 2
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 139
+      "sessions": 140
     },
     {
       "label": "google / organic",
-      "sessions": 27
+      "sessions": 29
+    },
+    {
+      "label": "Not set",
+      "sessions": 5
+    },
+    {
+      "label": "l.instagram.com / referral",
+      "sessions": 4
     },
     {
       "label": "facebook.com / referral",
       "sessions": 3
     },
     {
-      "label": "l.instagram.com / referral",
+      "label": "m.facebook.com / referral",
       "sessions": 3
     },
     {
-      "label": "m.facebook.com / referral",
-      "sessions": 3
+      "label": "(data not available)",
+      "sessions": 2
+    },
+    {
+      "label": "bing / organic",
+      "sessions": 1
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 19
+      "activeUsers": 22
     },
     {
       "label": "Council Bluffs",
@@ -145,15 +165,19 @@
       "activeUsers": 4
     },
     {
+      "label": "Jonggol",
+      "activeUsers": 4
+    },
+    {
       "label": "Ashburn",
       "activeUsers": 3
     },
     {
-      "label": "Jonggol",
-      "activeUsers": 3
+      "label": "Bekasi",
+      "activeUsers": 2
     },
     {
-      "label": "Bekasi",
+      "label": "Glenview",
       "activeUsers": 2
     },
     {
@@ -163,10 +187,6 @@
     {
       "label": "San Jose",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     }
   ]
 }
