@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-11T15:27:09.092Z",
+  "generatedAt": "2026-09-11T20:10:58.842Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-14",
-    "endDate": "2026-09-10"
+    "startDate": "2026-08-15",
+    "endDate": "2026-09-11"
   },
   "summary": {
-    "activeUsers": 56,
-    "newUsers": 57,
-    "averageEngagementTimeSeconds": 414.625,
-    "eventCount": 2336
+    "activeUsers": 57,
+    "newUsers": 58,
+    "averageEngagementTimeSeconds": 408.0701754385965,
+    "eventCount": 2366
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 197,
-      "activeUsers": 33,
-      "eventCount": 509,
-      "bounceRate": 0.2826086956521739
+      "views": 204,
+      "activeUsers": 34,
+      "eventCount": 520,
+      "bounceRate": 0.30526315789473685
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -42,17 +42,17 @@
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 63,
+      "views": 64,
       "activeUsers": 9,
-      "eventCount": 148,
-      "bounceRate": 0.038461538461538464
+      "eventCount": 149,
+      "bounceRate": 0.07407407407407407
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 38,
+      "views": 42,
       "activeUsers": 15,
-      "eventCount": 134,
-      "bounceRate": 0.13333333333333333
+      "eventCount": 147,
+      "bounceRate": 0.1875
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 34
+      "activeUsers": 35
     },
     {
       "label": "google / organic",
@@ -112,11 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 140
+      "sessions": 141
     },
     {
       "label": "google / organic",
-      "sessions": 30
+      "sessions": 35
     },
     {
       "label": "l.instagram.com / referral",
@@ -133,6 +133,10 @@
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 1
     }
   ],
   "cities": [
@@ -149,16 +153,16 @@
       "activeUsers": 5
     },
     {
+      "label": "Ashburn",
+      "activeUsers": 4
+    },
+    {
       "label": "Depok",
       "activeUsers": 4
     },
     {
       "label": "Jonggol",
       "activeUsers": 4
-    },
-    {
-      "label": "Ashburn",
-      "activeUsers": 3
     },
     {
       "label": "Bekasi",
