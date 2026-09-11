@@ -446,6 +446,10 @@ window.BAMEDICALE_DATA = {
     isAccessibleForFree: true,
     maximumAttendeeCapacity: 1000,
     registration: "s.kemkes.go.id/WebinarMTN",
+    secondaryRegistration: {
+      label: "Register via Google Form",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSdO5nraWyfn81mR0dduHuzaPz5-aeBb_IcJ0oM8_Yu8kwaJvQ/viewform"
+    },
     contact: "Melati: 0821-236-6331 · support@bamedicale.com",
     quota: "Limited to 1,000 participants.",
     organizer: "Department of Head and Neck",

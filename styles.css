@@ -958,6 +958,8 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .seo-event-hero dl div{padding:10px 0;border-top:1px solid var(--border)}
 .seo-event-hero dt{color:var(--brand-primary);font-size:.75rem;font-weight:800;text-transform:uppercase}
 .seo-event-hero dd{margin:6px 0 0;color:var(--text-primary);font-size:.875rem}
+.seo-event-actions{display:grid;width:min(100%,280px);gap:8px;margin-top:14px}
+.seo-event-actions .button{width:100%}
 .seo-event-schedule{display:grid;gap:12px;padding:0;list-style:none}
 .seo-event-schedule li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid var(--border)}
 .seo-event-schedule li.seo-event-schedule__topic{grid-template-columns:minmax(0,1fr)}

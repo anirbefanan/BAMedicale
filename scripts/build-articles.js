@@ -54,6 +54,10 @@ for (const seminar of seminars) {
   assert(Array.isArray(seminar.sessions) && seminar.sessions.length, `${seminar.id}: verified program sessions are required`);
   assert(Array.isArray(seminar.faculty) && seminar.faculty.length, `${seminar.id}: verified faculty is required`);
   assert(seminar.promotion?.hook && seminar.promotion?.teaser?.length, `${seminar.id}: source-specific event promotion is required`);
+  if (seminar.secondaryRegistration) {
+    assert(seminar.secondaryRegistration.label, `${seminar.id}: secondary registration label is required`);
+    assert(/^https:\/\//i.test(seminar.secondaryRegistration.url || ""), `${seminar.id}: secondary registration must use HTTPS`);
+  }
   assert(seminar.detailUrl === `events/${seminar.slug}.html`, `${seminar.id}: detailUrl must match its canonical event slug`);
 }
 
