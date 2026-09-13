@@ -1711,7 +1711,7 @@ body[class] :is(
 body[class] :is(.home-update-card,.article-list-item,.seminar-past-row,.profile-principles,.profile-detail-grid article,.profile-record article,.profile-journey__timeline li,.journey-step,.login-info){
   --component-surface:var(--card-reading-surface)}
 body[class] :is(.seo-article-body,.privacy-policy__content,.contact-form,.login-card){--component-surface:var(--reading-surface)}
-body[class] :is(.audience-card,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)){
+body[class] :is(.audience-card--published,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)){
   --component-shadow:var(--card-action-shadow);
   transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 /* Grouping sections stay unframed, so glass cards do not sit inside another card. */
@@ -1798,7 +1798,7 @@ body[class] .contact-form :is(input,select,textarea):focus-visible{outline:2px s
 body[class] :is(.article-pagination button,.seminar-pagination button):disabled{opacity:.6;cursor:not-allowed}
 body[class] :is(.article-pagination,.seminar-pagination){flex-wrap:wrap;gap:10px}
 @media(hover:hover) and (pointer:fine){
-  body[class] :is(.audience-card,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){
+  body[class] :is(.audience-card--published,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){
     transform:translateY(-2px);
     border-color:rgba(var(--brand-rgb),.3);
     box-shadow:var(--card-hover-shadow)}
@@ -1810,13 +1810,19 @@ body[class] :is(.article-pagination,.seminar-pagination){flex-wrap:wrap;gap:10px
   body[class] .article-filters select{font-size:1rem}
 }
 @media(prefers-reduced-motion:reduce){
-  body[class] :is(.audience-card,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){transform:none;transition:none}
+  body[class] :is(.audience-card--published,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){transform:none;transition:none}
 }
 
-/* One audience discovery family; availability changes content, never the material. */
+/* One audience discovery family; registry availability controls emphasis within the same glass material. */
 body[class] .audience-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--card-gap);align-items:stretch}
 body[class] .audience-card-grid--paired{grid-template-columns:repeat(2,minmax(0,1fr))}
 .audience-card{position:relative;display:flex;flex-direction:column;gap:0;min-width:0;padding:var(--card-padding);scroll-margin-top:110px;overflow-wrap:anywhere;text-decoration:none}
+body[class] .audience-card{--card-border:rgba(79,66,68,.14);--card-tint:linear-gradient(135deg,rgba(119,47,63,.015),transparent 65%);--component-shadow:0 4px 14px rgba(91,30,43,.035),var(--card-highlight)}
+body[class] .audience-card.audience-card--published{--card-border:rgba(var(--brand-rgb),.3);--card-tint:radial-gradient(ellipse at top left,rgba(var(--brand-rgb),.085),transparent 70%);--component-shadow:inset 3px 0 var(--brand-primary),var(--card-action-shadow);--card-hover-shadow:inset 3px 0 var(--brand-primary),0 20px 40px rgba(91,30,43,.14),var(--card-highlight)}
+.audience-card:not(.audience-card--published) :is(.audience-card__eyebrow,.audience-card__icon,.audience-card__action){color:var(--text-secondary)}
+.audience-card:not(.audience-card--published) .audience-card__icon{background:rgba(255,255,255,.48);border-color:rgba(79,66,68,.14);box-shadow:none}
+.audience-card--published .audience-card__icon{color:var(--on-brand);background:var(--brand-primary);border-color:var(--brand-primary);box-shadow:0 5px 12px rgba(var(--brand-rgb),.16),var(--card-highlight)}
+.audience-card--published .audience-card__action b{color:var(--on-brand);background:var(--brand-primary);border-color:var(--brand-primary)}
 .audience-card__heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
 .audience-card__icon{display:grid;flex:none;width:48px;height:48px;place-items:center;color:var(--brand-primary);background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(var(--brand-rgb),.065));border:1px solid rgba(var(--brand-rgb),.16);border-radius:12px;box-shadow:var(--card-highlight);transition:transform .2s ease,background-color .2s ease}
 .audience-card__icon svg{width:25px;height:25px}
@@ -1841,10 +1847,11 @@ body[class] .audience-recent-card{display:grid;grid-template-columns:minmax(180p
 .audience-recent-card .home-update-item b{font-size:.875rem;line-height:1.5}
 .audience-recent-card .home-update-item span{font-size:.75rem;line-height:1.5}
 @media(hover:hover) and (pointer:fine){
-  a.audience-card:hover .audience-card__icon{transform:translateY(-2px) rotate(-3deg)}
-  a.audience-card:hover .audience-card__action b{transform:translateX(3px);background:rgba(var(--brand-rgb),.07)}
+  a.audience-card--published:hover .audience-card__icon{transform:translateY(-2px) rotate(-3deg)}
+  a.audience-card--published:hover .audience-card__action b{transform:translateX(3px);background:var(--brand-secondary)}
 }
-a.audience-card:focus-visible .audience-card__action b{background:rgba(var(--brand-rgb),.09)}
+a.audience-card:focus-visible .audience-card__action{text-decoration:underline;text-underline-offset:4px}
+@media(hover:hover) and (pointer:fine){a.audience-card:not(.audience-card--published):hover .audience-card__action{text-decoration:underline;text-underline-offset:4px}}
 @media(max-width:1050px){body[class] .audience-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){
   body[class] .audience-card-grid{grid-template-columns:minmax(0,1fr)}
@@ -1853,7 +1860,7 @@ a.audience-card:focus-visible .audience-card__action b{background:rgba(var(--bra
 }
 @media(prefers-reduced-motion:reduce){
   .audience-card__icon,.audience-card__action b{transition:none}
-  a.audience-card:hover .audience-card__icon,a.audience-card:hover .audience-card__action b{transform:none}
+  a.audience-card--published:hover .audience-card__icon,a.audience-card--published:hover .audience-card__action b{transform:none}
 }
 
 /* Registry-driven doctor content shares one active state and compact publication-list family. */
