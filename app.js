@@ -717,7 +717,9 @@ function initShell() {
       }
     });
     group.addEventListener("focusout", (event) => {
-      if (group.closest(".nav-main") && !group.contains(event.relatedTarget)) group.open = false;
+      // Safari mouse clicks can blur the summary without focusing the link.
+      // Keep the menu visible until click; outside clicks and Escape close it below.
+      if (group.closest(".nav-main") && event.relatedTarget && !group.contains(event.relatedTarget)) group.open = false;
     });
   });
   document.addEventListener("click", (event) => {
