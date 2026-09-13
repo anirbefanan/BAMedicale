@@ -271,6 +271,33 @@ function shell() {
   });
 }
 
+// Audience discovery uses one presentation; each caller retains its registry query and destination rules.
+const audienceCategoryCard = (category, records, { href, id, emptyLabel, showLatest = false }) => {
+  const publicIcons = {
+    "public-tumor-cancer": "ribbon", "public-signs": "heart",
+    "public-treatment": "aid", "public-living": "ribbon", "public-questions": "prevention"
+  };
+  const artwork = category.icon ? icon(category.icon) : category.id === "public-diagnosis" ? icon("search") : diseaseIcon(publicIcons[category.id]);
+  const published = records.length > 0;
+  const tag = href ? "a" : "article";
+  const meta = published ? `${records.length} published ${records.length === 1 ? "item" : "items"}` : emptyLabel;
+  return `<${tag} class="audience-card${published ? " audience-card--published" : ""}" id="${escapeHtml(id)}"${href ? ` href="${escapeHtml(href)}"` : ""}>
+    <div class="audience-card__heading"><div class="audience-card__icon">${artwork}</div><p class="audience-card__eyebrow">${escapeHtml(category.kicker || category.label)}</p></div>
+    <h2>${escapeHtml(category.area)}</h2><p class="audience-card__description">${escapeHtml(category.description)}</p>
+    <div class="audience-card__footer">${meta ? `<p class="audience-card__meta">${escapeHtml(meta)}</p>` : ""}${published && showLatest ? `<p class="audience-card__latest">Latest: ${escapeHtml(records[0].title)}</p>` : ""}${href ? `<span class="audience-card__action">${escapeHtml(published ? records.length === 1 ? "Open learning" : "Explore in Library" : category.fallbackLabel)}<b aria-hidden="true">→</b></span>` : ""}</div>
+  </${tag}>`;
+};
+const renderAudienceCategories = (target, categories, render) => {
+  if (!target) return;
+  target.classList.add("audience-card-grid");
+  target.classList.toggle("audience-card-grid--paired", categories.length === 4);
+  target.innerHTML = categories.map(render).join("");
+  target.closest("main")?.querySelectorAll(".track").forEach((card) => {
+    card.classList.add("audience-support");
+    if (!card.querySelector(".audience-card__icon")) card.insertAdjacentHTML("afterbegin", `<div class="audience-card__icon">${card.querySelector('a[href="search.html"]') ? icon("search") : diseaseIcon(card.querySelector('a[href="clinical.html"]') ? "dna" : "prevention")}</div>`);
+  });
+};
+
 function renderHealthcareWorkerPage() {
   const categoriesTarget = document.querySelector("[data-healthcare-categories]");
   const chipsTarget = document.querySelector("[data-healthcare-category-chips]");
@@ -281,16 +308,18 @@ function renderHealthcareWorkerPage() {
     const href = records.length ? contentRegistry.destination(records, { audience: "HEALTHCARE WORKER", category: category.id }) : `#${category.anchor}`;
     return `<a class="${records.length ? "is-available" : ""}" href="${escapeHtml(href)}">${escapeHtml(category.label)}</a>`;
   }).join("");
-  if (categoriesTarget) categoriesTarget.innerHTML = categories.map((category) => {
+  renderAudienceCategories(categoriesTarget, categories, (category) => {
     const records = healthcareContentForCategory(category.id);
-    const destination = contentRegistry.destination(records, { audience: "HEALTHCARE WORKER", category: category.id });
-    const copy = `${icon(category.icon)}<h2>${escapeHtml(category.area)}</h2><p>${escapeHtml(category.description)}</p>${records.length ? `<span>${records.length} published ${records.length === 1 ? "item" : "items"}</span>` : `<span>${escapeHtml(category.emptyLabel)}</span>`}`;
-    return records.length ? `<a class="resource-card resource-card--available doctor-content-card--active" id="${escapeHtml(category.anchor)}" href="${escapeHtml(destination)}">${copy}</a>` : `<article class="resource-card" id="${escapeHtml(category.anchor)}">${copy}</article>`;
-  }).join("");
+    return audienceCategoryCard(category, records, {
+      href: records.length ? contentRegistry.destination(records, { audience: "HEALTHCARE WORKER", category: category.id }) : "",
+      id: category.anchor, emptyLabel: category.emptyLabel
+    });
+  });
   if (!target) return;
+  target.classList.add("audience-recent-grid");
   const records = publishedContentForAudience("HEALTHCARE WORKER");
   const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
-  target.innerHTML = `<section class="home-update-card doctor-recent-card"><div><p>Healthcare Worker learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Healthcare Worker learning in preparation")}</section>`;
+  target.innerHTML = `<section class="home-update-card doctor-recent-card audience-recent-card"><div><p>Healthcare Worker learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Healthcare Worker learning in preparation")}</section>`;
 }
 
 function renderHome() {
@@ -348,18 +377,17 @@ function renderDoctorClinicalPage() {
     const href = doctorContentDestination(records, { category: category.id });
     return `<a class="${records.length ? "is-available" : ""}" href="${escapeHtml(href)}"${records.length ? ` aria-label="Open ${escapeHtml(category.label)} content"` : ""}>${escapeHtml(category.label)}</a>`;
   }).join("");
-  if (categoriesTarget) categoriesTarget.innerHTML = categories.map((category) => {
+  renderAudienceCategories(categoriesTarget, categories, (category) => {
     const records = doctorContentForCategory(category.id);
-    const latest = records[0];
-    const active = records.length > 0;
-    const content = `${icon(category.icon)}<h2>${escapeHtml(category.area)}</h2><p>${escapeHtml(category.description)}</p>${active ? `<span>${records.length} published ${records.length === 1 ? "item" : "items"}</span><b class="resource-card__latest">${escapeHtml(latest.title)}</b>` : `<span>${category.independent ? "Coming soon" : "Growing collection"}</span>`}`;
-    if (active) return `<a class="resource-card resource-card--available doctor-content-card--active" id="${escapeHtml(category.id)}" href="${escapeHtml(doctorContentDestination(records, { category: category.id }))}">${content}</a>`;
-    return `<article class="resource-card" id="${escapeHtml(category.id)}">${content}</article>`;
-  }).join("");
+    return audienceCategoryCard(category, records, {
+      href: records.length ? doctorContentDestination(records, { category: category.id }) : "",
+      id: category.id, emptyLabel: category.independent ? "Coming soon" : "Growing collection", showLatest: true
+    });
+  });
   if (!publicationsTarget) return;
   const records = publishedDoctorScientificContent();
   const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
-  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "DOCTOR" }))}">Browse professional publications in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card"><div><p>Professional publications</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Professional publication in preparation")}</section>`;
+  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "DOCTOR" }))}">Browse professional publications in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card audience-recent-card"><div><p>Professional publications</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Professional publication in preparation")}</section>`;
 }
 
 function renderPublicPage() {
@@ -372,19 +400,17 @@ function renderPublicPage() {
     const href = articles.length ? publicContentDestination(articles, { category: category.id }) : `#${category.anchor}`;
     return `<a class="${articles.length ? "is-available" : ""}" href="${escapeHtml(href)}"${articles.length ? ` aria-label="Open ${escapeHtml(category.label)} articles"` : ""}>${escapeHtml(category.label)}</a>`;
   }).join("");
-  if (categoriesTarget) categoriesTarget.innerHTML = categories.map((category) => {
+  renderAudienceCategories(categoriesTarget, categories, (category) => {
     const articles = publicContentForCategory(category.id);
-    if (articles.length) {
-      const latest = articles[0];
-      const destination = publicContentDestination(articles, { category: category.id });
-      return `<a class="knowledge-card doctor-content-card--active" id="${escapeHtml(category.anchor)}" href="${escapeHtml(destination)}"><span>${escapeHtml(category.kicker)}</span><h3>${escapeHtml(category.area)}</h3><p>${escapeHtml(category.description)}</p><b class="resource-card__latest">${articles.length} published ${articles.length === 1 ? "item" : "items"} · Latest: ${escapeHtml(latest.title)}</b><span class="text-link">${articles.length === 1 ? "Open learning" : "Explore in Library"} <span aria-hidden="true">→</span></span></a>`;
-    }
-    return `<article class="knowledge-card" id="${escapeHtml(category.anchor)}"><span>${escapeHtml(category.kicker)}</span><h3>${escapeHtml(category.area)}</h3><p>${escapeHtml(category.description)}</p><a class="text-link" href="${escapeHtml(category.fallbackHref)}">${escapeHtml(category.fallbackLabel)} <span aria-hidden="true">→</span></a></article>`;
-  }).join("");
+    return audienceCategoryCard(category, articles, {
+      href: articles.length ? publicContentDestination(articles, { category: category.id }) : category.fallbackHref,
+      id: category.anchor, showLatest: true
+    });
+  });
   if (!publicationsTarget) return;
   const records = contentRegistry.query({ audience: "PUBLIC", primaryAudienceOnly: true, family: "article" });
   const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
-  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card"><div><p>Public learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Public education in preparation")}</section>`;
+  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card audience-recent-card"><div><p>Public learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Public education in preparation")}</section>`;
 }
 
 function renderLibrary() {

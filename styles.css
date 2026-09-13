@@ -1636,7 +1636,7 @@ body:not(.approved-home) :is(.section-head,.company-section__head) .eyebrow{lett
 :is(.route-public,.route-clinical,.route-healthcare-workers,.route-resources) :is(.knowledge-card p,.resource-card p){max-width:55ch;font-size:.94rem;line-height:1.65;margin:10px 0 20px}
 .route-public .knowledge-card>span{letter-spacing:0;margin-bottom:12px}
 :is(.route-clinical,.route-healthcare-workers,.route-resources) .resource-card>span{padding:10px 0 0;border-top:1px solid rgba(var(--brand-rgb),.2);border-radius:0;background:transparent;font-size:.75rem}
-body:not(.approved-home) .tracks .track{min-height:0;padding:24px 0;background:transparent;border:0;border-top:1px solid rgba(var(--brand-rgb),.25);border-radius:0;box-shadow:none}
+body:not(.approved-home) .tracks .track:not(.audience-support){min-height:0;padding:24px 0;background:transparent;border:0;border-top:1px solid rgba(var(--brand-rgb),.25);border-radius:0;box-shadow:none}
 body:not(.approved-home) .tracks{gap:32px}
 body:not(.approved-home) .tracks .track::after{display:none}
 body:not(.approved-home) .track h2{font-size:1.75rem;line-height:1.25;letter-spacing:0}
@@ -1691,7 +1691,7 @@ body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand
 
 /* Shared collection skin. Layouts, media frames, forms and full readers stay independent. */
 body[class] :is(
-  .knowledge-card,.knowledge-card:first-child,.resource-card,.resource-card:first-child,
+  .audience-card,.audience-support,.knowledge-card,.knowledge-card:first-child,.resource-card,.resource-card:first-child,
   .event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,
   .video-card,.video-preview,.team-card,.source-grid a,.search-result,.empty-panel,.seminar-empty,
   .approved-discovery__card,.disease-group,.home-update-card,.contact-methods>a,
@@ -1711,7 +1711,7 @@ body[class] :is(
 body[class] :is(.home-update-card,.article-list-item,.seminar-past-row,.profile-principles,.profile-detail-grid article,.profile-record article,.profile-journey__timeline li,.journey-step,.login-info){
   --component-surface:var(--card-reading-surface)}
 body[class] :is(.seo-article-body,.privacy-policy__content,.contact-form,.login-card){--component-surface:var(--reading-surface)}
-body[class] :is(.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)){
+body[class] :is(.audience-card,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)){
   --component-shadow:var(--card-action-shadow);
   transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 /* Grouping sections stay unframed, so glass cards do not sit inside another card. */
@@ -1798,7 +1798,7 @@ body[class] .contact-form :is(input,select,textarea):focus-visible{outline:2px s
 body[class] :is(.article-pagination button,.seminar-pagination button):disabled{opacity:.6;cursor:not-allowed}
 body[class] :is(.article-pagination,.seminar-pagination){flex-wrap:wrap;gap:10px}
 @media(hover:hover) and (pointer:fine){
-  body[class] :is(.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){
+  body[class] :is(.audience-card,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){
     transform:translateY(-2px);
     border-color:rgba(var(--brand-rgb),.3);
     box-shadow:var(--card-hover-shadow)}
@@ -1810,7 +1810,50 @@ body[class] :is(.article-pagination,.seminar-pagination){flex-wrap:wrap;gap:10px
   body[class] .article-filters select{font-size:1rem}
 }
 @media(prefers-reduced-motion:reduce){
-  body[class] :is(.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){transform:none;transition:none}
+  body[class] :is(.audience-card,.approved-discovery__card,.disease-group,.knowledge-card,.resource-card,.event-card,.ebook-card,.seminar-card,.seminar-past-row,.article-latest-card,.article-list-item,.video-card,.video-preview,.team-card,.source-grid a,.search-result,.contact-methods>a,.company-audiences article,.article-page-nav a):is(a,:has(a,button)):is(:hover,:focus-within){transform:none;transition:none}
+}
+
+/* One audience discovery family; availability changes content, never the material. */
+body[class] .audience-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--card-gap);align-items:stretch}
+body[class] .audience-card-grid--paired{grid-template-columns:repeat(2,minmax(0,1fr))}
+.audience-card{position:relative;display:flex;flex-direction:column;gap:0;min-width:0;padding:var(--card-padding);scroll-margin-top:110px;overflow-wrap:anywhere;text-decoration:none}
+.audience-card__heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.audience-card__icon{display:grid;flex:none;width:48px;height:48px;place-items:center;color:var(--brand-primary);background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(var(--brand-rgb),.065));border:1px solid rgba(var(--brand-rgb),.16);border-radius:12px;box-shadow:var(--card-highlight);transition:transform .2s ease,background-color .2s ease}
+.audience-card__icon svg{width:25px;height:25px}
+.audience-card__eyebrow{margin:0;color:var(--brand-primary);font-size:.72rem;font-weight:800;line-height:1.4;text-transform:uppercase}
+.audience-card h2{margin:0;color:var(--text-primary);font-family:var(--display);font-size:1.375rem;line-height:1.3}
+.audience-card__description{max-width:55ch;margin:12px 0 22px;color:var(--text-secondary);font-size:.9375rem;line-height:1.6}
+.audience-card__footer{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:16px;border-top:1px solid rgba(var(--brand-rgb),.16)}
+.audience-card__meta{margin:0;color:var(--text-secondary);font-size:.75rem;font-weight:650;line-height:1.45}
+.audience-card--published .audience-card__meta{color:var(--brand-primary)}
+.audience-card__latest{margin:0;color:var(--text-secondary);font-size:.8125rem;line-height:1.5}
+.audience-card__action{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;color:var(--brand-primary);font-size:.8125rem;font-weight:750;line-height:1.4}
+.audience-card__action b{display:grid;flex:none;width:30px;height:30px;place-items:center;border:1px solid rgba(var(--brand-rgb),.18);border-radius:50%;font-size:1rem;transition:transform .2s ease,background-color .2s ease}
+.audience-card:focus-visible{outline:3px solid var(--brand-primary);outline-offset:4px}
+body[class] .audience-support{padding:var(--card-padding);display:flex;flex-direction:column;align-items:flex-start;min-height:0}
+body[class] .audience-support .audience-card__icon{margin-bottom:18px}
+body[class] .audience-support h2{font-size:1.375rem;line-height:1.3}
+body[class] .audience-support .button{margin-top:auto;min-height:44px}
+body[class] .audience-recent-grid{grid-template-columns:minmax(0,1fr)}
+body[class] .audience-recent-card{display:grid;grid-template-columns:minmax(180px,.75fr) minmax(0,1.75fr);column-gap:32px;width:100%;padding:var(--card-padding)}
+.audience-recent-card>div:first-child{grid-column:1;grid-row:1 / span 5;align-self:start}
+.audience-recent-card>.home-update-item{grid-column:2}
+.audience-recent-card .home-update-item b{font-size:.875rem;line-height:1.5}
+.audience-recent-card .home-update-item span{font-size:.75rem;line-height:1.5}
+@media(hover:hover) and (pointer:fine){
+  a.audience-card:hover .audience-card__icon{transform:translateY(-2px) rotate(-3deg)}
+  a.audience-card:hover .audience-card__action b{transform:translateX(3px);background:rgba(var(--brand-rgb),.07)}
+}
+a.audience-card:focus-visible .audience-card__action b{background:rgba(var(--brand-rgb),.09)}
+@media(max-width:1050px){body[class] .audience-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  body[class] .audience-card-grid{grid-template-columns:minmax(0,1fr)}
+  .audience-card__heading{gap:12px;margin-bottom:16px}
+  body[class] .audience-recent-card{display:block}
+}
+@media(prefers-reduced-motion:reduce){
+  .audience-card__icon,.audience-card__action b{transition:none}
+  a.audience-card:hover .audience-card__icon,a.audience-card:hover .audience-card__action b{transform:none}
 }
 
 /* Registry-driven doctor content shares one active state and compact publication-list family. */
