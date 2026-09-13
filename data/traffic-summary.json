@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-13T15:14:35.907Z",
+  "generatedAt": "2026-09-13T19:58:11.846Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-16",
-    "endDate": "2026-09-12"
+    "startDate": "2026-08-17",
+    "endDate": "2026-09-13"
   },
   "summary": {
-    "activeUsers": 57,
-    "newUsers": 58,
-    "averageEngagementTimeSeconds": 411.1929824561403,
-    "eventCount": 2391
+    "activeUsers": 62,
+    "newUsers": 62,
+    "averageEngagementTimeSeconds": 391.0806451612903,
+    "eventCount": 2511
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 211,
-      "activeUsers": 34,
-      "eventCount": 536,
-      "bounceRate": 0.29292929292929293
+      "views": 234,
+      "activeUsers": 39,
+      "eventCount": 591,
+      "bounceRate": 0.391304347826087
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -28,45 +28,45 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 83,
-      "activeUsers": 12,
-      "eventCount": 183,
-      "bounceRate": 0
+      "views": 87,
+      "activeUsers": 14,
+      "eventCount": 193,
+      "bounceRate": 0.07894736842105263
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 67,
-      "activeUsers": 11,
-      "eventCount": 183,
-      "bounceRate": 0
+      "views": 70,
+      "activeUsers": 12,
+      "eventCount": 189,
+      "bounceRate": 0.08823529411764706
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
       "views": 64,
-      "activeUsers": 9,
-      "eventCount": 149,
-      "bounceRate": 0.037037037037037035
+      "activeUsers": 10,
+      "eventCount": 151,
+      "bounceRate": 0.07142857142857142
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 43,
-      "activeUsers": 15,
-      "eventCount": 150,
-      "bounceRate": 0.12121212121212122
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 37,
-      "activeUsers": 9,
-      "eventCount": 88,
-      "bounceRate": 0
+      "views": 46,
+      "activeUsers": 16,
+      "eventCount": 161,
+      "bounceRate": 0.21621621621621623
     },
     {
       "title": "For Public | BA Medicale",
-      "views": 36,
-      "activeUsers": 8,
-      "eventCount": 75,
-      "bounceRate": 0.0625
+      "views": 44,
+      "activeUsers": 9,
+      "eventCount": 89,
+      "bounceRate": 0.25
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 39,
+      "activeUsers": 11,
+      "eventCount": 93,
+      "bounceRate": 0.125
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -76,25 +76,29 @@
       "bounceRate": 0.14285714285714285
     },
     {
-      "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
-      "views": 26,
-      "activeUsers": 6,
-      "eventCount": 62,
-      "bounceRate": 0
+      "title": "Videos | BA Medicale",
+      "views": 27,
+      "activeUsers": 8,
+      "eventCount": 80,
+      "bounceRate": 0.038461538461538464
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 35
+      "activeUsers": 38
     },
     {
       "label": "google / organic",
-      "activeUsers": 10
+      "activeUsers": 11
     },
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 4
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 3
     },
     {
       "label": "facebook.com / referral",
@@ -112,11 +116,15 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 142
+      "sessions": 151
     },
     {
       "label": "google / organic",
-      "sessions": 38
+      "sessions": 46
+    },
+    {
+      "label": "Not set",
+      "sessions": 12
     },
     {
       "label": "l.instagram.com / referral",
@@ -138,11 +146,15 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 22
+      "activeUsers": 27
     },
     {
       "label": "Council Bluffs",
       "activeUsers": 6
+    },
+    {
+      "label": "Depok",
+      "activeUsers": 5
     },
     {
       "label": "Sukabumi",
@@ -150,10 +162,6 @@
     },
     {
       "label": "Ashburn",
-      "activeUsers": 4
-    },
-    {
-      "label": "Depok",
       "activeUsers": 4
     },
     {
@@ -169,11 +177,11 @@
       "activeUsers": 2
     },
     {
-      "label": "Prineville",
+      "label": "Medan",
       "activeUsers": 2
     },
     {
-      "label": "San Jose",
+      "label": "Prineville",
       "activeUsers": 2
     }
   ]
