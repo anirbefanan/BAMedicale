@@ -4,3 +4,7 @@ exclude:
   - test-results
   - AGENTS.md
   - package.json
+  - node_modules
+  - scripts
+  - docs
+  - package-lock.json

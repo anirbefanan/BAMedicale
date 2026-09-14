@@ -4,7 +4,7 @@ let contentRegistry = registryApi.create(data);
 let registryCatalogs = { videos: [], originalVideos: [] };
 const GA4_MEASUREMENT_ID = "G-5Q36DG7PTC";
 const ANALYTICS_SAFE_QUERY_KEYS = new Set(["disease", "book", "category", "audience", "type", "topic", "condition", "author", "video"]);
-const analyticsEnabled = () => /(^|\.)bamedicale\.com$/i.test(window.location.hostname);
+const analyticsEnabled = () => !window.location.pathname.startsWith("/attendance/") && /(^|\.)bamedicale\.com$/i.test(window.location.hostname);
 const analyticsPageUrl = () => {
   const url = new URL(window.location.href);
   const safe = new URL(`${url.origin}${url.pathname}`);

@@ -947,3 +947,9 @@ The user should need to explain **what they want**, not **how a professional web
 Every completed task should reduce the work required for the next similar task.
 
 **Understand once. Solve once. Reuse forever.**
+
+## SEMINAR ATTENDANCE PROVEN PATTERN
+
+- Reuse the existing Seminar Tracker - BA Medicale 2026 and its bound Apps Script; the Sheet stays Restricted. Only the owner-executed web app accepts anonymous submissions. Never create duplicate trackers/projects, reuse GA4 credentials, or add Gmail permissions.
+- `scripts/attendance/` and `attendance/config.json` own the shared form/backend/QR generation from canonical seminar IDs. Use `npm run attendance:build -- --event=EVENT-ID`, update the existing backend, and run its owner-only `setupAttendance`. Tabs use `DD MMM YYYY` (same-date suffixes); routing uses immutable Event ID and numeric tab ID. Setup reruns must preserve records and manual certificate work.
+- Keep new events Closed pending organizer approval; control status in the private Events tab. Required name/email/social self-confirmations and approved 1–5 score feed the exact 12-column tracker schema. Certificates remain manual and blank-name; SKP is separate. No participant data in analytics, URLs, logs, or public files. See `docs/seminar-attendance.md` for provisioning and validation.
