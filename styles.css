@@ -2332,7 +2332,11 @@ body.immersion-reading::after{content:none}
 .attendance-check input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--brand-primary)}
 .attendance-panel .attendance-privacy,.attendance-panel .attendance-note{font-size:.75rem;line-height:1.7;margin:18px 0}
 .attendance-privacy a{text-decoration:underline}
-.attendance-panel button:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.attendance-panel button:disabled{opacity:.8;cursor:not-allowed;transform:none}
+.attendance-submit-area .attendance-status{margin:18px 0 12px;scroll-margin-top:130px}
+.attendance-actions{display:flex;flex-wrap:wrap;gap:12px}
+.attendance-actions .button{min-height:48px;white-space:normal;text-align:center}
+@media(max-width:600px){.attendance-actions{flex-direction:column}.attendance-actions .button{width:100%}}
 .attendance-share summary{font-size:1rem;font-weight:750;cursor:pointer;min-height:44px}
 .attendance-share>div{display:grid;gap:12px}
 .attendance-share img{display:block;width:100%;height:auto;max-width:240px;background:white;margin:0 auto;opacity:1}
