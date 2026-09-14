@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-14T11:09:56.490Z",
+  "generatedAt": "2026-09-14T17:11:34.669Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-17",
-    "endDate": "2026-09-13"
+    "startDate": "2026-08-18",
+    "endDate": "2026-09-14"
   },
   "summary": {
-    "activeUsers": 62,
-    "newUsers": 63,
-    "averageEngagementTimeSeconds": 397.64516129032256,
-    "eventCount": 2543
+    "activeUsers": 63,
+    "newUsers": 64,
+    "averageEngagementTimeSeconds": 394.031746031746,
+    "eventCount": 2548
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 238,
-      "activeUsers": 40,
-      "eventCount": 604,
-      "bounceRate": 0.28695652173913044
+      "views": 239,
+      "activeUsers": 41,
+      "eventCount": 607,
+      "bounceRate": 0.29310344827586204
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 39
+      "activeUsers": 40
     },
     {
       "label": "google / organic",
@@ -112,7 +112,7 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 153
+      "sessions": 154
     },
     {
       "label": "google / organic",
@@ -133,6 +133,10 @@
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 1
     }
   ],
   "cities": [
@@ -145,16 +149,16 @@
       "activeUsers": 6
     },
     {
+      "label": "Ashburn",
+      "activeUsers": 5
+    },
+    {
       "label": "Depok",
       "activeUsers": 5
     },
     {
       "label": "Sukabumi",
       "activeUsers": 5
-    },
-    {
-      "label": "Ashburn",
-      "activeUsers": 4
     },
     {
       "label": "Jonggol",
