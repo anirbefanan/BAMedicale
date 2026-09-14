@@ -38,3 +38,10 @@ test('read-only acknowledgement returns only correlated status after persistence
  events.rows[1][6]='OPEN';assert(c.doGet({parameter:q}).text.includes('FORCED_OPEN'));assert.equal(c.record_(p),'recorded');assert.equal(c.record_(p),'duplicate');
  events.rows[1][6]='CLOSED';assert.equal(c.record_(p),'FORCED_CLOSED');events.rows[1][6]='AUTO';assert.equal(c.record_(p),'CLOSED_BEFORE');assert.equal(first.rows.length,2);
  });
+
+test('late JSONP response is harmless after the browser callback has been removed',()=>{
+ const {c,payload:p}=fixture(),q={...p,callback:'baAttendance_'+p.request_id};
+ const response=c.reply_(q,'FORCED_CLOSED').text;
+ assert.doesNotThrow(()=>vm.runInNewContext(response,{}));
+ let received;vm.runInNewContext(response,{[q.callback]:m=>{received=m}});assert.equal(received.status,'FORCED_CLOSED');
+});

@@ -171,7 +171,7 @@ function reply_(p,status,opensAt) {
   if(!correlation_(p) || p.callback!=='baAttendance_'+p.request_id) return ContentService.createTextOutput('Request unavailable.');
   // Read-only JSONP returns only non-sensitive request status, never participant data.
   const message=JSON.stringify({type:'ba-attendance',request_id:p.request_id,event_id:p.event_id,status,...(status==='CLOSED_BEFORE' && opensAt?{opens_at:opensAt}:{})});
-  return ContentService.createTextOutput(p.callback+'('+message+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
+  return ContentService.createTextOutput('typeof '+p.callback+'==="function"&&'+p.callback+'('+message+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
 function doGet(e) {
   const p=e && e.parameter; let status='CLOSED_INVALID',opensAt;
