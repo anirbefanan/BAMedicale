@@ -2,7 +2,7 @@
 const ATTENDANCE_SEEDS = [{"id":"management-thyroid-nodules-2026","title":"Management of Thyroid Nodules — How to Make a Good Diagnosis?","date":"2026-09-19"}];
 /* Bound to the existing private tracker. No participant data is logged or returned. */
 const ATTENDANCE_HEADERS = ['Date Submitted','Time Submitted','Email','Full Name','Follow IG Y/N','Follow YT Y/N','Your Score for the Seminar','Your Feedback for Seminar','Certificate Status','Certificate Sent Date','Sent By','Notes'];
-const EVENT_HEADERS = ['Event ID','Event title','Seminar date','Attendance tab name','Attendance tab ID','Attendance page URL','Attendance status'];
+const EVENT_HEADERS = ['Event ID','Event title','Seminar date','Attendance tab name','Attendance tab ID','Attendance page URL','Manual Override','Open At','Close At'];
 const SITE_ORIGIN = 'https://bamedicale.com';
 const props_ = () => PropertiesService.getScriptProperties();
 const safeCell_ = value => /^[\s]*[=+\-@]/.test(String(value)) ? "'" + value : String(value);
@@ -48,14 +48,28 @@ function setupAttendance() {
     const mappedEvents = props_().getProperty('EVENTS_TAB_ID');
     let events = mappedEvents !== null ? ss.getSheetById(Number(mappedEvents)) : ss.getSheetByName('Events');
     assert_(!mappedEvents || events,'Events tab was removed; restore it before continuing.');
-    events = events || ss.insertSheet('Events'); header_(events,EVENT_HEADERS);
+    events = events || ss.insertSheet('Events');
+    // Migrate the original status column once, preserving mappings and existing closure.
+    if(events.getLastRow() && events.getRange(1,7).getValue()==='Attendance status') {
+      assert_(JSON.stringify(events.getRange(1,1,1,6).getValues()[0])===JSON.stringify(EVENT_HEADERS.slice(0,6)),'Review existing Events headers.');
+      assert_(!events.getRange(1,8).getValue() && !events.getRange(1,9).getValue(),'Schedule columns already occupied; review before migration.');
+      events.getRange(2,7,events.getMaxRows()-1,1).clearDataValidations();
+      if(events.getLastRow()>1) {
+        const values=events.getRange(2,7,events.getLastRow()-1,1).getValues().map(r=>[r[0]==='Open'?'OPEN':'CLOSED']);
+        events.getRange(2,7,values.length,1).setValues(values);
+      }
+      events.getRange(1,1,1,9).setValues([EVENT_HEADERS]);
+    }
+    header_(events,EVENT_HEADERS);
     props_().setProperty('EVENTS_TAB_ID',String(events.getSheetId()));
-    events.setFrozenRows(1); events.setColumnWidths(1,7,190); events.setColumnWidth(2,440); events.setColumnWidth(6,460);
-    events.getRange(1,1,1,7).setFontWeight('bold').setBackground('#981d36').setFontColor('#ffffff').setWrap(true);
-    events.getRange(2,7,events.getMaxRows()-1,1).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['Open','Closed'],true).setAllowInvalid(false).build());
-    if (!events.getFilter()) events.getRange(1,1,events.getMaxRows(),7).createFilter();
-    protect_(events,'A:F','Approved seminar mapping'); protect_(events,'G1','Attendance status header');
-    const existing = events.getLastRow()>1 ? events.getRange(2,1,events.getLastRow()-1,7).getValues() : [];
+    events.setFrozenRows(1); events.setColumnWidths(1,9,190); events.setColumnWidth(2,440); events.setColumnWidth(6,460);
+    events.getRange(1,1,1,9).setFontWeight('bold').setBackground('#981d36').setFontColor('#ffffff').setWrap(true);
+    events.getRange(2,7,events.getMaxRows()-1,1).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['AUTO','OPEN','CLOSED'],true).setAllowInvalid(false).build());
+    events.getRange(2,8,events.getMaxRows()-1,2).setNumberFormat('dd mmm yyyy hh:mm');
+    const eventFilter=events.getFilter(); if(eventFilter && eventFilter.getRange().getNumColumns()!==9) eventFilter.remove();
+    if (!events.getFilter()) events.getRange(1,1,events.getMaxRows(),9).createFilter();
+    protect_(events,'A:F','Approved seminar mapping'); protect_(events,'G1:I1','Attendance status header');
+    const existing = events.getLastRow()>1 ? events.getRange(2,1,events.getLastRow()-1,9).getValues() : [];
     ATTENDANCE_SEEDS.forEach(event => {
       const matches = existing.filter(r => r[0] === event.id); assert_(matches.length <= 1,'Duplicate Event ID in Events.');
       const stored = props_().getProperty('EVENT_'+event.id);
@@ -76,7 +90,7 @@ function setupAttendance() {
         if (!tab && legacy && !legacy.getLastRow()) { tab = legacy; tab.setName(title); }
         tab = tab || ss.insertSheet(title); header_(tab,ATTENDANCE_HEADERS);
         props_().setProperty('EVENT_'+event.id,String(tab.getSheetId()));
-        const row = [event.id,event.title,event.date,tab.getName(),tab.getSheetId(),SITE_ORIGIN+'/attendance/'+event.id+'.html','Closed'];
+        const row = [event.id,event.title,event.date,tab.getName(),tab.getSheetId(),SITE_ORIGIN+'/attendance/'+event.id+'.html','AUTO','',''];
         events.appendRow(row); existing.push(row);
       }
       formatTab_(tab);
@@ -90,10 +104,29 @@ function event_(id) {
   const ss=SpreadsheetApp.openById(p.getProperty('TRACKER_ID'));
   const events=ss.getSheetById(Number(p.getProperty('EVENTS_TAB_ID')));
   if(!events || events.getLastRow()<2) return null;
-  const rows=events.getRange(2,1,events.getLastRow()-1,7).getValues().filter(r=>r[0]===id);
+  const rows=events.getRange(2,1,events.getLastRow()-1,9).getValues().filter(r=>r[0]===id);
   if(rows.length!==1 || Number(rows[0][4])!==Number(mapped)) return null;
   const tab=ss.getSheetById(Number(mapped)); if(!tab) return null;
-  return {tab,open:rows[0][6]==='Open'};
+  const resolved=resolveSchedule_(rows[0][6],rows[0][7],rows[0][8],Date.now());
+  return {tab,...resolved};
+}
+// Sheet datetime cells are instants; explicit text is interpreted in WIB, never browser/server local time.
+function scheduleTime_(value) {
+  if(Object.prototype.toString.call(value)==='[object Date]') return value.getTime();
+  if(typeof value!=='string') return NaN;
+  const m=value.trim().match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})$/);
+  if(!m) return NaN;
+  const iso=m[1]+'-'+m[2]+'-'+m[3]+'T'+m[4]+':'+m[5]+':00+07:00';
+  const time=Date.parse(iso);
+  return Number.isFinite(time) && new Date(time+7*3600000).toISOString().slice(0,16)===iso.slice(0,16) ? time : NaN;
+}
+function resolveSchedule_(override,openAt,closeAt,now) {
+  if(override==='OPEN') return {open:true,state:'FORCED_OPEN'};
+  if(override==='CLOSED') return {open:false,state:'FORCED_CLOSED'};
+  const start=scheduleTime_(openAt),end=scheduleTime_(closeAt);
+  if(override!=='AUTO' || !Number.isFinite(start) || !Number.isFinite(end) || end<=start || !Number.isFinite(now)) return {open:false,state:'CLOSED_INVALID'};
+  if(now<start) return {open:false,state:'CLOSED_BEFORE',opensAt:Utilities.formatDate(new Date(start),'Asia/Jakarta','dd MMM yyyy \'at\' HH:mm')+' WIB'};
+  return now<end ? {open:true,state:'OPEN'} : {open:false,state:'CLOSED_AFTER'};
 }
 function validate_(p) {
   const keys=['event_id','request_id','origin','full_name','email','instagram','youtube','score','feedback','website'];
@@ -110,7 +143,7 @@ function record_(p) {
   if(!validate_(p)) return 'invalid';
   const lock=LockService.getScriptLock(); if(!lock.tryLock(3000)) return 'retry';
   try {
-    const event=event_(p.event_id); if(!event || !event.open) return 'closed';
+    const event=event_(p.event_id); if(!event || !event.open) return event ? event.state : 'CLOSED_INVALID';
     header_(event.tab,ATTENDANCE_HEADERS);
     const n=event.tab.getLastRow(); if(n>10000) return 'retry';
     const emails=n>1 ? event.tab.getRange(2,3,n-1,1).getValues() : [];
@@ -134,21 +167,22 @@ function correlation_(p) {
   return p && p.origin===SITE_ORIGIN && typeof p.event_id==='string' && /^[a-z0-9-]{1,100}$/.test(p.event_id) && /^[a-f0-9]{32}$/.test(p.request_id||'');
 }
 function ackKey_(p) { return 'ACK_'+p.event_id+'_'+p.request_id; }
-function reply_(p,status) {
+function reply_(p,status,opensAt) {
   if(!correlation_(p) || p.callback!=='baAttendance_'+p.request_id) return ContentService.createTextOutput('Request unavailable.');
   // Read-only JSONP returns only non-sensitive request status, never participant data.
-  const message=JSON.stringify({type:'ba-attendance',request_id:p.request_id,event_id:p.event_id,status});
+  const message=JSON.stringify({type:'ba-attendance',request_id:p.request_id,event_id:p.event_id,status,...(status==='CLOSED_BEFORE' && opensAt?{opens_at:opensAt}:{})});
   return ContentService.createTextOutput(p.callback+'('+message+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
 function doGet(e) {
-  const p=e && e.parameter; let status='closed';
+  const p=e && e.parameter; let status='CLOSED_INVALID',opensAt;
   if(!correlation_(p)) return reply_(null,status);
   try {
     if(p.action==='ack') status=CacheService.getScriptCache().get(ackKey_(p))||'waiting';
-    else if(p.action==='status') { const target=event_(p.event_id); if(target && target.open) status='open'; }
+    else if(p.action==='status') { const target=event_(p.event_id); if(target) {status=target.state;opensAt=target.opensAt;} }
     else status='invalid';
+    if(status==='CLOSED_BEFORE' && !opensAt) opensAt=event_(p.event_id)?.opensAt;
   } catch(_) { status='retry'; }
-  return reply_(p,status);
+  return reply_(p,status,opensAt);
 }
 function doPost(e) {
   let p; let status='invalid';

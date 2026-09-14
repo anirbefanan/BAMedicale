@@ -4,7 +4,10 @@
   const form=root.querySelector('form'),submit=form.querySelector('[type=submit]'),status=root.querySelector('[data-attendance-status]'),retry=root.querySelector('[data-attendance-retry]');
   const endpoint=root.dataset.attendanceEndpoint,eventId=root.dataset.attendanceEvent;
   const actionStatus=root.querySelector('[data-attendance-action-status]')||status;
-  let available=null,busy=false,checking=false,complete=false;
+  let available=null,busy=false,checking=false,complete=false,openingLabel='';
+  const isOpen=state=>['OPEN','FORCED_OPEN','open'].includes(state);
+  const isClosed=state=>['CLOSED_BEFORE','CLOSED_AFTER','FORCED_CLOSED','CLOSED_INVALID','closed'].includes(state);
+  const closedMessage=state=>state==='CLOSED_BEFORE'&&openingLabel?'Attendance opens on '+openingLabel+'.':state==='FORCED_CLOSED'?'Attendance is temporarily closed.':state==='CLOSED_AFTER'?'Attendance for this seminar is closed.':'Attendance is currently closed. Please follow the organizer’s instructions.';
   const update=()=>{
     submit.disabled=available===false||busy||complete;
     submit.textContent=complete?'Attendance received':busy?(checking?'Checking availability…':'Submitting…'):available===false?'Attendance closed':available===null?'Check availability':'Submit attendance';
@@ -31,7 +34,8 @@
     window[callback]=m=>{
       if(!m||m.type!=='ba-attendance'||m.request_id!==requestId||m.event_id!==eventId)return;
       if(m.status==='waiting'&&payload){pollTimer=setTimeout(poll,2000);return}
-      if(!['open','closed','recorded','duplicate','invalid','retry'].includes(m.status))return;
+      if(!isOpen(m.status)&&!isClosed(m.status)&&!['recorded','duplicate','invalid','retry'].includes(m.status))return;
+      openingLabel=typeof m.opens_at==='string'&&m.opens_at.length<=80?m.opens_at:'';
       cleanup();resolve(m.status);
     };
     if(payload){frame=document.createElement('iframe');frame.name='attendance-'+requestId;frame.title='Secure attendance submission';frame.hidden=true;document.body.append(frame);post=document.createElement('form');post.method='POST';post.action=endpoint;post.target=frame.name;post.hidden=true;const input=document.createElement('input');input.type='hidden';input.name='payload';input.value=JSON.stringify({...common,...payload});post.append(input);document.body.append(post);post.submit();input.value='';pollTimer=setTimeout(poll,2000)}else poll();
@@ -41,8 +45,8 @@
     busy=true;checking=true;retry.hidden=true;update();say('Checking attendance availability…');
     try{
       const state=await request();
-      if(state==='open'){available=true;say('Attendance is open. Complete all required fields, then select Submit attendance.');}
-      else if(state==='closed'){available=false;say('Attendance is closed by the organizer. Submissions are not being accepted. Your entries stay here; check again when the organizer opens attendance.');retry.textContent='Check attendance status';retry.hidden=false;}
+      if(isOpen(state)){available=true;say('Attendance is open. Complete all required fields, then select Submit attendance.');}
+      else if(isClosed(state)){available=false;say(closedMessage(state));retry.textContent='Check attendance status';retry.hidden=false;}
       else throw new Error('retry');
     }catch{available=null;say(endpoint?'Unable to check attendance availability. Check your internet connection, then select Check availability. Your entries stay here.':'Attendance is not open yet. Please follow the organizer’s instructions.');}
     finally{busy=false;checking=false;update()}
@@ -53,11 +57,14 @@
     busy=true;update();retry.hidden=true;say('Submitting your attendance…');
     try{const result=await request({full_name:form.full_name.value,email:form.email.value,instagram:form.instagram.checked,youtube:form.youtube.checked,score:form.score.value,feedback:form.feedback.value,website:form.website.value});
       if(result==='recorded'||result==='duplicate'){complete=true;say(result==='recorded'?'Attendance recorded. Organizer review is still required before certificate delivery.':'Already submitted. No additional attendance record was created. Organizer review is still required.',true)}
-      else if(result==='closed'){available=false;say('Attendance is closed by the organizer. Submissions are not being accepted. Your entries stay here.',true);retry.textContent='Check attendance status';retry.hidden=false}
+      else if(isClosed(result)){available=false;say(closedMessage(result)+' Your entries stay here.',true);retry.textContent='Check attendance status';retry.hidden=false}
       else if(result==='invalid')say('Please check your name, email, confirmations, and response lengths, then try again.',true);
       else throw new Error('retry');
     }catch{say('We could not confirm storage. Please submit again; retries will not create another attendance record.',true)}finally{busy=false;update()}
   });
   form.full_name.addEventListener('input',()=>form.full_name.setCustomValidity(''));
+  // Refresh status while the page is open and when returning from another app. Never clear inputs.
+  setInterval(()=>{if(!document.hidden&&!busy&&!complete)check()},60000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!busy&&!complete)check()});
   check();
 })();

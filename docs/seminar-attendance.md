@@ -13,7 +13,17 @@ Tab names use **DD MMM YYYY**, with ` - Short Topic` for same-date seminars. Rou
 
 ## Open and close
 
-New Events rows default to **Closed**. The owner changes only the Attendance status cell in the private **Events** tab to **Open** or **Closed**. This takes effect without a website deployment. Do not invent a schedule or open real attendance without organizer approval.
+The private **Events** tab controls **Manual Override (G)**, **Open At (H)** and **Close At (I)**. Use date/time cells formatted `dd mmm yyyy hh:mm`, or explicit text `YYYY-MM-DD HH:mm`. All dates are **Asia/Jakarta (WIB)**.
+
+- **AUTO:** closed before Open At, open from Open At inclusive, closed at Close At and afterwards.
+- **OPEN / CLOSED:** force that state regardless of time.
+- New seminars default to AUTO with blank dates, safely closed until an explicit valid schedule is entered. Missing, invalid or reversed dates fail closed. Never invent a schedule.
+
+Changes apply on the next status check or submission, without website/Apps Script redeployment or Codex. The server checks the clock on every submission; the visible page refreshes availability every minute and when returning to the page. No timed trigger is needed.
+
+Current approved window: **19 Sep 2026 08:45–23:59 WIB**, override **AUTO**. The close boundary is exclusive: 23:59 is already closed.
+
+Each Event ID owns one permanent `/attendance/<event-id>.html` URL and QR pair. Existing QR assets are reused and decoded during checks; schedule edits never change or regenerate them. Provision future events from canonical record → immutable ID/URL → QR → mapped numeric tab → explicit schedule. Do not rename published IDs or URLs.
 
 ## Participant and certificate workflow
 
@@ -25,6 +35,6 @@ Melati reviews attendees, manually emails the same high-resolution blank-name ce
 
 ## Validation and release
 
-Run `npm run attendance:check` and `npm run content:check`. Generated QR codes encode only the canonical attendance URL and are decoded during build/check. Validate the deployed browser acknowledgement against one isolated test row in the correct private tab, then remove only that test row and leave attendance Closed. Unit tests do not replace this live check. Do not report the system operational until it passes.
+Run `npm run attendance:check` and `npm run content:check`. Generated QR codes encode only the canonical attendance URL and are decoded during build/check. Validate the deployed browser acknowledgement against one isolated test row in the correct private tab, preserve the two existing proof submissions, and restore the approved schedule with AUTO after testing. Never delete those proof records or alter their certificate fields. Unit tests do not replace this live check. Do not report the system operational until it passes.
 
 Google consent or deployment approval must be completed at the actual browser prompt. Browser sign-in alone does not establish API authorization. If blocked, preserve existing resources and report the exact remaining step.
