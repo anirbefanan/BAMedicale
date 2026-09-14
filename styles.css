@@ -2309,6 +2309,7 @@ body.immersion-reading::after{content:none}
 }
 
 /* Shared seminar attendance template: a compact reading-first utility. */
+.route-attendance [hidden]{display:none!important}
 .route-attendance{font-family:"Plus Jakarta Sans",sans-serif}
 .attendance-page{max-width:1100px;margin:0 auto;padding:140px 24px 64px}
 .attendance-heading{max-width:850px;margin-bottom:28px}

@@ -22,8 +22,8 @@
     const cleanup=()=>{clearTimeout(timer);window.removeEventListener('message',receive);frame.remove();post?.remove()};
     const receive=e=>{
       if(!/^https:\/\/(?:script\.google\.com|(?:[a-z0-9-]+-)?script\.googleusercontent\.com)$/.test(e.origin))return;
-      // Google's HtmlService sandbox is a child of the transport frame, not an arbitrary window.
-      let own=false;try{own=e.source===frame.contentWindow||e.source?.parent===frame.contentWindow}catch{}if(!own)return;
+      // Google's HtmlService may nest wrappers; accept only this transport frame's descendants.
+      let own=false;try{let sender=e.source;for(let depth=0;sender&&depth<5;depth++){if(sender===frame.contentWindow){own=true;break}const parent=sender.parent;if(parent===sender)break;sender=parent}}catch{}if(!own)return;
       const m=e.data;if(!m||m.type!=='ba-attendance'||m.request_id!==requestId||m.event_id!==eventId||!['open','closed','recorded','duplicate','invalid','retry'].includes(m.status))return;
       cleanup();resolve(m.status);
     };
