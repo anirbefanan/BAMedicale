@@ -1114,6 +1114,13 @@ const trafficDate = (value) => {
   return `${new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" }).format(date)} UTC`;
 };
 const isFiniteTrafficNumber = (value) => typeof value === "number" && Number.isFinite(value) && value >= 0;
+const trafficPageTitle = (title) => {
+  for (const event of Object.values(data.seminars || {})) {
+    const previous = (event.previousTitles || []).find((old) => title === old || title === `${old} | BA Medicale`);
+    if (previous) return title.replace(previous, event.title);
+  }
+  return title;
+};
 const trafficRowsAreValid = (rows, keys) => Array.isArray(rows) && rows.length <= 10 && rows.every((row) => row && keys.every((key) => key === "label" || key === "title" ? typeof row[key] === "string" && row[key].trim() : isFiniteTrafficNumber(row[key])));
 const validTrafficPayload = (payload) => Boolean(
   payload
@@ -1154,7 +1161,7 @@ async function renderTrafficPage() {
       ["Average Engagement Time", trafficDuration(payload.summary.averageEngagementTimeSeconds), "Average active time per user"],
       ["Event Count", trafficNumber(payload.summary.eventCount), "Recorded interactions across the site"]
     ];
-    const topPages = payload.topPages.length ? `<div class="traffic-pages" role="table" aria-label="Top pages by views"><div class="traffic-pages__head" role="row"><span role="columnheader">Page</span><span role="columnheader">Views</span><span role="columnheader">Active users</span><span role="columnheader">Events</span><span role="columnheader">Bounce rate</span></div>${payload.topPages.map((page) => `<div class="traffic-pages__row" role="row"><strong role="cell">${escapeHtml(page.title)}</strong><span role="cell" data-label="Views">${trafficNumber(page.views)}</span><span role="cell" data-label="Active users">${trafficNumber(page.activeUsers)}</span><span role="cell" data-label="Events">${trafficNumber(page.eventCount)}</span><span role="cell" data-label="Bounce rate">${trafficPercent(page.bounceRate)}</span></div>`).join("")}</div>` : `<p class="traffic-empty">No aggregate page activity was recorded for this period.</p>`;
+    const topPages = payload.topPages.length ? `<div class="traffic-pages" role="table" aria-label="Top pages by views"><div class="traffic-pages__head" role="row"><span role="columnheader">Page</span><span role="columnheader">Views</span><span role="columnheader">Active users</span><span role="columnheader">Events</span><span role="columnheader">Bounce rate</span></div>${payload.topPages.map((page) => `<div class="traffic-pages__row" role="row"><strong role="cell">${escapeHtml(trafficPageTitle(page.title))}</strong><span role="cell" data-label="Views">${trafficNumber(page.views)}</span><span role="cell" data-label="Active users">${trafficNumber(page.activeUsers)}</span><span role="cell" data-label="Events">${trafficNumber(page.eventCount)}</span><span role="cell" data-label="Bounce rate">${trafficPercent(page.bounceRate)}</span></div>`).join("")}</div>` : `<p class="traffic-empty">No aggregate page activity was recorded for this period.</p>`;
     content.innerHTML = `<div class="traffic-summary">${summaryCards.map(([label, value, note]) => `<article><p>${label}</p><strong>${value}</strong><span>${note}</span></article>`).join("")}</div>
       <section class="traffic-panel traffic-panel--pages" aria-labelledby="traffic-pages-title"><header><div><p class="eyebrow">Content activity</p><h2 id="traffic-pages-title">Top Pages</h2></div><span>${escapeHtml(payload.reportingPeriod.startDate)} to ${escapeHtml(payload.reportingPeriod.endDate)}</span></header>${topPages}</section>
       <div class="traffic-split">
