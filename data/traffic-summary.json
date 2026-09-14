@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-14T17:11:34.669Z",
+  "generatedAt": "2026-09-14T21:08:38.667Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-18",
     "endDate": "2026-09-14"
   },
   "summary": {
-    "activeUsers": 63,
-    "newUsers": 64,
-    "averageEngagementTimeSeconds": 394.031746031746,
-    "eventCount": 2548
+    "activeUsers": 64,
+    "newUsers": 65,
+    "averageEngagementTimeSeconds": 393.65625,
+    "eventCount": 2567
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
       "views": 239,
       "activeUsers": 41,
-      "eventCount": 607,
+      "eventCount": 608,
       "bounceRate": 0.29310344827586204
     },
     {
@@ -35,10 +35,10 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 70,
-      "activeUsers": 12,
-      "eventCount": 189,
-      "bounceRate": 0
+      "views": 71,
+      "activeUsers": 13,
+      "eventCount": 191,
+      "bounceRate": 0.02857142857142857
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -49,17 +49,17 @@
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 47,
-      "activeUsers": 16,
-      "eventCount": 163,
-      "bounceRate": 0.13513513513513514
+      "views": 48,
+      "activeUsers": 17,
+      "eventCount": 167,
+      "bounceRate": 0.15789473684210525
     },
     {
       "title": "For Doctors | BA Medicale",
       "views": 43,
       "activeUsers": 12,
-      "eventCount": 100,
-      "bounceRate": 0.037037037037037035
+      "eventCount": 102,
+      "bounceRate": 0.07142857142857142
     },
     {
       "title": "For Public | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 40
+      "activeUsers": 41
     },
     {
       "label": "google / organic",
@@ -112,7 +112,7 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 154
+      "sessions": 157
     },
     {
       "label": "google / organic",
@@ -142,7 +142,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 27
+      "activeUsers": 28
     },
     {
       "label": "Council Bluffs",
