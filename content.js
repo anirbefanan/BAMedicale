@@ -469,10 +469,13 @@ window.BAMEDICALE_DATA = {
       ["BETHESDA Classification in Thyroid Nodules", "dr. Vinesia Lestari Riddi, SpA, MPH"]
     ],
     outcomes: ["SKP credit — Ministry of Health", "Latest evidence-based topic", "Expert speakers", "Interactive Q&A session"],
-    artwork: "assets/events/management-thyroid-nodules-sept19-2026.png",
+    artwork: "assets/events/management-thyroid-nodules-2026-main-poster.jpeg",
+    promoArtwork: "assets/events/management-thyroid-nodules-2026-home-promo.jpeg",
+    promoArtworkWidth: 1055,
+    promoArtworkHeight: 1491,
     artworkWidth: 1055,
-    artworkHeight: 1491,
-    artworkAspectRatio: "1055 / 1491",
+    artworkHeight: 1492,
+    artworkAspectRatio: "1055 / 1492",
     detailUrl: "events/management-thyroid-nodules-2026.html",
     promotion: {
       hook: "What makes a thyroid nodule diagnosis accurate?",

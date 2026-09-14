@@ -931,13 +931,13 @@ function initHomeSeminarPromotion() {
   if (!isHomepage || !document.body.classList.contains("approved-home") || !shouldShowHomeSeminarPromotion()) return;
   const seminar = data.seminars?.["management-thyroid-nodules-2026"];
   const destination = safeInternalUrl(seminar?.detailUrl);
-  const poster = safeImageUrl(seminar?.artwork);
+  const poster = safeImageUrl(seminar?.promoArtwork || seminar?.artwork);
   if (!seminar || !destination || !poster) return;
 
   const dialog = document.createElement("dialog");
   dialog.className = "home-seminar-promo";
   dialog.setAttribute("aria-labelledby", "home-seminar-promo-title");
-  const posterDimensions = seminarPosterDimensions(seminar);
+  const posterDimensions = seminarPosterDimensions(seminar.promoArtwork ? {artworkWidth:seminar.promoArtworkWidth,artworkHeight:seminar.promoArtworkHeight} : seminar);
   dialog.innerHTML = `<button class="home-seminar-promo__close" type="button" aria-label="Close seminar promotion">×</button><div class="home-seminar-promo__content"><a class="home-seminar-promo__poster" href="${escapeHtml(destination)}" aria-label="View seminar details"><img src="${escapeHtml(poster)}" alt="Official poster for ${escapeHtml(seminar.title)}" width="${posterDimensions.width}" height="${posterDimensions.height}"></a><div class="home-seminar-promo__copy"><p class="eyebrow">Upcoming live webinar</p><h2 id="home-seminar-promo-title">${escapeHtml(seminar.title)}</h2><p>${escapeHtml(seminar.date)} · ${escapeHtml(seminar.time)} · ${escapeHtml(seminar.location)}</p><a class="button button-dark" href="${escapeHtml(destination)}">View Seminar Details</a></div></div>`;
   document.body.append(dialog);
 
