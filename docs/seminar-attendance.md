@@ -19,7 +19,7 @@ New Events rows default to **Closed**. The owner changes only the Attendance sta
 
 The first eight columns are Date Submitted, Time Submitted, Email, Full Name, Follow IG Y/N, Follow YT Y/N, Your Score for the Seminar, and Your Feedback for Seminar. Date/time use Asia/Jakarta. Score is 1–5 using the approved labels; short feedback is bounded to 300 characters. Both social checkboxes are self-declarations, never verified follower claims.
 
-Deduplication is Event ID plus trimmed, lowercased email. Dots and plus aliases stay intact. Locked writes and acknowledged persistence support safe retries without overwriting review work. There is no public attendee lookup or list. Attendance routes do not initialize analytics.
+Deduplication is Event ID plus trimmed, lowercased email. Dots and plus aliases stay intact. Locked writes and acknowledged persistence support safe retries without overwriting review work. The browser sends a native POST and reads a short-lived acknowledgement through Google Content Service JSONP, correlated by a random 128-bit request ID. This read-only response contains status only, never attendee data; callback names are strictly validated. There is no public attendee lookup or list. Attendance routes do not initialize analytics.
 
 Melati reviews attendees, manually emails the same high-resolution blank-name certificate image from the official BA Medicale email, and updates Certificate Status (Pending/Sent/Failed), Certificate Sent Date, Sent By, and Notes. Full Name is attendance data only. No automatic email, personalization, certificate generation, or SKP processing is implemented.
 

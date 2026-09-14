@@ -17,21 +17,19 @@
   const request = payload => new Promise((resolve,reject)=>{
     if(!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(endpoint)){reject(new Error('unconfigured'));return}
     const requestId=Array.from(crypto.getRandomValues(new Uint8Array(16)),x=>x.toString(16).padStart(2,'0')).join('');
-    const frame=document.createElement('iframe');frame.name='attendance-'+requestId;frame.title='Secure attendance acknowledgement';frame.hidden=true;
-    let post;
-    const cleanup=()=>{clearTimeout(timer);window.removeEventListener('message',receive);frame.remove();post?.remove()};
-    const receive=e=>{
-      if(!/^https:\/\/(?:script\.google\.com|(?:[a-z0-9-]+-)?script\.googleusercontent\.com)$/.test(e.origin))return;
-      // Google's HtmlService may nest wrappers; accept only this transport frame's descendants.
-      let own=false;try{let sender=e.source;for(let depth=0;sender&&depth<5;depth++){if(sender===frame.contentWindow){own=true;break}const parent=sender.parent;if(parent===sender)break;sender=parent}}catch{}if(!own)return;
-      const m=e.data;if(!m||m.type!=='ba-attendance'||m.request_id!==requestId||m.event_id!==eventId||!['open','closed','recorded','duplicate','invalid','retry'].includes(m.status))return;
+    const callback='baAttendance_'+requestId,common={event_id:eventId,request_id:requestId,origin:location.origin};
+    let frame,post,script,pollTimer,finished=false,attempt=0;
+    const cleanup=()=>{finished=true;clearTimeout(timer);clearTimeout(pollTimer);script?.remove();frame?.remove();post?.remove();delete window[callback]};
+    const fail=()=>{cleanup();reject(new Error('timeout'))};
+    const timer=setTimeout(fail,45000);
+    const poll=()=>{if(finished)return;script?.remove();script=document.createElement('script');script.referrerPolicy='no-referrer';const url=new URL(endpoint);Object.entries({...common,callback,action:payload?'ack':'status',attempt:++attempt}).forEach(([k,v])=>url.searchParams.set(k,v));script.src=url.href;script.onerror=()=>{if(!finished)pollTimer=setTimeout(poll,2500)};document.head.append(script)};
+    window[callback]=m=>{
+      if(!m||m.type!=='ba-attendance'||m.request_id!==requestId||m.event_id!==eventId)return;
+      if(m.status==='waiting'&&payload){pollTimer=setTimeout(poll,2000);return}
+      if(!['open','closed','recorded','duplicate','invalid','retry'].includes(m.status))return;
       cleanup();resolve(m.status);
     };
-    const timer=setTimeout(()=>{cleanup();reject(new Error('timeout'))},30000);
-    window.addEventListener('message',receive);document.body.append(frame);
-    const common={event_id:eventId,request_id:requestId,origin:location.origin};
-    if(payload){post=document.createElement('form');post.method='POST';post.action=endpoint;post.target=frame.name;post.hidden=true;const input=document.createElement('input');input.type='hidden';input.name='payload';input.value=JSON.stringify({...common,...payload});post.append(input);document.body.append(post);post.submit();input.value=''}
-    else{const url=new URL(endpoint);Object.entries(common).forEach(([k,v])=>url.searchParams.set(k,v));frame.src=url.href;}
+    if(payload){frame=document.createElement('iframe');frame.name='attendance-'+requestId;frame.title='Secure attendance submission';frame.hidden=true;document.body.append(frame);post=document.createElement('form');post.method='POST';post.action=endpoint;post.target=frame.name;post.hidden=true;const input=document.createElement('input');input.type='hidden';input.name='payload';input.value=JSON.stringify({...common,...payload});post.append(input);document.body.append(post);post.submit();input.value='';pollTimer=setTimeout(poll,2000)}else poll();
   });
   const check=async()=>{busy=true;retry.hidden=true;update();say('Checking attendance availability…');try{const state=await request();available=state==='open';if(state==='open')say('Attendance is open. Complete the form below.');else if(state==='closed')say('Attendance is currently closed. Please follow the organizer’s instructions.');else throw new Error('retry');retry.hidden=state!=='closed'}catch{available=false;retry.hidden=false;say(endpoint?'Unable to confirm availability. Please try again.':'Attendance is not open yet. Please follow the organizer’s instructions.')}finally{busy=false;update()}};
   retry.addEventListener('click',check);

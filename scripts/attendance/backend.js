@@ -128,23 +128,34 @@ function record_(p) {
     return 'recorded';
   } finally { lock.releaseLock(); }
 }
+function correlation_(p) {
+  return p && p.origin===SITE_ORIGIN && typeof p.event_id==='string' && /^[a-z0-9-]{1,100}$/.test(p.event_id) && /^[a-f0-9]{32}$/.test(p.request_id||'');
+}
+function ackKey_(p) { return 'ACK_'+p.event_id+'_'+p.request_id; }
 function reply_(p,status) {
-  if(!p || p.origin!==SITE_ORIGIN || typeof p.event_id!=='string' || !/^[a-z0-9-]{1,100}$/.test(p.event_id) || !/^[a-f0-9]{32}$/.test(p.request_id||'')) return HtmlService.createHtmlOutput('Request unavailable.');
-  const message=JSON.stringify({type:'ba-attendance',request_id:p.request_id,event_id:p.event_id,status}).replace(/</g,'\\u003c');
-  // HtmlService uses a Google-owned wrapper and sandbox frame. No personal data is included.
-  return HtmlService.createHtmlOutput('<!doctype html><meta name="referrer" content="no-referrer"><script>window.top.postMessage('+message+','+JSON.stringify(SITE_ORIGIN)+');</script>').setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+  if(!correlation_(p) || p.callback!=='baAttendance_'+p.request_id) return ContentService.createTextOutput('Request unavailable.');
+  // Read-only JSONP returns only non-sensitive request status, never participant data.
+  const message=JSON.stringify({type:'ba-attendance',request_id:p.request_id,event_id:p.event_id,status});
+  return ContentService.createTextOutput(p.callback+'('+message+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
 function doGet(e) {
   const p=e && e.parameter; let status='closed';
-  try { const event=event_(p && p.event_id); if(event && event.open) status='open'; } catch(_) {status='retry';}
+  if(!correlation_(p)) return reply_(null,status);
+  try {
+    if(p.action==='ack') status=CacheService.getScriptCache().get(ackKey_(p))||'waiting';
+    else if(p.action==='status') { const target=event_(p.event_id); if(target && target.open) status='open'; }
+    else status='invalid';
+  } catch(_) { status='retry'; }
   return reply_(p,status);
 }
 function doPost(e) {
   let p; let status='invalid';
   try {
-    if(!e || !e.postData || e.postData.length>16000 || Object.keys(e.parameters).some(k=>k!=='payload') || !e.parameters.payload || e.parameters.payload.length!==1) return reply_(null,status);
+    if(!e || !e.postData || e.postData.length>16000 || Object.keys(e.parameters).some(k=>k!=='payload') || !e.parameters.payload || e.parameters.payload.length!==1) return ContentService.createTextOutput('Request unavailable.');
     p=JSON.parse(e.parameter.payload);
-    if(p.origin===SITE_ORIGIN && /^[a-f0-9]{32}$/.test(p.request_id||'')) status=record_(p);
+    if(correlation_(p)) status=record_(p);
   } catch(_) {status='retry';}
-  return reply_(p,status);
+  if(correlation_(p)) CacheService.getScriptCache().put(ackKey_(p),status,180);
+  // This POST response is not treated as success. The browser reads its correlated acknowledgement.
+  return ContentService.createTextOutput('Request processed. Return to the attendance page.');
 }
