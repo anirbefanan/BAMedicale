@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T19:58:11.846Z",
+  "generatedAt": "2026-09-14T11:09:56.490Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-17",
@@ -7,17 +7,17 @@
   },
   "summary": {
     "activeUsers": 62,
-    "newUsers": 62,
-    "averageEngagementTimeSeconds": 391.0806451612903,
-    "eventCount": 2511
+    "newUsers": 63,
+    "averageEngagementTimeSeconds": 397.64516129032256,
+    "eventCount": 2543
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 234,
-      "activeUsers": 39,
-      "eventCount": 591,
-      "bounceRate": 0.391304347826087
+      "views": 238,
+      "activeUsers": 40,
+      "eventCount": 604,
+      "bounceRate": 0.28695652173913044
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -30,43 +30,43 @@
       "title": "Medical Library | BA Medicale",
       "views": 87,
       "activeUsers": 14,
-      "eventCount": 193,
-      "bounceRate": 0.07894736842105263
+      "eventCount": 194,
+      "bounceRate": 0
     },
     {
       "title": "Courses & Seminars | BA Medicale",
       "views": 70,
       "activeUsers": 12,
       "eventCount": 189,
-      "bounceRate": 0.08823529411764706
+      "bounceRate": 0
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 64,
+      "views": 65,
       "activeUsers": 10,
-      "eventCount": 151,
-      "bounceRate": 0.07142857142857142
+      "eventCount": 152,
+      "bounceRate": 0.03571428571428571
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 46,
+      "views": 47,
       "activeUsers": 16,
-      "eventCount": 161,
-      "bounceRate": 0.21621621621621623
-    },
-    {
-      "title": "For Public | BA Medicale",
-      "views": 44,
-      "activeUsers": 9,
-      "eventCount": 89,
-      "bounceRate": 0.25
+      "eventCount": 163,
+      "bounceRate": 0.13513513513513514
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 39,
-      "activeUsers": 11,
-      "eventCount": 93,
-      "bounceRate": 0.125
+      "views": 43,
+      "activeUsers": 12,
+      "eventCount": 100,
+      "bounceRate": 0.037037037037037035
+    },
+    {
+      "title": "For Public | BA Medicale",
+      "views": 42,
+      "activeUsers": 9,
+      "eventCount": 87,
+      "bounceRate": 0.05
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -80,13 +80,13 @@
       "views": 27,
       "activeUsers": 8,
       "eventCount": 80,
-      "bounceRate": 0.038461538461538464
+      "bounceRate": 0
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 38
+      "activeUsers": 39
     },
     {
       "label": "google / organic",
@@ -95,10 +95,6 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 4
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 3
     },
     {
       "label": "facebook.com / referral",
@@ -116,15 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 151
+      "sessions": 153
     },
     {
       "label": "google / organic",
       "sessions": 46
-    },
-    {
-      "label": "Not set",
-      "sessions": 12
     },
     {
       "label": "l.instagram.com / referral",
@@ -173,15 +165,15 @@
       "activeUsers": 2
     },
     {
+      "label": "Bekasi Regency",
+      "activeUsers": 2
+    },
+    {
       "label": "Glenview",
       "activeUsers": 2
     },
     {
       "label": "Medan",
-      "activeUsers": 2
-    },
-    {
-      "label": "Prineville",
       "activeUsers": 2
     }
   ]
