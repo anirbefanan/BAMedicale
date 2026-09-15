@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T02:17:31.009Z",
+  "generatedAt": "2026-09-15T10:38:14.126Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-18",
@@ -8,8 +8,8 @@
   "summary": {
     "activeUsers": 64,
     "newUsers": 65,
-    "averageEngagementTimeSeconds": 393.71875,
-    "eventCount": 2568
+    "averageEngagementTimeSeconds": 393.484375,
+    "eventCount": 2569
   },
   "topPages": [
     {
@@ -38,7 +38,7 @@
       "views": 71,
       "activeUsers": 13,
       "eventCount": 191,
-      "bounceRate": 0.02857142857142857
+      "bounceRate": 0
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -52,14 +52,14 @@
       "views": 48,
       "activeUsers": 17,
       "eventCount": 167,
-      "bounceRate": 0.15789473684210525
+      "bounceRate": 0.13157894736842105
     },
     {
       "title": "For Doctors | BA Medicale",
       "views": 43,
       "activeUsers": 12,
       "eventCount": 102,
-      "bounceRate": 0.07142857142857142
+      "bounceRate": 0.03571428571428571
     },
     {
       "title": "For Public | BA Medicale",
@@ -133,10 +133,6 @@
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
-    },
-    {
-      "label": "Not set",
-      "sessions": 1
     }
   ],
   "cities": [
