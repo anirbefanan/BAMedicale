@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-15T15:51:30.233Z",
+  "generatedAt": "2026-09-15T20:35:59.204Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-18",
-    "endDate": "2026-09-14"
+    "startDate": "2026-08-19",
+    "endDate": "2026-09-15"
   },
   "summary": {
-    "activeUsers": 64,
-    "newUsers": 65,
-    "averageEngagementTimeSeconds": 393.484375,
-    "eventCount": 2569
+    "activeUsers": 66,
+    "newUsers": 67,
+    "averageEngagementTimeSeconds": 391.07575757575756,
+    "eventCount": 2618
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 239,
-      "activeUsers": 41,
-      "eventCount": 608,
-      "bounceRate": 0.29310344827586204
+      "views": 250,
+      "activeUsers": 42,
+      "eventCount": 633,
+      "bounceRate": 0.31666666666666665
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -37,8 +37,8 @@
       "title": "Courses & Seminars | BA Medicale",
       "views": 71,
       "activeUsers": 13,
-      "eventCount": 191,
-      "bounceRate": 0
+      "eventCount": 193,
+      "bounceRate": 0.027777777777777776
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -55,18 +55,18 @@
       "bounceRate": 0.13157894736842105
     },
     {
+      "title": "For Public | BA Medicale",
+      "views": 44,
+      "activeUsers": 9,
+      "eventCount": 91,
+      "bounceRate": 0.13636363636363635
+    },
+    {
       "title": "For Doctors | BA Medicale",
       "views": 43,
       "activeUsers": 12,
       "eventCount": 102,
       "bounceRate": 0.03571428571428571
-    },
-    {
-      "title": "For Public | BA Medicale",
-      "views": 42,
-      "activeUsers": 9,
-      "eventCount": 87,
-      "bounceRate": 0.05
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -86,11 +86,11 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 41
+      "activeUsers": 42
     },
     {
       "label": "google / organic",
-      "activeUsers": 11
+      "activeUsers": 12
     },
     {
       "label": "l.instagram.com / referral",
@@ -107,20 +107,28 @@
     {
       "label": "bing / organic",
       "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 157
+      "sessions": 160
     },
     {
       "label": "google / organic",
-      "sessions": 46
+      "sessions": 48
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 4
+    },
+    {
+      "label": "Not set",
+      "sessions": 3
     },
     {
       "label": "bing / organic",
@@ -138,7 +146,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 28
+      "activeUsers": 29
     },
     {
       "label": "Council Bluffs",
