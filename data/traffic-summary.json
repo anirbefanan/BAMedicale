@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T21:08:38.667Z",
+  "generatedAt": "2026-09-15T02:17:31.009Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-18",
@@ -8,8 +8,8 @@
   "summary": {
     "activeUsers": 64,
     "newUsers": 65,
-    "averageEngagementTimeSeconds": 393.65625,
-    "eventCount": 2567
+    "averageEngagementTimeSeconds": 393.71875,
+    "eventCount": 2568
   },
   "topPages": [
     {
