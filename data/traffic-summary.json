@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-16T15:43:11.279Z",
+  "generatedAt": "2026-09-16T20:35:12.571Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-19",
-    "endDate": "2026-09-15"
+    "startDate": "2026-08-20",
+    "endDate": "2026-09-16"
   },
   "summary": {
-    "activeUsers": 66,
-    "newUsers": 67,
-    "averageEngagementTimeSeconds": 391.1515151515151,
-    "eventCount": 2626
+    "activeUsers": 67,
+    "newUsers": 68,
+    "averageEngagementTimeSeconds": 385.74626865671644,
+    "eventCount": 2648
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 250,
-      "activeUsers": 42,
-      "eventCount": 633,
-      "bounceRate": 0.2916666666666667
+      "views": 255,
+      "activeUsers": 43,
+      "eventCount": 643,
+      "bounceRate": 0.31451612903225806
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -29,9 +29,9 @@
     {
       "title": "Medical Library | BA Medicale",
       "views": 87,
-      "activeUsers": 14,
-      "eventCount": 194,
-      "bounceRate": 0
+      "activeUsers": 15,
+      "eventCount": 195,
+      "bounceRate": 0.02564102564102564
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -42,10 +42,10 @@
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 65,
+      "views": 66,
       "activeUsers": 10,
-      "eventCount": 152,
-      "bounceRate": 0.03571428571428571
+      "eventCount": 154,
+      "bounceRate": 0.06896551724137931
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
@@ -97,11 +97,11 @@
       "activeUsers": 4
     },
     {
-      "label": "facebook.com / referral",
-      "activeUsers": 3
+      "label": "m.facebook.com / referral",
+      "activeUsers": 4
     },
     {
-      "label": "m.facebook.com / referral",
+      "label": "facebook.com / referral",
       "activeUsers": 3
     },
     {
@@ -112,15 +112,23 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 160
+      "sessions": 162
     },
     {
       "label": "google / organic",
-      "sessions": 49
+      "sessions": 50
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 4
+    },
+    {
+      "label": "m.facebook.com / referral",
+      "sessions": 4
+    },
+    {
+      "label": "Not set",
+      "sessions": 3
     },
     {
       "label": "bing / organic",
@@ -128,10 +136,6 @@
     },
     {
       "label": "facebook.com / referral",
-      "sessions": 3
-    },
-    {
-      "label": "m.facebook.com / referral",
       "sessions": 3
     }
   ],
@@ -161,6 +165,10 @@
       "activeUsers": 4
     },
     {
+      "label": "Prineville",
+      "activeUsers": 3
+    },
+    {
       "label": "Bekasi",
       "activeUsers": 2
     },
@@ -170,10 +178,6 @@
     },
     {
       "label": "Glenview",
-      "activeUsers": 2
-    },
-    {
-      "label": "Medan",
       "activeUsers": 2
     }
   ]
