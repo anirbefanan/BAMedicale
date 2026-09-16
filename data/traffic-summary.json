@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T02:10:44.474Z",
+  "generatedAt": "2026-09-16T10:26:27.546Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-19",
@@ -8,8 +8,8 @@
   "summary": {
     "activeUsers": 66,
     "newUsers": 67,
-    "averageEngagementTimeSeconds": 391.07575757575756,
-    "eventCount": 2618
+    "averageEngagementTimeSeconds": 391.1515151515151,
+    "eventCount": 2626
   },
   "topPages": [
     {
@@ -17,7 +17,7 @@
       "views": 250,
       "activeUsers": 42,
       "eventCount": 633,
-      "bounceRate": 0.31666666666666665
+      "bounceRate": 0.2916666666666667
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -35,10 +35,10 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 71,
+      "views": 73,
       "activeUsers": 13,
-      "eventCount": 193,
-      "bounceRate": 0.027777777777777776
+      "eventCount": 196,
+      "bounceRate": 0
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -59,7 +59,7 @@
       "views": 44,
       "activeUsers": 9,
       "eventCount": 91,
-      "bounceRate": 0.13636363636363635
+      "bounceRate": 0.09090909090909091
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -107,10 +107,6 @@
     {
       "label": "bing / organic",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [
@@ -120,15 +116,11 @@
     },
     {
       "label": "google / organic",
-      "sessions": 48
+      "sessions": 49
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 4
-    },
-    {
-      "label": "Not set",
-      "sessions": 3
     },
     {
       "label": "bing / organic",
