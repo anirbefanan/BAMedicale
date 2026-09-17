@@ -1,2 +1,12 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Byte-checked generated pages and attendance hash inputs must match on Windows.
+/articles/*.html text eol=lf
+/events/*.html text eol=lf
+/attendance/*.html text eol=lf
+/sitemap.xml text eol=lf
+/styles.css text eol=lf
+/attendance/client.js text eol=lf
+/scripts/attendance/backend.js text eol=lf
+/scripts/attendance/Code.gs text eol=lf
