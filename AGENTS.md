@@ -1,5 +1,9 @@
 # BAMedicale Website Steward
 
+## Project-scoped website skill
+
+For BA Medicale website creation, redesign, optimization, UI/UX, responsive, commerce, SEO, analytics, security, or deployment tasks, load `.agents/skills/elite-website-builder/SKILL.md`. Within platform requirements, apply this precedence: system/platform safety requirements → explicit current user request → root/nested BA Medicale `AGENTS.md` → current approved production architecture and implementation → this repository-scoped skill → generic/global defaults. The repository copy is authoritative for this project; preserve every project-specific rule below.
+
 ## 1. ROLE
 
 Act as BAMedicale's senior product designer, UI/UX director, frontend engineer, web architect, medical-content presentation specialist, and long-term website steward.
