@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-17T15:49:28.529Z",
+  "generatedAt": "2026-09-17T20:42:07.619Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-20",
-    "endDate": "2026-09-16"
+    "startDate": "2026-08-21",
+    "endDate": "2026-09-17"
   },
   "summary": {
-    "activeUsers": 68,
-    "newUsers": 69,
-    "averageEngagementTimeSeconds": 380.0882352941176,
-    "eventCount": 2653
+    "activeUsers": 70,
+    "newUsers": 71,
+    "averageEngagementTimeSeconds": 369.85714285714283,
+    "eventCount": 2675
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 256,
-      "activeUsers": 44,
-      "eventCount": 647,
-      "bounceRate": 0.288
+      "views": 262,
+      "activeUsers": 46,
+      "eventCount": 658,
+      "bounceRate": 0.3153846153846154
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -28,10 +28,10 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 88,
+      "views": 89,
       "activeUsers": 15,
-      "eventCount": 196,
-      "bounceRate": 0
+      "eventCount": 197,
+      "bounceRate": 0.025
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -42,10 +42,10 @@
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 66,
+      "views": 67,
       "activeUsers": 10,
-      "eventCount": 154,
-      "bounceRate": 0.034482758620689655
+      "eventCount": 156,
+      "bounceRate": 0.06666666666666667
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
@@ -57,9 +57,9 @@
     {
       "title": "For Public | BA Medicale",
       "views": 44,
-      "activeUsers": 9,
-      "eventCount": 91,
-      "bounceRate": 0.09090909090909091
+      "activeUsers": 10,
+      "eventCount": 92,
+      "bounceRate": 0.13043478260869565
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 42
+      "activeUsers": 44
     },
     {
       "label": "google / organic",
@@ -112,11 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 162
+      "sessions": 166
     },
     {
       "label": "google / organic",
-      "sessions": 50
+      "sessions": 51
     },
     {
       "label": "facebook.com / referral",
@@ -131,6 +131,10 @@
       "sessions": 4
     },
     {
+      "label": "Not set",
+      "sessions": 3
+    },
+    {
       "label": "bing / organic",
       "sessions": 3
     }
@@ -142,7 +146,7 @@
     },
     {
       "label": "Council Bluffs",
-      "activeUsers": 6
+      "activeUsers": 7
     },
     {
       "label": "Ashburn",
@@ -161,6 +165,10 @@
       "activeUsers": 4
     },
     {
+      "label": "Glenview",
+      "activeUsers": 3
+    },
+    {
       "label": "Prineville",
       "activeUsers": 3
     },
@@ -170,10 +178,6 @@
     },
     {
       "label": "Bekasi Regency",
-      "activeUsers": 2
-    },
-    {
-      "label": "Glenview",
       "activeUsers": 2
     }
   ]
