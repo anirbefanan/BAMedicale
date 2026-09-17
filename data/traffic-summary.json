@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-17T02:14:39.320Z",
+  "generatedAt": "2026-09-17T10:36:14.509Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-20",
     "endDate": "2026-09-16"
   },
   "summary": {
-    "activeUsers": 67,
-    "newUsers": 68,
-    "averageEngagementTimeSeconds": 385.74626865671644,
-    "eventCount": 2648
+    "activeUsers": 68,
+    "newUsers": 69,
+    "averageEngagementTimeSeconds": 380.0882352941176,
+    "eventCount": 2653
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 255,
-      "activeUsers": 43,
-      "eventCount": 643,
-      "bounceRate": 0.31451612903225806
+      "views": 256,
+      "activeUsers": 44,
+      "eventCount": 647,
+      "bounceRate": 0.288
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -28,10 +28,10 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 87,
+      "views": 88,
       "activeUsers": 15,
-      "eventCount": 195,
-      "bounceRate": 0.02564102564102564
+      "eventCount": 196,
+      "bounceRate": 0
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -45,7 +45,7 @@
       "views": 66,
       "activeUsers": 10,
       "eventCount": 154,
-      "bounceRate": 0.06896551724137931
+      "bounceRate": 0.034482758620689655
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
@@ -93,16 +93,16 @@
       "activeUsers": 12
     },
     {
+      "label": "facebook.com / referral",
+      "activeUsers": 4
+    },
+    {
       "label": "l.instagram.com / referral",
       "activeUsers": 4
     },
     {
       "label": "m.facebook.com / referral",
       "activeUsers": 4
-    },
-    {
-      "label": "facebook.com / referral",
-      "activeUsers": 3
     },
     {
       "label": "bing / organic",
@@ -119,6 +119,10 @@
       "sessions": 50
     },
     {
+      "label": "facebook.com / referral",
+      "sessions": 4
+    },
+    {
       "label": "l.instagram.com / referral",
       "sessions": 4
     },
@@ -127,15 +131,7 @@
       "sessions": 4
     },
     {
-      "label": "Not set",
-      "sessions": 3
-    },
-    {
       "label": "bing / organic",
-      "sessions": 3
-    },
-    {
-      "label": "facebook.com / referral",
       "sessions": 3
     }
   ],
