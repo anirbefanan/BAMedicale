@@ -464,7 +464,7 @@ Long-reading comfort is mandatory: use deep charcoal supporting text, readable m
 - Navbar and footer use `--glass-chrome-background`. Dropdowns, share menus, and floating dialogs use `--glass-floating-background`, `--glass-floating-filter`, and `--glass-floating-shadow`; their 86-90% opacity is intentional so underlying text cannot compete with menus.
 - Media stays opaque, sharp, and source-faithful; its surrounding copy uses the shared card surface. Preserve the deliberately distinct About/Team media heroes, official posters, and portrait video proportions.
 - Card spacing comes from `--card-padding` / `--card-gap`. Search, select, chips, pagination, and form controls reuse `--control-height` (44px), `--control-radius`, `--control-border`, and crimson focus/active states. Mobile text-entry/select fields must remain at least 16px to avoid focus zoom.
-- Use `--title-page`, `--title-profile`, and `--title-section` for matching heading families. Preserve Instrument Sans / Space Grotesk, readable charcoal, normal word wrapping, and zero letter spacing. Use breakpoint-based sizes, not new viewport-scaled type.
+- Use `--title-page`, `--title-profile`, and `--title-section` for matching heading families. Preserve Plus Jakarta Sans for UI, headings, navigation, cards, buttons, forms, labels, metadata, and general interface copy; use Source Serif 4 only for long-form editorial and scientific reading body content. Preserve readable charcoal, normal word wrapping, and zero letter spacing. Use breakpoint-based sizes, not new viewport-scaled type.
 - Grouping sections remain unframed. Avoid card-inside-card composition, alternating opaque/tinted list sections, oversized empty wrappers, and separate backgrounds that restart the shared panorama.
 - Reading pages use `--reading-width` (980px), `--reading-measure` (74ch), and 18px narrow-screen gutters. Their compact navigation/footer align to that reading grid. Shared expanded footers continue to align to each main page grid without changing their links or content.
 - Full publications are generated from `scripts/build-articles.js` / `scripts/event-template.js`; never hand-edit generated content. An article is artwork first, labels, title, summary, byline/sources, continuous body, then supporting actions/navigation. Artwork reserves a 16:9 full-width frame with `contain`, not a side-by-side title layout or destructive crop.
@@ -682,13 +682,16 @@ If cache problems repeatedly occur, solve the root cause once through SYSTEM mod
 
 GitHub remains the canonical source-control repository.
 
+For every BAU task, read current `AGENTS.md` and relevant project skills, fetch `origin/main`, inspect local changes, and safely fast-forward a clean `main` before editing. Preserve unrelated work; never blindly stash, reset, or overwrite it. After pushing, fetch again, verify local `main` matches the current `origin/main`, and verify the affected production URL. Routine verification is one bounded check, not repeated deployment polling. Run this workflow through Codex; the user does not need Terminal or GitHub Desktop for normal work.
+
 Normal workflow:
 
 1. inspect intended diff
 2. stage intended files only
 3. commit
 4. `git push origin main`
-5. STOP
+5. fetch again and verify remote sync and the affected production URL
+6. STOP
 
 A successful push to `main` publishes BAMedicale through GitHub Pages using the configured custom domain.
 
