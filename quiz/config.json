@@ -1,4 +1,13 @@
 {
-  "events": ["management-thyroid-nodules-2026"],
-  "durationSeconds": 180
+  "events": [
+    "management-thyroid-nodules-2026",
+    "lms-management-thyroid-nodules-2026"
+  ],
+  "durationSeconds": 180,
+  "definitions": {
+    "lms-management-thyroid-nodules-2026": {
+      "seminarId": "management-thyroid-nodules-2026",
+      "title": "LMS Live Quiz"
+    }
+  }
 }

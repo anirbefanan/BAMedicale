@@ -1,9 +1,96 @@
 {
   "management-thyroid-nodules-2026": [
-    {"question":"Berapakah rentang frekuensi gelombang ultrasonografi (USG) yang optimum untuk pemeriksaan organ superfisial seperti kelenjar tiroid?","choices":["1–2 MHz","3,5–5 MHz","5–10 MHz","10–15 MHz"]},
-    {"question":"Artifact ultrasonografi apa yang sering disalahartikan sebagai punctate echogenic foci (PEF, bernilai 3 poin), sehingga dapat meningkatkan klasifikasi nodul dari TR2 menjadi TR4 secara keliru?","choices":["Acoustic shadowing dari kalsifikasi kasar","Comet tail artifacts besar atau foki ekogenisitas tinggi dari dinding belakang kista kecil","Posterior acoustic enhancement pada struktur kistik murni","Reverberation artifact dari fascia pra-trakealis"]},
-    {"question":"Pada sistem klasifikasi Bethesda Kategori IV (Follicular Neoplasm), berapa estimasi Risiko Keganasan (Risk of Malignancy / ROM) dan tindakan yang diperlukan untuk diagnosis definitif?","choices":["ROM 4% dan cukup dilakukan observasi klinis saja","ROM 25–40% dan memerlukan tindakan lobektomi untuk diagnosis definitif","ROM 65–75% dan langsung memerlukan tiroidektomi total","ROM 97–100% dan memerlukan kemoterapi sistemik"]},
-    {"question":"Pada tata laksana Karsinoma Tiroid Berdiferensiasi Baik (Well Differentiated Carcinoma Thyroid), pilihan terapi target (targeted therapy) yang dicantumkan secara spesifik dalam materi adalah:","choices":["Sorafenib","Lenvatinib","Pembrolizumab","Rituximab"]},
-    {"question":"Manakah di bawah ini yang merupakan pilihan prosedur tindakan ablasi non-bedah / minimal invasif untuk penatalaksanaan nodul tiroid jinak (benign thyroid nodule) sesuai materi presentasi?","choices":["Percutaneous Ethanol Ablation (PEA) dan Radiofrequency Ablation (RFA)","Total Thyroidectomy dan Laparoskopi","Endoskopi tiroidektomi","Radioactive Iodine (I-131) ablasi"]}
+    {
+      "question": "Berapakah rentang frekuensi gelombang ultrasonografi (USG) yang optimum untuk pemeriksaan organ superfisial seperti kelenjar tiroid?",
+      "choices": [
+        "1–2 MHz",
+        "3,5–5 MHz",
+        "5–10 MHz",
+        "10–15 MHz"
+      ]
+    },
+    {
+      "question": "Artifact ultrasonografi apa yang sering disalahartikan sebagai punctate echogenic foci (PEF, bernilai 3 poin), sehingga dapat meningkatkan klasifikasi nodul dari TR2 menjadi TR4 secara keliru?",
+      "choices": [
+        "Acoustic shadowing dari kalsifikasi kasar",
+        "Comet tail artifacts besar atau foki ekogenisitas tinggi dari dinding belakang kista kecil",
+        "Posterior acoustic enhancement pada struktur kistik murni",
+        "Reverberation artifact dari fascia pra-trakealis"
+      ]
+    },
+    {
+      "question": "Pada sistem klasifikasi Bethesda Kategori IV (Follicular Neoplasm), berapa estimasi Risiko Keganasan (Risk of Malignancy / ROM) dan tindakan yang diperlukan untuk diagnosis definitif?",
+      "choices": [
+        "ROM 4% dan cukup dilakukan observasi klinis saja",
+        "ROM 25–40% dan memerlukan tindakan lobektomi untuk diagnosis definitif",
+        "ROM 65–75% dan langsung memerlukan tiroidektomi total",
+        "ROM 97–100% dan memerlukan kemoterapi sistemik"
+      ]
+    },
+    {
+      "question": "Pada tata laksana Karsinoma Tiroid Berdiferensiasi Baik (Well Differentiated Carcinoma Thyroid), pilihan terapi target (targeted therapy) yang dicantumkan secara spesifik dalam materi adalah:",
+      "choices": [
+        "Sorafenib",
+        "Lenvatinib",
+        "Pembrolizumab",
+        "Rituximab"
+      ]
+    },
+    {
+      "question": "Manakah di bawah ini yang merupakan pilihan prosedur tindakan ablasi non-bedah / minimal invasif untuk penatalaksanaan nodul tiroid jinak (benign thyroid nodule) sesuai materi presentasi?",
+      "choices": [
+        "Percutaneous Ethanol Ablation (PEA) dan Radiofrequency Ablation (RFA)",
+        "Total Thyroidectomy dan Laparoskopi",
+        "Endoskopi tiroidektomi",
+        "Radioactive Iodine (I-131) ablasi"
+      ]
+    }
+  ],
+  "lms-management-thyroid-nodules-2026": [
+    {
+      "question": "Berdasarkan evaluasi ultrasonografi (USG), sebagian besar nodul tiroid bersifat jinak, namun memiliki estimasi risiko keganasan (risk of malignancy) sebesar:",
+      "choices": [
+        "1–3%",
+        "7–15%",
+        "25–40%",
+        "50–60%"
+      ]
+    },
+    {
+      "question": "Apa keunggulan utama dari pendekatan berbasis poin (points-based approach) pada ACR TI-RADS dibandingkan dengan sistem stratifikasi risiko lainnya seperti ATA guidelines?",
+      "choices": [
+        "Menurunkan batas ukuran biopsi nodul hingga 0,5 cm untuk semua tingkat risiko",
+        "Mengeliminasi nodul yang tidak terklasifikasi (0% unclassifiable) serta mengurangi angka biopsi yang tidak perlu secara signifikan",
+        "Mewajibkan biopsi pada lebih dari 50% dari seluruh nodul yang ditemukan",
+        "Menggantikan seluruh peran pemeriksaan patologi anatomi"
+      ]
+    },
+    {
+      "question": "Menurut Sistem Bethesda (Bethesda System for Reporting Thyroid Cytopathology), sampel Fine-Needle Aspiration (FNA) tiroid dinyatakan adekuat untuk dievaluasi apabila memenuhi kriteria minimal berikut:",
+      "choices": [
+        "Minimal 3 kelompok sel folikel dengan masing-masing minimal 5 sel",
+        "Minimal 6 kelompok sel epitel folikel yang tervisualisasi baik dengan minimal 10 sel per kelompok",
+        "Minimal 10 kelompok sel folikel dengan masing-masing minimal 6 sel",
+        "Minimal 15 sel folikel bebas pada satu lapang pandang"
+      ]
+    },
+    {
+      "question": "Mengapa pemeriksaan sitologi Fine-Needle Aspiration Biopsy (FNAB) tidak dapat mendiagnosis karsinoma folikuler (follicular carcinoma) secara pasti?",
+      "choices": [
+        "Karena karsinoma folikuler tidak memiliki sel epitel folikel",
+        "Karena sel karsinoma folikuler selalu teridentifikasi sebagai makrofag",
+        "Karena FNAB selalu menghasilkan kriteria sampel yang tidak adekuat (unsatisfactory)",
+        "Karena diagnosis karsinoma folikuler memerlukan pembuktian adanya invasi kapsul atau invasi vascular"
+      ]
+    },
+    {
+      "question": "Pemeriksaan laboratorium awal yang digunakan dalam pendekatan diagnostik evaluasi nodul tiroid adalah:",
+      "choices": [
+        "Calcitonin dan Thyroglobulin",
+        "FT4 dan TSHs",
+        "Anti-TPO dan Anti-Thyroglobulin",
+        "Total T3 dan Iodine Urin"
+      ]
+    }
   ]
 }

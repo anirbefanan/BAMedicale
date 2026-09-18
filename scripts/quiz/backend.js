@@ -14,18 +14,19 @@ function quizConfig_(id) {
   if(!row)return null;
   const sheet=ss.getSheetById(Number(row[2])),sessions=ss.getSheetByName('Quiz Sessions');
   if(!sheet||!sessions)return null;
-  return {id,key,sheet,sessions,...resolveSchedule_(row[1],row[3],row[4],Date.now())};
+  return {id,key,sheet,sessions,compact:id==='lms-management-thyroid-nodules-2026',title:id==='lms-management-thyroid-nodules-2026'?'LMS Live Quiz':'BA Medicale Live Quiz',...resolveSchedule_(row[1],row[3],row[4],Date.now())};
   }catch(_){return null;}
 }
 /* Owner-only provisioning. Set QUIZ_KEY_<event-id> privately before running. */
-function setupQuiz() {
+function setupQuiz() { setupQuizDefinition_('management-thyroid-nodules-2026','Games19Sept',QUIZ_HEADERS); }
+function setupLmsQuiz() { setupQuizDefinition_('lms-management-thyroid-nodules-2026','LMSGames19Sept',QUIZ_HEADERS.slice(0,8)); }
+function setupQuizDefinition_(id,tabName,headers) {
   const ss=SpreadsheetApp.getActiveSpreadsheet();
   assert_(ss&&ss.getId()===props_().getProperty('TRACKER_ID'),'Use the existing bound tracker.');
   assert_(Session.getEffectiveUser().getEmail()===props_().getProperty('OWNER'),'Owner only.');
   assert_(DriveApp.getFileById(ss.getId()).getSharingAccess()===DriveApp.Access.PRIVATE,'Keep tracker Restricted.');
   const lock=LockService.getScriptLock();lock.waitLock(10000);
   try {
-    const id='management-thyroid-nodules-2026';
     const key=JSON.parse(props_().getProperty('QUIZ_KEY_'+id)||'null');
     assert_(Array.isArray(key)&&key.length===5&&key.every(n=>Number.isInteger(n)&&n>=0&&n<4),'Set the verified private answer key first.');
     const control=ss.getSheetByName('Quiz Control')||ss.insertSheet('Quiz Control');if(control.getLastRow()&&JSON.stringify(control.getRange(1,1,1,3).getValues()[0])===JSON.stringify(['Event ID','State','Result Tab ID'])){
@@ -34,7 +35,7 @@ function setupQuiz() {
     }
     header_(control,QUIZ_CONTROL_HEADERS);
     const sessions=ss.getSheetByName('Quiz Sessions')||ss.insertSheet('Quiz Sessions');header_(sessions,QUIZ_SESSION_HEADERS);
-    const sheet=ss.getSheetByName('Games19Sept')||ss.insertSheet('Games19Sept');header_(sheet,QUIZ_HEADERS);
+    const sheet=ss.getSheetByName(tabName)||ss.insertSheet(tabName);header_(sheet,headers);
     const rows=control.getLastRow()>1?control.getRange(2,1,control.getLastRow()-1,3).getValues():[];
     const existing=rows.find(r=>r[0]===id);
     assert_(!existing||Number(existing[2])===sheet.getSheetId(),'Preserve existing quiz mapping.');
@@ -66,7 +67,7 @@ function quizRecord_(p){
   const lock=LockService.getScriptLock();if(!lock.tryLock(10000))return {status:'retry'};
   try{
     const q=quizConfig_(p.event_id);if(!q)return {status:'closed'};
-    const results=quizRows_(q.sheet,10),sessions=quizRows_(q.sessions,5);
+    const results=quizResults_(q),sessions=quizRows_(q.sessions,5);
     let session;
     if(p.action==='quiz_start'){
       const email=normalizedEmail_(p.email);
@@ -81,13 +82,13 @@ function quizRecord_(p){
       }
     }else session=sessions.find(r=>r[0]===q.id&&r[3]===p.token);
     if(!session)return {status:'invalid'};
-    const existing=results.find(r=>r[8]===session[3]);if(existing)return quizResult_(existing);
+    const existing=results.find(r=>q.compact?quizEmail_(r[2])===quizEmail_(session[1]):r[8]===session[3]);if(existing)return quizResult_(existing);
     const now=Date.now(),elapsed=now-Number(session[4]);
     if(p.action!=='quiz_submit'&&elapsed<=QUIZ_DURATION+QUIZ_GRACE)return {status:'active',token:session[3],startedAt:Number(session[4]),deadline:Number(session[4])+QUIZ_DURATION,serverNow:now};
     // Expired sessions cannot gain extra answering time; late retries return the stored result.
     const correct=quizScore_(p.action==='quiz_submit'?p.answers:[null,null,null,null,null],q.key,elapsed);
     const row=[Utilities.formatDate(new Date(now),'Asia/Jakarta','yyyy-MM-dd'),Utilities.formatDate(new Date(now),'Asia/Jakarta','HH:mm:ss'),session[1],correct,5,correct*20,Math.min(180,Math.max(0,elapsed/1000)), 'Completed',session[3],now];
-    q.sheet.appendRow(row);SpreadsheetApp.flush();
+    q.sheet.appendRow(q.compact?row.slice(0,8):row);SpreadsheetApp.flush();
     return quizResult_(row);
   }finally{lock.releaseLock();}
 }
@@ -103,7 +104,7 @@ function quizGet_(p){
   let result={status:'retry'};
   try{
     if(p.action==='quiz_ack')result=JSON.parse(CacheService.getScriptCache().get('QUIZ_ACK_'+p.request_id)||'{"status":"waiting"}');
-    else {const q=quizConfig_(p.event_id);if(p.action==='quiz_status')result=quizAvailability_(q);else if(p.action==='quiz_top')result={status:'ok',players:q?quizLeaderboard_(quizRows_(q.sheet,10)):[]};}
+    else {const q=quizConfig_(p.event_id);if(p.action==='quiz_status')result=quizAvailability_(q);else if(p.action==='quiz_top')result={status:'ok',players:q?quizLeaderboard_(quizResults_(q)):[]};}
   }catch(_){if(p.action==='quiz_status')result=quizAvailability_(null);}
   if(result.status==='active')result.serverNow=Date.now();
   return ContentService.createTextOutput('typeof '+p.callback+'==="function"&&'+p.callback+'('+JSON.stringify(result)+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
@@ -111,5 +112,12 @@ function quizGet_(p){
 
 function quizAvailability_(q){
   if(q&&q.open)return {status:'open'};
-  return {status:'closed',message:q&&q.state==='CLOSED_BEFORE'&&q.opensAt?'BA Medicale Live Quiz opens '+q.opensAt+'.':'The BA Medicale Live Quiz is closed.'};
+  return {status:'closed',message:q&&q.state==='CLOSED_BEFORE'&&q.opensAt?(q.title||'BA Medicale Live Quiz')+' opens '+q.opensAt+'.':'The '+(q&&q.title||'BA Medicale Live Quiz')+' is closed.'};
+}
+
+// The LMS result tab has exactly eight columns; secret tokens stay in Quiz Sessions.
+function quizResults_(q){
+  const rows=quizRows_(q.sheet,q.compact?8:10);
+  if(!q.compact)return rows;
+  return rows.map(r=>{const date=r[0] instanceof Date?Utilities.formatDate(r[0],'Asia/Jakarta','yyyy-MM-dd'):String(r[0]);const time=r[1] instanceof Date?Utilities.formatDate(r[1],'Asia/Jakarta','HH:mm:ss'):String(r[1]);return [...r,'',Date.parse(date+'T'+time+'+07:00')];});
 }

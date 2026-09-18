@@ -15,3 +15,11 @@ Transport follows the proven native POST plus random correlated acknowledgement 
 Build/check: `npm run quiz:build`, `npm run quiz:check`, `npm run attendance:build`, `npm run attendance:check`, `npm run content:build`, `npm run content:check`. QR generation reuses the published pair and verifies PNG decoding to the canonical quiz URL. Backend tests use a synthetic key, not the real seminar answers. For future events extend the owner-only provisioning mapping as well as public config; never reuse another event's key or result tab.
 
 Release QA must exercise the deployed service with unmistakable isolated QA emails, verify private rows and WIB, then remove only those test records from both quiz tabs and restore the approved AUTO schedule (or the explicitly requested owner state). Never clear attendance/download records or real players. Keep a live verification distinction from local fixture tests.
+
+## Independent LMS seminar quiz
+
+`quiz/config.json` maps `lms-management-thyroid-nodules-2026` to the existing seminar and the `LMS Live Quiz` label. The shared builder/template, client, timer, acknowledgement transport and leaderboard renderer serve both quizzes. Their immutable quiz IDs isolate browser storage, server sessions, private key properties and numeric result-tab mappings.
+
+The owner sets `QUIZ_KEY_lms-management-thyroid-nodules-2026` only in private Script Properties, then runs `setupLmsQuiz` in the existing bound tracker. Never publish the highlighted source PDF or the key. `LMSGames19Sept` has exactly the eight requested business columns. Secret session tokens stay in `Quiz Sessions`; completed LMS retries resolve by normalized email only after the submitted token is verified against that quiz's session. The existing BA Medicale ten-column results and token-based receipt lookup remain unchanged. LMS leaderboard ties use the stored WIB submission date/time; equal timestamps preserve append order.
+
+Approved LMS schedule: AUTO, 19 September 2026, 10:00 inclusive–13:00 exclusive, Asia/Jakarta. Its Quiz Control row can be changed without redeploying. Local/backend tests use synthetic answer keys. Production QA uses explicitly marked isolated LMS emails and removes only their result/session rows before restoring AUTO. Existing BA quiz attempts and schedules must not be changed for LMS QA.
