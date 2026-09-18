@@ -19,7 +19,7 @@ test('presentation retains every source page, extracted text and original asset'
  for(const s of manifest.pages){
   const position=html.indexOf(`id="slide-${s.page}"`);
   assert(position>previous);previous=position;
-  assert(html.includes(escape(s.text)));
+  assert(html.includes(escape(s.text).replace(/[ \t]+(?=\n)/g, whitespace => [...whitespace].map(c => c === " " ? "&#32;" : "&#9;").join(""))));
   assert.equal(hash(s.image),s.imageSha256);
   for(const figure of s.figures)assert.equal(hash(figure.src),figure.assetSha256);
  }
