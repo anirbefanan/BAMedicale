@@ -1,0 +1,9 @@
+{
+  "management-thyroid-nodules-2026": [
+    {"question":"Berapakah rentang frekuensi gelombang ultrasonografi (USG) yang optimum untuk pemeriksaan organ superfisial seperti kelenjar tiroid?","choices":["1–2 MHz","3,5–5 MHz","5–10 MHz","10–15 MHz"]},
+    {"question":"Artifact ultrasonografi apa yang sering disalahartikan sebagai punctate echogenic foci (PEF, bernilai 3 poin), sehingga dapat meningkatkan klasifikasi nodul dari TR2 menjadi TR4 secara keliru?","choices":["Acoustic shadowing dari kalsifikasi kasar","Comet tail artifacts besar atau foki ekogenisitas tinggi dari dinding belakang kista kecil","Posterior acoustic enhancement pada struktur kistik murni","Reverberation artifact dari fascia pra-trakealis"]},
+    {"question":"Pada sistem klasifikasi Bethesda Kategori IV (Follicular Neoplasm), berapa estimasi Risiko Keganasan (Risk of Malignancy / ROM) dan tindakan yang diperlukan untuk diagnosis definitif?","choices":["ROM 4% dan cukup dilakukan observasi klinis saja","ROM 25–40% dan memerlukan tindakan lobektomi untuk diagnosis definitif","ROM 65–75% dan langsung memerlukan tiroidektomi total","ROM 97–100% dan memerlukan kemoterapi sistemik"]},
+    {"question":"Pada tata laksana Karsinoma Tiroid Berdiferensiasi Baik (Well Differentiated Carcinoma Thyroid), pilihan terapi target (targeted therapy) yang dicantumkan secara spesifik dalam materi adalah:","choices":["Sorafenib","Lenvatinib","Pembrolizumab","Rituximab"]},
+    {"question":"Manakah di bawah ini yang merupakan pilihan prosedur tindakan ablasi non-bedah / minimal invasif untuk penatalaksanaan nodul tiroid jinak (benign thyroid nodule) sesuai materi presentasi?","choices":["Percutaneous Ethanol Ablation (PEA) dan Radiofrequency Ablation (RFA)","Total Thyroidectomy dan Laparoskopi","Endoskopi tiroidektomi","Radioactive Iodine (I-131) ablasi"]}
+  ]
+}

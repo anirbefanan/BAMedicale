@@ -173,6 +173,7 @@ function reply_(p,status,opensAt) {
 }
 function doGet(e) {
   const p=e && e.parameter; let status='CLOSED_INVALID',opensAt;
+  if(p && /^quiz_/.test(p.action||''))return quizGet_(p);
   if(p && p.action==='download_ack')return downloadReply_(p);
   if(!correlation_(p)) return reply_(null,status);
   try {
@@ -188,6 +189,7 @@ function doPost(e) {
   try {
     if(!e || !e.postData || e.postData.length>16000 || Object.keys(e.parameters).some(k=>k!=='payload') || !e.parameters.payload || e.parameters.payload.length!==1) return ContentService.createTextOutput('Request unavailable.');
     p=JSON.parse(e.parameter.payload);
+    if(p && /^quiz_/.test(p.action||'')){if(e.postData.length>4096)return ContentService.createTextOutput('Request unavailable.');return quizPost_(p);}
     if(p && p.action==='download'){
       if(e.postData.length>2048)return ContentService.createTextOutput('Request unavailable.');
       try{status=recordDownload_(p);}catch(_){status='retry';}

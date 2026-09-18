@@ -12,7 +12,9 @@
     "traffic:validate": "node scripts/fetch-ga4-traffic.js --validate data/traffic-summary.json --allow-pending",
     "traffic:test": "node --test scripts/traffic-data.test.js scripts/traffic-page.test.js",
     "attendance:build": "node scripts/attendance/build.js",
-    "attendance:check": "node scripts/attendance/build.js --check && node --test scripts/attendance/*.test.js"
+    "attendance:check": "node scripts/attendance/build.js --check && node --test scripts/attendance/*.test.js",
+    "quiz:build": "node scripts/quiz/build.js",
+    "quiz:check": "node scripts/quiz/build.js --check && node --test scripts/quiz/*.test.js"
   },
   "private": true,
   "devDependencies": {
