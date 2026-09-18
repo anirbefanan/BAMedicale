@@ -86,7 +86,9 @@ function quizRecord_(p){
 function quizPost_(p){
   const result=quizRecord_(p);
   if(quizValidate_(p))CacheService.getScriptCache().put('QUIZ_ACK_'+p.request_id,JSON.stringify(result),180);
-  return ContentService.createTextOutput('Request processed.');
+  // Avoid a ContentService POST redirect that Google may reject inside an iframe.
+  // The authoritative result still comes from the correlated acknowledgement.
+  return HtmlService.createHtmlOutput('Quiz request processed.').setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 function quizGet_(p){
   if(!p||p.origin!==SITE_ORIGIN||!/^[a-f0-9]{32}$/.test(p.request_id||'')||p.callback!=='baQuiz_'+p.request_id||Object.keys(p).some(k=>!['action','origin','event_id','request_id','callback'].includes(k)))return ContentService.createTextOutput('Request unavailable.');
