@@ -969,10 +969,15 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .seo-event-schedule{display:grid;gap:12px;padding:0;list-style:none}
 .seo-event-schedule li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid var(--border)}
 .seo-event-schedule li.seo-event-schedule__topic{grid-template-columns:minmax(0,1fr)}
-.seo-event-schedule li.presentation-preview{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;align-items:center;padding:22px 0}
-.presentation-preview .button{margin-top:16px;min-height:48px;gap:12px;white-space:normal}
+.seo-event-schedule li.presentation-preview{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:center;padding:16px 0}
+.seminar-presentation-event .presentation-program{padding-block:20px}
+.presentation-program>h2{font-size:1.4rem;font-weight:750;margin-bottom:10px}
+.presentation-program .seo-event-schedule{margin-block:0}
+.presentation-program .presentation-preview h3{font-size:1.0625rem;line-height:1.4;font-weight:750}
+.presentation-program .presentation-preview p{margin-top:8px;font-size:.8125rem;line-height:1.5}
+.presentation-preview .button{margin-top:12px;min-height:44px;gap:12px;white-space:normal}
 .presentation-preview__image{display:grid;gap:8px;padding:0;overflow:hidden;text-align:left;color:var(--brand-primary);background:var(--card-surface);border:1px solid var(--card-border);border-radius:var(--card-radius);box-shadow:var(--card-action-shadow);cursor:zoom-in}
-.presentation-preview__image img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain}
+.presentation-preview__image img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
 .presentation-preview__image>span{display:flex;justify-content:space-between;padding:0 12px 10px;font-size:.75rem;font-weight:700}
 .seminar-presentation-event main .button{min-height:44px;gap:10px;white-space:normal;text-align:center;transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
 .seminar-presentation-event main .button:is(:hover,:focus-visible){box-shadow:0 5px 16px rgba(var(--brand-rgb),.16);transform:translateY(-2px)}
@@ -1292,6 +1297,10 @@ body:not(.approved-home) .site-header.is-scrolled{position:fixed;top:8px}
 
 /* Latest Articles: the source poster and the editorial title never share a layer. */
 .article-latest-card{display:flex;position:relative;min-width:0;flex-direction:column;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always}
+.presentation-infographic{display:block;flex:none;align-self:start;width:100%;min-width:0;height:auto;padding:0;overflow:hidden;background:var(--card-surface);border:1px solid var(--card-border);border-radius:var(--control-radius);cursor:zoom-in}
+.presentation-infographic img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;transform:none!important}
+.article-list-item>.presentation-infographic{width:100%;height:auto}
+.article-latest-card>.presentation-infographic{border-radius:var(--card-radius) var(--card-radius) 0 0}
 .article-latest-card>img{display:block;position:static;flex:none;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:var(--bg-secondary);opacity:1;filter:none}
 .article-latest-card>div{display:flex;flex:1;min-width:0;flex-direction:column;align-items:flex-start;padding:15px}
 .article-latest-card span{padding:3px 7px;color:var(--brand-primary);background:var(--surface-muted);border-radius:4px;font-size:.75rem;font-weight:750;line-height:1.4}
