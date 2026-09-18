@@ -1,19 +1,21 @@
 /* Apps Script server module. Real answer keys live ONLY in private Script Properties. */
 const QUIZ_HEADERS = ['Date Submitted','Time Submitted','Email','Correct Answers','Total Questions','Result %','Time Taken Seconds','Quiz Status','Session ID','Submitted At'];
 const QUIZ_SESSION_HEADERS = ['Event ID','Email','Start Request','Session ID','Started At'];
-const QUIZ_CONTROL_HEADERS = ['Event ID','State','Result Tab ID'];
+const QUIZ_CONTROL_HEADERS = ['Event ID','Manual Override','Result Tab ID','Open At','Close At'];
 const QUIZ_DURATION = 180000, QUIZ_GRACE = 5000;
 function quizConfig_(id) {
+  try {
   if(!/^[a-z0-9-]{1,100}$/.test(id||''))return null;
   const raw=props_().getProperty('QUIZ_KEY_'+id); if(!raw)return null;
   const key=JSON.parse(raw); if(!Array.isArray(key)||key.length!==5||key.some(x=>!Number.isInteger(x)||x<0||x>3))return null;
   const ss=SpreadsheetApp.openById(props_().getProperty('TRACKER_ID'));
   const control=ss.getSheetByName('Quiz Control'); if(!control||control.getLastRow()<2)return null;
-  const row=control.getRange(2,1,control.getLastRow()-1,3).getValues().find(r=>r[0]===id);
+  const row=control.getRange(2,1,control.getLastRow()-1,5).getValues().find(r=>r[0]===id);
   if(!row)return null;
   const sheet=ss.getSheetById(Number(row[2])),sessions=ss.getSheetByName('Quiz Sessions');
   if(!sheet||!sessions)return null;
-  return {id,key,sheet,sessions,open:row[1]==='OPEN'};
+  return {id,key,sheet,sessions,...resolveSchedule_(row[1],row[3],row[4],Date.now())};
+  }catch(_){return null;}
 }
 /* Owner-only provisioning. Set QUIZ_KEY_<event-id> privately before running. */
 function setupQuiz() {
@@ -26,16 +28,22 @@ function setupQuiz() {
     const id='management-thyroid-nodules-2026';
     const key=JSON.parse(props_().getProperty('QUIZ_KEY_'+id)||'null');
     assert_(Array.isArray(key)&&key.length===5&&key.every(n=>Number.isInteger(n)&&n>=0&&n<4),'Set the verified private answer key first.');
-    const control=ss.getSheetByName('Quiz Control')||ss.insertSheet('Quiz Control');header_(control,QUIZ_CONTROL_HEADERS);
+    const control=ss.getSheetByName('Quiz Control')||ss.insertSheet('Quiz Control');if(control.getLastRow()&&JSON.stringify(control.getRange(1,1,1,3).getValues()[0])===JSON.stringify(['Event ID','State','Result Tab ID'])){
+      assert_(!control.getRange(1,4).getValue()&&!control.getRange(1,5).getValue(),'Schedule columns occupied; review first.');
+      control.getRange(1,1,1,5).setValues([QUIZ_CONTROL_HEADERS]);
+    }
+    header_(control,QUIZ_CONTROL_HEADERS);
     const sessions=ss.getSheetByName('Quiz Sessions')||ss.insertSheet('Quiz Sessions');header_(sessions,QUIZ_SESSION_HEADERS);
     const sheet=ss.getSheetByName('Games19Sept')||ss.insertSheet('Games19Sept');header_(sheet,QUIZ_HEADERS);
     const rows=control.getLastRow()>1?control.getRange(2,1,control.getLastRow()-1,3).getValues():[];
     const existing=rows.find(r=>r[0]===id);
     assert_(!existing||Number(existing[2])===sheet.getSheetId(),'Preserve existing quiz mapping.');
-    if(!existing)control.appendRow([id,'CLOSED',sheet.getSheetId()]);
+    if(!existing)control.appendRow([id,'AUTO',sheet.getSheetId(),'','']);
     [control,sessions,sheet].forEach(tab=>{tab.setFrozenRows(1);tab.setColumnWidths(1,tab.getLastColumn(),170);tab.getRange(1,1,1,tab.getLastColumn()).setFontWeight('bold').setBackground('#981d36').setFontColor('#ffffff');if(!tab.getFilter())tab.getRange(1,1,tab.getMaxRows(),tab.getLastColumn()).createFilter();});
     control.setColumnWidth(1,330);sheet.setColumnWidth(3,280);sessions.setColumnWidth(2,280);
-    control.getRange(2,2,control.getMaxRows()-1,1).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['OPEN','CLOSED'],true).setAllowInvalid(false).build());
+    control.getRange(2,2,control.getMaxRows()-1,1).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['AUTO','OPEN','CLOSED'],true).setAllowInvalid(false).build());
+    control.getRange(2,4,control.getMaxRows()-1,2).setNumberFormat('dd mmm yyyy hh:mm');
+    const filter=control.getFilter();if(filter&&filter.getRange().getNumColumns()!==5)filter.remove();if(!control.getFilter())control.getRange(1,1,control.getMaxRows(),5).createFilter();
     SpreadsheetApp.flush();
   }finally{lock.releaseLock();}
 }
@@ -65,7 +73,7 @@ function quizRecord_(p){
       if(results.some(r=>quizEmail_(r[2])===email))return {status:'already_completed'};
       session=sessions.find(r=>r[0]===q.id&&quizEmail_(r[1])===email);
       if(session&&session[2]!==p.start_id)return {status:'already_started'};
-      if(!q.open)return {status:'closed'};
+      if(!q.open)return quizAvailability_(q);
       if(!session){
         if(sessions.length>=20000)return {status:'retry'};
         session=[q.id,safeCell_(email),p.start_id,(Utilities.getUuid()+Utilities.getUuid()).replace(/-/g,''),Date.now()];
@@ -95,8 +103,13 @@ function quizGet_(p){
   let result={status:'retry'};
   try{
     if(p.action==='quiz_ack')result=JSON.parse(CacheService.getScriptCache().get('QUIZ_ACK_'+p.request_id)||'{"status":"waiting"}');
-    else {const q=quizConfig_(p.event_id);if(p.action==='quiz_status')result={status:q&&q.open?'open':'closed'};else if(p.action==='quiz_top')result={status:'ok',players:q?quizLeaderboard_(quizRows_(q.sheet,10)):[]};}
-  }catch(_){}
+    else {const q=quizConfig_(p.event_id);if(p.action==='quiz_status')result=quizAvailability_(q);else if(p.action==='quiz_top')result={status:'ok',players:q?quizLeaderboard_(quizRows_(q.sheet,10)):[]};}
+  }catch(_){if(p.action==='quiz_status')result=quizAvailability_(null);}
   if(result.status==='active')result.serverNow=Date.now();
   return ContentService.createTextOutput('typeof '+p.callback+'==="function"&&'+p.callback+'('+JSON.stringify(result)+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
+}
+
+function quizAvailability_(q){
+  if(q&&q.open)return {status:'open'};
+  return {status:'closed',message:q&&q.state==='CLOSED_BEFORE'&&q.opensAt?'BA Medicale Live Quiz opens '+q.opensAt+'.':'The BA Medicale Live Quiz is closed.'};
 }
