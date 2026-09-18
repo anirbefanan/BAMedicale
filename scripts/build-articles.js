@@ -179,6 +179,7 @@ const renderPage = (article, index) => {
 };
 
 const outputs = new Map(articles.map((article, index) => [path.join(root, "articles", `${article.slug}.html`), renderPage(article, index)]));
+for (const [file, body] of require('./ebook-template')(root, contentRegistry.query({ family: 'ebook', publishedOnly: false }).map(record => record.sourceRecord))) outputs.set(file, body);
 seminars.forEach((event, index) => outputs.set(path.join(root, "events", `${event.slug}.html`), renderEventPage({ event, index, seminars, diseaseGroup: diseaseGroups.get(event.primaryDiseaseGroup), relatedContent: contentRegistry.related(event.id), presentations: Object.values(sourceData.presentations || {}), domain })));
 Object.values(sourceData.presentations || {}).forEach(presentation => outputs.set(path.join(root, presentation.canonicalUrl), renderPresentationPage({ presentation, diseaseGroup: diseaseGroups.get(presentation.primaryDiseaseGroup), event: sourceData.seminars[presentation.eventId], root, domain })));
 const baseUrls = ["/", "/public.html", "/clinical.html", "/healthcare-workers.html", "/library.html", "/seminar.html", "/ebooks.html", "/videos.html", "/resources.html", "/symposia.html", "/about.html", "/team.html", "/traffic.html", "/dr-bob-profile.html", "/nana-febrina-profile.html", "/melati-noerwa-profile.html", "/adlina-karisyah-profile.html", "/yudi-febriadi-profile.html", "/contact.html", "/privacy-policy.html"];

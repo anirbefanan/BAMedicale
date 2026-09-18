@@ -573,8 +573,9 @@ function renderEbookDetail() {
   const target = document.querySelector("[data-ebook-detail]");
   if (!target) return;
   const slug = new URLSearchParams(window.location.search).get("book");
-  const item = data.ebooks.find((book) => book.slug === slug) || data.ebooks[0];
-  target.innerHTML = `<article class="ebook-card"><div class="ebook-visual ebook-visual--1"><img src="${escapeHtml(safeImageUrl(item.cover))}" alt="Contextual editorial artwork for ${escapeHtml(item.title)}" width="1024" height="1024" loading="lazy"><span>01</span></div><div><p class="eyebrow">${escapeHtml(item.state)}</p><h2>${escapeHtml(item.title)}</h2><p class="audience">${escapeHtml(item.audience)}</p><p>${escapeHtml(item.text)}</p><div class="ebook-actions"><strong>${escapeHtml(item.price)}</strong><a class="button button-outline" href="ebooks.html">Back to catalog</a><a class="button button-dark" href="login.html">Unlock on release</a></div></div></article>`;
+  const item = ebookBySlug(slug);
+  if (item) location.replace(navigationRoot() + 'ebooks/' + item.slug + '.html');
+  else target.innerHTML = '<p>This preview is no longer in the catalog.</p><a class="button button-outline" href="ebooks.html">Back to eBooks</a>';
 }
 
 function seminarRecords() {
@@ -1216,7 +1217,7 @@ function initAnalytics() {
 
   const currentArticle = articleByPath();
   const currentSeminar = seminarByPath();
-  const currentBook = ebookBySlug(new URLSearchParams(window.location.search).get("book"));
+  const currentBook = ebookBySlug(new URLSearchParams(window.location.search).get("book")) || (data.ebooks || []).find(book => window.location.pathname === `/ebooks/${book.slug}.html`);
   if (currentArticle) trackAnalytics("content_open", analyticsContent("article", currentArticle));
   if (currentSeminar) trackAnalytics("content_open", analyticsContent("seminar", currentSeminar));
   if (currentBook) trackAnalytics("ebook_open", analyticsContent("ebook", currentBook));

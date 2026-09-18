@@ -67,11 +67,11 @@
     if (record.canonicalUrl) return record.canonicalUrl;
     if (family === "article") return `articles/${record.slug}.html`;
     if (family === "seminar") return record.detailUrl || `events/${record.slug}.html`;
-    if (family === "ebook") return `ebook-detail.html?book=${encodeURIComponent(record.slug)}`;
+    if (family === "ebook") return `ebooks/${record.slug}.html`;
     if (family === "video") return `videos.html?video=${encodeURIComponent(record.id)}`;
     return record.url || record.href || "resources.html";
   };
-  const coverFor = (record, family) => record.cover || record.artwork || record.thumbnail || (family === "resource" ? "assets/medical/neoplasia-development.png" : "");
+  const coverFor = (record, family) => record.cover || record.artwork || record.thumbnail || (family === "ebook" ? "assets/ebooks/default-ebook-cover.png" : family === "resource" ? "assets/medical/neoplasia-development.png" : "");
   const summaryFor = (record) => record.excerpt || record.summary || record.short_description || record.text || record.description || "";
   const labelFor = (record, family) => record.label || record.contentType || ({ article: "Article", seminar: "Seminar", ebook: "eBook", video: "Video", resource: "Resource" }[family]);
 
