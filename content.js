@@ -509,7 +509,7 @@ window.BAMEDICALE_DATA.presentations = {
     publicationStatus: "published",
     indexable: true,
     canonicalUrl: "presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
-    cover: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-01.png",
+    cover: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/infographic.png",
     sourcePdf: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.pdf",
     video: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/presentation-video.mp4",
     sourceManifest: "data/thyroid-presentation-source.json",

@@ -534,6 +534,14 @@ function initArticleReader() {
     if (!article) return;
     pdf.href = safeInternalUrl(presentation ? `/${presentation.sourcePdf}` : article.sourcePdf);
     body.innerHTML = presentation ? `<header class="article-reader__hero"><p class="eyebrow">Quick Read · Presentation summary</p><h1 id="presentation-quick-title">${escapeHtml(presentation.title)}</h1><p>${escapeHtml(presentation.author.name)}</p><small>19 September 2026 seminar · Summary of the supplied PDF</small></header>${presentation.quickRead.map(section => `<section class="article-reader__section"><h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(section.body)}</p><small>Source slides ${escapeHtml(section.pages)}</small></section>`).join("")}<section class="article-page-tools"><a class="button button-dark" href="${safeInternalUrl(`/${presentation.canonicalUrl}`)}">Full Read</a><button class="button button-outline" type="button" data-download-material="${escapeHtml(presentation.id)}">Download Original PDF</button></section>` : `<header class="article-reader__hero"><p class="eyebrow">${escapeHtml(article.label)}</p><div class="article-page-badges"><span>${escapeHtml(articlePrimaryAudience(article))}</span><span>${escapeHtml(diseaseGroupById(article.primaryDiseaseGroup)?.name || "General medical education")}</span>${articleDiseaseCondition(article) ? `<span>${escapeHtml(articleDiseaseCondition(article))}</span>` : ""}</div><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.dek)}</p><small class="article-byline">By ${escapeHtml(articleAuthor(article))}${article.publishedDate ? ` · Published: ${escapeHtml(formatPublishedDate(article.publishedDate))}` : ""}</small>${article.stats?.length ? `<div class="article-reader__stats">${article.stats.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div>` : ""}</header><section class="article-reader__intro">${article.intro.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>${article.sections.map(renderSection).join("")}<section class="article-reader__takeaways"><p class="eyebrow">Key educational takeaways</p><h2>What to carry into the next conversation.</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section><section class="article-reader__references"><p class="eyebrow">References and sources</p>${article.references.map((item) => `<p>${escapeHtml(item)}</p>`).join("")}</section>`;
+    dialog.querySelector(".article-reader__actions")?.remove();
+    dialog.classList.toggle("article-reader--presentation", Boolean(presentation));
+    if (presentation) {
+      const actions = body.querySelector(".article-page-tools");
+      actions.className = "article-reader__actions";
+      actions.setAttribute("aria-label", "Presentation actions");
+      dialog.querySelector(".article-reader__shell").append(actions);
+    }
     dialog.setAttribute("aria-label", presentation ? "Presentation Quick Read" : "Article reader");
     dialog.dataset.returnFocus = opener ? "true" : "false";
     dialog.showModal();
@@ -665,6 +673,8 @@ function initSeminarPosterLightbox() {
       if (!source) return;
       image.src = source;
       image.alt = trigger.dataset.seminarPosterAlt || "Official program poster";
+      dialog.querySelector(".seminar-poster-lightbox__bar p").textContent = trigger.dataset.posterTitle || "Program poster";
+      close.setAttribute("aria-label", trigger.dataset.posterTitle ? "Close presentation infographic" : "Close full program poster");
       setZoom(false);
       dialog.showModal();
       close.focus();
