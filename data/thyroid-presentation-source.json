@@ -1,0 +1,1200 @@
+{
+  "sourceSha256": "72af3f6c775f0d5b3baa928a393794e676fbec5a6e987a7a1c69822f9f91e4c2",
+  "videoSha256": "03b9556827042a83d1b3c39d2ba94d4842475240fc99bb5a6df7f981b5cb267a",
+  "pages": [
+    {
+      "page": 1,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-01.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : HOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nCurrent Diagnostic \nApproach and \nTherapy Selection \nfor Thyroid Nodules\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-001.png",
+          "width": 1536,
+          "height": 1099,
+          "sourceSha256": "108d2a33763b8b8d072249fc0ecbdc8882bbd5b5ec5cea32e3905429a9741f04",
+          "assetSha256": "e2cbf02522cb9e99a72dfbc15751df71102ca4c5819a5dbfc9b218daf99df9ee"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-004.png",
+          "width": 1117,
+          "height": 555,
+          "sourceSha256": "3bea023088dd781b3e69801885a9ec79636fd84d7e95ccd6c8e512b9a3c09df6",
+          "assetSha256": "3bea023088dd781b3e69801885a9ec79636fd84d7e95ccd6c8e512b9a3c09df6"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-005.png",
+          "width": 1265,
+          "height": 1265,
+          "sourceSha256": "4f159ec74d5453db15997ab98844b74b5e9b1c78e1b232e28d517b998119aaa3",
+          "assetSha256": "2010c4ad7e2075c2459e2326568eaa2515384d80666c5eaac707e39059e4d3fa"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-006.png",
+          "width": 1265,
+          "height": 1265,
+          "sourceSha256": "d4805c476c93c2fee651915daee768da6d16e195a5e31c0a8767437e7f516b37",
+          "assetSha256": "ba925366ad07ba35fb4a3120bde608f9540c2c564a0bcfaae667550ef2d826df"
+        }
+      ],
+      "imageSha256": "63e6573e825b0408b1f20cc4fd3f57695915c3c45bb82f7bd917571c41bed3da"
+    },
+    {
+      "page": 2,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-02.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nBenign or Malignant ??\n?\n B\nM\n M\n M",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-007.png",
+          "width": 983,
+          "height": 391,
+          "sourceSha256": "2148fa5a192d73d793667ca5c231d191adb8aac6f481651f2e52d7213b8a9608",
+          "assetSha256": "ec9886ae9cd91a5ddfc601dd9509331c0232239dca4849cbfa62e736f266213e"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-008.jpg",
+          "width": 1192,
+          "height": 417,
+          "sourceSha256": "ad4ee805dd025ab630d87bad606fca8f1acc4c8e432a79d7225a9bf13be361ee",
+          "assetSha256": "ad4ee805dd025ab630d87bad606fca8f1acc4c8e432a79d7225a9bf13be361ee"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-009.png",
+          "width": 69,
+          "height": 122,
+          "sourceSha256": "62a172dee1a15dcf0eb13022b4cd2f9fc2d78f15d643b8bd306712d73b713155",
+          "assetSha256": "62a172dee1a15dcf0eb13022b4cd2f9fc2d78f15d643b8bd306712d73b713155"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-010.png",
+          "width": 76,
+          "height": 102,
+          "sourceSha256": "6d1670dd9c4b06f5ae23b90fd967fc2a9bd80854282a39eb7f789c726fe600a5",
+          "assetSha256": "6d1670dd9c4b06f5ae23b90fd967fc2a9bd80854282a39eb7f789c726fe600a5"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-011.png",
+          "width": 118,
+          "height": 103,
+          "sourceSha256": "ea3df509358debaab559b6dbf3eaa97e583275a6e8068369ccd474a90f6f9522",
+          "assetSha256": "ea3df509358debaab559b6dbf3eaa97e583275a6e8068369ccd474a90f6f9522"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-012.png",
+          "width": 118,
+          "height": 103,
+          "sourceSha256": "1331337b24aa984113a92b671290e8cfa4fbe114f56cd6993e8f79359e1d40e7",
+          "assetSha256": "1331337b24aa984113a92b671290e8cfa4fbe114f56cd6993e8f79359e1d40e7"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-013.png",
+          "width": 118,
+          "height": 102,
+          "sourceSha256": "fa8fae1b7bea4de1773066e4c467be9901e2717d1976bb496210a7585160cb18",
+          "assetSha256": "fa8fae1b7bea4de1773066e4c467be9901e2717d1976bb496210a7585160cb18"
+        }
+      ],
+      "imageSha256": "2e92247168f56b4a97669d98334f6c02b1cd67bca41ee3968aa5d788ae0f9355"
+    },
+    {
+      "page": 3,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-03.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-015.jpg",
+          "width": 1280,
+          "height": 720,
+          "sourceSha256": "92acf671412edc258be060ab0a12d86cc23684e32eccaf5ff08b2cefc504a518",
+          "assetSha256": "92acf671412edc258be060ab0a12d86cc23684e32eccaf5ff08b2cefc504a518"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-016.jpg",
+          "width": 1280,
+          "height": 641,
+          "sourceSha256": "9e9a00a8dca0c0af951eac47df14838f97e0a53540e7c5226e930abdbe8c8675",
+          "assetSha256": "9e9a00a8dca0c0af951eac47df14838f97e0a53540e7c5226e930abdbe8c8675"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-017.jpg",
+          "width": 1280,
+          "height": 640,
+          "sourceSha256": "2148137362a138f24a401ed41d34df286dfce71c0e9051c4f1efb3293d96c792",
+          "assetSha256": "2148137362a138f24a401ed41d34df286dfce71c0e9051c4f1efb3293d96c792"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-018.jpg",
+          "width": 848,
+          "height": 478,
+          "sourceSha256": "8e95a826d58f3fe34fb57e229773e472d89a7f0da09781999bd8573a3872472f",
+          "assetSha256": "8e95a826d58f3fe34fb57e229773e472d89a7f0da09781999bd8573a3872472f"
+        }
+      ],
+      "imageSha256": "1e1c18c7fc6a5023109dfef96f35d7ff53d432cd2646b6f13d567820bfbb6512"
+    },
+    {
+      "page": 4,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-04.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nWorld no.6\n Asia no.4\nIncidence, Both sexes, in 2024\nDharmais\n \nno.4",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-019.png",
+          "width": 1127,
+          "height": 178,
+          "sourceSha256": "7c02cbe5585d9b010a42a4e507ddf657eb8e56f47667ae5ec69ff0e3725b9200",
+          "assetSha256": "7c02cbe5585d9b010a42a4e507ddf657eb8e56f47667ae5ec69ff0e3725b9200"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-020.png",
+          "width": 310,
+          "height": 859,
+          "sourceSha256": "1f06a61bb8adff669966a3bb08ed47d3af2934843240a7b36d57d725eb7717b0",
+          "assetSha256": "1f06a61bb8adff669966a3bb08ed47d3af2934843240a7b36d57d725eb7717b0"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-021.png",
+          "width": 1194,
+          "height": 862,
+          "sourceSha256": "904429070af53dbd463066e7e99dd0d3768a5b820296512ba04f6abfb7d9f80c",
+          "assetSha256": "904429070af53dbd463066e7e99dd0d3768a5b820296512ba04f6abfb7d9f80c"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-022.png",
+          "width": 447,
+          "height": 176,
+          "sourceSha256": "37b679e5f1b68a5233174bb82add8a4ac989ac4255d4ba515070238d7c15ede6",
+          "assetSha256": "37b679e5f1b68a5233174bb82add8a4ac989ac4255d4ba515070238d7c15ede6"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-023.png",
+          "width": 872,
+          "height": 329,
+          "sourceSha256": "d518229959ba8116d348c6d740f08f200a1bc8370a268ae78d87d6eb0e6ede52",
+          "assetSha256": "d518229959ba8116d348c6d740f08f200a1bc8370a268ae78d87d6eb0e6ede52"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-024.png",
+          "width": 387,
+          "height": 176,
+          "sourceSha256": "d9fdba666a605950e36ede836d8ee10f1b57ee6164fea3be48d8b588f27a0901",
+          "assetSha256": "d9fdba666a605950e36ede836d8ee10f1b57ee6164fea3be48d8b588f27a0901"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-025.png",
+          "width": 751,
+          "height": 329,
+          "sourceSha256": "7ffae95d189852b7f86ad2c5c24d84bdee6a62a56cb35207dd3b4086b959cfb6",
+          "assetSha256": "7ffae95d189852b7f86ad2c5c24d84bdee6a62a56cb35207dd3b4086b959cfb6"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-026.jpg",
+          "width": 328,
+          "height": 201,
+          "sourceSha256": "c3361c299a1c16ae5c0ed5bd2a30738558f89f7175014a128cbe85851897abfe",
+          "assetSha256": "c3361c299a1c16ae5c0ed5bd2a30738558f89f7175014a128cbe85851897abfe"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-027.png",
+          "width": 492,
+          "height": 158,
+          "sourceSha256": "ea944b8cc702bd00e694713f00d4bcafd2a0f64c8fd706b2c3a36760ae456de8",
+          "assetSha256": "ea944b8cc702bd00e694713f00d4bcafd2a0f64c8fd706b2c3a36760ae456de8"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-028.png",
+          "width": 689,
+          "height": 293,
+          "sourceSha256": "c5555c50ae1405c7a07376feaf6dfecff1fa177c96ded119fb2c6fbbd055a097",
+          "assetSha256": "c5555c50ae1405c7a07376feaf6dfecff1fa177c96ded119fb2c6fbbd055a097"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-029.png",
+          "width": 204,
+          "height": 293,
+          "sourceSha256": "5b7c41cd28b0e4a7ccf37003b22fb86dafaca0ad85fbe795b1b2f17451fa46f7",
+          "assetSha256": "5b7c41cd28b0e4a7ccf37003b22fb86dafaca0ad85fbe795b1b2f17451fa46f7"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-030.png",
+          "width": 415,
+          "height": 293,
+          "sourceSha256": "c814b55fee24d6ce3aadabd2e34d9060bcdb590d19e44ac134820126a2781e75",
+          "assetSha256": "c814b55fee24d6ce3aadabd2e34d9060bcdb590d19e44ac134820126a2781e75"
+        }
+      ],
+      "imageSha256": "5aa82ae4243c38aa2ee977135832bba048496d6249b7f83b3cb91782fe30bf77"
+    },
+    {
+      "page": 5,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-05.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "Diagnostic\nPhysical Examination\nMANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nFNAB → \nBethesda \nImaging : \nUltrasound\n→ TIRADS \n LAB :",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-031.png",
+          "width": 709,
+          "height": 192,
+          "sourceSha256": "537023b61d72b3aee627ca3cbf900aa7f3d9474edf6089a4edc3e30324e4a5e4",
+          "assetSha256": "537023b61d72b3aee627ca3cbf900aa7f3d9474edf6089a4edc3e30324e4a5e4"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-032.png",
+          "width": 614,
+          "height": 245,
+          "sourceSha256": "e6dd2a9eed9f301ffe3f7eaffa6c304ccebb2a0491f7da6cfd2ce592616ab9e3",
+          "assetSha256": "e6dd2a9eed9f301ffe3f7eaffa6c304ccebb2a0491f7da6cfd2ce592616ab9e3"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-033.png",
+          "width": 698,
+          "height": 181,
+          "sourceSha256": "1111bba26265e5367eb67ac89ee076a38a0ed34547f7cd4fe9805ce213c5a270",
+          "assetSha256": "1111bba26265e5367eb67ac89ee076a38a0ed34547f7cd4fe9805ce213c5a270"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-034.jpg",
+          "width": 493,
+          "height": 335,
+          "sourceSha256": "37bcea193d9c05af76236b6cbc532083c04e6f42d7546880b1214e953cf1f685",
+          "assetSha256": "37bcea193d9c05af76236b6cbc532083c04e6f42d7546880b1214e953cf1f685"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-035.jpg",
+          "width": 787,
+          "height": 676,
+          "sourceSha256": "f0933c27f933cb10453ca829723eed2046df384cae9779128034e71797bceab8",
+          "assetSha256": "f0933c27f933cb10453ca829723eed2046df384cae9779128034e71797bceab8"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-036.jpg",
+          "width": 804,
+          "height": 619,
+          "sourceSha256": "7fc67ff8d49c2e0a440302deec98524a6eeb6d21c6a0e4354844144f85c105d0",
+          "assetSha256": "7fc67ff8d49c2e0a440302deec98524a6eeb6d21c6a0e4354844144f85c105d0"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-037.jpg",
+          "width": 487,
+          "height": 264,
+          "sourceSha256": "2fa7dab376ee3656bb407f8b568fe02b8d07ecad373c85032477713b46e85400",
+          "assetSha256": "2fa7dab376ee3656bb407f8b568fe02b8d07ecad373c85032477713b46e85400"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-038.jpg",
+          "width": 306,
+          "height": 208,
+          "sourceSha256": "c58fead5a57e423f8860ebb546a7ad9af2cd03fe638180c79a0ca9fcf8223d12",
+          "assetSha256": "c58fead5a57e423f8860ebb546a7ad9af2cd03fe638180c79a0ca9fcf8223d12"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-039.png",
+          "width": 408,
+          "height": 269,
+          "sourceSha256": "b62cbab26845e5d5e2556e6466f370b831bf83154caaba9653f8e953bb2ac228",
+          "assetSha256": "b62cbab26845e5d5e2556e6466f370b831bf83154caaba9653f8e953bb2ac228"
+        }
+      ],
+      "imageSha256": "0c10ab0eaf1a83a40f1c9a7ab67a0f875ee132bb7a19ba93d2a998dcc9af917f"
+    },
+    {
+      "page": 6,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-06.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-040.png",
+          "width": 1180,
+          "height": 781,
+          "sourceSha256": "634496191b6ec2b180cd5b7310d4d9b92b121f281879f2f8d4479d130162b99e",
+          "assetSha256": "634496191b6ec2b180cd5b7310d4d9b92b121f281879f2f8d4479d130162b99e"
+        }
+      ],
+      "imageSha256": "fd85d1e01ddd708b532a45c71b85f62850e460a8fb8bcde3c2975d11ec85b70c"
+    },
+    {
+      "page": 7,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-07.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nRisk of Malignancy\n• Bethesda VI Estimated = 97%\n• Bethesda V = 74%\n• Bethesda IV = 30%\nBethesda III & IV → need to \nMolecular Analysis to get \ndiagnosis Benign or Malignant",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-041.png",
+          "width": 1150,
+          "height": 508,
+          "sourceSha256": "2ea0523804fe9147c5508f93be4e3536eb4d4e89b0ed7f580d98deb7e312fbb7",
+          "assetSha256": "2ea0523804fe9147c5508f93be4e3536eb4d4e89b0ed7f580d98deb7e312fbb7"
+        }
+      ],
+      "imageSha256": "5144c2e0fc9c7814f54f6c23d2f984295183b296a56107c440fea4c040d2f0b9"
+    },
+    {
+      "page": 8,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-08.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nMolecular T esting\n• ThyroSeq v3 is also based on next-\ngeneration sequencing of DNA and \nRNA. \n• Expanded to analyze 112 genes, \n• Providing information on >12,000 \nmutation hotspots and >150 gene \nfusion \n• 1st time lauched on april 2007 in \nPittsburg University \nDharmais begins \nby NGS in trial 2026 \n(Nikiforova MN et al. 2018).\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-042.jpg",
+          "width": 1677,
+          "height": 943,
+          "sourceSha256": "6e5d0aafa9b867351eec8d4cf58e8e7aaeb32dc19c0f4430d1a5b600ea13fdc6",
+          "assetSha256": "6e5d0aafa9b867351eec8d4cf58e8e7aaeb32dc19c0f4430d1a5b600ea13fdc6"
+        }
+      ],
+      "imageSha256": "de4308dffa848eaf5c5b048aa39abd125e240e3b3403d5bf8d42c2a8422ad11a"
+    },
+    {
+      "page": 9,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-09.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nSurgery : Open / \nEndoscopic / Robotic\nAblative \nTreatment",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-040.png",
+          "width": 1180,
+          "height": 781,
+          "sourceSha256": "634496191b6ec2b180cd5b7310d4d9b92b121f281879f2f8d4479d130162b99e",
+          "assetSha256": "634496191b6ec2b180cd5b7310d4d9b92b121f281879f2f8d4479d130162b99e"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-043.png",
+          "width": 924,
+          "height": 245,
+          "sourceSha256": "8fc3aa48698a99e8f4e118886a120b0278068500ae21ccb3f2f2bf60493dc69c",
+          "assetSha256": "8fc3aa48698a99e8f4e118886a120b0278068500ae21ccb3f2f2bf60493dc69c"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-044.png",
+          "width": 1111,
+          "height": 245,
+          "sourceSha256": "54445285cb19e839da119ce4480542d2f8c347dbd5709c83c3a84f496671142c",
+          "assetSha256": "54445285cb19e839da119ce4480542d2f8c347dbd5709c83c3a84f496671142c"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-045.png",
+          "width": 551,
+          "height": 245,
+          "sourceSha256": "c5a517cbc61c9532695a3afca6ae69cd1aa5371bd5ff627a96905f85e5ca10b7",
+          "assetSha256": "c5a517cbc61c9532695a3afca6ae69cd1aa5371bd5ff627a96905f85e5ca10b7"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-046.png",
+          "width": 623,
+          "height": 245,
+          "sourceSha256": "cc4d069e9192d8b7d4f8e0a20a5c3e952a765f958fbaded99fec5b2f26679d53",
+          "assetSha256": "cc4d069e9192d8b7d4f8e0a20a5c3e952a765f958fbaded99fec5b2f26679d53"
+        }
+      ],
+      "imageSha256": "d77e89b7cd7b480f2b30c587accb035e6889c2f183caf93b82372d74a57c55a5"
+    },
+    {
+      "page": 10,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-10.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\n• Conservative : < 10 mm, TIRADS 1-2\n• Surgery : Open, Endoscopic or Robotic\n• Non-Surgery (Ablative therapy) : Percutaneous \nEthanol Ablation, Microwave, RFA & HIFU \nBenign Tiroid Nodule\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-047.jpg",
+          "width": 983,
+          "height": 407,
+          "sourceSha256": "a7fbd0c64f408158de2a46de63ae2d8994efdf9aef42114f912208b31dfbf192",
+          "assetSha256": "a7fbd0c64f408158de2a46de63ae2d8994efdf9aef42114f912208b31dfbf192"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-048.jpg",
+          "width": 500,
+          "height": 375,
+          "sourceSha256": "93c48d3aa2faf43c1efd4b06f4536cd4cdd2861d1b13746668f78f22d80618c7",
+          "assetSha256": "93c48d3aa2faf43c1efd4b06f4536cd4cdd2861d1b13746668f78f22d80618c7"
+        }
+      ],
+      "imageSha256": "0493a9373a333e950d463dad40a01888e31554ae22e5710af0db507ee40bb862"
+    },
+    {
+      "page": 11,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-11.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "Percutaneous \nEthanol Ablation\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-049.jpg",
+          "width": 404,
+          "height": 671,
+          "sourceSha256": "98f7562c8fdbd057e150d05800b81e3f49497dd01fa61879da37ca6407d37935",
+          "assetSha256": "98f7562c8fdbd057e150d05800b81e3f49497dd01fa61879da37ca6407d37935"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-050.jpg",
+          "width": 800,
+          "height": 600,
+          "sourceSha256": "6aa0cdadb96503e543bdb525cbffa8ea9af88a215606f7f133b3311f60a91b36",
+          "assetSha256": "6aa0cdadb96503e543bdb525cbffa8ea9af88a215606f7f133b3311f60a91b36"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-051.png",
+          "width": 973,
+          "height": 807,
+          "sourceSha256": "a0f7288b9817615859c9e81a67db5b5987a00c0c7bd06b2525b0d70f15a6da7f",
+          "assetSha256": "a0f7288b9817615859c9e81a67db5b5987a00c0c7bd06b2525b0d70f15a6da7f"
+        }
+      ],
+      "imageSha256": "4f7880c8deaf621c2bbdc4c47b3188e70528549226996cc8284a7879751d0888"
+    },
+    {
+      "page": 12,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-12.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "RFA\nradiofrequency ablation\nMANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nFirst\n-\nline \ntreatment option \nfor benign nodule",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-052.jpg",
+          "width": 960,
+          "height": 720,
+          "sourceSha256": "157c73f4aff0ee9b843964de731531a48b84662b660ce3239cbf8ee3dbc22f0f",
+          "assetSha256": "157c73f4aff0ee9b843964de731531a48b84662b660ce3239cbf8ee3dbc22f0f"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-053.jpg",
+          "width": 1120,
+          "height": 840,
+          "sourceSha256": "ef3e6f96c133f63af1162f403beac7ec92b2a3f1f4b0f69d02d259cd7f77e3d3",
+          "assetSha256": "ef3e6f96c133f63af1162f403beac7ec92b2a3f1f4b0f69d02d259cd7f77e3d3"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-054.png",
+          "width": 627,
+          "height": 799,
+          "sourceSha256": "2976eca22fc538053e92b948d7df3144485030fe58e70d154dd8ecc939342810",
+          "assetSha256": "2976eca22fc538053e92b948d7df3144485030fe58e70d154dd8ecc939342810"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-055.png",
+          "width": 337,
+          "height": 245,
+          "sourceSha256": "a0c5b7023b42efab2de7a8e3a5e21dd1725a1d605fb51c666f39c200b13b5341",
+          "assetSha256": "a0c5b7023b42efab2de7a8e3a5e21dd1725a1d605fb51c666f39c200b13b5341"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-056.png",
+          "width": 179,
+          "height": 245,
+          "sourceSha256": "419c9169ef00dc1da10a84ebc76a82e0e4c29f771ab24f59721b5ed69495702e",
+          "assetSha256": "419c9169ef00dc1da10a84ebc76a82e0e4c29f771ab24f59721b5ed69495702e"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-057.png",
+          "width": 334,
+          "height": 245,
+          "sourceSha256": "73d7a2eba27897a6555597880709ea2f200aa58c5c25036912a84893d9721d84",
+          "assetSha256": "73d7a2eba27897a6555597880709ea2f200aa58c5c25036912a84893d9721d84"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-058.png",
+          "width": 948,
+          "height": 245,
+          "sourceSha256": "ad91db75e0001d42f98973ff73bc8259c661ba10f10662de8dc69e2700d38794",
+          "assetSha256": "ad91db75e0001d42f98973ff73bc8259c661ba10f10662de8dc69e2700d38794"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-059.png",
+          "width": 946,
+          "height": 245,
+          "sourceSha256": "1701329bf9239cecfac2d4a6e2d6225aa24ccb097ff306ce19962a397de25970",
+          "assetSha256": "1701329bf9239cecfac2d4a6e2d6225aa24ccb097ff306ce19962a397de25970"
+        }
+      ],
+      "imageSha256": "5796f789a0055a1f024c8297d6e88fa4ef6ab0371bcd37435309ca0916f03cf7"
+    },
+    {
+      "page": 13,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-13.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-060.jpg",
+          "width": 404,
+          "height": 704,
+          "sourceSha256": "af413a8248786b7df4c829fe0e5bf216f2c274fe1426aad8d91bc3b5b022721d",
+          "assetSha256": "af413a8248786b7df4c829fe0e5bf216f2c274fe1426aad8d91bc3b5b022721d"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-061.jpg",
+          "width": 1200,
+          "height": 1600,
+          "sourceSha256": "bd7296458d87d2551599ab2a2487d1382a1fdb33ee1bbec5abfa99264c867b8b",
+          "assetSha256": "bd7296458d87d2551599ab2a2487d1382a1fdb33ee1bbec5abfa99264c867b8b"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        }
+      ],
+      "imageSha256": "d8dc602f677ac89ad6a9dc5bd571569b3eecbbe3c34ef9131bcdfe3c0f84592f"
+    },
+    {
+      "page": 14,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-14.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nWell Differentiated Carcinoma Thyroid\n• Surgery : Endoscopic or Robotic (Low Risk) & \nOpen (High Risk) Thyroidectomy, RND\n• Internal Radiation / Radioablation with I131\n• Medication : Levothyroxin 100 – 300 mcgr\n• Targeted Therapy : Lenvatinib\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-062.png",
+          "width": 636,
+          "height": 583,
+          "sourceSha256": "b35a861a743d47b6cf3ad5e41b8c57c1616667549cdb23952e5a19d981b99624",
+          "assetSha256": "86f6cb6096b405f3233b5e41dca2a006deeca91c8e8ac267287f3a6afa100b2d"
+        }
+      ],
+      "imageSha256": "063a4f53f081838e4ba044862a98398bb2ef5fcb8b593e57b68017275e27b8d8"
+    },
+    {
+      "page": 15,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-15.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "ENDOSCOPIC THYROIDECTOMY\nTOETV A\nMANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-063.jpg",
+          "width": 591,
+          "height": 472,
+          "sourceSha256": "6a8b2aaced8fe9c0a08139a8afec0beaf99d7ae45937c3d6bd9e93eb94a478e3",
+          "assetSha256": "6a8b2aaced8fe9c0a08139a8afec0beaf99d7ae45937c3d6bd9e93eb94a478e3"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-064.jpg",
+          "width": 681,
+          "height": 1210,
+          "sourceSha256": "42938dca37d3aa368d78eac1404c0a3cbcf47f15de3f222a795858dd0065faf9",
+          "assetSha256": "42938dca37d3aa368d78eac1404c0a3cbcf47f15de3f222a795858dd0065faf9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-065.jpg",
+          "width": 1135,
+          "height": 636,
+          "sourceSha256": "766566a1c05e38f10da2972834bc6dee45fb2392b631e82fdc6a7b9fdba294a9",
+          "assetSha256": "766566a1c05e38f10da2972834bc6dee45fb2392b631e82fdc6a7b9fdba294a9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-066.jpg",
+          "width": 850,
+          "height": 337,
+          "sourceSha256": "2ddcc6b09dad383dfd749655a70597f012a68e3b32cf345b61afddb93586f8f4",
+          "assetSha256": "2ddcc6b09dad383dfd749655a70597f012a68e3b32cf345b61afddb93586f8f4"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-067.jpg",
+          "width": 615,
+          "height": 1428,
+          "sourceSha256": "87634cadb3a26781c7ef968a205d4de29736838e1d25b6c3d22388c6a86130e4",
+          "assetSha256": "87634cadb3a26781c7ef968a205d4de29736838e1d25b6c3d22388c6a86130e4"
+        }
+      ],
+      "imageSha256": "8d1ed53b2448d3b8efc6acb9357e9e5f41f035c507265a60362cb72926584764"
+    },
+    {
+      "page": 16,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-16.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-068.jpg",
+          "width": 1276,
+          "height": 720,
+          "sourceSha256": "53a5bf881022b826d64632b5bb867dd372e7128622b8e95abb5b6eafd922c6a1",
+          "assetSha256": "53a5bf881022b826d64632b5bb867dd372e7128622b8e95abb5b6eafd922c6a1"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-069.jpg",
+          "width": 536,
+          "height": 394,
+          "sourceSha256": "c810f40a599de680c5f8cce5ec29bf0758b264ed7dca5e590751838a34ea445d",
+          "assetSha256": "c810f40a599de680c5f8cce5ec29bf0758b264ed7dca5e590751838a34ea445d"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-070.png",
+          "width": 1132,
+          "height": 436,
+          "sourceSha256": "4289a475f11dac3553156b64e7c9bb19646699b52ceb4829fd0f7dac73d71150",
+          "assetSha256": "4289a475f11dac3553156b64e7c9bb19646699b52ceb4829fd0f7dac73d71150"
+        }
+      ],
+      "imageSha256": "ad6b27e930ec4fcc828c10e55fec9a7330624d94b5b377e184c47e40a2f71252"
+    },
+    {
+      "page": 17,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-17.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nTORT\n Trans Oral\nRobotic Thyroidectomy",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-071.png",
+          "width": 381,
+          "height": 242,
+          "sourceSha256": "dd80e133f5875a0d71f661de13548385e1abaea8f20d62fb5b834a94fe10c3bc",
+          "assetSha256": "dd80e133f5875a0d71f661de13548385e1abaea8f20d62fb5b834a94fe10c3bc"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-072.jpg",
+          "width": 848,
+          "height": 480,
+          "sourceSha256": "f93ef7dd534ca1d0fda943ae19cbe4e9354d39c06ac9742f5418a8e399e96ac5",
+          "assetSha256": "f93ef7dd534ca1d0fda943ae19cbe4e9354d39c06ac9742f5418a8e399e96ac5"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-073.jpg",
+          "width": 746,
+          "height": 915,
+          "sourceSha256": "ab90f07024d48e29c1fcebde9e61febdcbea3ba711b314f0ced09fc6b7084633",
+          "assetSha256": "ab90f07024d48e29c1fcebde9e61febdcbea3ba711b314f0ced09fc6b7084633"
+        }
+      ],
+      "imageSha256": "13c1784d936d518c86d9a8d56771a659bdb817051d7ff714551e9657da9eed0c"
+    },
+    {
+      "page": 18,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-18.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nTORT Trans Oral\nRobotic Thyroidectomy",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-074.jpg",
+          "width": 476,
+          "height": 708,
+          "sourceSha256": "9f52fd73d11d195f524f5ecf55a7266512c2a1044f6d5390c2b096ece837c8c4",
+          "assetSha256": "9f52fd73d11d195f524f5ecf55a7266512c2a1044f6d5390c2b096ece837c8c4"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-075.jpg",
+          "width": 848,
+          "height": 480,
+          "sourceSha256": "0d87c7c78390c94dac79fa38022361a5da5309426bc8a23999d043b8aa144ea6",
+          "assetSha256": "0d87c7c78390c94dac79fa38022361a5da5309426bc8a23999d043b8aa144ea6"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-076.png",
+          "width": 381,
+          "height": 242,
+          "sourceSha256": "8a527962899d1cd9a2d250a4939ab921e07deb28f070c1f2f14bea3b4661ad2e",
+          "assetSha256": "8a527962899d1cd9a2d250a4939ab921e07deb28f070c1f2f14bea3b4661ad2e"
+        }
+      ],
+      "imageSha256": "97fc1726a528336d38d30c2f8d158df39da469e2eab3b15d5e070fb2463a42e7"
+    },
+    {
+      "page": 19,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-19.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : \nHOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\nPoor Differentiated Carcinoma Thyroid\n• Surgery : Total Thyroidectomy, debulking\n• External Radiation\n• Chemoterapy\n• Targeted therapy \n",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-014.png",
+          "width": 1016,
+          "height": 462,
+          "sourceSha256": "ab8249bdff21c4b98375efa77166ea4a363b98956f649e712ce4204163f813c1",
+          "assetSha256": "36b98ff0a22eb8c3db7addc1457d4434fc24dce84658264e46133decfd651832"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-077.png",
+          "width": 1889,
+          "height": 838,
+          "sourceSha256": "3b1225cea27dff3ff15c23824762238ab5ee2bbedb90dbf7e4cd9ffd126b6e23",
+          "assetSha256": "3b1225cea27dff3ff15c23824762238ab5ee2bbedb90dbf7e4cd9ffd126b6e23"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-078.png",
+          "width": 656,
+          "height": 768,
+          "sourceSha256": "8f0e85f94a9df6be7405a3df59cbc8649744e678e679256536b4671123e4ea8b",
+          "assetSha256": "8f0e85f94a9df6be7405a3df59cbc8649744e678e679256536b4671123e4ea8b"
+        }
+      ],
+      "imageSha256": "af8f1260b6e76586fa11308eef08877b0469adc420a2100a2ee53fe36605fb8f"
+    },
+    {
+      "page": 20,
+      "image": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-20.png",
+      "width": 2880,
+      "height": 1620,
+      "text": "MANAGEMENT OF THYROID NODULES : HOW TO MAKE A GOOD DIAGNOSIS ? \nLive Webinar, September 19th 2026\n1\nst\n \nTORT in Indonesia : March 30\nth\n \n2026\nIf you fail, try \nagain once more.\nAnd If you fail \nagain, try 10 \ntimes more.\nBob Andinata",
+      "figures": [
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-001.png",
+          "width": 1536,
+          "height": 1099,
+          "sourceSha256": "108d2a33763b8b8d072249fc0ecbdc8882bbd5b5ec5cea32e3905429a9741f04",
+          "assetSha256": "e2cbf02522cb9e99a72dfbc15751df71102ca4c5819a5dbfc9b218daf99df9ee"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-002.png",
+          "width": 800,
+          "height": 274,
+          "sourceSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94",
+          "assetSha256": "6b8fc22f912840093be2718f445b574296d588c80fcce1c6cb869e6152af2d94"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-003.png",
+          "width": 432,
+          "height": 432,
+          "sourceSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9",
+          "assetSha256": "f9809c68d5dd9214fec94da53115cf97eceb3f97854dff0c5875fc8262c9eda9"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-079.jpg",
+          "width": 1020,
+          "height": 900,
+          "sourceSha256": "fe25fc50636d2056dfdca3945c6556594ad9d48f285b78098dfc27411f8c7117",
+          "assetSha256": "fe25fc50636d2056dfdca3945c6556594ad9d48f285b78098dfc27411f8c7117"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-080.png",
+          "width": 221,
+          "height": 269,
+          "sourceSha256": "43ed897461cd66775a8216e8fb0201881743ba395683c4a787743ba4370f4387",
+          "assetSha256": "43ed897461cd66775a8216e8fb0201881743ba395683c4a787743ba4370f4387"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-081.png",
+          "width": 168,
+          "height": 184,
+          "sourceSha256": "8128dc001b6b725460840d1e4bd9849b592185cfec779cd00ab04f82472dd8df",
+          "assetSha256": "8128dc001b6b725460840d1e4bd9849b592185cfec779cd00ab04f82472dd8df"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-082.png",
+          "width": 187,
+          "height": 269,
+          "sourceSha256": "d7a883217f9e6ba50330a0030da21be7836952573b7105904bc1bfce8ffcd442",
+          "assetSha256": "d7a883217f9e6ba50330a0030da21be7836952573b7105904bc1bfce8ffcd442"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-083.png",
+          "width": 1613,
+          "height": 269,
+          "sourceSha256": "ae7cf5d37935faf091b27003679600ddb245665d5c06a4a4a5a97363ae725f2c",
+          "assetSha256": "ae7cf5d37935faf091b27003679600ddb245665d5c06a4a4a5a97363ae725f2c"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-084.png",
+          "width": 180,
+          "height": 184,
+          "sourceSha256": "a1577662cee651b62b04be7fd3e723765dee46faff1329fe930551c664949fc3",
+          "assetSha256": "a1577662cee651b62b04be7fd3e723765dee46faff1329fe930551c664949fc3"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-085.png",
+          "width": 407,
+          "height": 269,
+          "sourceSha256": "2d5b04d68535ddf5cc98ef2c686c97ad5a36f3e6ce1bd8c05306a097e150acb6",
+          "assetSha256": "2d5b04d68535ddf5cc98ef2c686c97ad5a36f3e6ce1bd8c05306a097e150acb6"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-086.jpg",
+          "width": 1200,
+          "height": 1600,
+          "sourceSha256": "654353f90c55617efa9913b7202d9805944b7910ee4f5540c0688a21a1c86939",
+          "assetSha256": "654353f90c55617efa9913b7202d9805944b7910ee4f5540c0688a21a1c86939"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-087.png",
+          "width": 184,
+          "height": 148,
+          "sourceSha256": "42334b747d54117046eb2e90b448b564bde90684d786b085dc583ac83cbe2e5f",
+          "assetSha256": "42334b747d54117046eb2e90b448b564bde90684d786b085dc583ac83cbe2e5f"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-088.png",
+          "width": 625,
+          "height": 570,
+          "sourceSha256": "a93b458ca12f6fc06e2d390996ae3c43650177e2c477810d7a63c8a2082a6b3a",
+          "assetSha256": "a93b458ca12f6fc06e2d390996ae3c43650177e2c477810d7a63c8a2082a6b3a"
+        },
+        {
+          "src": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/figure-089.png",
+          "width": 701,
+          "height": 597,
+          "sourceSha256": "33a2f29c2c3debc7ccee183b4da22f5f4bedfc18276784c5fb586251f290d8ab",
+          "assetSha256": "33a2f29c2c3debc7ccee183b4da22f5f4bedfc18276784c5fb586251f290d8ab"
+        }
+      ],
+      "imageSha256": "17e91c2dd665d90cac3edae9eed4821d9f10698c17559e05f2369537e2b9b366"
+    }
+  ]
+}

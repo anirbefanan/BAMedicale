@@ -487,3 +487,39 @@ window.BAMEDICALE_DATA = {
   },
   profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible medical education: enough context to help people ask better questions, and enough structure to help doctors and healthcare workers continue learning across medical disciplines.", image: "assets/medical/oncology-cellular-hero.png" }
 };
+
+// Seminar presentations share the canonical registry, with source-locked full reads.
+window.BAMEDICALE_DATA.presentations = {
+  "current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules": {
+    id: "current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules",
+    slug: "current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules",
+    title: "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+    author: { name: window.BAMEDICALE_DATA.profile.name, type: "Person" },
+    eventId: "management-thyroid-nodules-2026",
+    presentationDate: "2026-09-19",
+    publishedDate: "2026-09-18",
+    primaryAudience: "DOCTOR",
+    primaryDiseaseGroup: "endocrine-metabolic",
+    diseaseCondition: "Thyroid nodules",
+    primaryTopic: "Diagnosis",
+    professionalCategory: "diagnosis",
+    topics: ["Diagnosis", "Treatment Planning"],
+    contentType: "Seminar presentation",
+    label: "Seminar presentation",
+    publicationStatus: "published",
+    indexable: true,
+    canonicalUrl: "presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+    cover: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/page-01.png",
+    sourcePdf: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.pdf",
+    video: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/presentation-video.mp4",
+    sourceManifest: "data/thyroid-presentation-source.json",
+    sourceAttribution: "Original presentation supplied for the 19 September 2026 thyroid-nodule seminar",
+    summary: "A 20-slide presentation covering thyroid-nodule diagnosis, molecular testing, ablative treatment, and surgical approaches.",
+    quickRead: [
+      { title: "Presentation objective", body: "Connect thyroid-nodule diagnostic assessment with the treatment approaches presented in the seminar.", pages: "1–3" },
+      { title: "Diagnostic approach", body: "The presentation brings together physical examination, ultrasound/TIRADS, FNAB/Bethesda, and laboratory assessment. It discusses molecular analysis in Bethesda III and IV nodules.", pages: "5–8" },
+      { title: "Management options", body: "For benign nodules, the slides describe conservative management, surgery, and ablative therapies. Separate slides address well-differentiated and poorly differentiated thyroid carcinoma.", pages: "9–14, 19" },
+      { title: "Procedural focus", body: "The presentation illustrates ethanol ablation, radiofrequency ablation, endoscopic thyroidectomy (TOETVA), and transoral robotic thyroidectomy (TORT).", pages: "11–18" }
+    ]
+  }
+};

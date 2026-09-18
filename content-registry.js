@@ -189,6 +189,7 @@
   const create = (data = {}, catalogs = {}) => {
     const records = [
       ...Object.values(data.articles || {}).map((record) => normalizeRecord(record, "article", data)),
+      ...Object.values(data.presentations || {}).map((record) => normalizeRecord(record, "presentation", data)),
       ...Object.values(data.seminars || {}).map((record) => normalizeRecord(record, "seminar", data)),
       ...(data.ebooks || []).map((record) => normalizeRecord(record, "ebook", data)),
       ...(data.resources || []).map((record) => normalizeRecord(record, "resource", data)),

@@ -1,0 +1,20 @@
+/* Source-faithful presentation reader: original media stays uncropped. */
+.presentation-actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.presentation-actions .button{min-height:44px;white-space:normal;text-align:center}
+.presentation-note{font-size:.875rem;color:var(--text-secondary)}
+.presentation-index{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0}
+.presentation-index a{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid var(--control-border);border-radius:var(--control-radius);background:var(--card-surface);font-weight:700}
+.presentation-index a:hover{color:var(--brand-primary)}
+.presentation-slide{padding:24px 0;border-bottom:1px solid var(--card-border);scroll-margin-top:110px}
+.presentation-slide h2{font-family:var(--sans);font-size:1rem;color:var(--brand-primary)}
+.presentation-slide figure{margin:16px 0}
+.presentation-slide figure img{display:block;width:100%;height:auto;object-fit:contain;border-radius:var(--control-radius)}
+.presentation-slide figcaption{margin-top:8px;font-size:.8rem;color:var(--text-secondary)}
+.presentation-video{padding:12px;background:var(--card-reading-surface);border:1px solid var(--card-border);border-radius:var(--card-radius)}
+.presentation-video video{display:block;width:100%;height:auto;object-fit:contain;border-radius:var(--control-radius)}
+.presentation-slide summary{display:flex;align-items:center;min-height:44px;cursor:pointer;color:var(--brand-primary);font-weight:700;list-style:revert}
+.presentation-slide details{border-top:1px solid var(--card-border);padding:4px 0}
+.presentation-transcript pre{white-space:pre-wrap;overflow-wrap:anywhere;font-family:'Source Serif 4',serif;font-size:1.05rem;line-height:1.7;color:var(--text-primary)}
+.presentation-figures>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px;padding:12px 0}
+.presentation-figures img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain}
+@media(max-width:560px){.presentation-actions{display:grid}.presentation-actions .button{width:100%}.presentation-slide{padding:18px 0}.presentation-video{padding:6px}}

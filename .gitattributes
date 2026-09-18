@@ -10,3 +10,5 @@
 /attendance/client.js text eol=lf
 /scripts/attendance/backend.js text eol=lf
 /scripts/attendance/Code.gs text eol=lf
+
+/presentations/*.html text eol=lf
