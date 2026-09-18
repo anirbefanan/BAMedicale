@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-18T15:22:51.401Z",
+  "generatedAt": "2026-09-18T20:06:42.701Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-21",
-    "endDate": "2026-09-17"
+    "startDate": "2026-08-22",
+    "endDate": "2026-09-18"
   },
   "summary": {
-    "activeUsers": 70,
-    "newUsers": 71,
-    "averageEngagementTimeSeconds": 370.27142857142854,
-    "eventCount": 2687
+    "activeUsers": 74,
+    "newUsers": 73,
+    "averageEngagementTimeSeconds": 368.1756756756757,
+    "eventCount": 2843
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 264,
-      "activeUsers": 46,
-      "eventCount": 665,
-      "bounceRate": 0.30303030303030304
+      "views": 282,
+      "activeUsers": 49,
+      "eventCount": 705,
+      "bounceRate": 0.34285714285714286
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -28,24 +28,24 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 89,
+      "views": 93,
       "activeUsers": 15,
-      "eventCount": 198,
-      "bounceRate": 0
+      "eventCount": 209,
+      "bounceRate": 0.024390243902439025
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 73,
-      "activeUsers": 13,
-      "eventCount": 196,
-      "bounceRate": 0
+      "views": 83,
+      "activeUsers": 14,
+      "eventCount": 220,
+      "bounceRate": 0.1
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 67,
+      "views": 68,
       "activeUsers": 10,
-      "eventCount": 156,
-      "bounceRate": 0.06666666666666667
+      "eventCount": 159,
+      "bounceRate": 0.0967741935483871
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
@@ -76,17 +76,17 @@
       "bounceRate": 0.14285714285714285
     },
     {
-      "title": "Videos | BA Medicale",
+      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
       "views": 28,
       "activeUsers": 8,
-      "eventCount": 82,
-      "bounceRate": 0
+      "eventCount": 92,
+      "bounceRate": 0.5333333333333333
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 44
+      "activeUsers": 45
     },
     {
       "label": "google / organic",
@@ -105,18 +105,30 @@
       "activeUsers": 4
     },
     {
+      "label": "Not set",
+      "activeUsers": 3
+    },
+    {
       "label": "bing / organic",
       "activeUsers": 2
+    },
+    {
+      "label": "(data not available)",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 166
+      "sessions": 170
     },
     {
       "label": "google / organic",
-      "sessions": 54
+      "sessions": 59
+    },
+    {
+      "label": "Not set",
+      "sessions": 4
     },
     {
       "label": "facebook.com / referral",
@@ -133,12 +145,16 @@
     {
       "label": "bing / organic",
       "sessions": 3
+    },
+    {
+      "label": "(data not available)",
+      "sessions": 1
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 29
+      "activeUsers": 32
     },
     {
       "label": "Council Bluffs",
@@ -157,12 +173,12 @@
       "activeUsers": 5
     },
     {
-      "label": "Jonggol",
+      "label": "Glenview",
       "activeUsers": 4
     },
     {
-      "label": "Glenview",
-      "activeUsers": 3
+      "label": "Jonggol",
+      "activeUsers": 4
     },
     {
       "label": "Prineville",
