@@ -12,3 +12,4 @@
 /scripts/attendance/Code.gs text eol=lf
 
 /presentations/*.html text eol=lf
+/scripts/attendance/downloads.js text eol=lf

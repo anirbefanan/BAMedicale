@@ -173,6 +173,7 @@ function reply_(p,status,opensAt) {
 }
 function doGet(e) {
   const p=e && e.parameter; let status='CLOSED_INVALID',opensAt;
+  if(p && p.action==='download_ack')return downloadReply_(p);
   if(!correlation_(p)) return reply_(null,status);
   try {
     if(p.action==='ack') status=CacheService.getScriptCache().get(ackKey_(p))||'waiting';
@@ -187,6 +188,12 @@ function doPost(e) {
   try {
     if(!e || !e.postData || e.postData.length>16000 || Object.keys(e.parameters).some(k=>k!=='payload') || !e.parameters.payload || e.parameters.payload.length!==1) return ContentService.createTextOutput('Request unavailable.');
     p=JSON.parse(e.parameter.payload);
+    if(p && p.action==='download'){
+      if(e.postData.length>2048)return ContentService.createTextOutput('Request unavailable.');
+      try{status=recordDownload_(p);}catch(_){status='retry';}
+      if(downloadCorrelation_(p))CacheService.getScriptCache().put(downloadAckKey_(p),status,180);
+      return ContentService.createTextOutput('Request processed.');
+    }
     if(correlation_(p)) status=record_(p);
   } catch(_) {status='retry';}
   if(correlation_(p)) CacheService.getScriptCache().put(ackKey_(p),status,180);
