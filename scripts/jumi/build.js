@@ -13,8 +13,8 @@ if(!fs.existsSync(path.join(root,officialLogoPath))) throw new Error("Canonical 
 const shell = fs.readFileSync(path.join(root,"jumi/index.html"),"utf8")
   .replace(/\s*<meta http-equiv="Content-Security-Policy"[^>]+>/i,"")
   .replace(/<link rel="stylesheet" href="styles\.css[^\"]*">/,`<style>${css}</style>`)
-  .replace('  <script src="config.js" defer></script>\n',"")
-  .replace('  <script src="app.js" defer></script>',`<script>window.JUMI_CONFIG={timezone:"Asia/Jakarta"};window.JUMI_SERVER_MODE=true;</script>\n  <script>document.addEventListener("DOMContentLoaded",()=>{${client}});</script>`)
+  .replace(/\s*<script src="config\.js[^"]*" defer><\/script>/,"")
+  .replace(/<script src="app\.js[^"]*" defer><\/script>/,`<script>window.JUMI_CONFIG={timezone:"Asia/Jakarta"};window.JUMI_SERVER_MODE=true;</script>\n  <script>document.addEventListener("DOMContentLoaded",()=>{${client}});</script>`)
   .replaceAll(`../${officialLogoPath}`,`https://bamedicale.com/${officialLogoPath}`);
 const htmlTarget = path.join(dir,"Index.html");
 
