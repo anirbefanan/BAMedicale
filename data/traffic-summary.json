@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T20:06:42.701Z",
+  "generatedAt": "2026-09-19T02:05:45.910Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-22",
@@ -8,8 +8,8 @@
   "summary": {
     "activeUsers": 74,
     "newUsers": 73,
-    "averageEngagementTimeSeconds": 368.1756756756757,
-    "eventCount": 2843
+    "averageEngagementTimeSeconds": 369.47297297297297,
+    "eventCount": 2854
   },
   "topPages": [
     {
@@ -30,7 +30,7 @@
       "title": "Medical Library | BA Medicale",
       "views": 93,
       "activeUsers": 15,
-      "eventCount": 209,
+      "eventCount": 211,
       "bounceRate": 0.024390243902439025
     },
     {
@@ -77,9 +77,9 @@
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 28,
+      "views": 29,
       "activeUsers": 8,
-      "eventCount": 92,
+      "eventCount": 96,
       "bounceRate": 0.5333333333333333
     }
   ],
