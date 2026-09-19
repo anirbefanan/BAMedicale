@@ -32,7 +32,7 @@ test("JUMI reuses the canonical production BA Medicale logo",()=>{
   assert.match(html,/brand-logo--gate/);
   assert.match(html,/brand-logo--nav/);
   assert.match(html,/brand-logo--mobile/);
-  assert.match(html,/styles\.css\?v=20260919-functional-audit/);
+  assert.match(html,/styles\.css\?v=design-system-20260920/);
   assert.match(html,/scope\.js\?v=20260919-functional-audit/);
 });
 
