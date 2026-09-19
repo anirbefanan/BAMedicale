@@ -22,6 +22,15 @@ test("JUMI ships as a zero-data authentication gate",()=>{
   assert.doesNotMatch(client,/location\.hostname===?"bamedicale\.com".*qa/);
 });
 
+test("JUMI reuses the canonical production BA Medicale logo",()=>{
+  const canonicalLogo="../assets/brand/bamedicale-approved-logo.jpg";
+  assert.equal(html.split(canonicalLogo).length-1,3);
+  assert.doesNotMatch(html,/brand-mark|<svg[^>]+(?:logo|brand)/i);
+  assert.match(html,/brand-logo--gate/);
+  assert.match(html,/brand-logo--nav/);
+  assert.match(html,/brand-logo--mobile/);
+});
+
 test("authorization is server enforced and client-provided email is never authentication",()=>{
   assert.match(backend,/Session\.getActiveUser\(\)\.getEmail\(\)/);
   assert.match(backend,/allowlist\.includes\(email\)/);
@@ -73,4 +82,6 @@ test("generated Apps Script UI is self-contained and server mode only",()=>{
   assert.match(generated,/window\.JUMI_SERVER_MODE=true/);
   assert.doesNotMatch(generated,/src="(?:config|app)\.js"|href="styles\.css"/);
   assert.match(generated,/noindex,nofollow,noarchive,nosnippet/);
+  assert.equal((generated.match(/https:\/\/bamedicale\.com\/assets\/brand\/bamedicale-approved-logo\.jpg/g)||[]).length,3);
+  assert.doesNotMatch(generated,/brand-mark/);
 });
