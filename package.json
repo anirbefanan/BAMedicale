@@ -14,7 +14,9 @@
     "attendance:build": "node scripts/attendance/build.js",
     "attendance:check": "node scripts/attendance/build.js --check && node --test scripts/attendance/*.test.js",
     "quiz:build": "node scripts/quiz/build.js",
-    "quiz:check": "node scripts/quiz/build.js --check && node --test scripts/quiz/*.test.js"
+    "quiz:check": "node scripts/quiz/build.js --check && node --test scripts/quiz/*.test.js",
+    "jumi:build": "node scripts/jumi/build.js",
+    "jumi:check": "node scripts/jumi/build.js --check && node --check jumi/app.js && node --check scripts/jumi/backend.js && node --test scripts/jumi/*.test.js"
   },
   "private": true,
   "devDependencies": {

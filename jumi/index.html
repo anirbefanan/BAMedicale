@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; img-src 'self' data:">
+  <title>JUMI — BA Medicale Seminar OS</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="secure-gate" id="secure-gate">
+    <main class="gate-card" aria-labelledby="gate-title">
+      <div class="brand-mark" aria-hidden="true"><span></span><span></span></div>
+      <p class="eyebrow">Private operations workspace</p>
+      <h1 id="gate-title">JUMI</h1>
+      <p class="gate-subtitle">BA Medicale Seminar OS</p>
+      <p class="gate-copy">Authorized administrators only. Google identity is verified by the private backend before any seminar or participant data is returned.</p>
+      <a class="button button-primary secure-launch" id="secure-launch" href="#" rel="noopener" hidden>Continue with Google</a>
+      <button class="button button-primary" id="setup-disabled" type="button" disabled hidden>Secure setup required</button>
+      <p class="status-note" id="gate-status" role="status">Preparing secure sign-in…</p>
+      <div class="security-strip"><span>Server-authorized</span><span>No public data</span><span>Asia/Jakarta</span></div>
+    </main>
+  </div>
+
+  <div class="app-shell" id="app-shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><div class="brand-mark small" aria-hidden="true"><span></span><span></span></div><div><strong>JUMI</strong><small>Seminar OS</small></div></div>
+      <nav aria-label="JUMI modules" id="primary-nav"></nav>
+      <div class="integration-mini"><span class="dot connected"></span>Sheets &amp; Drive<div id="admin-identity"></div></div>
+      <button class="signout" id="signout" type="button">Sign out</button>
+    </aside>
+
+    <header class="mobile-header">
+      <button class="icon-button" id="nav-toggle" aria-controls="sidebar" aria-expanded="false" type="button">Menu</button>
+      <strong>JUMI</strong>
+      <span class="live-dot">Private</span>
+    </header>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <div><p class="eyebrow">BA Medicale Seminar OS</p><h1 id="view-title">Dashboard</h1><p id="view-description">Seminar operations at a glance.</p></div>
+        <div class="header-actions"><label>Event scope<select id="event-scope"><option value="all">All Events</option><option value="upcoming">Upcoming</option><option value="live">Live</option><option value="completed">Completed</option></select></label><button class="button button-primary" type="button" data-action="new-event">Create Seminar</button></div>
+      </header>
+      <div class="system-banner" id="system-banner" hidden></div>
+      <section id="view" class="view" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <dialog id="dialog"><form method="dialog" class="dialog-card"><button class="dialog-close" value="cancel" aria-label="Close">×</button><div id="dialog-content"></div></form></dialog>
+</body>
+</html>
