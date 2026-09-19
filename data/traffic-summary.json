@@ -1,23 +1,30 @@
 {
-  "generatedAt": "2026-09-19T14:59:09.205Z",
+  "generatedAt": "2026-09-19T19:44:12.807Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-22",
-    "endDate": "2026-09-18"
+    "startDate": "2026-08-23",
+    "endDate": "2026-09-19"
   },
   "summary": {
-    "activeUsers": 74,
-    "newUsers": 75,
-    "averageEngagementTimeSeconds": 371.13513513513516,
-    "eventCount": 2883
+    "activeUsers": 226,
+    "newUsers": 219,
+    "averageEngagementTimeSeconds": 157.73451327433628,
+    "eventCount": 4311
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 284,
-      "activeUsers": 50,
-      "eventCount": 714,
-      "bounceRate": 0.30985915492957744
+      "views": 316,
+      "activeUsers": 60,
+      "eventCount": 790,
+      "bounceRate": 0.379746835443038
+    },
+    {
+      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
+      "views": 275,
+      "activeUsers": 153,
+      "eventCount": 1157,
+      "bounceRate": 0.93
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -27,18 +34,18 @@
       "bounceRate": 0.3380281690140845
     },
     {
-      "title": "Medical Library | BA Medicale",
-      "views": 94,
-      "activeUsers": 15,
-      "eventCount": 215,
-      "bounceRate": 0
+      "title": "Courses & Seminars | BA Medicale",
+      "views": 105,
+      "activeUsers": 17,
+      "eventCount": 264,
+      "bounceRate": 0.21568627450980393
     },
     {
-      "title": "Courses & Seminars | BA Medicale",
-      "views": 84,
-      "activeUsers": 14,
-      "eventCount": 221,
-      "bounceRate": 0
+      "title": "Medical Library | BA Medicale",
+      "views": 104,
+      "activeUsers": 17,
+      "eventCount": 235,
+      "bounceRate": 0.08888888888888889
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -56,41 +63,38 @@
     },
     {
       "title": "For Public | BA Medicale",
-      "views": 45,
-      "activeUsers": 10,
-      "eventCount": 93,
-      "bounceRate": 0.08695652173913043
+      "views": 47,
+      "activeUsers": 11,
+      "eventCount": 96,
+      "bounceRate": 0.125
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 43,
-      "activeUsers": 12,
-      "eventCount": 102,
-      "bounceRate": 0.03571428571428571
+      "views": 46,
+      "activeUsers": 14,
+      "eventCount": 113,
+      "bounceRate": 0.12903225806451613
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
-      "views": 35,
-      "activeUsers": 7,
-      "eventCount": 86,
-      "bounceRate": 0.14285714285714285
-    },
-    {
-      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 32,
-      "activeUsers": 8,
-      "eventCount": 110,
-      "bounceRate": 0.13333333333333333
+      "views": 37,
+      "activeUsers": 9,
+      "eventCount": 91,
+      "bounceRate": 0.29411764705882354
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 46
+      "activeUsers": 184
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 91
     },
     {
       "label": "google / organic",
-      "activeUsers": 14
+      "activeUsers": 17
     },
     {
       "label": "facebook.com / referral",
@@ -107,16 +111,28 @@
     {
       "label": "bing / organic",
       "activeUsers": 2
+    },
+    {
+      "label": "(data not available)",
+      "activeUsers": 1
+    },
+    {
+      "label": "dataindex.pro / referral",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 171
+      "sessions": 330
+    },
+    {
+      "label": "Not set",
+      "sessions": 124
     },
     {
       "label": "google / organic",
-      "sessions": 61
+      "sessions": 77
     },
     {
       "label": "facebook.com / referral",
@@ -133,48 +149,56 @@
     {
       "label": "bing / organic",
       "sessions": 3
+    },
+    {
+      "label": "keep.google.com / referral",
+      "sessions": 3
+    },
+    {
+      "label": "dataindex.pro / referral",
+      "sessions": 1
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 32
+      "activeUsers": 67
+    },
+    {
+      "label": "Depok",
+      "activeUsers": 12
+    },
+    {
+      "label": "Padang",
+      "activeUsers": 11
+    },
+    {
+      "label": "Makassar",
+      "activeUsers": 10
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 9
+    },
+    {
+      "label": "Medan",
+      "activeUsers": 8
     },
     {
       "label": "Council Bluffs",
       "activeUsers": 7
     },
     {
+      "label": "South Tangerang",
+      "activeUsers": 6
+    },
+    {
       "label": "Ashburn",
       "activeUsers": 5
     },
     {
-      "label": "Depok",
+      "label": "Denpasar",
       "activeUsers": 5
-    },
-    {
-      "label": "Sukabumi",
-      "activeUsers": 5
-    },
-    {
-      "label": "Glenview",
-      "activeUsers": 4
-    },
-    {
-      "label": "Jonggol",
-      "activeUsers": 4
-    },
-    {
-      "label": "Prineville",
-      "activeUsers": 3
-    },
-    {
-      "label": "Bekasi",
-      "activeUsers": 2
-    },
-    {
-      "label": "Bekasi Regency",
-      "activeUsers": 2
     }
   ]
 }
