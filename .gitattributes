@@ -13,3 +13,8 @@
 
 /presentations/*.html text eol=lf
 /scripts/attendance/downloads.js text eol=lf
+
+# Preserve the approved eBook PDF byte-for-byte across Windows clones.
+/assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/source.pdf binary
+/ebooks/*.html text eol=lf
+/ebooks.html text eol=lf
