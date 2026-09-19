@@ -469,7 +469,8 @@ window.BAMEDICALE_DATA = {
       "Targeted Therapy"
     ],
     "contentType": "eBook",
-    "cover": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/cover.png",
+    "cover": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/cover.jpg",
+    "coverAsPage": true,
     "author": {
       "name": "BA Medicale Editorial Team",
       "type": "Organization"
