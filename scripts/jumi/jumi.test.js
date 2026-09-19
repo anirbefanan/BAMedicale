@@ -63,6 +63,9 @@ test("private mutations use independent statuses, locks, audit rows, and confirm
   assert.doesNotMatch(backend,/Games19Sept|LMSGames19Sept/);
   assert.match(backend,/Download Material/);
   assert.match(backend,/downloads,community/);
+  assert.match(backend,/function jumiStamp_\(dateValue,timeValue\)/);
+  assert.match(backend,/registeredAt:jumiStamp_\(row\[0\],row\[1\]\)/);
+  assert.match(backend,/completedAt:jumiStamp_\(/);
   assert.match(backend,/Lifecycle':found\?found\.Lifecycle:'Draft'/);
   assert.match(backend,/JUMI_PAYMENT_ROOT_FOLDER_ID.*existing private Payment Validation folder/);
 });
