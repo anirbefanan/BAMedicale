@@ -20,6 +20,7 @@ test("JUMI ships as a zero-data authentication gate",()=>{
   assert.doesNotMatch(config,/apps\.googleusercontent\.com|AIza[a-zA-Z0-9_-]+|16LZq20tinfUf5jcA0rUgaoqSw42lQZ75i_xUcTDxIQk/);
   assert.match(client,/location\.hostname==="127\.0\.0\.1"/);
   assert.doesNotMatch(client,/location\.hostname===?"bamedicale\.com".*qa/);
+  assert.match(client,/\$\$\("#primary-nav \[data-view\]"\).*navigate\(button\.dataset\.view\)/);
 });
 
 test("JUMI reuses the canonical production BA Medicale logo",()=>{
