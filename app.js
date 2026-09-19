@@ -358,14 +358,14 @@ function renderHome() {
   if (updates) {
     const articles = contentRegistry.query({ family: "article" }).map((item) => ({ title: item.title, meta: `${item.contentType} · ${item.topics[0] || "Medical learning"}`, href: item.route }));
     const seminars = contentRegistry.query({ family: "seminar" }).map((item) => ({ title: item.title, meta: `${item.sourceRecord.date} · ${item.sourceRecord.time}`, href: item.route }));
-    const ebooks = contentRegistry.query({ family: "ebook", publishedOnly: false }).map((item) => ({ title: item.title, meta: item.sourceRecord.state, href: item.route }));
+    const ebooks = contentRegistry.query({ family: "ebook", publishedOnly: false }).map((item) => ({ title: item.title, meta: item.sourceRecord.state, href: item.route, cover: item.publicationStatus === "published" ? item.cover : "" }));
     updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>New reading, upcoming learning, and recently added eBooks in one practical overview.</p></div><div class="approved-home-updates__grid"><section class="home-update-card"><div><p>Articles</p><h3>Latest reading</h3></div>${compactUpdateList(articles, "New learning update in preparation")}</section><section class="home-update-card"><div><p>Upcoming event</p><h3>Seminars &amp; courses</h3></div>${compactUpdateList(seminars, "New learning update in preparation")}</section><section class="home-update-card"><div><p>eBooks</p><h3>Recently added</h3></div>${compactUpdateList(ebooks, "New learning update in preparation")}</section></div>`;
   }
 }
 
 const compactUpdateList = (items, pendingMeta) => items.slice(0, 5).concat(Array.from({ length: Math.max(0, 5 - items.length) }, () => ({ pending: true, title: "Coming soon", meta: pendingMeta }))).map((item) => item.pending
   ? `<span class="home-update-item is-pending"><span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">—</i></span>`
-  : `<a class="home-update-item" href="${escapeHtml(item.href)}"><span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">→</i></a>`).join("");
+  : `<a class="home-update-item${item.cover ? " has-cover" : ""}" href="${escapeHtml(item.href)}">${item.cover ? `<img src="${escapeHtml(item.cover)}" alt="Cover of ${escapeHtml(item.title)}" width="40" height="60" loading="lazy">` : ""}<span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">→</i></a>`).join("");
 
 function renderDoctorClinicalPage() {
   const categoriesTarget = document.querySelector("[data-doctor-categories]");

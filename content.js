@@ -439,22 +439,85 @@ window.BAMEDICALE_DATA = {
     "commerceStatus": "not-for-sale"
   },
   {
-    "id": "ebook-understanding-thyroid-disorders",
-    "slug": "understanding-thyroid-disorders",
-    "title": "Understanding Thyroid Disorders",
+    "id": "ebook-advanced-diagnostics-and-management-of-thyroid-nodules",
+    "slug": "advanced-diagnostics-and-management-of-thyroid-nodules",
+    "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+    "subtitle": "Ultrasonographic Evaluation, Bethesda Risk Stratification, and Targeted Therapeutic Strategies",
     "publishedDate": "2026-09-19",
-    "publicationStatus": "coming-soon",
-    "state": "Coming Soon",
-    "demo": true,
+    "publicationMonth": "2026-09",
+    "publicationDateLabel": "September 2026",
+    "publicationStatus": "published",
+    "state": "Clinical Reference E-Book",
+    "demo": false,
+    "indexable": true,
+    "sortOrder": 10,
     "primaryAudience": "DOCTOR",
     "primaryDiseaseGroup": "endocrine-metabolic",
-    "topics": [],
+    "diseaseCondition": "Thyroid nodules",
+    "professionalCategory": "diagnosis",
+    "topics": [
+      "Diagnosis",
+      "Treatment Planning"
+    ],
+    "tags": [
+      "Ultrasonography",
+      "ACR TI-RADS",
+      "Bethesda System",
+      "FNAB",
+      "PEA",
+      "RFA",
+      "Targeted Therapy"
+    ],
     "contentType": "eBook",
-    "cover": "",
-    "author": null,
-    "description": "Placeholder catalog preview. Content coming soon.",
-    "sourcePdf": null,
-    "pages": [],
+    "cover": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/cover.png",
+    "author": {
+      "name": "BA Medicale Editorial Team",
+      "type": "Organization"
+    },
+    "publisher": "BA Medicale Medical Series",
+    "description": "Ultrasonographic evaluation, Bethesda risk stratification, and targeted therapeutic strategies for thyroid nodules. A nine-page clinical reference from BA Medicale Medical Series.",
+    "sourcePdf": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/source.pdf",
+    "sourcePages": true,
+    "pageAspect": 1.2941176470588236,
+    "pageManifest": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/pages.json",
+    "pages": [
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-1.png",
+        "title": "Source PDF page 1"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-2.png",
+        "title": "Source PDF page 2"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-3.png",
+        "title": "Source PDF page 3"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-4.png",
+        "title": "Source PDF page 4"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-5.png",
+        "title": "Source PDF page 5"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-6.png",
+        "title": "Source PDF page 6"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-7.png",
+        "title": "Source PDF page 7"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-8.png",
+        "title": "Source PDF page 8"
+      },
+      {
+        "image": "assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/page-9.png",
+        "title": "Source PDF page 9"
+      }
+    ],
     "downloadable": false,
     "access": "free",
     "commerceStatus": "not-for-sale"
