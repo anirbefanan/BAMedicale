@@ -15,9 +15,9 @@ const robots = fs.readFileSync(path.join(root,"robots.txt"),"utf8");
 test("JUMI ships as a zero-data authentication gate",()=>{
   assert.match(html,/noindex,nofollow,noarchive,nosnippet/);
   assert.match(html,/Google identity is verified by the private backend/);
-  assert.match(config,/secureAppUrl:\s*""/);
+  assert.match(config,/secureAppUrl:\s*"https:\/\/script\.google\.com\/macros\/s\/AKfy[a-zA-Z0-9_-]+\/exec"/);
   assert.doesNotMatch(html,/iniemailnana|@[a-z0-9.-]+\.[a-z]{2,}/i);
-  assert.doesNotMatch(config,/AKfy|apps\.googleusercontent\.com/);
+  assert.doesNotMatch(config,/apps\.googleusercontent\.com|AIza[a-zA-Z0-9_-]+|16LZq20tinfUf5jcA0rUgaoqSw42lQZ75i_xUcTDxIQk/);
   assert.match(client,/location\.hostname==="127\.0\.0\.1"/);
   assert.doesNotMatch(client,/location\.hostname===?"bamedicale\.com".*qa/);
 });
@@ -53,6 +53,12 @@ test("private mutations use independent statuses, locks, audit rows, and confirm
   assert.match(client,/BEGIN:VCALENDAR/);
   assert.match(client,/Uploading or replacing evidence does not mark the payment paid/);
   assert.match(backend,/certificateStatus:String\(row\[8\].*\?'Sent':'Not Eligible'/);
+  assert.match(backend,/Quiz Control/);
+  assert.match(backend,/getSheetById\(Number\(map\[2\]\)\)/);
+  assert.match(backend,/sheet\.getSheetId\(\)/);
+  assert.doesNotMatch(backend,/Games19Sept|LMSGames19Sept/);
+  assert.match(backend,/Download Material/);
+  assert.match(backend,/JUMI_PAYMENT_ROOT_FOLDER_ID.*existing private Payment Validation folder/);
 });
 
 test("JUMI remains absent from public discovery surfaces",()=>{
@@ -81,6 +87,7 @@ test("server rejects anonymous and non-allowlisted users before dispatch",()=>{
 test("generated Apps Script UI is self-contained and server mode only",()=>{
   const generated=fs.readFileSync(path.join(__dirname,"Index.html"),"utf8");
   assert.match(generated,/window\.JUMI_SERVER_MODE=true/);
+  assert.match(generated,/document\.addEventListener\("DOMContentLoaded"/);
   assert.doesNotMatch(generated,/src="(?:config|app)\.js"|href="styles\.css"/);
   assert.match(generated,/noindex,nofollow,noarchive,nosnippet/);
   assert.equal((generated.match(/https:\/\/bamedicale\.com\/assets\/brand\/bamedicale-approved-logo\.jpg/g)||[]).length,3);

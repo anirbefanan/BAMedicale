@@ -7,8 +7,8 @@ The existing anonymous attendance/quiz web app must remain unchanged. Never past
 ## Required owner setup
 
 1. Create a separate Apps Script project and add `Code.gs`, `Index.html`, and the manifest from `scripts/jumi/`. Do not modify the anonymous attendance/quiz project.
-2. In Apps Script **Script Properties**, set `JUMI_TRACKER_ID` to the existing restricted tracker spreadsheet ID and `JUMI_ADMIN_ALLOWLIST` to a JSON array containing Nana's normalized Google-account email. Add future admins only after explicit authorization.
-3. Run `setupJumi` as the tracker owner. Confirm the spreadsheet remains Restricted. This creates only prefixed JUMI tabs, imports the approved 19 September event record without copying participant rows, and creates a private `BA Medicale / Payment Validation` Drive hierarchy for JUMI evidence.
+2. In Apps Script **Script Properties**, set `JUMI_TRACKER_ID` to the existing restricted tracker spreadsheet ID, `JUMI_ADMIN_ALLOWLIST` to a JSON array containing Nana's normalized Google-account email, and `JUMI_PAYMENT_ROOT_FOLDER_ID` to the existing private `BA Medicale / Payment Validation` Drive folder ID. Add future admins only after explicit authorization.
+3. Run `setupJumi` as the tracker owner. Confirm the spreadsheet and payment-evidence folder remain Restricted. This creates only prefixed JUMI compatibility tabs and imports the approved 19 September event record without copying participant rows. Event/year evidence subfolders are created only when an authorized admin uploads evidence.
 4. Deploy the JUMI project as a web app with **Execute as: User accessing the web app** and access limited to signed-in Google users. Each authorized admin must have the required private Sheet/Drive access. The Apps Script platform performs Google sign-in; `doGet` and every `jumiApi` call then enforce the allowlist server-side.
 5. Put the resulting JUMI `/exec` URL in `jumi/config.js` as `secureAppUrl`. Run `npm run jumi:check`, commit, and publish.
 
