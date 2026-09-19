@@ -18,8 +18,8 @@ function quizConfig_(id) {
   }catch(_){return null;}
 }
 /* Owner-only provisioning. Set QUIZ_KEY_<event-id> privately before running. */
-function setupQuiz() { setupQuizDefinition_('management-thyroid-nodules-2026','Games19Sept',QUIZ_HEADERS); }
-function setupLmsQuiz() { setupQuizDefinition_('lms-management-thyroid-nodules-2026','LMSGames19Sept',QUIZ_HEADERS.slice(0,8)); }
+function setupQuiz() { setupQuizDefinition_('management-thyroid-nodules-2026','BAGames19Sep',QUIZ_HEADERS); }
+function setupLmsQuiz() { setupQuizDefinition_('lms-management-thyroid-nodules-2026','LMSGames19Sep',QUIZ_HEADERS.slice(0,8)); }
 function setupQuizDefinition_(id,tabName,headers) {
   const ss=SpreadsheetApp.getActiveSpreadsheet();
   assert_(ss&&ss.getId()===props_().getProperty('TRACKER_ID'),'Use the existing bound tracker.');
