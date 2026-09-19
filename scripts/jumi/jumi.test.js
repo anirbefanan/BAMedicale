@@ -29,6 +29,7 @@ test("JUMI reuses the canonical production BA Medicale logo",()=>{
   assert.match(html,/brand-logo--gate/);
   assert.match(html,/brand-logo--nav/);
   assert.match(html,/brand-logo--mobile/);
+  assert.match(html,/styles\.css\?v=20260919-logo/);
 });
 
 test("authorization is server enforced and client-provided email is never authentication",()=>{
