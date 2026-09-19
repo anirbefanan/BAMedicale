@@ -29,7 +29,8 @@ test("JUMI reuses the canonical production BA Medicale logo",()=>{
   assert.match(html,/brand-logo--gate/);
   assert.match(html,/brand-logo--nav/);
   assert.match(html,/brand-logo--mobile/);
-  assert.match(html,/styles\.css\?v=20260919-logo/);
+  assert.match(html,/styles\.css\?v=20260919-functional-audit/);
+  assert.match(html,/scope\.js\?v=20260919-functional-audit/);
 });
 
 test("authorization is server enforced and client-provided email is never authentication",()=>{
@@ -58,6 +59,8 @@ test("private mutations use independent statuses, locks, audit rows, and confirm
   assert.match(backend,/sheet\.getSheetId\(\)/);
   assert.doesNotMatch(backend,/Games19Sept|LMSGames19Sept/);
   assert.match(backend,/Download Material/);
+  assert.match(backend,/downloads,community/);
+  assert.match(backend,/Lifecycle':found\?found\.Lifecycle:'Draft'/);
   assert.match(backend,/JUMI_PAYMENT_ROOT_FOLDER_ID.*existing private Payment Validation folder/);
 });
 
@@ -87,6 +90,7 @@ test("server rejects anonymous and non-allowlisted users before dispatch",()=>{
 test("generated Apps Script UI is self-contained and server mode only",()=>{
   const generated=fs.readFileSync(path.join(__dirname,"Index.html"),"utf8");
   assert.match(generated,/window\.JUMI_SERVER_MODE=true/);
+  assert.match(generated,/JUMI_SCOPE/);
   assert.match(generated,/document\.addEventListener\("DOMContentLoaded"/);
   assert.doesNotMatch(generated,/src="(?:config|app)\.js"|href="styles\.css"/);
   assert.match(generated,/noindex,nofollow,noarchive,nosnippet/);

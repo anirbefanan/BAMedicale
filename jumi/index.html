@@ -9,9 +9,10 @@
   <meta http-equiv="Cache-Control" content="no-store">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; img-src 'self' data:">
   <title>JUMI — BA Medicale Seminar OS</title>
-  <link rel="stylesheet" href="styles.css?v=20260919-logo">
+  <link rel="stylesheet" href="styles.css?v=20260919-functional-audit">
+  <script src="scope.js?v=20260919-functional-audit" defer></script>
   <script src="config.js?v=20260919-activation" defer></script>
-  <script src="app.js?v=20260919-activation" defer></script>
+  <script src="app.js?v=20260919-functional-audit" defer></script>
 </head>
 <body>
   <div class="secure-gate" id="secure-gate">
@@ -45,7 +46,7 @@
     <main class="workspace">
       <header class="workspace-header">
         <div><p class="eyebrow">BA Medicale Seminar OS</p><h1 id="view-title">Dashboard</h1><p id="view-description">Seminar operations at a glance.</p></div>
-        <div class="header-actions"><label>Event scope<select id="event-scope"><option value="all">All Events</option><option value="upcoming">Upcoming</option><option value="live">Live</option><option value="completed">Completed</option></select></label><button class="button button-primary" type="button" data-action="new-event">Create Seminar</button></div>
+        <div class="header-actions"><label>Event scope<select id="event-scope"><option value="all">All Events</option><option value="upcoming">Upcoming</option><option value="live">Live</option><option value="completed">Completed</option></select></label><button class="button button-secondary" id="refresh-data" type="button">Refresh</button><button class="button button-primary" type="button" data-action="new-event">Create Seminar</button></div>
       </header>
       <div class="system-banner" id="system-banner" hidden></div>
       <section id="view" class="view" aria-live="polite"></section>
