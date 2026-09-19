@@ -13,10 +13,10 @@ const officialLogoPath = "assets/brand/bamedicale-approved-logo.jpg";
 if(!fs.existsSync(path.join(root,officialLogoPath))) throw new Error("Canonical BA Medicale logo is missing.");
 const shell = fs.readFileSync(path.join(root,"jumi/index.html"),"utf8")
   .replace(/\s*<meta http-equiv="Content-Security-Policy"[^>]+>/i,"")
-  .replace(/<link rel="stylesheet" href="styles\.css[^\"]*">/,`<style>${css}</style>`)
+  .replace(/<link rel="stylesheet" href="styles\.css[^\"]*">/,()=>`<style>${css}</style>`)
   .replace(/\s*<script src="scope\.js[^"]*" defer><\/script>/,"")
   .replace(/\s*<script src="config\.js[^"]*" defer><\/script>/,"")
-  .replace(/<script src="app\.js[^"]*" defer><\/script>/,`<script>${scope}</script>\n  <script>window.JUMI_CONFIG={timezone:"Asia/Jakarta"};window.JUMI_SERVER_MODE=true;</script>\n  <script>document.addEventListener("DOMContentLoaded",()=>{${client}});</script>`)
+  .replace(/<script src="app\.js[^"]*" defer><\/script>/,()=>`<script>${scope}</script>\n  <script>window.JUMI_CONFIG={timezone:"Asia/Jakarta"};window.JUMI_SERVER_MODE=true;</script>\n  <script>document.addEventListener("DOMContentLoaded",()=>{${client}});</script>`)
   .replaceAll(`../${officialLogoPath}`,`https://bamedicale.com/${officialLogoPath}`);
 const htmlTarget = path.join(dir,"Index.html");
 

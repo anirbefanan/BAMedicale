@@ -96,4 +96,7 @@ test("generated Apps Script UI is self-contained and server mode only",()=>{
   assert.match(generated,/noindex,nofollow,noarchive,nosnippet/);
   assert.equal((generated.match(/https:\/\/bamedicale\.com\/assets\/brand\/bamedicale-approved-logo\.jpg/g)||[]).length,3);
   assert.doesNotMatch(generated,/brand-mark/);
+  const inline=generated.match(/<script>document\.addEventListener[\s\S]*?<\/script>/)[0].slice(8,-9);
+  assert.doesNotThrow(()=>new vm.Script(inline));
+  assert.match(inline,/const \$=.*\$\$=/);
 });
