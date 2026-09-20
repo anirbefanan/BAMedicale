@@ -24,6 +24,14 @@ test('missing denominators never produce fake zero percent or infinite growth',(
  assert.equal(summarize({activeUsers:4,userEngagementDuration:100,sessions:10,engagedSessions:3}).engagementRate,.3);
  assert.equal(summarize({activeUsers:4,userEngagementDuration:100}).averageEngagementTimeSeconds,25);
 });
+test('Recently Active accepts only the current six-hour snapshot',()=>{
+ const generatedAt='2026-09-20T06:00:00.000Z', now=Date.parse('2026-09-20T07:00:00.000Z');
+ assert.equal(M.recentlyActive({status:'ok',generatedAt,activeUsers:4},generatedAt,now),true);
+ assert.equal(M.recentlyActive({status:'unavailable',generatedAt,activeUsers:4},generatedAt,now),false);
+ assert.equal(M.recentlyActive({status:'ok',generatedAt:'2026-09-20T05:00:00.000Z',activeUsers:4},generatedAt,now),false);
+ assert.equal(M.recentlyActive({status:'ok',generatedAt,activeUsers:4},generatedAt,Date.parse('2026-09-20T15:00:00.000Z')),false);
+ assert.equal(M.recentlyActive({status:'ok',generatedAt,activeUsers:'4'},generatedAt,now),false);
+});
 test('public path and source policy rejects private app paths and arbitrary labels',()=>{
  const pages=catalog();assert.ok(pages.has('/'));assert.ok(![...pages.keys()].some(p=>/jumi|admin|login/.test(p)));
  assert.ok(publicFilter(pages).andGroup);
@@ -61,4 +69,18 @@ test('unreconciled totals retain the last valid complete period',async()=>{
  };
  const result=await collect({propertyId:'test',token:'test',old:baseline,now:new Date('2026-09-20T03:00Z'),request});
  assert.deepEqual(result.periods['28d'],baseline.periods['28d']);
+});
+
+test('a failed current Recently Active query cannot retain an older successful value',async()=>{
+ const {collect}=require('./fetch-growth-analytics');
+ const now=new Date('2026-09-20T06:00:00.000Z');
+ const old={schemaVersion:1,source:'Google Analytics 4 Data API',timeZone:'Asia/Jakarta',generatedAt:'2026-09-20T00:00:00.000Z',periods:{},realtime:{status:'ok',generatedAt:'2026-09-20T00:00:00.000Z',activeUsers:99,windowMinutes:30}};
+ const request=async(url,options)=>{
+  if(url.endsWith(':runRealtimeReport'))throw new Error('simulated realtime failure');
+  const body=JSON.parse(options.body);
+  return {metadata:{timeZone:'Asia/Jakarta'},dimensionHeaders:(body.dimensions||[]),metricHeaders:body.metrics,rows:[]};
+ };
+ const result=await collect({propertyId:'test',token:'test',old,now,request});
+ assert.deepEqual(result.realtime,{status:'unavailable',generatedAt:now.toISOString(),windowMinutes:30});
+ assert.equal('activeUsers' in result.realtime,false);
 });

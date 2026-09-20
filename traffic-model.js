@@ -60,5 +60,10 @@
     if (p.countries?.rows?.length) out.push(`${p.countries.rows[0].label} had the most active users among published country totals.`);
     return out.slice(0, 5);
   }
-  return { today, range, shift, validDate, ratio, change, metrics, insights };
+  function recentlyActive(snapshot, dashboardGeneratedAt, now = Date.now()) {
+    const snapshotTime = Date.parse(snapshot?.generatedAt), dashboardTime = Date.parse(dashboardGeneratedAt);
+    return snapshot?.status === 'ok' && Number.isFinite(snapshot.activeUsers) && snapshot.activeUsers >= 0 &&
+      Number.isFinite(snapshotTime) && snapshotTime === dashboardTime && now >= snapshotTime && now - snapshotTime < 8 * 3600000;
+  }
+  return { today, range, shift, validDate, ratio, change, metrics, insights, recentlyActive };
 });

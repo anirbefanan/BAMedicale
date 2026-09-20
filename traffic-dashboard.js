@@ -65,9 +65,8 @@
     return state.data?.periods.custom || null;
   }
   function realtimeCard() {
-    const r=state.realtime||state.data?.realtime, age=r?.generatedAt?Date.now()-Date.parse(r.generatedAt):Infinity;
-    const ok=r?.status==='ok'&&age>=0&&age<10*60*1000;
-    return `<article class="growth-kpi" id="realtime"><h2>${icon('live')}Recently Active</h2><strong>${ok?number(r.activeUsers):'—'}</strong><p class="growth-note">${ok?'Active users in the last 30 minutes':'Temporarily unavailable'}</p>${ok?`<span class="growth-note">Updated ${Math.floor(age/60000)} minutes ago · cached</span>`:''}</article>`;
+    const r=state.data?.realtime, ok=M.recentlyActive(r,state.data?.generatedAt);
+    return `<article class="growth-kpi" id="realtime"><h2>${icon('live')}Recently Active</h2><strong>${ok?number(r.activeUsers):'—'}</strong><p class="growth-note">${ok?'Active users in the 30 minutes before the latest refresh':'Temporarily unavailable'}</p></article>`;
   }
   function render() {
     const p=period(), summary=p?.summary;
@@ -77,12 +76,12 @@
     root.setAttribute('aria-busy','false');
     const range=p?.range;
     document.querySelector('[data-growth-range]').textContent=range?`${labels[state.key]} · ${range.startDate} – ${range.endDate} · compared with ${range.previousStartDate} – ${range.previousEndDate} · ${state.data.timeZone}`:state.key==='custom'?'Choose a custom range. Only exact published ranges can be displayed.':'No completed data available for this period.';
-    const stamp=p?.generatedAt || state.data?.generatedAt;
+    const stamp=state.data?.generatedAt;
     const age=stamp?Date.now()-Date.parse(stamp):Infinity;
     const live=document.querySelector('[data-growth-status]');
-    live.textContent=!stamp?'Data unavailable':age>8*3600000?'Cached data · refresh delayed':'Live Data · cached';
+    live.textContent='Updated every 6 hours';
     live.classList.toggle('is-stale',age>8*3600000);
-    document.querySelector('[data-growth-updated]').textContent=stamp?`Updated ${Math.max(0,Math.floor(age/60000))} minutes ago · ${new Date(stamp).toLocaleString('en-GB',{timeZone:state.data.timeZone})}`:'No successful refresh available.';
+    document.querySelector('[data-growth-updated]').textContent=stamp?`Last updated: ${new Date(stamp).toLocaleString('en-GB',{timeZone:state.data.timeZone,timeZoneName:'short'})}${age>8*3600000?' · refresh delayed':''}`:'Last updated: unavailable';
     const grid=[['Active Users','activeUsers','users'],['New Users','newUsers','users'],['Website Views','screenPageViews','views'],['Avg. Engagement','averageEngagementTimeSeconds','clock',duration],['Engagement Rate','engagementRate','rate',percent],['Event Count','eventCount','target',number,false],['Returning Users','returningUsers','users']].map(args=>card(args[0],args[1],args[2],p,args[3],args[4])).join('');
     const pages=p?.pages?.rows||[], events=pages.filter(r=>r.type==='Seminars / Events');
     const pageRows=pages.map((r,i)=>[`${i+1}. ${r.title}`,number(r.views),percent(M.ratio(r.views,summary?.screenPageViews))]);
@@ -111,20 +110,5 @@
     }
     catch {if(state.data){document.querySelector('[data-growth-status]').textContent='Cached data · refresh unavailable';}else{render();}}
   }
-  async function loadRealtime(){
-    try {
-      // Public aggregate cache only. This never calls GA4 or uses a privileged token.
-      const response=await fetch('https://raw.githubusercontent.com/anirbefanan/BAMedicale/main/data/traffic-realtime.json',{cache:'no-cache',referrerPolicy:'no-referrer'});
-      if(!response.ok)throw new Error();const data=await response.json();
-      if(data.schemaVersion!==1||!['ok','unavailable'].includes(data.status))throw new Error();
-      if(data.status==='ok'&&(!Number.isFinite(data.activeUsers)||data.activeUsers<0||!Number.isFinite(Date.parse(data.generatedAt))))throw new Error();
-      state.realtime=data;
-    }catch{state.realtime={status:'unavailable'};}
-    const old=document.getElementById('realtime');if(old)old.outerHTML=realtimeCard();
-  }
   load();
-  loadRealtime();
-  setInterval(()=>{if(!document.hidden)loadRealtime();},5*60*1000);
-  setInterval(()=>{const card=document.getElementById('realtime');if(card&&!document.hidden)card.outerHTML=realtimeCard();},60*1000);
-  setInterval(()=>{if(!document.hidden)load();},30*60*1000);
 })();

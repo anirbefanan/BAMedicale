@@ -37,6 +37,8 @@ function publicFilter(pages) {
 function summarize(row = {}) { return Object.fromEntries(Object.entries(M.metrics(Object.fromEntries(METRICS.map(k => [k, Number(row[k] || 0)])))).map(([k,v]) => [k,round(v)])); }
 function validate(payload) {
   if (payload?.schemaVersion !== 1 || !payload.generatedAt || !payload.timeZone || !payload.periods) throw new Error('Invalid dashboard contract.');
+  if (!payload.realtime || !['ok','unavailable'].includes(payload.realtime.status) || !Number.isFinite(Date.parse(payload.realtime.generatedAt))) throw new Error('Invalid Recently Active snapshot.');
+  if (payload.realtime.status === 'ok' && (!Number.isFinite(payload.realtime.activeUsers) || payload.realtime.activeUsers < 0 || payload.realtime.generatedAt !== payload.generatedAt)) throw new Error('Invalid current Recently Active value.');
   for (const p of Object.values(payload.periods)) {
     if (!p) continue;
     if (!p.range || !M.validDate(p.range.startDate) || !M.validDate(p.range.endDate)) throw new Error('Invalid period.');
@@ -50,7 +52,7 @@ function validate(payload) {
   if (/@|private_key|client_email|clientId|userId|GA4_PROPERTY|[?]email=/.test(serialized)) throw new Error('Private data detected.');
   return payload;
 }
-async function collect({propertyId, token, now = new Date(), old, custom, realtimeOnly = false, request = requestJson}) {
+async function collect({propertyId, token, now = new Date(), old, custom, request = requestJson}) {
   const pages = catalog(), filter = publicFilter(pages);
   const endpoint = `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}`;
   async function query(body, realtime = false) {
@@ -61,17 +63,13 @@ async function collect({propertyId, token, now = new Date(), old, custom, realti
     for(const row of result.rows||[])if(row.metricValues?.length!==body.metrics.length||row.metricValues.some(v=>v.value==null||!Number.isFinite(Number(v.value))||Number(v.value)<0))throw new Error('Invalid metric values.');
     return result;
   }
-  let timeZone = old?.timeZone;
-  if (!realtimeOnly || !timeZone) {
-    const probe = await query({ dateRanges:[{startDate:'yesterday',endDate:'yesterday'}], metrics:[{name:'activeUsers'}], dimensionFilter:filter });
-    timeZone = probe.metadata?.timeZone;
-    if (!timeZone) throw new Error('GA4 property timezone was not returned; refusing ambiguous periods.');
-  }
+  const probe = await query({ dateRanges:[{startDate:'yesterday',endDate:'yesterday'}], metrics:[{name:'activeUsers'}], dimensionFilter:filter });
+  const timeZone = probe.metadata?.timeZone;
+  if (!timeZone) throw new Error('GA4 property timezone was not returned; refusing ambiguous periods.');
   const payload = old ? JSON.parse(JSON.stringify(old)) : {schemaVersion:1, source:'Google Analytics 4 Data API', periods:{}};
   payload.timeZone = timeZone;
   payload.privacy = {countryMinimumActiveUsers:THRESHOLD, scope:'Published public routes only; no private app or participant records.'};
-  if (!realtimeOnly) {
-    for (const key of ['daily','7d','28d','mtd','monthly', ...(custom ? ['custom'] : [])]) {
+  for (const key of ['daily','7d','28d','mtd','monthly', ...(custom ? ['custom'] : [])]) {
       const range = M.range(key, now, timeZone, custom);
       if (!range) { payload.periods[key] = null; continue; }
       const current = {startDate:range.startDate,endDate:range.endDate,name:'current'};
@@ -148,16 +146,15 @@ async function collect({propertyId, token, now = new Date(), old, custom, realti
       });
       if(p.reconciliation.status!=='passed') { console.warn(`${key}: reconciliation failed; retaining the prior complete period if available.`); continue; }
       payload.periods[key]=p;
-    }
-    if(!payload.periods['28d'])throw new Error('No reconciled 28-day data; keeping existing cache.');
-    payload.generatedAt=now.toISOString();
   }
+  if(!payload.periods['28d'])throw new Error('No reconciled 28-day data; keeping existing cache.');
+  payload.generatedAt=now.toISOString();
   try {
     // Realtime only supports screen titles, not pagePath. Use an explicit published-title allowlist.
     const titles=[...new Set([...pages.keys()].filter(r=>r!=='/').map(r=>fs.readFileSync(path.join(ROOT,r),'utf8').match(/<title>([^<]+)<\/title>/)?.[1]).filter(Boolean))];
     const rt=await query({metrics:[{name:'activeUsers'}],dimensionFilter:inList('unifiedScreenName',titles)},true);
     payload.realtime={status:'ok',generatedAt:now.toISOString(),activeUsers:parseReport(rt)[0]?.activeUsers??0,windowMinutes:30};
-  } catch { payload.realtime={...payload.realtime,status:'unavailable'}; }
+  } catch { payload.realtime={status:'unavailable',generatedAt:now.toISOString(),windowMinutes:30}; }
   return validate(payload);
 }
 async function main(){
@@ -166,9 +163,8 @@ async function main(){
   const token=await accessToken(credentials);
   const old=fs.existsSync(OUT)?JSON.parse(fs.readFileSync(OUT,'utf8')):null;
   const custom=process.env.TRAFFIC_START&&process.env.TRAFFIC_END?{startDate:process.env.TRAFFIC_START,endDate:process.env.TRAFFIC_END}:null;
-  const payload=await collect({propertyId,token,old,custom,realtimeOnly:process.argv.includes('--realtime')});
-  if(!process.argv.includes('--realtime'))fs.writeFileSync(OUT,JSON.stringify(payload,null,2)+'\n');
-  fs.writeFileSync(path.join(ROOT,'data/traffic-realtime.json'),JSON.stringify({schemaVersion:1,...payload.realtime},null,2)+'\n');
+  const payload=await collect({propertyId,token,old,custom});
+  fs.writeFileSync(OUT,JSON.stringify(payload,null,2)+'\n');
   console.log('Published validated public aggregates; credentials and raw responses were not written.');
 }
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});

@@ -40,6 +40,7 @@ test("shared navigation, footer, and sitemap place Traffic correctly", () => {
 
 test("workflow is scheduled, least-privilege, and stages generated data only", () => {
   assert.match(workflow, /cron: "0 \*\/6 \* \* \*"/);
+  assert.doesNotMatch(workflow, /\*\/5|--realtime|traffic-realtime/);
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /permissions:\s*\n\s*contents: write/);
   assert.match(workflow, /secrets\.GA4_PROPERTY_ID/);
@@ -51,4 +52,12 @@ test("workflow is scheduled, least-privilege, and stages generated data only", (
 test("public dashboard files contain no private GA4 configuration", () => {
   const publicSurface = [html, app, read("traffic-dashboard.js"), read("traffic-model.js"), read("data/growth-analytics.json")].join("\n");
   assert.doesNotMatch(publicSurface, /GA4_PROPERTY_ID|GA4_SERVICE_ACCOUNT_JSON|client_email|private_key|analyticsdata\.googleapis\.com/);
+});
+
+test("dashboard uses one six-hour aggregate payload without realtime polling", () => {
+  const dashboard = read("traffic-dashboard.js");
+  assert.match(html, /Updated every 6 hours/);
+  assert.match(dashboard, /Last updated:/);
+  assert.doesNotMatch(dashboard, /traffic-realtime|loadRealtime|5\s*\*\s*60\s*\*\s*1000/);
+  assert.doesNotMatch(dashboard, /analyticsdata\.googleapis\.com/);
 });

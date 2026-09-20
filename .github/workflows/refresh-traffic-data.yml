@@ -3,7 +3,6 @@ name: Refresh public traffic data
 on:
   schedule:
     - cron: "0 */6 * * *"
-    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       start_date:
@@ -47,7 +46,6 @@ jobs:
           fi
 
       - name: Test and refresh aggregate traffic data
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 */6 * * *'
         env:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
@@ -61,16 +59,9 @@ jobs:
           node scripts/fetch-growth-analytics.js
           node scripts/fetch-growth-analytics.js --validate
 
-      - name: Refresh the small realtime cache
-        if: github.event_name == 'schedule' && github.event.schedule == '*/5 * * * *'
-        env:
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
-        run: node scripts/fetch-growth-analytics.js --realtime
-
       - name: Commit changed traffic data
         run: |
-          git add -- data/traffic-summary.json data/growth-analytics.json data/traffic-realtime.json
+          git add -- data/traffic-summary.json data/growth-analytics.json
           if git diff --cached --quiet; then
             echo "Traffic data is unchanged; no commit is needed."
             exit 0
