@@ -80,6 +80,50 @@ test("private mutations use independent statuses, locks, audit rows, and confirm
   assert.match(backend,/JUMI_PAYMENT_ROOT_FOLDER_ID.*existing private Payment Validation folder/);
 });
 
+test("JUMI Content OS adds type-specific publishing without replacing seminar CRM",()=>{
+  assert.match(html,/BA Medicale Content OS/);
+  assert.match(client,/"Dashboard","Content","Events","Registrants"/);
+  assert.match(client,/Create Content/);
+  assert.match(client,/data-create-type="Seminar"/);
+  assert.match(client,/data-create-type="Article"/);
+  assert.match(client,/data-create-type="eBook"/);
+  assert.match(backend,/JUMI Content/);
+  assert.match(backend,/JUMI_CONTENT_HEADERS/);
+  assert.match(backend,/Draft','Generated','Validation Required','Ready for Preview','Ready to Publish','Published','Failed/);
+  assert.match(backend,/Original source PDF is required/);
+  assert.match(backend,/Author evidence is required/);
+  assert.match(backend,/Publisher evidence is required/);
+  assert.match(backend,/PUBLISH_BLOCKED/);
+  assert.match(backend,/Publisher Not Connected/);
+  assert.match(client,/Official BA Medicale logo/);
+  assert.match(client,/Cover = Reader Page 1; PDF Page 1 = Reader Page 2/);
+  assert.match(client,/PDF bytes are stored privately and are not changed/);
+  assert.doesNotMatch(client,/github_pat_|ghp_|AIza|BEGIN PRIVATE KEY/);
+  assert.doesNotMatch(backend,/github_pat_|ghp_|BEGIN PRIVATE KEY/);
+});
+
+test("content lifecycle and publication actions remain server-authorized and auditable",()=>{
+  for(const action of ["jumi_save_content","jumi_upload_content_asset","jumi_validate_content","jumi_record_content_preview","jumi_publish_content"]){
+    assert.match(backend,new RegExp(action));
+  }
+  assert.match(backend,/jumiAuthorize_\(\).*JUMI_ALLOWED_ACTIONS\.includes\(action\)/s);
+  assert.match(backend,/UPLOAD_CONTENT_/);
+  assert.match(backend,/VALIDATE_CONTENT/);
+  assert.match(backend,/PREVIEW_CONTENT/);
+  assert.match(backend,/JUMI_CONTENT_ROOT_FOLDER_ID/);
+  assert.match(backend,/getSharingAccess\(\)===DriveApp\.Access\.PRIVATE/);
+  assert.match(backend,/\^\[a-z0-9-\]\{3,80\}\$/);
+});
+
+test("Article and eBook validation gates reject missing source evidence",()=>{
+  const context={console};
+  vm.createContext(context);vm.runInContext(backend,context);
+  const complete={type:"Article",title:"Evidence-based article",slug:"evidence-based-article",sourceStored:true,artworkStored:true,typeData:{author:"Source author",publishedDate:"2026-09-20",source:"Source publication"}};
+  assert.deepEqual([...context.jumiContentIssues_(complete)],[]);
+  assert.deepEqual([...context.jumiContentIssues_({...complete,sourceStored:false})],["Original source PDF is required."]);
+  assert.deepEqual([...context.jumiContentIssues_({...complete,type:"eBook",typeData:{author:"Source author",publishedDate:"2026-09-20",publisher:""}})],["Publisher evidence is required."]);
+});
+
 test("JUMI remains absent from public discovery surfaces",()=>{
   assert.doesNotMatch(sitemap,/\/jumi\//);
   assert.match(robots,/Disallow:\s*\/jumi\//);

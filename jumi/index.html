@@ -8,7 +8,7 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Cache-Control" content="no-store">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; img-src 'self' data:">
-  <title>JUMI — BA Medicale Seminar OS</title>
+  <title>JUMI — BA Medicale Content OS</title>
   <link rel="stylesheet" href="styles.css?v=design-system-20260920">
   <script src="scope.js?v=20260919-functional-audit" defer></script>
   <script src="config.js?v=20260919-activation" defer></script>
@@ -20,8 +20,8 @@
       <img class="brand-logo brand-logo--gate" src="../assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo">
       <p class="eyebrow">Private operations workspace</p>
       <h1 id="gate-title">JUMI</h1>
-      <p class="gate-subtitle">BA Medicale Seminar OS</p>
-      <p class="gate-copy">Authorized administrators only. Google identity is verified by the private backend before any seminar or participant data is returned.</p>
+      <p class="gate-subtitle">BA Medicale Content OS</p>
+      <p class="gate-copy">Authorized administrators only. Google identity is verified by the private backend before any content, seminar, or participant data is returned.</p>
       <a class="button button-primary secure-launch" id="secure-launch" href="#" rel="noopener" hidden>Continue with Google</a>
       <button class="button button-primary" id="setup-disabled" type="button" disabled hidden>Secure setup required</button>
       <p class="status-note" id="gate-status" role="status">Preparing secure sign-in…</p>
@@ -31,7 +31,7 @@
 
   <div class="app-shell" id="app-shell" hidden>
     <aside class="sidebar" id="sidebar">
-      <div class="sidebar-brand"><img class="brand-logo brand-logo--nav" src="../assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><div><strong>JUMI</strong><small>Seminar OS</small></div></div>
+      <div class="sidebar-brand"><img class="brand-logo brand-logo--nav" src="../assets/brand/bamedicale-approved-logo.jpg" alt="BA Medicale official logo"><div><strong>JUMI</strong><small>Content OS</small></div></div>
       <nav aria-label="JUMI modules" id="primary-nav"></nav>
       <div class="integration-mini"><span class="dot connected"></span>Sheets &amp; Drive<div id="admin-identity"></div></div>
       <button class="signout" id="signout" type="button">Sign out</button>
@@ -45,8 +45,8 @@
 
     <main class="workspace">
       <header class="workspace-header">
-        <div><p class="eyebrow">BA Medicale Seminar OS</p><h1 id="view-title">Dashboard</h1><p id="view-description">Seminar operations at a glance.</p></div>
-        <div class="header-actions"><label>Event scope<select id="event-scope"><option value="all">All Events</option><option value="upcoming">Upcoming</option><option value="live">Live</option><option value="completed">Completed</option></select></label><button class="button button-secondary" id="refresh-data" type="button">Refresh</button><button class="button button-primary" type="button" data-action="new-event">Create Seminar</button></div>
+        <div><p class="eyebrow">BA Medicale Content OS</p><h1 id="view-title">Dashboard</h1><p id="view-description">Content publishing and seminar operations at a glance.</p></div>
+        <div class="header-actions"><label id="event-scope-control">Event scope<select id="event-scope"><option value="all">All Events</option><option value="upcoming">Upcoming</option><option value="live">Live</option><option value="completed">Completed</option></select></label><button class="button button-secondary" id="refresh-data" type="button">Refresh</button><button class="button button-primary" type="button" data-action="new-content">Create Content</button></div>
       </header>
       <div class="system-banner" id="system-banner" hidden></div>
       <section id="view" class="view" aria-live="polite"></section>
