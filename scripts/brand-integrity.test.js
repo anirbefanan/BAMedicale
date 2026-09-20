@@ -1,5 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..'),context={window:{}};
+const {SOCIAL_IMAGE,audit}=require('./social-metadata');
 vm.runInNewContext(fs.readFileSync(path.join(root,'content.js'),'utf8'),context);
 const brand=context.window.BAMEDICALE_DATA.brand;
 
@@ -22,12 +23,22 @@ test('quiz pages reuse the canonical logo and lockup',()=>{
   }
 });
 
-test('published eBook social metadata uses the approved cover',()=>{
+test('all public HTML uses the canonical logo for social previews',()=>{
+  const report=audit();
+  assert.deepEqual(report.changed,[]);
+  assert.ok(report.public.includes('index.html'));
+  assert.ok(report.public.includes('traffic.html'));
+  assert.ok(report.public.includes('seminar.html'));
+  assert.ok(report.public.includes('ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html'));
+  assert.ok(report.noindex.includes('quiz/management-thyroid-nodules-2026.html'));
+  assert.ok(report.noindex.includes('quiz/lms-management-thyroid-nodules-2026.html'));
+  assert.ok(report.private.includes('jumi/index.html'));
   const html=fs.readFileSync(path.join(root,'ebooks','advanced-diagnostics-and-management-of-thyroid-nodules.html'),'utf8');
   const cover='https://bamedicale.com/assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/cover.jpg';
   assert.match(html,/<meta property="og:site_name" content="BA Medicale">/);
-  assert.match(html,new RegExp('<meta property="og:image" content="'+cover.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
-  assert.match(html,new RegExp('<meta name="twitter:image" content="'+cover.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
+  assert.match(html,new RegExp('<meta property="og:image" content="'+SOCIAL_IMAGE.url.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
+  assert.match(html,new RegExp('<meta name="twitter:image" content="'+SOCIAL_IMAGE.url.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
+  assert.match(html,new RegExp('"image":"'+cover.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'"'));
   assert.match(html,/model\.js\?v=reader-integrity-20260920/);
   assert.match(html,/reader\.js\?v=reader-integrity-20260920/);
 });
