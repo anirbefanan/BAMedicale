@@ -4,6 +4,15 @@ on:
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'Optional custom start (YYYY-MM-DD, completed days only)'
+        required: false
+        type: string
+      end_date:
+        description: 'Optional custom end (YYYY-MM-DD)'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -40,14 +49,19 @@ jobs:
         env:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+          TRAFFIC_START: ${{ inputs.start_date }}
+          TRAFFIC_END: ${{ inputs.end_date }}
         run: |
           npm run traffic:test
           node scripts/fetch-ga4-traffic.js
           node scripts/fetch-ga4-traffic.js --validate data/traffic-summary.json
+          node --test scripts/traffic-growth.test.js
+          node scripts/fetch-growth-analytics.js
+          node scripts/fetch-growth-analytics.js --validate
 
       - name: Commit changed traffic data
         run: |
-          git add -- data/traffic-summary.json
+          git add -- data/traffic-summary.json data/growth-analytics.json
           if git diff --cached --quiet; then
             echo "Traffic data is unchanged; no commit is needed."
             exit 0

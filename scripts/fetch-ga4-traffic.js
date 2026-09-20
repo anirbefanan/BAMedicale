@@ -223,4 +223,4 @@ async function main() {
 
 if (require.main === module) main().catch((error) => { console.error(error.message); process.exitCode = 1; });
 
-module.exports = { REPORTING_PERIOD, REPORTS, actualReportingPeriod, buildPayload, pendingPayload, reportRequest, validatePayload };
+module.exports = { REPORTING_PERIOD, REPORTS, actualReportingPeriod, buildPayload, pendingPayload, reportRequest, validatePayload, accessToken, readConfiguration, requestJson, parseReport };
