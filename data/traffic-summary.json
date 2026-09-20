@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-09-20T02:10:59.833Z",
+  "generatedAt": "2026-09-20T05:38:04.268Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-23",
     "endDate": "2026-09-19"
   },
   "summary": {
-    "activeUsers": 226,
-    "newUsers": 219,
-    "averageEngagementTimeSeconds": 158.17256637168143,
-    "eventCount": 4314
+    "activeUsers": 227,
+    "newUsers": 229,
+    "averageEngagementTimeSeconds": 160.98678414096915,
+    "eventCount": 4438
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 316,
+      "views": 319,
       "activeUsers": 60,
-      "eventCount": 790,
-      "bounceRate": 0.379746835443038
+      "eventCount": 802,
+      "bounceRate": 0.3057324840764331
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 275,
-      "activeUsers": 153,
-      "eventCount": 1159,
-      "bounceRate": 0.9303482587064676
+      "views": 295,
+      "activeUsers": 156,
+      "eventCount": 1252,
+      "bounceRate": 0.3448275862068966
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -35,17 +35,17 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 105,
+      "views": 106,
       "activeUsers": 17,
-      "eventCount": 264,
-      "bounceRate": 0.21568627450980393
+      "eventCount": 270,
+      "bounceRate": 0
     },
     {
       "title": "Medical Library | BA Medicale",
       "views": 104,
       "activeUsers": 17,
-      "eventCount": 235,
-      "bounceRate": 0.08888888888888889
+      "eventCount": 236,
+      "bounceRate": 0
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -62,35 +62,31 @@
       "bounceRate": 0.13157894736842105
     },
     {
+      "title": "For Doctors | BA Medicale",
+      "views": 47,
+      "activeUsers": 14,
+      "eventCount": 114,
+      "bounceRate": 0.03225806451612903
+    },
+    {
       "title": "For Public | BA Medicale",
       "views": 47,
       "activeUsers": 11,
-      "eventCount": 96,
-      "bounceRate": 0.125
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 46,
-      "activeUsers": 14,
-      "eventCount": 113,
-      "bounceRate": 0.12903225806451613
+      "eventCount": 97,
+      "bounceRate": 0.08333333333333333
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
       "views": 37,
       "activeUsers": 9,
       "eventCount": 91,
-      "bounceRate": 0.29411764705882354
+      "bounceRate": 0.17647058823529413
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 184
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 91
+      "activeUsers": 195
     },
     {
       "label": "google / organic",
@@ -113,10 +109,6 @@
       "activeUsers": 2
     },
     {
-      "label": "(data not available)",
-      "activeUsers": 1
-    },
-    {
       "label": "dataindex.pro / referral",
       "activeUsers": 1
     }
@@ -124,18 +116,18 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 331
-    },
-    {
-      "label": "Not set",
-      "sessions": 124
+      "sessions": 346
     },
     {
       "label": "google / organic",
-      "sessions": 77
+      "sessions": 79
     },
     {
       "label": "facebook.com / referral",
+      "sessions": 4
+    },
+    {
+      "label": "keep.google.com / referral",
       "sessions": 4
     },
     {
@@ -151,8 +143,8 @@
       "sessions": 3
     },
     {
-      "label": "keep.google.com / referral",
-      "sessions": 3
+      "label": "Not set",
+      "sessions": 1
     },
     {
       "label": "dataindex.pro / referral",
@@ -166,19 +158,19 @@
     },
     {
       "label": "Depok",
-      "activeUsers": 12
+      "activeUsers": 13
     },
     {
       "label": "Padang",
       "activeUsers": 11
     },
     {
-      "label": "Makassar",
+      "label": "Not set",
       "activeUsers": 10
     },
     {
-      "label": "Not set",
-      "activeUsers": 9
+      "label": "Makassar",
+      "activeUsers": 10
     },
     {
       "label": "Medan",

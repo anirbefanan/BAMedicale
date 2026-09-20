@@ -1,0 +1,5175 @@
+{
+  "schemaVersion": 1,
+  "source": "Google Analytics 4 Data API",
+  "periods": {
+    "daily": {
+      "range": {
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-19",
+        "previousStartDate": "2026-09-18",
+        "previousEndDate": "2026-09-18"
+      },
+      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "summary": {
+        "activeUsers": 159,
+        "newUsers": 154,
+        "screenPageViews": 410,
+        "sessions": 200,
+        "engagedSessions": 125,
+        "userEngagementDuration": 9066,
+        "eventCount": 1551,
+        "keyEvents": 0,
+        "totalUsers": 159,
+        "averageEngagementTimeSeconds": 57.0189,
+        "engagementRate": 0.625,
+        "returningUsers": 30
+      },
+      "previous": {
+        "activeUsers": 9,
+        "newUsers": 4,
+        "screenPageViews": 65,
+        "sessions": 12,
+        "engagedSessions": 7,
+        "userEngagementDuration": 1545,
+        "eventCount": 196,
+        "keyEvents": 0,
+        "totalUsers": 9,
+        "averageEngagementTimeSeconds": 171.6667,
+        "engagementRate": 0.5833,
+        "returningUsers": 6
+      },
+      "totals": {
+        "status": "ok",
+        "thresholded": false,
+        "sampled": false
+      },
+      "trend": {
+        "status": "ok",
+        "current": [
+          {
+            "date": "2026-09-19",
+            "activeUsers": 159,
+            "newUsers": 154,
+            "screenPageViews": 410,
+            "sessions": 200,
+            "engagedSessions": 125,
+            "userEngagementDuration": 9066,
+            "eventCount": 1551,
+            "keyEvents": 0,
+            "totalUsers": 159,
+            "averageEngagementTimeSeconds": 57.0189,
+            "engagementRate": 0.625
+          }
+        ],
+        "previous": [
+          {
+            "date": "2026-09-18",
+            "activeUsers": 9,
+            "newUsers": 4,
+            "screenPageViews": 65,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 1545,
+            "eventCount": 196,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 171.6667,
+            "engagementRate": 0.5833
+          }
+        ]
+      },
+      "audience": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 153,
+            "sessions": 153
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 30,
+            "sessions": 47
+          }
+        ]
+      },
+      "channels": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Direct",
+            "activeUsers": 150,
+            "sessions": 175
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 8,
+            "sessions": 19
+          },
+          {
+            "label": "Referral",
+            "activeUsers": 2,
+            "sessions": 5
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "devices": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "mobile",
+            "activeUsers": 98,
+            "sessions": 123
+          },
+          {
+            "label": "desktop",
+            "activeUsers": 59,
+            "sessions": 75
+          },
+          {
+            "label": "tablet",
+            "activeUsers": 2,
+            "sessions": 2
+          }
+        ]
+      },
+      "countries": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Indonesia",
+            "activeUsers": 153,
+            "sessions": 190
+          }
+        ]
+      },
+      "firstSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 151,
+            "sessions": 181
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 7,
+            "sessions": 18
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "sessionSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 150,
+            "sessions": 175
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 8,
+            "sessions": 19
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "keep.google.com / referral",
+            "activeUsers": 1,
+            "sessions": 4
+          }
+        ]
+      },
+      "pages": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 152,
+            "views": 263,
+            "eventCount": 1151,
+            "engagement": 42.9868
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 7,
+            "views": 24,
+            "eventCount": 53,
+            "engagement": 31
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 22,
+            "eventCount": 51,
+            "engagement": 26.6667
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 20,
+            "eventCount": 43,
+            "engagement": 71.6667
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "type": "eBooks",
+            "activeUsers": 3,
+            "views": 18,
+            "eventCount": 58,
+            "engagement": 97
+          },
+          {
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 5,
+            "views": 13,
+            "eventCount": 38,
+            "engagement": 160.4
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 9,
+            "views": 11,
+            "eventCount": 35,
+            "engagement": 5.8889
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 10,
+            "eventCount": 21,
+            "engagement": 65.6667
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "type": "eBooks",
+            "activeUsers": 2,
+            "views": 8,
+            "eventCount": 29,
+            "engagement": 80.5
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 4,
+            "eventCount": 12,
+            "engagement": 13.3333
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 3,
+            "views": 4,
+            "eventCount": 26,
+            "engagement": 51.6667
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 6,
+            "engagement": 59.5
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 2
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 10
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 4,
+            "engagement": 27
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 5,
+            "engagement": 65
+          },
+          {
+            "path": "/ebooks/understanding-thyroid-disorders.html",
+            "title": "BA Medicale eBook",
+            "type": "eBooks",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 2
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 4
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 1,
+            "engagement": 0
+          }
+        ]
+      },
+      "landing": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 173,
+            "engagementRate": 0.6532
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 9,
+            "engagementRate": 0.5556
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 3,
+            "engagementRate": 1
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "sessions": 1,
+            "engagementRate": 0
+          }
+        ]
+      },
+      "content": {
+        "status": "ok",
+        "rows": [
+          {
+            "title": "Seminars / Events",
+            "activeUsers": 152,
+            "views": 263,
+            "engagement": 42.9868
+          },
+          {
+            "title": "eBooks",
+            "activeUsers": 3,
+            "views": 27,
+            "engagement": 151.3333
+          },
+          {
+            "title": "Presentations",
+            "activeUsers": 5,
+            "views": 13,
+            "engagement": 160.4
+          },
+          {
+            "title": "Videos",
+            "activeUsers": 3,
+            "views": 4,
+            "engagement": 51.6667
+          },
+          {
+            "title": "Articles",
+            "activeUsers": 1,
+            "views": 1,
+            "engagement": 65
+          },
+          {
+            "title": "Case Reports",
+            "activeUsers": 0,
+            "views": 0,
+            "engagement": null
+          }
+        ]
+      },
+      "reconciliation": {
+        "status": "passed"
+      }
+    },
+    "7d": {
+      "range": {
+        "startDate": "2026-09-13",
+        "endDate": "2026-09-19",
+        "previousStartDate": "2026-09-06",
+        "previousEndDate": "2026-09-12"
+      },
+      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "summary": {
+        "activeUsers": 177,
+        "newUsers": 171,
+        "screenPageViews": 594,
+        "sessions": 253,
+        "engagedSessions": 157,
+        "userEngagementDuration": 13092,
+        "eventCount": 2043,
+        "keyEvents": 0,
+        "totalUsers": 177,
+        "averageEngagementTimeSeconds": 73.9661,
+        "engagementRate": 0.6206,
+        "returningUsers": 37
+      },
+      "previous": {
+        "activeUsers": 20,
+        "newUsers": 16,
+        "screenPageViews": 102,
+        "sessions": 46,
+        "engagedSessions": 27,
+        "userEngagementDuration": 2520,
+        "eventCount": 277,
+        "keyEvents": 0,
+        "totalUsers": 21,
+        "averageEngagementTimeSeconds": 126,
+        "engagementRate": 0.587,
+        "returningUsers": 7
+      },
+      "totals": {
+        "status": "ok",
+        "thresholded": false,
+        "sampled": false
+      },
+      "trend": {
+        "status": "ok",
+        "current": [
+          {
+            "date": "2026-09-13",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 60,
+            "sessions": 19,
+            "engagedSessions": 13,
+            "userEngagementDuration": 1216,
+            "eventCount": 152,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 173.7143,
+            "engagementRate": 0.6842
+          },
+          {
+            "date": "2026-09-14",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 9,
+            "sessions": 4,
+            "engagedSessions": 2,
+            "userEngagementDuration": 529,
+            "eventCount": 26,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 132.25,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-15",
+            "activeUsers": 5,
+            "newUsers": 2,
+            "screenPageViews": 22,
+            "sessions": 6,
+            "engagedSessions": 4,
+            "userEngagementDuration": 633,
+            "eventCount": 57,
+            "keyEvents": 0,
+            "totalUsers": 5,
+            "averageEngagementTimeSeconds": 126.6,
+            "engagementRate": 0.6667
+          },
+          {
+            "date": "2026-09-16",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 13,
+            "sessions": 5,
+            "engagedSessions": 4,
+            "userEngagementDuration": 30,
+            "eventCount": 27,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 7.5,
+            "engagementRate": 0.8
+          },
+          {
+            "date": "2026-09-17",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 15,
+            "sessions": 8,
+            "engagedSessions": 3,
+            "userEngagementDuration": 73,
+            "eventCount": 34,
+            "keyEvents": 0,
+            "totalUsers": 6,
+            "averageEngagementTimeSeconds": 18.25,
+            "engagementRate": 0.375
+          },
+          {
+            "date": "2026-09-18",
+            "activeUsers": 9,
+            "newUsers": 4,
+            "screenPageViews": 65,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 1545,
+            "eventCount": 196,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 171.6667,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-19",
+            "activeUsers": 159,
+            "newUsers": 154,
+            "screenPageViews": 410,
+            "sessions": 200,
+            "engagedSessions": 125,
+            "userEngagementDuration": 9066,
+            "eventCount": 1551,
+            "keyEvents": 0,
+            "totalUsers": 159,
+            "averageEngagementTimeSeconds": 57.0189,
+            "engagementRate": 0.625
+          }
+        ],
+        "previous": [
+          {
+            "date": "2026-09-06",
+            "activeUsers": 3,
+            "newUsers": 1,
+            "screenPageViews": 8,
+            "sessions": 6,
+            "engagedSessions": 3,
+            "userEngagementDuration": 45,
+            "eventCount": 25,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 15,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-07",
+            "activeUsers": 4,
+            "newUsers": 3,
+            "screenPageViews": 9,
+            "sessions": 6,
+            "engagedSessions": 4,
+            "userEngagementDuration": 14,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 3.5,
+            "engagementRate": 0.6667
+          },
+          {
+            "date": "2026-09-08",
+            "activeUsers": 8,
+            "newUsers": 5,
+            "screenPageViews": 30,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 439,
+            "eventCount": 85,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 54.875,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-09",
+            "activeUsers": 2,
+            "newUsers": 0,
+            "screenPageViews": 9,
+            "sessions": 4,
+            "engagedSessions": 3,
+            "userEngagementDuration": 93,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 46.5,
+            "engagementRate": 0.75
+          },
+          {
+            "date": "2026-09-10",
+            "activeUsers": 6,
+            "newUsers": 6,
+            "screenPageViews": 21,
+            "sessions": 8,
+            "engagedSessions": 5,
+            "userEngagementDuration": 1710,
+            "eventCount": 66,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 285,
+            "engagementRate": 0.625
+          },
+          {
+            "date": "2026-09-11",
+            "activeUsers": 2,
+            "newUsers": 1,
+            "screenPageViews": 15,
+            "sessions": 6,
+            "engagedSessions": 3,
+            "userEngagementDuration": 70,
+            "eventCount": 31,
+            "keyEvents": 0,
+            "totalUsers": 2,
+            "averageEngagementTimeSeconds": 35,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-12",
+            "activeUsers": 1,
+            "newUsers": 0,
+            "screenPageViews": 10,
+            "sessions": 4,
+            "engagedSessions": 2,
+            "userEngagementDuration": 149,
+            "eventCount": 24,
+            "keyEvents": 0,
+            "totalUsers": 2,
+            "averageEngagementTimeSeconds": 149,
+            "engagementRate": 0.5
+          }
+        ]
+      },
+      "audience": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 170,
+            "sessions": 170
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 37,
+            "sessions": 81
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 2
+          }
+        ]
+      },
+      "channels": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Direct",
+            "activeUsers": 163,
+            "sessions": 204
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 11,
+            "sessions": 41
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "Referral",
+            "activeUsers": 2,
+            "sessions": 5
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "devices": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "mobile",
+            "activeUsers": 106,
+            "sessions": 144
+          },
+          {
+            "label": "desktop",
+            "activeUsers": 69,
+            "sessions": 107
+          },
+          {
+            "label": "tablet",
+            "activeUsers": 2,
+            "sessions": 2
+          }
+        ]
+      },
+      "countries": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Indonesia",
+            "activeUsers": 163,
+            "sessions": 233
+          },
+          {
+            "label": "United States",
+            "activeUsers": 6,
+            "sessions": 6
+          }
+        ]
+      },
+      "firstSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 165,
+            "sessions": 222
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 9,
+            "sessions": 28
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "sessionSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 163,
+            "sessions": 204
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 11,
+            "sessions": 41
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "keep.google.com / referral",
+            "activeUsers": 1,
+            "sessions": 4
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "pages": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 156,
+            "views": 300,
+            "eventCount": 1278,
+            "engagement": 48.5321
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 11,
+            "views": 64,
+            "eventCount": 138,
+            "engagement": 64.5455
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 27,
+            "views": 44,
+            "eventCount": 128,
+            "engagement": 33.8519
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 8,
+            "views": 39,
+            "eventCount": 89,
+            "engagement": 36.125
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 21,
+            "eventCount": 53,
+            "engagement": 77
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 20,
+            "eventCount": 43,
+            "engagement": 71.6667
+          },
+          {
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 5,
+            "views": 18,
+            "eventCount": 53,
+            "engagement": 227
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "type": "eBooks",
+            "activeUsers": 3,
+            "views": 18,
+            "eventCount": 58,
+            "engagement": 97
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 11,
+            "eventCount": 22,
+            "engagement": 35.5
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 10,
+            "eventCount": 26,
+            "engagement": 11.5
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 9,
+            "eventCount": 17,
+            "engagement": 114.5
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "type": "eBooks",
+            "activeUsers": 2,
+            "views": 8,
+            "eventCount": 29,
+            "engagement": 80.5
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 3,
+            "views": 6,
+            "eventCount": 30,
+            "engagement": 56.3333
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 3,
+            "views": 4,
+            "eventCount": 21,
+            "engagement": 108
+          },
+          {
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "type": "Case Reports",
+            "activeUsers": 3,
+            "views": 4,
+            "eventCount": 13,
+            "engagement": 45.3333
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 4,
+            "eventCount": 10,
+            "engagement": 28.5
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 7,
+            "engagement": 9
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 2
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 8,
+            "engagement": 4
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 2,
+            "engagement": 0
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 6,
+            "engagement": 22
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 1,
+            "engagement": 0
+          },
+          {
+            "path": "/ebooks/understanding-thyroid-disorders.html",
+            "title": "BA Medicale eBook",
+            "type": "eBooks",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 2
+          },
+          {
+            "path": "/resources.html",
+            "title": "Resources",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 3
+          }
+        ]
+      },
+      "landing": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 178,
+            "engagementRate": 0.6517
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 32,
+            "engagementRate": 0.5313
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 17,
+            "engagementRate": 0.7647
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 4,
+            "engagementRate": 1
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "sessions": 3,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "sessions": 2,
+            "engagementRate": 0.5
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "sessions": 1,
+            "engagementRate": 1
+          }
+        ]
+      },
+      "content": {
+        "status": "ok",
+        "rows": [
+          {
+            "title": "Seminars / Events",
+            "activeUsers": 156,
+            "views": 300,
+            "engagement": 48.5321
+          },
+          {
+            "title": "eBooks",
+            "activeUsers": 3,
+            "views": 27,
+            "engagement": 151.3333
+          },
+          {
+            "title": "Presentations",
+            "activeUsers": 5,
+            "views": 18,
+            "engagement": 227
+          },
+          {
+            "title": "Videos",
+            "activeUsers": 3,
+            "views": 6,
+            "engagement": 56.3333
+          },
+          {
+            "title": "Articles",
+            "activeUsers": 4,
+            "views": 6,
+            "engagement": 86.5
+          },
+          {
+            "title": "Case Reports",
+            "activeUsers": 3,
+            "views": 4,
+            "engagement": 45.3333
+          }
+        ]
+      },
+      "reconciliation": {
+        "status": "passed"
+      }
+    },
+    "28d": {
+      "range": {
+        "startDate": "2026-08-23",
+        "endDate": "2026-09-19",
+        "previousStartDate": "2026-07-26",
+        "previousEndDate": "2026-08-22"
+      },
+      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "summary": {
+        "activeUsers": 227,
+        "newUsers": 229,
+        "screenPageViews": 1517,
+        "sessions": 447,
+        "engagedSessions": 284,
+        "userEngagementDuration": 36380,
+        "eventCount": 4419,
+        "keyEvents": 0,
+        "totalUsers": 227,
+        "averageEngagementTimeSeconds": 160.2643,
+        "engagementRate": 0.6353,
+        "returningUsers": 47
+      },
+      "previous": {
+        "activeUsers": 0,
+        "newUsers": 0,
+        "screenPageViews": 0,
+        "sessions": 0,
+        "engagedSessions": 0,
+        "userEngagementDuration": 0,
+        "eventCount": 0,
+        "keyEvents": 0,
+        "totalUsers": 0,
+        "averageEngagementTimeSeconds": null,
+        "engagementRate": null,
+        "returningUsers": 0
+      },
+      "totals": {
+        "status": "ok",
+        "thresholded": false,
+        "sampled": false
+      },
+      "trend": {
+        "status": "ok",
+        "current": [
+          {
+            "date": "2026-08-23",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-24",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-25",
+            "activeUsers": 3,
+            "newUsers": 3,
+            "screenPageViews": 7,
+            "sessions": 3,
+            "engagedSessions": 3,
+            "userEngagementDuration": 45,
+            "eventCount": 22,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 15,
+            "engagementRate": 1
+          },
+          {
+            "date": "2026-08-26",
+            "activeUsers": 7,
+            "newUsers": 6,
+            "screenPageViews": 47,
+            "sessions": 13,
+            "engagedSessions": 7,
+            "userEngagementDuration": 1530,
+            "eventCount": 140,
+            "keyEvents": 0,
+            "totalUsers": 8,
+            "averageEngagementTimeSeconds": 218.5714,
+            "engagementRate": 0.5385
+          },
+          {
+            "date": "2026-08-27",
+            "activeUsers": 12,
+            "newUsers": 10,
+            "screenPageViews": 39,
+            "sessions": 17,
+            "engagedSessions": 10,
+            "userEngagementDuration": 713,
+            "eventCount": 111,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 59.4167,
+            "engagementRate": 0.5882
+          },
+          {
+            "date": "2026-08-28",
+            "activeUsers": 6,
+            "newUsers": 3,
+            "screenPageViews": 31,
+            "sessions": 12,
+            "engagedSessions": 6,
+            "userEngagementDuration": 606,
+            "eventCount": 89,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 101,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-08-29",
+            "activeUsers": 10,
+            "newUsers": 5,
+            "screenPageViews": 234,
+            "sessions": 30,
+            "engagedSessions": 27,
+            "userEngagementDuration": 6528,
+            "eventCount": 619,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 652.8,
+            "engagementRate": 0.9
+          },
+          {
+            "date": "2026-08-30",
+            "activeUsers": 12,
+            "newUsers": 7,
+            "screenPageViews": 229,
+            "sessions": 21,
+            "engagedSessions": 15,
+            "userEngagementDuration": 6378,
+            "eventCount": 535,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 531.5,
+            "engagementRate": 0.7143
+          },
+          {
+            "date": "2026-08-31",
+            "activeUsers": 3,
+            "newUsers": 1,
+            "screenPageViews": 32,
+            "sessions": 8,
+            "engagedSessions": 4,
+            "userEngagementDuration": 644,
+            "eventCount": 80,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 214.6667,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-01",
+            "activeUsers": 6,
+            "newUsers": 3,
+            "screenPageViews": 115,
+            "sessions": 16,
+            "engagedSessions": 12,
+            "userEngagementDuration": 2560,
+            "eventCount": 289,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 426.6667,
+            "engagementRate": 0.75
+          },
+          {
+            "date": "2026-09-02",
+            "activeUsers": 2,
+            "newUsers": 1,
+            "screenPageViews": 29,
+            "sessions": 5,
+            "engagedSessions": 4,
+            "userEngagementDuration": 572,
+            "eventCount": 70,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 286,
+            "engagementRate": 0.8
+          },
+          {
+            "date": "2026-09-03",
+            "activeUsers": 6,
+            "newUsers": 2,
+            "screenPageViews": 35,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 781,
+            "eventCount": 81,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 130.1667,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-04",
+            "activeUsers": 4,
+            "newUsers": 1,
+            "screenPageViews": 7,
+            "sessions": 4,
+            "engagedSessions": 3,
+            "userEngagementDuration": 156,
+            "eventCount": 20,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 39,
+            "engagementRate": 0.75
+          },
+          {
+            "date": "2026-09-05",
+            "activeUsers": 3,
+            "newUsers": 0,
+            "screenPageViews": 16,
+            "sessions": 7,
+            "engagedSessions": 3,
+            "userEngagementDuration": 255,
+            "eventCount": 43,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 85,
+            "engagementRate": 0.4286
+          },
+          {
+            "date": "2026-09-06",
+            "activeUsers": 3,
+            "newUsers": 1,
+            "screenPageViews": 8,
+            "sessions": 6,
+            "engagedSessions": 3,
+            "userEngagementDuration": 45,
+            "eventCount": 25,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 15,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-07",
+            "activeUsers": 4,
+            "newUsers": 3,
+            "screenPageViews": 9,
+            "sessions": 6,
+            "engagedSessions": 4,
+            "userEngagementDuration": 14,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 3.5,
+            "engagementRate": 0.6667
+          },
+          {
+            "date": "2026-09-08",
+            "activeUsers": 8,
+            "newUsers": 5,
+            "screenPageViews": 30,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 439,
+            "eventCount": 85,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 54.875,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-09",
+            "activeUsers": 2,
+            "newUsers": 0,
+            "screenPageViews": 9,
+            "sessions": 4,
+            "engagedSessions": 3,
+            "userEngagementDuration": 93,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 46.5,
+            "engagementRate": 0.75
+          },
+          {
+            "date": "2026-09-10",
+            "activeUsers": 6,
+            "newUsers": 6,
+            "screenPageViews": 21,
+            "sessions": 8,
+            "engagedSessions": 5,
+            "userEngagementDuration": 1710,
+            "eventCount": 66,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 285,
+            "engagementRate": 0.625
+          },
+          {
+            "date": "2026-09-11",
+            "activeUsers": 2,
+            "newUsers": 1,
+            "screenPageViews": 15,
+            "sessions": 6,
+            "engagedSessions": 3,
+            "userEngagementDuration": 70,
+            "eventCount": 31,
+            "keyEvents": 0,
+            "totalUsers": 2,
+            "averageEngagementTimeSeconds": 35,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-12",
+            "activeUsers": 1,
+            "newUsers": 0,
+            "screenPageViews": 10,
+            "sessions": 4,
+            "engagedSessions": 2,
+            "userEngagementDuration": 149,
+            "eventCount": 24,
+            "keyEvents": 0,
+            "totalUsers": 2,
+            "averageEngagementTimeSeconds": 149,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-13",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 60,
+            "sessions": 19,
+            "engagedSessions": 13,
+            "userEngagementDuration": 1216,
+            "eventCount": 152,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 173.7143,
+            "engagementRate": 0.6842
+          },
+          {
+            "date": "2026-09-14",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 9,
+            "sessions": 4,
+            "engagedSessions": 2,
+            "userEngagementDuration": 529,
+            "eventCount": 26,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 132.25,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-15",
+            "activeUsers": 5,
+            "newUsers": 2,
+            "screenPageViews": 22,
+            "sessions": 6,
+            "engagedSessions": 4,
+            "userEngagementDuration": 633,
+            "eventCount": 57,
+            "keyEvents": 0,
+            "totalUsers": 5,
+            "averageEngagementTimeSeconds": 126.6,
+            "engagementRate": 0.6667
+          },
+          {
+            "date": "2026-09-16",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 13,
+            "sessions": 5,
+            "engagedSessions": 4,
+            "userEngagementDuration": 30,
+            "eventCount": 27,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 7.5,
+            "engagementRate": 0.8
+          },
+          {
+            "date": "2026-09-17",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 15,
+            "sessions": 8,
+            "engagedSessions": 3,
+            "userEngagementDuration": 73,
+            "eventCount": 34,
+            "keyEvents": 0,
+            "totalUsers": 6,
+            "averageEngagementTimeSeconds": 18.25,
+            "engagementRate": 0.375
+          },
+          {
+            "date": "2026-09-18",
+            "activeUsers": 9,
+            "newUsers": 4,
+            "screenPageViews": 65,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 1545,
+            "eventCount": 196,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 171.6667,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-19",
+            "activeUsers": 159,
+            "newUsers": 154,
+            "screenPageViews": 410,
+            "sessions": 200,
+            "engagedSessions": 125,
+            "userEngagementDuration": 9066,
+            "eventCount": 1551,
+            "keyEvents": 0,
+            "totalUsers": 159,
+            "averageEngagementTimeSeconds": 57.0189,
+            "engagementRate": 0.625
+          }
+        ],
+        "previous": [
+          {
+            "date": "2026-07-26",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-27",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-28",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-29",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-30",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-31",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-01",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-02",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-03",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-04",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-05",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-06",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-07",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-08",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-09",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-10",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-11",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-12",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-13",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-14",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-15",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-16",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-17",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-18",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-19",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-20",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-21",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-22",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          }
+        ]
+      },
+      "audience": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 227,
+            "sessions": 227
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 47,
+            "sessions": 201
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 18
+          }
+        ]
+      },
+      "channels": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Direct",
+            "activeUsers": 195,
+            "sessions": 346
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 21,
+            "sessions": 82
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 12,
+            "sessions": 12
+          },
+          {
+            "label": "Referral",
+            "activeUsers": 2,
+            "sessions": 5
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "devices": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "mobile",
+            "activeUsers": 126,
+            "sessions": 238
+          },
+          {
+            "label": "desktop",
+            "activeUsers": 101,
+            "sessions": 208
+          },
+          {
+            "label": "tablet",
+            "activeUsers": 2,
+            "sessions": 2
+          }
+        ]
+      },
+      "countries": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Indonesia",
+            "activeUsers": 191,
+            "sessions": 403
+          },
+          {
+            "label": "United States",
+            "activeUsers": 27,
+            "sessions": 27
+          }
+        ]
+      },
+      "firstSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 195,
+            "sessions": 381
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 17,
+            "sessions": 50
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "sessionSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 195,
+            "sessions": 346
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 19,
+            "sessions": 79
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "keep.google.com / referral",
+            "activeUsers": 1,
+            "sessions": 4
+          }
+        ]
+      },
+      "pages": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 172,
+            "views": 354,
+            "eventCount": 1470,
+            "engagement": 50.1163
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 21,
+            "views": 282,
+            "eventCount": 651,
+            "engagement": 327.381
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 73,
+            "views": 160,
+            "eventCount": 492,
+            "engagement": 58.5068
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 17,
+            "views": 106,
+            "eventCount": 272,
+            "engagement": 76.2941
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 17,
+            "views": 104,
+            "eventCount": 236,
+            "engagement": 94.8824
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 10,
+            "views": 68,
+            "eventCount": 159,
+            "engagement": 249
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "type": "Other public pages",
+            "activeUsers": 10,
+            "views": 51,
+            "eventCount": 121,
+            "engagement": 124.4
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 14,
+            "views": 47,
+            "eventCount": 114,
+            "engagement": 55.0714
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 11,
+            "views": 47,
+            "eventCount": 97,
+            "engagement": 50.9091
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 10,
+            "views": 32,
+            "eventCount": 108,
+            "engagement": 139.6
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 7,
+            "views": 29,
+            "eventCount": 63,
+            "engagement": 36.2857
+          },
+          {
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "type": "Case Reports",
+            "activeUsers": 8,
+            "views": 28,
+            "eventCount": 90,
+            "engagement": 68
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 25,
+            "eventCount": 56,
+            "engagement": 109.8
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "type": "Other public pages",
+            "activeUsers": 12,
+            "views": 24,
+            "eventCount": 55,
+            "engagement": 81.6667
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 5,
+            "views": 21,
+            "eventCount": 72,
+            "engagement": 97.2
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "type": "Other public pages",
+            "activeUsers": 8,
+            "views": 19,
+            "eventCount": 37,
+            "engagement": 13.5
+          },
+          {
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 5,
+            "views": 18,
+            "eventCount": 53,
+            "engagement": 227
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "type": "eBooks",
+            "activeUsers": 3,
+            "views": 18,
+            "eventCount": 58,
+            "engagement": 97
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 7,
+            "views": 14,
+            "eventCount": 56,
+            "engagement": 65
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 14,
+            "eventCount": 29,
+            "engagement": 202.6
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 13,
+            "eventCount": 16,
+            "engagement": 26.75
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 12,
+            "eventCount": 32,
+            "engagement": 83.2
+          },
+          {
+            "path": "/resources.html",
+            "title": "Resources",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 10,
+            "eventCount": 20,
+            "engagement": 9.8333
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "type": "eBooks",
+            "activeUsers": 2,
+            "views": 8,
+            "eventCount": 29,
+            "engagement": 80.5
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 5,
+            "eventCount": 16,
+            "engagement": 64.8
+          },
+          {
+            "path": "/melati-noerwa-profile.html",
+            "title": "Melati Noerwa | Administration & Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 5,
+            "eventCount": 7,
+            "engagement": 17
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 183
+          },
+          {
+            "path": "/ebooks/understanding-thyroid-disorders.html",
+            "title": "BA Medicale eBook",
+            "type": "eBooks",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 2
+          },
+          {
+            "path": "/yudi-febriadi-profile.html",
+            "title": "dr. Yudi Febriadi MARS | Hospital Management Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 108
+          }
+        ]
+      },
+      "landing": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 190,
+            "engagementRate": 0.6526
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 120,
+            "engagementRate": 0.6333
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 70,
+            "engagementRate": 0.7143
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "sessions": 9,
+            "engagementRate": 0.7778
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 6,
+            "engagementRate": 1
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "sessions": 6,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "sessions": 5,
+            "engagementRate": 0.6
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "sessions": 4,
+            "engagementRate": 0.5
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "sessions": 3,
+            "engagementRate": 0
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "sessions": 3,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "sessions": 1,
+            "engagementRate": 1
+          }
+        ]
+      },
+      "content": {
+        "status": "ok",
+        "rows": [
+          {
+            "title": "Seminars / Events",
+            "activeUsers": 172,
+            "views": 354,
+            "engagement": 50.1163
+          },
+          {
+            "title": "Articles",
+            "activeUsers": 10,
+            "views": 35,
+            "engagement": 94.1
+          },
+          {
+            "title": "Videos",
+            "activeUsers": 10,
+            "views": 32,
+            "engagement": 139.6
+          },
+          {
+            "title": "Case Reports",
+            "activeUsers": 8,
+            "views": 28,
+            "engagement": 68
+          },
+          {
+            "title": "eBooks",
+            "activeUsers": 3,
+            "views": 27,
+            "engagement": 151.3333
+          },
+          {
+            "title": "Presentations",
+            "activeUsers": 5,
+            "views": 18,
+            "engagement": 227
+          }
+        ]
+      },
+      "reconciliation": {
+        "status": "passed"
+      }
+    },
+    "mtd": {
+      "range": {
+        "startDate": "2026-09-01",
+        "endDate": "2026-09-19",
+        "previousStartDate": "2026-08-01",
+        "previousEndDate": "2026-08-19"
+      },
+      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "summary": {
+        "activeUsers": 201,
+        "newUsers": 194,
+        "screenPageViews": 898,
+        "sessions": 343,
+        "engagedSessions": 213,
+        "userEngagementDuration": 19936,
+        "eventCount": 2823,
+        "keyEvents": 0,
+        "totalUsers": 202,
+        "averageEngagementTimeSeconds": 99.1841,
+        "engagementRate": 0.621,
+        "returningUsers": 44
+      },
+      "previous": {
+        "activeUsers": 0,
+        "newUsers": 0,
+        "screenPageViews": 0,
+        "sessions": 0,
+        "engagedSessions": 0,
+        "userEngagementDuration": 0,
+        "eventCount": 0,
+        "keyEvents": 0,
+        "totalUsers": 0,
+        "averageEngagementTimeSeconds": null,
+        "engagementRate": null,
+        "returningUsers": 0
+      },
+      "totals": {
+        "status": "ok",
+        "thresholded": false,
+        "sampled": false
+      },
+      "trend": {
+        "status": "ok",
+        "current": [
+          {
+            "date": "2026-09-01",
+            "activeUsers": 6,
+            "newUsers": 3,
+            "screenPageViews": 115,
+            "sessions": 16,
+            "engagedSessions": 12,
+            "userEngagementDuration": 2560,
+            "eventCount": 289,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 426.6667,
+            "engagementRate": 0.75
+          },
+          {
+            "date": "2026-09-02",
+            "activeUsers": 2,
+            "newUsers": 1,
+            "screenPageViews": 29,
+            "sessions": 5,
+            "engagedSessions": 4,
+            "userEngagementDuration": 572,
+            "eventCount": 70,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 286,
+            "engagementRate": 0.8
+          },
+          {
+            "date": "2026-09-03",
+            "activeUsers": 6,
+            "newUsers": 2,
+            "screenPageViews": 35,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 781,
+            "eventCount": 81,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 130.1667,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-04",
+            "activeUsers": 4,
+            "newUsers": 1,
+            "screenPageViews": 7,
+            "sessions": 4,
+            "engagedSessions": 3,
+            "userEngagementDuration": 156,
+            "eventCount": 20,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 39,
+            "engagementRate": 0.75
+          },
+          {
+            "date": "2026-09-05",
+            "activeUsers": 3,
+            "newUsers": 0,
+            "screenPageViews": 16,
+            "sessions": 7,
+            "engagedSessions": 3,
+            "userEngagementDuration": 255,
+            "eventCount": 43,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 85,
+            "engagementRate": 0.4286
+          },
+          {
+            "date": "2026-09-06",
+            "activeUsers": 3,
+            "newUsers": 1,
+            "screenPageViews": 8,
+            "sessions": 6,
+            "engagedSessions": 3,
+            "userEngagementDuration": 45,
+            "eventCount": 25,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 15,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-07",
+            "activeUsers": 4,
+            "newUsers": 3,
+            "screenPageViews": 9,
+            "sessions": 6,
+            "engagedSessions": 4,
+            "userEngagementDuration": 14,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 3.5,
+            "engagementRate": 0.6667
+          },
+          {
+            "date": "2026-09-08",
+            "activeUsers": 8,
+            "newUsers": 5,
+            "screenPageViews": 30,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 439,
+            "eventCount": 85,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 54.875,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-09",
+            "activeUsers": 2,
+            "newUsers": 0,
+            "screenPageViews": 9,
+            "sessions": 4,
+            "engagedSessions": 3,
+            "userEngagementDuration": 93,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 46.5,
+            "engagementRate": 0.75
+          },
+          {
+            "date": "2026-09-10",
+            "activeUsers": 6,
+            "newUsers": 6,
+            "screenPageViews": 21,
+            "sessions": 8,
+            "engagedSessions": 5,
+            "userEngagementDuration": 1710,
+            "eventCount": 66,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 285,
+            "engagementRate": 0.625
+          },
+          {
+            "date": "2026-09-11",
+            "activeUsers": 2,
+            "newUsers": 1,
+            "screenPageViews": 15,
+            "sessions": 6,
+            "engagedSessions": 3,
+            "userEngagementDuration": 70,
+            "eventCount": 31,
+            "keyEvents": 0,
+            "totalUsers": 2,
+            "averageEngagementTimeSeconds": 35,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-12",
+            "activeUsers": 1,
+            "newUsers": 0,
+            "screenPageViews": 10,
+            "sessions": 4,
+            "engagedSessions": 2,
+            "userEngagementDuration": 149,
+            "eventCount": 24,
+            "keyEvents": 0,
+            "totalUsers": 2,
+            "averageEngagementTimeSeconds": 149,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-13",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 60,
+            "sessions": 19,
+            "engagedSessions": 13,
+            "userEngagementDuration": 1216,
+            "eventCount": 152,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 173.7143,
+            "engagementRate": 0.6842
+          },
+          {
+            "date": "2026-09-14",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 9,
+            "sessions": 4,
+            "engagedSessions": 2,
+            "userEngagementDuration": 529,
+            "eventCount": 26,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 132.25,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-15",
+            "activeUsers": 5,
+            "newUsers": 2,
+            "screenPageViews": 22,
+            "sessions": 6,
+            "engagedSessions": 4,
+            "userEngagementDuration": 633,
+            "eventCount": 57,
+            "keyEvents": 0,
+            "totalUsers": 5,
+            "averageEngagementTimeSeconds": 126.6,
+            "engagementRate": 0.6667
+          },
+          {
+            "date": "2026-09-16",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 13,
+            "sessions": 5,
+            "engagedSessions": 4,
+            "userEngagementDuration": 30,
+            "eventCount": 27,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 7.5,
+            "engagementRate": 0.8
+          },
+          {
+            "date": "2026-09-17",
+            "activeUsers": 4,
+            "newUsers": 2,
+            "screenPageViews": 15,
+            "sessions": 8,
+            "engagedSessions": 3,
+            "userEngagementDuration": 73,
+            "eventCount": 34,
+            "keyEvents": 0,
+            "totalUsers": 6,
+            "averageEngagementTimeSeconds": 18.25,
+            "engagementRate": 0.375
+          },
+          {
+            "date": "2026-09-18",
+            "activeUsers": 9,
+            "newUsers": 4,
+            "screenPageViews": 65,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 1545,
+            "eventCount": 196,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 171.6667,
+            "engagementRate": 0.5833
+          },
+          {
+            "date": "2026-09-19",
+            "activeUsers": 159,
+            "newUsers": 154,
+            "screenPageViews": 410,
+            "sessions": 200,
+            "engagedSessions": 125,
+            "userEngagementDuration": 9066,
+            "eventCount": 1551,
+            "keyEvents": 0,
+            "totalUsers": 159,
+            "averageEngagementTimeSeconds": 57.0189,
+            "engagementRate": 0.625
+          }
+        ],
+        "previous": [
+          {
+            "date": "2026-08-01",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-02",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-03",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-04",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-05",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-06",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-07",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-08",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-09",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-10",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-11",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-12",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-13",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-14",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-15",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-16",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-17",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-18",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-19",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          }
+        ]
+      },
+      "audience": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 192,
+            "sessions": 192
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 44,
+            "sessions": 139
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 12
+          }
+        ]
+      },
+      "channels": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Direct",
+            "activeUsers": 176,
+            "sessions": 259
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 19,
+            "sessions": 72
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 6,
+            "sessions": 6
+          },
+          {
+            "label": "Referral",
+            "activeUsers": 2,
+            "sessions": 5
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "devices": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "mobile",
+            "activeUsers": 115,
+            "sessions": 190
+          },
+          {
+            "label": "desktop",
+            "activeUsers": 85,
+            "sessions": 152
+          },
+          {
+            "label": "tablet",
+            "activeUsers": 2,
+            "sessions": 2
+          }
+        ]
+      },
+      "countries": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Indonesia",
+            "activeUsers": 179,
+            "sessions": 313
+          },
+          {
+            "label": "United States",
+            "activeUsers": 14,
+            "sessions": 14
+          }
+        ]
+      },
+      "firstSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 177,
+            "sessions": 290
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 15,
+            "sessions": 43
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 3,
+            "sessions": 3
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "sessionSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 176,
+            "sessions": 259
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 17,
+            "sessions": 69
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 3,
+            "sessions": 3
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "dataindex.pro / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "keep.google.com / referral",
+            "activeUsers": 1,
+            "sessions": 4
+          }
+        ]
+      },
+      "pages": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 165,
+            "views": 327,
+            "eventCount": 1365,
+            "engagement": 46.7576
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 16,
+            "views": 173,
+            "eventCount": 374,
+            "engagement": 215.0625
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 48,
+            "views": 79,
+            "eventCount": 248,
+            "engagement": 39.0625
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 11,
+            "views": 48,
+            "eventCount": 110,
+            "engagement": 35.9091
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 11,
+            "views": 43,
+            "eventCount": 100,
+            "engagement": 69.7273
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 11,
+            "views": 34,
+            "eventCount": 80,
+            "engagement": 60.5455
+          },
+          {
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "type": "Case Reports",
+            "activeUsers": 8,
+            "views": 28,
+            "eventCount": 90,
+            "engagement": 68
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "type": "Other public pages",
+            "activeUsers": 12,
+            "views": 24,
+            "eventCount": 55,
+            "engagement": 81.6667
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 20,
+            "eventCount": 43,
+            "engagement": 71.6667
+          },
+          {
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 5,
+            "views": 18,
+            "eventCount": 53,
+            "engagement": 227
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "type": "eBooks",
+            "activeUsers": 3,
+            "views": 18,
+            "eventCount": 58,
+            "engagement": 97
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 17,
+            "eventCount": 36,
+            "engagement": 39
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 7,
+            "views": 12,
+            "eventCount": 26,
+            "engagement": 32.8571
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 5,
+            "views": 10,
+            "eventCount": 44,
+            "engagement": 59.6
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 4,
+            "views": 8,
+            "eventCount": 28,
+            "engagement": 61.75
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "type": "eBooks",
+            "activeUsers": 2,
+            "views": 8,
+            "eventCount": 29,
+            "engagement": 80.5
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 4,
+            "views": 6,
+            "eventCount": 28,
+            "engagement": 90.75
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 6,
+            "eventCount": 11,
+            "engagement": 92
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 5,
+            "eventCount": 13,
+            "engagement": 9.75
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 4,
+            "eventCount": 8,
+            "engagement": 6.75
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 3,
+            "engagement": 3
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 8,
+            "engagement": 4
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 2,
+            "engagement": 0
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 2
+          },
+          {
+            "path": "/ebooks/understanding-thyroid-disorders.html",
+            "title": "BA Medicale eBook",
+            "type": "eBooks",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 2
+          },
+          {
+            "path": "/resources.html",
+            "title": "Resources",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 3
+          },
+          {
+            "path": "/yudi-febriadi-profile.html",
+            "title": "dr. Yudi Febriadi MARS | Hospital Management Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 108
+          }
+        ]
+      },
+      "landing": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 188,
+            "engagementRate": 0.6489
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 62,
+            "engagementRate": 0.629
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 49,
+            "engagementRate": 0.6939
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "sessions": 6,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "sessions": 4,
+            "engagementRate": 0.5
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 4,
+            "engagementRate": 1
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "sessions": 3,
+            "engagementRate": 0
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "sessions": 3,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "sessions": 1,
+            "engagementRate": 0
+          }
+        ]
+      },
+      "content": {
+        "status": "ok",
+        "rows": [
+          {
+            "title": "Seminars / Events",
+            "activeUsers": 165,
+            "views": 327,
+            "engagement": 46.7576
+          },
+          {
+            "title": "Case Reports",
+            "activeUsers": 8,
+            "views": 28,
+            "engagement": 68
+          },
+          {
+            "title": "eBooks",
+            "activeUsers": 3,
+            "views": 27,
+            "engagement": 151.3333
+          },
+          {
+            "title": "Presentations",
+            "activeUsers": 5,
+            "views": 18,
+            "engagement": 227
+          },
+          {
+            "title": "Articles",
+            "activeUsers": 7,
+            "views": 14,
+            "engagement": 87.1429
+          },
+          {
+            "title": "Videos",
+            "activeUsers": 5,
+            "views": 10,
+            "engagement": 59.6
+          }
+        ]
+      },
+      "reconciliation": {
+        "status": "passed"
+      }
+    },
+    "monthly": {
+      "range": {
+        "startDate": "2026-08-01",
+        "endDate": "2026-08-31",
+        "previousStartDate": "2026-07-01",
+        "previousEndDate": "2026-07-31"
+      },
+      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "summary": {
+        "activeUsers": 35,
+        "newUsers": 35,
+        "screenPageViews": 619,
+        "sessions": 103,
+        "engagedSessions": 71,
+        "userEngagementDuration": 16444,
+        "eventCount": 1596,
+        "keyEvents": 0,
+        "totalUsers": 35,
+        "averageEngagementTimeSeconds": 469.8286,
+        "engagementRate": 0.6893,
+        "returningUsers": 9
+      },
+      "previous": {
+        "activeUsers": 0,
+        "newUsers": 0,
+        "screenPageViews": 0,
+        "sessions": 0,
+        "engagedSessions": 0,
+        "userEngagementDuration": 0,
+        "eventCount": 0,
+        "keyEvents": 0,
+        "totalUsers": 0,
+        "averageEngagementTimeSeconds": null,
+        "engagementRate": null,
+        "returningUsers": 0
+      },
+      "totals": {
+        "status": "ok",
+        "thresholded": false,
+        "sampled": false
+      },
+      "trend": {
+        "status": "ok",
+        "current": [
+          {
+            "date": "2026-08-01",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-02",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-03",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-04",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-05",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-06",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-07",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-08",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-09",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-10",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-11",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-12",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-13",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-14",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-15",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-16",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-17",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-18",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-19",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-20",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-21",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-22",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-23",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-24",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-25",
+            "activeUsers": 3,
+            "newUsers": 3,
+            "screenPageViews": 7,
+            "sessions": 3,
+            "engagedSessions": 3,
+            "userEngagementDuration": 45,
+            "eventCount": 22,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 15,
+            "engagementRate": 1
+          },
+          {
+            "date": "2026-08-26",
+            "activeUsers": 7,
+            "newUsers": 6,
+            "screenPageViews": 47,
+            "sessions": 13,
+            "engagedSessions": 7,
+            "userEngagementDuration": 1530,
+            "eventCount": 140,
+            "keyEvents": 0,
+            "totalUsers": 8,
+            "averageEngagementTimeSeconds": 218.5714,
+            "engagementRate": 0.5385
+          },
+          {
+            "date": "2026-08-27",
+            "activeUsers": 12,
+            "newUsers": 10,
+            "screenPageViews": 39,
+            "sessions": 17,
+            "engagedSessions": 10,
+            "userEngagementDuration": 713,
+            "eventCount": 111,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 59.4167,
+            "engagementRate": 0.5882
+          },
+          {
+            "date": "2026-08-28",
+            "activeUsers": 6,
+            "newUsers": 3,
+            "screenPageViews": 31,
+            "sessions": 12,
+            "engagedSessions": 6,
+            "userEngagementDuration": 606,
+            "eventCount": 89,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 101,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-08-29",
+            "activeUsers": 10,
+            "newUsers": 5,
+            "screenPageViews": 234,
+            "sessions": 30,
+            "engagedSessions": 27,
+            "userEngagementDuration": 6528,
+            "eventCount": 619,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 652.8,
+            "engagementRate": 0.9
+          },
+          {
+            "date": "2026-08-30",
+            "activeUsers": 12,
+            "newUsers": 7,
+            "screenPageViews": 229,
+            "sessions": 21,
+            "engagedSessions": 15,
+            "userEngagementDuration": 6378,
+            "eventCount": 535,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 531.5,
+            "engagementRate": 0.7143
+          },
+          {
+            "date": "2026-08-31",
+            "activeUsers": 3,
+            "newUsers": 1,
+            "screenPageViews": 32,
+            "sessions": 8,
+            "engagedSessions": 4,
+            "userEngagementDuration": 644,
+            "eventCount": 80,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 214.6667,
+            "engagementRate": 0.5
+          }
+        ],
+        "previous": [
+          {
+            "date": "2026-07-01",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-02",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-03",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-04",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-05",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-06",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-07",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-08",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-09",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-10",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-11",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-12",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-13",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-14",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-15",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-16",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-17",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-18",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-19",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-20",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-21",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-22",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-23",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-24",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-25",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-26",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-27",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-28",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-29",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-30",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-07-31",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          }
+        ]
+      },
+      "audience": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 35,
+            "sessions": 35
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 9,
+            "sessions": 62
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 6
+          }
+        ]
+      },
+      "channels": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Direct",
+            "activeUsers": 25,
+            "sessions": 87
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 6,
+            "sessions": 6
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 5,
+            "sessions": 10
+          }
+        ]
+      },
+      "devices": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "desktop",
+            "activeUsers": 20,
+            "sessions": 56
+          },
+          {
+            "label": "mobile",
+            "activeUsers": 16,
+            "sessions": 48
+          }
+        ]
+      },
+      "countries": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Indonesia",
+            "activeUsers": 21,
+            "sessions": 89
+          },
+          {
+            "label": "United States",
+            "activeUsers": 13,
+            "sessions": 13
+          }
+        ]
+      },
+      "firstSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 25,
+            "sessions": 90
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 4,
+            "sessions": 7
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 3,
+            "sessions": 3
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "sessionSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 25,
+            "sessions": 87
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 5,
+            "sessions": 10
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 3,
+            "sessions": 3
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
+      },
+      "pages": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 8,
+            "views": 109,
+            "eventCount": 277,
+            "engagement": 429.25
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "type": "Other public pages",
+            "activeUsers": 33,
+            "views": 81,
+            "eventCount": 244,
+            "engagement": 72.6061
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 8,
+            "views": 61,
+            "eventCount": 136,
+            "engagement": 105.75
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 9,
+            "views": 58,
+            "eventCount": 162,
+            "engagement": 100.2222
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 56,
+            "eventCount": 133,
+            "engagement": 376.6667
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 46,
+            "eventCount": 108,
+            "engagement": 200.8333
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 30,
+            "eventCount": 61,
+            "engagement": 54.3333
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 10,
+            "views": 27,
+            "eventCount": 105,
+            "engagement": 90.5
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 23,
+            "eventCount": 53,
+            "engagement": 108.6
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 6,
+            "views": 22,
+            "eventCount": 64,
+            "engagement": 183
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 15,
+            "eventCount": 29,
+            "engagement": 16.2
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 13,
+            "eventCount": 34,
+            "engagement": 21
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 3,
+            "views": 13,
+            "eventCount": 44,
+            "engagement": 79.6667
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 11,
+            "eventCount": 30,
+            "engagement": 103.5
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 11,
+            "eventCount": 14,
+            "engagement": 53.5
+          },
+          {
+            "path": "/resources.html",
+            "title": "Resources",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 9,
+            "eventCount": 18,
+            "engagement": 11.2
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 9,
+            "eventCount": 20,
+            "engagement": 9.75
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 4,
+            "views": 8,
+            "eventCount": 28,
+            "engagement": 23
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 8,
+            "eventCount": 18,
+            "engagement": 207.25
+          },
+          {
+            "path": "/melati-noerwa-profile.html",
+            "title": "Melati Noerwa | Administration & Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 5,
+            "eventCount": 7,
+            "engagement": 17
+          },
+          {
+            "path": "/privacy-policy.html",
+            "title": "Privacy Policy & User Data Deletion",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 8,
+            "engagement": 105.3333
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 183
+          }
+        ]
+      },
+      "landing": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 58,
+            "engagementRate": 0.6379
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 21,
+            "engagementRate": 0.7619
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "sessions": 6,
+            "engagementRate": 0.8333
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "sessions": 3,
+            "engagementRate": 1
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "sessions": 3,
+            "engagementRate": 1
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "sessions": 1,
+            "engagementRate": 1
+          }
+        ]
+      },
+      "content": {
+        "status": "ok",
+        "rows": [
+          {
+            "title": "Seminars / Events",
+            "activeUsers": 10,
+            "views": 27,
+            "engagement": 90.5
+          },
+          {
+            "title": "Videos",
+            "activeUsers": 6,
+            "views": 22,
+            "engagement": 183
+          },
+          {
+            "title": "Articles",
+            "activeUsers": 5,
+            "views": 21,
+            "engagement": 66.2
+          },
+          {
+            "title": "Case Reports",
+            "activeUsers": 0,
+            "views": 0,
+            "engagement": null
+          },
+          {
+            "title": "Presentations",
+            "activeUsers": 0,
+            "views": 0,
+            "engagement": null
+          },
+          {
+            "title": "eBooks",
+            "activeUsers": 0,
+            "views": 0,
+            "engagement": null
+          }
+        ]
+      },
+      "reconciliation": {
+        "status": "passed"
+      }
+    }
+  },
+  "timeZone": "Asia/Jakarta",
+  "privacy": {
+    "countryMinimumActiveUsers": 5,
+    "scope": "Published public routes only; no private app or participant records."
+  },
+  "generatedAt": "2026-09-20T05:38:04.594Z",
+  "realtime": {
+    "status": "ok",
+    "generatedAt": "2026-09-20T05:38:04.594Z",
+    "activeUsers": 0,
+    "windowMinutes": 30
+  }
+}
