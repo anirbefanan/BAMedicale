@@ -36,6 +36,16 @@ test("JUMI reuses the canonical production BA Medicale logo",()=>{
   assert.match(html,/scope\.js\?v=20260919-functional-audit/);
 });
 
+test("dashboard separates KPI status, participant progression, and operational signals",()=>{
+  assert.match(client,/Participant Journey/);
+  assert.match(client,/participantJourney\(scoped\.journeys\)/);
+  assert.match(client,/Free and Paid progression remain separate/);
+  assert.match(client,/signalList\(scoped\.signals\)/);
+  assert.doesNotMatch(client,/Participant funnel/);
+  assert.doesNotMatch(client,/\["Active Doctors",m\.activeDoctors\]/);
+  assert.doesNotMatch(client,/Registration → attendance/);
+});
+
 test("authorization is server enforced and client-provided email is never authentication",()=>{
   assert.match(backend,/Session\.getActiveUser\(\)\.getEmail\(\)/);
   assert.match(backend,/allowlist\.includes\(email\)/);

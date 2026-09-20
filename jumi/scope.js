@@ -29,6 +29,41 @@
   const selectedEvents=(data,scope,now)=>validEvents(data,now).filter(event=>scope==="all"||classifyEvent(event,now)===scope);
   const countStatus=(rows,key,value)=>rows.filter(row=>String(row[key]||"")===value).length;
   const uniqueEmails=rows=>new Set(rows.map(row=>email(row.email)).filter(Boolean));
+  const certificateProgress=new Set(["Eligible","Generated","Approved","Sent","Failed"]);
+  const conversion=(current,previous)=>previous>0?Math.round(current/previous*100):null;
+  function journeyStages(rows,commercial){
+    const active=rows.filter(row=>row.registrationStatus!=="Cancelled"),stage=(key,label,records)=>({key,label,count:records.length});
+    let stages;
+    if(commercial==="Paid"){
+      const submitted=active.filter(row=>["Submitted","Registered"].includes(row.registrationStatus)),paid=submitted.filter(row=>row.paymentStatus==="Paid"),registered=paid.filter(row=>row.registrationStatus==="Registered"),attended=registered.filter(row=>row.attendanceStatus==="Attended"),eligible=attended.filter(row=>certificateProgress.has(row.certificateStatus)),sent=eligible.filter(row=>row.certificateStatus==="Sent");
+      stages=[stage("submitted","Submitted",submitted),stage("paid","Paid",paid),stage("registered","Registered",registered),stage("attended","Attended",attended),stage("eligible","Certificate Eligible",eligible),stage("sent","Certificate Sent",sent)];
+    }else{
+      const registered=active.filter(row=>row.registrationStatus==="Registered"),attended=registered.filter(row=>row.attendanceStatus==="Attended"),eligible=attended.filter(row=>certificateProgress.has(row.certificateStatus)),sent=eligible.filter(row=>row.certificateStatus==="Sent");
+      stages=[stage("registered","Registered",registered),stage("attended","Attended",attended),stage("eligible","Certificate Eligible",eligible),stage("sent","Certificate Sent",sent)];
+    }
+    return stages.map((item,index)=>{const previous=index?stages[index-1].count:null;return{...item,conversion:index?conversion(item.count,previous):null,dropOff:index&&previous>item.count?previous-item.count:0};});
+  }
+  function participantJourneys(events,registrants){
+    return["Free","Paid"].flatMap(commercial=>{const eventIds=new Set(events.filter(event=>event.commercial===commercial).map(event=>event.id));if(!eventIds.size)return[];const rows=registrants.filter(row=>eventIds.has(row.eventId));return[{commercial,label:`${commercial} seminar${eventIds.size===1?"":"s"}`,eventCount:eventIds.size,participantCount:rows.filter(row=>row.registrationStatus!=="Cancelled").length,stages:journeyStages(rows,commercial)}];});
+  }
+  function operationalSignals(data,events,registrants,quizResults,metrics,now){
+    const signals=[],eventMap=new Map(events.map(event=>[event.id,event])),classification=row=>{const event=eventMap.get(row.eventId);return event?classifyEvent(event,now):"excluded";};
+    const confirmationOutstanding=registrants.filter(row=>row.registrationStatus==="Registered"&&classification(row)!=="completed"&&(!row.confirmationStatus||row.confirmationStatus==="Not Sent")).length;
+    if(confirmationOutstanding)signals.push({kind:"attention",label:"Confirmations need attention",value:confirmationOutstanding,detail:integrationUnavailable(data,"email")?"Registered participants are waiting; the email provider is not connected.":"Registered participants still have Not Sent confirmation status."});
+    const pendingPayments=registrants.filter(row=>row.paymentStatus==="Pending").length;
+    if(pendingPayments)signals.push({kind:"attention",label:"Payments awaiting review",value:pendingPayments,detail:"Payment status remains Pending."});
+    const freeSubmitted=registrants.filter(row=>eventMap.get(row.eventId)?.commercial==="Free"&&row.registrationStatus==="Submitted").length;
+    if(freeSubmitted)signals.push({kind:"warning",label:"Free registrations need review",value:freeSubmitted,detail:"Free seminar records should normally progress directly to Registered."});
+    const attendanceReview=registrants.filter(row=>row.registrationStatus==="Registered"&&classification(row)==="completed"&&["Not Checked","Pending Validation"].includes(row.attendanceStatus)).length;
+    if(attendanceReview)signals.push({kind:"attention",label:"Attendance needs validation",value:attendanceReview,detail:"Completed-event registrations still need an attendance decision."});
+    const eligibilityGap=registrants.filter(row=>row.attendanceStatus==="Attended"&&row.certificateStatus==="Not Eligible").length;
+    if(eligibilityGap)signals.push({kind:"warning",label:"Eligibility review needed",value:eligibilityGap,detail:"Attended participants remain marked Not Eligible."});
+    const certificatesOutstanding=registrants.filter(row=>["Eligible","Generated","Approved","Failed"].includes(row.certificateStatus)).length;
+    if(certificatesOutstanding)signals.push({kind:"attention",label:"Certificates not yet sent",value:certificatesOutstanding,detail:"Eligible or prepared certificate records have not reached Sent."});
+    if(metrics.quizParticipants&&metrics.totalDoctors){const rate=Math.round(metrics.quizParticipants/metrics.totalDoctors*100);signals.push({kind:"info",label:"Quiz engagement",value:`${rate}%`,detail:`${metrics.quizParticipants} of ${metrics.totalDoctors} scoped doctors participated.`});}
+    return signals.slice(0,6);
+  }
+  function integrationUnavailable(data,name){return String(data?.integrations?.[name]||"Not Connected")!=="Connected";}
   function resolveDownloads(data,eventIds){return((data&&data.downloads)||[]).filter(row=>row.eventId&&eventIds.has(row.eventId));}
   function communityFor(registrants,quizzes,downloads){
     const identities=new Map();
@@ -47,12 +82,12 @@
   function buildSnapshot(data,scope="all",now=Date.now()){
     const events=selectedEvents(data,scope,now),eventIds=new Set(events.map(event=>event.id)),registrants=((data&&data.registrants)||[]).filter(row=>eventIds.has(row.eventId)),quizResults=((data&&data.quizResults)||[]).filter(row=>eventIds.has(row.eventId)),downloads=resolveDownloads(data,eventIds),community=communityFor(registrants,quizResults,downloads),people=uniqueEmails(registrants.concat(quizResults,downloads));
     const metrics={totalEvents:events.length,upcomingEvents:events.filter(event=>classifyEvent(event,now)==="upcoming").length,totalDoctors:people.size,activeDoctors:people.size,totalRegistrations:registrants.length,submitted:countStatus(registrants,"registrationStatus","Submitted"),registered:countStatus(registrants,"registrationStatus","Registered"),paid:countStatus(registrants,"paymentStatus","Paid"),pendingPayment:countStatus(registrants,"paymentStatus","Pending"),confirmationsSent:registrants.filter(row=>["Sent","Delivered"].includes(row.confirmationStatus)).length,attended:countStatus(registrants,"attendanceStatus","Attended"),attendanceChecked:registrants.filter(row=>row.attendanceStatus&&row.attendanceStatus!=="Not Checked").length,notAttended:countStatus(registrants,"attendanceStatus","Not Attended"),attendancePending:countStatus(registrants,"attendanceStatus","Pending Validation"),certificateEligible:countStatus(registrants,"certificateStatus","Eligible"),certificatesSent:countStatus(registrants,"certificateStatus","Sent"),certificateNotEligible:countStatus(registrants,"certificateStatus","Not Eligible"),certificateGenerated:countStatus(registrants,"certificateStatus","Generated"),certificateApproved:countStatus(registrants,"certificateStatus","Approved"),certificateFailed:countStatus(registrants,"certificateStatus","Failed"),quizParticipants:uniqueEmails(quizResults).size,materialDownloads:downloads.length};
-    const funnel={submitted:metrics.submitted,paymentReady:registrants.filter(row=>["Paid","Not Required"].includes(row.paymentStatus)).length,registered:metrics.registered,confirmed:metrics.confirmationsSent,attended:metrics.attended,eligible:metrics.certificateEligible,sent:metrics.certificatesSent};
+    const journeys=participantJourneys(events,registrants);
     const perEvent=events.map(event=>({label:event.title,value:registrants.filter(row=>row.eventId===event.id).length})),max=Math.max(0,...perEvent.map(row=>row.value)),eventComparison=perEvent.length>1?perEvent.map(row=>({...row,percent:max?Math.round(row.value/max*100):0})):[];
     const paidDenominator=metrics.paid+metrics.pendingPayment,reports={registrationAttendancePercent:metrics.registered?Math.round(metrics.attended/metrics.registered*100):null,paidConversionPercent:paidDenominator?Math.round(metrics.paid/paidDenominator*100):null,freeEvents:events.filter(event=>event.commercial==="Free").length,paidEvents:events.filter(event=>event.commercial==="Paid").length,newDoctors:community.filter(row=>!row.returning).length,returningDoctors:community.filter(row=>row.returning).length,repeatAttendees:community.filter(row=>row.eventsAttended>1).length,quizParticipation:metrics.quizParticipants,materialDownloads:metrics.materialDownloads,certificateEligible:metrics.certificateEligible,certificatesSent:metrics.certificatesSent,eventComparison,monthOverMonth:monthOverMonth(registrants)};
-    const insights=[];if(reports.registrationAttendancePercent!=null)insights.push({label:"Registration → attendance",value:`${reports.registrationAttendancePercent}%`,percent:reports.registrationAttendancePercent});if(metrics.totalDoctors)insights.push({label:"Quiz participation",value:metrics.quizParticipants,percent:Math.min(100,Math.round(metrics.quizParticipants/metrics.totalDoctors*100))});
+    const signals=operationalSignals(data,events,registrants,quizResults,metrics,now);
     const toolsByEvent=Object.fromEntries(events.map(event=>{const eventQuiz=quizResults.filter(row=>row.eventId===event.id);return[event.id,{registrants:registrants.filter(row=>row.eventId===event.id).length,attendance:registrants.filter(row=>row.eventId===event.id&&row.attendanceStatus==="Attended").length,baQuiz:eventQuiz.filter(row=>row.channel==="BA Medicale").length,lmsQuiz:eventQuiz.filter(row=>row.channel==="LMS").length,materials:downloads.filter(row=>row.eventId===event.id).length,certificates:registrants.filter(row=>row.eventId===event.id&&row.certificateStatus!=="Not Eligible").length}];}));
-    return{scope,events,registrants,quizResults,downloads,community,metrics,funnel,reports,insights,toolsByEvent};
+    return{scope,events,registrants,quizResults,downloads,community,metrics,journeys,reports,signals,toolsByEvent};
   }
   return{timestamp,classifyEvent,validEvents,draftEvents,selectedEvents,buildSnapshot};
 });
