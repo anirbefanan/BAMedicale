@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T19:44:12.807Z",
+  "generatedAt": "2026-09-20T02:10:59.833Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-23",
@@ -8,8 +8,8 @@
   "summary": {
     "activeUsers": 226,
     "newUsers": 219,
-    "averageEngagementTimeSeconds": 157.73451327433628,
-    "eventCount": 4311
+    "averageEngagementTimeSeconds": 158.17256637168143,
+    "eventCount": 4314
   },
   "topPages": [
     {
@@ -23,8 +23,8 @@
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
       "views": 275,
       "activeUsers": 153,
-      "eventCount": 1157,
-      "bounceRate": 0.93
+      "eventCount": 1159,
+      "bounceRate": 0.9303482587064676
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -124,7 +124,7 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 330
+      "sessions": 331
     },
     {
       "label": "Not set",
