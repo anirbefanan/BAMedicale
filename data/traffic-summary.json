@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-09-20T15:02:32.696Z",
+  "generatedAt": "2026-09-20T19:55:44.557Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-23",
-    "endDate": "2026-09-19"
+    "startDate": "2026-08-24",
+    "endDate": "2026-09-20"
   },
   "summary": {
-    "activeUsers": 227,
-    "newUsers": 229,
-    "averageEngagementTimeSeconds": 160.98678414096915,
-    "eventCount": 4438
+    "activeUsers": 229,
+    "newUsers": 231,
+    "averageEngagementTimeSeconds": 169.03056768558952,
+    "eventCount": 4621
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 319,
-      "activeUsers": 60,
-      "eventCount": 802,
-      "bounceRate": 0.3057324840764331
+      "views": 330,
+      "activeUsers": 62,
+      "eventCount": 832,
+      "bounceRate": 0.3353658536585366
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 295,
+      "views": 303,
       "activeUsers": 156,
-      "eventCount": 1252,
-      "bounceRate": 0.3448275862068966
+      "eventCount": 1279,
+      "bounceRate": 0.36363636363636365
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -35,24 +35,31 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 106,
-      "activeUsers": 17,
-      "eventCount": 270,
-      "bounceRate": 0
+      "views": 112,
+      "activeUsers": 18,
+      "eventCount": 282,
+      "bounceRate": 0.07407407407407407
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 104,
+      "views": 105,
       "activeUsers": 17,
-      "eventCount": 236,
-      "bounceRate": 0
+      "eventCount": 238,
+      "bounceRate": 0.022222222222222223
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 68,
+      "views": 69,
       "activeUsers": 10,
-      "eventCount": 159,
-      "bounceRate": 0.06451612903225806
+      "eventCount": 162,
+      "bounceRate": 0.09375
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 48,
+      "activeUsers": 14,
+      "eventCount": 115,
+      "bounceRate": 0.0625
     },
     {
       "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
@@ -60,13 +67,6 @@
       "activeUsers": 17,
       "eventCount": 167,
       "bounceRate": 0.13157894736842105
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 47,
-      "activeUsers": 14,
-      "eventCount": 114,
-      "bounceRate": 0.03225806451612903
     },
     {
       "title": "For Public | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 195
+      "activeUsers": 197
     },
     {
       "label": "google / organic",
@@ -105,8 +105,16 @@
       "activeUsers": 4
     },
     {
+      "label": "Not set",
+      "activeUsers": 2
+    },
+    {
       "label": "bing / organic",
       "activeUsers": 2
+    },
+    {
+      "label": "(data not available)",
+      "activeUsers": 1
     },
     {
       "label": "dataindex.pro / referral",
@@ -116,18 +124,22 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 346
+      "sessions": 359
     },
     {
       "label": "google / organic",
-      "sessions": 79
+      "sessions": 87
     },
     {
-      "label": "facebook.com / referral",
-      "sessions": 4
+      "label": "Not set",
+      "sessions": 13
     },
     {
       "label": "keep.google.com / referral",
+      "sessions": 5
+    },
+    {
+      "label": "facebook.com / referral",
       "sessions": 4
     },
     {
@@ -141,10 +153,6 @@
     {
       "label": "bing / organic",
       "sessions": 3
-    },
-    {
-      "label": "Not set",
-      "sessions": 1
     },
     {
       "label": "dataindex.pro / referral",

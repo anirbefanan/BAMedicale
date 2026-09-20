@@ -4,13 +4,27 @@
   "periods": {
     "daily": {
       "range": {
-        "startDate": "2026-09-19",
-        "endDate": "2026-09-19",
-        "previousStartDate": "2026-09-18",
-        "previousEndDate": "2026-09-18"
+        "startDate": "2026-09-20",
+        "endDate": "2026-09-20",
+        "previousStartDate": "2026-09-19",
+        "previousEndDate": "2026-09-19"
       },
-      "generatedAt": "2026-09-20T15:02:33.030Z",
+      "generatedAt": "2026-09-20T19:55:44.882Z",
       "summary": {
+        "activeUsers": 9,
+        "newUsers": 2,
+        "screenPageViews": 70,
+        "sessions": 22,
+        "engagedSessions": 1,
+        "userEngagementDuration": 2164,
+        "eventCount": 183,
+        "keyEvents": 0,
+        "totalUsers": 10,
+        "averageEngagementTimeSeconds": 240.4444,
+        "engagementRate": 0.0455,
+        "returningUsers": 3
+      },
+      "previous": {
         "activeUsers": 159,
         "newUsers": 154,
         "screenPageViews": 410,
@@ -24,20 +38,6 @@
         "engagementRate": 0.625,
         "returningUsers": 30
       },
-      "previous": {
-        "activeUsers": 9,
-        "newUsers": 4,
-        "screenPageViews": 65,
-        "sessions": 12,
-        "engagedSessions": 7,
-        "userEngagementDuration": 1545,
-        "eventCount": 196,
-        "keyEvents": 0,
-        "totalUsers": 9,
-        "averageEngagementTimeSeconds": 171.6667,
-        "engagementRate": 0.5833,
-        "returningUsers": 6
-      },
       "totals": {
         "status": "ok",
         "thresholded": false,
@@ -46,6 +46,23 @@
       "trend": {
         "status": "ok",
         "current": [
+          {
+            "date": "2026-09-20",
+            "activeUsers": 9,
+            "newUsers": 2,
+            "screenPageViews": 70,
+            "sessions": 22,
+            "engagedSessions": 1,
+            "userEngagementDuration": 2164,
+            "eventCount": 183,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 240.4444,
+            "engagementRate": 0.0455,
+            "returningUsers": 3
+          }
+        ],
+        "previous": [
           {
             "date": "2026-09-19",
             "activeUsers": 159,
@@ -58,24 +75,7 @@
             "keyEvents": 0,
             "totalUsers": 159,
             "averageEngagementTimeSeconds": 57.0189,
-            "engagementRate": 0.625,
-            "returningUsers": 30
-          }
-        ],
-        "previous": [
-          {
-            "date": "2026-09-18",
-            "activeUsers": 9,
-            "newUsers": 4,
-            "screenPageViews": 65,
-            "sessions": 12,
-            "engagedSessions": 7,
-            "userEngagementDuration": 1545,
-            "eventCount": 196,
-            "keyEvents": 0,
-            "totalUsers": 9,
-            "averageEngagementTimeSeconds": 171.6667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.625
           }
         ]
       },
@@ -84,13 +84,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 153,
-            "sessions": 153
+            "activeUsers": 5,
+            "sessions": 12
           },
           {
             "label": "Returning",
-            "activeUsers": 30,
-            "sessions": 47
+            "activeUsers": 3,
+            "sessions": 9
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 2,
+            "sessions": 2
           }
         ]
       },
@@ -101,22 +106,22 @@
         "status": "ok",
         "rows": [
           {
+            "label": "Unassigned",
+            "activeUsers": 7,
+            "sessions": 12
+          },
+          {
             "label": "Direct",
-            "activeUsers": 150,
-            "sessions": 175
+            "activeUsers": 6,
+            "sessions": 13
           },
           {
             "label": "Organic Search",
-            "activeUsers": 8,
-            "sessions": 19
+            "activeUsers": 1,
+            "sessions": 8
           },
           {
             "label": "Referral",
-            "activeUsers": 2,
-            "sessions": 5
-          },
-          {
-            "label": "Unassigned",
             "activeUsers": 1,
             "sessions": 1
           }
@@ -126,19 +131,14 @@
         "status": "ok",
         "rows": [
           {
-            "label": "mobile",
-            "activeUsers": 98,
-            "sessions": 123
-          },
-          {
             "label": "desktop",
-            "activeUsers": 59,
-            "sessions": 75
+            "activeUsers": 5,
+            "sessions": 11
           },
           {
-            "label": "tablet",
-            "activeUsers": 2,
-            "sessions": 2
+            "label": "mobile",
+            "activeUsers": 4,
+            "sessions": 11
           }
         ]
       },
@@ -147,8 +147,8 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 153,
-            "sessions": 190
+            "activeUsers": 7,
+            "sessions": 15
           }
         ]
       },
@@ -157,16 +157,21 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 151,
-            "sessions": 181
+            "activeUsers": 6,
+            "sessions": 19
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "(data not available)",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "google / organic",
-            "activeUsers": 7,
-            "sessions": 18
-          },
-          {
-            "label": "dataindex.pro / referral",
             "activeUsers": 1,
             "sessions": 1
           }
@@ -176,29 +181,24 @@
         "status": "ok",
         "rows": [
           {
+            "label": "(not set)",
+            "activeUsers": 7,
+            "sessions": 12
+          },
+          {
             "label": "(direct) / (none)",
-            "activeUsers": 150,
-            "sessions": 175
+            "activeUsers": 6,
+            "sessions": 13
           },
           {
             "label": "google / organic",
-            "activeUsers": 8,
-            "sessions": 19
-          },
-          {
-            "label": "(not set)",
             "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "dataindex.pro / referral",
-            "activeUsers": 1,
-            "sessions": 1
+            "sessions": 8
           },
           {
             "label": "keep.google.com / referral",
             "activeUsers": 1,
-            "sessions": 4
+            "sessions": 1
           }
         ]
       },
@@ -206,166 +206,148 @@
         "status": "ok",
         "rows": [
           {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "type": "Seminars / Events",
-            "activeUsers": 152,
-            "views": 263,
-            "eventCount": 1151,
-            "engagement": 42.9868
-          },
-          {
-            "path": "/",
-            "title": "BA Medicale — Home",
-            "type": "Other public pages",
-            "activeUsers": 12,
-            "views": 35,
-            "eventCount": 88,
-            "engagement": 22.5
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
-            "type": "Other public pages",
-            "activeUsers": 6,
-            "views": 22,
-            "eventCount": 51,
-            "engagement": 26.6667
-          },
-          {
-            "path": "/ebooks.html",
-            "title": "Digital Bookshelf",
-            "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 20,
-            "eventCount": 43,
-            "engagement": 71.6667
-          },
-          {
             "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
             "title": "Advanced Diagnostics and Management of Thyroid Nodules",
             "type": "eBooks",
-            "activeUsers": 3,
-            "views": 18,
-            "eventCount": 58,
-            "engagement": 97
-          },
-          {
-            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
-            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
-            "type": "Presentations",
-            "activeUsers": 5,
-            "views": 13,
-            "eventCount": 38,
-            "engagement": 160.4
-          },
-          {
-            "path": "/library.html",
-            "title": "Medical Library",
-            "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 10,
-            "eventCount": 21,
-            "engagement": 65.6667
-          },
-          {
-            "path": "/ebooks/essentials-of-breast-health.html",
-            "title": "Essentials of Breast Health",
-            "type": "eBooks",
             "activeUsers": 2,
-            "views": 8,
-            "eventCount": 29,
-            "engagement": 80.5
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 4,
-            "eventCount": 12,
-            "engagement": 13.3333
-          },
-          {
-            "path": "/videos.html",
-            "title": "Videos",
-            "type": "Videos",
-            "activeUsers": 3,
-            "views": 4,
-            "eventCount": 26,
-            "engagement": 51.6667
+            "views": 15,
+            "eventCount": 48,
+            "engagement": 314
           },
           {
             "path": "/traffic.html",
             "title": "BA Medicale Growth & Education Impact Dashboard",
             "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 3,
-            "eventCount": 6,
-            "engagement": 59.5
+            "activeUsers": 3,
+            "views": 13,
+            "eventCount": 25,
+            "engagement": 42.3333
           },
           {
-            "path": "/about.html",
-            "title": "About BA Medicale | Medical Learning for Better Care",
+            "path": "/",
+            "title": "BA Medicale — Home",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 11,
+            "eventCount": 30,
+            "engagement": 131.75
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 5,
+            "views": 8,
+            "eventCount": 28,
+            "engagement": 22
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
             "type": "Other public pages",
             "activeUsers": 2,
-            "views": 2,
-            "eventCount": 5,
-            "engagement": 2
+            "views": 6,
+            "eventCount": 12,
+            "engagement": 179
           },
           {
-            "path": "/healthcare-workers.html",
-            "title": "Medical Education for Healthcare Workers",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 2,
-            "eventCount": 5,
-            "engagement": 10
-          },
-          {
-            "path": "/public.html",
-            "title": "For Public",
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
             "type": "Other public pages",
             "activeUsers": 1,
-            "views": 2,
-            "eventCount": 4,
-            "engagement": 27
+            "views": 6,
+            "eventCount": 12,
+            "engagement": 23
           },
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 10,
+            "engagement": 123.5
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 12
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
             "type": "Articles",
             "activeUsers": 1,
             "views": 1,
-            "eventCount": 5,
-            "engagement": 65
+            "eventCount": 3,
+            "engagement": 0
           },
           {
-            "path": "/ebooks/understanding-thyroid-disorders.html",
-            "title": "BA Medicale eBook",
-            "type": "eBooks",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 4,
-            "engagement": 2
-          },
-          {
-            "path": "/privacy-policy.html",
-            "title": "Privacy Policy & User Data Deletion",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 4,
-            "engagement": 4
-          },
-          {
-            "path": "/search.html",
-            "title": "Search",
+            "path": "/clinical.html",
+            "title": "For Doctors",
             "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
             "eventCount": 1,
             "engagement": 0
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 24
+          },
+          {
+            "path": "/melati-noerwa-profile.html",
+            "title": "Melati Noerwa | Administration & Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 3
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 35
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 38
+          },
+          {
+            "path": "/yudi-febriadi-profile.html",
+            "title": "dr. Yudi Febriadi MARS | Hospital Management Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 7
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 0,
+            "eventCount": 1,
+            "engagement": 25
           }
         ]
       },
@@ -373,50 +355,62 @@
         "status": "ok",
         "rows": [
           {
+            "path": "/traffic.html",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
+            "sessions": 6,
+            "engagementRate": 0.1667
+          },
+          {
             "path": "/events/management-thyroid-nodules-2026.html",
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "sessions": 173,
-            "engagementRate": 0.6532
+            "sessions": 4,
+            "engagementRate": 0
           },
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 9,
-            "engagementRate": 0.5556
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
             "sessions": 3,
-            "engagementRate": 1
-          },
-          {
-            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
-            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
-            "sessions": 2,
-            "engagementRate": 1
+            "engagementRate": 0
           },
           {
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 2,
-            "engagementRate": 1
+            "engagementRate": 0
           },
           {
-            "path": "/about.html",
-            "title": "About BA Medicale | Medical Learning for Better Care",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
             "sessions": 1,
             "engagementRate": 0
           },
           {
-            "path": "/ebooks/essentials-of-breast-health.html",
-            "title": "Essentials of Breast Health",
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
             "sessions": 1,
             "engagementRate": 0
           },
           {
-            "path": "/privacy-policy.html",
-            "title": "Privacy Policy & User Data Deletion",
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
             "sessions": 1,
             "engagementRate": 0
           }
@@ -432,39 +426,39 @@
     },
     "7d": {
       "range": {
-        "startDate": "2026-09-13",
-        "endDate": "2026-09-19",
-        "previousStartDate": "2026-09-06",
-        "previousEndDate": "2026-09-12"
+        "startDate": "2026-09-14",
+        "endDate": "2026-09-20",
+        "previousStartDate": "2026-09-07",
+        "previousEndDate": "2026-09-13"
       },
-      "generatedAt": "2026-09-20T15:02:33.030Z",
+      "generatedAt": "2026-09-20T19:55:44.882Z",
       "summary": {
-        "activeUsers": 177,
-        "newUsers": 171,
-        "screenPageViews": 594,
-        "sessions": 253,
-        "engagedSessions": 157,
-        "userEngagementDuration": 13092,
-        "eventCount": 2043,
+        "activeUsers": 176,
+        "newUsers": 168,
+        "screenPageViews": 604,
+        "sessions": 256,
+        "engagedSessions": 145,
+        "userEngagementDuration": 14040,
+        "eventCount": 2074,
         "keyEvents": 0,
-        "totalUsers": 177,
-        "averageEngagementTimeSeconds": 73.9661,
-        "engagementRate": 0.6206,
-        "returningUsers": 37
+        "totalUsers": 176,
+        "averageEngagementTimeSeconds": 79.7727,
+        "engagementRate": 0.5664,
+        "returningUsers": 35
       },
       "previous": {
-        "activeUsers": 20,
-        "newUsers": 16,
-        "screenPageViews": 102,
-        "sessions": 46,
-        "engagedSessions": 27,
-        "userEngagementDuration": 2520,
-        "eventCount": 277,
+        "activeUsers": 24,
+        "newUsers": 20,
+        "screenPageViews": 154,
+        "sessions": 59,
+        "engagedSessions": 37,
+        "userEngagementDuration": 3691,
+        "eventCount": 404,
         "keyEvents": 0,
-        "totalUsers": 21,
-        "averageEngagementTimeSeconds": 126,
-        "engagementRate": 0.587,
-        "returningUsers": 7
+        "totalUsers": 24,
+        "averageEngagementTimeSeconds": 153.7917,
+        "engagementRate": 0.6271,
+        "returningUsers": 9
       },
       "totals": {
         "status": "ok",
@@ -474,21 +468,6 @@
       "trend": {
         "status": "ok",
         "current": [
-          {
-            "date": "2026-09-13",
-            "activeUsers": 7,
-            "newUsers": 5,
-            "screenPageViews": 60,
-            "sessions": 19,
-            "engagedSessions": 13,
-            "userEngagementDuration": 1216,
-            "eventCount": 152,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 173.7143,
-            "engagementRate": 0.6842,
-            "returningUsers": 4
-          },
           {
             "date": "2026-09-14",
             "activeUsers": 4,
@@ -578,23 +557,24 @@
             "averageEngagementTimeSeconds": 57.0189,
             "engagementRate": 0.625,
             "returningUsers": 30
+          },
+          {
+            "date": "2026-09-20",
+            "activeUsers": 9,
+            "newUsers": 2,
+            "screenPageViews": 70,
+            "sessions": 22,
+            "engagedSessions": 1,
+            "userEngagementDuration": 2164,
+            "eventCount": 183,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 240.4444,
+            "engagementRate": 0.0455,
+            "returningUsers": 3
           }
         ],
         "previous": [
-          {
-            "date": "2026-09-06",
-            "activeUsers": 3,
-            "newUsers": 1,
-            "screenPageViews": 8,
-            "sessions": 6,
-            "engagedSessions": 3,
-            "userEngagementDuration": 45,
-            "eventCount": 25,
-            "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 15,
-            "engagementRate": 0.5
-          },
           {
             "date": "2026-09-07",
             "activeUsers": 4,
@@ -678,6 +658,20 @@
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 149,
             "engagementRate": 0.5
+          },
+          {
+            "date": "2026-09-13",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 60,
+            "sessions": 19,
+            "engagedSessions": 13,
+            "userEngagementDuration": 1216,
+            "eventCount": 152,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 173.7143,
+            "engagementRate": 0.6842
           }
         ]
       },
@@ -686,13 +680,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 170,
-            "sessions": 170
+            "activeUsers": 167,
+            "sessions": 177
           },
           {
             "label": "Returning",
-            "activeUsers": 37,
-            "sessions": 81
+            "activeUsers": 35,
+            "sessions": 76
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 2,
+            "sessions": 2
           },
           {
             "label": "Unclassified",
@@ -710,12 +709,17 @@
           {
             "label": "Direct",
             "activeUsers": 163,
-            "sessions": 204
+            "sessions": 206
           },
           {
             "label": "Organic Search",
-            "activeUsers": 11,
+            "activeUsers": 10,
             "sessions": 41
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 8,
+            "sessions": 13
           },
           {
             "label": "Organic Social",
@@ -725,12 +729,7 @@
           {
             "label": "Referral",
             "activeUsers": 2,
-            "sessions": 5
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
+            "sessions": 6
           }
         ]
       },
@@ -739,12 +738,12 @@
         "rows": [
           {
             "label": "mobile",
-            "activeUsers": 106,
-            "sessions": 144
+            "activeUsers": 104,
+            "sessions": 147
           },
           {
             "label": "desktop",
-            "activeUsers": 69,
+            "activeUsers": 70,
             "sessions": 107
           },
           {
@@ -759,8 +758,8 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 163,
-            "sessions": 233
+            "activeUsers": 160,
+            "sessions": 229
           },
           {
             "label": "United States",
@@ -775,12 +774,22 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 165,
-            "sessions": 222
+            "sessions": 224
           },
           {
             "label": "google / organic",
-            "activeUsers": 9,
-            "sessions": 28
+            "activeUsers": 8,
+            "sessions": 27
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "(data not available)",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "dataindex.pro / referral",
@@ -805,17 +814,17 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 163,
-            "sessions": 204
+            "sessions": 206
           },
           {
             "label": "google / organic",
-            "activeUsers": 11,
+            "activeUsers": 10,
             "sessions": 41
           },
           {
             "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
+            "activeUsers": 8,
+            "sessions": 13
           },
           {
             "label": "dataindex.pro / referral",
@@ -830,7 +839,7 @@
           {
             "label": "keep.google.com / referral",
             "activeUsers": 1,
-            "sessions": 4
+            "sessions": 5
           },
           {
             "label": "m.facebook.com / referral",
@@ -847,90 +856,72 @@
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
             "type": "Seminars / Events",
             "activeUsers": 156,
-            "views": 300,
-            "eventCount": 1278,
-            "engagement": 48.5321
+            "views": 304,
+            "eventCount": 1293,
+            "engagement": 49.0833
           },
           {
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 30,
-            "views": 108,
-            "eventCount": 266,
-            "engagement": 54.1333
+            "activeUsers": 29,
+            "views": 92,
+            "eventCount": 228,
+            "engagement": 57.6552
           },
           {
             "path": "/seminar.html",
             "title": "Courses & Seminars",
             "type": "Other public pages",
-            "activeUsers": 8,
-            "views": 39,
-            "eventCount": 89,
-            "engagement": 36.125
+            "activeUsers": 9,
+            "views": 42,
+            "eventCount": 95,
+            "engagement": 70.7778
           },
           {
-            "path": "/library.html",
-            "title": "Medical Library",
-            "type": "Other public pages",
-            "activeUsers": 5,
-            "views": 21,
-            "eventCount": 53,
-            "engagement": 77
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "type": "eBooks",
+            "activeUsers": 4,
+            "views": 33,
+            "eventCount": 106,
+            "engagement": 229.75
           },
           {
             "path": "/ebooks.html",
             "title": "Digital Bookshelf",
             "type": "Other public pages",
             "activeUsers": 3,
-            "views": 20,
-            "eventCount": 43,
-            "engagement": 71.6667
+            "views": 26,
+            "eventCount": 55,
+            "engagement": 79.3333
           },
           {
             "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
             "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "type": "Presentations",
-            "activeUsers": 5,
-            "views": 18,
-            "eventCount": 53,
-            "engagement": 227
-          },
-          {
-            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
-            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
-            "type": "eBooks",
-            "activeUsers": 3,
-            "views": 18,
-            "eventCount": 58,
-            "engagement": 97
-          },
-          {
-            "path": "/public.html",
-            "title": "For Public",
-            "type": "Other public pages",
-            "activeUsers": 4,
-            "views": 11,
-            "eventCount": 22,
-            "engagement": 35.5
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "type": "Other public pages",
-            "activeUsers": 6,
-            "views": 10,
-            "eventCount": 26,
-            "engagement": 11.5
+            "activeUsers": 7,
+            "views": 21,
+            "eventCount": 63,
+            "engagement": 197.4286
           },
           {
             "path": "/traffic.html",
             "title": "BA Medicale Growth & Education Impact Dashboard",
             "type": "Other public pages",
-            "activeUsers": 4,
-            "views": 9,
-            "eventCount": 17,
-            "engagement": 114.5
+            "activeUsers": 5,
+            "views": 20,
+            "eventCount": 38,
+            "engagement": 90.4
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 18,
+            "eventCount": 44,
+            "engagement": 62.8
           },
           {
             "path": "/ebooks/essentials-of-breast-health.html",
@@ -942,31 +933,31 @@
             "engagement": 80.5
           },
           {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 5,
+            "eventCount": 15,
+            "engagement": 8
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 5,
+            "eventCount": 10,
+            "engagement": 13.3333
+          },
+          {
             "path": "/videos.html",
             "title": "Videos",
             "type": "Videos",
             "activeUsers": 3,
-            "views": 6,
-            "eventCount": 30,
-            "engagement": 56.3333
-          },
-          {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "type": "Articles",
-            "activeUsers": 3,
-            "views": 4,
-            "eventCount": 21,
-            "engagement": 108
-          },
-          {
-            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
-            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
-            "type": "Case Reports",
-            "activeUsers": 3,
-            "views": 4,
-            "eventCount": 13,
-            "engagement": 45.3333
+            "views": 5,
+            "eventCount": 28,
+            "engagement": 55.6667
           },
           {
             "path": "/team.html",
@@ -975,16 +966,16 @@
             "activeUsers": 2,
             "views": 4,
             "eventCount": 10,
-            "engagement": 28.5
+            "engagement": 24
           },
           {
-            "path": "/healthcare-workers.html",
-            "title": "Medical Education for Healthcare Workers",
-            "type": "Other public pages",
-            "activeUsers": 3,
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 2,
             "views": 3,
-            "eventCount": 7,
-            "engagement": 9
+            "eventCount": 9,
+            "engagement": 11
           },
           {
             "path": "/about.html",
@@ -996,6 +987,24 @@
             "engagement": 2
           },
           {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 10,
+            "engagement": 66.5
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 10
+          },
+          {
             "path": "/privacy-policy.html",
             "title": "Privacy Policy & User Data Deletion",
             "type": "Other public pages",
@@ -1005,22 +1014,22 @@
             "engagement": 4
           },
           {
-            "path": "/search.html",
-            "title": "Search",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 2,
-            "eventCount": 2,
-            "engagement": 0
-          },
-          {
-            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
-            "title": "Tumor vs Cancer: Understanding the Difference",
-            "type": "Articles",
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "type": "Case Reports",
             "activeUsers": 1,
             "views": 2,
             "eventCount": 6,
-            "engagement": 22
+            "engagement": 39
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 12
           },
           {
             "path": "/contact.html",
@@ -1041,6 +1050,24 @@
             "engagement": 2
           },
           {
+            "path": "/melati-noerwa-profile.html",
+            "title": "Melati Noerwa | Administration & Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 3
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 35
+          },
+          {
             "path": "/resources.html",
             "title": "Resources",
             "type": "Other public pages",
@@ -1048,6 +1075,33 @@
             "views": 1,
             "eventCount": 2,
             "engagement": 3
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 1,
+            "engagement": 0
+          },
+          {
+            "path": "/yudi-febriadi-profile.html",
+            "title": "dr. Yudi Febriadi MARS | Hospital Management Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 7
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 0,
+            "eventCount": 1,
+            "engagement": 25
           }
         ]
       },
@@ -1057,44 +1111,56 @@
           {
             "path": "/events/management-thyroid-nodules-2026.html",
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "sessions": 178,
-            "engagementRate": 0.6517
+            "sessions": 181,
+            "engagementRate": 0.6409
           },
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 32,
-            "engagementRate": 0.5313
+            "sessions": 29,
+            "engagementRate": 0.4483
           },
           {
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 17,
-            "engagementRate": 0.7647
+            "sessions": 9,
+            "engagementRate": 0.5556
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
+            "sessions": 7,
+            "engagementRate": 0.2857
           },
           {
             "path": "/seminar.html",
             "title": "Courses & Seminars",
-            "sessions": 4,
-            "engagementRate": 1
-          },
-          {
-            "path": "/public.html",
-            "title": "For Public",
-            "sessions": 3,
-            "engagementRate": 0.6667
+            "sessions": 5,
+            "engagementRate": 0.8
           },
           {
             "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
             "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "sessions": 3,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "sessions": 2,
-            "engagementRate": 1
+            "engagementRate": 0
           },
           {
             "path": "/privacy-policy.html",
             "title": "Privacy Policy & User Data Deletion",
             "sessions": 2,
             "engagementRate": 0
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "sessions": 2,
+            "engagementRate": 0.5
           },
           {
             "path": "/team.html",
@@ -1109,22 +1175,34 @@
             "engagementRate": 0
           },
           {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "sessions": 1,
             "engagementRate": 1
           },
           {
-            "path": "/ebooks/essentials-of-breast-health.html",
-            "title": "Essentials of Breast Health",
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
             "sessions": 1,
             "engagementRate": 0
           },
           {
-            "path": "/traffic.html",
-            "title": "BA Medicale Growth & Education Impact Dashboard",
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
             "sessions": 1,
-            "engagementRate": 1
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks/essentials-of-breast-health.html",
+            "title": "Essentials of Breast Health",
+            "sessions": 1,
+            "engagementRate": 0
           }
         ]
       },
@@ -1134,38 +1212,38 @@
           {
             "title": "Seminars / Events",
             "activeUsers": 156,
-            "views": 300,
-            "engagement": 48.5321
+            "views": 304,
+            "engagement": 49.0833
           },
           {
             "title": "eBooks",
-            "activeUsers": 3,
-            "views": 27,
-            "engagement": 151.3333
+            "activeUsers": 4,
+            "views": 42,
+            "engagement": 270.5
           },
           {
             "title": "Presentations",
-            "activeUsers": 5,
-            "views": 18,
-            "engagement": 227
+            "activeUsers": 7,
+            "views": 21,
+            "engagement": 197.4286
           },
           {
             "title": "Videos",
             "activeUsers": 3,
-            "views": 6,
-            "engagement": 56.3333
+            "views": 5,
+            "engagement": 55.6667
           },
           {
             "title": "Articles",
             "activeUsers": 4,
-            "views": 6,
-            "engagement": 86.5
+            "views": 5,
+            "engagement": 38.75
           },
           {
             "title": "Case Reports",
-            "activeUsers": 3,
-            "views": 4,
-            "engagement": 45.3333
+            "activeUsers": 1,
+            "views": 2,
+            "engagement": 39
           }
         ]
       },
@@ -5938,10 +6016,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-09-20T15:02:33.030Z",
+  "generatedAt": "2026-09-20T19:55:44.882Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-09-20T15:02:33.030Z",
+    "generatedAt": "2026-09-20T19:55:44.882Z",
     "windowMinutes": 30
   }
 }
