@@ -35,3 +35,30 @@ test('insights are derived only from selected measured aggregates',()=>{
  const p={summary:{activeUsers:125,sessions:100},previous:{activeUsers:100},devices:{rows:[{label:'mobile',sessions:70},{label:'desktop',sessions:30}]}};
  assert.match(M.insights(p)[0],/25.0%/);assert.match(M.insights(p)[1],/70.0%/);
 });
+
+test('independent module failures do not fabricate metrics or erase other modules',async()=>{
+ const {collect}=require('./fetch-growth-analytics');
+ const request=async(url,options)=>{
+  const body=JSON.parse(options.body);
+  if(body.dimensions?.some(d=>d.name==='country'))throw new Error('simulated unavailable');
+  return {metadata:{timeZone:'Asia/Jakarta'},dimensionHeaders:(body.dimensions||[]),metricHeaders:body.metrics,rows:[]};
+ };
+ const result=await collect({propertyId:'test',token:'test',now:new Date('2026-09-20T03:00Z'),request});
+ assert.equal(result.periods['28d'].summary.activeUsers,0);
+ assert.equal(result.periods['28d'].summary.averageEngagementTimeSeconds,null);
+ assert.equal(result.periods['28d'].countries.status,'unavailable');
+ assert.equal(result.periods['28d'].devices.status,'ok');
+ assert.equal(result.periods['28d'].reconciliation.status,'passed');
+});
+
+test('unreconciled totals retain the last valid complete period',async()=>{
+ const {collect}=require('./fetch-growth-analytics');
+ const baseline=JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname,'../data/growth-analytics.json'),'utf8'));
+ const request=async(url,options)=>{
+  const body=JSON.parse(options.body);
+  if(body.metrics.length===9&&!body.dimensions?.length)throw new Error('simulated totals failure');
+  return {metadata:{timeZone:'Asia/Jakarta'},dimensionHeaders:(body.dimensions||[]),metricHeaders:body.metrics,rows:[]};
+ };
+ const result=await collect({propertyId:'test',token:'test',old:baseline,now:new Date('2026-09-20T03:00Z'),request});
+ assert.deepEqual(result.periods['28d'],baseline.periods['28d']);
+});

@@ -1,6 +1,25 @@
 # Public traffic dashboard setup
 
-The public dashboard at `traffic.html` reads aggregate data from `data/traffic-summary.json`. A scheduled GitHub Action refreshes that file every six hours through the Google Analytics Data API. Credentials are used only inside GitHub Actions and are never written to the public site.
+The public dashboard at `traffic.html` reads the validated `data/growth-analytics.json` cache. The existing GitHub Action refreshes historical aggregates every six hours and the small `data/traffic-realtime.json` cache on a five-minute schedule. Credentials are used only inside GitHub Actions and are never written to the public site. The browser reads public aggregate JSON from the repository's raw-content CDN, with a same-origin historical fallback, so bot-written data updates do not depend on a GitHub Pages rebuild. This is not a privileged API endpoint.
+
+`traffic-model.js` is the shared completed-day comparison and calculation engine. `scripts/fetch-growth-analytics.js` is the server-only collector; `traffic-dashboard.js` is the renderer. The canonical public shell remains the shared `app.js` header/footer. GA4 collection, its Measurement ID and event schema are unchanged.
+
+## Public measurement contract
+
+- The GA4 response supplies the authoritative property timezone (currently Asia/Jakarta). Yesterday excludes today. 7D/28D compare preceding equal-length completed ranges. MTD compares equal elapsed days, capped to the shorter month. Monthly compares complete calendar months of potentially different lengths.
+- Distinct active users and returning active users are queried for the whole period. Do not sum daily users, source users or page users to produce totals.
+- Returning Users = `activeUsers` filtered to `newVsReturning=returning`. A visitor may appear in both new and returning categories in a period. The audience donut therefore shows **session attribution**, not a falsely exclusive user partition.
+- Engagement seconds per active user and engaged sessions / sessions use their respective actual denominators. Missing denominators return null. Zero previous values produce no percentage comparison.
+- Source and device chart shares use the returned breakdown total; GA4 estimates can differ from headline totals. Country counts are single-dimension aggregates suppressed below five active users. No city, precise geography, personal identifiers or participant data is added to the new cache.
+- An explicit allowlist of published public page paths and production hostnames excludes private/admin pages. Titles and content groups come from repository metadata and the canonical registry, never arbitrary GA4 page titles. `/` and `/index.html` are one canonical homepage, with users deduplicated through an additional query.
+- Every preset's current and previous totals are independently re-queried and compared before publication. Failed reconciliation retains the prior valid period. Module failures are independently marked unavailable; current and stale modules are never silently mixed.
+- Recent completed days may be revised by GA4 processing. These figures measure website engagement, not learning outcomes or seminar participation.
+
+## Custom ranges and realtime limits
+
+GitHub Pages cannot execute arbitrary server queries. A public custom range is available only when its exact aggregate has been published. Use this workflow's `start_date` and `end_date` inputs to publish an arbitrary completed range (maximum 366 days), compared with its immediately preceding equal-length range. The UI does not approximate uncached distinct-user totals from daily data. General visitor-selected custom ranges require an approved, rate-limited server endpoint; credentials must remain server-side. The public Custom control only exposes an already-published custom range; it is disabled when none exists. No arbitrary query form or browser-to-GA request is exposed.
+
+The card is labeled Recently Active, with a cached update age. Realtime uses GA4's trailing 30-minute active-user count filtered to known public screen titles. The five-minute workflow is best effort, not an uptime or latency guarantee. Failed/older-than-ten-minute snapshots display `Temporarily unavailable`. No realtime value is fabricated. Browser refresh reads only the cache, never GA4. Public JSON is not listed in the sitemap and contains no private endpoint/configuration.
 
 ## One-time Google setup
 
@@ -16,14 +35,14 @@ In the repository, open **Settings → Secrets and variables → Actions** and a
 - `GA4_PROPERTY_ID`: the numeric GA4 property ID.
 - `GA4_SERVICE_ACCOUNT_JSON`: the complete service-account JSON key as one repository secret.
 
-Do not commit the key, paste it into HTML or JavaScript, or expose either secret in logs. After adding both secrets, run **Refresh public traffic data** manually from the Actions tab. The workflow tests the schema, requests five aggregate reports, validates the output, and commits only `data/traffic-summary.json` when it changes.
+Do not commit the key, paste it into HTML or JavaScript, or expose either secret in logs. After adding both secrets, run **Refresh public traffic data** manually from the Actions tab. The workflow validates the output and commits only the three public aggregate caches. The old `data/traffic-summary.json` remains a compatibility snapshot; its useful page/acquisition reports are represented in the new detailed report rather than duplicated as KPI sections.
 
 ## Operations
 
-- Schedule: `0 */6 * * *` (every six hours, UTC).
+- Historical schedule: `0 */6 * * *` (every six hours, UTC). Realtime: `*/5 * * * *` (best effort).
 - Manual refresh: use `workflow_dispatch` from the Actions tab.
 - Local contract check: `npm run traffic:test`.
 - Local JSON validation: `npm run traffic:validate` (the bootstrap file requires `--allow-pending` until the first successful refresh).
-- A missing or invalid public JSON file leaves the page in the visitor-safe `Traffic data is being prepared.` state.
+- Missing or invalid aggregates retain the last valid report when available; otherwise the dashboard shows an unavailable state.
 
 The output contains aggregate counts and labels only. It must never be expanded to include user-level, device-level, event-level, identity, medical, or free-text data.

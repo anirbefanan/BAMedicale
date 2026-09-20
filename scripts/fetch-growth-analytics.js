@@ -50,13 +50,16 @@ function validate(payload) {
   if (/@|private_key|client_email|clientId|userId|GA4_PROPERTY|[?]email=/.test(serialized)) throw new Error('Private data detected.');
   return payload;
 }
-async function collect({propertyId, token, now = new Date(), old, custom, realtimeOnly = false}) {
+async function collect({propertyId, token, now = new Date(), old, custom, realtimeOnly = false, request = requestJson}) {
   const pages = catalog(), filter = publicFilter(pages);
   const endpoint = `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}`;
   async function query(body, realtime = false) {
-    return requestJson(endpoint + (realtime ? ':runRealtimeReport' : ':runReport'), {
+    const result=await request(endpoint + (realtime ? ':runRealtimeReport' : ':runReport'), {
       method: 'POST', headers: {authorization: `Bearer ${token}`, 'content-type': 'application/json'}, body: JSON.stringify(body)
     });
+    if(!body.metrics.every(m=>result.metricHeaders?.some(h=>h.name===m.name)))throw new Error('Missing metric headers.');
+    for(const row of result.rows||[])if(row.metricValues?.length!==body.metrics.length||row.metricValues.some(v=>v.value==null||!Number.isFinite(Number(v.value))||Number(v.value)<0))throw new Error('Invalid metric values.');
+    return result;
   }
   let timeZone = old?.timeZone;
   if (!realtimeOnly || !timeZone) {

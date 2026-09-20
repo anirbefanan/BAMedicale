@@ -11,14 +11,13 @@ const sitemap = read("sitemap.xml");
 const workflow = read(".github/workflows/refresh-traffic-data.yml");
 
 test("traffic page exposes the required semantic, SEO, and fallback content", () => {
-  assert.match(html, /<title>BA Medicale Website Traffic \| Public Analytics Overview<\/title>/);
+  assert.match(html, /<title>BA Medicale Growth &amp; Education Impact Dashboard<\/title>/);
   assert.match(html, /<link rel="canonical" href="https:\/\/bamedicale\.com\/traffic\.html">/);
-  assert.match(html, /<h1 id="traffic-title">BA Medicale website traffic\.<\/h1>/);
-  assert.match(html, /Public website traffic overview · Updated automatically · Last 28 days/);
-  assert.match(html, /Last updated: awaiting the first automatic refresh\./);
-  assert.match(html, /Traffic data is being prepared\./);
+  assert.match(html, /<h1 id="traffic-title">Website Traffic &amp; Education Impact<\/h1>/);
+  assert.match(html, /data-growth-period/);
+  assert.match(html, /Loading the latest public aggregates/);
   assert.match(html, /does not display individual visitor information/);
-  assert.match(html, /data-traffic-dashboard/);
+  assert.match(html, /data-growth-content/);
   assert.match(html, /data-shell/);
   assert.match(html, /data-footer/);
 });
@@ -50,6 +49,6 @@ test("workflow is scheduled, least-privilege, and stages generated data only", (
 });
 
 test("public dashboard files contain no private GA4 configuration", () => {
-  const publicSurface = [html, app, read("data/traffic-summary.json")].join("\n");
+  const publicSurface = [html, app, read("traffic-dashboard.js"), read("traffic-model.js"), read("data/growth-analytics.json")].join("\n");
   assert.doesNotMatch(publicSurface, /GA4_PROPERTY_ID|GA4_SERVICE_ACCOUNT_JSON|client_email|private_key|analyticsdata\.googleapis\.com/);
 });
