@@ -9,7 +9,7 @@
         "previousStartDate": "2026-09-18",
         "previousEndDate": "2026-09-18"
       },
-      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "generatedAt": "2026-09-20T05:49:26.422Z",
       "summary": {
         "activeUsers": 159,
         "newUsers": 154,
@@ -58,7 +58,8 @@
             "keyEvents": 0,
             "totalUsers": 159,
             "averageEngagementTimeSeconds": 57.0189,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 30
           }
         ],
         "previous": [
@@ -92,6 +93,9 @@
             "sessions": 47
           }
         ]
+      },
+      "returningTrend": {
+        "status": "ok"
       },
       "channels": {
         "status": "ok",
@@ -211,13 +215,13 @@
             "engagement": 42.9868
           },
           {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "path": "/",
+            "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 7,
-            "views": 24,
-            "eventCount": 53,
-            "engagement": 31
+            "activeUsers": 12,
+            "views": 35,
+            "eventCount": 88,
+            "engagement": 22.5
           },
           {
             "path": "/seminar.html",
@@ -254,15 +258,6 @@
             "views": 13,
             "eventCount": 38,
             "engagement": 160.4
-          },
-          {
-            "path": "/",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "type": "Other public pages",
-            "activeUsers": 9,
-            "views": 11,
-            "eventCount": 35,
-            "engagement": 5.8889
           },
           {
             "path": "/library.html",
@@ -479,7 +474,7 @@
         "previousStartDate": "2026-09-06",
         "previousEndDate": "2026-09-12"
       },
-      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "generatedAt": "2026-09-20T05:49:26.422Z",
       "summary": {
         "activeUsers": 177,
         "newUsers": 171,
@@ -528,7 +523,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 173.7143,
-            "engagementRate": 0.6842
+            "engagementRate": 0.6842,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-14",
@@ -542,7 +538,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 132.25,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-15",
@@ -556,7 +553,8 @@
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 126.6,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6667,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-16",
@@ -570,7 +568,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 7.5,
-            "engagementRate": 0.8
+            "engagementRate": 0.8,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-17",
@@ -584,7 +583,8 @@
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 18.25,
-            "engagementRate": 0.375
+            "engagementRate": 0.375,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-18",
@@ -598,7 +598,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 171.6667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 6
           },
           {
             "date": "2026-09-19",
@@ -612,7 +613,8 @@
             "keyEvents": 0,
             "totalUsers": 159,
             "averageEngagementTimeSeconds": 57.0189,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 30
           }
         ],
         "previous": [
@@ -735,6 +737,9 @@
             "sessions": 2
           }
         ]
+      },
+      "returningTrend": {
+        "status": "ok"
       },
       "channels": {
         "status": "ok",
@@ -884,22 +889,13 @@
             "engagement": 48.5321
           },
           {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "type": "Other public pages",
-            "activeUsers": 11,
-            "views": 64,
-            "eventCount": 138,
-            "engagement": 64.5455
-          },
-          {
             "path": "/",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 27,
-            "views": 44,
-            "eventCount": 128,
-            "engagement": 33.8519
+            "activeUsers": 30,
+            "views": 108,
+            "eventCount": 266,
+            "engagement": 54.1333
           },
           {
             "path": "/seminar.html",
@@ -1221,7 +1217,7 @@
         "previousStartDate": "2026-07-26",
         "previousEndDate": "2026-08-22"
       },
-      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "generatedAt": "2026-09-20T05:49:26.422Z",
       "summary": {
         "activeUsers": 227,
         "newUsers": 229,
@@ -1270,7 +1266,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-24",
@@ -1284,7 +1281,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-25",
@@ -1298,7 +1296,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 15,
-            "engagementRate": 1
+            "engagementRate": 1,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-26",
@@ -1312,7 +1311,8 @@
             "keyEvents": 0,
             "totalUsers": 8,
             "averageEngagementTimeSeconds": 218.5714,
-            "engagementRate": 0.5385
+            "engagementRate": 0.5385,
+            "returningUsers": 2
           },
           {
             "date": "2026-08-27",
@@ -1326,7 +1326,8 @@
             "keyEvents": 0,
             "totalUsers": 13,
             "averageEngagementTimeSeconds": 59.4167,
-            "engagementRate": 0.5882
+            "engagementRate": 0.5882,
+            "returningUsers": 3
           },
           {
             "date": "2026-08-28",
@@ -1340,7 +1341,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 101,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 3
           },
           {
             "date": "2026-08-29",
@@ -1354,7 +1356,8 @@
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 652.8,
-            "engagementRate": 0.9
+            "engagementRate": 0.9,
+            "returningUsers": 6
           },
           {
             "date": "2026-08-30",
@@ -1368,7 +1371,8 @@
             "keyEvents": 0,
             "totalUsers": 13,
             "averageEngagementTimeSeconds": 531.5,
-            "engagementRate": 0.7143
+            "engagementRate": 0.7143,
+            "returningUsers": 5
           },
           {
             "date": "2026-08-31",
@@ -1382,7 +1386,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 214.6667,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-01",
@@ -1396,7 +1401,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 426.6667,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-02",
@@ -1410,7 +1416,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 286,
-            "engagementRate": 0.8
+            "engagementRate": 0.8,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-03",
@@ -1424,7 +1431,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 130.1667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 5
           },
           {
             "date": "2026-09-04",
@@ -1438,7 +1446,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 39,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-05",
@@ -1452,7 +1461,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 85,
-            "engagementRate": 0.4286
+            "engagementRate": 0.4286,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-06",
@@ -1466,7 +1476,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 15,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-07",
@@ -1480,7 +1491,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 3.5,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6667,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-08",
@@ -1494,7 +1506,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 54.875,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-09",
@@ -1508,7 +1521,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 46.5,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-10",
@@ -1522,7 +1536,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 285,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-11",
@@ -1536,7 +1551,8 @@
             "keyEvents": 0,
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 35,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-12",
@@ -1550,7 +1566,8 @@
             "keyEvents": 0,
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 149,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-13",
@@ -1564,7 +1581,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 173.7143,
-            "engagementRate": 0.6842
+            "engagementRate": 0.6842,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-14",
@@ -1578,7 +1596,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 132.25,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-15",
@@ -1592,7 +1611,8 @@
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 126.6,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6667,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-16",
@@ -1606,7 +1626,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 7.5,
-            "engagementRate": 0.8
+            "engagementRate": 0.8,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-17",
@@ -1620,7 +1641,8 @@
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 18.25,
-            "engagementRate": 0.375
+            "engagementRate": 0.375,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-18",
@@ -1634,7 +1656,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 171.6667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 6
           },
           {
             "date": "2026-09-19",
@@ -1648,7 +1671,8 @@
             "keyEvents": 0,
             "totalUsers": 159,
             "averageEngagementTimeSeconds": 57.0189,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 30
           }
         ],
         "previous": [
@@ -2066,6 +2090,9 @@
           }
         ]
       },
+      "returningTrend": {
+        "status": "ok"
+      },
       "channels": {
         "status": "ok",
         "rows": [
@@ -2225,6 +2252,15 @@
         "status": "ok",
         "rows": [
           {
+            "path": "/",
+            "title": "BA Medicale — Home",
+            "type": "Other public pages",
+            "activeUsers": 78,
+            "views": 442,
+            "eventCount": 1143,
+            "engagement": 142.8974
+          },
+          {
             "path": "/events/management-thyroid-nodules-2026.html",
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
             "type": "Seminars / Events",
@@ -2232,24 +2268,6 @@
             "views": 354,
             "eventCount": 1470,
             "engagement": 50.1163
-          },
-          {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "type": "Other public pages",
-            "activeUsers": 21,
-            "views": 282,
-            "eventCount": 651,
-            "engagement": 327.381
-          },
-          {
-            "path": "/",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "type": "Other public pages",
-            "activeUsers": 73,
-            "views": 160,
-            "eventCount": 492,
-            "engagement": 58.5068
           },
           {
             "path": "/seminar.html",
@@ -2658,7 +2676,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-19"
       },
-      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "generatedAt": "2026-09-20T05:49:26.422Z",
       "summary": {
         "activeUsers": 201,
         "newUsers": 194,
@@ -2707,7 +2725,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 426.6667,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-02",
@@ -2721,7 +2740,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 286,
-            "engagementRate": 0.8
+            "engagementRate": 0.8,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-03",
@@ -2735,7 +2755,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 130.1667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 5
           },
           {
             "date": "2026-09-04",
@@ -2749,7 +2770,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 39,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-05",
@@ -2763,7 +2785,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 85,
-            "engagementRate": 0.4286
+            "engagementRate": 0.4286,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-06",
@@ -2777,7 +2800,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 15,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-07",
@@ -2791,7 +2815,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 3.5,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6667,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-08",
@@ -2805,7 +2830,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 54.875,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-09",
@@ -2819,7 +2845,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 46.5,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-10",
@@ -2833,7 +2860,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 285,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-11",
@@ -2847,7 +2875,8 @@
             "keyEvents": 0,
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 35,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-12",
@@ -2861,7 +2890,8 @@
             "keyEvents": 0,
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 149,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-13",
@@ -2875,7 +2905,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 173.7143,
-            "engagementRate": 0.6842
+            "engagementRate": 0.6842,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-14",
@@ -2889,7 +2920,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 132.25,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-15",
@@ -2903,7 +2935,8 @@
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 126.6,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6667,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-16",
@@ -2917,7 +2950,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 7.5,
-            "engagementRate": 0.8
+            "engagementRate": 0.8,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-17",
@@ -2931,7 +2965,8 @@
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 18.25,
-            "engagementRate": 0.375
+            "engagementRate": 0.375,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-18",
@@ -2945,7 +2980,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 171.6667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 6
           },
           {
             "date": "2026-09-19",
@@ -2959,7 +2995,8 @@
             "keyEvents": 0,
             "totalUsers": 159,
             "averageEngagementTimeSeconds": 57.0189,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 30
           }
         ],
         "previous": [
@@ -3251,6 +3288,9 @@
           }
         ]
       },
+      "returningTrend": {
+        "status": "ok"
+      },
       "channels": {
         "status": "ok",
         "rows": [
@@ -3419,22 +3459,13 @@
             "engagement": 46.7576
           },
           {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "type": "Other public pages",
-            "activeUsers": 16,
-            "views": 173,
-            "eventCount": 374,
-            "engagement": 215.0625
-          },
-          {
             "path": "/",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 48,
-            "views": 79,
-            "eventCount": 248,
-            "engagement": 39.0625
+            "activeUsers": 52,
+            "views": 252,
+            "eventCount": 622,
+            "engagement": 102.2308
           },
           {
             "path": "/seminar.html",
@@ -3807,7 +3838,7 @@
         "previousStartDate": "2026-07-01",
         "previousEndDate": "2026-07-31"
       },
-      "generatedAt": "2026-09-20T05:38:04.594Z",
+      "generatedAt": "2026-09-20T05:49:26.422Z",
       "summary": {
         "activeUsers": 35,
         "newUsers": 35,
@@ -3856,7 +3887,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-02",
@@ -3870,7 +3902,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-03",
@@ -3884,7 +3917,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-04",
@@ -3898,7 +3932,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-05",
@@ -3912,7 +3947,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-06",
@@ -3926,7 +3962,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-07",
@@ -3940,7 +3977,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-08",
@@ -3954,7 +3992,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-09",
@@ -3968,7 +4007,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-10",
@@ -3982,7 +4022,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-11",
@@ -3996,7 +4037,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-12",
@@ -4010,7 +4052,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-13",
@@ -4024,7 +4067,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-14",
@@ -4038,7 +4082,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-15",
@@ -4052,7 +4097,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-16",
@@ -4066,7 +4112,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-17",
@@ -4080,7 +4127,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-18",
@@ -4094,7 +4142,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-19",
@@ -4108,7 +4157,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-20",
@@ -4122,7 +4172,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-21",
@@ -4136,7 +4187,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-22",
@@ -4150,7 +4202,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-23",
@@ -4164,7 +4217,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-24",
@@ -4178,7 +4232,8 @@
             "keyEvents": 0,
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
-            "engagementRate": null
+            "engagementRate": null,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-25",
@@ -4192,7 +4247,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 15,
-            "engagementRate": 1
+            "engagementRate": 1,
+            "returningUsers": 0
           },
           {
             "date": "2026-08-26",
@@ -4206,7 +4262,8 @@
             "keyEvents": 0,
             "totalUsers": 8,
             "averageEngagementTimeSeconds": 218.5714,
-            "engagementRate": 0.5385
+            "engagementRate": 0.5385,
+            "returningUsers": 2
           },
           {
             "date": "2026-08-27",
@@ -4220,7 +4277,8 @@
             "keyEvents": 0,
             "totalUsers": 13,
             "averageEngagementTimeSeconds": 59.4167,
-            "engagementRate": 0.5882
+            "engagementRate": 0.5882,
+            "returningUsers": 3
           },
           {
             "date": "2026-08-28",
@@ -4234,7 +4292,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 101,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 3
           },
           {
             "date": "2026-08-29",
@@ -4248,7 +4307,8 @@
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 652.8,
-            "engagementRate": 0.9
+            "engagementRate": 0.9,
+            "returningUsers": 6
           },
           {
             "date": "2026-08-30",
@@ -4262,7 +4322,8 @@
             "keyEvents": 0,
             "totalUsers": 13,
             "averageEngagementTimeSeconds": 531.5,
-            "engagementRate": 0.7143
+            "engagementRate": 0.7143,
+            "returningUsers": 5
           },
           {
             "date": "2026-08-31",
@@ -4276,7 +4337,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 214.6667,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           }
         ],
         "previous": [
@@ -4736,6 +4798,9 @@
           }
         ]
       },
+      "returningTrend": {
+        "status": "ok"
+      },
       "channels": {
         "status": "ok",
         "rows": [
@@ -4850,22 +4915,13 @@
         "status": "ok",
         "rows": [
           {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "type": "Other public pages",
-            "activeUsers": 8,
-            "views": 109,
-            "eventCount": 277,
-            "engagement": 429.25
-          },
-          {
             "path": "/",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 33,
-            "views": 81,
-            "eventCount": 244,
-            "engagement": 72.6061
+            "activeUsers": 34,
+            "views": 190,
+            "eventCount": 521,
+            "engagement": 171.4706
           },
           {
             "path": "/library.html",
@@ -5158,6 +5214,760 @@
       "reconciliation": {
         "status": "passed"
       }
+    },
+    "custom": {
+      "range": {
+        "startDate": "2026-09-01",
+        "endDate": "2026-09-10",
+        "previousStartDate": "2026-08-22",
+        "previousEndDate": "2026-08-31"
+      },
+      "generatedAt": "2026-09-20T05:49:26.422Z",
+      "summary": {
+        "activeUsers": 28,
+        "newUsers": 22,
+        "screenPageViews": 279,
+        "sessions": 80,
+        "engagedSessions": 51,
+        "userEngagementDuration": 6625,
+        "eventCount": 725,
+        "keyEvents": 0,
+        "totalUsers": 29,
+        "averageEngagementTimeSeconds": 236.6071,
+        "engagementRate": 0.6375,
+        "returningUsers": 12
+      },
+      "previous": {
+        "activeUsers": 35,
+        "newUsers": 35,
+        "screenPageViews": 619,
+        "sessions": 103,
+        "engagedSessions": 71,
+        "userEngagementDuration": 16444,
+        "eventCount": 1596,
+        "keyEvents": 0,
+        "totalUsers": 35,
+        "averageEngagementTimeSeconds": 469.8286,
+        "engagementRate": 0.6893,
+        "returningUsers": 9
+      },
+      "totals": {
+        "status": "ok",
+        "thresholded": false,
+        "sampled": false
+      },
+      "trend": {
+        "status": "ok",
+        "current": [
+          {
+            "date": "2026-09-01",
+            "activeUsers": 6,
+            "newUsers": 3,
+            "screenPageViews": 115,
+            "sessions": 16,
+            "engagedSessions": 12,
+            "userEngagementDuration": 2560,
+            "eventCount": 289,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 426.6667,
+            "engagementRate": 0.75,
+            "returningUsers": 4
+          },
+          {
+            "date": "2026-09-02",
+            "activeUsers": 2,
+            "newUsers": 1,
+            "screenPageViews": 29,
+            "sessions": 5,
+            "engagedSessions": 4,
+            "userEngagementDuration": 572,
+            "eventCount": 70,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 286,
+            "engagementRate": 0.8,
+            "returningUsers": 1
+          },
+          {
+            "date": "2026-09-03",
+            "activeUsers": 6,
+            "newUsers": 2,
+            "screenPageViews": 35,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 781,
+            "eventCount": 81,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 130.1667,
+            "engagementRate": 0.5833,
+            "returningUsers": 5
+          },
+          {
+            "date": "2026-09-04",
+            "activeUsers": 4,
+            "newUsers": 1,
+            "screenPageViews": 7,
+            "sessions": 4,
+            "engagedSessions": 3,
+            "userEngagementDuration": 156,
+            "eventCount": 20,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 39,
+            "engagementRate": 0.75,
+            "returningUsers": 3
+          },
+          {
+            "date": "2026-09-05",
+            "activeUsers": 3,
+            "newUsers": 0,
+            "screenPageViews": 16,
+            "sessions": 7,
+            "engagedSessions": 3,
+            "userEngagementDuration": 255,
+            "eventCount": 43,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 85,
+            "engagementRate": 0.4286,
+            "returningUsers": 3
+          },
+          {
+            "date": "2026-09-06",
+            "activeUsers": 3,
+            "newUsers": 1,
+            "screenPageViews": 8,
+            "sessions": 6,
+            "engagedSessions": 3,
+            "userEngagementDuration": 45,
+            "eventCount": 25,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 15,
+            "engagementRate": 0.5,
+            "returningUsers": 2
+          },
+          {
+            "date": "2026-09-07",
+            "activeUsers": 4,
+            "newUsers": 3,
+            "screenPageViews": 9,
+            "sessions": 6,
+            "engagedSessions": 4,
+            "userEngagementDuration": 14,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 3.5,
+            "engagementRate": 0.6667,
+            "returningUsers": 2
+          },
+          {
+            "date": "2026-09-08",
+            "activeUsers": 8,
+            "newUsers": 5,
+            "screenPageViews": 30,
+            "sessions": 12,
+            "engagedSessions": 7,
+            "userEngagementDuration": 439,
+            "eventCount": 85,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 54.875,
+            "engagementRate": 0.5833,
+            "returningUsers": 3
+          },
+          {
+            "date": "2026-09-09",
+            "activeUsers": 2,
+            "newUsers": 0,
+            "screenPageViews": 9,
+            "sessions": 4,
+            "engagedSessions": 3,
+            "userEngagementDuration": 93,
+            "eventCount": 23,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 46.5,
+            "engagementRate": 0.75,
+            "returningUsers": 2
+          },
+          {
+            "date": "2026-09-10",
+            "activeUsers": 6,
+            "newUsers": 6,
+            "screenPageViews": 21,
+            "sessions": 8,
+            "engagedSessions": 5,
+            "userEngagementDuration": 1710,
+            "eventCount": 66,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 285,
+            "engagementRate": 0.625,
+            "returningUsers": 1
+          }
+        ],
+        "previous": [
+          {
+            "date": "2026-08-22",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-23",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-24",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
+          },
+          {
+            "date": "2026-08-25",
+            "activeUsers": 3,
+            "newUsers": 3,
+            "screenPageViews": 7,
+            "sessions": 3,
+            "engagedSessions": 3,
+            "userEngagementDuration": 45,
+            "eventCount": 22,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 15,
+            "engagementRate": 1
+          },
+          {
+            "date": "2026-08-26",
+            "activeUsers": 7,
+            "newUsers": 6,
+            "screenPageViews": 47,
+            "sessions": 13,
+            "engagedSessions": 7,
+            "userEngagementDuration": 1530,
+            "eventCount": 140,
+            "keyEvents": 0,
+            "totalUsers": 8,
+            "averageEngagementTimeSeconds": 218.5714,
+            "engagementRate": 0.5385
+          },
+          {
+            "date": "2026-08-27",
+            "activeUsers": 12,
+            "newUsers": 10,
+            "screenPageViews": 39,
+            "sessions": 17,
+            "engagedSessions": 10,
+            "userEngagementDuration": 713,
+            "eventCount": 111,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 59.4167,
+            "engagementRate": 0.5882
+          },
+          {
+            "date": "2026-08-28",
+            "activeUsers": 6,
+            "newUsers": 3,
+            "screenPageViews": 31,
+            "sessions": 12,
+            "engagedSessions": 6,
+            "userEngagementDuration": 606,
+            "eventCount": 89,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 101,
+            "engagementRate": 0.5
+          },
+          {
+            "date": "2026-08-29",
+            "activeUsers": 10,
+            "newUsers": 5,
+            "screenPageViews": 234,
+            "sessions": 30,
+            "engagedSessions": 27,
+            "userEngagementDuration": 6528,
+            "eventCount": 619,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 652.8,
+            "engagementRate": 0.9
+          },
+          {
+            "date": "2026-08-30",
+            "activeUsers": 12,
+            "newUsers": 7,
+            "screenPageViews": 229,
+            "sessions": 21,
+            "engagedSessions": 15,
+            "userEngagementDuration": 6378,
+            "eventCount": 535,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 531.5,
+            "engagementRate": 0.7143
+          },
+          {
+            "date": "2026-08-31",
+            "activeUsers": 3,
+            "newUsers": 1,
+            "screenPageViews": 32,
+            "sessions": 8,
+            "engagedSessions": 4,
+            "userEngagementDuration": 644,
+            "eventCount": 80,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 214.6667,
+            "engagementRate": 0.5
+          }
+        ]
+      },
+      "audience": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 21,
+            "sessions": 21
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 12,
+            "sessions": 50
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 9
+          }
+        ]
+      },
+      "returningTrend": {
+        "status": "ok"
+      },
+      "channels": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Direct",
+            "activeUsers": 14,
+            "sessions": 53
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 11,
+            "sessions": 23
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 4,
+            "sessions": 4
+          }
+        ]
+      },
+      "devices": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "desktop",
+            "activeUsers": 17,
+            "sessions": 43
+          },
+          {
+            "label": "mobile",
+            "activeUsers": 12,
+            "sessions": 38
+          }
+        ]
+      },
+      "countries": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Indonesia",
+            "activeUsers": 21,
+            "sessions": 71
+          },
+          {
+            "label": "United States",
+            "activeUsers": 7,
+            "sessions": 7
+          }
+        ]
+      },
+      "firstSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 14,
+            "sessions": 58
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 8,
+            "sessions": 15
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          }
+        ]
+      },
+      "sessionSources": {
+        "status": "ok",
+        "rows": [
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 14,
+            "sessions": 53
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 9,
+            "sessions": 20
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          }
+        ]
+      },
+      "pages": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/",
+            "title": "BA Medicale — Home",
+            "type": "Other public pages",
+            "activeUsers": 24,
+            "views": 130,
+            "eventCount": 329,
+            "engagement": 149.25
+          },
+          {
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "type": "Case Reports",
+            "activeUsers": 6,
+            "views": 24,
+            "eventCount": 77,
+            "engagement": 68
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 23,
+            "eventCount": 52,
+            "engagement": 96.5
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 10,
+            "views": 22,
+            "eventCount": 71,
+            "engagement": 8.8
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 22,
+            "eventCount": 47,
+            "engagement": 63.6667
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "type": "Other public pages",
+            "activeUsers": 8,
+            "views": 15,
+            "eventCount": 38,
+            "engagement": 65.25
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 9,
+            "eventCount": 21,
+            "engagement": 26.5
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 7,
+            "eventCount": 15,
+            "engagement": 34.6
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 3,
+            "views": 6,
+            "eventCount": 22,
+            "engagement": 75
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 6,
+            "eventCount": 14,
+            "engagement": 30.6667
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 8,
+            "engagement": 17.5
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 6,
+            "engagement": 92
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 10,
+            "engagement": 47
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 7,
+            "engagement": 39
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 6
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 2
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Workers",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 1,
+            "engagement": 0
+          },
+          {
+            "path": "/yudi-febriadi-profile.html",
+            "title": "dr. Yudi Febriadi MARS | Hospital Management Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 108
+          }
+        ]
+      },
+      "landing": {
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 29,
+            "engagementRate": 0.7586
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 27,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 8,
+            "engagementRate": 0.5
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "sessions": 5,
+            "engagementRate": 0.6
+          },
+          {
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
+            "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | Operations & Digital Development",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "sessions": 1,
+            "engagementRate": 1
+          }
+        ]
+      },
+      "content": {
+        "status": "ok",
+        "rows": [
+          {
+            "title": "Case Reports",
+            "activeUsers": 6,
+            "views": 24,
+            "engagement": 68
+          },
+          {
+            "title": "Seminars / Events",
+            "activeUsers": 10,
+            "views": 22,
+            "engagement": 8.8
+          },
+          {
+            "title": "Articles",
+            "activeUsers": 3,
+            "views": 8,
+            "engagement": 88
+          },
+          {
+            "title": "Videos",
+            "activeUsers": 2,
+            "views": 3,
+            "engagement": 47
+          },
+          {
+            "title": "Presentations",
+            "activeUsers": 0,
+            "views": 0,
+            "engagement": null
+          },
+          {
+            "title": "eBooks",
+            "activeUsers": 0,
+            "views": 0,
+            "engagement": null
+          }
+        ]
+      },
+      "reconciliation": {
+        "status": "passed"
+      }
     }
   },
   "timeZone": "Asia/Jakarta",
@@ -5165,10 +5975,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-09-20T05:38:04.594Z",
+  "generatedAt": "2026-09-20T05:49:26.422Z",
   "realtime": {
     "status": "ok",
-    "generatedAt": "2026-09-20T05:38:04.594Z",
+    "generatedAt": "2026-09-20T05:49:26.422Z",
     "activeUsers": 0,
     "windowMinutes": 30
   }
