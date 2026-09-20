@@ -8,6 +8,7 @@ const root = path.resolve(__dirname,"../..");
 const backend = fs.readFileSync(path.join(__dirname,"backend.js"),"utf8");
 const html = fs.readFileSync(path.join(root,"jumi/index.html"),"utf8");
 const client = fs.readFileSync(path.join(root,"jumi/app.js"),"utf8");
+const styles = fs.readFileSync(path.join(root,"jumi/styles.css"),"utf8");
 const config = fs.readFileSync(path.join(root,"jumi/config.js"),"utf8");
 const sitemap = fs.readFileSync(path.join(root,"sitemap.xml"),"utf8");
 const robots = fs.readFileSync(path.join(root,"robots.txt"),"utf8");
@@ -44,6 +45,13 @@ test("dashboard separates KPI status, participant progression, and operational s
   assert.doesNotMatch(client,/Participant funnel/);
   assert.doesNotMatch(client,/\["Active Doctors",m\.activeDoctors\]/);
   assert.doesNotMatch(client,/Registration → attendance/);
+});
+
+test("event cards preserve readable titles beside status and actions",()=>{
+  assert.match(styles,/\.event-row\{grid-template-columns:minmax\(0,1fr\) auto\}/);
+  assert.match(styles,/\.event-row>\.event-actions\{grid-column:1\/-1;justify-content:flex-start\}/);
+  assert.match(styles,/\.event-row h3\{[^}]*overflow-wrap:break-word;word-break:normal/);
+  assert.doesNotMatch(styles,/\.event-row h3[^}]*overflow-wrap:anywhere/);
 });
 
 test("authorization is server enforced and client-provided email is never authentication",()=>{
