@@ -29,3 +29,13 @@ test('published eBook social metadata uses the approved cover',()=>{
   assert.match(html,new RegExp('<meta property="og:image" content="'+cover.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
   assert.match(html,new RegExp('<meta name="twitter:image" content="'+cover.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
 });
+
+test('public pages load the current shared shell asset version',()=>{
+  const walk=directory=>fs.readdirSync(directory,{withFileTypes:true}).flatMap(entry=>['.git','Material','node_modules','jumi'].includes(entry.name)?[]:entry.isDirectory()?walk(path.join(directory,entry.name)):[path.join(directory,entry.name)]);
+  for(const file of walk(root).filter(file=>file.endsWith('.html'))){
+    const html=fs.readFileSync(file,'utf8');
+    if(!html.includes('app.js?v='))continue;
+    assert.match(html,/app\.js\?v=brand-integrity-20260920/,path.relative(root,file));
+    assert.doesNotMatch(html,/app\.js\?v=design-system-20260920/,path.relative(root,file));
+  }
+});

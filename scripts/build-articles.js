@@ -174,7 +174,7 @@ const renderPage = (article, index) => {
   </main>
   <dialog class="article-promotion" data-promotion-dialog><div class="article-promotion__bar"><p>BA Medicale promotion toolkit</p><button type="button" data-promote-close>Close</button></div><div class="article-promotion__body"><p>This prepares source-faithful social teasers; it does not publish to social platforms.</p><div class="article-promotion__grid">${formats.map((format) => `<article><span>${format}</span><h2>${escape(promotion.hook)}</h2>${promotion.teaser.map((text) => `<p>${escape(text)}</p>`).join("")}<b>${escape(promotion.cta)}</b><small>${canonical}</small><p>${escape(promotion.hashtags.join(" "))}</p><button type="button" data-copy-promotion="${Buffer.from(promotion.text).toString("base64")}">Copy ${format} copy</button></article>`).join("")}</div></div></dialog>
   <footer class="seo-static-footer"><p>BA Medicale provides education, not individual diagnosis or treatment advice.</p><a href="../library.html">Return to the Medical Library</a><a href="../privacy-policy.html">Privacy Policy</a></footer>
-  <script src="../content.js?v=doctor-papers-20260901"></script><script src="../content-registry.js"></script><script src="../app.js?v=design-system-20260920"></script>
+  <script src="../content.js?v=doctor-papers-20260901"></script><script src="../content-registry.js"></script><script src="../app.js?v=brand-integrity-20260920"></script>
 </body></html>`.replace(/[ \t]+\n/g, "\n");
 };
 
