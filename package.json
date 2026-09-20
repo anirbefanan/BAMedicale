@@ -5,7 +5,7 @@
     "articles:build": "node scripts/build-articles.js",
     "articles:check": "node scripts/build-articles.js --check",
     "content:build": "node scripts/build-articles.js",
-    "content:check": "node scripts/build-articles.js --check && node --test scripts/content-registry.test.js scripts/article-layout.test.js scripts/presentation.test.js scripts/ebook.test.js && node scripts/attendance/build.js --check",
+    "content:check": "node scripts/build-articles.js --check && node --test scripts/content-registry.test.js scripts/article-layout.test.js scripts/presentation.test.js scripts/ebook.test.js scripts/brand-integrity.test.js && node scripts/attendance/build.js --check",
     "seminars:build": "node scripts/build-articles.js",
     "seminars:check": "node scripts/build-articles.js --check",
     "traffic:bootstrap": "node scripts/fetch-ga4-traffic.js --bootstrap",

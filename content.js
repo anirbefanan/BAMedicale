@@ -1,4 +1,9 @@
 window.BAMEDICALE_DATA = {
+  brand: {
+    name: "BA Medicale",
+    domainDisplay: "BAMedicale.com",
+    logo: "assets/brand/bamedicale-approved-logo.jpg"
+  },
   sources: [
     { label: "World Health Organization", note: "Cancer prevention, early detection, treatment, and survivorship", url: "https://www.who.int/news-room/fact-sheets/detail/cancer" },
     { label: "National Cancer Institute", note: "Cancer biology, diagnosis, staging, and treatment", url: "https://www.cancer.gov/about-cancer" },
