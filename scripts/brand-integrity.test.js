@@ -28,6 +28,8 @@ test('published eBook social metadata uses the approved cover',()=>{
   assert.match(html,/<meta property="og:site_name" content="BA Medicale">/);
   assert.match(html,new RegExp('<meta property="og:image" content="'+cover.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
   assert.match(html,new RegExp('<meta name="twitter:image" content="'+cover.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'">'));
+  assert.match(html,/model\.js\?v=reader-integrity-20260920/);
+  assert.match(html,/reader\.js\?v=reader-integrity-20260920/);
 });
 
 test('public pages load the current shared shell asset version',()=>{
