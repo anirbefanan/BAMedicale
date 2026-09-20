@@ -9,7 +9,7 @@
         "previousStartDate": "2026-09-18",
         "previousEndDate": "2026-09-18"
       },
-      "generatedAt": "2026-09-20T05:49:26.422Z",
+      "generatedAt": "2026-09-20T06:03:19.692Z",
       "summary": {
         "activeUsers": 159,
         "newUsers": 154,
@@ -297,7 +297,7 @@
           },
           {
             "path": "/traffic.html",
-            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
             "type": "Other public pages",
             "activeUsers": 2,
             "views": 3,
@@ -423,45 +423,8 @@
         ]
       },
       "content": {
-        "status": "ok",
-        "rows": [
-          {
-            "title": "Seminars / Events",
-            "activeUsers": 152,
-            "views": 263,
-            "engagement": 42.9868
-          },
-          {
-            "title": "eBooks",
-            "activeUsers": 3,
-            "views": 27,
-            "engagement": 151.3333
-          },
-          {
-            "title": "Presentations",
-            "activeUsers": 5,
-            "views": 13,
-            "engagement": 160.4
-          },
-          {
-            "title": "Videos",
-            "activeUsers": 3,
-            "views": 4,
-            "engagement": 51.6667
-          },
-          {
-            "title": "Articles",
-            "activeUsers": 1,
-            "views": 1,
-            "engagement": 65
-          },
-          {
-            "title": "Case Reports",
-            "activeUsers": 0,
-            "views": 0,
-            "engagement": null
-          }
-        ]
+        "status": "unavailable",
+        "rows": []
       },
       "reconciliation": {
         "status": "passed"
@@ -474,7 +437,7 @@
         "previousStartDate": "2026-09-06",
         "previousEndDate": "2026-09-12"
       },
-      "generatedAt": "2026-09-20T05:49:26.422Z",
+      "generatedAt": "2026-09-20T06:03:19.692Z",
       "summary": {
         "activeUsers": 177,
         "newUsers": 171,
@@ -962,7 +925,7 @@
           },
           {
             "path": "/traffic.html",
-            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
             "type": "Other public pages",
             "activeUsers": 4,
             "views": 9,
@@ -1159,7 +1122,7 @@
           },
           {
             "path": "/traffic.html",
-            "title": "BA Medicale Website Traffic | Public Analytics Overview",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
             "sessions": 1,
             "engagementRate": 1
           }
@@ -5975,9 +5938,9 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-09-20T05:49:26.422Z",
+  "generatedAt": "2026-09-20T06:03:19.692Z",
   "realtime": {
-    "status": "ok",
+    "status": "unavailable",
     "generatedAt": "2026-09-20T05:49:26.422Z",
     "activeUsers": 0,
     "windowMinutes": 30
