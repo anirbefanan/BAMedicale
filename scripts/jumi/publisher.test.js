@@ -6,6 +6,9 @@ const path = require("path");
 const crypto = require("crypto");
 const {applyPublication,validateManifest,hashFile} = require("./apply-publication.js");
 const {validate:validateReleasePaths} = require("./validate-release-diff.js");
+const {prepareSeminar} = require("./prepare-seminar.js");
+const renderEvent = require("../event-template.js");
+const renderPresentation = require("../presentation-template.js");
 
 const workflow = fs.readFileSync(path.resolve(__dirname,"../../.github/workflows/publish-jumi-content.yml"),"utf8");
 const backend = fs.readFileSync(path.join(__dirname,"backend.js"),"utf8");
@@ -14,14 +17,15 @@ const sha = buffer=>crypto.createHash("sha256").update(buffer).digest("hex");
 
 function fixture(type){
   const root=fs.mkdtempSync(path.join(os.tmpdir(),"jumi-publisher-"));
-  fs.writeFileSync(path.join(root,"content.js"),`window.BAMEDICALE_JUMI_PUBLICATIONS = {\n  articles: {\n    // JUMI_PUBLISHED_ARTICLES_START\n    // JUMI_PUBLISHED_ARTICLES_END\n  },\n  ebooks: [\n    // JUMI_PUBLISHED_EBOOKS_START\n    // JUMI_PUBLISHED_EBOOKS_END\n  ]\n};\n`);
-  const id=type==="Article"?"content_aaaaaaaaaaaaaaaa":"content_bbbbbbbbbbbbbbbb",slug=type==="Article"?"qa-source-article":"qa-source-ebook",base=type==="Article"?`assets/articles/${slug}`:`assets/ebooks/${slug}`,source=Buffer.from("%PDF-1.4\nsource fixture\n%%EOF\n"),artwork=Buffer.from("approved artwork fixture");
+  fs.writeFileSync(path.join(root,"content.js"),`window.BAMEDICALE_JUMI_PUBLICATIONS = {\n  articles: {\n    // JUMI_PUBLISHED_ARTICLES_START\n    // JUMI_PUBLISHED_ARTICLES_END\n  },\n  ebooks: [\n    // JUMI_PUBLISHED_EBOOKS_START\n    // JUMI_PUBLISHED_EBOOKS_END\n  ],\n  seminars: {\n    // JUMI_PUBLISHED_SEMINARS_START\n    // JUMI_PUBLISHED_SEMINARS_END\n  }\n};\nwindow.BAMEDICALE_DATA={presentations:{\n  // JUMI_PUBLISHED_PRESENTATIONS_START\n  // JUMI_PUBLISHED_PRESENTATIONS_END\n}};\n`);
+  const ids={Article:"content_aaaaaaaaaaaaaaaa",eBook:"content_bbbbbbbbbbbbbbbb",Seminar:"content_cccccccccccccccc",Presentation:"content_dddddddddddddddd"},slugs={Article:"qa-source-article",eBook:"qa-source-ebook",Seminar:"qa-source-seminar",Presentation:"qa-source-presentation"},folders={Article:"articles",eBook:"ebooks",Seminar:"events",Presentation:"presentations"},id=ids[type],slug=slugs[type],base=`assets/${folders[type]}/${slug}`,source=Buffer.from("%PDF-1.4\nsource fixture\n%%EOF\n"),artwork=Buffer.from("approved artwork fixture");
   fs.mkdirSync(path.join(root,base),{recursive:true});
-  fs.writeFileSync(path.join(root,base,"source.pdf"),source);
-  fs.writeFileSync(path.join(root,base,type==="Article"?"artwork.jpg":"cover.jpg"),artwork);
-  const publication=type==="Article"?{primaryAudience:"PUBLIC",primaryDiseaseGroup:"endocrine-metabolic",primaryTopic:"Diagnosis",sections:[{title:"Evidence",body:["Source-faithful fixture text."]}],references:["Fixture reference"],promotion:{hook:"Source-grounded fixture hook",teaser:["Source-grounded fixture teaser"],hashtags:["#Thyroid","#MedicalEducation"]}}:{primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",topics:["Thyroid"],downloadable:false};
-  const manifest={schemaVersion:1,contentId:id,contentType:type,slug,version:4,baseSha:"1".repeat(40),requestedAt:"2026-09-20T10:00:00+07:00",metadata:{title:type==="Article"?"QA source article":"QA source eBook",subtitle:"Non-public fixture",author:"Fixture author",publisher:type==="eBook"?"Fixture publisher":"",publishedDate:"2026-09-20",source:type==="Article"?"Fixture source":"",tags:["Thyroid"],quickSummary:"Source-grounded fixture summary.",publication},assets:{source:{path:`${base}/source.pdf`,mimeType:"application/pdf",sha256:sha(source)},artwork:{path:`${base}/${type==="Article"?"artwork":"cover"}.jpg`,mimeType:"image/jpeg",extension:"jpg",sha256:sha(artwork)}}};
-  if(type==="eBook")fs.writeFileSync(path.join(root,base,"pages.json"),JSON.stringify({sourceSha256:sha(source),pageAspect:1.294,pages:[{image:`${base}/page-1.png`,text:"Source PDF page 1"}]},null,2));
+  if(type!=="Seminar")fs.writeFileSync(path.join(root,base,"source.pdf"),source);
+  if(type!=="Presentation")fs.writeFileSync(path.join(root,base,type==="Article"?"artwork.jpg":type==="eBook"?"cover.jpg":"poster.jpg"),artwork);
+  const publication=type==="Article"?{primaryAudience:"PUBLIC",primaryDiseaseGroup:"endocrine-metabolic",primaryTopic:"Diagnosis",sections:[{title:"Evidence",body:["Source-faithful fixture text."]}],references:["Fixture reference"],promotion:{hook:"Source-grounded fixture hook",teaser:["Source-grounded fixture teaser"],hashtags:["#Thyroid","#MedicalEducation"]}}:type==="Seminar"?{eventId:slug,primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",format:"Live webinar",startDate:"2026-10-20T09:00:00+07:00",endDate:"2026-10-20T11:00:00+07:00",date:"20 October 2026",time:"09.00–11.00 WIB",location:"Zoom",attendanceMode:"Online",registration:"registration.example.test/qa-seminar",faculty:[["Speaker","Fixture doctor"]],sessions:[["Fixture topic","Fixture doctor","fixture-doctor"]]}:type==="Presentation"?{eventId:"qa-source-seminar",speakerId:"fixture-doctor",sourceAttribution:"Original fixture presentation",primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",topics:["Thyroid"]}:{primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",topics:["Thyroid"],downloadable:false};
+  const assets={source:type==="Seminar"?null:{path:`${base}/source.pdf`,mimeType:"application/pdf",sha256:sha(source)},artwork:type==="Presentation"?null:{path:`${base}/${type==="Article"?"artwork":type==="eBook"?"cover":"poster"}.jpg`,mimeType:"image/jpeg",extension:"jpg",sha256:sha(artwork)}};
+  const manifest={schemaVersion:1,contentId:id,contentType:type,slug,version:4,baseSha:"1".repeat(40),requestedAt:"2026-09-20T10:00:00+07:00",metadata:{title:`QA source ${type}`,subtitle:"Non-public fixture",author:type==="Seminar"?"":"Fixture author",publisher:type==="eBook"?"Fixture publisher":"",publishedDate:type==="Seminar"?"":"2026-09-20",source:type==="Article"||type==="Presentation"?"Fixture source":"",tags:["Thyroid"],quickSummary:"Source-grounded fixture summary.",publication},assets};
+  if(["eBook","Presentation"].includes(type))fs.writeFileSync(path.join(root,base,"pages.json"),JSON.stringify({sourceSha256:sha(source),pageAspect:1.294,pages:[{page:1,image:`${base}/page-1.png`,text:"Source PDF page 1",width:1600,height:900,figures:[]}]},null,2));
   const request=`data/jumi-publication-requests/${id}.json`;
   fs.mkdirSync(path.join(root,"data/jumi-publication-requests"),{recursive:true});
   fs.writeFileSync(path.join(root,request),JSON.stringify(manifest,null,2));
@@ -53,6 +57,12 @@ test("eBook release preserves source bytes and maps cover before original pages"
   assert.equal(fs.existsSync(path.join(f.root,f.request)),true);
 });
 
+test("Seminar release produces the canonical event record without private operational data",t=>{const f=fixture("Seminar");t.after(()=>fs.rmSync(f.root,{recursive:true,force:true}));const result=applyPublication(f.root,f.request,{dryRun:true}),html=renderEvent({event:result.record,index:0,seminars:[result.record],diseaseGroup:{name:"Endocrine & Metabolic Diseases"},domain:"https://bamedicale.com"});assert.equal(result.record.id,f.manifest.slug);assert.equal(result.record.artwork,f.manifest.assets.artwork.path);assert.equal(result.receipt.publicUrl,`https://bamedicale.com/events/${f.manifest.slug}.html`);assert.match(html,/Registration tools/);assert.match(html,/Google Calendar/);assert.match(html,/Add to Calendar \(\.ics\)/);assert.doesNotMatch(JSON.stringify(result.record)+html,/registrant|payment status|attendance status|Drive|folder id|admin identity/i);});
+
+test("Seminar preparation creates verified permanent-registration QR and calendar assets",async t=>{const f=fixture("Seminar");t.after(()=>fs.rmSync(f.root,{recursive:true,force:true}));await prepareSeminar(f.root,f.request,`assets/events/${f.manifest.slug}`);const folder=path.join(f.root,"assets/events",f.manifest.slug);for(const name of["registration-qr.svg","registration-qr.png",`${f.manifest.slug}.ics`])assert.equal(fs.existsSync(path.join(folder,name)),true);const calendar=fs.readFileSync(path.join(folder,`${f.manifest.slug}.ics`),"utf8");assert.match(calendar,/BEGIN:VEVENT/);assert.match(calendar,/URL:https:\/\/bamedicale\.com\/events\/qa-source-seminar\.html/);assert.doesNotMatch(calendar,/Drive|token|admin|registrant/i);});
+
+test("Presentation release preserves source hash and speaker/event association",t=>{const f=fixture("Presentation");t.after(()=>fs.rmSync(f.root,{recursive:true,force:true}));const before=hashFile(path.join(f.root,f.manifest.assets.source.path)),image=path.join(f.root,`assets/presentations/${f.manifest.slug}/page-1.png`);fs.writeFileSync(image,"source-faithful slide fixture");const result=applyPublication(f.root,f.request,{dryRun:true}),event={id:"qa-source-seminar",title:"QA Seminar",startDate:"2026-10-20T09:00:00+07:00",date:"20 October 2026",detailUrl:"events/qa-source-seminar.html"},html=renderPresentation({presentation:result.record,event,diseaseGroup:{name:"Endocrine & Metabolic Diseases"},root:f.root,domain:"https://bamedicale.com"});assert.equal(hashFile(path.join(f.root,f.manifest.assets.source.path)),before);assert.equal(result.record.id,f.manifest.slug);assert.equal(result.record.eventId,event.id);assert.equal(result.record.speakerId,"fixture-doctor");assert.equal(result.record.cover,`assets/presentations/${f.manifest.slug}/page-1.png`);assert.match(html,/Quick Read/);assert.match(html,/Original PDF · page 1 of 1/);assert.match(html,/Return to seminar/);});
+
 test("publication contract fails closed on traversal, asset tampering, and missing prepared pages",t=>{
   const f=fixture("eBook");t.after(()=>fs.rmSync(f.root,{recursive:true,force:true}));
   assert.doesNotThrow(()=>validateManifest(f.manifest,f.root,{requirePrepared:false}));
@@ -75,6 +85,8 @@ test("publisher stays server-only and dispatches one validated workflow",()=>{
   assert.match(backend,/\/pages\/builds\/latest/);
   assert.match(backend,/assets\/articles\//);
   assert.match(backend,/assets\/ebooks\//);
+  assert.match(backend,/assets\/events\//);
+  assert.match(backend,/assets\/presentations\//);
   assert.doesNotMatch(app,/JUMI_GITHUB_TOKEN|api\.github\.com|github_pat_|ghp_/);
   assert.match(workflow,/workflow_dispatch:/);
   assert.match(workflow,/permissions:\s*\n\s*contents: write/);
@@ -84,6 +96,8 @@ test("publisher stays server-only and dispatches one validated workflow",()=>{
   assert.doesNotMatch(workflow,/pull_request_target|secrets\./);
 });
 
+test("workflow prepares Seminar and Presentation outputs with the same guarded publisher",()=>{assert.match(workflow,/npm ci --ignore-scripts/);assert.match(workflow,/TYPE.*Presentation/s);assert.match(workflow,/prepare-presentation\.js/);assert.match(workflow,/TYPE.*Seminar/s);assert.match(workflow,/prepare-seminar\.js/);assert.match(workflow,/git push origin HEAD:main/);});
+
 test("release output allowlist accepts generated publication files and rejects arbitrary writes",()=>{
   const f=fixture("Article");
   const allowed=["content.js",`articles/${f.manifest.slug}.html`,f.manifest.assets.source.path,f.manifest.assets.artwork.path,`data/jumi-publications/${f.manifest.contentId}.json`,`data/jumi-publication-requests/${f.manifest.contentId}.json`,"sitemap.xml"];
@@ -92,3 +106,5 @@ test("release output allowlist accepts generated publication files and rejects a
   assert.throws(()=>validateReleasePaths(f.manifest,[...allowed,"Material/private.pdf"]),/disallowed paths/);
   fs.rmSync(f.root,{recursive:true,force:true});
 });
+
+test("Presentation release may update only its associated Seminar page",()=>{const f=fixture("Presentation"),base=["content.js",`presentations/${f.manifest.slug}.html`,`events/${f.manifest.metadata.publication.eventId}.html`,f.manifest.assets.source.path,`assets/presentations/${f.manifest.slug}/pages.json`,`assets/presentations/${f.manifest.slug}/page-1.png`,`data/jumi-publications/${f.manifest.contentId}.json`,`data/jumi-publication-requests/${f.manifest.contentId}.json`,`sitemap.xml`,`data/jumi-public-catalog.json`];assert.equal(validateReleasePaths(f.manifest,base),true);assert.throws(()=>validateReleasePaths(f.manifest,[...base,"events/unrelated-event.html"]),/disallowed paths/);fs.rmSync(f.root,{recursive:true,force:true});});

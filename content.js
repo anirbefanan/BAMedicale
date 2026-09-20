@@ -668,10 +668,15 @@ window.BAMEDICALE_JUMI_PUBLICATIONS = {
   ebooks: [
     // JUMI_PUBLISHED_EBOOKS_START
     // JUMI_PUBLISHED_EBOOKS_END
-  ]
+  ],
+  seminars: {
+    // JUMI_PUBLISHED_SEMINARS_START
+    // JUMI_PUBLISHED_SEMINARS_END
+  }
 };
 Object.assign(window.BAMEDICALE_DATA.articles, window.BAMEDICALE_JUMI_PUBLICATIONS.articles);
 window.BAMEDICALE_DATA.ebooks.push(...window.BAMEDICALE_JUMI_PUBLICATIONS.ebooks);
+Object.assign(window.BAMEDICALE_DATA.seminars, window.BAMEDICALE_JUMI_PUBLICATIONS.seminars);
 
 // Seminar presentations share the canonical registry, with source-locked full reads.
 window.BAMEDICALE_DATA.presentations = {
@@ -706,5 +711,7 @@ window.BAMEDICALE_DATA.presentations = {
       { title: "Management options", body: "For benign nodules, the slides describe conservative management, surgery, and ablative therapies. Separate slides address well-differentiated and poorly differentiated thyroid carcinoma.", pages: "9–14, 19" },
       { title: "Procedural focus", body: "The presentation illustrates ethanol ablation, radiofrequency ablation, endoscopic thyroidectomy (TOETVA), and transoral robotic thyroidectomy (TORT).", pages: "11–18" }
     ]
-  }
+  },
+  // JUMI_PUBLISHED_PRESENTATIONS_START
+  // JUMI_PUBLISHED_PRESENTATIONS_END
 };

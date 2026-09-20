@@ -149,13 +149,30 @@ test("Article and eBook validation gates reject missing source evidence",()=>{
 
 test("new Content OS artwork is validated server-side while historical Seminar posters remain grandfathered",()=>{
   assert.match(backend,/ImagesService\.openImage\(blob\)/);
-  assert.match(backend,/16\/9:3\/4/);
+  assert.match(backend,/16\/9/);
+  assert.match(backend,/3\/4/);
   assert.match(backend,/1\/Math\.sqrt\(2\)/);
   assert.match(backend,/Invalid poster ratio\. New Seminars require A4 portrait/);
   assert.match(client,/Seminar requires A4 portrait/);
   assert.match(client,/Approved 3:4 portrait cover/);
   assert.match(client,/Approved 16:9 landscape artwork/);
   assert.match(backend,/privatePoster\?\'\':poster/);
+});
+
+test("Seminar and Presentation use the same gated Content publisher",()=>{
+  assert.match(backend,/JUMI_CONTENT_TYPES = \['Article','eBook','Seminar','Presentation'\]/);
+  assert.match(backend,/function jumiGenerateSeminar_/);
+  assert.match(backend,/jumi_generate_seminar/);
+  assert.match(backend,/Presentation.*Original source PDF is required/s);
+  assert.match(client,/Speakers & Presentations/);
+  assert.match(client,/data-new-presentation/);
+  assert.match(client,/Generate → Validate → Preview → controlled repository release/);
+  assert.match(client,/Presentations are optional, independent publications/);
+  assert.match(client,/One missing deck never blocks the Seminar/);
+  assert.match(client,/data-presentation=/);
+  assert.match(client,/View published/);
+  assert.match(backend,/speakerId/);
+  assert.match(backend,/source slide preview, not separate arbitrary artwork/);
 });
 
 test("JUMI remains absent from public discovery surfaces",()=>{

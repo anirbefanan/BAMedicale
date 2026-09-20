@@ -18,10 +18,13 @@
     "quiz:build": "node scripts/quiz/build.js",
     "quiz:check": "node scripts/quiz/build.js --check && node --test scripts/quiz/*.test.js",
     "jumi:build": "node scripts/jumi/build.js",
-    "jumi:check": "node scripts/jumi/build.js --check && node --check jumi/app.js && node --check scripts/jumi/backend.js && node --test scripts/jumi/*.test.js"
+    "jumi:check": "node scripts/jumi/build.js --check && node --check jumi/app.js && node --check scripts/jumi/backend.js && node --test scripts/jumi/*.test.js",
+    "jumi:login": "clasp login",
+    "jumi:deploy": "npm run jumi:check && node scripts/jumi/deploy.js"
   },
   "private": true,
   "devDependencies": {
+    "@google/clasp": "^3.1.0",
     "jsqr": "^1.4.0",
     "pngjs": "^7.0.0",
     "qrcode": "^1.5.4"

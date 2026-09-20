@@ -39,6 +39,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install validated repository tooling
+        run: npm ci --ignore-scripts
+
       - name: Locate and validate publication request
         id: request
         run: |
@@ -50,7 +53,7 @@ jobs:
           echo "file=${requests[0]}" >> "$GITHUB_OUTPUT"
           node scripts/jumi/apply-publication.js --request "${requests[0]}" --contract-only
 
-      - name: Prepare eBook source pages
+      - name: Prepare publication source pages
         run: |
           TYPE=$(node -p "require('./${{ steps.request.outputs.file }}').contentType")
           if [ "$TYPE" = "eBook" ]; then
@@ -60,6 +63,18 @@ jobs:
               sudo apt-get install -y poppler-utils
             fi
             node scripts/jumi/prepare-ebook.js --source "assets/ebooks/$SLUG/source.pdf" --output "assets/ebooks/$SLUG"
+          fi
+          if [ "$TYPE" = "Presentation" ]; then
+            SLUG=$(node -p "require('./${{ steps.request.outputs.file }}').slug")
+            if ! command -v pdfinfo >/dev/null || ! command -v pdftoppm >/dev/null || ! command -v pdftotext >/dev/null; then
+              sudo apt-get update
+              sudo apt-get install -y poppler-utils
+            fi
+            node scripts/jumi/prepare-presentation.js --source "assets/presentations/$SLUG/source.pdf" --output "assets/presentations/$SLUG"
+          fi
+          if [ "$TYPE" = "Seminar" ]; then
+            SLUG=$(node -p "require('./${{ steps.request.outputs.file }}').slug")
+            node scripts/jumi/prepare-seminar.js --request "${{ steps.request.outputs.file }}" --output "assets/events/$SLUG"
           fi
 
       - name: Apply publication and run canonical checks
