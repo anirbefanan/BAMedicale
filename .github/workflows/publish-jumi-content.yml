@@ -1,0 +1,99 @@
+name: Publish validated JUMI content
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_branch:
+        description: "Server-created JUMI release branch"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jumi-content-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_BRANCH: ${{ inputs.release_branch }}
+    steps:
+      - name: Validate server-derived branch
+        run: |
+          if [[ ! "$RELEASE_BRANCH" =~ ^jumi-publish/content_[a-f0-9]{16,64}-v[1-9][0-9]*$ ]]; then
+            echo "::error::Rejected release branch."
+            exit 1
+          fi
+
+      - name: Check out controlled release
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_branch }}
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Locate and validate publication request
+        id: request
+        run: |
+          mapfile -t requests < <(find data/jumi-publication-requests -maxdepth 1 -type f -name '*.json' -print)
+          if [ "${#requests[@]}" -ne 1 ]; then
+            echo "::error::The release must contain exactly one publication request."
+            exit 1
+          fi
+          echo "file=${requests[0]}" >> "$GITHUB_OUTPUT"
+          node scripts/jumi/apply-publication.js --request "${requests[0]}" --contract-only
+
+      - name: Prepare eBook source pages
+        run: |
+          TYPE=$(node -p "require('./${{ steps.request.outputs.file }}').contentType")
+          if [ "$TYPE" = "eBook" ]; then
+            SLUG=$(node -p "require('./${{ steps.request.outputs.file }}').slug")
+            if ! command -v pdfinfo >/dev/null || ! command -v pdftoppm >/dev/null || ! command -v pdftotext >/dev/null; then
+              sudo apt-get update
+              sudo apt-get install -y poppler-utils
+            fi
+            node scripts/jumi/prepare-ebook.js --source "assets/ebooks/$SLUG/source.pdf" --output "assets/ebooks/$SLUG"
+          fi
+
+      - name: Apply publication and run canonical checks
+        run: |
+          cp "${{ steps.request.outputs.file }}" /tmp/jumi-publication-request.json
+          node scripts/jumi/apply-publication.js --request "${{ steps.request.outputs.file }}"
+          npm run content:build
+          git add -A
+          npm run content:check
+          npm run jumi:check
+          git diff --check
+
+      - name: Enforce release path boundary
+        run: |
+          git add -A
+          git diff --cached --name-only | node scripts/jumi/validate-release-diff.js /tmp/jumi-publication-request.json
+
+      - name: Publish only from the captured main revision
+        run: |
+          EXPECTED=$(node -p "require('/tmp/jumi-publication-request.json').baseSha")
+          git fetch origin main
+          ACTUAL=$(git rev-parse origin/main)
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "::error::Main changed after the release was prepared; retry from JUMI."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish JUMI content $(node -p "require('/tmp/jumi-publication-request.json').contentId")"
+          git push origin HEAD:main
+
+      - name: Remove release branch
+        if: always()
+        run: |
+          if [[ "$RELEASE_BRANCH" =~ ^jumi-publish/content_[a-f0-9]{16,64}-v[1-9][0-9]*$ ]]; then
+            git push origin --delete "$RELEASE_BRANCH" || true
+          fi

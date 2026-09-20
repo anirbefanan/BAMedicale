@@ -93,13 +93,17 @@ test("JUMI Content OS adds type-specific publishing without replacing seminar CR
   assert.match(backend,/Original source PDF is required/);
   assert.match(backend,/Author evidence is required/);
   assert.match(backend,/Publisher evidence is required/);
-  assert.match(backend,/PUBLISH_BLOCKED/);
+  assert.match(backend,/PUBLISH_DISPATCHED/);
+  assert.match(backend,/PUBLISH_FAILED/);
+  assert.match(backend,/PUBLISH_CONFIRMED/);
   assert.match(backend,/Publisher Not Connected/);
+  assert.match(backend,/publish-jumi-content\.yml/);
   assert.match(client,/Official BA Medicale logo/);
   assert.match(client,/Cover = Reader Page 1; PDF Page 1 = Reader Page 2/);
   assert.match(client,/PDF bytes are stored privately and are not changed/);
   assert.doesNotMatch(client,/github_pat_|ghp_|AIza|BEGIN PRIVATE KEY/);
   assert.doesNotMatch(backend,/github_pat_|ghp_|BEGIN PRIVATE KEY/);
+  assert.doesNotMatch(client,/JUMI_GITHUB_TOKEN|api\.github\.com/);
 });
 
 test("content lifecycle and publication actions remain server-authorized and auditable",()=>{
@@ -113,15 +117,20 @@ test("content lifecycle and publication actions remain server-authorized and aud
   assert.match(backend,/JUMI_CONTENT_ROOT_FOLDER_ID/);
   assert.match(backend,/getSharingAccess\(\)===DriveApp\.Access\.PRIVATE/);
   assert.match(backend,/\^\[a-z0-9-\]\{3,80\}\$/);
+  assert.match(backend,/Session\.getActiveUser\(\).*allowlist\.includes\(email\)/s);
+  assert.match(backend,/JUMI_GITHUB_OWNER = 'anirbefanan'/);
+  assert.match(backend,/JUMI_GITHUB_REPO = 'BAMedicale'/);
+  assert.match(backend,/data\/jumi-publication-requests/);
 });
 
 test("Article and eBook validation gates reject missing source evidence",()=>{
   const context={console};
   vm.createContext(context);vm.runInContext(backend,context);
-  const complete={type:"Article",title:"Evidence-based article",slug:"evidence-based-article",sourceStored:true,artworkStored:true,typeData:{author:"Source author",publishedDate:"2026-09-20",source:"Source publication"}};
+  const publication={primaryAudience:"PUBLIC",primaryDiseaseGroup:"endocrine-metabolic",primaryTopic:"Diagnosis",sections:[{title:"Evidence",body:["Source-faithful text."]}],references:["Source reference"],promotion:{hook:"Source-grounded hook",teaser:["Source-grounded teaser"],hashtags:["#Thyroid","#MedicalEducation"]}};
+  const complete={type:"Article",title:"Evidence-based article",slug:"evidence-based-article",sourceStored:true,artworkStored:true,typeData:{author:"Source author",publishedDate:"2026-09-20",source:"Source publication",tags:["Thyroid"],quickSummary:"Source-grounded summary.",publication}};
   assert.deepEqual([...context.jumiContentIssues_(complete)],[]);
   assert.deepEqual([...context.jumiContentIssues_({...complete,sourceStored:false})],["Original source PDF is required."]);
-  assert.deepEqual([...context.jumiContentIssues_({...complete,type:"eBook",typeData:{author:"Source author",publishedDate:"2026-09-20",publisher:""}})],["Publisher evidence is required."]);
+  assert.deepEqual([...context.jumiContentIssues_({...complete,type:"eBook",typeData:{author:"Source author",publishedDate:"2026-09-20",publisher:"",tags:["Thyroid"],quickSummary:"Source-grounded summary.",publication:{primaryAudience:"Healthcare Professionals",primaryDiseaseGroup:"thyroid"}}})],["Publisher evidence is required."]);
 });
 
 test("JUMI remains absent from public discovery surfaces",()=>{

@@ -659,6 +659,20 @@ window.BAMEDICALE_DATA = {
   profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible medical education: enough context to help people ask better questions, and enough structure to help doctors and healthcare workers continue learning across medical disciplines.", image: "assets/medical/oncology-cellular-hero.png" }
 };
 
+// Published by the authenticated JUMI release workflow. Keep these markers stable.
+window.BAMEDICALE_JUMI_PUBLICATIONS = {
+  articles: {
+    // JUMI_PUBLISHED_ARTICLES_START
+    // JUMI_PUBLISHED_ARTICLES_END
+  },
+  ebooks: [
+    // JUMI_PUBLISHED_EBOOKS_START
+    // JUMI_PUBLISHED_EBOOKS_END
+  ]
+};
+Object.assign(window.BAMEDICALE_DATA.articles, window.BAMEDICALE_JUMI_PUBLICATIONS.articles);
+window.BAMEDICALE_DATA.ebooks.push(...window.BAMEDICALE_JUMI_PUBLICATIONS.ebooks);
+
 // Seminar presentations share the canonical registry, with source-locked full reads.
 window.BAMEDICALE_DATA.presentations = {
   "current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules": {
