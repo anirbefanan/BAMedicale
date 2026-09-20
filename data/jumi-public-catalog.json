@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "indonesia-cancer-statistics-2026",
+      "type": "Article",
+      "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+      "slug": "indonesia-cancer-tumor-statistics-2026-policy-update",
+      "status": "Published",
+      "publishedAt": "2026-08-24",
+      "publicUrl": "https://bamedicale.com/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html"
+    },
+    {
+      "id": "tumor-vs-cancer-guide",
+      "type": "Article",
+      "title": "Tumor vs Cancer: Understanding the Difference",
+      "slug": "tumor-vs-cancer-understanding-the-difference",
+      "status": "Published",
+      "publishedAt": "2026-08-25",
+      "publicUrl": "https://bamedicale.com/articles/tumor-vs-cancer-understanding-the-difference.html"
+    },
+    {
+      "id": "parotid-gland-metastasis-from-breast-cancer",
+      "type": "Article",
+      "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
+      "slug": "parotid-gland-metastasis-from-breast-cancer",
+      "status": "Published",
+      "publishedAt": "2026-09-01",
+      "publicUrl": "https://bamedicale.com/articles/parotid-gland-metastasis-from-breast-cancer.html"
+    },
+    {
+      "id": "ebook-advanced-diagnostics-and-management-of-thyroid-nodules",
+      "type": "eBook",
+      "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+      "slug": "advanced-diagnostics-and-management-of-thyroid-nodules",
+      "status": "Published",
+      "publishedAt": "2026-09-19",
+      "publicUrl": "https://bamedicale.com/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html"
+    },
+    {
+      "id": "management-thyroid-nodules-2026",
+      "type": "Seminar",
+      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+      "slug": "management-thyroid-nodules-2026",
+      "status": "Published",
+      "publishedAt": "Saturday, 19 September 2026",
+      "startAt": "Saturday, 19 September 2026",
+      "publicUrl": "https://bamedicale.com/events/management-thyroid-nodules-2026.html"
+    }
+  ]
+}

@@ -90,7 +90,8 @@ test("private mutations use independent statuses, locks, audit rows, and confirm
 
 test("JUMI Content OS adds type-specific publishing without replacing seminar CRM",()=>{
   assert.match(html,/BA Medicale Content OS/);
-  assert.match(client,/"Dashboard","Content","Events","Registrants"/);
+  assert.match(client,/"Dashboard","Content","Community","Settings"/);
+  assert.match(client,/"Overview","Event Details","Registration","Payments","Attendance","Notifications","Certificates","Event Tools","Preview","Publish"/);
   assert.match(client,/Create Content/);
   assert.match(client,/data-create-type="Seminar"/);
   assert.match(client,/data-create-type="Article"/);
@@ -108,10 +109,15 @@ test("JUMI Content OS adds type-specific publishing without replacing seminar CR
   assert.match(backend,/publish-jumi-content\.yml/);
   assert.match(client,/Official BA Medicale logo/);
   assert.match(client,/Cover = Reader Page 1; PDF Page 1 = Reader Page 2/);
-  assert.match(client,/PDF bytes are stored privately and are not changed/);
+  assert.match(client,/PDF bytes remain unchanged and private until publication/);
   assert.doesNotMatch(client,/github_pat_|ghp_|AIza|BEGIN PRIVATE KEY/);
   assert.doesNotMatch(backend,/github_pat_|ghp_|BEGIN PRIVATE KEY/);
   assert.doesNotMatch(client,/JUMI_GITHUB_TOKEN|api\.github\.com/);
+  for(const label of ["Publishing Growth","Content Calendar","Recent Publishing Activity","Quick Insights","Seminar Operations","Content Health","System Health"])assert.match(client,new RegExp(label));
+  for(const tab of ["Seminars","Articles","eBooks","Event Details","Event Tools"])assert.match(client,new RegExp(tab));
+  assert.doesNotMatch(client,/\bDoD\b|day-over-day/i);
+  assert.match(backend,/jumiTrafficSnapshot_/);
+  assert.match(backend,/traffic-summary\.json/);
 });
 
 test("content lifecycle and publication actions remain server-authorized and auditable",()=>{
@@ -135,10 +141,21 @@ test("Article and eBook validation gates reject missing source evidence",()=>{
   const context={console};
   vm.createContext(context);vm.runInContext(backend,context);
   const publication={primaryAudience:"PUBLIC",primaryDiseaseGroup:"endocrine-metabolic",primaryTopic:"Diagnosis",sections:[{title:"Evidence",body:["Source-faithful text."]}],references:["Source reference"],promotion:{hook:"Source-grounded hook",teaser:["Source-grounded teaser"],hashtags:["#Thyroid","#MedicalEducation"]}};
-  const complete={type:"Article",title:"Evidence-based article",slug:"evidence-based-article",sourceStored:true,artworkStored:true,typeData:{author:"Source author",publishedDate:"2026-09-20",source:"Source publication",tags:["Thyroid"],quickSummary:"Source-grounded summary.",publication}};
+  const complete={type:"Article",title:"Evidence-based article",slug:"evidence-based-article",sourceStored:true,artworkStored:true,typeData:{author:"Source author",publishedDate:"2026-09-20",source:"Source publication",tags:["Thyroid"],quickSummary:"Source-grounded summary.",artwork:{width:1600,height:900,valid:true},publication}};
   assert.deepEqual([...context.jumiContentIssues_(complete)],[]);
   assert.deepEqual([...context.jumiContentIssues_({...complete,sourceStored:false})],["Original source PDF is required."]);
-  assert.deepEqual([...context.jumiContentIssues_({...complete,type:"eBook",typeData:{author:"Source author",publishedDate:"2026-09-20",publisher:"",tags:["Thyroid"],quickSummary:"Source-grounded summary.",publication:{primaryAudience:"Healthcare Professionals",primaryDiseaseGroup:"thyroid"}}})],["Publisher evidence is required."]);
+  assert.deepEqual([...context.jumiContentIssues_({...complete,type:"eBook",typeData:{author:"Source author",publishedDate:"2026-09-20",publisher:"",tags:["Thyroid"],quickSummary:"Source-grounded summary.",artwork:{width:900,height:1200,valid:true},publication:{primaryAudience:"Healthcare Professionals",primaryDiseaseGroup:"thyroid"}}})],["Publisher evidence is required."]);
+});
+
+test("new Content OS artwork is validated server-side while historical Seminar posters remain grandfathered",()=>{
+  assert.match(backend,/ImagesService\.openImage\(blob\)/);
+  assert.match(backend,/16\/9:3\/4/);
+  assert.match(backend,/1\/Math\.sqrt\(2\)/);
+  assert.match(backend,/Invalid poster ratio\. New Seminars require A4 portrait/);
+  assert.match(client,/Seminar requires A4 portrait/);
+  assert.match(client,/Approved 3:4 portrait cover/);
+  assert.match(client,/Approved 16:9 landscape artwork/);
+  assert.match(backend,/privatePoster\?\'\':poster/);
 });
 
 test("JUMI remains absent from public discovery surfaces",()=>{
