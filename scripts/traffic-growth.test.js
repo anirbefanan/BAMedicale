@@ -32,6 +32,6 @@ test('public path and source policy rejects private app paths and arbitrary labe
 });
 test('insights are derived only from selected measured aggregates',()=>{
  assert.deepEqual(M.insights(null),[]);
- const p={summary:{activeUsers:125,sessions:100},previous:{activeUsers:100},devices:{rows:[{label:'mobile',sessions:70}]}};
+ const p={summary:{activeUsers:125,sessions:100},previous:{activeUsers:100},devices:{rows:[{label:'mobile',sessions:70},{label:'desktop',sessions:30}]}};
  assert.match(M.insights(p)[0],/25.0%/);assert.match(M.insights(p)[1],/70.0%/);
 });

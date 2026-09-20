@@ -52,7 +52,7 @@
     const out = [], delta = change(p.summary.activeUsers, p.previous?.activeUsers);
     if (delta !== null) out.push(`Active users ${delta >= 0 ? 'increased' : 'decreased'} ${Math.abs(delta * 100).toFixed(1)}% vs the previous comparable period.`);
     const mobile = p.devices?.rows?.find(x => x.label === 'mobile');
-    const share = ratio(mobile?.sessions, p.summary.sessions);
+    const share = ratio(mobile?.sessions, p.devices?.rows?.reduce((sum,row)=>sum+row.sessions,0));
     if (share !== null) out.push(`Mobile accounted for ${(share * 100).toFixed(1)}% of sessions.`);
     const engagement = change(p.summary.averageEngagementTimeSeconds, p.previous?.averageEngagementTimeSeconds);
     if (engagement !== null) out.push(`Average engagement ${engagement >= 0 ? 'increased' : 'decreased'} ${Math.abs(engagement * 100).toFixed(1)}%.`);

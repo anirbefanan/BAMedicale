@@ -101,6 +101,11 @@ async function collect({propertyId, token, now = new Date(), old, custom, realti
         p.previous && (p.previous.returningUsers=rows.find(r=>r.dateRange==='previous'&&r.newVsReturning==='returning')?.activeUsers ?? 0);
         return {status:'ok', rows:rows.filter(r=>r.dateRange==='current').map(r=>({label:r.newVsReturning==='new'?'New':r.newVsReturning==='returning'?'Returning':'Unclassified',activeUsers:r.activeUsers,sessions:r.sessions}))};
       });
+      await module('returningTrend', async () => {
+        const rows=parseReport(await query(request(['activeUsers'],['date'],[current],{dimensionFilter:{andGroup:{expressions:[filter,inList('newVsReturning',['returning'])]}}})));
+        if(p.trend?.status==='ok')for(const day of p.trend.current)day.returningUsers=rows.find(r=>r.date===day.date.replaceAll('-',''))?.activeUsers??0;
+        return {status:'ok'};
+      });
       for (const [name,dimension] of [['channels','sessionDefaultChannelGroup'],['devices','deviceCategory'],['countries','country'],['firstSources','firstUserSourceMedium'],['sessionSources','sessionSourceMedium']]) {
         await module(name, async () => {
           const rows=parseReport(await query(request(['activeUsers','sessions'],[dimension], [current],{orderBys:[{metric:{metricName:'activeUsers'},desc:true}]})));
@@ -109,7 +114,11 @@ async function collect({propertyId, token, now = new Date(), old, custom, realti
       }
       await module('pages', async () => {
         const rows=parseReport(await query(request(['activeUsers','screenPageViews','userEngagementDuration','eventCount'],['pagePath'],[current],{orderBys:[{metric:{metricName:'screenPageViews'},desc:true}]})));
-        return {status:'ok',rows:rows.filter(r=>pages.has(r.pagePath)).map(r=>({path:r.pagePath,...pages.get(r.pagePath),activeUsers:r.activeUsers,views:r.screenPageViews,eventCount:r.eventCount,engagement:round(M.ratio(r.userEngagementDuration,r.activeUsers))}))};
+        // Root and index.html are the same page; deduplicate its users with a combined GA4 query.
+        const home=parseReport(await query(request(['activeUsers','screenPageViews','userEngagementDuration','eventCount'],[],[current],{dimensionFilter:{andGroup:{expressions:[filter,inList('pagePath',['/','/index.html'])]}}})))[0];
+        const combined=rows.filter(r=>r.pagePath!=='/'&&r.pagePath!=='/index.html');
+        if(home)combined.push({...home,pagePath:'/'});
+        return {status:'ok',rows:combined.filter(r=>pages.has(r.pagePath)).map(r=>({path:r.pagePath,...pages.get(r.pagePath),...(r.pagePath==='/'?{title:'BA Medicale — Home'}:{}),activeUsers:r.activeUsers,views:r.screenPageViews,eventCount:r.eventCount,engagement:round(M.ratio(r.userEngagementDuration,r.activeUsers))})).sort((a,b)=>b.views-a.views)};
       });
       await module('landing', async () => {
         const rows=parseReport(await query(request(['sessions','engagedSessions'],['landingPage'],[current],{orderBys:[{metric:{metricName:'sessions'},desc:true}]})));
@@ -155,7 +164,8 @@ async function main(){
   const old=fs.existsSync(OUT)?JSON.parse(fs.readFileSync(OUT,'utf8')):null;
   const custom=process.env.TRAFFIC_START&&process.env.TRAFFIC_END?{startDate:process.env.TRAFFIC_START,endDate:process.env.TRAFFIC_END}:null;
   const payload=await collect({propertyId,token,old,custom,realtimeOnly:process.argv.includes('--realtime')});
-  fs.writeFileSync(OUT,JSON.stringify(payload,null,2)+'\n');
+  if(!process.argv.includes('--realtime'))fs.writeFileSync(OUT,JSON.stringify(payload,null,2)+'\n');
+  fs.writeFileSync(path.join(ROOT,'data/traffic-realtime.json'),JSON.stringify({schemaVersion:1,...payload.realtime},null,2)+'\n');
   console.log('Published validated public aggregates; credentials and raw responses were not written.');
 }
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});
