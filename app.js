@@ -4,6 +4,11 @@ const BRAND = Object.freeze({
   domainDisplay: data.brand?.domainDisplay || "BAMedicale.com",
   logo: data.brand?.logo || "assets/brand/bamedicale-approved-logo.jpg"
 });
+const CONTACT = Object.freeze({
+  email: "support@bamedicale.com",
+  whatsappDisplay: "+62 821-236-6331",
+  whatsappUrl: "https://wa.me/628212366331"
+});
 const registryApi = window.BAMEDICALE_REGISTRY;
 let contentRegistry = registryApi.create(data);
 let registryCatalogs = { videos: [], originalVideos: [] };
@@ -62,7 +67,9 @@ const ebookBySlug = (slug) => (data.ebooks || []).find((item) => item.slug === s
 const icon = (name) => {
   const shellIcons = {
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
-    search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/>'
+    search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/>',
+    email: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/>',
+    whatsapp: '<path d="M20 11.5a8 8 0 0 1-11.8 7L4 19.6l1.1-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8.2c.3 2.2 2 4 4.2 4.8l1.2-1.2 2 .9c-.3 1.7-1.5 2.4-2.8 2.2-3.5-.6-6.9-4-7.5-7.5C5.9 6.1 6.6 4.9 8.3 4.6l.9 2L8 7.8"/>'
   };
   return shellIcons[name] ? `<svg aria-hidden="true" viewBox="0 0 24 24">${shellIcons[name]}</svg>` : `<svg aria-hidden="true"><use href="#i-${name}"></use></svg>`;
 };
@@ -264,7 +271,7 @@ function shell() {
       <div class="footer-brand"><a class="brand brand--footer" href="${navigationHref("index.html")}"><img src="${navigationHref(BRAND.logo)}" alt="${BRAND.name} official logo"><span><b>${BRAND.name}</b><small>Physician-led medical education</small></span></a><p>Education across diseases and health conditions, with dedicated depth in cancer, neoplasia, and surgical oncology. Information supports learning and does not replace individualized medical care.</p></div>
       <div class="footer-group"><h2>Explore</h2><a href="clinical.html">For Doctors</a><a href="healthcare-workers.html">For Healthcare Workers</a><a href="public.html">For Public</a><a href="library.html">Library &amp; Articles</a><a href="seminar.html">Courses &amp; Seminars</a><a href="ebooks.html">eBooks</a><a href="videos.html">Videos</a><a href="resources.html">Resources</a></div>
       <div class="footer-group"><h2>BA Medicale</h2><a href="about.html">About BA Medicale</a><a href="team.html">Team</a><a href="traffic.html">Traffic</a><a href="contact.html">Contact Us</a><a href="privacy-policy.html">Privacy Policy</a></div>
-      <div class="footer-group footer-connect"><h2>Contact</h2><address><span>Email</span><a href="mailto:support@bamedicale.com">support@bamedicale.com</a><span>WhatsApp</span><a href="https://wa.me/628212366331" target="_blank" rel="noopener noreferrer">+62 821-236-6331</a></address>
+      <div class="footer-group footer-connect"><h2>Contact</h2><address class="footer-contact-actions"><a class="footer-contact-action" href="mailto:${CONTACT.email}" aria-label="Email BA Medicale at ${CONTACT.email}"><span class="footer-contact-action__icon">${icon("email")}</span><span class="footer-contact-action__copy"><small>Email</small><strong>${CONTACT.email}</strong></span></a><a class="footer-contact-action" href="${CONTACT.whatsappUrl}" target="_blank" rel="noopener noreferrer" aria-label="Contact BA Medicale on WhatsApp at ${CONTACT.whatsappDisplay}"><span class="footer-contact-action__icon">${icon("whatsapp")}</span><span class="footer-contact-action__copy"><small>WhatsApp</small><strong>${CONTACT.whatsappDisplay}</strong></span></a></address>
         <h2 class="footer-follow-heading">Follow</h2><nav class="footer-social" aria-label="Follow BA Medicale">
           <a href="https://www.instagram.com/bamedicale/" target="_blank" rel="noopener noreferrer" aria-label="Follow BA Medicale on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
           <a href="https://www.youtube.com/@BAMedicale" target="_blank" rel="noopener noreferrer" aria-label="Watch BA Medicale on YouTube" title="YouTube"><svg class="footer-social__youtube" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 7.2a3 3 0 0 0-2.1-2.1C17.5 4.6 12 4.6 12 4.6s-5.5 0-7.3.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2.1 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.3.5 7.3.5s5.5 0 7.3-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM10 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg></a>
@@ -1122,7 +1129,7 @@ function initContactForm() {
     const message = String(fields.get("message") || "").trim();
     const subject = `BA Medicale enquiry: ${topic}`;
     const body = [`Name: ${name}`, `Email: ${email}`, `Topic: ${topic}`, "", "Message:", message].join("\n");
-    const mailto = `mailto:support@bamedicale.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     if (status) status.textContent = "Your email application is opening. Review the message before sending.";
     window.location.assign(mailto);
   });

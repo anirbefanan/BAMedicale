@@ -13,6 +13,17 @@ test('canonical brand record drives the shared public shell',()=>{
   assert.match(app,/<b>\$\{BRAND\.name\}<\/b>/);
 });
 
+test('canonical public footer exposes accessible email and WhatsApp actions',()=>{
+  const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
+  assert.match(app,/email: "support@bamedicale\.com"/);
+  assert.match(app,/whatsappDisplay: "\+62 821-236-6331"/);
+  assert.match(app,/whatsappUrl: "https:\/\/wa\.me\/628212366331"/);
+  assert.match(app,/href="mailto:\$\{CONTACT\.email\}" aria-label="Email BA Medicale at \$\{CONTACT\.email\}"/);
+  assert.match(app,/href="\$\{CONTACT\.whatsappUrl\}" target="_blank" rel="noopener noreferrer" aria-label="Contact BA Medicale on WhatsApp at \$\{CONTACT\.whatsappDisplay\}"/);
+  assert.match(app,/footer-contact-action__icon">\$\{icon\("email"\)\}/);
+  assert.match(app,/footer-contact-action__icon">\$\{icon\("whatsapp"\)\}/);
+});
+
 test('quiz pages reuse the canonical logo and lockup',()=>{
   for(const name of ['management-thyroid-nodules-2026','lms-management-thyroid-nodules-2026']){
     const html=fs.readFileSync(path.join(root,'quiz',name+'.html'),'utf8');
