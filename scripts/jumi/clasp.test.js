@@ -17,6 +17,11 @@ test("deployment wrapper fails closed and updates only the existing production d
   assert.match(source,/allowed=\["Code\.gs","Index\.html","appsscript\.json"\]/);
   assert.match(source,/path\.join\(root,"jumi","config\.js"\)/);
   assert.match(source,/The local clasp project is not bound to the existing production JUMI deployment/);
+  assert.match(source,/require\.resolve\("@google\/clasp"\)/);
+  assert.match(source,/execFileSync\(process\.execPath,\[claspCli,\.\.\.args\]/);
+  assert.doesNotMatch(source,/clasp\.cmd|node_modules","\.bin/);
+  assert.match(source,/process\.argv\.includes\("--verify-only"\)/);
+  assert.match(source,/if\(verifyOnly\).*process\.exit\(0\)/);
   assert.match(source,/\["push","--force"\]/);
   assert.match(source,/"--deploymentId",endpoint/);
   assert.doesNotMatch(source,/create-script|ScriptProperties|JUMI_GITHUB_TOKEN|JUMI_CONTENT_ROOT_FOLDER_ID/);
