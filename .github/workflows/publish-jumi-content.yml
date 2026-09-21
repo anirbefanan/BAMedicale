@@ -70,7 +70,11 @@ jobs:
               sudo apt-get update
               sudo apt-get install -y poppler-utils
             fi
-            node scripts/jumi/prepare-presentation.js --source "assets/presentations/$SLUG/source.pdf" --output "assets/presentations/$SLUG"
+            VIDEO_ARGS=()
+            if [ -f "assets/presentations/$SLUG/video.mp4" ]; then
+              VIDEO_ARGS=(--video "assets/presentations/$SLUG/video.mp4")
+            fi
+            node scripts/jumi/prepare-presentation.js --source "assets/presentations/$SLUG/source.pdf" --output "assets/presentations/$SLUG" "${VIDEO_ARGS[@]}"
           fi
           if [ "$TYPE" = "Seminar" ]; then
             SLUG=$(node -p "require('./${{ steps.request.outputs.file }}').slug")

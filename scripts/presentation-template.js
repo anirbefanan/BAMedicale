@@ -7,7 +7,7 @@ const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).d
 module.exports = ({ presentation: p, event, diseaseGroup, root, domain }) => {
   const source = JSON.parse(fs.readFileSync(path.join(root, p.sourceManifest), 'utf8'));
   if (hash(path.join(root, p.sourcePdf)) !== source.sourceSha256 || (p.video && (!source.videoSha256 || hash(path.join(root, p.video)) !== source.videoSha256))) throw new Error(`${p.id}: original source hash mismatch`);
-  if (!source.pages.length || source.pages.some((s, i) => s.page !== i + 1 || !fs.existsSync(path.join(root, s.image)))) throw new Error(`${p.id}: incomplete source pages`);
+  if (!source.pages.length || source.pages.some((s, i) => s.page !== i + 1 || !fs.existsSync(path.join(root, s.image)) || (s.imageSha256 && hash(path.join(root, s.image)) !== s.imageSha256))) throw new Error(`${p.id}: incomplete or modified source pages`);
   const url = `${domain}/${p.canonicalUrl}`;
   const asset = value => `../${value}`;
   const repeated = new Map();

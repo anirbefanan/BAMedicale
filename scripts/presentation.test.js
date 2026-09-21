@@ -42,3 +42,20 @@ test('presentation discovery and canonical authorship remain professional and so
  assert(html.includes(escape(data.profile.name)));
  assert(fs.readFileSync('sitemap.xml','utf8').includes(p.canonicalUrl));
 });
+test('Dr. Bob canonical presentation keeps the complete reusable reading and download experience',()=>{
+ assert.equal(p.title,'Current Diagnostic Approach and Therapy Selection for Thyroid Nodules');
+ assert.equal(p.author.name,'Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)');
+ assert.equal(p.eventId,'management-thyroid-nodules-2026');
+ assert.equal(p.videoPage||3,3);
+ assert(p.cover.includes('infographic'));
+ assert(Array.isArray(p.quickRead)&&p.quickRead.length>0);
+ for(const entry of p.quickRead){assert(entry.title&&entry.body);assert((Array.isArray(entry.pages)&&entry.pages.every(page=>Number.isInteger(page)&&page>0))||typeof entry.pages==="string"&&entry.pages.length>0);}
+ for(const token of['Quick Read','Full Read','Download Original PDF','data-download-material','data-slide-open','Read selectable slide text','Return to seminar'])assert(html.includes(token),token);
+ const client=fs.readFileSync('presentation.js','utf8');
+ assert.match(client,/ArrowLeft/);assert.match(client,/ArrowRight/);assert.match(client,/dialog\.showModal\(\)/);assert.match(client,/dialog\.addEventListener\('close'/);assert.match(client,/opener\?\.focus\(\)/);
+ const app=fs.readFileSync('app.js','utf8');
+ assert.match(app,/openDownload\(presentation,trigger\)/);
+ assert.match(app,/data\.seminars\?\.\[presentation\.eventId\]/);
+ assert(!app.includes('19 September 2026 seminar · Summary of the supplied PDF'));
+ assert(html.includes('bamedicale-approved-logo.jpg'));
+});
