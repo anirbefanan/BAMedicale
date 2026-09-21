@@ -3,6 +3,11 @@ const DOWNLOAD_HEADERS = ['Date Submitted','Time Submitted','Email','Material','
 const DOWNLOAD_MATERIAL_ID = 'current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules';
 const DOWNLOAD_MATERIAL = 'Current Diagnostic Approach and Therapy Selection for Thyroid Nodules';
 const DOWNLOAD_EVENT = '19 Sep 2026 — Management of Thyroid Nodules';
+const DOWNLOAD_MATERIALS = {
+  [DOWNLOAD_MATERIAL_ID]: DOWNLOAD_MATERIAL,
+  'ultrasound-imaging-and-tirads-classification-in-thyroid-nodules': 'Ultrasound Imaging and TIRADS Classification in Thyroid Nodules',
+  'bethesda-system-for-reporting-thyroid-cytopathology': 'Bethesda System for Reporting Thyroid Cytopathology'
+};
 function setupDownloads() {
   const ss=SpreadsheetApp.getActiveSpreadsheet();
   assert_(ss && ss.getId()===props_().getProperty('TRACKER_ID'),'Use the existing bound tracker.');
@@ -19,7 +24,7 @@ function setupDownloads() {
   } finally {lock.releaseLock();}
 }
 function downloadCorrelation_(p) {
-  return p && p.origin===SITE_ORIGIN && p.material_id===DOWNLOAD_MATERIAL_ID && typeof p.request_id==='string' && /^[a-f0-9]{32}$/.test(p.request_id);
+  return p && p.origin===SITE_ORIGIN && Object.prototype.hasOwnProperty.call(DOWNLOAD_MATERIALS,p.material_id) && typeof p.request_id==='string' && /^[a-f0-9]{32}$/.test(p.request_id);
 }
 function validateDownload_(p) {
   if(!downloadCorrelation_(p)||p.action!=='download'||Object.keys(p).some(k=>!['action','material_id','request_id','origin','email'].includes(k)))return false;
@@ -30,6 +35,7 @@ function validateDownload_(p) {
 function downloadAckKey_(p){return 'DOWNLOAD_ACK_'+p.request_id;}
 function recordDownload_(p) {
   if(!validateDownload_(p))return 'invalid';
+  const materialTitle=DOWNLOAD_MATERIALS[p.material_id];
   const lock=LockService.getScriptLock();if(!lock.tryLock(5000))return 'retry';
   try {
     const id=props_().getProperty('DOWNLOAD_TAB_ID');if(id===null)return 'retry';
@@ -39,7 +45,7 @@ function recordDownload_(p) {
     const notes=sheet.getRange(2,1,sheet.getMaxRows()-1,1).getNotes();
     const prefix='ba-download:'+p.request_id+':';
     const digest=Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256,normalizedEmail_(p.email)).map(b=>('0'+(b&255).toString(16)).slice(-2)).join('');
-    const marker=prefix+digest;
+    const marker=prefix+digest+(p.material_id===DOWNLOAD_MATERIAL_ID?'':':'+p.material_id);
     let row=notes.findIndex(r=>r[0].startsWith(prefix));
     if(row>=0){if(notes[row][0]!==marker)return 'invalid';row+=2;}
     else {
@@ -54,12 +60,12 @@ function recordDownload_(p) {
       sheet.getRange(row,1).setNote(marker);SpreadsheetApp.flush();
     }
     const target=sheet.getRange(row,1,1,6),saved=target.getValues()[0];
-    if(saved[5]==='Downloaded'&&saved[3]===DOWNLOAD_MATERIAL&&saved[4]===DOWNLOAD_EVENT&&normalizedEmail_(saved[2])===normalizedEmail_(p.email))return 'recorded';
+    if(saved[5]==='Downloaded'&&saved[3]===materialTitle&&saved[4]===DOWNLOAD_EVENT&&normalizedEmail_(saved[2])===normalizedEmail_(p.email))return 'recorded';
     if(saved.some(v=>v!==''))return 'retry';
-    const now=new Date(),values=[Utilities.formatDate(now,'Asia/Jakarta','yyyy-MM-dd'),Utilities.formatDate(now,'Asia/Jakarta','HH:mm:ss'),safeCell_(p.email.trim()),DOWNLOAD_MATERIAL,DOWNLOAD_EVENT,'Downloaded'];
+    const now=new Date(),values=[Utilities.formatDate(now,'Asia/Jakarta','yyyy-MM-dd'),Utilities.formatDate(now,'Asia/Jakarta','HH:mm:ss'),safeCell_(p.email.trim()),materialTitle,DOWNLOAD_EVENT,'Downloaded'];
     target.setNumberFormat('@').setValues([values]);SpreadsheetApp.flush();
     const check=target.getValues()[0];
-    return check[0]===values[0]&&check[1]===values[1]&&normalizedEmail_(check[2])===normalizedEmail_(p.email)&&check[3]===DOWNLOAD_MATERIAL&&check[4]===DOWNLOAD_EVENT&&check[5]==='Downloaded'?'recorded':'retry';
+    return check[0]===values[0]&&check[1]===values[1]&&normalizedEmail_(check[2])===normalizedEmail_(p.email)&&check[3]===materialTitle&&check[4]===DOWNLOAD_EVENT&&check[5]==='Downloaded'?'recorded':'retry';
   } finally {lock.releaseLock();}
 }
 function downloadReply_(p) {

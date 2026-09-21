@@ -2,6 +2,42 @@
   "schemaVersion": 1,
   "items": [
     {
+      "id": "current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules",
+      "type": "Presentation",
+      "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+      "slug": "current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules",
+      "status": "Published",
+      "publishedAt": "2026-09-18",
+      "publicUrl": "https://bamedicale.com/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+      "eventId": "management-thyroid-nodules-2026",
+      "speakerId": "dr-dr-bob-andinata-sp-b-subsp-onk-k",
+      "speakerName": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"
+    },
+    {
+      "id": "ultrasound-imaging-and-tirads-classification-in-thyroid-nodules",
+      "type": "Presentation",
+      "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+      "slug": "ultrasound-imaging-and-tirads-classification-in-thyroid-nodules",
+      "status": "Published",
+      "publishedAt": "2026-09-22",
+      "publicUrl": "https://bamedicale.com/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+      "eventId": "management-thyroid-nodules-2026",
+      "speakerId": "dr-achmad-fachri-sp-rad-k",
+      "speakerName": "dr. Achmad Fachri, Sp.Rad(K)"
+    },
+    {
+      "id": "bethesda-system-for-reporting-thyroid-cytopathology",
+      "type": "Presentation",
+      "title": "Bethesda System for Reporting Thyroid Cytopathology",
+      "slug": "bethesda-system-for-reporting-thyroid-cytopathology",
+      "status": "Published",
+      "publishedAt": "2026-09-22",
+      "publicUrl": "https://bamedicale.com/presentations/bethesda-system-for-reporting-thyroid-cytopathology.html",
+      "eventId": "management-thyroid-nodules-2026",
+      "speakerId": "dr-vinesia-lestari-riddi-sppa-mph",
+      "speakerName": "Dr. Vinesia Lestari Riddi, SpPA, MPH"
+    },
+    {
       "id": "ba-medicale-clinical-learning-preview",
       "type": "Video",
       "title": "BA Medicale Clinical Learning Preview",

@@ -246,6 +246,7 @@
       if (record.sourceRecord.publishedDate && !normalizeDate(record.sourceRecord.publishedDate)) errors.push(`${record.id}: invalid published date`);
       if (record.sourceRecord.updatedDate && !normalizeDate(record.sourceRecord.updatedDate)) errors.push(`${record.id}: invalid updated date`);
       if (record.cover && !/^https?:\/\//i.test(record.cover) && root && !exists(root, record.cover)) errors.push(`${record.id}: missing asset ${record.cover}`);
+      if (record.sourceRecord.sourceFile && root && !exists(root, record.sourceRecord.sourceFile)) errors.push(`${record.id}: missing original source ${record.sourceRecord.sourceFile}`);
       if (record.sourceRecord.sourcePdf && root && !exists(root, record.sourceRecord.sourcePdf)) errors.push(`${record.id}: missing source PDF ${record.sourceRecord.sourcePdf}`);
       if (record.scientificWork) {
         const source = record.sourceRecord;

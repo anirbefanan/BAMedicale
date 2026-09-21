@@ -631,13 +631,13 @@ window.BAMEDICALE_DATA = {
       ["Keynote speech", "dr. Eniarti M.Sc., Sp.K.J., M.M.R., QHIA"],
       ["Speaker", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"],
       ["Speaker", "dr. Achmad Fachri, Sp.Rad(K)"],
-      ["Speaker", "dr. Vinesia Lestari Riddi, SpA, MPH"],
+      ["Speaker", "Dr. Vinesia Lestari Riddi, SpPA, MPH"],
       ["Moderator", "dr. Adlina Karisyah, Sp.B"]
     ],
     sessions: [
       ["Current Diagnostic Approach and Therapy Selection for Thyroid Nodules", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"],
-      ["Ultrasound Image and TIRADS Classification in Thyroid Nodules", "dr. Achmad Fachri, Sp.Rad(K)"],
-      ["BETHESDA Classification in Thyroid Nodules", "dr. Vinesia Lestari Riddi, SpA, MPH"]
+      ["Ultrasound Imaging and TIRADS Classification in Thyroid Nodules", "dr. Achmad Fachri, Sp.Rad(K)"],
+      ["Bethesda System for Reporting Thyroid Cytopathology", "Dr. Vinesia Lestari Riddi, SpPA, MPH"]
     ],
     outcomes: ["SKP credit — Ministry of Health", "Latest evidence-based topic", "Expert speakers", "Interactive Q&A session"],
     artwork: "assets/events/management-thyroid-nodules-2026-official-poster.jpeg",
@@ -712,6 +712,110 @@ window.BAMEDICALE_DATA.presentations = {
       { title: "Procedural focus", body: "The presentation illustrates ethanol ablation, radiofrequency ablation, endoscopic thyroidectomy (TOETVA), and transoral robotic thyroidectomy (TORT).", pages: "11–18" }
     ]
   },
+  "ultrasound-imaging-and-tirads-classification-in-thyroid-nodules": {
+  "id": "ultrasound-imaging-and-tirads-classification-in-thyroid-nodules",
+  "slug": "ultrasound-imaging-and-tirads-classification-in-thyroid-nodules",
+  "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+  "author": {
+    "name": "dr. Achmad Fachri, Sp.Rad(K)",
+    "type": "Person"
+  },
+  "eventId": "management-thyroid-nodules-2026",
+  "presentationDate": "2026-09-19",
+  "publishedDate": "2026-09-22",
+  "primaryAudience": "DOCTOR",
+  "primaryDiseaseGroup": "endocrine-metabolic",
+  "diseaseCondition": "Thyroid nodules",
+  "primaryTopic": "Diagnosis",
+  "professionalCategory": "diagnosis",
+  "topics": [
+    "Diagnosis",
+    "Thyroid nodules"
+  ],
+  "contentType": "Seminar presentation",
+  "label": "Seminar presentation",
+  "publicationStatus": "published",
+  "indexable": true,
+  "canonicalUrl": "presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+  "cover": "assets/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules/infographic.jpg",
+  "coverWidth": 1280,
+  "coverHeight": 720,
+  "infographic": true,
+  "sourceFile": "assets/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules/original.pptx",
+  "sourceFormat": "PPTX",
+  "sourceManifest": "assets/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules/pages.json",
+  "sourceAttribution": "Original presentation supplied for the 19 September 2026 thyroid-nodule seminar",
+  "summary": "A 25-slide presentation on ultrasound imaging, thyroid anatomy, ACR TI-RADS, risk stratification and source references.",
+  "quickRead": [
+    {
+      "title": "Ultrasound imaging",
+      "body": "Source slides introduce ultrasound principles, equipment, image optimization, benefits, limitations and thyroid anatomy.",
+      "pages": "1–9"
+    },
+    {
+      "title": "TI-RADS",
+      "body": "Source slides cover ACR TI-RADS classification, biopsy thresholds, ultrasound examples and variability in evaluation.",
+      "pages": "10–22"
+    },
+    {
+      "title": "Further reading",
+      "body": "Emerging technologies and the original reference list complete the presentation.",
+      "pages": "23–25"
+    }
+  ]
+},
+  "bethesda-system-for-reporting-thyroid-cytopathology": {
+  "id": "bethesda-system-for-reporting-thyroid-cytopathology",
+  "slug": "bethesda-system-for-reporting-thyroid-cytopathology",
+  "title": "Bethesda System for Reporting Thyroid Cytopathology",
+  "author": {
+    "name": "Dr. Vinesia Lestari Riddi, SpPA, MPH",
+    "type": "Person"
+  },
+  "eventId": "management-thyroid-nodules-2026",
+  "presentationDate": "2026-09-19",
+  "publishedDate": "2026-09-22",
+  "primaryAudience": "DOCTOR",
+  "primaryDiseaseGroup": "endocrine-metabolic",
+  "diseaseCondition": "Thyroid nodules",
+  "primaryTopic": "Diagnosis",
+  "professionalCategory": "diagnosis",
+  "topics": [
+    "Diagnosis",
+    "Thyroid nodules"
+  ],
+  "contentType": "Seminar presentation",
+  "label": "Seminar presentation",
+  "publicationStatus": "published",
+  "indexable": true,
+  "canonicalUrl": "presentations/bethesda-system-for-reporting-thyroid-cytopathology.html",
+  "cover": "assets/presentations/bethesda-system-for-reporting-thyroid-cytopathology/infographic.jpg",
+  "coverWidth": 1280,
+  "coverHeight": 720,
+  "infographic": true,
+  "sourceFile": "assets/presentations/bethesda-system-for-reporting-thyroid-cytopathology/original.pptx",
+  "sourceFormat": "PPTX",
+  "sourceManifest": "assets/presentations/bethesda-system-for-reporting-thyroid-cytopathology/pages.json",
+  "sourceAttribution": "Original presentation supplied for the 19 September 2026 thyroid-nodule seminar",
+  "summary": "Standardized cytologic diagnosis for thyroid FNA",
+  "quickRead": [
+    {
+      "title": "Reporting and adequacy",
+      "body": "Source slides introduce the Bethesda reporting system, adequacy criteria and ultrasound-guided FNA.",
+      "pages": "1–10"
+    },
+    {
+      "title": "Cytologic categories",
+      "body": "The complete slides show the reporting categories and their source cytology images.",
+      "pages": "11–27"
+    },
+    {
+      "title": "Source notes and reference",
+      "body": "The closing slides retain the source notes and reference.",
+      "pages": "28–29"
+    }
+  ]
+},
   // JUMI_PUBLISHED_PRESENTATIONS_START
   // JUMI_PUBLISHED_PRESENTATIONS_END
 };
