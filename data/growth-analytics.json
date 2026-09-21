@@ -9,19 +9,19 @@
         "previousStartDate": "2026-09-19",
         "previousEndDate": "2026-09-19"
       },
-      "generatedAt": "2026-09-20T19:55:44.882Z",
+      "generatedAt": "2026-09-21T02:11:11.189Z",
       "summary": {
         "activeUsers": 9,
         "newUsers": 2,
         "screenPageViews": 70,
-        "sessions": 22,
+        "sessions": 23,
         "engagedSessions": 1,
         "userEngagementDuration": 2164,
-        "eventCount": 183,
+        "eventCount": 185,
         "keyEvents": 0,
         "totalUsers": 10,
         "averageEngagementTimeSeconds": 240.4444,
-        "engagementRate": 0.0455,
+        "engagementRate": 0.0435,
         "returningUsers": 3
       },
       "previous": {
@@ -51,14 +51,14 @@
             "activeUsers": 9,
             "newUsers": 2,
             "screenPageViews": 70,
-            "sessions": 22,
+            "sessions": 23,
             "engagedSessions": 1,
             "userEngagementDuration": 2164,
-            "eventCount": 183,
+            "eventCount": 185,
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 240.4444,
-            "engagementRate": 0.0455,
+            "engagementRate": 0.0435,
             "returningUsers": 3
           }
         ],
@@ -90,7 +90,7 @@
           {
             "label": "Returning",
             "activeUsers": 3,
-            "sessions": 9
+            "sessions": 10
           },
           {
             "label": "Unclassified",
@@ -108,7 +108,7 @@
           {
             "label": "Unassigned",
             "activeUsers": 7,
-            "sessions": 12
+            "sessions": 13
           },
           {
             "label": "Direct",
@@ -138,7 +138,7 @@
           {
             "label": "mobile",
             "activeUsers": 4,
-            "sessions": 11
+            "sessions": 12
           }
         ]
       },
@@ -148,7 +148,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 7,
-            "sessions": 15
+            "sessions": 16
           }
         ]
       },
@@ -168,7 +168,7 @@
           {
             "label": "(data not available)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           },
           {
             "label": "google / organic",
@@ -183,7 +183,7 @@
           {
             "label": "(not set)",
             "activeUsers": 7,
-            "sessions": 12
+            "sessions": 13
           },
           {
             "label": "(direct) / (none)",
@@ -238,7 +238,7 @@
             "type": "Seminars / Events",
             "activeUsers": 5,
             "views": 8,
-            "eventCount": 28,
+            "eventCount": 30,
             "engagement": 22
           },
           {
@@ -431,19 +431,19 @@
         "previousStartDate": "2026-09-07",
         "previousEndDate": "2026-09-13"
       },
-      "generatedAt": "2026-09-20T19:55:44.882Z",
+      "generatedAt": "2026-09-21T02:11:11.189Z",
       "summary": {
         "activeUsers": 176,
         "newUsers": 168,
         "screenPageViews": 604,
-        "sessions": 256,
+        "sessions": 257,
         "engagedSessions": 145,
         "userEngagementDuration": 14040,
-        "eventCount": 2074,
+        "eventCount": 2076,
         "keyEvents": 0,
         "totalUsers": 176,
         "averageEngagementTimeSeconds": 79.7727,
-        "engagementRate": 0.5664,
+        "engagementRate": 0.5642,
         "returningUsers": 35
       },
       "previous": {
@@ -563,14 +563,14 @@
             "activeUsers": 9,
             "newUsers": 2,
             "screenPageViews": 70,
-            "sessions": 22,
+            "sessions": 23,
             "engagedSessions": 1,
             "userEngagementDuration": 2164,
-            "eventCount": 183,
+            "eventCount": 185,
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 240.4444,
-            "engagementRate": 0.0455,
+            "engagementRate": 0.0435,
             "returningUsers": 3
           }
         ],
@@ -686,7 +686,7 @@
           {
             "label": "Returning",
             "activeUsers": 35,
-            "sessions": 76
+            "sessions": 77
           },
           {
             "label": "Unclassified",
@@ -719,7 +719,7 @@
           {
             "label": "Unassigned",
             "activeUsers": 8,
-            "sessions": 13
+            "sessions": 14
           },
           {
             "label": "Organic Social",
@@ -739,7 +739,7 @@
           {
             "label": "mobile",
             "activeUsers": 104,
-            "sessions": 147
+            "sessions": 148
           },
           {
             "label": "desktop",
@@ -759,7 +759,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 160,
-            "sessions": 229
+            "sessions": 230
           },
           {
             "label": "United States",
@@ -789,7 +789,7 @@
           {
             "label": "(data not available)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           },
           {
             "label": "dataindex.pro / referral",
@@ -824,7 +824,7 @@
           {
             "label": "(not set)",
             "activeUsers": 8,
-            "sessions": 13
+            "sessions": 14
           },
           {
             "label": "dataindex.pro / referral",
@@ -857,7 +857,7 @@
             "type": "Seminars / Events",
             "activeUsers": 156,
             "views": 304,
-            "eventCount": 1293,
+            "eventCount": 1295,
             "engagement": 49.0833
           },
           {
@@ -6016,10 +6016,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-09-20T19:55:44.882Z",
+  "generatedAt": "2026-09-21T02:11:11.189Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-09-20T19:55:44.882Z",
+    "generatedAt": "2026-09-21T02:11:11.189Z",
     "windowMinutes": 30
   }
 }
