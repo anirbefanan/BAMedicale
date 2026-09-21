@@ -80,7 +80,7 @@
     const secondaryAudiences = compact(record.secondaryAudiences || []).map(normalizeAudience).filter(Boolean);
     const contentType = record.contentType || labelFor(record, family);
     const publishedDate = normalizeDate(record.publishedDate);
-    const originalPublicationDate = normalizeDate(record.originalPublicationDate || record.publish_date);
+    const originalPublicationDate = normalizeDate(record.sourcePublicationDate || record.originalPublicationDate || record.publish_date);
     const publicationStatus = normalizeStatus(record, publishedDate || (family === "video" && record.verified_identity) ? PUBLISHED : family === "ebook" ? "planned" : "draft");
     const authors = authorsFor(record);
     const topics = topicsFor(record);

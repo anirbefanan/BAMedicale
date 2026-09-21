@@ -1,6 +1,14 @@
 {
   "timeZone": "Asia/Jakarta",
-  "dependencies": {},
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "Drive",
+        "serviceId": "drive",
+        "version": "v3"
+      }
+    ]
+  },
   "exceptionLogging": "NONE",
   "runtimeVersion": "V8",
   "oauthScopes": [

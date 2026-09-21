@@ -22,8 +22,8 @@ function fixture(type){
   fs.mkdirSync(path.join(root,base),{recursive:true});
   if(type!=="Seminar")fs.writeFileSync(path.join(root,base,"source.pdf"),source);
   if(type!=="Presentation")fs.writeFileSync(path.join(root,base,type==="Article"?"artwork.jpg":type==="eBook"?"cover.jpg":"poster.jpg"),artwork);
-  const publication=type==="Article"?{primaryAudience:"PUBLIC",primaryDiseaseGroup:"endocrine-metabolic",primaryTopic:"Diagnosis",sections:[{title:"Evidence",body:["Source-faithful fixture text."]}],references:["Fixture reference"],promotion:{hook:"Source-grounded fixture hook",teaser:["Source-grounded fixture teaser"],hashtags:["#Thyroid","#MedicalEducation"]}}:type==="Seminar"?{eventId:slug,primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",format:"Live webinar",startDate:"2026-10-20T09:00:00+07:00",endDate:"2026-10-20T11:00:00+07:00",date:"20 October 2026",time:"09.00–11.00 WIB",location:"Zoom",attendanceMode:"Online",registration:"registration.example.test/qa-seminar",faculty:[["Speaker","Fixture doctor"]],sessions:[["Fixture topic","Fixture doctor","fixture-doctor"]]}:type==="Presentation"?{eventId:"qa-source-seminar",speakerId:"fixture-doctor",sourceAttribution:"Original fixture presentation",primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",topics:["Thyroid"]}:{primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",topics:["Thyroid"],downloadable:false};
-  const assets={source:type==="Seminar"?null:{path:`${base}/source.pdf`,mimeType:"application/pdf",sha256:sha(source)},artwork:type==="Presentation"?null:{path:`${base}/${type==="Article"?"artwork":type==="eBook"?"cover":"poster"}.jpg`,mimeType:"image/jpeg",extension:"jpg",sha256:sha(artwork)}};
+  const publication=type==="Article"?{primaryAudience:"PUBLIC",sourceDownloadApproved:true,primaryDiseaseGroup:"endocrine-metabolic",primaryTopic:"Diagnosis",sections:[{title:"Evidence",body:["Source-faithful fixture text."]}],references:["Fixture reference"],promotion:{hook:"Source-grounded fixture hook",teaser:["Source-grounded fixture teaser"],hashtags:["#Thyroid","#MedicalEducation"]}}:type==="Seminar"?{eventId:slug,primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",format:"Live webinar",startDate:"2026-10-20T09:00:00+07:00",endDate:"2026-10-20T11:00:00+07:00",date:"20 October 2026",time:"09.00–11.00 WIB",location:"Zoom",attendanceMode:"Online",registration:"registration.example.test/qa-seminar",faculty:[["Speaker","Fixture doctor"]],sessions:[["Fixture topic","Fixture doctor","fixture-doctor"]]}:type==="Presentation"?{eventId:"qa-source-seminar",speakerId:"fixture-doctor",sourceAttribution:"Original fixture presentation",primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",topics:["Thyroid"]}:{primaryAudience:"DOCTOR",primaryDiseaseGroup:"endocrine-metabolic",topics:["Thyroid"],downloadable:false};
+  const assets={source:type==="Seminar"?null:{path:`${base}/source.pdf`,mimeType:"application/pdf",sha256:sha(source),public:true},artwork:type==="Presentation"?null:{path:`${base}/${type==="Article"?"artwork":type==="eBook"?"cover":"poster"}.jpg`,mimeType:"image/jpeg",extension:"jpg",sha256:sha(artwork)}};
   const manifest={schemaVersion:1,contentId:id,contentType:type,slug,version:4,baseSha:"1".repeat(40),requestedAt:"2026-09-20T10:00:00+07:00",metadata:{title:`QA source ${type}`,subtitle:"Non-public fixture",author:type==="Seminar"?"":"Fixture author",publisher:type==="eBook"?"Fixture publisher":"",publishedDate:type==="Seminar"?"":"2026-09-20",source:type==="Article"||type==="Presentation"?"Fixture source":"",tags:["Thyroid"],quickSummary:"Source-grounded fixture summary.",publication},assets};
   if(["eBook","Presentation"].includes(type))fs.writeFileSync(path.join(root,base,"pages.json"),JSON.stringify({sourceSha256:sha(source),pageAspect:1.294,pages:[{page:1,image:`${base}/page-1.png`,text:"Source PDF page 1",width:1600,height:900,figures:[]}]},null,2));
   const request=`data/jumi-publication-requests/${id}.json`;
@@ -43,6 +43,34 @@ test("Article release contract produces only canonical public record and receipt
   assert.equal(receipt.publicUrl,"https://bamedicale.com/articles/qa-source-article.html");
   assert.doesNotMatch(JSON.stringify(receipt),/Drive|admin|token|audit/i);
   assert.equal(fs.existsSync(path.join(f.root,f.request)),false);
+});
+
+test("Article release maps reviewed JUMI audience labels and keeps source and BA dates distinct",t=>{
+  const f=fixture("Article");t.after(()=>fs.rmSync(f.root,{recursive:true,force:true}));
+  f.manifest.metadata.publication.primaryAudience="Doctors";
+  f.manifest.metadata.sourcePublishedDate="2025-04-12";
+  fs.writeFileSync(path.join(f.root,f.request),JSON.stringify(f.manifest,null,2));
+  const result=applyPublication(f.root,f.request,{dryRun:true});
+  assert.equal(result.record.primaryAudience,"DOCTOR");
+  assert.equal(result.record.sourcePublicationDate,"2025-04-12");
+  assert.equal(result.record.publishedDate,"2026-09-20");
+  const invalid=structuredClone(f.manifest);invalid.metadata.publication.primaryAudience="Needs Review";
+  fs.writeFileSync(path.join(f.root,f.request),JSON.stringify(invalid,null,2));
+  assert.throws(()=>validateManifest(invalid,f.root,{requirePrepared:false}),/Unsupported Article audience classification/);
+});
+
+test("private Article source provenance crosses the contract as a hash, not a public file",t=>{
+  const f=fixture("Article");t.after(()=>fs.rmSync(f.root,{recursive:true,force:true}));
+  f.manifest.metadata.publication.sourceDownloadApproved=false;
+  f.manifest.assets.source.path="";
+  f.manifest.assets.source.public=false;
+  fs.writeFileSync(path.join(f.root,f.request),JSON.stringify(f.manifest,null,2));
+  fs.unlinkSync(path.join(f.root,`assets/articles/${f.manifest.slug}/source.pdf`));
+  const result=applyPublication(f.root,f.request,{dryRun:true});
+  assert.equal(result.record.sourcePdf,"");
+  assert.equal(result.receipt.sourceSha256,f.manifest.assets.source.sha256);
+  assert.doesNotMatch(JSON.stringify(result.record),/Drive|folder|admin|private/i);
+  assert.throws(()=>validateReleasePaths(f.manifest,[`assets/articles/${f.manifest.slug}/source.pdf`]),/disallowed paths/);
 });
 
 test("eBook release preserves source bytes and maps cover before original pages",t=>{

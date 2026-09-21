@@ -101,7 +101,7 @@ const renderPage = (article, index) => {
   const schemaAuthor = author.length === 1 ? author[0] : author;
   const authorNames = authors.map((entry) => entry.name).join(", ");
   const publicationDate = article.publishedDate ? formatPublishedDate(article.publishedDate) : article.publicationDateLabel;
-  const originalPublication = article.originalPublicationDateLabel || (article.scientificWork ? article.publicationDateLabel : "");
+  const originalPublication = article.sourcePublicationDate ? formatPublishedDate(article.sourcePublicationDate) : article.originalPublicationDateLabel || (article.scientificWork ? article.publicationDateLabel : "");
   const navigableArticles = article.inArticleNavigation === false ? [] : articles.filter((entry) => entry.inArticleNavigation !== false);
   const navigationIndex = navigableArticles.indexOf(article);
   const previous = navigableArticles[navigationIndex - 1];
