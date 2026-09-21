@@ -65,6 +65,9 @@ official logo social image is preserved. Social Kit defaults use only the approv
 title, description and tags; Nana can review/edit them. Share the canonical
 `https://bamedicale.com/videos.html?video=<slug>` target.
 
+Opening JUMI or using Refresh revalidates the public content catalog, retaining
+the last valid catalog on a network failure. This does not change the GA4 cache.
+
 Control Tower includes Videos in counts, comparisons, trend, recent activity,
 calendar and attention. No weekly Video cadence is imposed. The existing six-hour
 GA4 page aggregates do not reliably distinguish individual modal videos, so JUMI

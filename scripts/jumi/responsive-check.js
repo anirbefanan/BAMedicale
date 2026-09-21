@@ -35,7 +35,7 @@ const root=path.resolve(__dirname,'../..');
       for(const scope of ['all','upcoming','live','completed']){await page.locator('#event-scope').selectOption(scope);await check('Scope '+scope,width)}
       for(const type of ['Article','eBook','Seminar','Video']){
         await page.locator('.workspace-header [data-action="new-content"]').click();await page.locator(`[data-create-type="${type}"]`).click();await check('Create '+type,width);
-        const overflow=await page.locator('.dialog-card').evaluate(e=>e.scrollWidth>e.clientWidth+1);assert.equal(overflow,false,`${width} ${type} dialog overflow`);await page.keyboard.press('Escape');
+        const overflow=await page.locator('.dialog-card').evaluate(e=>e.scrollWidth>e.clientWidth+1);assert.equal(overflow,false,`${width} ${type} dialog overflow`);if(type==='Video'){await page.locator('#dialog-content button[value="cancel"]').click();assert.equal(await page.locator('#dialog').evaluate(e=>e.open),false,'Cancel must not require draft fields');checks++;}else await page.keyboard.press('Escape');
       }
     }
     assert.deepEqual(errors,[]);console.log(`PASS: ${checks} responsive surface checks across 8 widths; no runtime errors.`);
