@@ -14,4 +14,16 @@ The existing anonymous attendance/quiz web app must remain unchanged. Never past
 
 Until all steps are complete, `/jumi/` intentionally shows **Secure setup required** and cannot load data or perform actions. Email and WhatsApp/Meta stay `Not Connected`. Drive evidence/source storage becomes available only after the separate JUMI project is authorized; newly created files remain private and only opaque file IDs are stored in the tracker. Article/eBook publication remains blocked until both the private content root and `JUMI_GITHUB_TOKEN` are configured, the updated manifest scopes are authorized, and a new web-app version is deployed. Do not deploy the repository bundle while either server-side setting is unverified.
 
+## Transactional email setup
+
+JUMI uses a server-side Resend adapter for Seminar transactional email. It never uses a personal Gmail sender. Before enabling delivery:
+
+1. Create or reuse a Resend account controlled by BA Medicale and verify `bamedicale.com` with the DNS records shown by Resend. Complete SPF and DKIM verification in the domain's DNS manager.
+2. Create a **Sending access** API key restricted to the verified `bamedicale.com` domain. Store it only as the Apps Script property `JUMI_RESEND_API_KEY`.
+3. After Resend shows the domain as verified, set the Apps Script property `JUMI_EMAIL_SENDER_VERIFIED` to `true`. The sender is locked in server code as `BA Medicale <support@bamedicale.com>`.
+4. Optionally set `JUMI_NOTIFICATION_DEFAULT_LANGUAGE` to `English`; otherwise the deterministic default is `Bahasa Indonesia`. A participant-level language value, when available, takes precedence.
+5. Run `setupJumiNotifications` once as Nana. It validates the server-side configuration and replaces any duplicate queue triggers with one 15-minute Apps Script trigger. Do not run it until the provider key and domain verification are complete.
+
+The provider is reported as `Not Connected` until both server-side settings exist. JUMI records `Sent` only after the provider accepts the request and returns a message ID. It does not claim `Delivered` because no authenticated delivery webhook endpoint is configured. Resend receives only the recipient, sender, subject, and deterministic transactional message. API keys, Drive IDs, payment evidence, internal notes, and participant lists never enter the browser or public site. WhatsApp remains `Not Connected`; no personal WhatsApp session or browser automation is supported.
+
 GitHub Pages cannot emit an `X-Robots-Tag` response header. JUMI therefore uses strict page-level robots directives and is excluded from sitemap, navigation, footer, Library, Search, and structured data. These controls reduce discovery; authentication and backend authorization provide security.

@@ -108,8 +108,8 @@ test('19 Sep Seminar, attendance, quizzes, presentation, lifecycle hooks, and Co
   assert.match(eventPage,/BA Medicale Live Quiz/);
   assert.match(eventPage,/LMS Live Quiz/);
   assert.match(eventPage,/Read presentation/);
-  assert.match(backend,/\['H-1 Day',start-86400000\]/);
-  assert.match(backend,/\['H-1 Hour',start-3600000\]/);
+  assert.match(backend,/type==='H-1 Day'.*start-24\*3600000/);
+  assert.match(backend,/type==='H-1 Hour'.*start-3600000/);
   assert.match(client,/Attendance validation → eligibility → review → generate → approve → send/);
   assert.match(client,/BA Medicale participation certificates remain separate from official SKP\/LMS certificates/);
   assert.match(client,/Seminar Operations/);

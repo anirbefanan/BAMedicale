@@ -69,8 +69,8 @@ test("private mutations use independent statuses, locks, audit rows, and confirm
   assert.match(backend,/UPLOAD_PAYMENT_PROOF/);
   assert.match(client,/Confirm this payment as received/);
   assert.match(client,/Provider Not Connected/);
-  assert.match(backend,/\['H-1 Day',start-86400000\]/);
-  assert.match(backend,/\['H-1 Hour',start-3600000\]/);
+  assert.match(backend,/type==='H-1 Day'.*start-24\*3600000/);
+  assert.match(backend,/type==='H-1 Hour'.*start-3600000/);
   assert.match(client,/calendar\.google\.com\/calendar\/render/);
   assert.match(client,/BEGIN:VCALENDAR/);
   assert.match(client,/Uploading or replacing evidence does not mark the payment paid/);
