@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-09-21T11:20:33.345Z",
+  "generatedAt": "2026-09-21T17:21:19.985Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-08-24",
-    "endDate": "2026-09-20"
+    "startDate": "2026-08-25",
+    "endDate": "2026-09-21"
   },
   "summary": {
-    "activeUsers": 230,
-    "newUsers": 232,
-    "averageEngagementTimeSeconds": 168.77391304347827,
-    "eventCount": 4656
+    "activeUsers": 232,
+    "newUsers": 233,
+    "averageEngagementTimeSeconds": 167.44396551724137,
+    "eventCount": 4677
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 336,
-      "activeUsers": 63,
-      "eventCount": 843,
-      "bounceRate": 0.3072289156626506
+      "views": 338,
+      "activeUsers": 64,
+      "eventCount": 848,
+      "bounceRate": 0.31952662721893493
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 305,
+      "views": 308,
       "activeUsers": 156,
-      "eventCount": 1286,
-      "bounceRate": 0.34285714285714286
+      "eventCount": 1296,
+      "bounceRate": 0.352112676056338
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -105,8 +105,16 @@
       "activeUsers": 4
     },
     {
+      "label": "Not set",
+      "activeUsers": 2
+    },
+    {
       "label": "bing / organic",
       "activeUsers": 2
+    },
+    {
+      "label": "(data not available)",
+      "activeUsers": 1
     },
     {
       "label": "dataindex.pro / referral",
@@ -116,11 +124,15 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 360
+      "sessions": 366
     },
     {
       "label": "google / organic",
-      "sessions": 89
+      "sessions": 90
+    },
+    {
+      "label": "Not set",
+      "sessions": 5
     },
     {
       "label": "keep.google.com / referral",
@@ -143,7 +155,7 @@
       "sessions": 3
     },
     {
-      "label": "Not set",
+      "label": "(data not available)",
       "sessions": 1
     },
     {
@@ -154,7 +166,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 67
+      "activeUsers": 68
     },
     {
       "label": "Depok",
@@ -174,7 +186,7 @@
     },
     {
       "label": "Medan",
-      "activeUsers": 8
+      "activeUsers": 9
     },
     {
       "label": "Council Bluffs",
