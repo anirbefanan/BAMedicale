@@ -17,4 +17,10 @@ const versionOutput=run(["version",`JUMI validated bundle ${new Date().toISOStri
 if(!version)fail("clasp did not return a new Apps Script version.");
 const deployed=run(["deploy","--deploymentId",endpoint,"--versionNumber",version,"--description",`JUMI Content OS Version ${version}`]);
 if(!deployed.includes(endpoint))fail("clasp did not confirm the existing JUMI deployment update.");
+let attached=false;
+for(let attempt=0;attempt<8&&!attached;attempt++){
+  attached=new RegExp(`${endpoint.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\s+@${version}(?:\\s|$)`).test(run(["deployments"]));
+  if(!attached&&attempt<7)Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,1500);
+}
+if(!attached)fail(`The existing JUMI deployment did not attach Apps Script Version ${version}.`);
 console.log(`Updated existing JUMI deployment in place to Apps Script Version ${version}.`);

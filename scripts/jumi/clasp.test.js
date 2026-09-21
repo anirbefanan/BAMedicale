@@ -24,6 +24,8 @@ test("deployment wrapper fails closed and updates only the existing production d
   assert.match(source,/if\(verifyOnly\).*process\.exit\(0\)/);
   assert.match(source,/\["push","--force"\]/);
   assert.match(source,/"--deploymentId",endpoint/);
+  assert.match(source,/did not attach Apps Script Version/);
+  assert.match(source,/run\(\["deployments"\]\)/);
   assert.doesNotMatch(source,/create-script|ScriptProperties|JUMI_GITHUB_TOKEN|JUMI_CONTENT_ROOT_FOLDER_ID/);
 });
 
