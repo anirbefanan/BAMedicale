@@ -144,7 +144,7 @@ test("Article and eBook validation gates reject missing source evidence",()=>{
   const complete={type:"Article",title:"Evidence-based article",slug:"evidence-based-article",sourceStored:true,artworkStored:true,typeData:{author:"Source author",source:"Source publication",tags:["Thyroid"],quickSummary:"Source-grounded summary.",analysis:{status:"Extracted — Review Required"},artwork:{width:1600,height:900,valid:true},publication}};
   assert.deepEqual([...context.jumiContentIssues_(complete)],[]);
   assert.deepEqual([...context.jumiContentIssues_({...complete,sourceStored:false})],["Original source PDF is required."]);
-  assert.deepEqual([...context.jumiContentIssues_({...complete,type:"eBook",typeData:{author:"Source author",publishedDate:"2026-09-20",publisher:"",tags:["Thyroid"],quickSummary:"Source-grounded summary.",artwork:{width:900,height:1200,valid:true},publication:{primaryAudience:"Healthcare Professionals",primaryDiseaseGroup:"thyroid"}}})],["Publisher evidence is required."]);
+  assert.deepEqual([...context.jumiContentIssues_({...complete,type:"eBook",typeData:{author:"Source author",publisher:"",tags:["Thyroid"],quickSummary:"Source-grounded summary.",analysis:{status:"Extracted — Review Required"},artwork:{width:900,height:1200,valid:true},publication:{primaryAudience:"Healthcare Professionals",primaryDiseaseGroup:"thyroid",sourceDownloadApproved:true,authorType:"Organization"}}})],["Publisher evidence is required."]);
 });
 
 test("new Content OS artwork is validated server-side while historical Seminar posters remain grandfathered",()=>{

@@ -43,7 +43,7 @@ test("ambiguous evidence remains review-gated and taxonomy normalizes duplicates
 });
 
 test("Article UI enforces upload-analyze-validate-preview-publish without public draft leakage",()=>{
-  assert.match(client,/request\("analyze_article_source",\{contentId:saved\.id\}\)/);
+  assert.match(client,/data\.type==="Article"\?"analyze_article_source":"analyze_ebook_source"/);
   assert.match(client,/Source publication date \(if stated\)/);
   assert.match(client,/BA Medicale publish date is assigned only after the controlled publish succeeds/);
   assert.match(client,/Private preview · noindex/);
@@ -65,7 +65,7 @@ test("Apps Script uses private server-side Drive conversion without broadening s
 });
 
 test("Article publication contract assigns BA publication date at dispatch and preserves source provenance",()=>{
-  assert.match(backend,/publishedDate:type==='Article'\?requestedAt\.slice\(0,10\)/);
+  assert.match(backend,/publishedDate:\['Article','eBook'\]\.includes\(type\)\?requestedAt\.slice\(0,10\)/);
   assert.match(backend,/sourcePublishedDate:String\(data\.sourcePublishedDate\|\|''\)/);
   assert.match(backend,/Approved source PDF integrity check failed/);
   assert.match(backend,/publishSource\?base\+'\/source\.pdf':'',mimeType:'application\/pdf'/);
