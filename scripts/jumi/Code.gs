@@ -99,7 +99,7 @@ function jumiAuthorize_(){
   return{email,role:email===jumiEmail_(jumiProps_().getProperty('JUMI_OWNER'))?'Owner':'Admin'};
 }
 function doGet(){
-  try{jumiAuthorize_();return HtmlService.createHtmlOutputFromFile('Index').setTitle('JUMI — BA Medicale Content OS').setXFrameOptionsMode(HtmlService.XFrameOptionsMode.DEFAULT);}
+  try{jumiAuthorize_();return HtmlService.createHtmlOutputFromFile('Index').addMetaTag('viewport','width=device-width, initial-scale=1').setTitle('JUMI — BA Medicale Content OS').setXFrameOptionsMode(HtmlService.XFrameOptionsMode.DEFAULT);}
   catch(_){return HtmlService.createHtmlOutput('<!doctype html><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><title>Access Denied</title><p>Access Denied</p>');}
 }
 function jumiApi(action,data){
