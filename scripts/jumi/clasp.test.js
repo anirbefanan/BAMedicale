@@ -26,3 +26,8 @@ test("deployment wrapper fails closed and updates only the existing production d
   assert.match(source,/"--deploymentId",endpoint/);
   assert.doesNotMatch(source,/create-script|ScriptProperties|JUMI_GITHUB_TOKEN|JUMI_CONTENT_ROOT_FOLDER_ID/);
 });
+
+test("Apps Script manifest preserves the private signed-in web-app entry point",()=>{
+  const manifest=JSON.parse(fs.readFileSync(path.join(root,"scripts/jumi/appsscript.json"),"utf8"));
+  assert.deepEqual(manifest.webapp,{access:"ANYONE",executeAs:"USER_ACCESSING"});
+});
