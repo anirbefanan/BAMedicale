@@ -89,7 +89,7 @@ test("post-event and certificate messages require recorded evidence", () => {
   const attended = registrant({ "Attendance Status": "Attended", "Certificate Status": "Approved" });
   assert.equal(context.jumiNotificationEligibility_(completed, attended, "Post-event Follow-up", null, now).eligible, true);
   assert.equal(context.jumiNotificationEligibility_(completed, attended, "Certificate Ready", { "File ID": "private-file", "Approved At": "2026-10-18T13:00:00+07:00" }, now).eligible, false);
-  const ready = { "File ID": "private-file", "Approved At": "2026-10-18T13:00:00+07:00", "Access URL": "https://bamedicale.com/certificates/fixture" };
+  const ready = { "File ID": "private-file", "File Hash": "sha256-fixture", "Approved At": "2026-10-18T13:00:00+07:00", "Delivery Mode": "Email Attachment", Status: "Approved" };
   assert.equal(context.jumiNotificationEligibility_(completed, attended, "Certificate Ready", ready, now).eligible, true);
 });
 
