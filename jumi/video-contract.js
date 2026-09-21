@@ -1,0 +1,30 @@
+/* Originals-only contract shared by the browser, Apps Script and repository publisher. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.JUMI_VIDEO=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  'use strict';
+  const MAX_VIDEO=20*1024*1024,MAX_POSTER=4*1024*1024,WARN_VIDEO=15*1024*1024,MAX_TREE=800*1024*1024,WARN_TREE=650*1024*1024;
+  const AUDIENCE={Doctors:'DOCTOR','Healthcare Professionals':'HEALTHCARE WORKER','Other Healthcare Professionals':'HEALTHCARE WORKER',Public:'PUBLIC'};
+  const assert=(ok,message)=>{if(!ok)throw new Error(message);},slug=value=>/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)&&value.length>=3&&value.length<=80;
+  const u8=bytes=>bytes instanceof Uint8Array?bytes:Uint8Array.from(bytes),text=(b,p,n)=>String.fromCharCode(...b.slice(p,p+n)),u32=(b,p)=>b[p]*16777216+b[p+1]*65536+b[p+2]*256+b[p+3];
+  function mp4(bytes){
+    assert(bytes.length>32&&bytes.length<=MAX_VIDEO,'Originals MP4 must be valid and no larger than 20 MiB. Larger masters require a separately approved delivery solution.');
+    const b=u8(bytes),atoms=[];let pos=0,duration=null,video=false;
+    function walk(start,end,depth){assert(depth<12,'Invalid MP4 atom nesting.');let p=start;while(p<end){assert(p+8<=end,'Truncated MP4 atom.');let n=u32(b,p),header=8;const kind=text(b,p+4,4);if(n===1){assert(p+16<=end&&u32(b,p+8)===0,'Unsupported MP4 atom size.');n=u32(b,p+12);header=16;}if(n===0)n=end-p;assert(n>=header&&p+n<=end,'Invalid MP4 atom boundary.');const body=p+header;if(kind==='hdlr'&&body+12<=p+n&&text(b,body+8,4)==='vide')video=true;if(kind==='mvhd'){const version=b[body],offset=version===1?20:12;assert([0,1].includes(version)&&body+offset+(version===1?12:8)<=p+n,'Invalid MP4 movie header.');const timescale=u32(b,body+offset);let ticks=u32(b,body+offset+4);if(version===1){assert(ticks===0,'MP4 duration exceeds supported range.');ticks=u32(b,body+offset+8);}assert(timescale>0&&ticks>0,'MP4 duration is unavailable.');duration=ticks/timescale;}if(['moov','trak','mdia'].includes(kind))walk(body,p+n,depth+1);p+=n;}assert(p===end,'Invalid MP4 boundary.');}
+    while(pos<b.length){assert(pos+8<=b.length,'Truncated MP4.');let n=u32(b,pos);assert(n>=8&&pos+n<=b.length,'Unsupported or malformed MP4 container.');atoms.push({kind:text(b,pos+4,4),pos,n});pos+=n;}
+    const f=atoms[0];assert(f.kind==='ftyp'&&f.n>=16&&/isom|iso[2-6]|mp4[12]|avc1/.test(text(b,8,f.n-8)),'Only standard MP4 video containers are supported.');
+    assert(atoms.some(a=>a.kind==='mdat'&&a.n>8)&&atoms.some(a=>a.kind==='moov'),'MP4 media/movie data is missing.');walk(0,b.length,0);assert(video&&duration>0&&duration<=600,'MP4 must contain video and have a reliable duration of at most 10 minutes.');return{size:bytes.length,durationSeconds:duration,mimeType:'video/mp4',valid:true};
+  }
+  function poster(bytes,mime){
+    assert(bytes.length>24&&bytes.length<=MAX_POSTER,'Use an approved JPG/PNG poster no larger than 4 MiB.');const b=u8(bytes);let width=0,height=0;
+    if(mime==='image/png'){assert(text(b,1,3)==='PNG'&&b[0]===137&&text(b,12,4)==='IHDR','Invalid PNG poster.');width=u32(b,16);height=u32(b,20);}
+    else if(mime==='image/jpeg'){assert(b[0]===255&&b[1]===216,'Invalid JPG poster.');let p=2;while(p+4<b.length){assert(b[p]===255,'Invalid JPEG marker.');while(b[p]===255)p++;const marker=b[p++];if(marker===217||marker===218)break;const len=b[p]*256+b[p+1];assert(len>=2&&p+len<=b.length,'Invalid JPEG segment.');if([192,193,194].includes(marker)){height=b[p+3]*256+b[p+4];width=b[p+5]*256+b[p+6];break;}p+=len;}}
+    else throw Error('Poster must be JPG or PNG.');
+    assert(width>0&&height>0&&Math.abs(width/height-9/16)<=.02,`Originals require 9:16 portrait artwork; uploaded ${width} × ${height}. No automatic cropping is performed.`);
+    return{width,height,ratio:width/height,requiredRatio:9/16,valid:true};
+  }
+  function clean(value){const s=String(value||'').trim();assert(s.length<=12000&&!/[<>\u0000-\u0008]/.test(s)&&!/(?:drive|docs)\.google\.com|Bearer\s|github_pat_|ghp_/i.test(s),'Use reviewed plain text without private Drive links, markup or credentials.');return s;}
+  function metadata(data){const pub=data.publication||{},m={title:clean(data.title),subtitle:clean(data.subtitle),quickSummary:clean(data.quickSummary),source:clean(data.source),sourcePublishedDate:clean(data.sourcePublishedDate),tags:(data.tags||[]).map(clean),publication:{primaryAudience:clean(pub.primaryAudience),primaryDiseaseGroup:clean(pub.primaryDiseaseGroup),primaryTopic:clean(pub.primaryTopic),contentType:'Video',audienceReviewed:pub.audienceReviewed===true,promotion:{hook:clean(pub.promotion?.hook),teaser:(pub.promotion?.teaser||[]).map(clean),hashtags:(pub.promotion?.hashtags||[]).map(clean)}}};
+    assert(m.title&&m.quickSummary&&m.source,'Title, approved description and source/provenance attribution are required.');assert(AUDIENCE[m.publication.primaryAudience]&&m.publication.audienceReviewed,'Audience Needs Review: select and explicitly review the intended audience.');assert(m.publication.primaryDiseaseGroup&&m.publication.primaryTopic&&m.tags.length,'Disease group, topic and source-backed tags are required.');assert(!m.sourcePublishedDate||/^\d{4}-\d{2}-\d{2}$/.test(m.sourcePublishedDate),'Source date must be YYYY-MM-DD or absent.');assert(m.tags.length<=12&&m.tags.every(t=>t.length<=80),'Use at most 12 concise tags.');assert(m.publication.promotion.hashtags.length>=2&&m.publication.promotion.hashtags.length<=3&&m.publication.promotion.hashtags.every(t=>/^#[A-Za-z0-9]+$/.test(t)),'Use two or three reviewed hashtags, separate from website tags.');return m;
+  }
+  function paths(value,ext){assert(slug(value)&&['jpg','png'].includes(ext),'Invalid Video destination.');return{source:`assets/videos/${value}.mp4`,artwork:`assets/videos/posters/${value}.${ext}`,page:`videos.html?video=${value}`};}
+  return{MAX_VIDEO,MAX_POSTER,WARN_VIDEO,MAX_TREE,WARN_TREE,AUDIENCE,slug,mp4,poster,metadata,paths,clean};
+});

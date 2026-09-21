@@ -1,4 +1,5 @@
 name: Publish validated JUMI content
+run-name: Publish ${{ inputs.release_branch }}
 
 on:
   workflow_dispatch:
@@ -52,10 +53,18 @@ jobs:
           fi
           echo "file=${requests[0]}" >> "$GITHUB_OUTPUT"
           node scripts/jumi/apply-publication.js --request "${requests[0]}" --contract-only
+          node scripts/jumi/verify-video-release.js "${requests[0]}"
 
       - name: Prepare publication source pages
         run: |
           TYPE=$(node -p "require('./${{ steps.request.outputs.file }}').contentType")
+          if [ "$TYPE" = "Video" ]; then
+            if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+              sudo apt-get update
+              sudo apt-get install -y ffmpeg
+            fi
+            node scripts/jumi/video-publication.js "${{ steps.request.outputs.file }}"
+          fi
           if [ "$TYPE" = "eBook" ]; then
             SLUG=$(node -p "require('./${{ steps.request.outputs.file }}').slug")
             if ! command -v pdfinfo >/dev/null || ! command -v pdftoppm >/dev/null || ! command -v pdftotext >/dev/null; then

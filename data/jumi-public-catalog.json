@@ -2,6 +2,51 @@
   "schemaVersion": 1,
   "items": [
     {
+      "id": "ba-medicale-clinical-learning-preview",
+      "type": "Video",
+      "title": "BA Medicale Clinical Learning Preview",
+      "slug": "ba-medicale-clinical-learning-preview",
+      "status": "Published",
+      "publishedAt": "2026-08-24",
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-clinical-learning-preview"
+    },
+    {
+      "id": "ba-medicale-original-initial-scene",
+      "type": "Video",
+      "title": "BA Medicale Original Visual Opening",
+      "slug": "ba-medicale-original-initial-scene",
+      "status": "Published",
+      "publishedAt": "2026-08-24",
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-original-initial-scene"
+    },
+    {
+      "id": "ba-medicale-medical-office-learning-brief",
+      "type": "Video",
+      "title": "BA Medicale Medical Office Learning Brief",
+      "slug": "ba-medicale-medical-office-learning-brief",
+      "status": "Published",
+      "publishedAt": "2026-08-24",
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-medical-office-learning-brief"
+    },
+    {
+      "id": "ba-medicale-neoplasia-definition-early-detection",
+      "type": "Video",
+      "title": "Neoplasia Definition and Early Detection",
+      "slug": "ba-medicale-neoplasia-definition-early-detection",
+      "status": "Published",
+      "publishedAt": "2026-08-24",
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-neoplasia-definition-early-detection"
+    },
+    {
+      "id": "ba-medicale-medical-office-platform-brief",
+      "type": "Video",
+      "title": "BA Medicale Medical Office Platform Brief",
+      "slug": "ba-medicale-medical-office-platform-brief",
+      "status": "Published",
+      "publishedAt": "2026-08-24",
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-medical-office-platform-brief"
+    },
+    {
       "id": "indonesia-cancer-statistics-2026",
       "type": "Article",
       "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",

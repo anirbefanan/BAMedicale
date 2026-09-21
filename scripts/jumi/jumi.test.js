@@ -160,7 +160,7 @@ test("new Content OS artwork is validated server-side while historical Seminar p
 });
 
 test("Seminar and Presentation use the same gated Content publisher",()=>{
-  assert.match(backend,/JUMI_CONTENT_TYPES = \['Article','eBook','Seminar','Presentation'\]/);
+  assert.match(backend,/JUMI_CONTENT_TYPES = \['Article','eBook','Seminar','Presentation','Video'\]/);
   assert.match(backend,/function jumiGenerateSeminar_/);
   assert.match(backend,/jumi_generate_seminar/);
   assert.match(backend,/Presentation.*Original source PDF is required/s);
