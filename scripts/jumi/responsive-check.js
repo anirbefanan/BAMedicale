@@ -28,7 +28,7 @@ const root=path.resolve(__dirname,'../..');
       await page.locator('[data-open-content="past"]').click();assert.equal(await page.locator('#dialog input[name="title"]').inputValue(),'Management of Thyroid Nodules — How to Make a Good Diagnosis?');await page.keyboard.press('Escape');
       await page.evaluate(()=>window.__JUMI_TEST__.navigate('Dashboard'));
       if(process.env.JUMI_QA_SCREENSHOTS&&[1440,390].includes(width))await page.screenshot({path:path.join(process.env.JUMI_QA_SCREENSHOTS,`jumi-${width}.png`),fullPage:true});
-      if(width<=820){await page.locator('#nav-toggle').click();await check('navigation',width);await page.keyboard.press('Escape');assert.equal(await page.locator('#nav-toggle').getAttribute('aria-expanded'),'false')}
+      if(width<=820){await page.locator('.calendar-list').scrollIntoViewIfNeeded();await page.locator('#nav-toggle').click();await check('navigation',width);const nav=await page.locator('#primary-nav').boundingBox();assert.ok(nav.y>=58&&nav.y+nav.height<=1000,'Menu must be visible when opened from a scrolled Dashboard');await page.keyboard.press('Escape');assert.equal(await page.locator('#nav-toggle').getAttribute('aria-expanded'),'false')}
       for(const name of ['Content','Community','Settings']){await page.evaluate(name=>window.__JUMI_TEST__.navigate(name),name);await check(name,width)}
       await page.evaluate(()=>{const t=window.__JUMI_TEST__;t.state.contentSection='Seminars';t.navigate('Content')});
       for(const tab of ['Overview','Event Details','Registration','Payments','Attendance','Notifications','Certificates','Event Tools','Preview','Publish']){await page.locator(`[data-seminar-tab="${tab}"]`).click();await check(tab,width)}
