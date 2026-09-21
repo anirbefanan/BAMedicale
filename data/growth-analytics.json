@@ -9,20 +9,20 @@
         "previousStartDate": "2026-09-20",
         "previousEndDate": "2026-09-20"
       },
-      "generatedAt": "2026-09-21T17:21:20.347Z",
+      "generatedAt": "2026-09-21T21:20:55.476Z",
       "summary": {
-        "activeUsers": 3,
+        "activeUsers": 4,
         "newUsers": 1,
-        "screenPageViews": 7,
-        "sessions": 8,
+        "screenPageViews": 10,
+        "sessions": 10,
         "engagedSessions": 0,
-        "userEngagementDuration": 29,
-        "eventCount": 21,
+        "userEngagementDuration": 76,
+        "eventCount": 28,
         "keyEvents": 0,
-        "totalUsers": 7,
-        "averageEngagementTimeSeconds": 9.6667,
+        "totalUsers": 8,
+        "averageEngagementTimeSeconds": 19,
         "engagementRate": 0,
-        "returningUsers": 1
+        "returningUsers": 2
       },
       "previous": {
         "activeUsers": 10,
@@ -48,18 +48,18 @@
         "current": [
           {
             "date": "2026-09-21",
-            "activeUsers": 3,
+            "activeUsers": 4,
             "newUsers": 1,
-            "screenPageViews": 7,
-            "sessions": 8,
+            "screenPageViews": 10,
+            "sessions": 10,
             "engagedSessions": 0,
-            "userEngagementDuration": 29,
-            "eventCount": 21,
+            "userEngagementDuration": 76,
+            "eventCount": 28,
             "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 9.6667,
+            "totalUsers": 8,
+            "averageEngagementTimeSeconds": 19,
             "engagementRate": 0,
-            "returningUsers": 1
+            "returningUsers": 2
           }
         ],
         "previous": [
@@ -88,14 +88,14 @@
             "sessions": 2
           },
           {
+            "label": "Returning",
+            "activeUsers": 2,
+            "sessions": 8
+          },
+          {
             "label": "New",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "Returning",
-            "activeUsers": 1,
-            "sessions": 6
           },
           {
             "label": "Unclassified",
@@ -112,8 +112,8 @@
         "rows": [
           {
             "label": "Unassigned",
-            "activeUsers": 3,
-            "sessions": 4
+            "activeUsers": 4,
+            "sessions": 5
           },
           {
             "label": "Cross-network",
@@ -123,7 +123,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 3
           },
           {
             "label": "Direct",
@@ -142,8 +142,8 @@
           },
           {
             "label": "mobile",
-            "activeUsers": 1,
-            "sessions": 3
+            "activeUsers": 2,
+            "sessions": 5
           }
         ]
       },
@@ -165,14 +165,14 @@
             "sessions": 1
           },
           {
+            "label": "(direct) / (none)",
+            "activeUsers": 1,
+            "sessions": 7
+          },
+          {
             "label": "google / organic",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(direct) / (none)",
-            "activeUsers": 0,
-            "sessions": 5
           }
         ]
       },
@@ -181,8 +181,8 @@
         "rows": [
           {
             "label": "(not set)",
-            "activeUsers": 3,
-            "sessions": 4
+            "activeUsers": 4,
+            "sessions": 5
           },
           {
             "label": "(data not available)",
@@ -192,7 +192,7 @@
           {
             "label": "google / organic",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 3
           },
           {
             "label": "(direct) / (none)",
@@ -205,6 +205,15 @@
         "status": "ok",
         "rows": [
           {
+            "path": "/",
+            "title": "BA Medicale — Home",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 4,
+            "eventCount": 10,
+            "engagement": 30.5
+          },
+          {
             "path": "/events/management-thyroid-nodules-2026.html",
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
             "type": "Seminars / Events",
@@ -214,21 +223,21 @@
             "engagement": 15
           },
           {
-            "path": "/",
-            "title": "BA Medicale — Home",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 2,
-            "eventCount": 5,
-            "engagement": 14
-          },
-          {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
             "activeUsers": 1,
             "views": 1,
             "eventCount": 4,
+            "engagement": 0
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
+            "type": "eBooks",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
             "engagement": 0
           },
           {
@@ -258,8 +267,20 @@
             "engagementRate": 0
           },
           {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+            "title": "Advanced Diagnostics and Management of Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -286,19 +307,19 @@
         "previousStartDate": "2026-09-08",
         "previousEndDate": "2026-09-14"
       },
-      "generatedAt": "2026-09-21T17:21:20.347Z",
+      "generatedAt": "2026-09-21T21:20:55.476Z",
       "summary": {
         "activeUsers": 177,
         "newUsers": 168,
-        "screenPageViews": 617,
-        "sessions": 263,
+        "screenPageViews": 620,
+        "sessions": 265,
         "engagedSessions": 158,
-        "userEngagementDuration": 13650,
-        "eventCount": 2104,
+        "userEngagementDuration": 13697,
+        "eventCount": 2111,
         "keyEvents": 0,
         "totalUsers": 177,
-        "averageEngagementTimeSeconds": 77.1186,
-        "engagementRate": 0.6008,
+        "averageEngagementTimeSeconds": 77.3842,
+        "engagementRate": 0.5962,
         "returningUsers": 38
       },
       "previous": {
@@ -415,18 +436,18 @@
           },
           {
             "date": "2026-09-21",
-            "activeUsers": 3,
+            "activeUsers": 4,
             "newUsers": 1,
-            "screenPageViews": 7,
-            "sessions": 8,
+            "screenPageViews": 10,
+            "sessions": 10,
             "engagedSessions": 0,
-            "userEngagementDuration": 29,
-            "eventCount": 21,
+            "userEngagementDuration": 76,
+            "eventCount": 28,
             "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 9.6667,
+            "totalUsers": 8,
+            "averageEngagementTimeSeconds": 19,
             "engagementRate": 0,
-            "returningUsers": 1
+            "returningUsers": 2
           }
         ],
         "previous": [
@@ -541,7 +562,7 @@
           {
             "label": "Returning",
             "activeUsers": 38,
-            "sessions": 92
+            "sessions": 94
           },
           {
             "label": "Unclassified",
@@ -569,12 +590,12 @@
           {
             "label": "Organic Search",
             "activeUsers": 10,
-            "sessions": 44
+            "sessions": 46
           },
           {
             "label": "Unassigned",
-            "activeUsers": 4,
-            "sessions": 5
+            "activeUsers": 5,
+            "sessions": 6
           },
           {
             "label": "Organic Social",
@@ -599,7 +620,7 @@
           {
             "label": "mobile",
             "activeUsers": 103,
-            "sessions": 150
+            "sessions": 152
           },
           {
             "label": "desktop",
@@ -619,7 +640,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 161,
-            "sessions": 235
+            "sessions": 237
           },
           {
             "label": "United States",
@@ -634,7 +655,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 164,
-            "sessions": 228
+            "sessions": 230
           },
           {
             "label": "google / organic",
@@ -679,12 +700,12 @@
           {
             "label": "google / organic",
             "activeUsers": 10,
-            "sessions": 44
+            "sessions": 46
           },
           {
             "label": "(not set)",
-            "activeUsers": 4,
-            "sessions": 5
+            "activeUsers": 5,
+            "sessions": 6
           },
           {
             "label": "(data not available)",
@@ -730,9 +751,9 @@
             "title": "BA Medicale — Home",
             "type": "Other public pages",
             "activeUsers": 30,
-            "views": 99,
-            "eventCount": 240,
-            "engagement": 58.2333
+            "views": 101,
+            "eventCount": 245,
+            "engagement": 59.8
           },
           {
             "path": "/seminar.html",
@@ -748,8 +769,8 @@
             "title": "Advanced Diagnostics and Management of Thyroid Nodules",
             "type": "eBooks",
             "activeUsers": 4,
-            "views": 33,
-            "eventCount": 106,
+            "views": 34,
+            "eventCount": 108,
             "engagement": 229.75
           },
           {
@@ -982,8 +1003,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 29,
-            "engagementRate": 0.5172
+            "sessions": 30,
+            "engagementRate": 0.5
           },
           {
             "path": "/index.html",
@@ -1000,8 +1021,8 @@
           {
             "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
             "title": "Advanced Diagnostics and Management of Thyroid Nodules",
-            "sessions": 5,
-            "engagementRate": 1
+            "sessions": 6,
+            "engagementRate": 0.8333
           },
           {
             "path": "/ebooks.html",
@@ -1071,7 +1092,7 @@
           {
             "title": "eBooks",
             "activeUsers": 4,
-            "views": 42,
+            "views": 43,
             "engagement": 270.5
           },
           {
@@ -5869,10 +5890,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-09-21T17:21:20.347Z",
+  "generatedAt": "2026-09-21T21:20:55.476Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-09-21T17:21:20.347Z",
+    "generatedAt": "2026-09-21T21:20:55.476Z",
     "windowMinutes": 30
   }
 }
