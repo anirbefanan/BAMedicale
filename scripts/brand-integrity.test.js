@@ -59,7 +59,7 @@ test('public pages load the current shared shell asset version',()=>{
   for(const file of walk(root).filter(file=>file.endsWith('.html'))){
     const html=fs.readFileSync(file,'utf8');
     if(!html.includes('app.js?v='))continue;
-    assert.match(html,path.relative(root,file) === "library.html" ? /app\.js\?v=library-discovery-20260923/ : /app\.js\?v=brand-integrity-20260920/,path.relative(root,file));
+    assert.match(html,path.relative(root,file) === "library.html" ? /app\.js\?v=library-filter-3d83e7c/ : /app\.js\?v=brand-integrity-20260920/,path.relative(root,file));
     assert.doesNotMatch(html,/app\.js\?v=design-system-20260920/,path.relative(root,file));
   }
 });
