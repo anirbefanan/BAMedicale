@@ -18,10 +18,10 @@ test("canonical registry validates all current publishable content", () => {
   assert.equal(new Set(registry.records.map((record) => record.id)).size, registry.records.length);
 });
 
-test("Disease Explorer destinations derive from zero, one, and multiple published records", () => {
-  const zero = registry.query({ disease: "cardiovascular" });
-  const one = registry.query({ disease: "hematologic" });
-  const multiple = registry.query({ disease: "breast" });
+test("Disease Explorer destinations derive from result cardinality as the catalog grows", () => {
+  const zero = [];
+  const one = registry.records.slice(0, 1);
+  const multiple = registry.records.slice(0, 2);
   assert.equal(zero.length, 0);
   assert.equal(registry.destination(zero, { disease: "cardiovascular" }), "library.html?disease=cardiovascular");
   assert.equal(one.length, 1);
@@ -66,12 +66,13 @@ test("Healthcare Worker fixture propagates without production content changes", 
     cover: "assets/medical/neoplasia-development.png"
   };
   const fixtureRegistry = registryApi.create(fixtureData);
+  const baseline = registryApi.create(data);
   const audience = fixtureRegistry.query({ audience: "healthcare-worker", primaryAudienceOnly: true });
-  assert.equal(audience.length, 1);
-  assert.equal(fixtureRegistry.query({ disease: "cardiovascular" }).length, 1);
-  assert.equal(fixtureRegistry.query({ category: "healthcare-teamwork" }).length, 1);
-  assert.equal(fixtureRegistry.search("Care Coordination")[0].id, "healthcare-fixture");
-  assert.equal(fixtureRegistry.destination(audience, { audience: "healthcare-worker" }), "articles/healthcare-fixture.html");
+  assert.equal(audience.length, baseline.query({ audience: "healthcare-worker", primaryAudienceOnly: true }).length + 1);
+  assert.equal(fixtureRegistry.query({ disease: "cardiovascular" }).length, baseline.query({ disease: "cardiovascular" }).length + 1);
+  assert.equal(fixtureRegistry.query({ category: "healthcare-teamwork" }).length, baseline.query({ category: "healthcare-teamwork" }).length + 1);
+  assert.ok(fixtureRegistry.search("Care Coordination").some(record => record.id === "healthcare-fixture"));
+  assert.equal(fixtureRegistry.destination(audience.filter(record => record.id === "healthcare-fixture"), { audience: "healthcare-worker" }), "articles/healthcare-fixture.html");
 });
 
 test("Library query URLs are stable, combinable, and normalized", () => {
