@@ -146,7 +146,7 @@ test("schedule override is future-only, audited, and limited to untouched sends"
 });
 
 test("workspace supports preview, schedule, filters, retry, cancel, and honest providers", () => {
-  for (const token of ["Notification Center", "Private message preview", "Prepare Eligible Queue", "Process Due", "data-retry-notification", "data-cancel-notification", "WhatsApp — Not Connected"]) assert.match(client, new RegExp(token));
+  for (const token of ["Notification Center", "Private message preview", "Prepare Eligible Queue", "Process Due", "data-retry-notification", "data-cancel-notification", "Provider boundary prepared"]) assert.match(client, new RegExp(token));
   assert.match(client, /integration\("email"\)/);
   assert.match(client, /integration\("whatsapp"\)/);
   assert.match(scope, /Notification delivery failed/);

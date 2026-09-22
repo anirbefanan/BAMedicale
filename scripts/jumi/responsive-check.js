@@ -29,12 +29,14 @@ const root=path.resolve(__dirname,'../..');
       await page.evaluate(()=>window.__JUMI_TEST__.navigate('Dashboard'));
       if(process.env.JUMI_QA_SCREENSHOTS&&[1440,390].includes(width))await page.screenshot({path:path.join(process.env.JUMI_QA_SCREENSHOTS,`jumi-${width}.png`),fullPage:true});
       if(width<=820){await page.locator('.calendar-list').scrollIntoViewIfNeeded();await page.locator('#nav-toggle').click();await check('navigation',width);const nav=await page.locator('#primary-nav').boundingBox();assert.ok(nav.y>=58&&nav.y+nav.height<=1000,'Menu must be visible when opened from a scrolled Dashboard');await page.keyboard.press('Escape');assert.equal(await page.locator('#nav-toggle').getAttribute('aria-expanded'),'false')}
-      for(const name of ['Content','Community','Settings']){await page.evaluate(name=>window.__JUMI_TEST__.navigate(name),name);await check(name,width)}
+      for(const name of ['Content','Community','Settings']){await page.evaluate(name=>window.__JUMI_TEST__.navigate(name),name);await check(name,width);const createCount=await page.getByRole('button',{name:'Create Content',exact:true}).count();assert.equal(createCount,name==='Content'?1:0,`${width} ${name}: canonical Create Content count`)}
       await page.evaluate(()=>{const t=window.__JUMI_TEST__;t.state.contentSection='Seminars';t.navigate('Content')});
       for(const tab of ['Overview','Event Details','Registration','Payments','Attendance','Notifications','Certificates','Event Tools','Preview','Publish']){await page.locator(`[data-seminar-tab="${tab}"]`).click();await check(tab,width)}
+      assert.equal(await page.getByRole('button',{name:'Create Content',exact:true}).count(),0,`${width} Seminars: generic Create Content hidden`);
+      await page.locator('[data-seminar-tab="Event Details"]').click();assert.equal(await page.getByRole('button',{name:'Create Seminar',exact:true}).count(),1,`${width} Seminars: one contextual create action`);
       for(const scope of ['all','upcoming','live','completed']){await page.locator('#event-scope').selectOption(scope);await check('Scope '+scope,width)}
       for(const type of ['Article','eBook','Seminar','Video']){
-        await page.locator('.workspace-header [data-action="new-content"]').click();await page.locator(`[data-create-type="${type}"]`).click();await check('Create '+type,width);
+        await page.evaluate(()=>window.__JUMI_TEST__.navigate('Dashboard'));assert.equal(await page.getByRole('button',{name:'Create Content',exact:true}).count(),1,`${width} Dashboard: one Create Content action`);await page.locator('.workspace-header [data-action="new-content"]').click();await page.locator(`[data-create-type="${type}"]`).click();await check('Create '+type,width);
         const overflow=await page.locator('.dialog-card').evaluate(e=>e.scrollWidth>e.clientWidth+1);assert.equal(overflow,false,`${width} ${type} dialog overflow`);if(type==='Video'){await page.locator('#dialog-content button[value="cancel"]').click();assert.equal(await page.locator('#dialog').evaluate(e=>e.open),false,'Cancel must not require draft fields');checks++;}else await page.keyboard.press('Escape');
       }
     }
