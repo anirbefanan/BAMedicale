@@ -148,7 +148,8 @@ test("Article and eBook validation gates reject missing source evidence",()=>{
 });
 
 test("new Content OS artwork is validated server-side while historical Seminar posters remain grandfathered",()=>{
-  assert.match(backend,/ImagesService\.openImage\(blob\)/);
+  assert.match(backend,/function jumiImageDimensions_/);
+  assert.doesNotMatch(backend,/ImagesService/);
   assert.match(backend,/16\/9/);
   assert.match(backend,/3\/4/);
   assert.match(backend,/1\/Math\.sqrt\(2\)/);
@@ -157,6 +158,15 @@ test("new Content OS artwork is validated server-side while historical Seminar p
   assert.match(client,/Approved 3:4 portrait cover/);
   assert.match(client,/Approved 16:9 landscape artwork/);
   assert.match(backend,/privatePoster\?\'\':poster/);
+});
+
+test("Apps Script validates PNG and JPEG dimensions from source bytes",()=>{
+  const context={console};vm.createContext(context);vm.runInContext(backend,context);
+  const png=Buffer.alloc(24);Buffer.from([137,80,78,71,13,10,26,10]).copy(png);Buffer.from('IHDR').copy(png,12);png.writeUInt32BE(900,16);png.writeUInt32BE(1200,20);
+  assert.deepEqual({...context.jumiImageDimensions_([...png],'image/png')},{width:900,height:1200});
+  const jpeg=Buffer.from([255,216,255,192,0,17,8,4,176,3,132,3,1,17,0,2,17,0,3,17,0,255,217]);
+  assert.deepEqual({...context.jumiImageDimensions_([...jpeg],'image/jpeg')},{width:900,height:1200});
+  assert.throws(()=>context.jumiImageDimensions_([1,2,3],'image/png'),/invalid or unreadable/);
 });
 
 test("Seminar and Presentation use the same gated Content publisher",()=>{

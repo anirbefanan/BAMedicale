@@ -38,7 +38,12 @@ test('one authorized action preserves every controlled publication gate',()=>{
   assert.match(backend,/needsReview:true,issues:validation\.issues/);
   assert.match(client,/auto_publish_content/);
   assert.match(client,/auto_publish_seminar/);
-  assert.match(client,/Publication queued/);
+  assert.match(client,/Publishing and verifying the live BA Medicale page/);
+  assert.match(client,/Published successfully/);
+  assert.match(client,/View Live Content/);
+  assert.match(backend,/jumi_publication_status/);
+  assert.match(backend,/jumiVerifyLivePublication_/);
+  assert.match(backend,/jumi_find_content_draft/);
 });
 
 test('exceptions remain precise and private sources retain provenance',()=>{
