@@ -15,6 +15,8 @@
 /scripts/attendance/downloads.js text eol=lf
 
 # Preserve the approved eBook PDF byte-for-byte across Windows clones.
-/assets/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules/source.pdf binary
+/assets/ebooks/**/source.pdf binary
+/assets/ebooks/**/pages.json text eol=lf
+/data/jumi-public-catalog.json text eol=lf
 /ebooks/*.html text eol=lf
 /ebooks.html text eol=lf
