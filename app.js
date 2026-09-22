@@ -444,32 +444,28 @@ function renderLibrary() {
   const selectedType = types.some(([id]) => id === registryApi.slugify(params.get("type"))) ? registryApi.slugify(params.get("type")) : "";
   const selectedAuthor = authors.some(([id]) => id === params.get("author")) ? params.get("author") : "";
   const option = (value, label = value, selected = false) => `<option value="${escapeHtml(value)}"${selected ? " selected" : ""}>${escapeHtml(label)}</option>`;
-  const groupLabel = (record) => diseaseGroupById(record.primaryDiseaseGroup)?.name || "General medical education";
   const libraryVideoImage = record => `<a class="library-video-media" href="${escapeHtml(record.route)}" aria-label="Watch ${escapeHtml(record.title)}"><img src="${escapeHtml(safeImageUrl(record.cover))}" alt="${escapeHtml(record.title)} video preview" width="960" height="540" loading="lazy" referrerpolicy="no-referrer"><span aria-hidden="true">▶</span></a>`;
   const presentationImage = record => `<button class="presentation-infographic" type="button" data-seminar-poster="${escapeHtml(safeImageUrl(record.cover))}" data-seminar-poster-alt="${escapeHtml(record.title)} — presentation infographic" data-poster-title="Presentation infographic" aria-label="Enlarge presentation infographic"><img src="${escapeHtml(safeImageUrl(record.cover))}" alt="${escapeHtml(record.title)} — presentation infographic" width="1672" height="941" loading="lazy"></button>`;
-  const latestCard = (record) => `<article class="article-latest-card" data-family="${escapeHtml(record.family)}" data-content-id="${escapeHtml(record.id)}">${record.cover ? (record.family === "video" ? libraryVideoImage(record) : record.family === "presentation" ? presentationImage(record) : `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="${escapeHtml(record.title)} artwork" width="1280" height="720" loading="lazy">`) : ""}<div><span>${escapeHtml(record.primaryAudience)} · ${escapeHtml(record.contentType)}</span><p>${escapeHtml(groupLabel(record))}</p><h3>${escapeHtml(record.title)}</h3><small>${record.authors.length ? `By ${escapeHtml(record.authors.join(", "))}` : escapeHtml(record.source)}</small><a href="${escapeHtml(record.route)}">Open ${escapeHtml(record.contentType.toLowerCase())} <b aria-hidden="true">→</b></a></div></article>`;
-  const recordActions = (record) => {
-    if (record.family === "presentation") return `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a><a href="${escapeHtml(record.route)}">Full Read</a>`;
-    if (record.family === "article") return `${record.sourceRecord.quickRead !== false ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}">Read Full ${record.scientificWork ? "Publication" : "Article"}</a>`;
-    if (record.family === "seminar") return `<a href="${escapeHtml(record.route)}" data-event-quick-read="${escapeHtml(record.id)}">Quick Read</a><a href="${escapeHtml(record.route)}">View Event</a>`;
-    return `<a href="${escapeHtml(record.route)}">Open ${escapeHtml(record.contentType)}</a>`;
-  };
-  const listItem = (record) => `<article class="article-list-item" data-family="${escapeHtml(record.family)}" data-content-id="${escapeHtml(record.id)}">${record.cover ? (record.family === "video" ? libraryVideoImage(record) : record.family === "presentation" ? presentationImage(record) : `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="320" height="180" loading="lazy">`) : ""}<div class="article-list-item__copy"><div class="article-list-item__meta"><span>${escapeHtml(record.contentType)}</span>${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(record.sortDate)}</time>` : ""}</div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3><p>${escapeHtml(record.summary)}</p><div class="article-list-item__tags">${record.topics.slice(0, 3).map((topic) => `<i>${escapeHtml(topic)}</i>`).join("")}</div>${record.authors.length || record.source ? `<small>${record.authors.length ? `By ${escapeHtml(record.authors.join(", "))}` : ""}${record.authors.length && record.source ? " · " : ""}${record.source ? `Source: ${escapeHtml(record.source)}` : ""}</small>` : ""}</div><div class="article-list-item__actions">${recordActions(record)}</div></article>`;
+  const audienceLabel = value => ({ PUBLIC: "Public", DOCTOR: "Doctors", "HEALTHCARE WORKER": "Other HCP" }[value] || value);
+  const recordAudience = record => record.audiences.length === 3 ? "All" : record.audiences.map(audienceLabel).join(" + ");
+  const actionLabel = record => ({ article: "Read Article", ebook: "Open eBook", seminar: "View Seminar", video: "Watch Video", presentation: "Full Read" }[record.family] || "Open resource");
+  const recordActions = record => `${record.family === "presentation" && data.presentations?.[record.id]?.quickRead?.length ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}">${actionLabel(record)}</a>`;
+  const listItem = record => `<article class="article-list-item" data-family="${escapeHtml(record.family)}" data-content-id="${escapeHtml(record.id)}">${record.cover ? (record.family === "video" ? libraryVideoImage(record) : record.family === "presentation" ? presentationImage(record) : `<a class="article-list-item__artwork" href="${escapeHtml(record.route)}" aria-label="${escapeHtml(actionLabel(record) + ': ' + record.title)}"><img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="320" height="180" loading="lazy"></a>`) : ""}<div class="article-list-item__copy"><div class="article-list-item__meta"><span>${escapeHtml(record.contentType)}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="article-list-item__context">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${record.topics[0] ? `<a href="${escapeHtml(libraryPath({ topic: registryApi.slugify(record.topics[0]) }))}">${escapeHtml(record.topics[0])}</a>` : ""}</div></div><div class="article-list-item__actions">${recordActions(record)}</div></article>`;
   const sections = [
     ["PUBLIC", "Public Education", "Clear explanations for patients, families, and anyone building a stronger understanding."],
     ["DOCTOR", "Professional Education — Doctors", "Clinical context for doctors, specialists, and physician-level learners."],
     ["HEALTHCARE WORKER", "Professional Education — Healthcare Workers", "Practical learning for nursing, allied health, pharmacy, laboratory, imaging, and multidisciplinary care."]
   ];
-  target.innerHTML = `<section class="article-latest"><div class="article-library__heading"><div><p class="eyebrow">Latest learning</p><h2>Recently published and updated.</h2></div><p data-library-latest-summary></p></div><div class="article-latest__rail" data-library-latest></div></section><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${registryApi.AUDIENCES.map((value) => option(value, value, value === selectedAudience)).join("")}</select></label><label>Content category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map(([id, label]) => option(id, label, id === selectedCondition)).join("")}</select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(([id, label]) => option(id, label, id === selectedTopic)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map(([id, label]) => option(id, label, id === selectedType)).join("")}</select></label><label>Author / source<select name="author"><option value="">All authors and sources</option>${authors.map(([id, label]) => option(id, label, id === selectedAuthor)).join("")}</select></label><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div data-article-audiences>${sections.map(([audience, title, description]) => `<section class="article-audience" data-article-audience="${audience}"><header><div><p class="eyebrow">${title}</p><h2>${description}</h2></div><span data-article-count></span></header><div class="article-list" data-article-list></div><nav class="article-pagination" aria-label="${title} pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`).join("")}</div>`;
+  target.innerHTML = `<div class="article-library__heading"><div><p class="eyebrow">Explore the collection</p><h2>Find your next perspective.</h2></div><p data-library-latest-summary role="status"></p></div><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${registryApi.AUDIENCES.map((value) => option(value, audienceLabel(value), value === selectedAudience)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map(([id, label]) => option(id, label, id === selectedType)).join("")}</select></label><details class="article-filter-details"><summary>More filters</summary><div class="article-filter-details__grid"><label>Content category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map(([id, label]) => option(id, label, id === selectedCondition)).join("")}</select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(([id, label]) => option(id, label, id === selectedTopic)).join("")}</select></label><label>Author / source<select name="author"><option value="">All authors and sources</option>${authors.map(([id, label]) => option(id, label, id === selectedAuthor)).join("")}</select></label></div></details><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div data-article-audiences>${sections.map(([audience, title, description]) => `<section class="article-audience" data-article-audience="${audience}"><header><div><p class="eyebrow">${title}</p><h2>${description}</h2></div><span data-article-count></span></header><div class="article-list" data-article-list></div><nav class="article-pagination" aria-label="${title} pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`).join("")}</div>`;
   const filterForm = target.querySelector("[data-article-filters]");
   const filterContext = target.querySelector("[data-library-filter-context]");
-  const latestRail = target.querySelector("[data-library-latest]");
   const latestSummary = target.querySelector("[data-library-latest-summary]");
+  target.querySelector(".article-filter-details").open = Boolean(selectedCategory || selectedDisease || selectedCondition || selectedTopic || selectedAuthor);
   const pages = new Map();
   const update = ({ syncUrl = false } = {}) => {
     const values = Object.fromEntries(new FormData(filterForm));
     const activeLabels = [
-      values.audience,
+      values.audience && audienceLabel(values.audience),
       values.category && contentCategoryById(values.category)?.label,
       values.diseaseGroup && diseaseGroupById(values.diseaseGroup)?.name,
       values.condition,
@@ -480,17 +476,18 @@ function renderLibrary() {
     ].filter(Boolean);
     filterContext.textContent = activeLabels.length ? `Showing Library content for ${activeLabels.join(" · ")}.` : "Find your next read, watch, or learning session.";
     const matchingRecords = contentRegistry.query({ audience: values.audience, category: values.category, disease: values.diseaseGroup, condition: values.condition, topic: values.topic, type: values.type, author: values.author, text: values.query.trim() });
-    latestRail.innerHTML = matchingRecords.length ? matchingRecords.slice(0, 5).map(latestCard).join("") : `<p class="article-list__empty">No published content matches these filters yet.</p>`;
     latestSummary.textContent = `${matchingRecords.length} matching item${matchingRecords.length === 1 ? "" : "s"}, newest publication or update first.`;
     target.querySelectorAll("[data-article-audience]").forEach((section) => {
       const audience = section.dataset.articleAudience;
       const filtered = matchingRecords.filter((article) => articlePrimaryAudience(article) === audience);
+      section.hidden = matchingRecords.length > 0 && filtered.length === 0;
       const maxPage = Math.max(1, Math.ceil(filtered.length / 10));
       const page = Math.min(pages.get(audience) || 1, maxPage);
       pages.set(audience, page);
       const hasFilters = Object.values(values).some(Boolean);
       section.querySelector("[data-article-list]").innerHTML = filtered.length ? filtered.slice((page - 1) * 10, page * 10).map(listItem).join("") : `<p class="article-list__empty">${hasFilters ? "No learning resources match these filters yet." : "Learning resources for this audience are in preparation."}</p>`;
       section.querySelector("[data-article-count]").textContent = `${filtered.length} item${filtered.length === 1 ? "" : "s"}`;
+      section.querySelector(".article-pagination").hidden = maxPage <= 1;
       section.querySelector("[data-page-status]").textContent = `Page ${page} of ${maxPage}`;
       section.querySelector('[data-page="previous"]').disabled = page <= 1;
       section.querySelector('[data-page="next"]').disabled = page >= maxPage;
@@ -530,7 +527,7 @@ function renderLibrary() {
 
 function initArticleReader() {
   const triggers = document.querySelectorAll("[data-article-reader]");
-  if (!triggers.length || !data.articles) return;
+  if ((!triggers.length && !document.querySelector("[data-article-library]")) || !data.articles) return;
   const dialog = document.createElement("dialog");
   dialog.className = "article-reader";
   dialog.innerHTML = `<div class="article-reader__shell"><div class="article-reader__bar"><p>BA Medicale digital reader</p><div><a data-article-pdf target="_blank" rel="noopener noreferrer">Open source PDF</a><button type="button" data-article-close aria-label="Close article reader">Close</button></div></div><article class="article-reader__body" tabindex="0"></article></div>`;
@@ -567,10 +564,12 @@ function initArticleReader() {
     body.scrollTop = 0;
     body.focus();
   };
-  triggers.forEach((trigger) => trigger.addEventListener("click", (event) => {
+  document.addEventListener("click", event => {
+    const trigger = event.target.closest("[data-article-reader]");
+    if (!trigger || !(data.presentations?.[trigger.dataset.articleReader] || data.articles?.[trigger.dataset.articleReader])) return;
     event.preventDefault();
     open(trigger.dataset.articleReader, trigger);
-  }));
+  });
   close.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 }
