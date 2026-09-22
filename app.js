@@ -617,7 +617,7 @@ function renderEvents() {
   const groupName = (item) => diseaseGroupById(item.primaryDiseaseGroup)?.name || "General medical education";
   const isUpcoming = (item) => new Date(item.endDate) >= now;
   const filtered = () => records.filter((item) => audience === "ALL" || item.primaryAudience === audience);
-  const upcomingCard = (item) => { const poster = seminarPosterDimensions(item); return `<article class="seminar-card"><div class="seminar-card__poster" style="${seminarPosterStyle(item)}"><button type="button" data-seminar-poster="${escapeHtml(safeImageUrl(item.artwork))}" data-seminar-poster-alt="Official event poster for ${escapeHtml(item.title)}" aria-label="Inspect official poster for ${escapeHtml(item.title)}"><img src="${escapeHtml(safeImageUrl(item.artwork))}" alt="Official event poster for ${escapeHtml(item.title)}" width="${poster.width}" height="${poster.height}" loading="eager"></button></div><div class="seminar-card__copy"><div class="seminar-card__badges"><span>${escapeHtml(item.primaryAudience)}</span><span>${escapeHtml(groupName(item))}</span></div><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.summary)}</p><dl><div><dt>Date</dt><dd>${escapeHtml(item.date)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(item.time)}</dd></div><div><dt>Format</dt><dd>${escapeHtml(item.location)}</dd></div></dl><div class="seminar-card__actions"><button type="button" data-event-quick-read="${escapeHtml(item.id)}">Quick Read</button><a href="${escapeHtml(safeInternalUrl(item.detailUrl))}">View Event</a></div></div></article>`; };
+  const upcomingCard = (item) => { const poster = seminarPosterDimensions(item); return `<article class="seminar-card"><div class="seminar-card__poster" style="${seminarPosterStyle(item)}"><button type="button" data-seminar-poster="${escapeHtml(safeImageUrl(item.artwork))}" data-seminar-poster-alt="Official event poster for ${escapeHtml(item.title)}" aria-label="Inspect official poster for ${escapeHtml(item.title)}"><img src="${escapeHtml(safeImageUrl(item.artwork))}" alt="Official event poster for ${escapeHtml(item.title)}" width="${poster.width}" height="${poster.height}" loading="eager"></button></div><div class="seminar-card__copy"><div class="seminar-card__badges"><span>${escapeHtml(item.primaryAudience)}</span><span>${escapeHtml(groupName(item))}</span></div><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.summary)}</p><dl><div><dt>Date</dt><dd>${escapeHtml(item.date)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(item.time)}</dd></div><div><dt>Format</dt><dd>${escapeHtml(item.location)}</dd></div></dl><div class="seminar-card__actions"><button type="button" data-event-quick-read="${escapeHtml(item.id)}">Quick Read</button><a href="${escapeHtml(safeInternalUrl(item.detailUrl))}">View Seminar</a></div></div></article>`; };
   const render = () => {
     const visible = filtered();
     const upcoming = visible.filter(isUpcoming).sort((a, b) => new Date(a.startDate) - new Date(b.startDate)).slice(0, 5);
@@ -821,75 +821,8 @@ function initHeroMedia() {
 }
 
 function initMotion() {
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const targets = new Set(document.querySelectorAll([
-    ".section",
-    ".editorial-band",
-    ".company-values",
-    ".company-section",
-    ".company-learning",
-    ".company-direction",
-    ".company-closing",
-    ".team-directory",
-    ".physician-profile",
-    ".contact-layout",
-    ".contact-note",
-    ".disease-explorer",
-    ".approved-infographics",
-    ".approved-discovery-shell",
-    ".approved-videos",
-    ".approved-home-updates",
-    ".profile-page__hero"
-  ].join(", ")));
-  const groups = document.querySelectorAll([
-    ".knowledge-grid",
-    ".mosaic",
-    ".ebook-grid",
-    ".event-grid",
-    ".source-grid",
-    ".resource-grid",
-    ".article-latest-grid",
-    ".article-latest__rail",
-    ".article-list",
-    ".seminar-grid",
-    ".seminar-upcoming-rail",
-    ".seminar-past-list",
-    ".video-grid",
-    ".disease-explorer-grid",
-    ".team-grid",
-    ".contact-methods",
-    ".profile-record",
-    ".profile-detail-grid",
-    ".company-offerings",
-    ".disease-explorer__grid",
-    ".approved-discovery",
-    ".approved-videos__rail",
-    ".approved-home-updates__grid"
-  ].join(", "));
-
-  groups.forEach((group) => [...group.children].forEach((item, index) => {
-    if (!(item instanceof HTMLElement) || item.hidden) return;
-    item.style.setProperty("--reveal-order", String(Math.min(index, 5)));
-    targets.add(item);
-  }));
-
-  // Reading and discovery content must never depend on scroll animation visibility.
-  if (!targets.size || reducedMotion || document.body.classList.contains("immersion-reading") || !("IntersectionObserver" in window)) {
-    targets.forEach((item) => item.classList.add("is-visible"));
-    return;
-  }
-
-  document.documentElement.classList.add("motion-enabled");
-  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("is-visible");
-    observer.unobserve(entry.target);
-  }), { rootMargin: "0px 0px -6%", threshold: 0 });
-
-  targets.forEach((item) => {
-    item.classList.add("reveal");
-    observer.observe(item);
-  });
+  // Content is visible before enhancement and never waits for an observer.
+  document.querySelectorAll(".reveal").forEach(item => item.classList.add("is-visible"));
 }
 
 function initImmersiveExperience() {
@@ -1015,7 +948,7 @@ function renderVideoHub() {
   }
   const card = (video, featured = false) => `<article class="video-card ${featured ? "video-card--featured" : ""}" data-video-topic="${escapeHtml(video.topic)}"><button type="button" class="video-card__play" data-video-play="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>Play</span></button><div class="video-card__copy"><p><b>${escapeHtml(video.source_label)}</b><i>${escapeHtml(video.topic)}</i></p><h2>${escapeHtml(video.title)}</h2><small>${escapeHtml(video.person)}</small><a href="${escapeHtml(safeExternalUrl(video.url))}" target="_blank" rel="noopener noreferrer">View original source <strong>↗</strong></a></div></article>`;
   const localThumbnail = (video) => safeImageUrl(video.thumbnail);
-  const localCard = (video) => `<article class="video-card video-card--original" data-video-topic="${escapeHtml(video.topic)}"><button type="button" class="video-card__play video-card__play--local" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>Watch</span></button><div class="video-card__copy"><p><b>${escapeHtml(video.source_label)}</b><i>${escapeHtml(video.topic)}</i></p><h2>${escapeHtml(video.title)}</h2><small>${escapeHtml(video.short_description)}</small>${video.publishedDate ? `<small class="video-card__published">Published: ${escapeHtml(formatPublishedDate(video.publishedDate))}</small>` : ""}<a href="${escapeHtml(safeInternalUrl(video.video_url))}" target="_blank" rel="noopener noreferrer">Open video file <strong>↗</strong></a></div></article>`;
+  const localCard = (video) => `<article class="video-card video-card--original" data-video-topic="${escapeHtml(video.topic)}"><button type="button" class="video-card__play video-card__play--local" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>Watch Video</span></button><div class="video-card__copy"><p><b>${escapeHtml(video.source_label)}</b><i>${escapeHtml(video.topic)}</i></p><h2>${escapeHtml(video.title)}</h2><small>${escapeHtml(video.short_description)}</small>${video.publishedDate ? `<small class="video-card__published">Published: ${escapeHtml(formatPublishedDate(video.publishedDate))}</small>` : ""}<a href="${escapeHtml(safeInternalUrl(video.video_url))}" target="_blank" rel="noopener noreferrer">Open video file <strong>↗</strong></a></div></article>`;
   const latestOriginals = originalVideos.slice(-4).reverse();
   const latestYouTube = videos.slice().sort((a, b) => String(b.publish_date || "").localeCompare(String(a.publish_date || ""))).slice(0, 4);
   const previewLocalCard = (video) => `<article class="video-preview video-preview--original"><button type="button" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
