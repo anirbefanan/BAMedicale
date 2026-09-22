@@ -874,7 +874,8 @@ function initMotion() {
     targets.add(item);
   }));
 
-  if (!targets.size || reducedMotion || !("IntersectionObserver" in window)) {
+  // Reading and discovery content must never depend on scroll animation visibility.
+  if (!targets.size || reducedMotion || document.body.classList.contains("immersion-reading") || !("IntersectionObserver" in window)) {
     targets.forEach((item) => item.classList.add("is-visible"));
     return;
   }
@@ -884,7 +885,7 @@ function initMotion() {
     if (!entry.isIntersecting) return;
     entry.target.classList.add("is-visible");
     observer.unobserve(entry.target);
-  }), { rootMargin: "0px 0px -6%", threshold: .06 });
+  }), { rootMargin: "0px 0px -6%", threshold: 0 });
 
   targets.forEach((item) => {
     item.classList.add("reveal");
