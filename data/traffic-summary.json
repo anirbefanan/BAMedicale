@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T02:16:17.449Z",
+  "generatedAt": "2026-09-22T10:30:45.661Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-08-25",
@@ -7,24 +7,24 @@
   },
   "summary": {
     "activeUsers": 232,
-    "newUsers": 233,
-    "averageEngagementTimeSeconds": 167.64655172413794,
-    "eventCount": 4684
+    "newUsers": 234,
+    "averageEngagementTimeSeconds": 168.4094827586207,
+    "eventCount": 4690
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 340,
+      "views": 341,
       "activeUsers": 64,
-      "eventCount": 853,
-      "bounceRate": 0.32748538011695905
+      "eventCount": 856,
+      "bounceRate": 0.3157894736842105
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
       "views": 308,
       "activeUsers": 156,
       "eventCount": 1296,
-      "bounceRate": 0.352112676056338
+      "bounceRate": 0.3427230046948357
     },
     {
       "title": "BA Medicale | Physician-Led Medical Education",
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 17
+      "activeUsers": 19
     },
     {
       "label": "facebook.com / referral",
@@ -105,16 +105,8 @@
       "activeUsers": 4
     },
     {
-      "label": "Not set",
-      "activeUsers": 2
-    },
-    {
       "label": "bing / organic",
       "activeUsers": 2
-    },
-    {
-      "label": "(data not available)",
-      "activeUsers": 1
     },
     {
       "label": "dataindex.pro / referral",
@@ -124,15 +116,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 366
+      "sessions": 367
     },
     {
       "label": "google / organic",
-      "sessions": 92
-    },
-    {
-      "label": "Not set",
-      "sessions": 6
+      "sessions": 94
     },
     {
       "label": "keep.google.com / referral",
@@ -155,7 +143,7 @@
       "sessions": 3
     },
     {
-      "label": "(data not available)",
+      "label": "Not set",
       "sessions": 1
     },
     {
