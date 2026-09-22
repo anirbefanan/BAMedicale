@@ -13,7 +13,8 @@ function prepare(source,output,repoRoot){
     const generated=path.join(output,`page-${number}.png`),padded=path.join(output,`page-${String(number).padStart(String(pages).length,"0")}.png`),file=fs.existsSync(generated)?generated:padded;assert(fs.existsSync(file),`Missing rendered source page ${number}.`);if(file!==generated)fs.renameSync(file,generated);
     const text=run("pdftotext",["-layout","-f",String(number),"-l",String(number),source,"-"]).replace(/\f/g,"").trim();records.push({number,image:`${relativeOutput}/page-${number}.png`,text,blocks:text?[{type:"paragraph",text}]:[]});
   }
-  const manifest={schemaVersion:1,sourceSha256,pageAspect:Number(size[2])/Number(size[1]),pages:records};fs.writeFileSync(path.join(output,"pages.json"),JSON.stringify(manifest,null,2)+"\n","utf8");return manifest;
+  const manifest={schemaVersion:1,sourceSha256,pageAspect:Number(size[2])/Number(size[1]),pages:records};fs.writeFileSync(path.join(output,"pages.json"),JSON.stringify(manifest,null,2)+"\n","utf8");
+  run(process.env.PYTHON||"python3",[path.join(repoRoot,"scripts/ebook-full-read.py"),source,output]);return manifest;
 }
 if(require.main===module){const args=process.argv.slice(2),source=args[args.indexOf("--source")+1],output=args[args.indexOf("--output")+1],root=path.resolve(__dirname,"../..");assert(source&&output,"Use --source <pdf> --output <asset-directory>.");const result=prepare(path.resolve(root,source),path.resolve(root,output),root);console.log(`prepared ${result.pages.length} source PDF page(s)`);}
 module.exports={prepare};

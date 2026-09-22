@@ -86,7 +86,7 @@ test('canonical thyroid eBook keeps approved source and cover byte hashes',()=>{
 test('shelf batching remains bounded and lossless at catalog scale',()=>{
   const books=Array.from({length:103},(_,id)=>({id}));
   const seen=[];
-  for(let page=0;page<5;page++)seen.push(...model.batch(books,page).items.map(item=>item.id));
+  for(let page=0;page<Math.ceil(books.length/18);page++)seen.push(...model.batch(books,page).items.map(item=>item.id));
   assert.deepEqual(seen,books.map(item=>item.id));
-  assert.ok(model.batch(books,0).items.length<=25);
+  assert.ok(model.batch(books,0).items.length<=18);
 });

@@ -1,0 +1,940 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "2d7c867ae9f051a1cfaf0cf5c3baaa8ad5a67baf0934afef3e676ab088742b82",
+  "extractor": "pdfplumber-0.11.9/source-render",
+  "pages": [
+    {
+      "number": 1,
+      "coveredCharacters": 1072,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA MEDICALE MONOGRAPH SERIES | CLINICAL EDUCATION HUB",
+          "size": 10.0,
+          "top": 37.07000000000005,
+          "bbox": [
+            40.0,
+            37.07000000000005,
+            366.1400000000001,
+            47.07000000000005
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "THE SILENT ELEVATION: UNDERSTANDING HIGH BLOOD PRESSURE",
+          "size": 20.0,
+          "top": 69.13999999999999,
+          "bbox": [
+            40.0,
+            69.13999999999999,
+            464.45999999999987,
+            114.13999999999999
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An End-to-End Clinical Educational Guide — BA Medicale Series Published by BA Medicale (BAMEDICALE.COM)",
+          "size": 10.0,
+          "top": 132.07000000000005,
+          "bbox": [
+            40.0,
+            132.07000000000005,
+            327.89,
+            157.07000000000005
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-1-1.png",
+          "sha256": "79d0b3dd6d188ada900afbd6295128bcb28565c0d109af0e6db8b2e1bf5fee8d",
+          "width": 1299,
+          "height": 254,
+          "text": "",
+          "top": 206.0,
+          "bbox": [
+            40.0,
+            206.0,
+            555.2756,
+            303.5
+          ],
+          "rows": [
+            [
+              "Publisher:",
+              "BA Medicale (BAMEDICALE.COM)"
+            ],
+            [
+              "Educational Series:",
+              "BA Medicale Clinical Monograph Series"
+            ],
+            [
+              "Target Audience:",
+              "Patients, Families, Healthcare Workers & Public"
+            ],
+            [
+              "Editorial Authority:",
+              "Physician-Led Strategic Editorial Board"
+            ],
+            [
+              "Academic Guidance:",
+              "WHO, AHA/ACC, ISH & Kemenkes RI Consensus Guidelines"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "CLINICAL MONOGRAPH OVERVIEW:",
+          "size": 9.0,
+          "top": 328.36300000000006,
+          "bbox": [
+            60.0,
+            328.36300000000006,
+            219.00300000000001,
+            337.36300000000006
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "High blood pressure (hypertension) is the single leading preventable risk factor for cardiovascular mortality and disability globally. Known as the 'Silent Killer', it frequently damages arterial beds across the heart, brain, and kidneys without causing early symptoms. This physician-led educational monograph translates complex vascular pathophysiology, clinical metrics, screening protocols, and dual-pillar treatment strategies into clear, digestible, and actionable health literacy.",
+          "size": 9.0,
+          "top": 341.36300000000006,
+          "bbox": [
+            60.0,
+            341.36300000000006,
+            553.2755820000008,
+            389.36300000000006
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-1-2.png",
+          "sha256": "0ab8a930be922495e2162e76ed96278faa223aaf307e4ee26804643ccf00fc04",
+          "width": 1299,
+          "height": 448,
+          "text": "",
+          "top": 414.5,
+          "bbox": [
+            40.0,
+            414.5,
+            555.2756,
+            599.3497
+          ],
+          "caption": "Figure 1: Hemodynamic intra-arterial pulse wave profiles contrasting normal vascular compliance against sustained hypertension."
+        },
+        {
+          "type": "furniture",
+          "text": "© 2026 BA Medicale (BAMEDICALE.COM) — All Rights Reserved. Page 1 of 8",
+          "size": 8.0,
+          "top": 810.5458,
+          "bbox": [
+            40.0,
+            810.5458,
+            555.2755999999999,
+            818.5458
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "coveredCharacters": 2290,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "THE SILENT ELEVATION — BA MEDICALE SERIES BA MEDICALE (BAMEDICALE.COM)",
+          "size": 7.5,
+          "top": 19.05250000000001,
+          "bbox": [
+            40.0,
+            19.05250000000001,
+            555.2755999999999,
+            26.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "TABLE OF CONTENTS & PREFACE",
+          "size": 14.0,
+          "top": 58.898000000000025,
+          "bbox": [
+            46.0,
+            58.898000000000025,
+            281.676,
+            72.89800000000002
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "EXECUTIVE PREFACE — BA MEDICALE EDITORIAL BOARD",
+          "size": 9.0,
+          "top": 107.86300000000006,
+          "bbox": [
+            60.0,
+            107.86300000000006,
+            319.51499999999993,
+            116.86300000000006
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Welcome to the BA Medicale Monograph Series. At BA Medicale (BAMEDICALE.COM), our core mission is bridging the gap between rigorous clinical medicine and public health understanding. Hypertension affects over 1.28 billion adults worldwide, yet fewer than 1 in 5 individuals have their blood pressure adequately controlled. This eBook is structured as an end-to-end clinical guide, taking you from microscopic arterial mechanics to practical home monitoring and modern medication classes. We encourage patients, families, and caregivers to read, reflect, and share this resource.",
+          "size": 9.0,
+          "top": 120.86300000000006,
+          "bbox": [
+            60.0,
+            120.86300000000006,
+            548.7180000000005,
+            181.86300000000006
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-2-1.png",
+          "sha256": "522b4b37356b732ecd5da30b62544d69cb9d77304f0852da8c095e25d7d49fb9",
+          "width": 1299,
+          "height": 463,
+          "text": "",
+          "top": 204.0000000000001,
+          "bbox": [
+            40.1378,
+            204.0000000000001,
+            555.1378,
+            385.00000000000006
+          ],
+          "rows": [
+            [
+              "Section",
+              "Chapter Title",
+              "Core Focus Areas",
+              "Page"
+            ],
+            [
+              "Preface",
+              "Table of Contents & Executive Preface",
+              "Mission, Global Burden, and Orientation",
+              "Page 2"
+            ],
+            [
+              "Chapter 1",
+              "Pathophysiology & Circulation Mechanics",
+              "The Plumbing Model, Arterial Elasticity & Resistance",
+              "Page 3"
+            ],
+            [
+              "Chapter 2",
+              "Key Metrics & Standardized Staging",
+              "Systolic/Diastolic Definitions & AHA/WHO Staging Matrix",
+              "Page 4"
+            ],
+            [
+              "Chapter 3",
+              "Symptoms vs. Common Misconceptions",
+              "The 'Silent Killer' Mystery & Myth Busting ('Leher Kaku')",
+              "Page 5"
+            ],
+            [
+              "Chapter 4",
+              "Etiology: Primary vs. Secondary Causes",
+              "Essential Stiffening vs. Renal, OSA & Endocrine Triggers",
+              "Page 6"
+            ],
+            [
+              "Chapter 5",
+              "Early Detection & Screening Protocols",
+              "White Coat vs. Masked HTN & 5-Step HBPM Technique",
+              "Page 7"
+            ],
+            [
+              "Chapter 6",
+              "Target Organ Damage (TOD)\nComplications",
+              "Systemic Impact on Brain, Heart, Kidneys & Eyes",
+              "Page 8"
+            ],
+            [
+              "Chapter 7",
+              "Dual-Pillar Management Protocol",
+              "DASH Diet, Sodium Cut + Core Drug Classes (ACEi, CCB)",
+              "Page 8"
+            ],
+            [
+              "Chapter 8",
+              "Editorial Team, Disclaimer & Citations",
+              "BA Medicale Accreditation, Medical Disclaimer & Links",
+              "Page 8"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 1: PATHOPHYSIOLOGY & CIRCULATION MECHANICS",
+          "size": 14.0,
+          "top": 414.8980000000001,
+          "bbox": [
+            46.0,
+            414.8980000000001,
+            478.46,
+            428.8980000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To understand high blood pressure, imagine your circulatory system as a household municipal plumbing network. The Heart serves as the central water pump, beating 60 to 100 times per minute to propel blood. The Arteries are elastic, muscular pipes that actively expand to buffer each pulse wave. The Blood Volume is the circulating fluid, regulated primarily by your kidneys and dietary salt intake.",
+          "size": 9.5,
+          "top": 453.96650000000005,
+          "bbox": [
+            46.0,
+            453.96650000000005,
+            549.2755999999996,
+            503.96650000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Garden Hose Analogy: If water flows gently through a wide garden hose, the rubber hose walls experience minimal pressure. However, if someone partially pinches the hose opening (vascular constriction) or if the hose wall hardens with age (arteriosclerosis), the internal fluid pressure surges dramatically. In human physiology, sustained elevation of this internal hydrostatic pressure against arterial walls is hypertension.",
+          "size": 9.5,
+          "top": 521.4665,
+          "bbox": [
+            46.0,
+            521.4665,
+            549.2755919999996,
+            571.4665
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Physician-Led Educational Monograph | Grounded in WHO & Global Guidelines Page 2",
+          "size": 8.0,
+          "top": 813.5458,
+          "bbox": [
+            40.0,
+            813.5458,
+            555.2755999999999,
+            821.5458
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "coveredCharacters": 2384,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "THE SILENT ELEVATION — BA MEDICALE SERIES BA MEDICALE (BAMEDICALE.COM)",
+          "size": 7.5,
+          "top": 19.05250000000001,
+          "bbox": [
+            40.0,
+            19.05250000000001,
+            555.2755999999999,
+            26.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 2: CLINICAL METRICS & STANDARDIZED STAGING",
+          "size": 14.0,
+          "top": 58.898000000000025,
+          "bbox": [
+            46.0,
+            58.898000000000025,
+            462.108,
+            72.89800000000002
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Blood pressure is measured in millimeters of mercury (mmHg) and recorded as two distinct numbers:",
+          "size": 9.5,
+          "top": 97.9665,
+          "bbox": [
+            46.0,
+            97.9665,
+            469.9184999999999,
+            107.4665
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Systolic Blood Pressure (Top Number): The peak pressure generated against arterial walls when the heart contracts and surges blood forward.",
+          "size": 9.5,
+          "top": 111.4665,
+          "bbox": [
+            46.0,
+            111.4665,
+            545.9505849999995,
+            134.4665
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Diastolic Blood Pressure (Bottom Number): The baseline resting pressure within arteries while the heart relaxes and refills between beats.",
+          "size": 9.5,
+          "top": 138.4665,
+          "bbox": [
+            46.0,
+            138.4665,
+            545.9505949999998,
+            161.4665
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-3-1.png",
+          "sha256": "b02414d24b3da72ab8042bec16d15a011d33695bed1159ea471515d82e5a0554",
+          "width": 1299,
+          "height": 402,
+          "text": "",
+          "top": 177.5000000000001,
+          "bbox": [
+            40.1378,
+            177.5000000000001,
+            555.1378,
+            334.50000000000006
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "HYPERTENSIVE CRISIS PROTOCOL:",
+          "size": 9.0,
+          "top": 354.36300000000006,
+          "bbox": [
+            60.0,
+            354.36300000000006,
+            218.526,
+            363.36300000000006
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If your blood pressure reading exceeds 180 mmHg systolic or 120 mmHg diastolic, rest quietly for 5 minutes and re-test. If readings remain elevated and are accompanied by chest pain, shortness of breath, numbness, weakness, vision changes, or severe headache, seek emergency medical services immediately as this indicates potential acute organ damage.",
+          "size": 9.0,
+          "top": 367.36300000000006,
+          "bbox": [
+            60.0,
+            367.36300000000006,
+            546.2340000000005,
+            402.36300000000006
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 3: SYMPTOMS VS. COMMON MISCONCEPTIONS",
+          "size": 14.0,
+          "top": 442.3980000000001,
+          "bbox": [
+            46.0,
+            442.3980000000001,
+            441.15000000000003,
+            456.3980000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A widespread public misconception is that high blood pressure always causes noticeable warning symptoms, such as neck muscle stiffness ('leher kaku'), dizziness, or red cheeks. The Medical Reality: Hypertension is clinically designated as the 'Silent Killer' because the overwhelming majority of individuals with Stage 1 or Stage 2 high blood pressure feel entirely healthy. Arterial injury accumulates silently over years without causing pain.",
+          "size": 9.5,
+          "top": 481.46650000000005,
+          "bbox": [
+            46.0,
+            481.46650000000005,
+            549.2755939999997,
+            531.4665
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-3-2.png",
+          "sha256": "11676494148a6f80649770617e4713228a0b473bbc4f57dcdfb1fc8a89835be7",
+          "width": 1299,
+          "height": 332,
+          "text": "",
+          "top": 547.5,
+          "bbox": [
+            40.1378,
+            547.5,
+            555.1378,
+            676.5
+          ],
+          "rows": [
+            [
+              "Common Public Myth",
+              "Physician Clinical Fact & Evidence"
+            ],
+            [
+              "Myth: 'I don't have headaches or neck stiffness, so\nmy BP must be normal.'",
+              "Fact: Primary hypertension is silent. Symptoms usually appear only after target organ\ndamage has occurred."
+            ],
+            [
+              "Myth: 'Darah tinggi is just a normal part of aging that\ndoesn't need treatment.'",
+              "Fact: While arteries stiffen with age, untreated HTN dramatically increases stroke and\nheart failure risk at any age."
+            ],
+            [
+              "Myth: 'I feel fine now, so I can stop taking my blood\npressure medication.'",
+              "Fact: Antihypertensive drugs control BP but do not 'cure' it. Stopping meds causes\nrebound hypertension."
+            ],
+            [
+              "Myth: 'Red meat is the only cause of blood pressure\nspikes.'",
+              "Fact: Dietary sodium (salt), processed foods, stress, lack of sleep, and genetics are\nmajor primary drivers."
+            ]
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Physician-Led Educational Monograph | Grounded in WHO & Global Guidelines Page 3",
+          "size": 8.0,
+          "top": 813.5458,
+          "bbox": [
+            40.0,
+            813.5458,
+            555.2755999999999,
+            821.5458
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "coveredCharacters": 1868,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "THE SILENT ELEVATION — BA MEDICALE SERIES BA MEDICALE (BAMEDICALE.COM)",
+          "size": 7.5,
+          "top": 19.05250000000001,
+          "bbox": [
+            40.0,
+            19.05250000000001,
+            555.2755999999999,
+            26.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 4: ETIOLOGY — PRIMARY VS. SECONDARY CAUSES",
+          "size": 14.0,
+          "top": 58.898000000000025,
+          "bbox": [
+            46.0,
+            58.898000000000025,
+            474.6100000000002,
+            72.89800000000002
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Hypertension is etiology-classified into two distinct categories based on underlying mechanisms:",
+          "size": 9.5,
+          "top": 97.9665,
+          "bbox": [
+            46.0,
+            97.9665,
+            449.9019999999998,
+            107.4665
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Primary (Essential) Hypertension (~90–95% of Cases): Primary hypertension develops gradually over years due to a complex interplay of lifestyle and genetic factors. Key mechanisms include progressive age-related arterial stiffening (elastin degradation), impaired renal sodium excretion (causing volume expansion), chronic sympathetic nervous system overactivity, and polygenic risk factors.",
+          "size": 9.5,
+          "top": 124.9665,
+          "bbox": [
+            46.0,
+            124.9665,
+            549.2755949999995,
+            174.9665
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Secondary Hypertension (~5–10% of Cases): Secondary hypertension is directly caused by an identifiable, often reversible underlying medical condition. Common etiologies include Chronic Kidney Disease (CKD), Renal Artery Stenosis, Obstructive Sleep Apnea (OSA), and endocrine disorders such as Primary Aldosteronism (Conn's syndrome), Pheochromocytoma, or Cushing's disease.",
+          "size": 9.5,
+          "top": 192.4665,
+          "bbox": [
+            46.0,
+            192.4665,
+            549.2755960000001,
+            242.4665
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 5: EARLY DETECTION & SCREENING PROTOCOLS",
+          "size": 14.0,
+          "top": 277.398,
+          "bbox": [
+            46.0,
+            277.398,
+            459.812,
+            291.398
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Clinical measurements can be distorted by transient anxiety in medical settings—a phenomenon known as 'White Coat Hypertension'. Conversely, 'Masked Hypertension' occurs when readings are normal in the clinic but dangerously elevated during daily life. Standardized Home Blood Pressure Monitoring (HBPM) provides the most accurate clinical baseline.",
+          "size": 9.5,
+          "top": 316.4665000000001,
+          "bbox": [
+            46.0,
+            316.4665000000001,
+            549.2755969999995,
+            366.46650000000005
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "THE 5 GOLDEN RULES FOR ACCURATE HOME MEASUREMENT (HBPM):",
+          "size": 9.0,
+          "top": 392.36300000000006,
+          "bbox": [
+            60.0,
+            392.36300000000006,
+            374.4959999999999,
+            401.36300000000006
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Preparation (30 Mins Prior): Avoid caffeine, exercise, smoking, and hot showers. Empty your bladder completely.",
+          "size": 9.0,
+          "top": 405.36300000000006,
+          "bbox": [
+            60.0,
+            405.36300000000006,
+            526.1730000000005,
+            414.36300000000006
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Body Posture: Sit quietly in a chair with back support, feet flat on the floor, and legs uncrossed for 5 minutes before testing.",
+          "size": 9.0,
+          "top": 418.36300000000006,
+          "bbox": [
+            60.0,
+            418.36300000000006,
+            532.2120000000007,
+            440.36300000000006
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Cuff Placement: Wrap a validated upper-arm cuff directly on bare skin, 2–3 cm above the elbow crease at mid-heart level.",
+          "size": 9.0,
+          "top": 444.36300000000006,
+          "bbox": [
+            60.0,
+            444.36300000000006,
+            534.6780000000006,
+            466.36300000000006
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "4. Behavioral Silence: Remain completely still and quiet during inflation and measurement.",
+          "size": 9.0,
+          "top": 470.36300000000006,
+          "bbox": [
+            60.0,
+            470.36300000000006,
+            425.6520000000002,
+            479.36300000000006
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "5. The Diagnostic Rule of Twos: Take 2 readings in the morning (before breakfast & meds) and 2 readings in the evening for 7 consecutive days. Record averages for your physician.",
+          "size": 9.0,
+          "top": 483.36300000000006,
+          "bbox": [
+            60.0,
+            483.36300000000006,
+            549.6990000000006,
+            505.36300000000006
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Physician-Led Educational Monograph | Grounded in WHO & Global Guidelines Page 4",
+          "size": 8.0,
+          "top": 813.5458,
+          "bbox": [
+            40.0,
+            813.5458,
+            555.2755999999999,
+            821.5458
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "coveredCharacters": 1138,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "THE SILENT ELEVATION — BA MEDICALE SERIES BA MEDICALE (BAMEDICALE.COM)",
+          "size": 7.5,
+          "top": 19.05250000000001,
+          "bbox": [
+            40.0,
+            19.05250000000001,
+            555.2755999999999,
+            26.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 6: TARGET ORGAN DAMAGE (TOD) & COMPLICATIONS",
+          "size": 14.0,
+          "top": 58.898000000000025,
+          "bbox": [
+            46.0,
+            58.898000000000025,
+            491.662,
+            72.89800000000002
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "When intra-arterial pressure remains chronically elevated, the relentless shear stress damages delicate microvascular beds across four vital organ systems:",
+          "size": 9.5,
+          "top": 97.9665,
+          "bbox": [
+            46.0,
+            97.9665,
+            549.2755919999996,
+            120.9665
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-5-2.png",
+          "sha256": "b36ffc0ec6ecefe45360d090744e53ff20803580a469c8ac490559d8fbdce28c",
+          "width": 1299,
+          "height": 486,
+          "text": "",
+          "top": 137.0000000000001,
+          "bbox": [
+            40.0,
+            137.0000000000001,
+            555.2756,
+            337.30800000000005
+          ],
+          "caption": "Figure 2: Systemic pathways of Target Organ Damage (TOD) induced by sustained mechanical hypertension."
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 7: DUAL-PILLAR MANAGEMENT PROTOCOL",
+          "size": 14.0,
+          "top": 371.55000000000007,
+          "bbox": [
+            46.0,
+            371.55000000000007,
+            416.986,
+            385.55000000000007
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Effective clinical control of hypertension relies on a dual-pillar strategy combining lifestyle medicine with targeted pharmacotherapy:",
+          "size": 9.5,
+          "top": 410.61850000000004,
+          "bbox": [
+            46.0,
+            410.61850000000004,
+            549.2755839999999,
+            433.61850000000004
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-5-1.png",
+          "sha256": "6d82e6a198b19b6177f1e31f49378f47c1f2f752e9a0e431fa501760f2efc039",
+          "width": 1299,
+          "height": 330,
+          "text": "",
+          "top": 447.65200000000004,
+          "bbox": [
+            40.1378,
+            447.65200000000004,
+            555.1378,
+            575.652
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Physician-Led Educational Monograph | Grounded in WHO & Global Guidelines Page 5",
+          "size": 8.0,
+          "top": 813.5458,
+          "bbox": [
+            40.0,
+            813.5458,
+            555.2755999999999,
+            821.5458
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "coveredCharacters": 1766,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "THE SILENT ELEVATION — BA MEDICALE SERIES BA MEDICALE (BAMEDICALE.COM)",
+          "size": 7.5,
+          "top": 19.05250000000001,
+          "bbox": [
+            40.0,
+            19.05250000000001,
+            555.2755999999999,
+            26.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "CHAPTER 8: EDITORIAL TEAM, CITATIONS & DISCLAIMER",
+          "size": 14.0,
+          "top": 58.898000000000025,
+          "bbox": [
+            46.0,
+            58.898000000000025,
+            441.12200000000007,
+            72.89800000000002
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "ABOUT BA MEDICALE (BAMEDICALE.COM):",
+          "size": 9.0,
+          "top": 107.86300000000006,
+          "bbox": [
+            60.0,
+            107.86300000000006,
+            251.97900000000004,
+            116.86300000000006
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "BA Medicale is a physician-led medical education hub dedicated to delivering trustworthy, evidence-based health guidance for doctors, healthcare workers, and the general public. Our digital platform provides structured clinical libraries, interactive courses, and peer-reviewed educational monographs. Visit our portal at https://bamedicale.com to explore our full curriculum across cardiovascular, neoplastic, and systemic disease areas.",
+          "size": 9.0,
+          "top": 120.86300000000006,
+          "bbox": [
+            60.0,
+            120.86300000000006,
+            551.2200000000006,
+            168.86300000000006
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "AUTHORITATIVE SCIENTIFIC CITATIONS & GLOBAL CONSENSUS GUIDELINES:",
+          "size": 9.5,
+          "top": 192.9665000000001,
+          "bbox": [
+            46.0,
+            192.9665000000001,
+            411.24649999999997,
+            202.4665000000001
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. World Health Organization (WHO): Global Report on Hypertension: The Race Against a Silent Killer. Geneva: World Health Organization; 2023. Available at: https://www.who.int/news-room/fact-sheets/detail/hypertension",
+          "size": 9.5,
+          "top": 206.4665000000001,
+          "bbox": [
+            46.0,
+            206.4665000000001,
+            549.2755899999996,
+            229.4665000000001
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. American Heart Association / American College of Cardiology (AHA/ACC): Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. Circulation. 2018;138(17):e484-e594.",
+          "size": 9.5,
+          "top": 233.4665000000001,
+          "bbox": [
+            46.0,
+            233.4665000000001,
+            549.2755929999995,
+            256.4665000000001
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. International Society of Hypertension (ISH): 2020 International Society of Hypertension Global Hypertension Practice Guidelines. Hypertension. 2020;75(6):1334-1357.",
+          "size": 9.5,
+          "top": 260.4665000000001,
+          "bbox": [
+            46.0,
+            260.4665000000001,
+            549.2755879999996,
+            283.4665000000001
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "4. Kementerian Kesehatan Republik Indonesia (Kemenkes RI) / PERHI: Konsensus Penatalaksanaan Hipertensi 2021 di Indonesia. Jakarta: PERHI & Kemenkes RI.",
+          "size": 9.5,
+          "top": 287.4665000000001,
+          "bbox": [
+            46.0,
+            287.4665000000001,
+            549.2755919999996,
+            310.4665000000001
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "5. BA Medicale Knowledge Base: Memahami Penyakit Darah Tinggi dan Penanganannya. BA Medicale Publishing (BAMEDICALE.COM).",
+          "size": 9.5,
+          "top": 314.4665000000001,
+          "bbox": [
+            46.0,
+            314.4665000000001,
+            549.2755889999995,
+            337.46650000000005
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "OFFICIAL MEDICAL DISCLAIMER:",
+          "size": 9.0,
+          "top": 367.36300000000006,
+          "bbox": [
+            60.0,
+            367.36300000000006,
+            206.493,
+            376.36300000000006
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This clinical educational eBook is prepared strictly for public health literacy and educational purposes. It does not constitute formal medical diagnosis, clinical advice, or individual drug prescription. Patients must always consult a licensed physician or cardiologist regarding individual health concerns, blood pressure evaluation, or medication adjustments.",
+          "size": 9.0,
+          "top": 380.36300000000006,
+          "bbox": [
+            60.0,
+            380.36300000000006,
+            549.2220000000007,
+            415.36300000000006
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Physician-Led Educational Monograph | Grounded in WHO & Global Guidelines Page 6",
+          "size": 8.0,
+          "top": 813.5458,
+          "bbox": [
+            40.0,
+            813.5458,
+            555.2755999999999,
+            821.5458
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1257 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "f4f343127249471198573576b0b2a73b9a4a070001ff0c0a8c0d32e9eff98c7e",
+  "extractor": "pdfplumber-0.11.9/source-render",
+  "pages": [
+    {
+      "number": 1,
+      "coveredCharacters": 306,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA MEDICALE MEDICAL SERIES — WWW.BAMEDICALE.COM",
+          "size": 10.0,
+          "top": 37.07000000000005,
+          "bbox": [
+            157.67,
+            37.07000000000005,
+            454.33,
+            47.07000000000005
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Advanced Diagnostics and Management of Thyroid Nodules",
+          "size": 20.0,
+          "top": 64.13999999999999,
+          "bbox": [
+            114.29,
+            64.13999999999999,
+            497.71000000000015,
+            109.13999999999999
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-1-1.png",
+          "sha256": "e64e3af67c900e533915f21967a2853d5c2eac283c6566db928d2d00c86f2e26",
+          "width": 1081,
+          "height": 560,
+          "text": "",
+          "top": 206.0,
+          "bbox": [
+            91.8,
+            206.0,
+            520.1999999999999,
+            426.0
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Ultrasonographic Evaluation, Bethesda Risk Stratification, and Targeted Therapeutic Strategies",
+          "size": 12.0,
+          "top": 443.484,
+          "bbox": [
+            81.9,
+            443.484,
+            530.1000000000005,
+            471.484
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Author: BA Medicale Editorial Team Publisher: BA Medicale Medical Series (www.BAMedicale.com) Published: September 2026 | Clinical Reference E-Book",
+          "size": 10.0,
+          "top": 505.07,
+          "bbox": [
+            163.47,
+            505.07,
+            448.5299999999999,
+            543.0699999999999
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "coveredCharacters": 1571,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Copyright & Publishing Information",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            330.2400000000001,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Publisher: BA Medicale Medical Series (www.BAMedicale.com)",
+          "size": 10.0,
+          "top": 106.07000000000005,
+          "bbox": [
+            60.0,
+            106.07000000000005,
+            345.05999999999995,
+            116.07000000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Publication Date: September 2026",
+          "size": 10.0,
+          "top": 128.07000000000005,
+          "bbox": [
+            60.0,
+            128.07000000000005,
+            218.39000000000004,
+            138.07000000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Format: Digital Clinical E-Book & Reference Guide",
+          "size": 10.0,
+          "top": 150.07000000000005,
+          "bbox": [
+            60.0,
+            150.07000000000005,
+            286.17,
+            160.07000000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Copyright Notice: © 2026 BA Medicale Medical Series. All rights reserved. No part of this publication may be reproduced or transmitted without prior permission.",
+          "size": 10.0,
+          "top": 172.07000000000005,
+          "bbox": [
+            60.0,
+            172.07000000000005,
+            551.9999919999998,
+            196.07000000000005
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "About BA Medicale (www.BAMedicale.com)",
+          "size": 16.0,
+          "top": 231.312,
+          "bbox": [
+            60.0,
+            231.312,
+            390.72,
+            247.312
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "BA Medicale is an established medical-learning platform dedicated to advancing accurate, relevant, and source-aware healthcare education across Indonesia and internationally. Founded on 20 November 2024 by Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K), BA Medicale serves as an integrated learning bridge connecting understandable public health literacy with rigorous professional clinical education.",
+          "size": 10.0,
+          "top": 258.07000000000005,
+          "bbox": [
+            60.0,
+            258.07000000000005,
+            552.000004,
+            310.07
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Editorial Scope & Core Mission:",
+          "size": 10.0,
+          "top": 328.07,
+          "bbox": [
+            60.0,
+            328.07,
+            211.70000000000002,
+            338.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Oncology & Surgical Foundation: Initial editorial depth centers on surgical oncology, neoplasia, tumor biology, and thyroid pathology.",
+          "size": 10.0,
+          "top": 342.07,
+          "bbox": [
+            60.0,
+            342.07,
+            548.5,
+            366.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Multi-Audience Reach: Delivers tailored knowledge modules for the general public, general practitioners, medical specialists, and multidisciplinary healthcare teams.",
+          "size": 10.0,
+          "top": 370.07,
+          "bbox": [
+            60.0,
+            370.07,
+            548.499996,
+            394.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Flexible Modalities: Programs are executed through online webinars, digital reference libraries, hands-on offline workshops, and hybrid clinical discussions.",
+          "size": 10.0,
+          "top": 398.07,
+          "bbox": [
+            60.0,
+            398.07,
+            548.499996,
+            422.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Source Integrity: Every educational release maintains explicit source transparency and evidence-based grounding.",
+          "size": 10.0,
+          "top": 426.07,
+          "bbox": [
+            60.0,
+            426.07,
+            548.4999949999999,
+            450.07
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "PUBLISHER DISCLAIMER: This e-book is published as a clinical reference module by BA Medicale Medical Series (www.BAMedicale.com) for educational and clinical reference purposes. It does not replace individualized clinical judgment or direct patient care.",
+          "size": 10.0,
+          "top": 480.07,
+          "bbox": [
+            74.0,
+            480.07,
+            556.000004,
+            518.0699999999999
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 2",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "coveredCharacters": 1485,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Foreword from BA Medicale",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            272.4800000000001,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Thyroid nodules represent one of the most frequently encountered endocrine conditions in daily surgical and oncological practice. While the vast majority of detected nodules are benign, accurate diagnostic differentiation is crucial to ensure early identification of malignant cases while avoiding unnecessary invasive surgical procedures.",
+          "size": 10.0,
+          "top": 106.07000000000005,
+          "bbox": [
+            60.0,
+            106.07000000000005,
+            552.000004,
+            158.07000000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "At BA Medicale Medical Series (www.BAMedicale.com), our commitment is to provide clear, actionable, and evidence-grounded clinical guides. This module synthesizes high-yield ultrasonographic criteria (ACR TI-RADS), cytological classification standards (Bethesda System), and modern therapeutic pathways (PEA, RFA, and systemic targeted therapies).",
+          "size": 10.0,
+          "top": 176.07000000000005,
+          "bbox": [
+            60.0,
+            176.07000000000005,
+            552.0000059999998,
+            228.07000000000005
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "How to Use This E-Book",
+          "size": 16.0,
+          "top": 263.312,
+          "bbox": [
+            60.0,
+            263.312,
+            244.91200000000003,
+            279.312
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This clinical e-book is structured into three main sections to facilitate efficient point-of-care review:",
+          "size": 10.0,
+          "top": 290.07,
+          "bbox": [
+            60.0,
+            290.07,
+            491.8199999999999,
+            300.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Preliminaries: Overview of clinical scope, publisher credentials, and navigation structure.",
+          "size": 10.0,
+          "top": 304.07,
+          "bbox": [
+            60.0,
+            304.07,
+            467.38999999999993,
+            314.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Core Content Chapters: In-depth analysis of laboratory screening, high-frequency ultrasonography, Bethesda category risk stratification, and non-surgical ablation vs. targeted therapy.",
+          "size": 10.0,
+          "top": 318.07,
+          "bbox": [
+            60.0,
+            318.07,
+            551.9999999999998,
+            342.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Reference & Back Matter: Rapid executive takeaways, standard medical glossary, and publisher background.",
+          "size": 10.0,
+          "top": 346.07,
+          "bbox": [
+            60.0,
+            346.07,
+            552.0000040000001,
+            370.07
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Look out for Clinical Pearl callout boxes throughout the text, which highlight common diagnostic pitfalls (such as ultrasound artifact misinterpretations).",
+          "size": 10.0,
+          "top": 388.07,
+          "bbox": [
+            60.0,
+            388.07,
+            551.9999949999999,
+            412.07
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "ONLINE PLATFORM ACCESS: Visit www.BAMedicale.com to access supplementary video lectures, clinical case discussions, and interactive learning tools.",
+          "size": 10.0,
+          "top": 447.07,
+          "bbox": [
+            74.0,
+            447.07,
+            555.9999999999999,
+            471.07
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 3",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "coveredCharacters": 1101,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Table of Contents",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            195.12,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-4-1.png",
+          "sha256": "8ba6b3e1e05bcac7941686d30a6b2ebe4fc70166440555950b0264efbcdfdf6c",
+          "width": 1270,
+          "height": 395,
+          "text": "",
+          "top": 104.0,
+          "bbox": [
+            54.0,
+            104.0,
+            558.0,
+            258.0
+          ],
+          "rows": [
+            [
+              "Section / Chapter Title",
+              "Page"
+            ],
+            [
+              "1. Preliminaries (Cover, Copyright, Foreword, Table of Contents)",
+              "Pages 1 – 4"
+            ],
+            [
+              "2. Introduction & Prologue: Epidemology and Diagnostic Scope",
+              "Page 4"
+            ],
+            [
+              "3. Chapter 1: Ultrasonographic Evaluation & Imaging Artifacts",
+              "Page 5"
+            ],
+            [
+              "4. Chapter 2: Bethesda Classification & Surgical Indications",
+              "Page 6"
+            ],
+            [
+              "5. Chapter 3: Minimally Invasive Ablation & Targeted Therapeutics",
+              "Page 7"
+            ],
+            [
+              "6. Reference & Back Matter: Executive Summary, References, Glossary & Publisher Bio",
+              "Pages 8 – 9"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Introduction & Prologue",
+          "size": 16.0,
+          "top": 288.312,
+          "bbox": [
+            60.0,
+            288.312,
+            243.12000000000006,
+            304.312
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Thyroid nodule management requires a structured diagnostic workflow combining endocrinological, radiological, and cytopathological parameters. Serum FT4 and sensitive TSH (TSHs) remain the initial baseline laboratory tests. Ultrasonography serves as the primary non-invasive imaging modality. Although most detected thyroid nodules are benign, the estimated overall risk of malignancy (ROM) ranges between 7% and 15%.",
+          "size": 10.0,
+          "top": 315.07,
+          "bbox": [
+            60.0,
+            315.07,
+            552.000004,
+            381.07
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Accurate diagnostic assessment relies on high-resolution equipment and standardized reporting protocols. This document lays out the key criteria established in clinical practice.",
+          "size": 10.0,
+          "top": 399.07,
+          "bbox": [
+            60.0,
+            399.07,
+            551.999998,
+            423.07
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 4",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "coveredCharacters": 1326,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 1: Ultrasonographic Evaluation & Imaging Artifacts",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            512.528,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Optimum Wave Frequency: For effective ultrasonographic examination of superficial structures such as the thyroid gland, a probe frequency range of 10–15 MHz is required to achieve high spatial resolution.",
+          "size": 10.0,
+          "top": 106.07000000000005,
+          "bbox": [
+            60.0,
+            106.07000000000005,
+            551.999996,
+            130.07000000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "ACR TI-RADS Classification Advantages: The points-based ACR TI-RADS framework categorizes nodules based on composition, echogenicity, shape, margin, and echogenic foci. A key strength of ACR TI-RADS is that it achieves 0% unclassifiable nodules and significantly reduces unnecessary fine-needle aspiration (FNA) biopsies.",
+          "size": 10.0,
+          "top": 148.07000000000005,
+          "bbox": [
+            60.0,
+            148.07000000000005,
+            552.0,
+            200.07000000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Pitfalls in Artifact Recognition: Clinicians must strictly distinguish true microcalcifications from benign imaging artifacts. Specifically, large comet tail artifacts or high-echogenicity foci arising from the posterior wall of tiny cysts can be misidentified as punctate echogenic foci (PEF). Because PEF carries a heavy 3-point score in ACR TI-RADS, misclassifying these benign artifacts incorrectly inflates a nodule's risk category from TR2 (Benign) to TR4 (Moderately Suspicious), leading to inappropriate biopsy orders.",
+          "size": 10.0,
+          "top": 218.07000000000005,
+          "bbox": [
+            60.0,
+            218.07000000000005,
+            552.000006,
+            298.07
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-5-1.png",
+          "sha256": "edaf3ce167064b6460a05054ca7e9d10ef006336af71db77f244b876285b7e6b",
+          "width": 1081,
+          "height": 460,
+          "text": "",
+          "top": 316.0,
+          "bbox": [
+            91.8,
+            316.0,
+            520.1999999999999,
+            506.2595
+          ],
+          "caption": "Figure 1.1: Ultrasound Scan of Thyroid Gland Using 10–15 MHz Probe & Artifact Distinction."
+        },
+        {
+          "type": "paragraph",
+          "text": "DIAGNOSTIC ALERT: Punctate Echogenic Foci (PEF) adds 3 points to ACR TI-RADS. Always check for posterior acoustic features to rule out comet tail artifacts before scoring.",
+          "size": 10.0,
+          "top": 531.0699999999999,
+          "bbox": [
+            74.0,
+            531.0699999999999,
+            555.9999999999999,
+            555.0699999999999
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 5",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "coveredCharacters": 1328,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 2: Bethesda Classification & Surgical Indications",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            496.5600000000001,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fine-Needle Aspiration Biopsy (FNAB) results are standardized using the Bethesda System for Reporting Thyroid Cytopathology. Each category corresponds to a specific Risk of Malignancy (ROM) and clinical management directive.",
+          "size": 10.0,
+          "top": 106.07000000000005,
+          "bbox": [
+            60.0,
+            106.07000000000005,
+            552.0,
+            144.07000000000005
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Bethesda Category IV (Follicular Neoplasm / Suspicious for Follicular Neoplasm):",
+          "size": 10.0,
+          "top": 162.07000000000005,
+          "bbox": [
+            60.0,
+            162.07000000000005,
+            446.76999999999987,
+            172.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Risk of Malignancy (ROM): Estimated at 25–40%.",
+          "size": 10.0,
+          "top": 176.07000000000005,
+          "bbox": [
+            60.0,
+            176.07000000000005,
+            290.07,
+            186.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Surgical Requirement: A surgical lobectomy is required to obtain a definitive diagnostic determination.",
+          "size": 10.0,
+          "top": 190.07000000000005,
+          "bbox": [
+            60.0,
+            190.07000000000005,
+            527.9599999999999,
+            200.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Clinical Rationale: Cytology alone cannot distinguish between a benign follicular adenoma and a malignant follicular thyroid carcinoma. Definitive diagnosis requires histopathology demonstrating vascular or capsular invasion, which cannot be evaluated on FNAB cytology alone. Therefore, clinical observation is insufficient.",
+          "size": 10.0,
+          "top": 204.07000000000005,
+          "bbox": [
+            60.0,
+            204.07000000000005,
+            551.9999999999999,
+            242.07000000000005
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Bethesda System Category & ROM Summary Table",
+          "size": 12.0,
+          "top": 272.48400000000004,
+          "bbox": [
+            60.0,
+            272.48400000000004,
+            351.4080000000001,
+            284.484
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-6-1.png",
+          "sha256": "1813bf4e0beafe6da95a251b6794b3e6b8ec5af7346b80a2262b9e21d6ba5598",
+          "width": 1270,
+          "height": 515,
+          "text": "",
+          "top": 290.0,
+          "bbox": [
+            54.0,
+            290.0,
+            558.0,
+            492.0
+          ],
+          "rows": [
+            [
+              "Bethesda\nCategory",
+              "Diagnostic Classification",
+              "Risk of Malignancy\n(ROM)",
+              "Recommended Clinical\nManagement"
+            ],
+            [
+              "Category I",
+              "Nondiagnostic / Unsatisfactory",
+              "1 – 4%",
+              "Repeat FNAB with USG\nguidance"
+            ],
+            [
+              "Category II",
+              "Benign",
+              "0 – 3%",
+              "Clinical & USG follow-up"
+            ],
+            [
+              "Category III",
+              "AUS / FLUS",
+              "5 – 15%",
+              "Repeat FNAB or molecular\ntesting"
+            ],
+            [
+              "Category IV",
+              "Follicular Neoplasm",
+              "25 – 40%",
+              "Surgical Lobectomy"
+            ],
+            [
+              "Category V",
+              "Suspicious for Malignancy",
+              "50 – 75%",
+              "Near-total thyroidectomy or\nlobectomy"
+            ],
+            [
+              "Category VI",
+              "Malignant",
+              "97 – 99%",
+              "Total Thyroidectomy"
+            ]
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 6",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "coveredCharacters": 1114,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 3: Therapeutic Interventions & Targeted Therapies",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            507.2160000000002,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Management of thyroid nodules is tailored according to pathological diagnosis, nodule composition, and clinical stage.",
+          "size": 10.0,
+          "top": 106.07000000000005,
+          "bbox": [
+            60.0,
+            106.07000000000005,
+            551.9999980000002,
+            130.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Non-Surgical Ablation Procedures for Benign Nodules: For benign nodules that are symptomatic or cosmetically disturbing, non-surgical minimally invasive techniques offer high efficacy:",
+          "size": 10.0,
+          "top": 148.07000000000005,
+          "bbox": [
+            60.0,
+            148.07000000000005,
+            552.0000040000002,
+            186.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Percutaneous Ethanol Ablation (PEA): The procedure of choice for predominantly cystic benign nodules.",
+          "size": 10.0,
+          "top": 190.07000000000005,
+          "bbox": [
+            60.0,
+            190.07000000000005,
+            545.6999999999999,
+            200.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Radiofrequency Ablation (RFA): Preferred thermal ablation modality for solid benign thyroid nodules.",
+          "size": 10.0,
+          "top": 204.07000000000005,
+          "bbox": [
+            60.0,
+            204.07000000000005,
+            529.54,
+            214.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Targeted Systemic Therapy for Well-Differentiated Thyroid Carcinoma (DTC): In advanced, progressive, or radioiodine-refractory well-differentiated thyroid carcinoma, multikinase inhibitor targeted drugs are indicated:",
+          "size": 10.0,
+          "top": 232.07000000000005,
+          "bbox": [
+            60.0,
+            232.07000000000005,
+            552.000003,
+            270.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Sorafenib: Oral multikinase inhibitor targeted for advanced progressive DTC.",
+          "size": 10.0,
+          "top": 274.07000000000005,
+          "bbox": [
+            60.0,
+            274.07000000000005,
+            405.11000000000007,
+            284.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "• Lenvatinib: Oral multikinase inhibitor demonstrating significant progression-free survival benefits in refractory DTC.",
+          "size": 10.0,
+          "top": 288.07,
+          "bbox": [
+            60.0,
+            288.07,
+            548.4999969999999,
+            312.07
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-7-1.png",
+          "sha256": "bd888b9479d5d10db8fe55c383170eff5fb9fb50635ec69ef44361f26433fc55",
+          "width": 1081,
+          "height": 460,
+          "text": "",
+          "top": 330.0,
+          "bbox": [
+            80.6565,
+            330.0,
+            531.3435,
+            520.2595
+          ],
+          "caption": "Figure 3.1: Treatment Pathways for Benign Ablation (PEA/RFA) and Targeted Systemic Therapy (Sorafenib/Lenvatinib)."
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 7",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "coveredCharacters": 1350,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Executive Summary & Clinical Takeaways",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            378.3680000000001,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Initial Laboratory Evaluation: Always check baseline serum FT4 and sensitive TSH (TSHs).",
+          "size": 10.0,
+          "top": 106.07000000000005,
+          "bbox": [
+            60.0,
+            106.07000000000005,
+            484.56,
+            116.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. USG Technical Standard: Use high-frequency ultrasound transducers (10–15 MHz) for thyroid imaging.",
+          "size": 10.0,
+          "top": 130.07000000000005,
+          "bbox": [
+            60.0,
+            130.07000000000005,
+            533.4999999999998,
+            140.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Avoid Artifact Misinterpretation: Do not mistake comet tail artifacts or cyst wall foci for punctate echogenic foci (PEF). PEF adds 3 points and falsely elevates TR2 to TR4.",
+          "size": 10.0,
+          "top": 154.07000000000005,
+          "bbox": [
+            60.0,
+            154.07000000000005,
+            551.9999999999995,
+            178.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "4. Bethesda IV Surgical Mandate: Follicular neoplasms carry a 25–40% ROM; surgical lobectomy is required for histopathological vascular/capsular evaluation.",
+          "size": 10.0,
+          "top": 192.07000000000005,
+          "bbox": [
+            60.0,
+            192.07000000000005,
+            552.0000059999998,
+            216.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "5. Minimally Invasive Ablation: Utilize Percutaneous Ethanol Ablation (PEA) for cystic benign nodules and Radiofrequency Ablation (RFA) for solid benign nodules.",
+          "size": 10.0,
+          "top": 230.07000000000005,
+          "bbox": [
+            60.0,
+            230.07000000000005,
+            551.9999979999998,
+            254.07000000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "6. Targeted Therapeutics: Administer multikinase inhibitors Sorafenib or Lenvatinib for advanced, radioiodine-refractory well-differentiated thyroid carcinoma.",
+          "size": 10.0,
+          "top": 268.07000000000005,
+          "bbox": [
+            60.0,
+            268.07000000000005,
+            551.9999999999999,
+            292.07
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "References & Primary Sources",
+          "size": 16.0,
+          "top": 329.312,
+          "bbox": [
+            60.0,
+            329.312,
+            293.87200000000007,
+            345.312
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Primary Source Document 1: SOAL KAHOOT.docx — Medical Assessment Module on Superficial Ultrasonography, Artifact Recognition, Benign Ablation Procedures (PEA/RFA), and Targeted Therapeutics.",
+          "size": 10.0,
+          "top": 356.07,
+          "bbox": [
+            60.0,
+            356.07,
+            551.9999999999999,
+            380.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Primary Source Document 2: SOAL LMS.docx — Clinical Risk Stratification Matrix, Bethesda System Criteria, and Laboratory Marker Evaluation.",
+          "size": 10.0,
+          "top": 384.07,
+          "bbox": [
+            60.0,
+            384.07,
+            551.9999999999999,
+            408.07
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Official Platform Reference: BA Medicale Medical Series — www.BAMedicale.com (About BA Medicale Platform & Medical Education System).",
+          "size": 10.0,
+          "top": 412.07,
+          "bbox": [
+            60.0,
+            412.07,
+            552.000004,
+            436.07
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 8",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "coveredCharacters": 1182,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "ADVANCED DIAGNOSTICS & MANAGEMENT OF THYROID NODULES BA Medicale Medical Series | www.BAMedicale.com",
+          "size": 7.5,
+          "top": 34.05250000000001,
+          "bbox": [
+            54.0,
+            34.05250000000001,
+            557.9999999999999,
+            41.55250000000001
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Medical Glossary",
+          "size": 16.0,
+          "top": 79.31200000000001,
+          "bbox": [
+            60.0,
+            79.31200000000001,
+            191.61600000000004,
+            95.31200000000001
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-9-1.png",
+          "sha256": "48fcd5ac521a7efaceffa8493f069a84f6a129fe2db00ded3ee54b47299138ba",
+          "width": 1270,
+          "height": 410,
+          "text": "",
+          "top": 104.0,
+          "bbox": [
+            54.0,
+            104.0,
+            558.0,
+            264.0
+          ],
+          "rows": [
+            [
+              "Term / Abbreviation",
+              "Clinical Definition & Meaning"
+            ],
+            [
+              "ACR TI-RADS",
+              "American College of Radiology Thyroid Imaging Reporting and Data System."
+            ],
+            [
+              "Bethesda System",
+              "Standardized cytopathological reporting system for thyroid FNAB."
+            ],
+            [
+              "FNAB",
+              "Fine-Needle Aspiration Biopsy."
+            ],
+            [
+              "PEA",
+              "Percutaneous Ethanol Ablation (minimally invasive non-surgical procedure)."
+            ],
+            [
+              "PEF",
+              "Punctate Echogenic Foci (high-risk ultrasound feature worth 3 points)."
+            ],
+            [
+              "RFA",
+              "Radiofrequency Ablation (thermal ablation for solid benign nodules)."
+            ],
+            [
+              "TSHs",
+              "Sensitive Thyroid-Stimulating Hormone."
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "About the Author & Publisher: BA Medicale",
+          "size": 16.0,
+          "top": 294.312,
+          "bbox": [
+            60.0,
+            294.312,
+            389.80800000000005,
+            310.312
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "BA Medicale Editorial Team operates under BA Medicale Medical Series (www.BAMedicale.com) to produce publication-grade, source-grounded clinical references and educational resources.",
+          "size": 10.0,
+          "top": 321.07,
+          "bbox": [
+            60.0,
+            321.07,
+            552.0000009999998,
+            345.07
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Founded on 20 November 2024 by Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K), BA Medicale is built on a strong foundation in surgical oncology. The platform connects healthcare professionals, medical students, and the general public through structured learning, clinical case exchanges, and reliable medical references.",
+          "size": 10.0,
+          "top": 363.07,
+          "bbox": [
+            60.0,
+            363.07,
+            552.000004,
+            401.07
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For inquiries, educational collaborations, or to explore additional clinical modules, visit: www.BAMedicale.com",
+          "size": 10.0,
+          "top": 419.07,
+          "bbox": [
+            60.0,
+            419.07,
+            550.73,
+            429.07
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "Official Clinical Reference Document — BA Medicale Page 9",
+          "size": 8.0,
+          "top": 751.656,
+          "bbox": [
+            54.0,
+            751.656,
+            558.0,
+            759.656
+          ]
+        }
+      ]
+    }
+  ]
+}

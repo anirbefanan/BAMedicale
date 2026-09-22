@@ -71,6 +71,7 @@ jobs:
               sudo apt-get update
               sudo apt-get install -y poppler-utils
             fi
+            python3 -m pip install --disable-pip-version-check pdfplumber==0.11.9 Pillow==11.3.0
             node scripts/jumi/prepare-ebook.js --source "assets/ebooks/$SLUG/source.pdf" --output "assets/ebooks/$SLUG"
           fi
           if [ "$TYPE" = "Presentation" ]; then
