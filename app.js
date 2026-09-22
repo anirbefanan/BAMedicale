@@ -812,7 +812,12 @@ function initHeroMedia() {
     // Some mobile browsers defer autoplay until the media is visibly on screen.
     if (video.paused) video.play().catch(() => {});
   };
-  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); }, { threshold: .05 }).observe(video);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); }, { threshold: .05 }).observe(video);
+  } else {
+    visible = true;
+    update();
+  }
   video.addEventListener("loadeddata", update);
   document.addEventListener("visibilitychange", update);
   window.addEventListener("pageshow", update);

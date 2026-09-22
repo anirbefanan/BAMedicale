@@ -32,6 +32,7 @@ const routes=['/','/library.html','/library.html?type=article','/articles/tumor-
  for(const slug of ['the-silent-elevation-understanding-high-blood-pressure','advanced-diagnostics-and-management-of-thyroid-nodules']){await page.goto(origin+'/ebooks/'+slug+'.html');await page.getByRole('link',{name:'Full Read',exact:true}).click();assert(await page.getByRole('navigation',{name:'Table of Contents'}).isVisible());await page.getByRole('link',{name:'Magazine',exact:true}).click();assert(await page.getByRole('button',{name:'Switch to Full Read',exact:true}).isVisible());}
  await page.emulateMedia({reducedMotion:'reduce'});await page.addInitScript(()=>{delete window.IntersectionObserver;});
  for(const route of ['/','/library.html']){await page.goto(origin+route);assert.equal(await page.locator('main .reveal').evaluateAll(es=>es.filter(e=>getComputedStyle(e).opacity==='0').length),0);}
+ assert.deepEqual(errors,[],'Public interaction/runtime errors');
  console.log('Public interactions, 33-record preservation, both reading modes and observer-free reduced motion passed.');
  }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e.message);process.exitCode=1});
