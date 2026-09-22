@@ -667,6 +667,77 @@ window.BAMEDICALE_JUMI_PUBLICATIONS = {
   },
   ebooks: [
     // JUMI_PUBLISHED_EBOOKS_START
+    {
+      "id": "content_2e4b0308648641e4b4213ad29685a5a9",
+      "slug": "the-silent-elevation-understanding-high-blood-pressure",
+      "title": "The Silent Elevation: Understanding High Blood Pressure",
+      "subtitle": "An End-to-End Clinical Educational Guide — BA Medicale Series",
+      "publishedDate": "2026-09-22",
+      "publicationMonth": "2026-09",
+      "publicationDateLabel": "September 2026",
+      "publicationStatus": "published",
+      "state": "Clinical Reference E-Book",
+      "demo": false,
+      "indexable": true,
+      "sortOrder": 100,
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryDiseaseGroup": "cardiovascular",
+      "diseaseCondition": "",
+      "professionalCategory": "",
+      "topics": [
+        "Hypertension",
+        "Blood Pressure"
+      ],
+      "tags": [
+        "Hypertension",
+        "Blood Pressure"
+      ],
+      "contentType": "eBook",
+      "cover": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/cover.png",
+      "coverAsPage": true,
+      "author": {
+        "name": "BA Medicale Editorial Board",
+        "type": "Organization"
+      },
+      "publisher": "BA Medicale (BAMEDICALE.COM)",
+      "description": "This physician-led educational monograph translates complex vascular pathophysiology, clinical metrics, screening protocols, and dual-pillar treatment strategies into clear, digestible, and actionable health literacy.",
+      "sourceAttribution": "BA Medicale Clinical Monograph Series",
+      "sourcePublicationDate": "",
+      "sourcePdf": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/source.pdf",
+      "sourcePages": true,
+      "pageAspect": 1.4142851383223918,
+      "pageManifest": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/pages.json",
+      "pages": [
+        {
+          "image": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/page-1.png",
+          "title": "Source PDF page 1"
+        },
+        {
+          "image": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/page-2.png",
+          "title": "Source PDF page 2"
+        },
+        {
+          "image": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/page-3.png",
+          "title": "Source PDF page 3"
+        },
+        {
+          "image": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/page-4.png",
+          "title": "Source PDF page 4"
+        },
+        {
+          "image": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/page-5.png",
+          "title": "Source PDF page 5"
+        },
+        {
+          "image": "assets/ebooks/the-silent-elevation-understanding-high-blood-pressure/page-6.png",
+          "title": "Source PDF page 6"
+        }
+      ],
+      "downloadable": false,
+      "access": "free",
+      "commerceStatus": "not-for-sale"
+    },
     // JUMI_PUBLISHED_EBOOKS_END
   ],
   seminars: {

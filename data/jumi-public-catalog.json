@@ -119,6 +119,15 @@
       "publicUrl": "https://bamedicale.com/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html"
     },
     {
+      "id": "content_2e4b0308648641e4b4213ad29685a5a9",
+      "type": "eBook",
+      "title": "The Silent Elevation: Understanding High Blood Pressure",
+      "slug": "the-silent-elevation-understanding-high-blood-pressure",
+      "status": "Published",
+      "publishedAt": "2026-09-22",
+      "publicUrl": "https://bamedicale.com/ebooks/the-silent-elevation-understanding-high-blood-pressure.html"
+    },
+    {
       "id": "management-thyroid-nodules-2026",
       "type": "Seminar",
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
