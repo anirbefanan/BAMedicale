@@ -44,6 +44,8 @@ test('one authorized action preserves every controlled publication gate',()=>{
   assert.match(backend,/jumi_publication_status/);
   assert.match(backend,/jumiVerifyLivePublication_/);
   assert.match(backend,/jumi_find_content_draft/);
+  assert.match(backend,/function jumiDedupeContentDrafts_/);
+  assert.match(backend,/jumiDedupeContentDrafts_\(ss,admin\);jumiReconcilePublications_/);
 });
 
 test('exceptions remain precise and private sources retain provenance',()=>{
