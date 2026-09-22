@@ -5,9 +5,9 @@ const ids=['ultrasound-imaging-and-tirads-classification-in-thyroid-nodules','be
 for(const [i,id] of ids.entries())test(`${id}: original, infographic, slide integrity and shared output`,()=>{
  const p=data.presentations[id],m=JSON.parse(fs.readFileSync(p.sourceManifest)),html=fs.readFileSync(p.canonicalUrl,'utf8');
  assert.equal(m.pages.length,[25,29][i]);assert.equal(hash(p.sourceFile),m.sourceSha256);assert.equal(hash(p.cover),m.infographicSha256);
- assert.equal(p.coverWidth/p.coverHeight,16/9);assert.equal(p.sourceFormat,'PPTX');
+ assert.equal(p.coverWidth/p.coverHeight,16/9);assert.equal(p.sourceFormat,'PPTX');assert.equal(p.downloadFormat,'PDF');assert(fs.existsSync(p.downloadFile));assert.equal(fs.readFileSync(p.downloadFile).subarray(0,5).toString(),'%PDF-');
  let last=-1;for(const [index,page] of m.pages.entries()){assert.equal(page.page,index+1);assert.equal(hash(page.image),page.imageSha256);const pos=html.indexOf(`id="slide-${index+1}"`);assert(pos>last);last=pos;}
- assert(html.includes('Download Original PPTX'));assert(html.includes('presentation.js'));assert(html.includes('data-article-reader'));assert(html.includes('bamedicale-approved-logo.jpg'));assert(html.includes(p.sourceFile));
+ assert(html.includes('Download Presentation PDF'));assert(html.includes('presentation.js'));assert(html.includes('data-article-reader'));assert(html.includes('bamedicale-approved-logo.jpg'));assert(html.includes(p.sourceFile));assert(html.includes(p.downloadFile));
  const registry=require('../content-registry').create(data);assert(registry.search(p.title).some(r=>r.id===id));assert(registry.related(p.eventId,20).some(r=>r.id===id));assert(fs.readFileSync('sitemap.xml','utf8').includes(p.canonicalUrl));
  assert(!/drive\.google\.com|docs\.google\.com|AIza|ghp_/.test(html));
 });
@@ -15,6 +15,10 @@ test('all three Program Focus entries use shared infographic and presentation ac
  const event=fs.readFileSync('events/management-thyroid-nodules-2026.html','utf8');
  for(const p of Object.values(data.presentations)){assert(event.includes(`data-article-reader="${p.id}"`));assert(event.includes(p.cover));}
  assert.equal((event.match(/Inspect infographic/g)||[]).length,3);
+});
+test('email gate prioritizes the approved PDF while retaining the source presentation',()=>{
+ const client=fs.readFileSync('download-client.js','utf8');
+ assert(client.includes('material.downloadFile||material.sourcePdf||material.sourceFile'));
 });
 test('JUMI public presentation associations preserve private speaker identities and do not duplicate',()=>{
  const c={};vm.createContext(c);vm.runInContext(fs.readFileSync('scripts/jumi/backend.js','utf8'),c);

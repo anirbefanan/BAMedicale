@@ -23,12 +23,12 @@ function createDialog(){
   try{
    if(!endpoint){const response=await fetch('/attendance/config.json',{cache:'no-store'});if(!response.ok)throw Error('configuration');endpoint=(await response.json()).endpoint;if(!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(endpoint))throw Error('configuration')}
    const result=await request(attempt);if(result!=='recorded')throw Error(result);
-   if(dialog.open){const link=document.createElement('a');link.href='/'+(material.sourceFile||material.sourcePdf);link.download='';link.hidden=true;document.body.append(link);link.click();link.remove();attempt=null;email.value='';dialog.close()}
+   if(dialog.open){const link=document.createElement('a');link.href='/'+(material.downloadFile||material.sourcePdf||material.sourceFile);link.download='';link.hidden=true;document.body.append(link);link.click();link.remove();attempt=null;email.value='';dialog.close()}
   }catch{status.textContent='We could not confirm your request was saved. Please try again. Your presentation has not been downloaded.'}
   finally{busy=false;submit.disabled=false;email.readOnly=false;form.setAttribute('aria-busy','false');submit.textContent='Continue to Download'}
  });
  email.addEventListener('input',()=>email.setCustomValidity(''));
 }
 export function openDownload(presentation,trigger){
- if(!dialog)createDialog();if(busy||dialog.open)return;opener=trigger;material=presentation;dialog.querySelector("form > p").textContent=`Enter your email to download the original presentation ${presentation.sourceFormat||"PDF"}.`;dialog.querySelector('[data-download-status]').textContent='';dialog.querySelector('input').value=attempt?.material_id===presentation.id?attempt.email:'';dialog.showModal();dialog.querySelector('input').focus();
+ if(!dialog)createDialog();if(busy||dialog.open)return;opener=trigger;material=presentation;dialog.querySelector("form > p").textContent=`Enter your email to download the presentation ${presentation.downloadFormat||presentation.sourceFormat||"PDF"}.`;dialog.querySelector('[data-download-status]').textContent='';dialog.querySelector('input').value=attempt?.material_id===presentation.id?attempt.email:'';dialog.showModal();dialog.querySelector('input').focus();
 }
