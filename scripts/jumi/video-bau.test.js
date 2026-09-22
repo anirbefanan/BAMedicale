@@ -26,6 +26,13 @@ test('Control Tower recognizes Videos without imposing a weekly cadence',()=>{co
 test('VideoObject metadata uses only known dates and durations, without changing social logo',()=>{const schema=require('../build-original-video-metadata').schema([{...originals[0],publishedDate:'',durationSeconds:undefined}])['@graph'][0];assert.equal(schema.uploadDate,undefined);assert.equal(schema.duration,undefined);assert.match(schema.publisher.logo.url,/bamedicale-approved-logo/);});
 test('existing Originals player and YouTube collection remain separate native/embedded paths',()=>{const app=fs.readFileSync(path.join(root,'app.js'),'utf8');assert.match(app,/openLocalVideo/);assert.match(app,/data-video-local/);assert.match(app,/video_url/);assert.match(app,/youtube-nocookie/);assert.equal(originals.length,5);});
 
+test('Video Intelligent BAU requires only MP4 and generates the locked poster from a source frame',()=>{
+  const app=fs.readFileSync(path.join(root,'jumi/app.js'),'utf8'),ui=fs.readFileSync(path.join(root,'jumi/video-ui.js'),'utf8');
+  assert.match(ui,/Upload one approved MP4/);assert.doesNotMatch(ui,/data-content-file="artwork"/);assert.match(ui,/Analyze Video & Generate/);assert.match(ui,/Choose another frame/);
+  assert.match(app,/function videoPosterFile/);assert.match(app,/canvas\.width=width/);assert.match(app,/drawImage\(video/);assert.match(app,/width:1080,height:1920/);assert.match(app,/fileName:item\.file\.name/);
+  assert.match(fs.readFileSync(path.join(__dirname,'video-backend.js'),'utf8'),/Source metadata extracted — Review Required/);
+});
+
 function operational(){
   const c=context(),m=metadata(),admin={email:'qa@example.invalid'},audit=[],files=new Map();let row=c.jumiVideoValue_({type:'Video',title:m.title,slug:'non-public-fixture',quickSummary:m.quickSummary,source:m.source,primaryAudience:'Public',audienceReviewed:'Reviewed',primaryDiseaseGroup:'cancer-neoplastic',primaryTopic:'Clinical Education',tags:m.tags.join(',')},admin);row._row=2;
   const blob=(bytes,mime)=>({getBytes:()=>Array.from(bytes),getContentType:()=>mime,setName(){return this;}});

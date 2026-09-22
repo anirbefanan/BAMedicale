@@ -27,6 +27,17 @@ test('Seminar input rejects contradictory Online/Offline and Free/Paid states',(
   assert.throws(()=>context.jumiSeminarInput_({...freeOnline,price:1}),/Free Seminars must not include/);
 });
 
+test('Seminar source intake accepts only bounded PDF/DOC/DOCX signatures and extracts reviewable evidence',()=>{
+  const blob=(mime,bytes)=>({getContentType:()=>mime,getBytes:()=>Array.from(bytes)});
+  assert.equal(context.jumiSeminarSourceValid_(blob('application/pdf',Buffer.from('%PDF-1.7 source'))),true);
+  assert.equal(context.jumiSeminarSourceValid_(blob('application/msword',Buffer.from([208,207,17,224,1,2,3,4,5]))),true);
+  assert.equal(context.jumiSeminarSourceValid_(blob('application/vnd.openxmlformats-officedocument.wordprocessingml.document',Buffer.from([80,75,3,4,1,2,3,4,5]))),true);
+  assert.equal(context.jumiSeminarSourceValid_(blob('application/pdf',Buffer.from('not-pdf'))),false);
+  context.Utilities={formatDate:()=> '2026-11-10'};
+  const evidence=context.jumiSeminarEvidence_('Thyroid Imaging Seminar\n10 November 2026\n09:00 - 11:00\nOnline via Zoom\nFree for doctors\ndr. Evidence, Sp.Rad | Speaker | TIRADS\nSource-supported seminar description for participating doctors.','source.pdf');
+  assert.equal(evidence.title,'Thyroid Imaging Seminar');assert.equal(evidence.format,'Online');assert.equal(evidence.platform,'Zoom');assert.equal(evidence.commercial,'Free');assert.equal(evidence.startTime,'09:00');assert.equal(evidence.status,'Extracted — Review Required');
+});
+
 test('Seminar schedules are normalized to Asia/Jakarta and registration windows are ordered',()=>{
   assert.deepEqual({...context.jumiSeminarSchedule_({date:'2026-10-20',startTime:'09:00',endTime:'11:00',registrationOpen:'2026-09-20T09:00',registrationClose:'2026-10-20T08:00'})},{start:'2026-10-20T09:00:00+07:00',end:'2026-10-20T11:00:00+07:00',open:'2026-09-20T09:00:00+07:00',close:'2026-10-20T08:00:00+07:00'});
   assert.throws(()=>context.jumiSeminarSchedule_({date:'2026-10-20',startTime:'09:00',endTime:'08:00'}),/End time/);
@@ -74,6 +85,11 @@ test('Seminar UI exposes deterministic fields, private preview facts, and option
   assert.match(client,/data-new-presentation/);
   assert.match(client,/input\.disabled=!active/);
   assert.match(client,/element=>element\.name&&!element\.disabled/);
+  assert.match(client,/Seminar source PDF or Word document/);
+  assert.match(client,/data-analyze-seminar/);
+  assert.match(client,/Analyze → Review\/Edit → Save Draft → Preview → Publish/);
+  assert.match(client,/data\.saveDraft=true/);
+  assert.match(client,/button\.formNoValidate=true/);
 });
 
 test('canonical Seminar renderer remains locked and displays new commercial data without exposing private meeting URLs',()=>{
