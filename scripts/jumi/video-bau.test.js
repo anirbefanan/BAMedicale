@@ -29,7 +29,7 @@ test('existing Originals player and YouTube collection remain separate native/em
 test('Video Intelligent BAU requires only MP4 and generates the locked poster from a source frame',()=>{
   const app=fs.readFileSync(path.join(root,'jumi/app.js'),'utf8'),ui=fs.readFileSync(path.join(root,'jumi/video-ui.js'),'utf8');
   assert.match(ui,/Upload one approved MP4/);assert.doesNotMatch(ui,/data-content-file="artwork"/);assert.match(ui,/Analyze Video & Generate/);assert.match(ui,/Choose another frame/);
-  assert.match(app,/function videoPosterFile/);assert.match(app,/canvas\.width=width/);assert.match(app,/drawImage\(video/);assert.match(app,/width:1080,height:1920/);assert.match(app,/fileName:item\.file\.name/);
+  assert.match(app,/function videoEvidence/);assert.match(app,/primaryAudience=.*Healthcare Professionals/);assert.match(app,/function videoPosterFile/);assert.match(app,/canvas\.width=width/);assert.match(app,/drawImage\(video/);assert.match(app,/width:1080,height:1920/);assert.match(app,/fileName:item\.file\.name/);
   assert.match(fs.readFileSync(path.join(__dirname,'video-backend.js'),'utf8'),/Source metadata extracted — Review Required/);
 });
 
