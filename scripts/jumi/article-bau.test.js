@@ -58,7 +58,8 @@ test("Apps Script uses private server-side Drive conversion without broadening s
   const drive=manifest.dependencies.enabledAdvancedServices.find(service=>service.userSymbol==="Drive");
   assert.deepEqual(drive,{userSymbol:"Drive",serviceId:"drive",version:"v3"});
   assert.match(backend,/Drive\.Files\.create/);
-  assert.match(backend,/Drive\.Files\.export/);
+  assert.doesNotMatch(backend,/Drive\.Files\.export/);
+  assert.match(backend,/alt=media/);
   assert.match(backend,/Drive\.Files\.remove/);
   assert.match(backend,/getSharingAccess\(\)===DriveApp\.Access\.PRIVATE/);
   assert.doesNotMatch(backend,/setSharing\(|ANYONE|ANYONE_WITH_LINK/);

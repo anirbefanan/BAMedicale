@@ -34,7 +34,7 @@ function jumiUploadVideoAsset_(data,admin){
 function jumiVideoAssets_(row){
   const d=jumiJson_(row['Type Data JSON'],{});jumiAssert_(row['Source File ID']&&row['Artwork File ID'],'Upload the approved MP4 so JUMI can generate and store its poster.');const sourceFile=DriveApp.getFileById(String(row['Source File ID'])),artworkFile=DriveApp.getFileById(String(row['Artwork File ID']));
   jumiAssert_(sourceFile.getSharingAccess()===DriveApp.Access.PRIVATE&&artworkFile.getSharingAccess()===DriveApp.Access.PRIVATE,'Video masters must remain private.');
-  const sourceBlob=sourceFile.getBlob(),artworkBlob=artworkFile.getBlob(),source=JUMI_VIDEO.mp4(sourceBlob.getBytes()),artwork=JUMI_VIDEO.poster(artworkBlob.getBytes(),artworkBlob.getContentType());
+  const sourceBlob=jumiReadSourceFile_(sourceFile),artworkBlob=jumiReadSourceFile_(artworkFile),source=JUMI_VIDEO.mp4(sourceBlob.getBytes()),artwork=JUMI_VIDEO.poster(artworkBlob.getBytes(),artworkBlob.getContentType());
   jumiAssert_(jumiSha256_(sourceBlob)===d.sourceAsset?.sha256&&jumiSha256_(artworkBlob)===d.artwork?.sha256,'Approved Video/poster integrity changed. Upload and review the replacement.');
   return{sourceBlob,artworkBlob,source,artwork};
 }
