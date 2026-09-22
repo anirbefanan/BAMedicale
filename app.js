@@ -505,7 +505,7 @@ function renderLibrary() {
   };
   filterForm.addEventListener("input", (event) => { if (event.target.name === "query") { pages.clear(); update(); } });
   filterForm.addEventListener("change", () => { pages.clear(); update({ syncUrl: true }); });
-  filterForm.addEventListener("reset", () => { pages.clear(); requestAnimationFrame(() => update({ syncUrl: true })); });
+  filterForm.addEventListener("reset", event => { event.preventDefault(); filterForm.querySelectorAll("input, select").forEach(control => { control.value = ""; }); pages.clear(); update({ syncUrl: true }); });
   window.addEventListener("popstate", () => {
     const routeParams = new URLSearchParams(location.search);
     const values = {
