@@ -223,6 +223,142 @@ const discoveryMedia = (record, eager = false) => {
   return `<a class="discovery-card__media${record.cover ? "" : " is-default-artwork"}" href="${escapeHtml(record.route)}" aria-label="${escapeHtml(discoveryActionLabel(record) + ': ' + record.title)}">${artwork}${image}${record.family === "video" ? '<span class="discovery-card__play" aria-hidden="true">▶</span>' : ""}</a>`;
 };
 const discoveryCard = (record, { eager = false, showSummary = true, variant = "standard", identityLabel = "", metaLabel = "" } = {}) => `<article class="discovery-card discovery-card--${escapeHtml(variant)}" data-family="${escapeHtml(record.family || "resource")}" data-audience="${escapeHtml(String(record.primaryAudience || "ALL").toLowerCase().replace(/\s+/g, "-"))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}>${discoveryMedia(record, eager)}<div class="discovery-card__body"><div class="discovery-card__labels"><span>${escapeHtml(identityLabel || discoveryTypeLabel(record))}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${showSummary && record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="discovery-card__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${metaLabel || (record.topics || [])[0] ? `<span>${escapeHtml(metaLabel || record.topics[0])}</span>` : ""}</div></div><div class="discovery-card__actions">${discoveryActions(record)}</div></article>`;
+const videoDurationLabel = seconds => {
+  const value = Number(seconds);
+  if (!Number.isFinite(value) || value <= 0) return "";
+  const hours = Math.floor(value / 3600);
+  const minutes = Math.floor((value % 3600) / 60);
+  const remainder = Math.floor(value % 60);
+  return hours ? `${hours}:${String(minutes).padStart(2, "0")}:${String(remainder).padStart(2, "0")}` : `${minutes}:${String(remainder).padStart(2, "0")}`;
+};
+const videoCoverflowCard = (record, index) => {
+  const original = record.sourceRecord.source === "ba-medicale";
+  const cover = safeImageUrl(record.cover);
+  const media = cover ? `<img src="${escapeHtml(cover)}" alt="" width="960" height="540" loading="${index < 2 ? "eager" : "lazy"}"${original ? "" : ' referrerpolicy="no-referrer"'}>` : discoveryDefaultArtwork(record);
+  const duration = videoDurationLabel(record.sourceRecord.duration_seconds);
+  const playAttribute = original ? `data-video-local="${escapeHtml(record.id)}"` : `data-video-play="${escapeHtml(record.id)}"`;
+  return `<article class="video-coverflow__card" data-video-coverflow-card data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-source="${original ? "ba-medicale" : "youtube"}"><button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-video-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span><span class="video-coverflow__play-mark" aria-hidden="true">▶</span></button><div class="video-coverflow__copy"><p class="video-coverflow__provenance">${original ? "BA Medicale Original" : "YouTube · Dr. Bob"}</p><h3>${escapeHtml(record.title)}</h3><div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${duration ? `<span>${escapeHtml(duration)}</span>` : ""}</div><button class="video-coverflow__action" type="button" ${playAttribute} data-video-coverflow-play aria-label="Play ${escapeHtml(record.title)}">Play Video <span aria-hidden="true">▶</span></button></div></article>`;
+};
+function initVideoCoverflow(root) {
+  if (!root || root.dataset.coverflowReady === "true") return;
+  const cards = [...root.querySelectorAll("[data-video-coverflow-card]")];
+  const previous = root.querySelector('[data-video-coverflow-nav="previous"]');
+  const next = root.querySelector('[data-video-coverflow-nav="next"]');
+  const indicators = root.querySelector("[data-video-coverflow-indicators]");
+  const status = root.querySelector("[data-video-coverflow-status]");
+  const stage = root.querySelector(".video-coverflow__stage");
+  const track = root.querySelector(".video-coverflow__track");
+  if (!cards.length || !previous || !next || !indicators || !status || !stage || !track) return;
+  root.dataset.coverflowReady = "true";
+  let activeIndex = 0;
+  let startX = 0;
+  let dragX = 0;
+  let pointerId = null;
+  let dragged = false;
+  let suppressClick = false;
+  indicators.replaceChildren(...cards.map((card, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.dataset.videoCoverflowDot = String(index);
+    dot.setAttribute("aria-label", `Show video ${index + 1}: ${card.querySelector("h3")?.textContent || "Video"}`);
+    dot.addEventListener("click", () => setActive(index));
+    return dot;
+  }));
+  const dots = [...indicators.querySelectorAll("button")];
+  const setActive = (index, { announce = true } = {}) => {
+    activeIndex = Math.max(0, Math.min(cards.length - 1, index));
+    cards.forEach((card, cardIndex) => {
+      const position = cardIndex - activeIndex;
+      const visiblePosition = Math.max(-3, Math.min(3, position));
+      card.dataset.coverflowPosition = String(visiblePosition);
+      card.toggleAttribute("data-coverflow-far", Math.abs(position) > 3);
+      card.toggleAttribute("data-coverflow-active", position === 0);
+      card.setAttribute("aria-hidden", Math.abs(position) > 2 ? "true" : "false");
+      const selector = card.querySelector("[data-video-coverflow-select]");
+      const play = card.querySelector("[data-video-coverflow-play]");
+      selector.tabIndex = Math.abs(position) <= 2 ? 0 : -1;
+      selector.setAttribute("aria-label", position === 0 ? `Play current video: ${card.querySelector("h3")?.textContent || "Video"}` : `Center ${card.querySelector("h3")?.textContent || "video"}`);
+      play.disabled = position !== 0;
+      play.tabIndex = position === 0 ? 0 : -1;
+      play.setAttribute("aria-hidden", position === 0 ? "false" : "true");
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.toggleAttribute("data-active", dotIndex === activeIndex);
+      dot.setAttribute("aria-current", dotIndex === activeIndex ? "true" : "false");
+    });
+    previous.disabled = activeIndex === 0;
+    next.disabled = activeIndex === cards.length - 1;
+    previous.hidden = cards.length < 2;
+    next.hidden = cards.length < 2;
+    indicators.hidden = cards.length < 2;
+    const title = cards[activeIndex].querySelector("h3")?.textContent || "Video";
+    status.textContent = `${activeIndex + 1} of ${cards.length}: ${title}`;
+    if (!announce) status.setAttribute("aria-live", "off"); else status.setAttribute("aria-live", "polite");
+  };
+  const move = direction => setActive(activeIndex + direction);
+  previous.addEventListener("click", () => move(-1));
+  next.addEventListener("click", () => move(1));
+  cards.forEach((card, index) => card.querySelector("[data-video-coverflow-select]").addEventListener("click", event => {
+    if (suppressClick && event.isTrusted) {
+      event.preventDefault();
+      return;
+    }
+    if (index !== activeIndex) setActive(index);
+    else card.querySelector("[data-video-coverflow-play]")?.click();
+  }));
+  stage.addEventListener("click", event => {
+    if (suppressClick || event.target.closest("[data-video-coverflow-select], [data-video-coverflow-nav], [data-video-coverflow-play]")) return;
+    const bounds = stage.getBoundingClientRect();
+    const offset = event.clientX - (bounds.left + bounds.width / 2);
+    if (Math.abs(offset) < Math.min(120, bounds.width * .24)) return;
+    move(offset < 0 ? -1 : 1);
+  });
+  root.addEventListener("keydown", event => {
+    if (event.target.closest("[data-video-coverflow-play]") || event.altKey || event.ctrlKey || event.metaKey) return;
+    const direction = event.key === "ArrowLeft" ? -1 : event.key === "ArrowRight" ? 1 : 0;
+    if (direction) {
+      event.preventDefault();
+      move(direction);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setActive(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      setActive(cards.length - 1);
+    }
+  });
+  stage.addEventListener("pointerdown", event => {
+    if (event.button !== 0 || event.target.closest("[data-video-coverflow-nav], [data-video-coverflow-play]") || cards.length < 2) return;
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    dragX = 0;
+    dragged = false;
+    stage.setPointerCapture(pointerId);
+    root.classList.add("is-dragging");
+  });
+  stage.addEventListener("pointermove", event => {
+    if (pointerId !== event.pointerId) return;
+    dragX = event.clientX - startX;
+    dragged ||= Math.abs(dragX) > 8;
+    track.style.transform = `translate3d(${Math.max(-72, Math.min(72, dragX))}px,0,0)`;
+  });
+  const endDrag = event => {
+    if (pointerId !== event.pointerId) return;
+    if (stage.hasPointerCapture(pointerId)) stage.releasePointerCapture(pointerId);
+    pointerId = null;
+    track.style.transform = "";
+    root.classList.remove("is-dragging");
+    if (dragged) {
+      suppressClick = true;
+      if (Math.abs(dragX) >= 42) move(dragX < 0 ? 1 : -1);
+      setTimeout(() => { suppressClick = false; }, 0);
+    }
+  };
+  stage.addEventListener("pointerup", endDrag);
+  stage.addEventListener("pointercancel", endDrag);
+  setActive(0, { announce: false });
+  requestAnimationFrame(() => status.setAttribute("aria-live", "polite"));
+}
 const initDiscoveryImageFallbacks = (root = document) => {
   root.querySelectorAll('.discovery-card__media img:not([data-fallback-bound]), .discovery-related-card__media img:not([data-fallback-bound])').forEach((image) => {
     image.dataset.fallbackBound = 'true';
@@ -1074,7 +1210,8 @@ function renderVideoHub() {
       });
     };
     const latest = videoRecords.slice(0, 6);
-    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">The newest medical video learning.</h2></div><p>Recent BA Medicale Originals and Dr. Bob videos on YouTube, ordered by their available publication dates.</p></div><div class="discovery-grid" data-video-latest>${latest.map((record, index) => videoCard(record, { eager: index < 2, showSummary: false })).join("")}</div></section><form class="discovery-controls discovery-controls--video" data-video-controls aria-label="Filter the video collection"><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or publisher"></label><label>Source<select name="source"><option value="">All Videos</option><option value="ba-medicale">BA Medicale Originals</option><option value="youtube">Dr. Bob on YouTube</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><section class="discovery-section video-source-collection" data-video-originals-section aria-labelledby="original-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale Originals</p><h2 id="original-videos-title">Published directly by BA Medicale.</h2></div><p><span data-video-originals-status role="status"></span> Approved first-party videos play in the native BA Medicale player.</p></div><div class="discovery-grid" data-video-originals></div></section><section class="discovery-section video-source-collection" data-video-youtube-section aria-labelledby="youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Dr. Bob on YouTube</p><h2 id="youtube-videos-title">Source-attributed public video appearances.</h2></div><p><span data-video-youtube-status role="status"></span> Each video retains its original YouTube publisher and destination.</p></div><div class="discovery-grid" data-video-youtube></div><nav class="discovery-pagination" aria-label="Dr. Bob YouTube video pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav></section><aside class="video-source-note"><b>Source integrity</b><span>BA Medicale Originals use approved local media. Dr. Bob videos on YouTube remain externally published and retain their original attribution.</span></aside>`;
+    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">The newest medical video learning.</h2></div><p>Recent BA Medicale Originals and Dr. Bob videos on YouTube, ordered by their available publication dates.</p></div><div class="video-coverflow" data-video-latest data-video-coverflow role="region" aria-roledescription="carousel" aria-label="Latest Videos coverflow" tabindex="0"><div class="video-coverflow__stage"><div class="video-coverflow__track">${latest.map(videoCoverflowCard).join("")}</div><button class="video-coverflow__nav video-coverflow__nav--previous" type="button" data-video-coverflow-nav="previous" aria-label="Previous latest video">←</button><button class="video-coverflow__nav video-coverflow__nav--next" type="button" data-video-coverflow-nav="next" aria-label="Next latest video">→</button></div><div class="video-coverflow__footer"><p class="video-coverflow__status" data-video-coverflow-status aria-live="polite"></p><div class="video-coverflow__indicators" data-video-coverflow-indicators aria-label="Choose a latest video"></div></div></div></section><form class="discovery-controls discovery-controls--video" data-video-controls aria-label="Filter the video collection"><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or publisher"></label><label>Source<select name="source"><option value="">All Videos</option><option value="ba-medicale">BA Medicale Originals</option><option value="youtube">Dr. Bob on YouTube</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><section class="discovery-section video-source-collection" data-video-originals-section aria-labelledby="original-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale Originals</p><h2 id="original-videos-title">Published directly by BA Medicale.</h2></div><p><span data-video-originals-status role="status"></span> Approved first-party videos play in the native BA Medicale player.</p></div><div class="discovery-grid" data-video-originals></div></section><section class="discovery-section video-source-collection" data-video-youtube-section aria-labelledby="youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Dr. Bob on YouTube</p><h2 id="youtube-videos-title">Source-attributed public video appearances.</h2></div><p><span data-video-youtube-status role="status"></span> Each video retains its original YouTube publisher and destination.</p></div><div class="discovery-grid" data-video-youtube></div><nav class="discovery-pagination" aria-label="Dr. Bob YouTube video pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav></section><aside class="video-source-note"><b>Source integrity</b><span>BA Medicale Originals use approved local media. Dr. Bob videos on YouTube remain externally published and retain their original attribution.</span></aside>`;
+    initVideoCoverflow(hub.querySelector("[data-video-coverflow]"));
     const form = hub.querySelector("[data-video-controls]");
     const controlsFromUrl = () => {
       const params = new URLSearchParams(location.search);

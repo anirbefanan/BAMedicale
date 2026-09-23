@@ -75,3 +75,16 @@ test('video discovery keeps originals and attributed external sources distinct',
   assert.match(app, /searchParams\.set\("source", values\.source\)/);
   assert.match(app, /originalVideos\.some\(item => item\.id === requestedVideo\)/);
 });
+
+test('Latest Videos uses a native accessible coverflow without changing canonical records', () => {
+  assert.match(app, /function initVideoCoverflow\(root\)/);
+  assert.match(app, /latest\.map\(videoCoverflowCard\)/);
+  assert.match(app, /data-video-coverflow-nav="previous"/);
+  assert.match(app, /event\.key === "ArrowLeft"/);
+  assert.match(app, /stage\.addEventListener\("pointerdown"/);
+  assert.match(app, /play\.disabled = position !== 0/);
+  assert.doesNotMatch(app, /cloneNode\(|setInterval\([^)]*coverflow|new Swiper|THREE\.|gsap\./);
+  assert.match(styles, /\.video-coverflow__stage\{[^}]*perspective:1400px/);
+  assert.match(styles, /\.video-coverflow__card\{[\s\S]*rotateY\(var\(--coverflow-rotate\)\)/);
+  assert.match(styles, /@media\(prefers-reduced-motion:reduce\)[\s\S]*\.video-coverflow__card/);
+});
