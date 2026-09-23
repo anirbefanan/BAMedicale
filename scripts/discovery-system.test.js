@@ -36,7 +36,7 @@ test('canonical variants and deterministic editorial fallback remain source-safe
 test('coming-soon resources use contextual artwork and explicit intended audiences', () => {
   const content = fs.readFileSync('content.js', 'utf8');
   assert.match(content, /artworkContext:\s*"diagnosis"/);
-  assert.match(content, /audience:\s*"Doctors \+ Other HCP"/);
+  assert.match(content, /audience:\s*"Doctors \+ Healthcare Professionals"/);
   assert.match(app, /resource-card__art discovery-artwork/);
   assert.match(app, /resource-card--coming-soon/);
   assert.match(app, /category\.audience \|\| "All"/);

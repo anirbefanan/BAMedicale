@@ -928,6 +928,7 @@ body:not(.approved-home) .filter-bar a:hover,body:not(.approved-home) .filter-ba
 .seo-paper-source .eyebrow{margin:0 0 8px}
 .seo-paper-source h2{margin:0;color:var(--text-primary);font-family:var(--display);font-size:1.75rem;line-height:1.25}
 .seo-paper-source__authors{margin:12px 0 0;font-weight:700;line-height:1.55}
+.team-card__copy h3,.article-byline,.seo-paper-source__authors,.seo-event-schedule__topic>div>p,.featured-seminar__faculty h3,.event-reader__body li span,.privacy-policy__organization dd{overflow:visible;text-overflow:clip;white-space:normal;word-break:normal;overflow-wrap:break-word;-webkit-line-clamp:unset}
 .seo-paper-source__publication{margin:8px 0 0;color:var(--text-secondary);font-size:.9rem;line-height:1.55}
 .seo-paper-source__affiliations{display:grid;gap:5px;margin:12px 0 0;padding-left:1.35rem;line-height:1.65}
 .seo-paper-source__details{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(var(--brand-rgb),.12)}

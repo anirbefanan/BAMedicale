@@ -61,10 +61,10 @@ window.BAMEDICALE_DATA = {
     { id: "healthcare-teamwork", anchor: "teamwork", label: "Teamwork", area: "Multidisciplinary collaboration", icon: "spark", description: "Explore how different professional perspectives support safe handovers, informed communication, and coordinated patient-centred care.", emptyLabel: "Shared learning", matchTopics: ["Multidisciplinary Care", "Teamwork", "Care Coordination"] }
   ],
   resourceCategories: [
-    { id: "resource-guidelines", label: "Clinical guidelines", icon: "book", audience: "Doctors + Other HCP", artworkContext: "diagnosis", topic: "Clinical guidance", description: "Source-linked guideline desk and professional reference architecture." },
+    { id: "resource-guidelines", label: "Clinical guidelines", icon: "book", audience: "Doctors + Healthcare Professionals", artworkContext: "diagnosis", topic: "Clinical guidance", description: "Source-linked recommendations for diagnosis, treatment, and follow-up, published after editorial review." },
     { id: "resource-patient", anchor: "patient", label: "Patient education", icon: "cell", audience: "Public", artworkContext: "public-education", topic: "Care preparation", description: "Plain-language explainers, questions to ask, and care preparation resources." },
-    { id: "resource-checklists", anchor: "checklists", label: "Checklists & templates", icon: "path", audience: "Other HCP + Public", artworkContext: "therapeutics", topic: "Practical care", description: "Practical appointment, symptom, and treatment-conversation templates." },
-    { id: "resource-tools", label: "Calculators & tools", icon: "search", audience: "Doctors + Other HCP", artworkContext: "clinical-learning", topic: "Clinical tools", description: "Future professional tools, only published with documented method and review." },
+    { id: "resource-checklists", anchor: "checklists", label: "Checklists & templates", icon: "path", audience: "Healthcare Professionals + Public", artworkContext: "therapeutics", topic: "Practical care", description: "Practical prompts for appointments, symptoms, medicines, and treatment conversations." },
+    { id: "resource-tools", label: "Calculators & tools", icon: "search", audience: "Doctors + Healthcare Professionals", artworkContext: "clinical-learning", topic: "Clinical tools", description: "Clinically defined tools with a documented method, intended use, and editorial review." },
     { id: "resource-data", label: "Data & statistics", icon: "spark", audience: "All", artworkContext: "oncology", topic: "Medical data", description: "Source-linked disease burden, registry, and public-health data references." },
     { id: "resource-multimedia", label: "Multimedia", icon: "book", audience: "All", artworkContext: "clinical-learning", topic: "Visual learning", description: "Infographics, visual explainers, and source-labelled media collections." }
   ],
@@ -303,9 +303,9 @@ window.BAMEDICALE_DATA = {
       primaryAudience: "DOCTOR",
       secondaryAudiences: ["HEALTHCARE WORKER"],
       authors: [
-        { name: "Bob Andinata", type: "Person" },
+        { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", type: "Person" },
         { name: "Dewi Iriani", type: "Person" },
-        { name: "Adlina Karisyah", type: "Person" }
+        { name: "dr. Adlina Karisyah, SpB.", type: "Person" }
       ],
       primaryTopic: "Diagnostic advances",
       professionalCategory: "diagnosis",
@@ -632,7 +632,7 @@ window.BAMEDICALE_DATA = {
       ["Speaker", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"],
       ["Speaker", "dr. Achmad Fachri, Sp.Rad(K)"],
       ["Speaker", "Dr. Vinesia Lestari Riddi, SpPA, MPH"],
-      ["Moderator", "dr. Adlina Karisyah, Sp.B"]
+      ["Moderator", "dr. Adlina Karisyah, SpB."]
     ],
     sessions: [
       ["Current Diagnostic Approach and Therapy Selection for Thyroid Nodules", "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"],
@@ -656,7 +656,7 @@ window.BAMEDICALE_DATA = {
     }
     }
   },
-  profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale is shaped around clear, responsible medical education: enough context to help people ask better questions, and enough structure to help doctors and healthcare workers continue learning across medical disciplines.", image: "assets/medical/oncology-cellular-hero.png" }
+  profile: { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", role: "Surgical oncologist and BA Medicale physician educator", text: "BA Medicale provides clear, responsible medical education for informed public discussions and continued professional learning across medical disciplines.", image: "assets/medical/oncology-cellular-hero.png" }
 };
 
 // Published by the authenticated JUMI release workflow. Keep these markers stable.

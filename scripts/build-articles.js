@@ -133,7 +133,7 @@ const renderPage = (article, index) => {
     mainEntityOfPage: canonical,
     publisher: { "@type": "Organization", name: "BA Medicale", url: `${domain}/`, logo: { "@type": "ImageObject", url: `${domain}/assets/brand/bamedicale-approved-logo.jpg` } },
     author: schemaAuthor,
-    audience: audienceTypes.map((audienceType) => ({ "@type": "Audience", audienceType })),
+    audience: audienceTypes.map((audienceType) => ({ "@type": "Audience", audienceType: registryApi.publicAudienceLabel(audienceType) })),
     about: [diseaseGroup.name, article.diseaseCondition, article.primaryTopic, ...(article.tags || [])].filter(Boolean)
   };
   if (article.publishedDate) schema.datePublished = article.publishedDate;
@@ -163,7 +163,7 @@ const renderPage = (article, index) => {
     <article>
       <header class="seo-article-hero seo-article-hero--publication">
         <button class="seo-article-artwork" type="button" data-lightbox-image="${relative(article.cover)}" data-lightbox-alt="${escape(article.title)} editorial artwork" aria-label="Open article artwork"><img src="${relative(article.cover)}" alt="${escape(article.title)} editorial artwork" width="1280" height="720" fetchpriority="high"></button>
-        <div class="seo-article-heading"><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges">${article.scientificWork ? [article.primaryAudience, ...(article.secondaryDiseaseGroups || []).map((id) => diseaseGroups.get(id)?.name).filter(Boolean), diseaseGroup.name, article.primaryTopic].map((label) => `<span>${escape(label)}</span>`).join("") : `<span>${escape(article.primaryAudience)}</span><span>${escape(diseaseGroup.name)}</span>${article.diseaseCondition ? `<span>${escape(article.diseaseCondition)}</span>` : ""}<span>${escape(article.primaryTopic)}</span>`}</div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><div class="seo-article-meta"><small class="article-byline">By ${escape(authorNames)} · Published: ${escape(publicationDate)}</small>${originalPublication ? `<small class="article-source-meta">Original publication: ${escape(originalPublication)}</small>` : ""}<small class="article-source-meta">${article.scientificWork ? "Journal" : "Sources"}: ${escape(article.sourceAttribution)}</small></div></div>
+        <div class="seo-article-heading"><p class="eyebrow">${escape(article.label)}</p><div class="article-page-badges">${article.scientificWork ? [registryApi.publicAudienceLabel(article.primaryAudience), ...(article.secondaryDiseaseGroups || []).map((id) => diseaseGroups.get(id)?.name).filter(Boolean), diseaseGroup.name, article.primaryTopic].map((label) => `<span>${escape(label)}</span>`).join("") : `<span>${escape(registryApi.publicAudienceLabel(article.primaryAudience))}</span><span>${escape(diseaseGroup.name)}</span>${article.diseaseCondition ? `<span>${escape(article.diseaseCondition)}</span>` : ""}<span>${escape(article.primaryTopic)}</span>`}</div><h1>${escape(article.title)}</h1><p>${escape(article.dek)}</p><div class="seo-article-meta"><small class="article-byline">By ${escape(authorNames)} · Published: ${escape(publicationDate)}</small>${originalPublication ? `<small class="article-source-meta">Original publication: ${escape(originalPublication)}</small>` : ""}<small class="article-source-meta">${article.scientificWork ? "Journal" : "Sources"}: ${escape(article.sourceAttribution)}</small></div></div>
       </header>
       <div class="seo-article-body">
       ${bodySections}

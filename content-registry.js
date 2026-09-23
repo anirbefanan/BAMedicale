@@ -3,8 +3,19 @@
   if (typeof module === "object" && module.exports) module.exports = api;
   if (globalObject) globalObject.BAMEDICALE_REGISTRY = api;
 })(typeof window !== "undefined" ? window : globalThis, function createRegistryApi() {
-  const AUDIENCES = ["PUBLIC", "DOCTOR", "HEALTHCARE WORKER"];
+  // Internal audience values remain stable for stored content and URLs. Public
+  // wording and order are defined here once for every browser/build consumer.
+  const AUDIENCES = ["DOCTOR", "HEALTHCARE WORKER", "PUBLIC"];
+  const PUBLIC_AUDIENCE_LABELS = Object.freeze({
+    DOCTOR: "Doctors",
+    "HEALTHCARE WORKER": "Healthcare Professionals",
+    PUBLIC: "Public",
+    ALL: "All"
+  });
   const PUBLISHED = "published";
+  const PROFESSIONAL_NAMES = Object.freeze({
+    BOB_ANDINATA: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"
+  });
 
   const compact = (values) => [...new Set((values || []).flat().filter(Boolean))];
   const slugify = (value = "") => String(value)
@@ -17,10 +28,42 @@
   const normalizeAudience = (value = "") => {
     const normalized = String(value).trim().replace(/-/g, " ").toUpperCase();
     if (normalized === "DOCTORS") return "DOCTOR";
-    if (normalized === "HEALTHCARE WORKERS") return "HEALTHCARE WORKER";
+    if (["HEALTHCARE WORKERS", "HEALTHCARE PROFESSIONAL", "HEALTHCARE PROFESSIONALS", "HEALTH WORKER", "HEALTH WORKERS", "OTHER HCP", "HCP", "HCW"].includes(normalized)) return "HEALTHCARE WORKER";
     return AUDIENCES.includes(normalized) ? normalized : "";
   };
   const audienceQueryValue = (value = "") => normalizeAudience(value).toLowerCase().replace(/\s+/g, "-");
+  const publicAudienceLabel = (value = "") => PUBLIC_AUDIENCE_LABELS[normalizeAudience(value) || String(value).trim().toUpperCase()] || String(value);
+  const publicAudienceList = (values = []) => {
+    const normalized = compact(values).map(normalizeAudience).filter(Boolean);
+    if (normalized.length === AUDIENCES.length && AUDIENCES.every((value) => normalized.includes(value))) return "All";
+    return AUDIENCES.filter((value) => normalized.includes(value)).map(publicAudienceLabel).join(" + ");
+  };
+  const publicProfessionalText = (value = "") => {
+    const text = String(value);
+    if (!/Bob Andinata/i.test(text) || text.includes(PROFESSIONAL_NAMES.BOB_ANDINATA)) return text;
+    const variants = [
+      /dr\.\s*Bob Andinata,\s*Sp\.B\.Subsp\.Onk\s*\(K\)/gi,
+      /dr\.\s*Bob Andinata,\s*Sp\.B\s*\(K\)\s*Onk/gi,
+      /dr\.\s*Bob Andinata,\s*SpB\(K\)Onk/gi
+    ];
+    const variant = variants.find((pattern) => pattern.test(text));
+    if (variant) {
+      variant.lastIndex = 0;
+      return text.replace(variant, PROFESSIONAL_NAMES.BOB_ANDINATA);
+    }
+    return text.replace(/(?:Dr\.\s*)?dr\.\s*Bob Andinata/gi, PROFESSIONAL_NAMES.BOB_ANDINATA);
+  };
+  const defaultEditorialDescription = (record = {}) => {
+    const supplied = summaryFor(record);
+    if (supplied) return supplied;
+    const audience = normalizeAudience(record.primaryAudience);
+    const type = String(record.contentType || record.label || "medical education").toLowerCase();
+    const subject = compact([record.primaryTopic, record.topic, ...(record.topics || []), record.diseaseCondition || record.diseaseSite])[0] || "this medical subject";
+    if (audience === "DOCTOR") return `${subject}: ${type} for clinical reasoning, diagnosis, management, and evidence-informed decisions.`;
+    if (audience === "HEALTHCARE WORKER") return `${subject}: ${type} for multidisciplinary care, clinical workflows, coordination, and patient support.`;
+    if (audience === "PUBLIC") return `${subject}: clear ${type} for understanding health, care, and informed discussions with Healthcare Professionals.`;
+    return `${subject}: source-aware ${type} presented at the appropriate level of medical depth.`;
+  };
   const normalizeDate = (value = "") => /^\d{4}-\d{2}-\d{2}$/.test(String(value)) ? String(value) : "";
   const normalizeStatus = (record, fallback = "draft") => {
     const status = String(record.publicationStatus || record.status || "").toLowerCase();
@@ -88,7 +131,7 @@
     const categories = categoriesFor(record, data);
     const route = routeFor(record, family);
     const searchable = compact([
-      record.title, summaryFor(record), contentType, ...authors, ...affiliationFor(record),
+      record.title, publicProfessionalText(record.title), summaryFor(record), contentType, ...authors, ...affiliationFor(record),
       record.primaryDiseaseGroup, ...diseaseGroups, record.diseaseCondition || record.diseaseSite,
       ...categories, ...topics, doiFor(record), record.sourceAttribution, record.source_label,
       record.paper?.publicationDetails, record.paper?.keywords, ...(record.searchableMetadata || [])
@@ -96,7 +139,7 @@
     return Object.freeze({
       id: record.id || `${family}-${record.slug || slugify(record.title)}`,
       slug: record.slug || slugify(record.title),
-      title: record.title,
+      title: publicProfessionalText(record.title),
       family,
       contentType,
       typeId: slugify(contentType),
@@ -125,7 +168,7 @@
       route,
       canonicalUrl: route,
       cover: coverFor(record, family),
-      summary: summaryFor(record),
+      summary: defaultEditorialDescription(record),
       label: labelFor(record, family),
       indexable: family === "article" || family === "seminar" || Boolean(record.indexable),
       searchable,
@@ -176,7 +219,7 @@
       summary: category.description, route: `clinical.html#${category.id}`, searchable: `${category.label} ${category.area} ${category.description}`.toLowerCase()
     }));
     const healthcareRecords = (data.healthcareWorkerContentCategories || []).map((category) => ({
-      id: `navigation-${category.id}`, title: category.area || category.label, label: "Healthcare Worker topic",
+      id: `navigation-${category.id}`, title: category.area || category.label, label: "Healthcare Professional topic",
       summary: category.description, route: `healthcare-workers.html#${category.anchor || category.id}`, searchable: `${category.label} ${category.area} ${category.description}`.toLowerCase()
     }));
     const diseaseRecords = (data.diseaseTaxonomy || []).map((group) => ({
@@ -258,5 +301,5 @@
     return true;
   };
 
-  return Object.freeze({ AUDIENCES, PUBLISHED, create, validate, slugify, normalizeAudience, libraryPath });
+  return Object.freeze({ AUDIENCES, PUBLIC_AUDIENCE_LABELS, PROFESSIONAL_NAMES, PUBLISHED, create, validate, slugify, normalizeAudience, publicAudienceLabel, publicAudienceList, publicProfessionalText, defaultEditorialDescription, libraryPath });
 });
