@@ -222,7 +222,7 @@ const discoveryMedia = (record, eager = false) => {
   if (record.family === "presentation") return `<button class="discovery-card__media presentation-infographic" type="button" data-seminar-poster="${escapeHtml(safeImageUrl(record.cover))}" data-seminar-poster-alt="${escapeHtml(record.title)} — presentation infographic" data-poster-title="Presentation infographic" aria-label="Enlarge presentation infographic">${image}</button>`;
   return `<a class="discovery-card__media${record.cover ? "" : " is-default-artwork"}" href="${escapeHtml(record.route)}" aria-label="${escapeHtml(discoveryActionLabel(record) + ': ' + record.title)}">${artwork}${image}${record.family === "video" ? '<span class="discovery-card__play" aria-hidden="true">▶</span>' : ""}</a>`;
 };
-const discoveryCard = (record, { eager = false, showSummary = true, variant = "standard" } = {}) => `<article class="discovery-card discovery-card--${escapeHtml(variant)}" data-family="${escapeHtml(record.family || "resource")}" data-audience="${escapeHtml(String(record.primaryAudience || "ALL").toLowerCase().replace(/\s+/g, "-"))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}>${discoveryMedia(record, eager)}<div class="discovery-card__body"><div class="discovery-card__labels"><span>${escapeHtml(discoveryTypeLabel(record))}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${showSummary && record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="discovery-card__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${(record.topics || [])[0] ? `<span>${escapeHtml(record.topics[0])}</span>` : ""}</div></div><div class="discovery-card__actions">${discoveryActions(record)}</div></article>`;
+const discoveryCard = (record, { eager = false, showSummary = true, variant = "standard", identityLabel = "", metaLabel = "" } = {}) => `<article class="discovery-card discovery-card--${escapeHtml(variant)}" data-family="${escapeHtml(record.family || "resource")}" data-audience="${escapeHtml(String(record.primaryAudience || "ALL").toLowerCase().replace(/\s+/g, "-"))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}>${discoveryMedia(record, eager)}<div class="discovery-card__body"><div class="discovery-card__labels"><span>${escapeHtml(identityLabel || discoveryTypeLabel(record))}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${showSummary && record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="discovery-card__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${metaLabel || (record.topics || [])[0] ? `<span>${escapeHtml(metaLabel || record.topics[0])}</span>` : ""}</div></div><div class="discovery-card__actions">${discoveryActions(record)}</div></article>`;
 const initDiscoveryImageFallbacks = (root = document) => {
   root.querySelectorAll('.discovery-card__media img:not([data-fallback-bound]), .discovery-related-card__media img:not([data-fallback-bound])').forEach((image) => {
     image.dataset.fallbackBound = 'true';
@@ -1058,50 +1058,67 @@ function renderVideoHub() {
     if (hub) hub.innerHTML = `<div class="video-hub__empty"><p class="eyebrow">Video collection</p><h2>The public video catalog is being refreshed.</h2><p>Source verification is required before a video is shown here.</p></div>`;
     return;
   }
-  const card = (video, featured = false) => `<article class="video-card ${featured ? "video-card--featured" : ""}" data-video-topic="${escapeHtml(video.topic)}"><button type="button" class="video-card__play" data-video-play="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>Play</span></button><div class="video-card__copy"><p><b>${escapeHtml(video.source_label)}</b><i>${escapeHtml(video.topic)}</i></p><h2>${escapeHtml(video.title)}</h2><small>${escapeHtml(video.person)}</small><a href="${escapeHtml(safeExternalUrl(video.url))}" target="_blank" rel="noopener noreferrer">View original source <strong>↗</strong></a></div></article>`;
   const localThumbnail = (video) => safeImageUrl(video.thumbnail);
-  const localCard = (video) => `<article class="video-card video-card--original" data-video-topic="${escapeHtml(video.topic)}"><button type="button" class="video-card__play video-card__play--local" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>Watch Video</span></button><div class="video-card__copy"><p><b>${escapeHtml(video.source_label)}</b><i>${escapeHtml(video.topic)}</i></p><h2>${escapeHtml(video.title)}</h2><small>${escapeHtml(video.short_description)}</small>${video.publishedDate ? `<small class="video-card__published">Published: ${escapeHtml(formatPublishedDate(video.publishedDate))}</small>` : ""}<a href="${escapeHtml(safeInternalUrl(video.video_url))}" target="_blank" rel="noopener noreferrer">Open video file <strong>↗</strong></a></div></article>`;
   const latestOriginals = originalVideos.slice(-4).reverse();
   const latestYouTube = videos.slice().sort((a, b) => String(b.publish_date || "").localeCompare(String(a.publish_date || ""))).slice(0, 4);
   const previewLocalCard = (video) => `<article class="video-preview video-preview--original"><button type="button" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
   const previewYouTubeCard = (video) => `<article class="video-preview"><button type="button" data-video-play="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
   if (hub) {
     const topics = [...new Set(videoRecords.flatMap((record) => record.topics).filter(Boolean))].sort();
-    const params = new URLSearchParams(location.search);
-    let page = Math.max(1, Number(params.get("page")) || 1);
-    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">Newest verified video learning.</h2></div><p>BA Medicale originals and attributed public sources remain technically separate.</p></div><div class="discovery-grid" data-video-latest></div></section><section class="discovery-section" aria-labelledby="all-videos-title"><div class="discovery-heading"><div><p class="eyebrow">All Videos</p><h2 id="all-videos-title">Browse the complete video collection.</h2></div><p data-video-status role="status"></p></div><form class="discovery-controls discovery-controls--video" data-video-controls><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or source"></label><label>Source<select name="source"><option value="">All sources</option><option value="ba-medicale">BA Medicale Originals</option><option value="external">Verified public sources</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><div class="discovery-grid" data-video-all></div><nav class="discovery-pagination" aria-label="Video catalog pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav><aside class="video-source-note"><b>Source integrity</b><span>BA Medicale Originals use approved local media. Public-source videos retain their external publisher attribution.</span></aside></section>`;
+    const videoCard = (record, options = {}) => {
+      const original = record.sourceRecord.source === "ba-medicale";
+      return discoveryCard(record, {
+        ...options,
+        identityLabel: original ? "BA Medicale Original" : "YouTube · Dr. Bob",
+        metaLabel: original ? record.topics[0] || "BA Medicale" : record.sourceRecord.source_label || "YouTube"
+      });
+    };
+    const latest = videoRecords.slice(0, 6);
+    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">The newest medical video learning.</h2></div><p>Recent BA Medicale Originals and Dr. Bob videos on YouTube, ordered by their available publication dates.</p></div><div class="discovery-grid" data-video-latest>${latest.map((record, index) => videoCard(record, { eager: index < 2, showSummary: false })).join("")}</div></section><form class="discovery-controls discovery-controls--video" data-video-controls aria-label="Filter the video collection"><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or publisher"></label><label>Source<select name="source"><option value="">All Videos</option><option value="ba-medicale">BA Medicale Originals</option><option value="youtube">Dr. Bob on YouTube</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><section class="discovery-section video-source-collection" data-video-originals-section aria-labelledby="original-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale Originals</p><h2 id="original-videos-title">Published directly by BA Medicale.</h2></div><p><span data-video-originals-status role="status"></span> Approved first-party videos play in the native BA Medicale player.</p></div><div class="discovery-grid" data-video-originals></div></section><section class="discovery-section video-source-collection" data-video-youtube-section aria-labelledby="youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Dr. Bob on YouTube</p><h2 id="youtube-videos-title">Source-attributed public video appearances.</h2></div><p><span data-video-youtube-status role="status"></span> Each video retains its original YouTube publisher and destination.</p></div><div class="discovery-grid" data-video-youtube></div><nav class="discovery-pagination" aria-label="Dr. Bob YouTube video pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav></section><aside class="video-source-note"><b>Source integrity</b><span>BA Medicale Originals use approved local media. Dr. Bob videos on YouTube remain externally published and retain their original attribution.</span></aside>`;
     const form = hub.querySelector("[data-video-controls]");
+    const controlsFromUrl = () => {
+      const params = new URLSearchParams(location.search);
+      form.elements.source.value = ["ba-medicale", "youtube"].includes(params.get("source")) ? params.get("source") : "";
+      form.elements.topic.value = topics.some(topic => registryApi.slugify(topic) === params.get("topic")) ? params.get("topic") : "";
+      return Math.max(1, Number(params.get("page")) || 1);
+    };
+    let page = controlsFromUrl();
     const render = ({ syncUrl = false } = {}) => {
       const values = Object.fromEntries(new FormData(form));
       const terms = String(values.query || "").trim().toLowerCase().split(/\s+/).filter(Boolean);
-      const matching = videoRecords.filter((record) => {
-        const isOriginal = record.sourceRecord.source === "ba-medicale";
-        return (!values.source || (values.source === "ba-medicale" ? isOriginal : !isOriginal)) &&
-          (!values.topic || record.topics.some(topic => registryApi.slugify(topic) === values.topic)) &&
-          terms.every(term => record.searchable.includes(term));
-      });
-      const pageCount = Math.max(1, Math.ceil(matching.length / 18));
+      const matches = (record) => (!values.topic || record.topics.some(topic => registryApi.slugify(topic) === values.topic)) && terms.every(term => record.searchable.includes(term));
+      const matchingOriginals = videoRecords.filter(record => record.sourceRecord.source === "ba-medicale" && matches(record));
+      const matchingYouTube = videoRecords.filter(record => record.sourceRecord.source === "youtube" && matches(record));
+      const showOriginals = values.source !== "youtube";
+      const showYouTube = values.source !== "ba-medicale";
+      const pageCount = Math.max(1, Math.ceil(matchingYouTube.length / 18));
       page = Math.min(page, pageCount);
-      hub.querySelector("[data-video-latest]").innerHTML = matching.length ? matching.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("") : `<p class="discovery-empty">No published videos match these filters.</p>`;
-      hub.querySelector("[data-video-all]").innerHTML = matching.length ? matching.slice((page - 1) * 18, page * 18).map(record => discoveryCard(record)).join("") : `<p class="discovery-empty">No published videos match these filters.</p>`;
-      initDiscoveryImageFallbacks(hub);
-      hub.querySelector("[data-video-status]").textContent = `${matching.length} verified video${matching.length === 1 ? "" : "s"}.`;
-      hub.querySelector(".discovery-pagination").hidden = pageCount <= 1;
+      hub.querySelector("[data-video-originals-section]").hidden = !showOriginals;
+      hub.querySelector("[data-video-youtube-section]").hidden = !showYouTube;
+      hub.querySelector("[data-video-originals]").innerHTML = matchingOriginals.length ? matchingOriginals.map(record => videoCard(record)).join("") : `<p class="discovery-empty">No BA Medicale Originals match these filters.</p>`;
+      hub.querySelector("[data-video-youtube]").innerHTML = matchingYouTube.length ? matchingYouTube.slice((page - 1) * 18, page * 18).map(record => videoCard(record)).join("") : `<p class="discovery-empty">No Dr. Bob YouTube videos match these filters.</p>`;
+      hub.querySelector("[data-video-originals-status]").textContent = `${matchingOriginals.length} original video${matchingOriginals.length === 1 ? "" : "s"}.`;
+      hub.querySelector("[data-video-youtube-status]").textContent = `${matchingYouTube.length} YouTube video${matchingYouTube.length === 1 ? "" : "s"}.`;
+      const pagination = hub.querySelector(".discovery-pagination");
+      pagination.hidden = !showYouTube || pageCount <= 1;
       hub.querySelector("[data-video-page-status]").textContent = `Page ${page} of ${pageCount}`;
       hub.querySelector('[data-video-page="previous"]').disabled = page <= 1;
       hub.querySelector('[data-video-page="next"]').disabled = page >= pageCount;
+      initDiscoveryImageFallbacks(hub);
       if (syncUrl) {
         const nextUrl = new URL(location.href);
         nextUrl.searchParams.delete("video");
-        if (page > 1) nextUrl.searchParams.set("page", String(page)); else nextUrl.searchParams.delete("page");
+        if (values.source) nextUrl.searchParams.set("source", values.source); else nextUrl.searchParams.delete("source");
+        if (values.topic) nextUrl.searchParams.set("topic", values.topic); else nextUrl.searchParams.delete("topic");
+        if (showYouTube && page > 1) nextUrl.searchParams.set("page", String(page)); else nextUrl.searchParams.delete("page");
         history.pushState({}, "", `${nextUrl.pathname}${nextUrl.search}`);
       }
     };
     form.addEventListener("input", () => { page = 1; render(); });
     form.addEventListener("change", () => { page = 1; render({ syncUrl: true }); });
     form.addEventListener("reset", event => { event.preventDefault(); form.querySelectorAll("input, select").forEach(control => { control.value = ""; }); page = 1; render({ syncUrl: true }); });
-    hub.querySelectorAll("[data-video-page]").forEach(button => button.addEventListener("click", () => { page = Math.max(1, page + (button.dataset.videoPage === "next" ? 1 : -1)); render({ syncUrl: true }); hub.querySelector("#all-videos-title").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); }));
-    window.addEventListener("popstate", () => { page = Math.max(1, Number(new URLSearchParams(location.search).get("page")) || 1); render(); });
+    hub.querySelectorAll("[data-video-page]").forEach(button => button.addEventListener("click", () => { page = Math.max(1, page + (button.dataset.videoPage === "next" ? 1 : -1)); render({ syncUrl: true }); hub.querySelector("#youtube-videos-title").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); }));
+    window.addEventListener("popstate", () => { page = controlsFromUrl(); render(); });
     render();
   }
   if (preview) preview.innerHTML = `${latestOriginals.map(previewLocalCard).join("")}${latestYouTube.map(previewYouTubeCard).join("")}`;

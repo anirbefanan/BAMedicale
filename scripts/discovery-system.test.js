@@ -58,8 +58,20 @@ test('eBook listing keeps server-rendered content and gains shared Latest and Al
 });
 
 test('video discovery keeps originals and attributed external sources distinct', () => {
+  const originals = JSON.parse(fs.readFileSync('data/original-videos.json', 'utf8')).videos;
+  const youtube = JSON.parse(fs.readFileSync('data/videos.json', 'utf8')).videos;
+  assert.equal(originals.length, 5);
+  assert.equal(youtube.length, 19);
+  assert.ok(originals.every(record => record.source === 'ba-medicale'));
+  assert.ok(youtube.every(record => record.source === 'youtube'));
+  assert.equal(new Set([...originals, ...youtube].map(record => record.id)).size, originals.length + youtube.length);
   assert.match(app, /record\.sourceRecord\.source === "ba-medicale"/);
+  assert.match(app, /record\.sourceRecord\.source === "youtube"/);
+  assert.match(app, /Latest Videos/);
   assert.match(app, /BA Medicale Originals/);
-  assert.match(app, /Verified public sources/);
+  assert.match(app, /Dr\. Bob on YouTube/);
+  assert.match(app, /YouTube · Dr\. Bob/);
+  assert.match(app, /sourceRecord\.source_label/);
+  assert.match(app, /searchParams\.set\("source", values\.source\)/);
   assert.match(app, /originalVideos\.some\(item => item\.id === requestedVideo\)/);
 });

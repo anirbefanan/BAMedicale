@@ -1760,7 +1760,7 @@ body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand
 }
 
 /* Canonical public discovery system: shared grid, crops, hierarchy and controls. */
-.discovery-section{display:grid;min-width:0;gap:var(--section-content-gap);margin:0 0 var(--section-stack-gap)}
+.discovery-section{display:grid;min-width:0;gap:var(--section-content-gap);margin:0 0 var(--section-stack-gap)}.discovery-section[hidden],.discovery-pagination[hidden]{display:none}
 .discovery-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.52fr);gap:24px;align-items:end}
 .discovery-heading h2{max-width:22ch;margin:6px 0 0;color:var(--text-primary);font-family:var(--display);font-size:var(--title-section);line-height:1.08;text-wrap:balance}
 .discovery-heading>p,.discovery-heading>.text-link{justify-self:end;max-width:52ch;margin:0;color:var(--text-secondary);font-size:.84rem;line-height:1.55}
