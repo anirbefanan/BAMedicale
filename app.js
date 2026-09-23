@@ -375,6 +375,11 @@ function renderHealthcareWorkerPage() {
     });
   });
   if (!target) return;
+  // The latest collection is a section wrapper, never a legacy card grid.
+  // Normalize stale markup defensively so its nested discovery grid keeps the
+  // full page width instead of becoming a grid item inside another grid.
+  target.classList.remove("knowledge-grid");
+  target.classList.add("audience-learning-content");
   const records = publishedContentForAudience("HEALTHCARE WORKER");
   target.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest Healthcare Professional learning</p><h2>Multidisciplinary knowledge for patient care.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "HEALTHCARE WORKER" }))}">View Healthcare Professional learning <span>→</span></a></div>${records.length ? `<div class="discovery-grid">${records.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Healthcare Professional learning", "Practical medical education for diagnostics, care coordination, and patient support will appear after editorial review.", "healthcare-worker")}`;
 }

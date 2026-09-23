@@ -200,6 +200,17 @@ Goal:
 
 **spend once to save repeatedly.**
 
+### Frontend visual-health rule
+
+Whenever shared CSS, cards, grids, typography, navigation, buttons, templates,
+discovery, filters, generated public layouts, or responsive behavior changes,
+identify affected public routes and run `npm run public:visual-check` locally.
+Inspect its full-page mobile, tablet, and desktop captures as well as its
+structural geometry report. Fix directly related defects before publishing,
+then run the same bounded check against `https://bamedicale.com` after the
+GitHub Pages deployment. Content visibility must never depend on motion,
+IntersectionObserver, viewport thresholds, or JavaScript timing.
+
 ## MAJOR
 
 Use only for:
