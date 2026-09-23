@@ -738,6 +738,108 @@ window.BAMEDICALE_JUMI_PUBLICATIONS = {
       "access": "free",
       "commerceStatus": "not-for-sale"
     },
+    {
+      "id": "content_f28370b4752128e2bbdf06433537f941",
+      "slug": "feline-fungal-zoonoses-cat-transmitted-sporotrichosis",
+      "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis",
+      "subtitle": "An End-to-End Clinical Educational Guide on Sporothrix brasiliensis Transmission, Pathophysiology, Diagnosis, and One Health Management",
+      "publishedDate": "2026-09-23",
+      "publicationMonth": "2026-09",
+      "publicationDateLabel": "September 2026",
+      "publicationStatus": "published",
+      "state": "Clinical Reference E-Book",
+      "demo": false,
+      "indexable": true,
+      "sortOrder": 100,
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [
+        "HEALTHCARE WORKER",
+        "PUBLIC"
+      ],
+      "primaryDiseaseGroup": "infectious",
+      "diseaseCondition": "Sporotrichosis",
+      "professionalCategory": "diagnosis",
+      "topics": [
+        "Feline Sporotrichosis",
+        "Fungal Zoonoses",
+        "One Health"
+      ],
+      "tags": [
+        "Feline Sporotrichosis",
+        "Sporothrix brasiliensis",
+        "Fungal Zoonoses",
+        "One Health",
+        "Infectious Diseases"
+      ],
+      "contentType": "eBook",
+      "cover": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/cover.jpg",
+      "coverAsPage": true,
+      "author": {
+        "name": "BA Medicale",
+        "type": "Organization"
+      },
+      "publisher": "BA Medicale (BAMEDICALE.COM)",
+      "description": "A clinical guide to cat-transmitted Sporothrix brasiliensis infection, covering pathogen biology, transmission, feline and human manifestations, diagnosis, treatment, and coordinated One Health prevention.",
+      "sourceAttribution": "BA Medicale Clinical Educational Series — Monograph Vol. 12",
+      "sourcePublicationDate": "",
+      "sourcePdf": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/source.pdf",
+      "sourcePages": true,
+      "pageAspect": 1.4142851383223918,
+      "pageManifest": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/pages.json",
+      "pages": [
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-1.png",
+          "title": "Source PDF page 1"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-2.png",
+          "title": "Source PDF page 2"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-3.png",
+          "title": "Source PDF page 3"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-4.png",
+          "title": "Source PDF page 4"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-5.png",
+          "title": "Source PDF page 5"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-6.png",
+          "title": "Source PDF page 6"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-7.png",
+          "title": "Source PDF page 7"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-8.png",
+          "title": "Source PDF page 8"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-9.png",
+          "title": "Source PDF page 9"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-10.png",
+          "title": "Source PDF page 10"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-11.png",
+          "title": "Source PDF page 11"
+        },
+        {
+          "image": "assets/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis/page-12.png",
+          "title": "Source PDF page 12"
+        }
+      ],
+      "downloadable": false,
+      "access": "free",
+      "commerceStatus": "not-for-sale"
+    },
     // JUMI_PUBLISHED_EBOOKS_END
   ],
   seminars: {

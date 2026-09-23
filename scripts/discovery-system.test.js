@@ -54,7 +54,7 @@ test('eBook listing keeps server-rendered content and gains shared Latest and Al
   assert.match(ebooks, /data-content-discovery="ebook"/);
   assert.match(ebooks, /Latest eBooks/);
   assert.match(ebooks, /All eBooks/);
-  assert.equal((ebooks.match(/data-family="ebook"/g) || []).length, 4);
+  assert.equal((ebooks.match(/data-family="ebook"/g) || []).length, 6);
 });
 
 test('video discovery keeps originals and attributed external sources distinct', () => {

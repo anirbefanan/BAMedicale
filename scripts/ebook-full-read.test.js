@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,'..'),context={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'content.js'),'utf8'),context);
 const books=model.published(context.window.BAMEDICALE_DATA.ebooks);
 test('published shelf excludes all drafts and previews without deleting their canonical records',()=>{
-  assert.equal(books.length,2);assert.equal(context.window.BAMEDICALE_DATA.ebooks.length,6);
+  assert.equal(books.length,3);assert.equal(context.window.BAMEDICALE_DATA.ebooks.length,7);
   const shelf=fs.readFileSync(path.join(root,'ebooks.html'),'utf8');
   for(const book of books)assert(shelf.includes(`data-content-id="${book.id}"`));
   assert(!shelf.includes('data-content-id="ebook-foundations'));

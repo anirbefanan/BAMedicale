@@ -1,0 +1,2609 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "f28370b4752128e2bbdf06433537f94147bd06e8fc97cb127537ecd78ad83b88",
+  "extractor": "pdfplumber-0.11.9/source-render",
+  "pages": [
+    {
+      "number": 1,
+      "coveredCharacters": 837,
+      "segments": [
+        {
+          "type": "subheading",
+          "text": "BA MEDICALE MONOGRAPH LAYOUT STANDARD",
+          "size": 10.0,
+          "top": 107.28260000000012,
+          "bbox": [
+            48.51969,
+            107.28260000000012,
+            290.72969,
+            117.28260000000012
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis",
+          "size": 22.0,
+          "top": 131.76660000000004,
+          "bbox": [
+            48.51969,
+            131.76660000000004,
+            497.14369000000033,
+            179.76660000000004
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An End-to-End Clinical Educational Guide on Sporothrix brasiliensis Transmission, Pathophysiology, Diagnosis, and One Health Management",
+          "size": 11.0,
+          "top": 189.4896000000001,
+          "bbox": [
+            48.51969,
+            189.4896000000001,
+            536.36969,
+            215.4896000000001
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "OFFICIAL EBOOK PUBLICATION SPECIFICATION",
+          "size": 9.0,
+          "top": 257.0756,
+          "bbox": [
+            48.51969,
+            257.0756,
+            261.53168999999997,
+            266.0756
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "PUBLISHER BRANDING & ACCREDITATION:",
+          "size": 9.0,
+          "top": 274.0756,
+          "bbox": [
+            48.51969,
+            274.0756,
+            240.50769,
+            283.0756
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Published by BA Medicale (BAMEDICALE.COM) — A physician-led educational initiative dedicated to translating evidence-based clinical science into accessible, actionable health literacy.",
+          "size": 9.0,
+          "top": 287.0756,
+          "bbox": [
+            48.51969,
+            287.0756,
+            500.1846900000005,
+            309.0756
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "KEY CLINICAL FOCUS:",
+          "size": 9.0,
+          "top": 326.0756,
+          "bbox": [
+            48.51969,
+            326.0756,
+            148.51869,
+            335.0756
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-1-12.png",
+          "sha256": "a484018bcc6cb076e1b931028a615f80a62c4fe130c908624d2021c5239087a5",
+          "width": 761,
+          "height": 32,
+          "text": "",
+          "top": 339.0756,
+          "bbox": [
+            48.51969,
+            339.0756,
+            348.66069,
+            348.0756
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-1-13.png",
+          "sha256": "b5473ceb6b282eadd6db93b2d5947351b710a4364e1b8b284f023bc9e4d4d5bc",
+          "width": 625,
+          "height": 33,
+          "text": "",
+          "top": 352.0756,
+          "bbox": [
+            48.51969,
+            352.0756,
+            294.12069,
+            361.0756
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-1-14.png",
+          "sha256": "c2a85cf126371288be8e85e51d3fdc84f96daa324fb6161b9b74f768230cfad5",
+          "width": 747,
+          "height": 32,
+          "text": "",
+          "top": 365.0756,
+          "bbox": [
+            48.51969,
+            365.0756,
+            343.14369000000005,
+            374.0756
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-1-15.png",
+          "sha256": "6b1419d5b2f5447d73f0a89f9ab6f8af23e80bd182c9228f0a0bb4a7da743216",
+          "width": 701,
+          "height": 33,
+          "text": "",
+          "top": 378.0756,
+          "bbox": [
+            48.51969,
+            378.0756,
+            324.63069,
+            387.0756
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-1-1.png",
+          "sha256": "3c069bc3b802272f1ddef84624677b9dd8d3f1cfeeff36ba3b59539fb2eae114",
+          "width": 1179,
+          "height": 634,
+          "text": "",
+          "top": 437.7323,
+          "bbox": [
+            63.77953,
+            437.7323,
+            531.49603,
+            687.1811
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Series Designation: BA Medicale Clinical Educational Series — Monograph Vol. 12",
+          "size": 9.0,
+          "top": 731.5638,
+          "bbox": [
+            48.51969,
+            731.5638,
+            400.6266900000003,
+            740.5638
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Official Repository: BAMEDICALE.COM | Evidence-Based Consensus Guidelines",
+          "size": 9.0,
+          "top": 743.5638200000001,
+          "bbox": [
+            48.51969,
+            743.5638200000001,
+            380.9616900000001,
+            752.5638200000001
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "coveredCharacters": 2068,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Table of Contents & Executive Preface",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            304.48168999999996,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "EXECUTIVE SUMMARY — THE ZOONOTIC EMERGENCE",
+          "size": 9.0,
+          "top": 107.55590000000007,
+          "bbox": [
+            48.51969,
+            107.55590000000007,
+            291.04268999999994,
+            116.55590000000007
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Executive Preface & Reality Update:",
+          "size": 9.0,
+          "top": 124.55590000000007,
+          "bbox": [
+            48.51969,
+            124.55590000000007,
+            202.57269000000002,
+            133.55590000000007
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For decades, sporotrichosis was classically taught in medical curricula as 'rose gardener's disease'—a sporadic fungal infection acquired through environmental puncture wounds from thorn pricks or sphagnum moss. However, over the past two decades, a dramatic epidemiological shift has occurred across South America and internationally. The emergence of Sporothrix brasiliensis, a highly virulent species adapted to feline hosts, has transformed sporotrichosis into an unprecedented zoonotic epidemic.",
+          "size": 9.0,
+          "top": 137.55590000000007,
+          "bbox": [
+            48.51969,
+            137.55590000000007,
+            544.7256900000006,
+            198.55590000000007
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Cats infected with S. brasiliensis harbor an extraordinarily high fungal burden in their claws, oral cavity, and cutaneous lesions. Through routine claw-grooming, biting, and fighting, infected cats transmit immense spore loads directly to humans, dogs, and veterinary healthcare workers. This monograph provides a comprehensive, physician-led clinical overview of feline fungal zoonoses, combining epidemiological reality updates, diagnostic rules, and structured One Health management protocols.",
+          "size": 9.0,
+          "top": 215.55590000000007,
+          "bbox": [
+            48.51969,
+            215.55590000000007,
+            545.2026900000004,
+            276.55590000000007
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "eBook Structure & Chapter Directory",
+          "size": 11.0,
+          "top": 317.6471,
+          "bbox": [
+            48.51969,
+            317.6471,
+            241.05269000000007,
+            328.6471
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-2-1.png",
+          "sha256": "3ab94a42fc670b1362e20be6449e1e6306029d52af56c1c6cc0ca08f1054b045",
+          "width": 1287,
+          "height": 880,
+          "text": "",
+          "top": 334.37010000000004,
+          "bbox": [
+            42.519690000000004,
+            334.37010000000004,
+            552.75589,
+            682.3701000000001
+          ],
+          "rows": [
+            [
+              "Chapter",
+              "Title & Core Clinical Focus",
+              "Key Deliverable"
+            ],
+            [
+              "Chapter 1",
+              "The Emergence of Feline Fungal Zoonoses",
+              "Hook, Objectives & Disease\nSpectrum"
+            ],
+            [
+              "Chapter 2",
+              "Mycology & Pathogen Biology of S. brasiliensis",
+              "Thermal Dimorphism & Species\nDifferentiation"
+            ],
+            [
+              "Chapter 3",
+              "Transmission Dynamics & Feline Reservoir Mechanics",
+              "Fungal Load Analysis & ASCII\nInoculation Cascade"
+            ],
+            [
+              "Chapter 4",
+              "Global Epidemiology & International Spread",
+              "Brazil Hub, UK Outbreak & CDC\nWarning Updates"
+            ],
+            [
+              "Chapter 5",
+              "Feline Clinical Manifestations & Veterinary Assessment",
+              "Cutaneous Ulcers, Sneezing &\nCarrier Status"
+            ],
+            [
+              "Chapter 6",
+              "Human Clinical Presentations & Staging Matrix",
+              "Fixed, Lymphocutaneous &\nDisseminated Tiers"
+            ],
+            [
+              "Chapter 7",
+              "Diagnostic Protocols & Laboratory Verification",
+              "Culture, Cytology, PCR &\nDifferential Diagnosis"
+            ],
+            [
+              "Chapter 8",
+              "Dual-Pillar Therapeutic Management Protocols",
+              "Human & Veterinary Dosing\n(Itraconazole/SSKI)"
+            ],
+            [
+              "Chapter 9",
+              "One Health Prevention & Environmental Sanitation",
+              "PPE, Bleach Disinfection & Stray\nControl"
+            ],
+            [
+              "Chapter 10",
+              "Editorial Board, Disclaimer & Complete Citations",
+              "WHO, CDC, AVMA & Guideline\nConsensus Links"
+            ]
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 2 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "coveredCharacters": 1948,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 1: The Emergence of Feline Fungal Zoonoses",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            407.15768999999966,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The Shifting Paradigm of Fungal Pathogenicity",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            293.0056900000001,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fungal infections were historically categorized into superficial dermatophytoses (such as ringworm) or deep opportunistic mycoses in severely immunocompromised individuals. However, the rapidly expanding epidemic of Sporothrix brasiliensis has broken classic paradigm boundaries. Cats act not merely as accidental intermediate hosts, but as primary amplifying reservoirs capable of transmitting high-virulence yeast cells directly to immunocompetent humans.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            524.2321900000001,
+            182.1594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Primary Educational Objectives of This Monograph:",
+          "size": 11.0,
+          "top": 194.46990000000005,
+          "bbox": [
+            48.51969,
+            194.46990000000005,
+            319.3066900000001,
+            205.46990000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-3-11.png",
+          "sha256": "a52607c8cb2ea44d4f194c565fa3d6bf504b27a1b3464fdf60b453f9bf8f667b",
+          "width": 1100,
+          "height": 34,
+          "text": "",
+          "top": 213.1594,
+          "bbox": [
+            52.51969,
+            213.1594,
+            488.0376899999998,
+            222.6594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "feline-adapted zoonotic sporotrichosis (S. brasiliensis).",
+          "size": 9.5,
+          "top": 226.6594,
+          "bbox": [
+            60.51969,
+            226.6594,
+            290.1821900000001,
+            236.1594
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-3-13.png",
+          "sha256": "b3a2eb54d061dbbfb7ec25cc0e7dc18b8636726763a2c42f9206f84457459337",
+          "width": 1235,
+          "height": 34,
+          "text": "",
+          "top": 243.1594,
+          "bbox": [
+            52.51969,
+            243.1594,
+            541.9501899999997,
+            252.6594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "nasal cavity, saliva, skin lesions).",
+          "size": 9.5,
+          "top": 256.6594,
+          "bbox": [
+            60.51969,
+            256.6594,
+            199.89418999999995,
+            266.1594
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-3-15.png",
+          "sha256": "1a2a3573c295c0605b7c0f529c699c8dfe627ecd9c52cf66f2c47ec8f537dd4d",
+          "width": 1206,
+          "height": 34,
+          "text": "",
+          "top": 273.1594,
+          "bbox": [
+            52.51969,
+            273.1594,
+            530.3411899999999,
+            282.6594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "superficial fungal ringworm.",
+          "size": 9.5,
+          "top": 286.6594,
+          "bbox": [
+            60.51969,
+            286.6594,
+            176.13468999999995,
+            296.1594
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-3-17.png",
+          "sha256": "f4f8911c14c230a4244c9fe62656c67a763aaabc8ae0d67cb29a1f15d0e5e654",
+          "width": 1162,
+          "height": 34,
+          "text": "",
+          "top": 303.1594,
+          "bbox": [
+            52.51969,
+            303.1594,
+            512.9086899999999,
+            312.6594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "environmental sanitation.",
+          "size": 9.5,
+          "top": 316.6594,
+          "bbox": [
+            60.51969,
+            316.6594,
+            166.12168999999997,
+            326.1594
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-3-1.png",
+          "sha256": "1dd1948247199b566c01654eddc65c6323ce3e610fad4ff5f699d48c5479ba73",
+          "width": 1287,
+          "height": 551,
+          "text": "",
+          "top": 342.53150000000005,
+          "bbox": [
+            42.51969,
+            342.53150000000005,
+            552.75589,
+            558.5315
+          ],
+          "rows": [
+            [
+              "Clinical Feature",
+              "Cat-Transmitted Sporotrichosis (S. brasiliensis)",
+              "Feline Dermatophytosis / Ringworm (M. canis)"
+            ],
+            [
+              "Infection Depth",
+              "Subcutaneous, lymphatic, and deep tissue\ninvasion.",
+              "Superficial keratinized tissue (epidermis,\nhair, nails)."
+            ],
+            [
+              "Primary\nTransmission",
+              "Traumatic bites, deep scratches, exudate\ncontact.",
+              "Shedding of infectious arthrospores in\nfur/dander."
+            ],
+            [
+              "Feline Fungal\nBurden",
+              "Extremely high (millions of yeast cells in\nlesions/claws).",
+              "Moderate to high (spores attached to hair\nshafts)."
+            ],
+            [
+              "Human Lesion Type",
+              "Ulcerated nodules, ascending lymphangitis\nchains.",
+              "Circular erythematous scaling patches with\ncentral clearing."
+            ],
+            [
+              "Systemic Risk",
+              "Potential for ocular, mucosal, and\ndisseminated spread.",
+              "Negligible systemic risk (confined to stratum\ncorneum)."
+            ],
+            [
+              "Primary Treatment",
+              "Systemic oral Itraconazole (3–6 months\nduration).",
+              "Topical antifungal dips/shampoos ± oral\nTerbinafine."
+            ]
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 3 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "coveredCharacters": 1722,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 2: Mycology & Pathogen Biology of Sporothrix brasiliensis",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            495.8336899999997,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Thermal Dimorphism & Cellular Morphologies",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            288.12169000000006,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Sporothrix species are classic thermally dimorphic fungi. Their morphology converts dynamically depending on environmental temperature and host tissue conditions:",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            512.5946899999998,
+            141.6594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "THERMAL DIMORPHISM CYCLE",
+          "size": 9.0,
+          "top": 157.55590000000007,
+          "bbox": [
+            48.51969,
+            157.55590000000007,
+            186.51668999999998,
+            166.55590000000007
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Environmental Mycelial Phase (At 25°C - Ambient Room Temperature): Growth appears as narrow, septate hyphae (1.5–2.5 µm diameter) producing delicate, oval or pear-shaped conidia arranged in characteristic 'flower-like' clusters or rosette formations at the tips of slender conidiophores.",
+          "size": 9.0,
+          "top": 174.55590000000007,
+          "bbox": [
+            48.51969,
+            174.55590000000007,
+            542.2506900000006,
+            209.55590000000007
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Parasitic Tissue Yeast Phase (At 37°C - Feline and Human Host Tissue): Converts into round, oval, or elongated 'cigar-shaped' yeast cells (2–6 µm diameter) with single or multiple narrow-based budding. In S. brasiliensis, this tissue conversion is exceptionally rapid, resulting in massive intra- and extracellular yeast multiplication.",
+          "size": 9.0,
+          "top": 226.55590000000007,
+          "bbox": [
+            48.51969,
+            226.55590000000007,
+            528.1386900000005,
+            274.55590000000007
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Species Differentiation: S. schenckii vs. S. brasiliensis",
+          "size": 11.0,
+          "top": 304.3085000000001,
+          "bbox": [
+            48.51969,
+            304.3085000000001,
+            333.41969000000006,
+            315.3085000000001
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "While Sporothrix schenckii sensu stricto relies on environmental saprophytic niches (decaying vegetation, soil, rose thorns), Sporothrix brasiliensis exhibits unique genetic, physiological, and virulence traits:",
+          "size": 9.5,
+          "top": 322.99800000000005,
+          "bbox": [
+            48.51969,
+            322.99800000000005,
+            531.6136899999998,
+            345.99800000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-4-18.png",
+          "sha256": "a6db084a794fb1640c15b6d48cdcc290518b2e03b070eed2b4b8e782237dc980",
+          "width": 1227,
+          "height": 34,
+          "text": "",
+          "top": 355.99800000000005,
+          "bbox": [
+            52.51969,
+            355.99800000000005,
+            538.7581899999997,
+            365.49800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "extracellular enzymes (proteinases, urease), protecting it against host oxidative burst and macrophage killing.",
+          "size": 9.5,
+          "top": 369.49800000000005,
+          "bbox": [
+            60.51969,
+            369.49800000000005,
+            519.8731899999997,
+            378.99800000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-4-20.png",
+          "sha256": "2f66bf243379f45dbb5f73fe43f85f7f8c5dd1c8b5325b746c98851a09bd101c",
+          "width": 1112,
+          "height": 34,
+          "text": "",
+          "top": 385.99800000000005,
+          "bbox": [
+            52.51969,
+            385.99800000000005,
+            493.0536899999998,
+            395.49800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "temperatures), facilitating rapid systemic dissemination.",
+          "size": 9.5,
+          "top": 399.49800000000005,
+          "bbox": [
+            60.51969,
+            399.49800000000005,
+            293.8681900000001,
+            408.99800000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-4-22.png",
+          "sha256": "c9d6ab5e15970f4faef550a2905e1b0bf0f09b86a6d2b0af19671c60a6dbbce3",
+          "width": 1198,
+          "height": 34,
+          "text": "",
+          "top": 415.99800000000005,
+          "bbox": [
+            52.51969,
+            415.99800000000005,
+            527.15869,
+            425.49800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "elements), feline lesions caused by S. brasiliensis are densely packed with millions of yeast cells per milligram of tissue.",
+          "size": 9.5,
+          "top": 429.49800000000005,
+          "bbox": [
+            60.51969,
+            429.49800000000005,
+            533.5626899999997,
+            452.49800000000005
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-4-1.png",
+          "sha256": "1bdc8164b18990e9a2eb762708163c6f1145cc308dff38106b3de57e66fc60a2",
+          "width": 1179,
+          "height": 542,
+          "text": "",
+          "top": 468.87010000000004,
+          "bbox": [
+            63.77953,
+            468.87010000000004,
+            531.49603,
+            681.4685000000001
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 4 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "coveredCharacters": 1856,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 3: Transmission Dynamics & Feline Reservoir Mechanics",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            484.9976899999998,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The Feline Anatomy as an Amplifying Reservoir",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            297.9226900000001,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Cats are uniquely susceptible to severe S. brasiliensis infection. Due to a combination of physiological factors and natural grooming behaviors, cats convert what was once a soil-borne fungus into an aggressive, direct-contact zoonosis.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            525.8376899999998,
+            155.1594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Primary Transmission Pathways & Fungal Accumulation Sites:",
+          "size": 11.0,
+          "top": 167.46990000000005,
+          "bbox": [
+            48.51969,
+            167.46990000000005,
+            376.78169000000014,
+            178.46990000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Feline Claws (Retractable Sheaths): Cats lick and groom their paws compulsively. Exudates from facial skin lesions contaminate the claws with dense yeast populations. Deep scratch wounds inoculate spores directly into subcutaneous human tissue.",
+          "size": 9.5,
+          "top": 186.1594,
+          "bbox": [
+            52.51969,
+            186.1594,
+            530.4466899999999,
+            222.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Oral Cavity & Saliva: Feline bite wounds create deep puncture trauma, depositing fungal yeast cells alongside oral bacteria into human dermal layers.",
+          "size": 9.5,
+          "top": 229.6594,
+          "bbox": [
+            52.51969,
+            229.6594,
+            546.7559069999999,
+            252.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Cutaneous Ulcer Exudates: Direct contact with oozing pus or crusts on an infected cat's nose, ears, or body allows fungus to enter minor human skin cuts or abrasions.",
+          "size": 9.5,
+          "top": 259.6594,
+          "bbox": [
+            52.51969,
+            259.6594,
+            522.66519,
+            282.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "4. Respiratory Droplets: Cats with nasal ulcerations frequently sneeze or shake their heads, aerosolizing infectious fluid that can cause human ocular or conjunctival infections.",
+          "size": 9.5,
+          "top": 289.6594,
+          "bbox": [
+            52.51969,
+            289.6594,
+            540.9051899999998,
+            312.6594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "CAT-TO-HUMAN TRANSMISSION & INOCULATION CASCADE",
+          "size": 8.5,
+          "top": 333.79100000000005,
+          "bbox": [
+            48.51969,
+            333.79100000000005,
+            296.88969000000003,
+            342.29100000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "[ INFECTED CAT ] nn (Compulsive Grooming) nnn Fungal Load in Claws & Saliva n nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+          "size": 8.0,
+          "top": 358.03150000000005,
+          "bbox": [
+            53.319689999999994,
+            358.03150000000005,
+            417.0796900000004,
+            388.03150000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-5-21.png",
+          "sha256": "7f146ff435d232aa041a36ce31d1852165d9f970b9abaac69051dbcd0137e976",
+          "width": 563,
+          "height": 30,
+          "text": "",
+          "top": 391.03150000000005,
+          "bbox": [
+            86.91969,
+            391.03150000000005,
+            307.71969000000024,
+            399.03150000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "[ DEEP CAT BITE ] [ CUTANEOUS SCRATCH ] [ DIRECT EXUDATE CONTACT ]",
+          "size": 8.0,
+          "top": 403.5835000000001,
+          "bbox": [
+            53.319689999999994,
+            403.5835000000001,
+            403.7196900000005,
+            411.5835000000001
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-5-23.png",
+          "sha256": "0c8b42cf1c0fa3b5b2222a365bb7afd126ed9341bb5ede9672e24eff379fd2cf",
+          "width": 604,
+          "height": 30,
+          "text": "",
+          "top": 413.03150000000005,
+          "bbox": [
+            86.91969,
+            413.03150000000005,
+            324.3756900000003,
+            421.03150000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-5-24.png",
+          "sha256": "7f146ff435d232aa041a36ce31d1852165d9f970b9abaac69051dbcd0137e976",
+          "width": 563,
+          "height": 30,
+          "text": "",
+          "top": 424.03150000000005,
+          "bbox": [
+            86.91969,
+            424.03150000000005,
+            307.71969000000024,
+            432.03150000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Subcutaneous Punctures Traumatic Inoculation Invasion via Micro-Abrasions",
+          "size": 8.0,
+          "top": 436.5835000000001,
+          "bbox": [
+            53.319689999999994,
+            436.5835000000001,
+            418.1196900000005,
+            444.5835000000001
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-5-26.png",
+          "sha256": "0c8b42cf1c0fa3b5b2222a365bb7afd126ed9341bb5ede9672e24eff379fd2cf",
+          "width": 604,
+          "height": 30,
+          "text": "",
+          "top": 446.03150000000005,
+          "bbox": [
+            86.91969,
+            446.03150000000005,
+            324.3756900000003,
+            454.03150000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn t [ HUMAN PRIMARY NODULAR LESION ] n t (1-4 Weeks) [ ASCENDING LYMPHATIC SPREAD ] (Sporotrichoid Lymphangitis Chain)",
+          "size": 8.0,
+          "top": 457.03150000000005,
+          "bbox": [
+            86.91969,
+            457.03150000000005,
+            358.96769000000006,
+            532.5835000000001
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The Role of Free-Roaming & Intact Male Cats:",
+          "size": 11.0,
+          "top": 558.6471,
+          "bbox": [
+            48.51969,
+            558.6471,
+            286.8896900000001,
+            569.6471
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Unsterilized male cats engaging in territorial fighting sustain frequent bite and scratch injuries, rapidly spreading S. brasiliensis throughout stray and feral cat colonies. As these cats interact with domestic pets or human caregivers, the infection breaches urban household environments.",
+          "size": 9.5,
+          "top": 577.3366000000001,
+          "bbox": [
+            48.51969,
+            577.3366000000001,
+            543.78319,
+            613.8366000000001
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 5 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "coveredCharacters": 1566,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 4: Global Epidemiology & International Spread",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            414.1576899999998,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "From Rio de Janeiro to Global Public Health Alerts",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            312.58569,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The zoonotic epidemic of Sporothrix brasiliensis was first recognized in the state of Rio de Janeiro, Brazil, during the late 1990s. Over the past two decades, the disease expanded exponentially across South America, driven by urban stray cat populations, lack of veterinary care, and human migration.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            536.3826899999999,
+            155.1594
+          ]
+        },
+        {
+          "type": "figure",
+          "image": "reading-6-1.png",
+          "sha256": "63f429f16cbb19a7917c1c23e1c8fada49513468bff99530aa19b03cea396432",
+          "width": 1179,
+          "height": 612,
+          "text": "",
+          "top": 163.1929,
+          "bbox": [
+            63.77953,
+            163.1929,
+            531.49603,
+            404.1378
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Key Epidemiological Milestones & Official Warnings:",
+          "size": 11.0,
+          "top": 425.7534,
+          "bbox": [
+            48.51969,
+            425.7534,
+            324.2016900000001,
+            436.7534
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-6-9.png",
+          "sha256": "9700016492dc94359701ce44e08c393987b0dfddb1091a1f1c8edeba3fcfc9ae",
+          "width": 1179,
+          "height": 34,
+          "text": "",
+          "top": 444.4429,
+          "bbox": [
+            52.51969,
+            444.4429,
+            519.57769,
+            453.9429
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "cases have been officially documented across Brazil, expanding into neighboring Argentina, Paraguay, and Chile.",
+          "size": 9.5,
+          "top": 457.9429,
+          "bbox": [
+            60.51969,
+            457.9429,
+            537.3341899999996,
+            467.4429
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-6-11.png",
+          "sha256": "bc936efa0b2bb39fba298927974212fb24168a78f7c6a3510626ccf11afa7f3d",
+          "width": 1232,
+          "height": 34,
+          "text": "",
+          "top": 474.4429,
+          "bbox": [
+            52.51969,
+            474.4429,
+            540.8861899999998,
+            483.9429
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "South America: a mother, daughter, and their veterinarian in the United Kingdom developed lymphocutaneous sporotrichosis after handling a rescued cat imported from Brazil.",
+          "size": 9.5,
+          "top": 487.9429,
+          "bbox": [
+            60.51969,
+            487.9429,
+            522.5521899999997,
+            510.9429
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-6-14.png",
+          "sha256": "2068d4d51ae35372759df0a64af84771dd770a2dd182b0e5f43df19bfaf5756f",
+          "width": 1238,
+          "height": 34,
+          "text": "",
+          "top": 517.9429,
+          "bbox": [
+            52.51969,
+            517.9429,
+            543.4309169999998,
+            527.4429
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Medical Association (AVMA) issued formal notifications warning healthcare providers and veterinarians to screen for S. brasiliensis in imported felines or patients with unexplained cat scratches.",
+          "size": 9.5,
+          "top": 531.4429,
+          "bbox": [
+            60.51969,
+            531.4429,
+            546.7559139999996,
+            554.4429
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "OFFICIAL CDC & WHO PUBLIC HEALTH WARNING",
+          "size": 9.0,
+          "top": 575.8434,
+          "bbox": [
+            48.51969,
+            575.8434,
+            267.00368999999995,
+            584.8434
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "CDC CLINICAL ADVISORY FOR HEALTHCARE PROVIDERS:",
+          "size": 9.0,
+          "top": 592.8434,
+          "bbox": [
+            48.51969,
+            592.8434,
+            306.52268999999984,
+            601.8434
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"Consider Sporothrix brasiliensis as a primary diagnosis in patients presenting with non-healing ulcerative skin lesions, subcutaneous nodules, or lymphangitis following bites, scratches, or contact with cats originating from or traveling through endemic regions.\" — CDC Mycotic Diseases Branch",
+          "size": 9.0,
+          "top": 605.8434,
+          "bbox": [
+            48.51969,
+            605.8434,
+            533.2236900000006,
+            640.8434
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 6 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "coveredCharacters": 1994,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 5: Feline Clinical Manifestations & Veterinary Assessment",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            490.4296899999999,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Recognizing Sporotrichosis in Feline Patients",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            288.13269,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Feline sporotrichosis presents with a wide spectrum of severity, ranging from subtle localized crusts to devastating multi-focal ulcerations. Early veterinary recognition is vital to prevent severe animal suffering and halt zoonotic transmission to human households.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            527.9181899999999,
+            155.1594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Classical Feline Clinical Presentations:",
+          "size": 11.0,
+          "top": 167.46990000000005,
+          "bbox": [
+            48.51969,
+            167.46990000000005,
+            252.71269000000015,
+            178.46990000000005
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Nasal Bridge & Facial Ulcers ('Clown Nose'): Ulcerated, crusted, non-healing nodular lesions frequently develop on the nasal plane, muzzle, and ears as a result of face-to-face cat fighting.",
+          "size": 9.5,
+          "top": 186.1594,
+          "bbox": [
+            52.51969,
+            186.1594,
+            544.3726899999997,
+            209.1594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Multi-Focal Cutaneous Nodules: Multiple deep skin wounds that drain purulent or serosanguinous fluid, often misdiagnosed as simple bacterial abscesses or fight-wound cellulitis.",
+          "size": 9.5,
+          "top": 216.1594,
+          "bbox": [
+            52.51969,
+            216.1594,
+            528.7546899999999,
+            239.1594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Respiratory Signs & Mucosal Involvement: Chronic sneezing, nasal discharge, stertor, and dyspnea resulting from fungal granulomas infiltrating the nasal septum and upper respiratory tract.",
+          "size": 9.5,
+          "top": 246.1594,
+          "bbox": [
+            52.51969,
+            246.1594,
+            534.0366899999998,
+            269.1594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "4. Asymptomatic & Mild Carrier States: Some cats carry S. brasiliensis yeast in their claws and oral mucosa with minimal overt lesions, serving as silent sources of infection.",
+          "size": 9.5,
+          "top": 276.1594,
+          "bbox": [
+            52.51969,
+            276.1594,
+            535.5756899999998,
+            299.1594
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-7-1.png",
+          "sha256": "3b9be990ccd870ca69a62c01fc9ce4e6cf6cd79987eba037faae2332d049d71b",
+          "width": 1287,
+          "height": 437,
+          "text": "",
+          "top": 315.53150000000005,
+          "bbox": [
+            42.51969,
+            315.53150000000005,
+            552.75589,
+            486.53150000000005
+          ],
+          "rows": [
+            [
+              "Feline Disease Stage",
+              "Clinical Signs & Lesion Characteristics",
+              "Zoonotic Risk Level to Humans"
+            ],
+            [
+              "Stage L1: Localized",
+              "1 to 3 localized skin nodules or crusts, typically on head or\ntail base. No respiratory signs.",
+              "MODERATE: High fungal load\nin lesions; strict glove use\nrequired."
+            ],
+            [
+              "Stage L2: Regional",
+              "Multiple skin ulcers on 2 body regions. Mild regional\nlymphadenopathy.",
+              "HIGH: Active exudate\nshedding; risk during\nhandling/grooming."
+            ],
+            [
+              "Stage L3:\nDisseminated",
+              "Widespread ulcerative lesions across >3 body regions.\nSevere respiratory stertor/sneezing, fever, anorexia.",
+              "CRITICAL / EXTREME:\nAerosolized respiratory\ndroplets and massive\nenvironmental spore shedding."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Prognosis & Treatment Challenges in Cats:",
+          "size": 11.0,
+          "top": 513.8164,
+          "bbox": [
+            48.51969,
+            513.8164,
+            274.67969000000005,
+            524.8164
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "While feline sporotrichosis is treatable with long-term oral antifungals, therapy can be challenging. Giving daily oral pills to an infected, painful cat poses severe scratch and bite risks to owners. Treatment must be sustained for several months until complete clinical cure is achieved.",
+          "size": 9.5,
+          "top": 532.5059000000001,
+          "bbox": [
+            48.51969,
+            532.5059000000001,
+            546.7559179999997,
+            569.0059000000001
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 7 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "coveredCharacters": 2268,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 6: Human Clinical Presentations & Staging Matrix",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            433.6036899999998,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Clinical Forms of Human Sporotrichosis",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            258.78469,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Following traumatic inoculation from an infected cat, human sporotrichosis manifests in distinct clinical forms depending on host immune status, depth of puncture, and fungal species.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            503.0851899999998,
+            141.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Fixed Cutaneous Form (~25% of Cases):",
+          "size": 11.0,
+          "top": 153.96990000000005,
+          "bbox": [
+            48.51969,
+            153.96990000000005,
+            271.32469000000015,
+            164.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Presents as a single, painless erythematous papule or nodule at the site of cat scratch or bite (most commonly on fingers, hands, or forearms). The nodule slowly enlarges, hardens, and may ulcerate, covered by a crusted discharge. It remains localized without spreading along lymphatics.",
+          "size": 9.5,
+          "top": 172.6594,
+          "bbox": [
+            48.51969,
+            172.6594,
+            543.2606899999998,
+            209.1594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Lymphocutaneous Form (~65% of Cases — The Classic Presentation):",
+          "size": 11.0,
+          "top": 221.46990000000005,
+          "bbox": [
+            48.51969,
+            221.46990000000005,
+            428.42669,
+            232.46990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Begins as a primary nodule at the inoculation site. Days to weeks later, secondary subcutaneous nodules develop along the path of regional lymphatic drainage—a phenomenon known as sporotrichoid spreading. These linear chains of nodules firm up, turn violaceous, and ulcerate, resembling a series of non-healing abscesses.",
+          "size": 9.5,
+          "top": 240.1594,
+          "bbox": [
+            48.51969,
+            240.1594,
+            526.3886899999998,
+            276.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Extracutaneous, Mucosal & Ocular Forms (~6% of Cases):",
+          "size": 11.0,
+          "top": 288.96990000000005,
+          "bbox": [
+            48.51969,
+            288.96990000000005,
+            364.25269000000003,
+            299.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Contact with infectious feline respiratory droplets or rubbing contaminated eyes can trigger granulomatous conjunctivitis, palpebral edema, and dacryocystitis. Mucosal ulcerations may involve the oral cavity or nasal septum.",
+          "size": 9.5,
+          "top": 307.6594,
+          "bbox": [
+            48.51969,
+            307.6594,
+            535.3091899999997,
+            330.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "4. Disseminated Form (~4% of Cases — Critical Emergency):",
+          "size": 11.0,
+          "top": 342.9699,
+          "bbox": [
+            48.51969,
+            342.9699,
+            364.86869,
+            353.9699
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Occurs predominantly in immunocompromised individuals (e.g., people living with HIV/AIDS, organ transplant recipients, or patients on biologic immunosuppressants). Fungal yeast cells hematogenously spread to lungs, bones, joints, and the central nervous system, causing fungal meningitis, osteomyelitis, and life-threatening septic mycosis.",
+          "size": 9.5,
+          "top": 361.6594,
+          "bbox": [
+            48.51969,
+            361.6594,
+            537.9881899999997,
+            398.1594
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-8-1.png",
+          "sha256": "ba440d0d4a60092fd4238cb6df49ff978d1f3de21e96205147789eaa3fb135b4",
+          "width": 1287,
+          "height": 452,
+          "text": "",
+          "top": 414.6969,
+          "bbox": [
+            42.51969,
+            414.6969,
+            552.75589,
+            591.6969
+          ],
+          "rows": [
+            [
+              "Clinical Category",
+              "Primary Human Symptoms",
+              "Standard First-Line Medical Action"
+            ],
+            [
+              "Fixed Cutaneous",
+              "Isolated verrucous nodule or ulcerated plaque on\nexposed forearm/hand. Painless.",
+              "Oral Itraconazole 200 mg/day for 3–6\nmonths."
+            ],
+            [
+              "Lymphocutaneous",
+              "Linear nodular chain ascending lymphatics from cat\nscratch site. Ulceration with purulent drainage.",
+              "Oral Itraconazole 200 mg/day until\n2–4 weeks past total lesion\nresolution."
+            ],
+            [
+              "Ocular / Mucosal",
+              "Granulomatous conjunctivitis, red eye, tearing,\ndacryocystitis following respiratory droplet spray.",
+              "Oral Itraconazole 200 mg/day +\nophthalmology consultation."
+            ],
+            [
+              "Disseminated",
+              "Widespread skin ulcers, bone/joint pain, dyspnea,\nfever, altered mental status (meningitis).",
+              "EMERGENCY: IV Amphotericin B\nstep-down to oral Itraconazole 200\nmg twice daily."
+            ]
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 8 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "coveredCharacters": 1860,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 7: Diagnostic Protocols & Laboratory Verification",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            432.8196899999998,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Laboratory Diagnostic Gold Standards",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            250.22669000000008,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Definitive diagnosis of sporotrichosis requires laboratory confirmation, as clinical lesions can closely mimic bacterial pyoderma, atypical mycobacterial infections (Mycobacterium marinum), leishmaniasis, or tularemia.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            532.6301899999997,
+            141.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Fungal Culture (Gold Standard):",
+          "size": 11.0,
+          "top": 153.96990000000005,
+          "bbox": [
+            48.51969,
+            153.96990000000005,
+            228.20469000000008,
+            164.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Exudate aspirates, biopsy tissue, or lesion scrapings are inoculated onto Sabouraud Dextrose Agar (SDA) and incubated at 25°C. Moist, wrinkled, cream-colored colonies develop within 3 to 7 days, gradually turning dark brown or black. Microscopic examination of lactophenol cotton blue mounts reveals delicate septate hyphae with rosette conidia.",
+          "size": 9.5,
+          "top": 172.6594,
+          "bbox": [
+            48.51969,
+            172.6594,
+            546.7559139999998,
+            209.1594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Cytology & Histopathology:",
+          "size": 11.0,
+          "top": 221.46990000000005,
+          "bbox": [
+            48.51969,
+            221.46990000000005,
+            205.58869000000004,
+            232.46990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Impression smears of cat lesions stained with Giemsa or Wright-Giemsa reveal intense pyogranulomatous inflammation with abundant intracellular and extracellular yeast cells. Biopsy sections stained with Periodic acid-Schiff (PAS) or Grocott's methenamine silver (GMS) show characteristic pleomorphic, cigar-shaped budding yeast bodies.",
+          "size": 9.5,
+          "top": 240.1594,
+          "bbox": [
+            48.51969,
+            240.1594,
+            542.7001899999998,
+            276.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Molecular Diagnostics (PCR):",
+          "size": 11.0,
+          "top": 288.96990000000005,
+          "bbox": [
+            48.51969,
+            288.96990000000005,
+            214.77369000000007,
+            299.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Polymerase Chain Reaction (PCR) assays targeting the internal transcribed spacer (ITS) region or calmodulin gene allow rapid, definitive species identification, differentiating S. brasiliensis from S. schenckii and S. globosa.",
+          "size": 9.5,
+          "top": 307.6594,
+          "bbox": [
+            48.51969,
+            307.6594,
+            533.1906899999998,
+            330.6594
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-9-1.png",
+          "sha256": "e38bbbb61d23869f5d7dba2a77b0711770a9bd599075f568cd96e2d9d3fc1cfc",
+          "width": 1287,
+          "height": 385,
+          "text": "",
+          "top": 350.03150000000005,
+          "bbox": [
+            42.51969,
+            350.03150000000005,
+            552.75589,
+            500.03150000000005
+          ],
+          "rows": [
+            [
+              "Diagnostic Method",
+              "Sporotrichosis (S. brasiliensis)",
+              "Ringworm (Microsporum canis)"
+            ],
+            [
+              "Wood's Lamp (UV\n365nm)",
+              "NEGATIVE (No fluorescence).",
+              "POSITIVE (~50% emit bright apple-green\nfluorescence on hair shafts)."
+            ],
+            [
+              "Direct Microscopic\nExam",
+              "Pleomorphic cigar-shaped yeast cells inside\nmacrophages.",
+              "Ectothrix arthrospores forming sheaths\naround hair shafts."
+            ],
+            [
+              "SDA Culture Growth",
+              "Rapid growth (3–5 days); moist cream to\nblack wrinkled colonies.",
+              "Moderate growth (7–14 days); white fluffy\ncolonies with yellow reverse."
+            ],
+            [
+              "Primary Biopsy\nPathology",
+              "Deep pyogranulomatous dermatitis and\npanniculitis.",
+              "Superficial folliculitis, perifolliculitis, and\nhyperkeratosis."
+            ]
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 9 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "coveredCharacters": 2036,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 8: Dual-Pillar Therapeutic Management Protocols",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            432.0496899999998,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Synchronized Human & Veterinary Pharmacotherapy",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            324.8176900000001,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Eradicating cat-transmitted sporotrichosis requires a dual-pillar medical strategy: treating the human patient while simultaneously managing the feline reservoir with appropriate systemic antifungal agents.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            523.16819,
+            141.6594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Pillar 1: Human Pharmacotherapy Guidelines (CDC & IDSA Consensus)",
+          "size": 11.0,
+          "top": 153.96990000000005,
+          "bbox": [
+            48.51969,
+            153.96990000000005,
+            420.77069000000006,
+            164.96990000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-10-8.png",
+          "sha256": "44321411e1f454f65ab642f69014c25010802a5e3821534a6c8059fddc555dcc",
+          "width": 1238,
+          "height": 33,
+          "text": "",
+          "top": 172.6594,
+          "bbox": [
+            52.51969,
+            172.6594,
+            543.4309159999997,
+            182.1594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "fungal ergosterol synthesis. Treatment must be continued for a minimum of 3 to 6 months, or for at least 2 to 4 weeks after complete clinical resolution of all skin lesions.",
+          "size": 9.5,
+          "top": 186.1594,
+          "bbox": [
+            60.51969,
+            186.1594,
+            523.0651900000001,
+            209.1594
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-10-11.png",
+          "sha256": "2bcfa340fb54d4100219f0531041226c8f6734b81bd2550d62bf442d1b652c8a",
+          "width": 1238,
+          "height": 34,
+          "text": "",
+          "top": 216.1594,
+          "bbox": [
+            52.51969,
+            216.1594,
+            543.4309150000004,
+            225.6594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(5 drops 3 times daily, titrating up to 30–40 drops 3 times daily) for patients intolerant to azoles.",
+          "size": 9.5,
+          "top": 229.6594,
+          "bbox": [
+            60.51969,
+            229.6594,
+            459.70018999999996,
+            239.1594
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-10-13.png",
+          "sha256": "d2a89345b6f5c0bb81e3f683aa7b1981103bdbdc7155f8cb68d98b0b3988c713",
+          "width": 1166,
+          "height": 34,
+          "text": "",
+          "top": 246.1594,
+          "bbox": [
+            52.51969,
+            246.1594,
+            514.4761899999996,
+            255.6594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "followed by step-down oral Itraconazole 200 mg twice daily for a total of 12 months.",
+          "size": 9.5,
+          "top": 259.6594,
+          "bbox": [
+            60.51969,
+            259.6594,
+            410.59469000000007,
+            269.1594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Pillar 2: Veterinary Pharmacotherapy Guidelines (ABCD Consensus)",
+          "size": 11.0,
+          "top": 295.8085000000001,
+          "bbox": [
+            48.51969,
+            295.8085000000001,
+            404.8976900000001,
+            306.8085000000001
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-10-16.png",
+          "sha256": "33f41d800cecfbbe05840c4cd027d34b49bf1766546999627c953dadbd07921a",
+          "width": 1198,
+          "height": 34,
+          "text": "",
+          "top": 314.49800000000005,
+          "bbox": [
+            52.51969,
+            314.49800000000005,
+            527.1586899999999,
+            323.99800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "food to enhance gastrointestinal absorption.",
+          "size": 9.5,
+          "top": 327.99800000000005,
+          "bbox": [
+            60.51969,
+            327.99800000000005,
+            244.81969000000004,
+            337.49800000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-10-18.png",
+          "sha256": "c0819167d28fe3da39898bedef69286e0050dfa1f43132b4a98d35e9eb0f5603",
+          "width": 1208,
+          "height": 34,
+          "text": "",
+          "top": 344.49800000000005,
+          "bbox": [
+            52.51969,
+            344.49800000000005,
+            531.4051899999998,
+            353.99800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "orally every 12–24 hours).",
+          "size": 9.5,
+          "top": 357.99800000000005,
+          "bbox": [
+            60.51969,
+            357.99800000000005,
+            170.33968999999996,
+            367.49800000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-10-20.png",
+          "sha256": "d6b6b9a08331d41cdf342a74c4812a3ec85d28cffe2ac366d3810cd8be83518e",
+          "width": 1219,
+          "height": 34,
+          "text": "",
+          "top": 374.49800000000005,
+          "bbox": [
+            52.51969,
+            374.49800000000005,
+            535.5756899999999,
+            383.99800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "cure and negative fungal culture. Liver enzymes (ALT/AST) should be monitored monthly.",
+          "size": 9.5,
+          "top": 387.99800000000005,
+          "bbox": [
+            60.51969,
+            387.99800000000005,
+            436.9856899999998,
+            397.49800000000005
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-10-1.png",
+          "sha256": "79445ef1487d60441852fcdb4f5c9d7ff066fc65e435ba4ca90ec2271e126dfe",
+          "width": 1287,
+          "height": 370,
+          "text": "",
+          "top": 413.87010000000004,
+          "bbox": [
+            42.51969,
+            413.87010000000004,
+            552.75589,
+            557.8701000000001
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 10 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "coveredCharacters": 1847,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 9: One Health Prevention & Environmental Control",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            440.58968999999985,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Comprehensive Zoonotic Biosafety Guidelines",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            292.41169000000014,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Controlling cat-transmitted sporotrichosis requires rigorous infection control measures across veterinary clinics, rescue shelters, and private households.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            545.3031899999999,
+            141.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Personal Protective Equipment (PPE) for Handlers & Vets:",
+          "size": 11.0,
+          "top": 153.96990000000005,
+          "bbox": [
+            48.51969,
+            153.96990000000005,
+            364.54968999999994,
+            164.96990000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-11-7.png",
+          "sha256": "f210afb4d5fbd16525d0ba0088d1aa73c3bdfc6fdf4756c6be52647dbc166e9c",
+          "width": 1184,
+          "height": 33,
+          "text": "",
+          "top": 172.6594,
+          "bbox": [
+            52.51969,
+            172.6594,
+            521.8766899999998,
+            182.1594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "eyewear when handling cats with suspicious skin ulcers, crusts, or nasal discharge.",
+          "size": 9.5,
+          "top": 186.1594,
+          "bbox": [
+            60.51969,
+            186.1594,
+            410.56618999999995,
+            195.6594
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-11-9.png",
+          "sha256": "b81d485cb4f0ff24aaf9667a8e5fdcd03e060e8c5d19639203840c69d661a299",
+          "width": 1238,
+          "height": 33,
+          "text": "",
+          "top": 202.6594,
+          "bbox": [
+            52.51969,
+            202.6594,
+            543.4309099999999,
+            212.1594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "during medical examination and oral medication dosing.",
+          "size": 9.5,
+          "top": 216.1594,
+          "bbox": [
+            60.51969,
+            216.1594,
+            294.9511900000001,
+            225.6594
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-11-11.png",
+          "sha256": "159e3af16235f62717abb957b1994ad40f1d89b045b9a1d48e069cec49409cbf",
+          "width": 1202,
+          "height": 33,
+          "text": "",
+          "top": 232.6594,
+          "bbox": [
+            52.51969,
+            232.6594,
+            528.7261899999999,
+            242.1594
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "and warm water, followed by topical povidone-iodine application. Seek immediate medical evaluation.",
+          "size": 9.5,
+          "top": 246.1594,
+          "bbox": [
+            60.51969,
+            246.1594,
+            486.0816899999999,
+            255.6594
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Environmental Decontamination & Fomite Control:",
+          "size": 11.0,
+          "top": 282.3085000000001,
+          "bbox": [
+            48.51969,
+            282.3085000000001,
+            325.3896900000001,
+            293.3085000000001
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-11-14.png",
+          "sha256": "9736b726f58eb1191941c6d44427cfcf46cb0d98c5822d4dfb2c5d0654434b36",
+          "width": 1157,
+          "height": 33,
+          "text": "",
+          "top": 300.99800000000005,
+          "bbox": [
+            52.51969,
+            300.99800000000005,
+            510.79968999999977,
+            310.49800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "disinfectants. Clean surfaces thoroughly with a 1:10 dilution of household bleach (sodium hypochlorite), 70% ethanol, or hydrogen peroxide.",
+          "size": 9.5,
+          "top": 314.49800000000005,
+          "bbox": [
+            60.51969,
+            314.49800000000005,
+            536.7166900000003,
+            337.49800000000005
+          ]
+        },
+        {
+          "type": "source-fragment",
+          "image": "reading-11-17.png",
+          "sha256": "b9d47778474b40b934eb0bbffd36166199be26fae6c0279846717e493b55ca62",
+          "width": 1202,
+          "height": 34,
+          "text": "",
+          "top": 344.49800000000005,
+          "bbox": [
+            52.51969,
+            344.49800000000005,
+            528.7261899999997,
+            353.99800000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "should be safely bagged and incinerated or autoclaved to prevent environmental spore contamination.",
+          "size": 9.5,
+          "top": 357.99800000000005,
+          "bbox": [
+            60.51969,
+            357.99800000000005,
+            488.7701899999998,
+            367.49800000000005
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "ONE HEALTH INTEGRATED ACTION PLAN",
+          "size": 9.0,
+          "top": 391.73310000000004,
+          "bbox": [
+            48.51969,
+            391.73310000000004,
+            232.02069,
+            400.73310000000004
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "ONE HEALTH PUBLIC HEALTH STRATEGY:",
+          "size": 9.0,
+          "top": 408.73310000000004,
+          "bbox": [
+            48.51969,
+            408.73310000000004,
+            236.52068999999997,
+            417.73310000000004
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "1. Stray Cat Population Control: Implement mass trap-neuter-vaccinate-treat (TNVR) programs to reduce territorial fighting and bite injuries among free-roaming male cats.",
+          "size": 9.0,
+          "top": 421.73310000000004,
+          "bbox": [
+            48.51969,
+            421.73310000000004,
+            544.1406900000006,
+            443.73310000000004
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "2. Household Confinement: Keep pet cats strictly indoors in endemic zones to prevent contact with infected stray populations.",
+          "size": 9.0,
+          "top": 447.73310000000004,
+          "bbox": [
+            48.51969,
+            447.73310000000004,
+            504.1806900000005,
+            469.73310000000004
+          ]
+        },
+        {
+          "type": "list-item",
+          "text": "3. Mandatory Disease Notification: Notify local public health and veterinary authorities upon confirming S. brasiliensis cases in animals or humans to trigger epidemiological tracing.",
+          "size": 9.0,
+          "top": 473.73310000000004,
+          "bbox": [
+            48.51969,
+            473.73310000000004,
+            523.1796900000005,
+            495.73310000000004
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 11 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "coveredCharacters": 1595,
+      "segments": [
+        {
+          "type": "furniture",
+          "text": "BA Medicale — Physician-Led Clinical Education Series Feline Fungal Zoonoses: Sporotrichosis",
+          "size": 8.0,
+          "top": 27.671799999999962,
+          "bbox": [
+            42.51969,
+            27.671799999999962,
+            552.7559,
+            35.67179999999996
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chapter 10: Institutional Colophon, Disclaimer & Citations",
+          "size": 14.0,
+          "top": 65.59090000000003,
+          "bbox": [
+            48.51969,
+            65.59090000000003,
+            434.3596899999999,
+            79.59090000000003
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "About BA Medicale (BAMEDICALE.COM)",
+          "size": 11.0,
+          "top": 99.96990000000005,
+          "bbox": [
+            48.51969,
+            99.96990000000005,
+            261.18269000000004,
+            110.96990000000005
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "BA Medicale is an international, physician-led educational initiative dedicated to providing authoritative medical knowledge to physicians, healthcare workers, and the general public. Operating through structured pathways across oncology, infectious mycology, and public health, BA Medicale bridges complex clinical publications with practical health navigation to advance patient care and global health literacy.",
+          "size": 9.5,
+          "top": 118.6594,
+          "bbox": [
+            48.51969,
+            118.6594,
+            535.8791899999998,
+            168.6594
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Official Medical Disclaimer",
+          "size": 11.0,
+          "top": 195.47390000000007,
+          "bbox": [
+            48.51969,
+            195.47390000000007,
+            187.91169000000005,
+            206.47390000000007
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This educational eBook is published solely for medical information and public health literacy. It does not constitute formal medical diagnosis, individualized clinical advice, or veterinary prescription. Healthcare providers and animal owners must consult licensed physicians and veterinarians for clinical evaluation and tailored treatment plans.",
+          "size": 9.5,
+          "top": 214.16340000000002,
+          "bbox": [
+            48.51969,
+            214.16340000000002,
+            528.4216899999998,
+            250.66340000000002
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Primary Citations & Consensus Guidelines Repository",
+          "size": 11.0,
+          "top": 280.3125000000001,
+          "bbox": [
+            48.51969,
+            280.3125000000001,
+            332.7596900000001,
+            291.3125000000001
+          ]
+        },
+        {
+          "type": "table-image",
+          "image": "reading-12-1.png",
+          "sha256": "3860091f685f275650376b3999a21db4f55936c395d212b5bbb2e13ac4db72e7",
+          "width": 1287,
+          "height": 445,
+          "text": "",
+          "top": 297.03550000000007,
+          "bbox": [
+            42.51969,
+            297.03550000000007,
+            552.75589,
+            471.0355
+          ],
+          "rows": [
+            [
+              "#",
+              "Document Title / Research Source",
+              "Issuing Authority / Publication Link"
+            ],
+            [
+              "1",
+              "WHO Sporotrichosis Fact Sheet (2024)",
+              "World Health Organization (WHO)"
+            ],
+            [
+              "2",
+              "Cat-Associated Sporotrichosis in Humans Guidance",
+              "Centers for Disease Control (CDC)"
+            ],
+            [
+              "3",
+              "Clinical Overview of Sporotrichosis (2024)",
+              "CDC Mycotic Diseases Branch"
+            ],
+            [
+              "4",
+              "CDC Warning Over Cat-Transmitted Sporotrichosis",
+              "American Veterinary Medical Association"
+            ],
+            [
+              "5",
+              "Dermatophytosis in Cats: ABCD Guidelines",
+              "Journal of Feline Medicine & Surgery"
+            ],
+            [
+              "6",
+              "Spread of Cat-Transmitted S. brasiliensis",
+              "PMC / Frontiers Mycology"
+            ],
+            [
+              "7",
+              "Ringworm (Dermatophytosis) in Cats",
+              "Merck Veterinary Manual"
+            ],
+            [
+              "8",
+              "BA Medicale Official Digital Knowledge Hub",
+              "BAMEDICALE.COM Platform"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "End of Official Monograph Publication — BA Medicale Series",
+          "size": 9.0,
+          "top": 509.5756,
+          "bbox": [
+            167.35829,
+            509.5756,
+            427.91729,
+            518.5756
+          ]
+        },
+        {
+          "type": "furniture",
+          "text": "BAMEDICALE.COM | Official Medical Monograph Layout Standard Page 12 of 12",
+          "size": 8.0,
+          "top": 807.19934,
+          "bbox": [
+            42.51969,
+            807.19934,
+            552.7559,
+            815.19934
+          ]
+        }
+      ]
+    }
+  ]
+}
