@@ -5,7 +5,7 @@
     "articles:build": "node scripts/build-articles.js && node scripts/social-metadata.js --write",
     "articles:check": "node scripts/build-articles.js --check && node scripts/social-metadata.js",
     "content:build": "node scripts/build-articles.js && node scripts/social-metadata.js --write && node scripts/build-jumi-catalog.js && node scripts/build-original-video-metadata.js",
-    "content:check": "node scripts/build-articles.js --check && node scripts/social-metadata.js && node scripts/build-jumi-catalog.js --check && node scripts/build-original-video-metadata.js --check && node --test scripts/content-registry.test.js scripts/article-layout.test.js scripts/presentation.test.js scripts/seminar-presentations.test.js scripts/ebook.test.js scripts/ebook-full-read.test.js scripts/brand-integrity.test.js && node scripts/attendance/build.js --check",
+    "content:check": "node scripts/build-articles.js --check && node scripts/social-metadata.js && node scripts/build-jumi-catalog.js --check && node scripts/build-original-video-metadata.js --check && node --test scripts/content-registry.test.js scripts/article-layout.test.js scripts/presentation.test.js scripts/seminar-presentations.test.js scripts/ebook.test.js scripts/ebook-full-read.test.js scripts/brand-integrity.test.js scripts/discovery-system.test.js && node scripts/attendance/build.js --check",
     "seminars:build": "node scripts/build-articles.js && node scripts/social-metadata.js --write",
     "seminars:check": "node scripts/build-articles.js --check && node scripts/social-metadata.js",
     "social:build": "node scripts/social-metadata.js --write",

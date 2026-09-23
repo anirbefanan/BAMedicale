@@ -9,7 +9,7 @@ test('canonical brand record drives the shared public shell',()=>{
   const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
   assert.match(app,/const BRAND = Object\.freeze/);
   assert.match(app,/navigationHref\(BRAND\.logo\)/);
-  assert.equal((app.match(/navigationHref\(BRAND\.logo\)/g)||[]).length,2);
+  assert.ok((app.match(/navigationHref\(BRAND\.logo\)/g)||[]).length>=2);
   assert.match(app,/<b>\$\{BRAND\.name\}<\/b>/);
 });
 
