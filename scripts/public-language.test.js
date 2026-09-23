@@ -77,3 +77,33 @@ test('metadata-grounded default copy uses the intended audience voice', () => {
   assert.match(registry.defaultEditorialDescription({ primaryAudience: 'HEALTHCARE WORKER', contentType: 'Video', primaryTopic: 'Pathology' }), /multidisciplinary care/);
   assert.match(registry.defaultEditorialDescription({ primaryAudience: 'PUBLIC', contentType: 'eBook', primaryTopic: 'High blood pressure' }), /informed discussions with Healthcare Professionals/);
 });
+
+test('public templates do not explain internal site architecture', () => {
+  const files = [
+    'app.js', 'videos.html', 'clinical.html', 'public.html', 'resources.html',
+    'search.html', 'seminar.html', 'login.html', 'scripts/ebook-template.js'
+  ];
+  const internalExplanations = /Two distinct video collections|canonical (?:identity|record|event page|registry)|professional education architecture|source separation architecture|first-party videos play|public video catalog is being refreshed|source-backed editions, newest first|selected from the real catalog|release integrity|local preview status|production Google OAuth application/i;
+  for (const file of files) assert.doesNotMatch(read(file), internalExplanations, `${file} exposes internal site mechanics`);
+  assert.match(read('app.js'), /BA Medicale Original/);
+  assert.match(read('app.js'), /YouTube · Dr\. Bob/);
+});
+
+test('published HTML contains no user-facing implementation explanations', () => {
+  const excluded = new Set(['admin', 'admin-drafts', 'jumi', 'Material', 'node_modules', '.git']);
+  const htmlFiles = [];
+  const visit = (directory = root) => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      if (excluded.has(entry.name)) continue;
+      const file = path.join(directory, entry.name);
+      if (entry.isDirectory()) visit(file);
+      else if (entry.name.endsWith('.html')) htmlFiles.push(file);
+    }
+  };
+  visit();
+  const internalExplanations = /Two distinct video collections|canonical (?:identity|record|event page|registry)|professional education architecture|source separation architecture|first-party videos play|public video catalog is being refreshed|source-backed editions, newest first|selected from the real catalog|release integrity|local preview status|production Google OAuth application/i;
+  for (const file of htmlFiles) {
+    const visible = fs.readFileSync(file, 'utf8').replace(/<script\b[\s\S]*?<\/script>/gi, '').replace(/<style\b[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/g, ' ');
+    assert.doesNotMatch(visible, internalExplanations, `${path.relative(root, file)} exposes internal site mechanics`);
+  }
+});

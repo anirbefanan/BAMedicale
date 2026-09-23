@@ -917,6 +917,12 @@ When sufficient source material or context exists, automatically turn it into co
 - Platform copy and SEO communicate broad medical education plus genuine oncology/neoplasia depth. Never keyword-stuff, create unsupported authority claims, or let editorial priority override a more relevant unrelated search result.
 - BA Medicale provides education, not individualized diagnosis or treatment. Preserve this boundary in public, professional, and shared surfaces.
 
+## PUBLIC COPY PROVEN PATTERN
+
+- Public copy exists only when it adds medical or educational context, necessary source attribution, a safety boundary, or a useful action. A clear heading followed by the content is preferable when no supporting paragraph adds user value.
+- Never explain internal website structure, collection architecture, canonical records, catalog mechanics, routing, crawling, storage, publishing workflows, taxonomy implementation, validation steps, or why the interface is organized a particular way. Keep those details in private documentation and code comments.
+- Preserve concise attribution such as `BA Medicale Original` and `YouTube · Dr. Bob`, approved scientific wording, references, medical disclaimers, and content-ownership information. Remove empty wrappers and rebalance shared spacing whenever public explanatory copy is removed.
+
 ---
 
 # 20. COMPLETION
