@@ -21,6 +21,35 @@ test('listing thumbnails share a non-distorting crop frame at every grid size', 
   assert.match(styles, /@media\(max-width:640px\)[\s\S]*\.discovery-grid[^}]*grid-template-columns:1fr/);
 });
 
+test('canonical variants and deterministic editorial fallback remain source-safe', () => {
+  assert.match(app, /variant = "standard"/);
+  assert.match(app, /discovery-card--coming-soon/);
+  assert.match(app, /const discoveryArtworkProfile =/);
+  assert.match(app, /record\.primaryDiseaseGroup/);
+  assert.match(app, /image\.classList\.add\('is-unavailable'\)/);
+  assert.doesNotMatch(app, /image\.src = navigationHref\(BRAND\.logo\)/);
+  assert.match(styles, /\.discovery-card--feature/);
+  assert.match(styles, /\.discovery-card--compact/);
+  assert.match(styles, /\.discovery-artwork\[data-artwork-context="oncology"\]/);
+});
+
+test('coming-soon resources use contextual artwork and explicit intended audiences', () => {
+  const content = fs.readFileSync('content.js', 'utf8');
+  assert.match(content, /artworkContext:\s*"diagnosis"/);
+  assert.match(content, /audience:\s*"Doctors \+ Other HCP"/);
+  assert.match(app, /resource-card__art discovery-artwork/);
+  assert.match(app, /resource-card--coming-soon/);
+  assert.match(app, /category\.audience \|\| "All"/);
+});
+
+test('search, homepage, audience recents and related learning reuse discovery primitives', () => {
+  assert.match(app, /discovery-grid--home-feature/);
+  assert.match(app, /discovery-grid--search/);
+  assert.match(app, /function enhanceRelatedLearning/);
+  assert.match(app, /classList\.add\("discovery-related-card"\)/);
+  assert.match(styles, /\.discovery-related-card/);
+});
+
 test('eBook listing keeps server-rendered content and gains shared Latest and All sections', () => {
   assert.match(ebooks, /data-content-discovery="ebook"/);
   assert.match(ebooks, /Latest eBooks/);

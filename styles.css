@@ -2521,3 +2521,126 @@ body.immersion-reading::after{content:none}
 .download-actions .button{min-height:44px;white-space:normal}
 @media(max-width:420px){.download-dialog{padding:20px}.download-actions{display:grid}.download-actions .button{width:100%}}
 @media(prefers-reduced-motion:reduce){.download-dialog,.download-dialog *{animation:none;transition:none}}
+
+/* Canonical BA Medicale discovery and interaction system. Artwork remains source-first;
+   deterministic editorial compositions are visible only when optional media is absent or unavailable. */
+:root{
+  --discovery-art-ratio:16/9;
+  --discovery-art-radius:15px;
+  --interaction-lift:-4px;
+  --interaction-press:scale(.985);
+  --button-primary-shadow:0 10px 22px rgba(112,28,48,.2),inset 0 1px rgba(255,255,255,.2);
+  --button-primary-hover:0 15px 30px rgba(112,28,48,.25),inset 0 1px rgba(255,255,255,.25)
+}
+.discovery-card{position:relative;isolation:isolate;transition:transform var(--motion-base) var(--ease-premium),box-shadow var(--motion-base) var(--ease-premium),border-color var(--motion-base) var(--ease-premium)}
+.discovery-card::after{position:absolute;inset:0;z-index:-1;content:"";opacity:0;background:radial-gradient(circle at 78% 8%,rgba(255,255,255,.76),transparent 32%);pointer-events:none;transition:opacity var(--motion-base) var(--ease-premium)}
+.discovery-card__media{isolation:isolate;background:linear-gradient(145deg,#f7ede9,#ead9d8)}
+.discovery-card__media img{position:relative;z-index:2}
+.discovery-card__media img.is-unavailable{display:none}
+.discovery-artwork{position:absolute;inset:0;display:grid;overflow:hidden;align-content:end;padding:16px;color:#fff;background:linear-gradient(140deg,#571829,#9b253d 58%,#c55262);text-align:left}
+.discovery-artwork::before{position:absolute;inset:-38% -22% auto auto;width:74%;aspect-ratio:1;content:"";border:1px solid rgba(255,255,255,.25);border-radius:50%;box-shadow:0 0 0 22px rgba(255,255,255,.04),0 0 0 54px rgba(255,255,255,.025)}
+.discovery-artwork::after{position:absolute;inset:0;content:"";background:linear-gradient(115deg,transparent 0 43%,rgba(255,255,255,.12) 44%,transparent 45% 100%);background-size:78px 78px;mix-blend-mode:screen}
+.discovery-artwork[data-artwork-context="thyroid"],.discovery-artwork[data-artwork-context="diagnosis"]{background:linear-gradient(140deg,#173f55,#236a81 56%,#aa3348)}
+.discovery-artwork[data-artwork-context="cardiovascular"]{background:linear-gradient(140deg,#541927,#a02439 58%,#d87472)}
+.discovery-artwork[data-artwork-context="pathology"]{background:linear-gradient(140deg,#4c1d3c,#8d3659 55%,#d2787d)}
+.discovery-artwork[data-artwork-context="oncology"]{background:linear-gradient(140deg,#391b2c,#7a243d 55%,#ad3e50)}
+.discovery-artwork[data-artwork-context="therapeutics"]{background:linear-gradient(140deg,#513128,#93624b 55%,#b82d48)}
+.discovery-artwork[data-artwork-context="respiratory"]{background:linear-gradient(140deg,#17434b,#317079 55%,#a52c47)}
+.discovery-artwork[data-artwork-context="neurology"]{background:linear-gradient(140deg,#312a50,#685887 55%,#a8334d)}
+.discovery-artwork[data-artwork-context="renal"]{background:linear-gradient(140deg,#3f2544,#79536f 55%,#bd5360)}
+.discovery-artwork[data-artwork-context="public-education"]{background:linear-gradient(140deg,#65413d,#a35357 55%,#cf7c78)}
+.discovery-artwork[data-artwork-context="clinical-learning"]{background:linear-gradient(140deg,#252f42,#5a4760 56%,#9c243e)}
+.discovery-artwork__grid{position:absolute;inset:0;opacity:.17;background-image:linear-gradient(rgba(255,255,255,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(135deg,#000,transparent 78%)}
+.discovery-artwork__orbit{position:absolute;top:12%;right:8%;width:46%;aspect-ratio:1;border:1px solid rgba(255,255,255,.42);border-radius:50%}
+.discovery-artwork__symbol{position:absolute;top:18%;right:16%;display:grid;width:28%;aspect-ratio:1;place-items:center;color:rgba(255,255,255,.94);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.36);border-radius:50%;box-shadow:0 16px 34px rgba(32,12,20,.2);backdrop-filter:blur(7px)}
+.discovery-artwork__symbol svg{width:52%;height:52%;stroke-width:1.45}
+.discovery-artwork__type,.discovery-artwork__context{position:relative;z-index:1;display:block;max-width:72%}
+.discovery-artwork__type{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.discovery-artwork__context{margin-top:2px;font-size:.82rem;font-weight:750;line-height:1.25}
+.discovery-card__labels{letter-spacing:.025em}
+.discovery-card__labels span:last-child{text-align:right}
+.discovery-card__meta{border-top:1px solid rgba(119,47,63,.1)}
+.discovery-card__actions{justify-content:flex-start}
+.discovery-card__actions a{position:relative;flex:0 1 auto;min-width:104px;overflow:hidden;padding-inline:14px;box-shadow:inset 0 1px rgba(255,255,255,.2);transition:transform var(--motion-fast) var(--ease-premium),box-shadow var(--motion-fast) var(--ease-premium),background var(--motion-fast) ease,color var(--motion-fast) ease}
+.discovery-card__actions a::after{content:"→";margin-left:7px;transition:transform var(--motion-fast) var(--ease-premium)}
+.discovery-card__actions a:last-child{box-shadow:var(--button-primary-shadow)}
+.discovery-card--compact .discovery-card__body>p{display:none}
+.discovery-card--compact .discovery-card__media{aspect-ratio:5/3}
+.discovery-card--compact h3{-webkit-line-clamp:2}
+.discovery-card--feature{grid-column:span 2;grid-row:span 2}
+.discovery-card--feature .discovery-card__media{aspect-ratio:16/10}
+.discovery-card--feature h3{font-size:1.25rem;-webkit-line-clamp:3}
+.discovery-card--feature .discovery-card__body{padding:19px}
+.discovery-card--coming-soon{max-width:420px;min-height:320px}
+.discovery-card--coming-soon>.discovery-artwork{position:relative;min-height:180px}
+.discovery-card--coming-soon .discovery-card__labels span:first-child{color:var(--brand-primary)}
+.discovery-card--coming-soon .discovery-card__labels span:last-child{color:var(--text-secondary)}
+.discovery-card--coming-soon h3{display:block}
+.discovery-grid--compact{grid-template-columns:repeat(6,minmax(0,1fr))}
+.discovery-grid--search{align-items:stretch}
+.search-results.discovery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.search-results.discovery-grid .discovery-card{margin:0}
+.discovery-related-card{display:grid!important;min-height:110px;grid-template-columns:148px minmax(0,1fr);gap:0!important;padding:0!important;overflow:hidden;background:var(--card-surface)!important;border:1px solid var(--card-border)!important;border-radius:var(--card-radius)!important;box-shadow:var(--card-shadow);transition:transform var(--motion-base) var(--ease-premium),box-shadow var(--motion-base) var(--ease-premium)!important}
+.discovery-related-card__media{position:relative;isolation:isolate;display:block;min-height:110px;overflow:hidden;background:var(--surface-muted)}
+.discovery-related-card__media>img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover}
+.discovery-related-card__media>img.is-unavailable{display:none}
+.discovery-related-card__copy{position:relative;display:flex;min-width:0;flex-direction:column;justify-content:center;padding:14px 48px 14px 15px}
+.discovery-related-card__copy>span{color:var(--brand-primary);font-size:.65rem;font-weight:800;text-transform:uppercase}
+.discovery-related-card__copy>b{display:-webkit-box;overflow:hidden;margin-top:4px;color:var(--text-primary);font-size:.88rem;line-height:1.35;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.discovery-related-card__copy>small{margin-top:5px;color:var(--text-secondary);font-size:.68rem}
+.discovery-related-card__copy>i{position:absolute;right:16px;display:grid;width:28px;height:28px;place-items:center;color:var(--brand-primary);background:var(--surface-muted);border-radius:50%;font-style:normal;transition:transform var(--motion-fast) var(--ease-premium)}
+.discovery-related-card .discovery-artwork{padding:10px}
+.discovery-related-card .discovery-artwork__type{font-size:.52rem}
+.discovery-related-card .discovery-artwork__context{font-size:.68rem}
+.discovery-related-card .discovery-artwork__symbol{width:32%}
+.route-resources .resource-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.route-resources .resource-card{display:grid;min-height:0;padding:0;overflow:hidden;grid-template-rows:auto 1fr}
+.route-resources .resource-card__art{position:relative;width:100%;min-height:150px;aspect-ratio:16/8;overflow:hidden;border-bottom:1px solid var(--card-border)}
+.route-resources .resource-card__art .discovery-artwork__symbol{width:54px;height:54px}
+.route-resources .resource-card__body{display:flex;min-width:0;flex-direction:column;padding:18px}
+.route-resources .resource-card__labels{display:flex;gap:8px;align-items:center;justify-content:space-between;color:var(--brand-primary);font-size:.7rem;font-weight:850;letter-spacing:.03em;text-transform:uppercase}
+.route-resources .resource-card__labels span:last-child{text-align:right}
+.route-resources .resource-card h2{margin:10px 0 4px}
+.route-resources .resource-card p{margin:4px 0 14px}
+.route-resources .resource-card__status{margin-top:auto!important;padding:10px 0 0!important;background:transparent!important;border-top:1px solid rgba(var(--brand-rgb),.2)!important;border-radius:0!important}
+.route-resources .resource-card--coming-soon{box-shadow:var(--depth-reading)}
+.audience-card{position:relative;isolation:isolate;overflow:hidden}
+.audience-card::before{position:absolute;inset:0;z-index:-1;content:"";opacity:.48;background:radial-gradient(circle at 90% 4%,rgba(var(--brand-rgb),.13),transparent 32%),linear-gradient(145deg,transparent 48%,rgba(var(--brand-rgb),.035) 49%,transparent 50%);background-size:auto,46px 46px}
+.audience-card--coming-soon::after{position:absolute;right:-24px;bottom:-28px;z-index:-1;width:130px;aspect-ratio:1;content:"";border:1px solid rgba(var(--brand-rgb),.2);border-radius:50%;box-shadow:0 0 0 18px rgba(var(--brand-rgb),.03)}
+.audience-card--coming-soon .audience-card__meta{display:inline-flex;width:fit-content;padding:5px 9px;color:var(--brand-primary);background:var(--surface-muted);border-radius:999px;font-weight:800}
+.button,.approved-button,.discovery-pagination button,.article-filters button,.discovery-controls button,.seminar-audience button,.seminar-pagination button{position:relative;isolation:isolate;overflow:hidden;transition:transform var(--motion-fast) var(--ease-premium),box-shadow var(--motion-fast) var(--ease-premium),background var(--motion-fast) ease,border-color var(--motion-fast) ease,color var(--motion-fast) ease}
+.button-dark,.approved-button--primary{box-shadow:var(--button-primary-shadow)}
+:is(.button,.approved-button,.discovery-pagination button,.article-filters button,.discovery-controls button,.seminar-audience button,.seminar-pagination button):active{transform:var(--interaction-press)!important}
+:is(.button,.approved-button,.discovery-pagination button,.article-filters button,.discovery-controls button,.seminar-audience button,.seminar-pagination button)[aria-busy="true"]{cursor:progress;opacity:.78}
+:is(.button,.approved-button,.discovery-pagination button,.article-filters button,.discovery-controls button,.seminar-audience button,.seminar-pagination button):disabled{cursor:not-allowed;opacity:.54;transform:none!important;box-shadow:none!important}
+@media(hover:hover) and (pointer:fine){
+  .discovery-card:hover{z-index:2;border-color:rgba(var(--brand-rgb),.3);box-shadow:var(--card-hover-shadow);transform:translateY(var(--interaction-lift)) rotateX(.35deg)}
+  .discovery-card:hover::after{opacity:1}
+  .discovery-card:hover .discovery-card__media img{transform:scale(1.035)}
+  .discovery-card__actions a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(91,30,43,.14)}
+  .discovery-card__actions a:hover::after{transform:translateX(3px)}
+  .discovery-related-card:hover{box-shadow:var(--card-hover-shadow);transform:translateY(-3px)}
+  .discovery-related-card:hover .discovery-related-card__copy>i{transform:translateX(3px)}
+  .button-dark:hover,.approved-button--primary:hover{box-shadow:var(--button-primary-hover)}
+}
+@media(max-width:1280px){.discovery-grid--compact{grid-template-columns:repeat(5,minmax(0,1fr))}.search-results.discovery-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1024px){.search-results.discovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.route-resources .resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){.discovery-grid--compact{grid-template-columns:repeat(3,minmax(0,1fr))}.search-results.discovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.discovery-card--feature{grid-column:span 2;grid-row:span 1}}
+@media(max-width:640px){
+  .discovery-grid--compact,.search-results.discovery-grid{grid-template-columns:1fr}
+  .discovery-card--feature{grid-column:auto;grid-row:auto}
+  .discovery-card--feature .discovery-card__media,.discovery-card--compact .discovery-card__media{aspect-ratio:16/9}
+  .discovery-card__actions a{flex:1}
+  .discovery-related-card{grid-template-columns:112px minmax(0,1fr)}
+  .discovery-related-card__copy{padding:12px 42px 12px 13px}
+  .discovery-related-card__copy>small{display:none}
+  .route-resources .resource-grid{grid-template-columns:1fr}
+  body.route-resources .resource-card{grid-template-columns:112px minmax(0,1fr);grid-template-rows:1fr}
+  .route-resources .resource-card__art{height:100%;min-height:190px;aspect-ratio:auto;border-right:1px solid var(--card-border);border-bottom:0}
+  .route-resources .resource-card__body{padding:16px}
+  .route-resources .resource-card__labels{align-items:flex-start;flex-direction:column;gap:2px}
+  .route-resources .resource-card p{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+}
+@media(prefers-reduced-motion:reduce){
+  .discovery-card,.discovery-card::after,.discovery-card__media img,.discovery-card__actions a,.discovery-card__actions a::after,.discovery-related-card,.discovery-related-card__copy>i,.button,.approved-button,.discovery-pagination button,.article-filters button,.discovery-controls button,.seminar-audience button,.seminar-pagination button{transition:none!important;transform:none!important}
+}

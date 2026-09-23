@@ -190,25 +190,47 @@ const healthcareContentCategories = () => data.healthcareWorkerContentCategories
 const healthcareContentForCategory = (category) => contentRegistry.query({ audience: "HEALTHCARE WORKER", primaryAudienceOnly: true, category });
 const contentRecordMeta = (record) => `${record.contentType}${record.publishedDate ? ` · Published ${formatPublishedDate(record.publishedDate)}` : record.originalPublicationDate ? ` · Original source ${formatPublishedDate(record.originalPublicationDate)}` : ""}`;
 const audienceLabel = value => ({ PUBLIC: "Public", DOCTOR: "Doctors", "HEALTHCARE WORKER": "Other HCP" }[value] || value);
-const recordAudience = record => record.audiences.length === 3 ? "All" : record.audiences.map(audienceLabel).join(" + ");
+const recordAudience = record => (record.audiences || []).length === 3 ? "All" : (record.audiences || []).length ? record.audiences.map(audienceLabel).join(" + ") : "All";
 const discoveryActionLabel = record => ({ article: "Read Article", ebook: "Open eBook", seminar: "View Seminar", video: "Watch Video", presentation: "Full Read" }[record.family] || "Open resource");
 const discoveryTypeLabel = record => ({ article: "Article", ebook: "eBook", seminar: "Seminar", video: "Video", presentation: "Presentation" }[record.family] || record.contentType);
 const discoveryActions = record => `${record.family === "presentation" && data.presentations?.[record.id]?.quickRead?.length ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}">${discoveryActionLabel(record)}</a>`;
-const discoveryMedia = (record, eager = false) => {
-  if (!record.cover) return "";
-  const image = `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="640" height="360" loading="${eager ? "eager" : "lazy"}"${record.family === "video" ? ' referrerpolicy="no-referrer"' : ""}>`;
-  if (record.family === "presentation") return `<button class="discovery-card__media presentation-infographic" type="button" data-seminar-poster="${escapeHtml(safeImageUrl(record.cover))}" data-seminar-poster-alt="${escapeHtml(record.title)} — presentation infographic" data-poster-title="Presentation infographic" aria-label="Enlarge presentation infographic">${image}</button>`;
-  return `<a class="discovery-card__media" href="${escapeHtml(record.route)}" aria-label="${escapeHtml(discoveryActionLabel(record) + ': ' + record.title)}">${image}${record.family === "video" ? '<span class="discovery-card__play" aria-hidden="true">▶</span>' : ""}</a>`;
+const discoveryArtworkProfile = (record) => {
+  const evidence = [record.primaryDiseaseGroup, record.diseaseCondition, record.contentType, ...(record.topics || []), ...(record.tags || [])].join(" ").toLowerCase();
+  const profiles = [
+    [/thyroid|endocrin/, ["thyroid", "dna"]],
+    [/cardio|heart|blood pressure|hypertension/, ["cardiovascular", "heart"]],
+    [/patholog|cytolog|histolog|cell/, ["pathology", "molecule"]],
+    [/cancer|oncolog|neoplas|tumou?r/, ["oncology", "ribbon"]],
+    [/radiolog|imaging|ultrasound|diagnos/, ["diagnosis", "eye"]],
+    [/therapy|treatment|surgery|therapeut/, ["therapeutics", "aid"]],
+    [/respirat|lung/, ["respiratory", "lungs"]],
+    [/neurolog|brain/, ["neurology", "brain"]],
+    [/kidney|urinary|renal/, ["renal", "kidney"]]
+  ];
+  const match = profiles.find(([pattern]) => pattern.test(evidence));
+  const [context, motif] = match?.[1] || [record.primaryAudience === "PUBLIC" ? "public-education" : "clinical-learning", record.family === "video" ? "eye" : "dna"];
+  return { context, motif };
 };
-const discoveryCard = (record, { eager = false, showSummary = true } = {}) => `<article class="discovery-card" data-family="${escapeHtml(record.family)}" data-content-id="${escapeHtml(record.id)}">${discoveryMedia(record, eager)}<div class="discovery-card__body"><div class="discovery-card__labels"><span>${escapeHtml(discoveryTypeLabel(record))}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${showSummary && record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="discovery-card__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${record.topics[0] ? `<span>${escapeHtml(record.topics[0])}</span>` : ""}</div></div><div class="discovery-card__actions">${discoveryActions(record)}</div></article>`;
+const discoveryDefaultArtwork = (record) => {
+  const profile = discoveryArtworkProfile(record);
+  const artworkIcon = diseaseIcon(profile.motif);
+  return `<span class="discovery-artwork" data-artwork-context="${escapeHtml(profile.context)}" role="img" aria-label="BA Medicale editorial artwork for ${escapeHtml(record.title)}"><span class="discovery-artwork__grid" aria-hidden="true"></span><span class="discovery-artwork__orbit" aria-hidden="true"></span><span class="discovery-artwork__symbol" aria-hidden="true">${artworkIcon}</span><span class="discovery-artwork__type">${escapeHtml(discoveryTypeLabel(record))}</span><span class="discovery-artwork__context">${escapeHtml((record.topics || [])[0] || record.diseaseCondition || "Medical learning")}</span></span>`;
+};
+const discoveryMedia = (record, eager = false) => {
+  const image = record.cover ? `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="640" height="360" loading="${eager ? "eager" : "lazy"}"${record.family === "video" ? ' referrerpolicy="no-referrer"' : ""}>` : "";
+  const artwork = discoveryDefaultArtwork(record);
+  if (record.family === "presentation") return `<button class="discovery-card__media presentation-infographic" type="button" data-seminar-poster="${escapeHtml(safeImageUrl(record.cover))}" data-seminar-poster-alt="${escapeHtml(record.title)} — presentation infographic" data-poster-title="Presentation infographic" aria-label="Enlarge presentation infographic">${image}</button>`;
+  return `<a class="discovery-card__media${record.cover ? "" : " is-default-artwork"}" href="${escapeHtml(record.route)}" aria-label="${escapeHtml(discoveryActionLabel(record) + ': ' + record.title)}">${artwork}${image}${record.family === "video" ? '<span class="discovery-card__play" aria-hidden="true">▶</span>' : ""}</a>`;
+};
+const discoveryCard = (record, { eager = false, showSummary = true, variant = "standard" } = {}) => `<article class="discovery-card discovery-card--${escapeHtml(variant)}" data-family="${escapeHtml(record.family || "resource")}" data-audience="${escapeHtml(String(record.primaryAudience || "ALL").toLowerCase().replace(/\s+/g, "-"))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}>${discoveryMedia(record, eager)}<div class="discovery-card__body"><div class="discovery-card__labels"><span>${escapeHtml(discoveryTypeLabel(record))}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${showSummary && record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="discovery-card__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${(record.topics || [])[0] ? `<span>${escapeHtml(record.topics[0])}</span>` : ""}</div></div><div class="discovery-card__actions">${discoveryActions(record)}</div></article>`;
 const initDiscoveryImageFallbacks = (root = document) => {
-  root.querySelectorAll('.discovery-card__media img:not([data-fallback-bound])').forEach((image) => {
+  root.querySelectorAll('.discovery-card__media img:not([data-fallback-bound]), .discovery-related-card__media img:not([data-fallback-bound])').forEach((image) => {
     image.dataset.fallbackBound = 'true';
     const fallback = () => {
       if (image.dataset.fallbackApplied) return;
       image.dataset.fallbackApplied = 'true';
-      image.src = navigationHref(BRAND.logo);
-      image.classList.add('is-brand-fallback');
+      image.classList.add('is-unavailable');
+      image.closest('.discovery-card__media, .discovery-related-card__media')?.classList.add('is-default-artwork');
     };
     image.addEventListener('error', fallback, { once: true });
     if (image.complete && !image.naturalWidth) fallback();
@@ -318,7 +340,7 @@ const audienceCategoryCard = (category, records, { href, id, emptyLabel, showLat
   const published = records.length > 0;
   const tag = href ? "a" : "article";
   const meta = published ? `${records.length} published ${records.length === 1 ? "item" : "items"}` : emptyLabel;
-  return `<${tag} class="audience-card${published ? " audience-card--published" : ""}" id="${escapeHtml(id)}"${href ? ` href="${escapeHtml(href)}"` : ""}>
+  return `<${tag} class="audience-card${published ? " audience-card--published" : " audience-card--coming-soon"}" data-artwork-context="${escapeHtml(category.id || category.anchor || "medical-learning")}" id="${escapeHtml(id)}"${href ? ` href="${escapeHtml(href)}"` : ""}>
     <div class="audience-card__heading"><div class="audience-card__icon">${artwork}</div><p class="audience-card__eyebrow">${escapeHtml(category.kicker || category.label)}</p></div>
     <h2>${escapeHtml(category.area)}</h2><p class="audience-card__description">${escapeHtml(category.description)}</p>
     <div class="audience-card__footer">${meta ? `<p class="audience-card__meta">${escapeHtml(meta)}</p>` : ""}${published && showLatest ? `<p class="audience-card__latest">Latest: ${escapeHtml(records[0].title)}</p>` : ""}${href ? `<span class="audience-card__action">${escapeHtml(published ? records.length === 1 ? "Open learning" : "Explore in Library" : category.fallbackLabel)}<b aria-hidden="true">→</b></span>` : ""}</div>
@@ -353,10 +375,8 @@ function renderHealthcareWorkerPage() {
     });
   });
   if (!target) return;
-  target.classList.add("audience-recent-grid");
   const records = publishedContentForAudience("HEALTHCARE WORKER");
-  const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
-  target.innerHTML = `<section class="home-update-card doctor-recent-card audience-recent-card"><div><p>Healthcare Worker learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Healthcare Worker learning in preparation")}</section>`;
+  target.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest Other HCP learning</p><h2>Newest for multidisciplinary care.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "HEALTHCARE WORKER" }))}">Browse Other HCP learning <span>→</span></a></div>${records.length ? `<div class="discovery-grid">${records.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Other HCP learning", "Professional, practical learning will appear here after editorial review.", "healthcare-worker")}`;
 }
 
 function renderHome() {
@@ -388,21 +408,23 @@ function renderHome() {
     }).join("")}</nav><footer class="disease-explorer__footer"><div>${icon("book")}<p><b>Find the knowledge you need.</b><span>Browse all education or filter the Library by audience and disease area.</span></p></div><a class="approved-button approved-button--primary" href="library.html">Explore Medical Library <span aria-hidden="true">→</span></a></footer>`;
   }
   const library = document.querySelector("[data-library-preview]");
-  if (library) library.innerHTML = contentRegistry.query({ family: "article" }).slice(0, 4).map((item) => `<article class="knowledge-card"><span>${escapeHtml(item.contentType)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><a href="${escapeHtml(item.route)}" class="text-link">Read ${item.scientificWork ? "publication" : "article"} <span>→</span></a></article>`).join("");
+  if (library) {
+    const articles = contentRegistry.query({ family: "article" }).slice(0, 4);
+    library.className = "discovery-grid discovery-grid--home-feature";
+    library.innerHTML = articles.map((item, index) => discoveryCard(item, { eager: index < 2, showSummary: index === 0, variant: index === 0 ? "feature" : "standard" })).join("");
+    initDiscoveryImageFallbacks(library);
+  }
   const profile = document.querySelector("[data-profile]");
   if (profile) profile.innerHTML = `<img src="${data.profile.image}" alt="${data.profile.name}" loading="lazy" width="1254" height="1254"><div><p class="eyebrow">Physician-led education</p><h2>${data.profile.name}</h2><p class="profile-role">${data.profile.role}</p><p>${data.profile.text}</p><a href="about.html" class="button button-outline">About BA Medicale</a></div>`;
   const updates = document.querySelector("[data-home-updates]");
   if (updates) {
-    const articles = contentRegistry.query({ family: "article" }).map((item) => ({ title: item.title, meta: `${item.contentType} · ${item.topics[0] || "Medical learning"}`, href: item.route }));
-    const seminars = contentRegistry.query({ family: "seminar" }).map((item) => ({ title: item.title, meta: `${item.sourceRecord.date} · ${item.sourceRecord.time}`, href: item.route }));
-    const ebooks = contentRegistry.query({ family: "ebook", publishedOnly: false }).map((item) => ({ title: item.title, meta: item.sourceRecord.state, href: item.route, cover: item.publicationStatus === "published" ? item.cover : "" }));
-    updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>New reading, upcoming learning, and recently added eBooks in one practical overview.</p></div><div class="approved-home-updates__grid"><section class="home-update-card"><div><p>Articles</p><h3>Latest reading</h3></div>${compactUpdateList(articles, "New learning update in preparation")}</section><section class="home-update-card"><div><p>Upcoming event</p><h3>Seminars &amp; courses</h3></div>${compactUpdateList(seminars, "New learning update in preparation")}</section><section class="home-update-card"><div><p>eBooks</p><h3>Recently added</h3></div>${compactUpdateList(ebooks, "New learning update in preparation")}</section></div>`;
+    const latest = contentRegistry.query().slice(0, 6);
+    updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>Recent source-backed reading, events, presentations, eBooks, and video learning.</p></div>${latest.length ? `<div class="discovery-grid">${latest.map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Latest learning", "New verified learning is in editorial preparation.", "medical-learning")}`;
+    initDiscoveryImageFallbacks(updates);
   }
 }
 
-const compactUpdateList = (items, pendingMeta) => items.slice(0, 5).concat(Array.from({ length: Math.max(0, 5 - items.length) }, () => ({ pending: true, title: "Coming soon", meta: pendingMeta }))).map((item) => item.pending
-  ? `<span class="home-update-item is-pending"><span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">—</i></span>`
-  : `<a class="home-update-item${item.cover ? " has-cover" : ""}" href="${escapeHtml(item.href)}">${item.cover ? `<img src="${escapeHtml(item.cover)}" alt="Cover of ${escapeHtml(item.title)}" width="40" height="60" loading="lazy">` : ""}<span>${escapeHtml(item.meta)}</span><b>${escapeHtml(item.title)}</b><i aria-hidden="true">→</i></a>`).join("");
+const comingSoonCard = (title, description, context = "medical-learning") => `<article class="discovery-card discovery-card--coming-soon" data-artwork-context="${escapeHtml(context)}"><div class="discovery-artwork" data-artwork-context="${escapeHtml(context)}" role="img" aria-label="BA Medicale ${escapeHtml(title)} editorial artwork"><span class="discovery-artwork__grid" aria-hidden="true"></span><span class="discovery-artwork__orbit" aria-hidden="true"></span><span class="discovery-artwork__symbol" aria-hidden="true">${diseaseIcon(context === "healthcare-worker" ? "aid" : "dna")}</span><span class="discovery-artwork__type">BA Medicale</span><span class="discovery-artwork__context">Editorial preparation</span></div><div class="discovery-card__body"><div class="discovery-card__labels"><span>Coming Soon</span><span>Verified release only</span></div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p></div></article>`;
 
 function renderDoctorClinicalPage() {
   const categoriesTarget = document.querySelector("[data-doctor-categories]");
@@ -423,8 +445,8 @@ function renderDoctorClinicalPage() {
   });
   if (!publicationsTarget) return;
   const records = publishedDoctorScientificContent();
-  const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
-  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "DOCTOR" }))}">Browse professional publications in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card audience-recent-card"><div><p>Professional publications</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Professional publication in preparation")}</section>`;
+  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "DOCTOR" }))}">Browse professional publications in Library <span>→</span></a></div>${records.length ? `<div class="discovery-grid">${records.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Doctor publications", "Scientific publications will appear after source and editorial validation.", "clinical-learning")}`;
+  initDiscoveryImageFallbacks(publicationsTarget);
 }
 
 function renderPublicPage() {
@@ -446,8 +468,8 @@ function renderPublicPage() {
   });
   if (!publicationsTarget) return;
   const records = contentRegistry.query({ audience: "PUBLIC", primaryAudienceOnly: true, family: "article" });
-  const items = records.map((record) => ({ title: record.title, meta: contentRecordMeta(record), href: record.route }));
-  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div><section class="home-update-card doctor-recent-card audience-recent-card"><div><p>Public learning</p><h3>Newest from the registry</h3></div>${compactUpdateList(items, "Public education in preparation")}</section>`;
+  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div>${records.length ? `<div class="discovery-grid">${records.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Public education", "Approachable, source-grounded learning will appear after editorial review.", "public-education")}`;
+  initDiscoveryImageFallbacks(publicationsTarget);
 }
 
 function renderLibrary() {
@@ -635,10 +657,25 @@ function renderContinueExploring() {
   const section = document.createElement("section");
   section.className = "section continue-exploring";
   section.dataset.continueExploring = "";
-  section.innerHTML = `<div class="discovery-heading"><div><p class="eyebrow">Continue exploring</p><h2>Keep learning across formats.</h2></div><a class="text-link" href="${navigationHref("library.html")}">Explore the full Library <span>→</span></a></div><div class="discovery-grid">${records.map(record => discoveryCard(record, { showSummary: false })).join("")}</div>`;
+  section.innerHTML = `<div class="discovery-heading"><div><p class="eyebrow">Continue exploring</p><h2>Keep learning across formats.</h2></div><a class="text-link" href="${navigationHref("library.html")}">Explore the full Library <span>→</span></a></div><div class="discovery-grid discovery-grid--compact">${records.map(record => discoveryCard(record, { showSummary: false, variant: "compact" })).join("")}</div>`;
   document.querySelector("main")?.append(section);
   initDiscoveryImageFallbacks(section);
   initSeminarPosterLightbox();
+}
+
+function enhanceRelatedLearning() {
+  const records = contentRegistry.query();
+  document.querySelectorAll(".seo-related a").forEach((link) => {
+    const path = new URL(link.href, location.href).pathname.replace(/^\/+/, "");
+    const record = records.find((item) => item.route.replace(/^\/+/, "") === path);
+    if (!record || link.dataset.discoveryEnhanced) return;
+    link.dataset.discoveryEnhanced = "true";
+    link.dataset.contentId = record.id;
+    link.classList.add("discovery-related-card");
+    const image = record.cover ? `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="320" height="180" loading="lazy"${record.family === "video" ? ' referrerpolicy="no-referrer"' : ""}>` : "";
+    link.innerHTML = `<span class="discovery-related-card__media${record.cover ? "" : " is-default-artwork"}">${discoveryDefaultArtwork(record)}${image}</span><span class="discovery-related-card__copy"><span>${escapeHtml(discoveryTypeLabel(record))} · ${escapeHtml(recordAudience(record))}</span><b>${escapeHtml(record.title)}</b><small>${escapeHtml(record.topics[0] || record.diseaseCondition || "Medical learning")}</small><i aria-hidden="true">→</i></span>`;
+  });
+  initDiscoveryImageFallbacks(document);
 }
 
 function renderEbookDetail() {
@@ -776,8 +813,9 @@ function renderResources() {
   if (!target) return;
   target.innerHTML = (data.resourceCategories || []).map((category) => {
     const records = contentRegistry.query({ family: "resource", category: category.id });
-    const content = `${icon(category.icon)}<h2>${escapeHtml(category.label)}</h2><p>${escapeHtml(category.description)}</p><span>${records.length ? `${records.length} available` : "Coming soon"}</span>`;
-    return records.length ? `<a class="resource-card resource-card--available doctor-content-card--active"${category.anchor ? ` id="${escapeHtml(category.anchor)}"` : ""} href="${escapeHtml(contentRegistry.destination(records, { type: "resource", category: category.id }))}">${content}</a>` : `<article class="resource-card"${category.anchor ? ` id="${escapeHtml(category.anchor)}"` : ""}>${content}</article>`;
+    const artwork = `<div class="resource-card__art discovery-artwork" data-artwork-context="${escapeHtml(category.artworkContext || "clinical-learning")}" role="img" aria-label="BA Medicale editorial artwork for ${escapeHtml(category.label)}"><span class="discovery-artwork__grid" aria-hidden="true"></span><span class="discovery-artwork__orbit" aria-hidden="true"></span><span class="discovery-artwork__symbol" aria-hidden="true">${icon(category.icon)}</span><span class="discovery-artwork__type">Resource</span><span class="discovery-artwork__context">${escapeHtml(category.topic || category.label)}</span></div>`;
+    const content = `${artwork}<div class="resource-card__body"><div class="resource-card__labels"><span>Resource</span><span>${escapeHtml(category.audience || "All")}</span></div><h2>${escapeHtml(category.label)}</h2><p>${escapeHtml(category.description)}</p><span class="resource-card__status">${records.length ? `${records.length} available` : "Coming soon"}</span></div>`;
+    return records.length ? `<a class="resource-card resource-card--available doctor-content-card--active"${category.anchor ? ` id="${escapeHtml(category.anchor)}"` : ""} href="${escapeHtml(contentRegistry.destination(records, { type: "resource", category: category.id }))}">${content}</a>` : `<article class="resource-card resource-card--coming-soon"${category.anchor ? ` id="${escapeHtml(category.anchor)}"` : ""}>${content}</article>`;
   }).join("");
 }
 
@@ -787,7 +825,10 @@ function initSearch() {
   if (!input || !output) return;
   const show = (query = "") => {
     const filtered = contentRegistry.search(query);
-    output.innerHTML = filtered.length ? filtered.map((record) => `<a class="search-result" href="${escapeHtml(safeInternalUrl(record.route))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}><span>${escapeHtml(record.label || record.contentType)}</span><h2>${escapeHtml(record.title)}</h2><p>${escapeHtml(record.summary)}</p><b>→</b></a>`).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a condition, test, disease group, author, or treatment term.</h2><p>Published content and controlled navigation topics are indexed automatically from the canonical registry.</p></div>`;
+    output.classList.toggle("discovery-grid", Boolean(filtered.length));
+    output.classList.toggle("discovery-grid--search", Boolean(filtered.length));
+    output.innerHTML = filtered.length ? filtered.map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false, variant: "compact" })).join("") : `<div class="empty-panel"><p class="eyebrow">No exact result</p><h2>Try a condition, test, disease group, author, or treatment term.</h2><p>Published content and controlled navigation topics are indexed automatically from the canonical registry.</p></div>`;
+    initDiscoveryImageFallbacks(output);
   };
   let searchTracked = false;
   input.addEventListener("input", () => {
@@ -1292,6 +1333,7 @@ async function bootstrap() {
   initSearch();
   renderVideoHub();
   renderContinueExploring();
+  enhanceRelatedLearning();
   initImmersiveExperience();
   initMotion();
   protectExternalLinks();

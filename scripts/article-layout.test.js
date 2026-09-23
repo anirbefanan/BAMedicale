@@ -76,7 +76,8 @@ test("doctor scientific discovery uses Library without a duplicate listing flow"
   assert.ok(scientific.length > 0);
   assert.doesNotMatch(app, /doctorPapersPath|renderDoctorPapers|doctor-publication-card|doctor-publication-rail/);
   assert.match(app, /libraryPath/);
-  assert.match(app, /compactUpdateList/);
+  assert.match(app, /publishedDoctorScientificContent/);
+  assert.match(app, /discoveryCard\(record/);
   assert.match(legacy, /name="robots" content="noindex,follow"/);
   assert.match(legacy, /rel="canonical" href="https:\/\/bamedicale\.com\/library\.html"/);
   assert.match(legacy, /window\.location\.replace/);

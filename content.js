@@ -61,12 +61,12 @@ window.BAMEDICALE_DATA = {
     { id: "healthcare-teamwork", anchor: "teamwork", label: "Teamwork", area: "Multidisciplinary collaboration", icon: "spark", description: "Explore how different professional perspectives support safe handovers, informed communication, and coordinated patient-centred care.", emptyLabel: "Shared learning", matchTopics: ["Multidisciplinary Care", "Teamwork", "Care Coordination"] }
   ],
   resourceCategories: [
-    { id: "resource-guidelines", label: "Clinical guidelines", icon: "book", description: "Source-linked guideline desk and professional reference architecture." },
-    { id: "resource-patient", anchor: "patient", label: "Patient education", icon: "cell", description: "Plain-language explainers, questions to ask, and care preparation resources." },
-    { id: "resource-checklists", anchor: "checklists", label: "Checklists & templates", icon: "path", description: "Practical appointment, symptom, and treatment-conversation templates." },
-    { id: "resource-tools", label: "Calculators & tools", icon: "search", description: "Future professional tools, only published with documented method and review." },
-    { id: "resource-data", label: "Data & statistics", icon: "spark", description: "Source-linked disease burden, registry, and public-health data references." },
-    { id: "resource-multimedia", label: "Multimedia", icon: "book", description: "Infographics, visual explainers, and source-labelled media collections." }
+    { id: "resource-guidelines", label: "Clinical guidelines", icon: "book", audience: "Doctors + Other HCP", artworkContext: "diagnosis", topic: "Clinical guidance", description: "Source-linked guideline desk and professional reference architecture." },
+    { id: "resource-patient", anchor: "patient", label: "Patient education", icon: "cell", audience: "Public", artworkContext: "public-education", topic: "Care preparation", description: "Plain-language explainers, questions to ask, and care preparation resources." },
+    { id: "resource-checklists", anchor: "checklists", label: "Checklists & templates", icon: "path", audience: "Other HCP + Public", artworkContext: "therapeutics", topic: "Practical care", description: "Practical appointment, symptom, and treatment-conversation templates." },
+    { id: "resource-tools", label: "Calculators & tools", icon: "search", audience: "Doctors + Other HCP", artworkContext: "clinical-learning", topic: "Clinical tools", description: "Future professional tools, only published with documented method and review." },
+    { id: "resource-data", label: "Data & statistics", icon: "spark", audience: "All", artworkContext: "oncology", topic: "Medical data", description: "Source-linked disease burden, registry, and public-health data references." },
+    { id: "resource-multimedia", label: "Multimedia", icon: "book", audience: "All", artworkContext: "clinical-learning", topic: "Visual learning", description: "Infographics, visual explainers, and source-labelled media collections." }
   ],
   resources: [],
   articles: {
