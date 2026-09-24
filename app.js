@@ -237,7 +237,7 @@ const videoCoverflowCard = (record, index) => {
   const media = cover ? `<img src="${escapeHtml(cover)}" alt="" width="960" height="540" loading="${index < 2 ? "eager" : "lazy"}"${original ? "" : ' referrerpolicy="no-referrer"'}>` : discoveryDefaultArtwork(record);
   const duration = videoDurationLabel(record.sourceRecord.duration_seconds);
   const playAttribute = original ? `data-video-local="${escapeHtml(record.id)}"` : `data-video-play="${escapeHtml(record.id)}"`;
-  return `<article class="video-coverflow__card" data-video-coverflow-card data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-source="${original ? "ba-medicale" : "youtube"}"><button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-video-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span><span class="video-coverflow__play-mark" aria-hidden="true">▶</span></button><div class="video-coverflow__copy"><p class="video-coverflow__provenance">${original ? "BA Medicale Original" : "YouTube · Dr. Bob"}</p><h3>${escapeHtml(record.title)}</h3><div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${duration ? `<span>${escapeHtml(duration)}</span>` : ""}</div><button class="video-coverflow__action" type="button" ${playAttribute} data-video-coverflow-play aria-label="Play ${escapeHtml(record.title)}">Play Video <span aria-hidden="true">▶</span></button></div></article>`;
+  return `<article class="video-coverflow__card" data-video-coverflow-card data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-source="${original ? "ba-medicale" : "youtube"}"><button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-video-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></button><div class="video-coverflow__copy"><p class="video-coverflow__provenance">${original ? "BA Medicale Original" : "YouTube · Dr. Bob"}</p><h3>${escapeHtml(record.title)}</h3><div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${duration ? `<span>${escapeHtml(duration)}</span>` : ""}</div></div><button class="video-coverflow__action" type="button" ${playAttribute} data-video-coverflow-play aria-label="Play ${escapeHtml(record.title)}">Play Video <span aria-hidden="true">▶</span></button></article>`;
 };
 function initVideoCoverflow(root) {
   if (!root || root.dataset.coverflowReady === "true") return;
@@ -249,6 +249,7 @@ function initVideoCoverflow(root) {
   const stage = root.querySelector(".video-coverflow__stage");
   const track = root.querySelector(".video-coverflow__track");
   if (!cards.length || !previous || !next || !indicators || !status || !stage || !track) return;
+  root.append(previous, next);
   root.dataset.coverflowReady = "true";
   let activeIndex = 0;
   let startX = 0;
@@ -265,10 +266,18 @@ function initVideoCoverflow(root) {
     return dot;
   }));
   const dots = [...indicators.querySelectorAll("button")];
+  const normalizeIndex = index => ((index % cards.length) + cards.length) % cards.length;
+  const circularPosition = index => {
+    const position = index - activeIndex;
+    const half = cards.length / 2;
+    if (position > half) return position - cards.length;
+    if (position < -half) return position + cards.length;
+    return position;
+  };
   const setActive = (index, { announce = true } = {}) => {
-    activeIndex = Math.max(0, Math.min(cards.length - 1, index));
+    activeIndex = normalizeIndex(index);
     cards.forEach((card, cardIndex) => {
-      const position = cardIndex - activeIndex;
+      const position = circularPosition(cardIndex);
       const visiblePosition = Math.max(-3, Math.min(3, position));
       card.dataset.coverflowPosition = String(visiblePosition);
       card.toggleAttribute("data-coverflow-far", Math.abs(position) > 3);
@@ -286,8 +295,8 @@ function initVideoCoverflow(root) {
       dot.toggleAttribute("data-active", dotIndex === activeIndex);
       dot.setAttribute("aria-current", dotIndex === activeIndex ? "true" : "false");
     });
-    previous.disabled = activeIndex === 0;
-    next.disabled = activeIndex === cards.length - 1;
+    previous.disabled = cards.length < 2;
+    next.disabled = cards.length < 2;
     previous.hidden = cards.length < 2;
     next.hidden = cards.length < 2;
     indicators.hidden = cards.length < 2;

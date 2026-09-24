@@ -82,9 +82,12 @@ test('Latest Videos uses a native accessible coverflow without changing canonica
   assert.match(app, /data-video-coverflow-nav="previous"/);
   assert.match(app, /event\.key === "ArrowLeft"/);
   assert.match(app, /stage\.addEventListener\("pointerdown"/);
+  assert.match(app, /const normalizeIndex = index => \(\(index % cards\.length\) \+ cards\.length\) % cards\.length/);
+  assert.match(app, /const circularPosition = index =>/);
   assert.match(app, /play\.disabled = position !== 0/);
   assert.doesNotMatch(app, /cloneNode\(|setInterval\([^)]*coverflow|new Swiper|THREE\.|gsap\./);
-  assert.match(styles, /\.video-coverflow__stage\{[^}]*perspective:1400px/);
+  assert.match(styles, /\.video-coverflow__stage\{[^}]*perspective:1700px/);
   assert.match(styles, /\.video-coverflow__card\{[\s\S]*rotateY\(var\(--coverflow-rotate\)\)/);
+  assert.match(styles, /\.video-coverflow__action::after\{content:"▶"/);
   assert.match(styles, /@media\(prefers-reduced-motion:reduce\)[\s\S]*\.video-coverflow__card/);
 });
