@@ -193,7 +193,7 @@ const audienceLabel = value => registryApi.publicAudienceLabel(value);
 const recordAudience = record => registryApi.publicAudienceList(record.audiences || []) || "All";
 const discoveryActionLabel = record => ({ article: "Read Article", ebook: "Open eBook", seminar: "View Seminar", video: "Watch Video", presentation: "Full Read" }[record.family] || "Open resource");
 const discoveryTypeLabel = record => ({ article: "Article", ebook: "eBook", seminar: "Seminar", video: "Video", presentation: "Presentation" }[record.family] || record.contentType);
-const discoveryActions = record => `${record.family === "presentation" && data.presentations?.[record.id]?.quickRead?.length ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}">${discoveryActionLabel(record)}</a>`;
+const discoveryActions = record => `${record.family === "presentation" && data.presentations?.[record.id]?.quickRead?.length ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}"${record.family === "video" && record.sourceRecord?.speaker ? ` aria-label="Watch ${escapeHtml(record.title)} by ${escapeHtml(record.sourceRecord.speaker)}"` : ""}>${discoveryActionLabel(record)}</a>`;
 const discoveryArtworkProfile = (record) => {
   const evidence = [record.primaryDiseaseGroup, record.diseaseCondition, record.contentType, ...(record.topics || []), ...(record.tags || [])].join(" ").toLowerCase();
   const profiles = [
@@ -220,9 +220,9 @@ const discoveryMedia = (record, eager = false) => {
   const image = record.cover ? `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="640" height="360" loading="${eager ? "eager" : "lazy"}"${record.family === "video" ? ' referrerpolicy="no-referrer"' : ""}>` : "";
   const artwork = discoveryDefaultArtwork(record);
   if (record.family === "presentation") return `<button class="discovery-card__media presentation-infographic" type="button" data-seminar-poster="${escapeHtml(safeImageUrl(record.cover))}" data-seminar-poster-alt="${escapeHtml(record.title)} — presentation infographic" data-poster-title="Presentation infographic" aria-label="Enlarge presentation infographic">${image}</button>`;
-  return `<a class="discovery-card__media${record.cover ? "" : " is-default-artwork"}" href="${escapeHtml(record.route)}" aria-label="${escapeHtml(discoveryActionLabel(record) + ': ' + record.title)}">${artwork}${image}${record.family === "video" ? '<span class="discovery-card__play" aria-hidden="true">▶</span>' : ""}</a>`;
+  return `<a class="discovery-card__media${record.cover ? "" : " is-default-artwork"}" href="${escapeHtml(record.route)}" aria-label="${escapeHtml(discoveryActionLabel(record) + ': ' + record.title + (record.family === "video" && record.sourceRecord?.speaker ? " by " + record.sourceRecord.speaker : ""))}">${artwork}${image}${record.family === "video" ? '<span class="discovery-card__play" aria-hidden="true">▶</span>' : ""}</a>`;
 };
-const discoveryCard = (record, { eager = false, showSummary = true, variant = "standard", identityLabel = "", metaLabel = "" } = {}) => `<article class="discovery-card discovery-card--${escapeHtml(variant)}" data-family="${escapeHtml(record.family || "resource")}" data-audience="${escapeHtml(String(record.primaryAudience || "ALL").toLowerCase().replace(/\s+/g, "-"))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}>${discoveryMedia(record, eager)}<div class="discovery-card__body"><div class="discovery-card__labels"><span>${escapeHtml(identityLabel || discoveryTypeLabel(record))}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${showSummary && record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="discovery-card__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${metaLabel || (record.topics || [])[0] ? `<span>${escapeHtml(metaLabel || record.topics[0])}</span>` : ""}</div></div><div class="discovery-card__actions">${discoveryActions(record)}</div></article>`;
+const discoveryCard = (record, { eager = false, showSummary = true, variant = "standard", identityLabel = "", metaLabel = "" } = {}) => `<article class="discovery-card discovery-card--${escapeHtml(variant)}" data-family="${escapeHtml(record.family || "resource")}" data-audience="${escapeHtml(String(record.primaryAudience || "ALL").toLowerCase().replace(/\s+/g, "-"))}"${record.id ? ` data-content-id="${escapeHtml(record.id)}"` : ""}>${discoveryMedia(record, eager)}<div class="discovery-card__body"><div class="discovery-card__labels"><span>${escapeHtml(identityLabel || discoveryTypeLabel(record))}</span><span>${escapeHtml(recordAudience(record))}</span></div><h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>${record.sourceRecord?.speaker ? `<p class="discovery-card__byline">${escapeHtml(record.sourceRecord.speaker)}</p>` : ""}${showSummary && record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ""}<div class="discovery-card__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${metaLabel || (record.topics || [])[0] ? `<span>${escapeHtml(metaLabel || record.topics[0])}</span>` : ""}</div></div><div class="discovery-card__actions">${discoveryActions(record)}</div></article>`;
 const videoDurationLabel = seconds => {
   const value = Number(seconds);
   if (!Number.isFinite(value) || value <= 0) return "";
@@ -243,7 +243,7 @@ const latestCoverflowCard = (record, index, kind = record.family) => {
   const selector = kind === "video"
     ? `<button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-latest-coverflow-select="${index}" data-coverflow-video-id="${escapeHtml(record.id)}" data-coverflow-video-source="${original ? "ba-medicale" : "youtube"}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></button>`
     : `<a class="video-coverflow__media${cover ? "" : " is-default-artwork"}" href="${escapeHtml(route)}" data-latest-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></a>`;
-  return `<article class="video-coverflow__card" data-latest-coverflow-card${kind === "video" ? " data-video-coverflow-card" : ""} data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-source="${kind === "video" ? (original ? "ba-medicale" : "youtube") : escapeHtml(kind)}">${selector}<div class="video-coverflow__copy"><p class="video-coverflow__provenance">${escapeHtml(provenance)}</p><h3>${escapeHtml(record.title)}</h3><div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${context ? `<span>${escapeHtml(context)}</span>` : ""}</div></div></article>`;
+  return `<article class="video-coverflow__card" data-latest-coverflow-card${kind === "video" ? " data-video-coverflow-card" : ""} data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-source="${kind === "video" ? (original ? "ba-medicale" : "youtube") : escapeHtml(kind)}">${selector}<div class="video-coverflow__copy"><p class="video-coverflow__provenance">${escapeHtml(provenance)}</p><h3>${escapeHtml(record.title)}</h3>${record.sourceRecord?.speaker ? `<p class="video-coverflow__speaker">${escapeHtml(record.sourceRecord.speaker)}</p>` : ""}<div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${context ? `<span>${escapeHtml(context)}</span>` : ""}</div></div></article>`;
 };
 const latestCoverflowMarkup = (records, kind, label) => `<div class="video-coverflow video-coverflow--${escapeHtml(kind)}" data-latest-coverflow data-coverflow-kind="${escapeHtml(kind)}"${kind === "video" ? " data-video-coverflow data-video-latest" : ""} role="region" aria-roledescription="carousel" aria-label="Latest ${escapeHtml(label)} coverflow" tabindex="0"><div class="video-coverflow__stage"><div class="video-coverflow__track">${records.map((record, index) => latestCoverflowCard(record, index, kind)).join("")}</div><button class="video-coverflow__nav video-coverflow__nav--previous" type="button" data-latest-coverflow-nav="previous" aria-label="Previous latest ${escapeHtml(kind)}">←</button><button class="video-coverflow__nav video-coverflow__nav--next" type="button" data-latest-coverflow-nav="next" aria-label="Next latest ${escapeHtml(kind)}">→</button></div><div class="video-coverflow__footer"><p class="video-coverflow__status" data-latest-coverflow-status aria-live="polite"></p><div class="video-coverflow__indicators" data-latest-coverflow-indicators aria-label="Choose a latest ${escapeHtml(kind)}"></div></div></div>`;
 function initLatestCoverflow(root) {
@@ -268,7 +268,7 @@ function initLatestCoverflow(root) {
     const dot = document.createElement("button");
     dot.type = "button";
     dot.dataset.latestCoverflowDot = String(index);
-    dot.setAttribute("aria-label", `Show ${root.dataset.coverflowKind || "item"} ${index + 1}: ${card.querySelector("h3")?.textContent || "Content"}`);
+    dot.setAttribute("aria-label", `Show ${root.dataset.coverflowKind || "item"} ${index + 1}: ${[card.querySelector("h3")?.textContent || "Content", card.querySelector(".video-coverflow__speaker")?.textContent].filter(Boolean).join(" — ")}`);
     dot.addEventListener("click", () => setActive(index));
     return dot;
   }));
@@ -293,7 +293,8 @@ function initLatestCoverflow(root) {
       const selector = card.querySelector("[data-latest-coverflow-select]");
       const action = root.dataset.coverflowKind === "video" ? "Play" : root.dataset.coverflowKind === "article" ? "Read" : "Open";
       selector.tabIndex = Math.abs(position) <= 2 ? 0 : -1;
-      selector.setAttribute("aria-label", position === 0 ? `${action} ${card.querySelector("h3")?.textContent || "content"}` : `Show ${card.querySelector("h3")?.textContent || "content"}`);
+      const cardLabel = [card.querySelector("h3")?.textContent || "content", card.querySelector(".video-coverflow__speaker")?.textContent].filter(Boolean).join(" — ");
+      selector.setAttribute("aria-label", position === 0 ? `${action} ${cardLabel}` : `Show ${cardLabel}`);
     });
     dots.forEach((dot, dotIndex) => {
       dot.toggleAttribute("data-active", dotIndex === activeIndex);
@@ -1285,18 +1286,39 @@ function renderVideoHub() {
   if (preview) preview.innerHTML = `${latestOriginals.map(previewLocalCard).join("")}${latestYouTube.map(previewYouTubeCard).join("")}`;
   const dialog = document.createElement("dialog");
   dialog.className = "video-player";
-  dialog.innerHTML = `<button type="button" aria-label="Close video">×</button><div></div><a target="_blank" rel="noopener noreferrer">View original source ↗</a>`;
+  dialog.setAttribute("aria-labelledby", "video-player-title");
+  dialog.innerHTML = `<button type="button" aria-label="Close video">×</button><header class="video-player__header"><p data-video-player-source></p><h2 id="video-player-title" data-video-player-title></h2><p data-video-player-speaker></p></header><div class="video-player__media"></div><a target="_blank" rel="noopener noreferrer">Open video source ↗</a>`;
   document.body.append(dialog);
-  const player = dialog.querySelector("div");
+  const player = dialog.querySelector(".video-player__media");
   const sourceLink = dialog.querySelector("a");
+  const playerSource = dialog.querySelector("[data-video-player-source]");
+  const playerTitle = dialog.querySelector("[data-video-player-title]");
+  const playerSpeaker = dialog.querySelector("[data-video-player-speaker]");
   let videoReturnFocus = null;
-  const openVideo = (id, opener = null) => {
+  const videoUrlState = (id) => {
+    const nextUrl = new URL(location.href);
+    if (id) nextUrl.searchParams.set("video", id); else nextUrl.searchParams.delete("video");
+    return `${nextUrl.pathname}${nextUrl.search}`;
+  };
+  const setVideoRoute = (id) => history.pushState({}, "", videoUrlState(id));
+  const setDialogContext = (video, provenance) => {
+    playerSource.textContent = provenance;
+    playerTitle.textContent = String(video.title || "BA Medicale video");
+    playerSpeaker.textContent = String(video.speaker || video.author?.name || "");
+    playerSpeaker.hidden = !playerSpeaker.textContent;
+  };
+  const showDialog = (opener) => {
+    videoReturnFocus = opener || (dialog.open ? videoReturnFocus : document.activeElement);
+    if (!dialog.open) dialog.showModal();
+    dialog.querySelector("button").focus();
+  };
+  const openVideo = (id, opener = null, { autoplay = true, syncRoute = false } = {}) => {
     const video = videos.find((item) => item.id === id);
-    if (!video) return;
+    if (!video) return false;
     const embedUrl = safeYouTubeEmbedUrl(video.embed_url);
     const sourceUrl = safeExternalUrl(video.url);
-    if (!embedUrl || !sourceUrl) return;
-    embedUrl.searchParams.set("autoplay", "1");
+    if (!embedUrl || !sourceUrl) return false;
+    if (autoplay) embedUrl.searchParams.set("autoplay", "1"); else embedUrl.searchParams.delete("autoplay");
     const frame = document.createElement("iframe");
     frame.src = embedUrl.href;
     frame.title = String(video.title || "BA Medicale video");
@@ -1306,26 +1328,62 @@ function renderVideoHub() {
     frame.allowFullscreen = true;
     player.replaceChildren(frame);
     sourceLink.href = sourceUrl;
-    videoReturnFocus = opener;
-    dialog.showModal();
-    dialog.querySelector("button").focus();
+    sourceLink.textContent = "Open original YouTube source ↗";
+    setDialogContext(video, "YouTube · Dr. Bob");
+    if (syncRoute) setVideoRoute(id);
+    showDialog(opener);
+    return true;
   };
-  const openLocalVideo = (id, opener = null) => {
+  const openLocalVideo = (id, opener = null, { autoplay = true, syncRoute = false } = {}) => {
     const video = originalVideos.find((item) => item.id === id);
-    if (!video) return;
+    if (!video) return false;
     const videoUrl = safeInternalUrl(video.video_url);
-    if (!videoUrl) return;
+    const posterUrl = safeImageUrl(video.thumbnail);
+    if (!videoUrl) return false;
     const media = document.createElement("video");
     media.src = videoUrl;
+    if (posterUrl) media.poster = posterUrl;
     media.title = String(video.title || "BA Medicale video");
     media.controls = true;
-    media.autoplay = true;
+    media.preload = autoplay ? "metadata" : "none";
+    media.autoplay = Boolean(autoplay);
     media.playsInline = true;
     player.replaceChildren(media);
     sourceLink.href = videoUrl;
-    videoReturnFocus = opener;
-    dialog.showModal();
-    dialog.querySelector("button").focus();
+    sourceLink.textContent = "Open video file ↗";
+    setDialogContext(video, "BA Medicale Original");
+    if (syncRoute) setVideoRoute(id);
+    showDialog(opener);
+    return true;
+  };
+  const requestedRecord = id => originalVideos.find(item => item.id === id) || videos.find(item => item.id === id);
+  const showInvalidVideoLink = (id) => {
+    if (!hub || !id || hub.querySelector("[data-video-link-status]")) return;
+    const notice = document.createElement("p");
+    notice.className = "video-hub__notice";
+    notice.dataset.videoLinkStatus = "";
+    notice.setAttribute("role", "status");
+    notice.textContent = "This video link is unavailable. The complete video collection remains below.";
+    hub.prepend(notice);
+  };
+  const syncViewerFromUrl = () => {
+    hub?.querySelector("[data-video-link-status]")?.remove();
+    const requestedVideo = new URLSearchParams(location.search).get("video");
+    if (!requestedVideo) {
+      if (dialog.open) {
+        dialog.dataset.historySync = "true";
+        dialog.close();
+      }
+      return;
+    }
+    const record = requestedRecord(requestedVideo);
+    if (!record) {
+      if (dialog.open) { dialog.dataset.historySync = "true"; dialog.close(); }
+      showInvalidVideoLink(requestedVideo);
+      return;
+    }
+    if (record.source === "ba-medicale") openLocalVideo(requestedVideo, null, { autoplay: false });
+    else openVideo(requestedVideo, null, { autoplay: false });
   };
   hub?.addEventListener("latestcoverflowopen", event => {
     const card = event.detail?.card;
@@ -1334,14 +1392,20 @@ function renderVideoHub() {
     const source = card?.querySelector("[data-coverflow-video-source]")?.dataset.coverflowVideoSource;
     if (!id) return;
     trackAnalytics("video_engagement", analyticsParams({ content_type: "video", content_id: id, destination: "play" }));
-    if (source === "ba-medicale") openLocalVideo(id, opener); else openVideo(id, opener);
+    if (source === "ba-medicale") openLocalVideo(id, opener, { syncRoute: true }); else openVideo(id, opener, { syncRoute: true });
   });
-  document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay)));
-  document.querySelectorAll("[data-video-local]").forEach((button) => button.addEventListener("click", () => openLocalVideo(button.dataset.videoLocal)));
-  const requestedVideo = new URLSearchParams(location.search).get("video");
-  if (requestedVideo) requestAnimationFrame(() => originalVideos.some(item => item.id === requestedVideo) ? openLocalVideo(requestedVideo) : openVideo(requestedVideo));
-  dialog.addEventListener("close", () => { player.replaceChildren(); videoReturnFocus?.focus(); videoReturnFocus = null; });
-  dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
+  document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay, button, { syncRoute: true })));
+  document.querySelectorAll("[data-video-local]").forEach((button) => button.addEventListener("click", () => openLocalVideo(button.dataset.videoLocal, button, { syncRoute: true })));
+  requestAnimationFrame(syncViewerFromUrl);
+  window.addEventListener("popstate", syncViewerFromUrl);
+  dialog.addEventListener("close", () => {
+    player.replaceChildren();
+    if (dialog.dataset.historySync === "true") delete dialog.dataset.historySync;
+    else if (new URLSearchParams(location.search).has("video")) history.pushState({}, "", videoUrlState(""));
+    videoReturnFocus?.focus();
+    videoReturnFocus = null;
+  });
+  dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target === dialog.querySelector(":scope > button")) dialog.close(); });
 }
 
 function initArticlePageTools() {

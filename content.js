@@ -875,6 +875,7 @@ window.BAMEDICALE_DATA.presentations = {
     cover: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/infographic.png",
     sourcePdf: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.pdf",
     video: "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/presentation-video.mp4",
+    videoId: "ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
     sourceManifest: "data/thyroid-presentation-source.json",
     sourceAttribution: "Original presentation supplied for the 19 September 2026 thyroid-nodule seminar",
     summary: "A 20-slide presentation covering thyroid-nodule diagnosis, molecular testing, ablative treatment, and surgical approaches.",

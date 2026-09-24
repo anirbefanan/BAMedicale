@@ -1,6 +1,40 @@
 {
   "videos": [
     {
+      "id": "ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
+      "slug": "current-diagnostic-approach-thyroid-nodules-seminar-video-2026",
+      "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+      "short_description": "Full seminar presentation recording on thyroid-nodule diagnostic assessment and the management approaches presented on 19 September 2026.",
+      "source_label": "BA Medicale Original",
+      "source": "ba-medicale",
+      "speaker": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+      "author": {
+        "name": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+        "type": "Person"
+      },
+      "eventId": "management-thyroid-nodules-2026",
+      "presentationId": "current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules",
+      "topic": "Thyroid nodule diagnosis and management",
+      "audience": "Doctors",
+      "primaryAudience": "DOCTOR",
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "diseaseCondition": "Thyroid nodules",
+      "topics": [
+        "Diagnosis",
+        "Treatment Planning"
+      ],
+      "contentType": "Video",
+      "recordedDate": "2026-09-19",
+      "publishedDate": "2026-09-25",
+      "durationSeconds": 1458,
+      "url": "assets/videos/current-diagnostic-approach-thyroid-nodules-seminar-2026.mp4",
+      "video_url": "assets/videos/current-diagnostic-approach-thyroid-nodules-seminar-2026.mp4",
+      "thumbnail": "assets/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules/infographic.png",
+      "publish_state": "Original upload",
+      "source_file": "Material/Video/Drbobpresentationseminar192026.mov",
+      "verified_identity": true
+    },
+    {
       "id": "ba-medicale-clinical-learning-preview",
       "title": "BA Medicale Clinical Learning Preview",
       "short_description": "An original BA Medicale visual learning asset for introducing structured medical education across diseases and health conditions in a clinical setting.",
@@ -11,7 +45,9 @@
       "primaryAudience": "PUBLIC",
       "primaryDiseaseGroup": "cancer-neoplastic",
       "diseaseCondition": "Tumor and cancer",
-      "topics": ["Clinical Education"],
+      "topics": [
+        "Clinical Education"
+      ],
       "contentType": "Video",
       "publishedDate": "2026-08-24",
       "url": "assets/videos/ba-medicale-clinical-learning-preview.mp4",
@@ -32,7 +68,9 @@
       "primaryAudience": "PUBLIC",
       "primaryDiseaseGroup": "cancer-neoplastic",
       "diseaseCondition": "Tumor and cancer",
-      "topics": ["Tumor & Cancer Basics"],
+      "topics": [
+        "Tumor & Cancer Basics"
+      ],
       "contentType": "Video",
       "publishedDate": "2026-08-24",
       "url": "assets/videos/ba-medicale-original-initial-scene.mp4",
@@ -53,7 +91,9 @@
       "primaryAudience": "PUBLIC",
       "primaryDiseaseGroup": "cancer-neoplastic",
       "diseaseCondition": "Tumor and cancer",
-      "topics": ["Clinical Education"],
+      "topics": [
+        "Clinical Education"
+      ],
       "contentType": "Video",
       "publishedDate": "2026-08-24",
       "url": "assets/videos/ba-medicale-medical-office-learning-brief.mp4",
@@ -74,7 +114,10 @@
       "primaryAudience": "PUBLIC",
       "primaryDiseaseGroup": "cancer-neoplastic",
       "diseaseCondition": "Neoplasia",
-      "topics": ["Early Detection", "Tumor & Cancer Basics"],
+      "topics": [
+        "Early Detection",
+        "Tumor & Cancer Basics"
+      ],
       "contentType": "Video",
       "publishedDate": "2026-08-24",
       "url": "assets/videos/ba-medicale-neoplasia-definition-early-detection.mp4",
@@ -95,7 +138,9 @@
       "primaryAudience": "PUBLIC",
       "primaryDiseaseGroup": "cancer-neoplastic",
       "diseaseCondition": "Tumor and cancer",
-      "topics": ["Tumor & Cancer Basics"],
+      "topics": [
+        "Tumor & Cancer Basics"
+      ],
       "contentType": "Video",
       "publishedDate": "2026-08-24",
       "url": "assets/videos/ba-medicale-medical-office-platform-brief.mp4",
