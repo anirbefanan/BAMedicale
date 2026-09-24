@@ -231,21 +231,28 @@ const videoDurationLabel = seconds => {
   const remainder = Math.floor(value % 60);
   return hours ? `${hours}:${String(minutes).padStart(2, "0")}:${String(remainder).padStart(2, "0")}` : `${minutes}:${String(remainder).padStart(2, "0")}`;
 };
-const videoCoverflowCard = (record, index) => {
-  const original = record.sourceRecord.source === "ba-medicale";
+const latestCoverflowCard = (record, index, kind = record.family) => {
+  const original = kind === "video" && record.sourceRecord.source === "ba-medicale";
   const cover = safeImageUrl(record.cover);
-  const media = cover ? `<img src="${escapeHtml(cover)}" alt="" width="960" height="540" loading="${index < 2 ? "eager" : "lazy"}"${original ? "" : ' referrerpolicy="no-referrer"'}>` : discoveryDefaultArtwork(record);
-  const duration = videoDurationLabel(record.sourceRecord.duration_seconds);
-  const playAttribute = original ? `data-video-local="${escapeHtml(record.id)}"` : `data-video-play="${escapeHtml(record.id)}"`;
-  return `<article class="video-coverflow__card" data-video-coverflow-card data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-source="${original ? "ba-medicale" : "youtube"}"><button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-video-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></button><div class="video-coverflow__copy"><p class="video-coverflow__provenance">${original ? "BA Medicale Original" : "YouTube · Dr. Bob"}</p><h3>${escapeHtml(record.title)}</h3><div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${duration ? `<span>${escapeHtml(duration)}</span>` : ""}</div></div><button class="video-coverflow__action" type="button" ${playAttribute} data-video-coverflow-play aria-label="Play ${escapeHtml(record.title)}">Play Video <span aria-hidden="true">▶</span></button></article>`;
+  const portrait = kind === "ebook";
+  const media = cover ? `<img src="${escapeHtml(cover)}" alt="" width="${portrait ? 720 : 960}" height="${portrait ? 960 : 540}" loading="${index < 2 ? "eager" : "lazy"}"${kind === "video" && !original ? ' referrerpolicy="no-referrer"' : ""}>` : discoveryDefaultArtwork(record);
+  const duration = kind === "video" ? videoDurationLabel(record.sourceRecord.duration_seconds) : "";
+  const provenance = kind === "video" ? (original ? "BA Medicale Original" : "YouTube · Dr. Bob") : `${discoveryTypeLabel(record)} · ${recordAudience(record)}`;
+  const context = duration || (record.topics || [])[0] || "";
+  const route = safeInternalUrl(record.route);
+  const selector = kind === "video"
+    ? `<button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-latest-coverflow-select="${index}" data-coverflow-video-id="${escapeHtml(record.id)}" data-coverflow-video-source="${original ? "ba-medicale" : "youtube"}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></button>`
+    : `<a class="video-coverflow__media${cover ? "" : " is-default-artwork"}" href="${escapeHtml(route)}" data-latest-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></a>`;
+  return `<article class="video-coverflow__card" data-latest-coverflow-card${kind === "video" ? " data-video-coverflow-card" : ""} data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-source="${kind === "video" ? (original ? "ba-medicale" : "youtube") : escapeHtml(kind)}">${selector}<div class="video-coverflow__copy"><p class="video-coverflow__provenance">${escapeHtml(provenance)}</p><h3>${escapeHtml(record.title)}</h3><div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${context ? `<span>${escapeHtml(context)}</span>` : ""}</div></div></article>`;
 };
-function initVideoCoverflow(root) {
+const latestCoverflowMarkup = (records, kind, label) => `<div class="video-coverflow video-coverflow--${escapeHtml(kind)}" data-latest-coverflow data-coverflow-kind="${escapeHtml(kind)}"${kind === "video" ? " data-video-coverflow data-video-latest" : ""} role="region" aria-roledescription="carousel" aria-label="Latest ${escapeHtml(label)} coverflow" tabindex="0"><div class="video-coverflow__stage"><div class="video-coverflow__track">${records.map((record, index) => latestCoverflowCard(record, index, kind)).join("")}</div><button class="video-coverflow__nav video-coverflow__nav--previous" type="button" data-latest-coverflow-nav="previous" aria-label="Previous latest ${escapeHtml(kind)}">←</button><button class="video-coverflow__nav video-coverflow__nav--next" type="button" data-latest-coverflow-nav="next" aria-label="Next latest ${escapeHtml(kind)}">→</button></div><div class="video-coverflow__footer"><p class="video-coverflow__status" data-latest-coverflow-status aria-live="polite"></p><div class="video-coverflow__indicators" data-latest-coverflow-indicators aria-label="Choose a latest ${escapeHtml(kind)}"></div></div></div>`;
+function initLatestCoverflow(root) {
   if (!root || root.dataset.coverflowReady === "true") return;
-  const cards = [...root.querySelectorAll("[data-video-coverflow-card]")];
-  const previous = root.querySelector('[data-video-coverflow-nav="previous"]');
-  const next = root.querySelector('[data-video-coverflow-nav="next"]');
-  const indicators = root.querySelector("[data-video-coverflow-indicators]");
-  const status = root.querySelector("[data-video-coverflow-status]");
+  const cards = [...root.querySelectorAll("[data-latest-coverflow-card]")];
+  const previous = root.querySelector('[data-latest-coverflow-nav="previous"]');
+  const next = root.querySelector('[data-latest-coverflow-nav="next"]');
+  const indicators = root.querySelector("[data-latest-coverflow-indicators]");
+  const status = root.querySelector("[data-latest-coverflow-status]");
   const stage = root.querySelector(".video-coverflow__stage");
   const track = root.querySelector(".video-coverflow__track");
   if (!cards.length || !previous || !next || !indicators || !status || !stage || !track) return;
@@ -260,8 +267,8 @@ function initVideoCoverflow(root) {
   indicators.replaceChildren(...cards.map((card, index) => {
     const dot = document.createElement("button");
     dot.type = "button";
-    dot.dataset.videoCoverflowDot = String(index);
-    dot.setAttribute("aria-label", `Show video ${index + 1}: ${card.querySelector("h3")?.textContent || "Video"}`);
+    dot.dataset.latestCoverflowDot = String(index);
+    dot.setAttribute("aria-label", `Show ${root.dataset.coverflowKind || "item"} ${index + 1}: ${card.querySelector("h3")?.textContent || "Content"}`);
     dot.addEventListener("click", () => setActive(index));
     return dot;
   }));
@@ -283,13 +290,10 @@ function initVideoCoverflow(root) {
       card.toggleAttribute("data-coverflow-far", Math.abs(position) > 3);
       card.toggleAttribute("data-coverflow-active", position === 0);
       card.setAttribute("aria-hidden", Math.abs(position) > 2 ? "true" : "false");
-      const selector = card.querySelector("[data-video-coverflow-select]");
-      const play = card.querySelector("[data-video-coverflow-play]");
+      const selector = card.querySelector("[data-latest-coverflow-select]");
+      const action = root.dataset.coverflowKind === "video" ? "Play" : root.dataset.coverflowKind === "article" ? "Read" : "Open";
       selector.tabIndex = Math.abs(position) <= 2 ? 0 : -1;
-      selector.setAttribute("aria-label", position === 0 ? `Play current video: ${card.querySelector("h3")?.textContent || "Video"}` : `Center ${card.querySelector("h3")?.textContent || "video"}`);
-      play.disabled = position !== 0;
-      play.tabIndex = position === 0 ? 0 : -1;
-      play.setAttribute("aria-hidden", position === 0 ? "false" : "true");
+      selector.setAttribute("aria-label", position === 0 ? `${action} ${card.querySelector("h3")?.textContent || "content"}` : `Show ${card.querySelector("h3")?.textContent || "content"}`);
     });
     dots.forEach((dot, dotIndex) => {
       dot.toggleAttribute("data-active", dotIndex === activeIndex);
@@ -307,23 +311,28 @@ function initVideoCoverflow(root) {
   const move = direction => setActive(activeIndex + direction);
   previous.addEventListener("click", () => move(-1));
   next.addEventListener("click", () => move(1));
-  cards.forEach((card, index) => card.querySelector("[data-video-coverflow-select]").addEventListener("click", event => {
+  cards.forEach((card, index) => card.querySelector("[data-latest-coverflow-select]").addEventListener("click", event => {
     if (suppressClick && event.isTrusted) {
       event.preventDefault();
       return;
     }
-    if (index !== activeIndex) setActive(index);
-    else card.querySelector("[data-video-coverflow-play]")?.click();
+    if (index !== activeIndex) {
+      event.preventDefault();
+      setActive(index);
+    } else if (root.dataset.coverflowKind === "video") {
+      event.preventDefault();
+      root.dispatchEvent(new CustomEvent("latestcoverflowopen", { bubbles: true, detail: { card, opener: event.currentTarget } }));
+    }
   }));
   stage.addEventListener("click", event => {
-    if (suppressClick || event.target.closest("[data-video-coverflow-select], [data-video-coverflow-nav], [data-video-coverflow-play]")) return;
+    if (suppressClick || event.target.closest("[data-latest-coverflow-select], [data-latest-coverflow-nav]")) return;
     const bounds = stage.getBoundingClientRect();
     const offset = event.clientX - (bounds.left + bounds.width / 2);
     if (Math.abs(offset) < Math.min(120, bounds.width * .24)) return;
     move(offset < 0 ? -1 : 1);
   });
   root.addEventListener("keydown", event => {
-    if (event.target.closest("[data-video-coverflow-play]") || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
     const direction = event.key === "ArrowLeft" ? -1 : event.key === "ArrowRight" ? 1 : 0;
     if (direction) {
       event.preventDefault();
@@ -337,7 +346,7 @@ function initVideoCoverflow(root) {
     }
   });
   stage.addEventListener("pointerdown", event => {
-    if (event.button !== 0 || event.target.closest("[data-video-coverflow-nav], [data-video-coverflow-play]") || cards.length < 2) return;
+    if (event.button !== 0 || event.target.closest("[data-latest-coverflow-nav]") || cards.length < 2) return;
     pointerId = event.pointerId;
     startX = event.clientX;
     dragX = 0;
@@ -368,6 +377,7 @@ function initVideoCoverflow(root) {
   setActive(0, { announce: false });
   requestAnimationFrame(() => status.setAttribute("aria-live", "polite"));
 }
+function initVideoCoverflow(root) { initLatestCoverflow(root); }
 const initDiscoveryImageFallbacks = (root = document) => {
   root.querySelectorAll('.discovery-card__media img:not([data-fallback-bound]), .discovery-related-card__media img:not([data-fallback-bound])').forEach((image) => {
     image.dataset.fallbackBound = 'true';
@@ -640,8 +650,11 @@ function renderLibrary() {
   const selectedTopic = topics.some(([id]) => id === params.get("topic")) ? params.get("topic") : "";
   const selectedType = types.some(([id]) => id === registryApi.slugify(params.get("type"))) ? registryApi.slugify(params.get("type")) : "";
   const selectedAuthor = authors.some(([id]) => id === params.get("author")) ? params.get("author") : "";
+  const articleListing = registryApi.slugify(params.get("type")) === "article";
+  const latestArticles = contentRegistry.query({ family: "article" }).slice(0, 6);
   const option = (value, label = value, selected = false) => `<option value="${escapeHtml(value)}"${selected ? " selected" : ""}>${escapeHtml(label)}</option>`;
-  target.innerHTML = `<section class="discovery-section" aria-labelledby="library-latest-title"><div class="discovery-heading"><div><p class="eyebrow">Latest updates</p><h2 id="library-latest-title">Newest in the Library.</h2></div></div><div class="discovery-grid" data-library-latest></div></section><section class="discovery-section" aria-labelledby="library-all-title"><div class="discovery-heading"><div><p class="eyebrow">All learning</p><h2 id="library-all-title">Published medical learning.</h2></div><p data-library-latest-summary role="status"></p></div><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${registryApi.AUDIENCES.map((value) => option(value, audienceLabel(value), value === selectedAudience)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map(([id, label]) => option(id, label, id === selectedType)).join("")}</select></label><details class="article-filter-details"><summary>More filters</summary><div class="article-filter-details__grid"><label>Content category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map(([id, label]) => option(id, label, id === selectedCondition)).join("")}</select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(([id, label]) => option(id, label, id === selectedTopic)).join("")}</select></label><label>Author / source<select name="author"><option value="">All authors and sources</option>${authors.map(([id, label]) => option(id, label, id === selectedAuthor)).join("")}</select></label></div></details><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div class="discovery-grid" data-library-all></div><nav class="discovery-pagination" aria-label="Library pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`;
+  target.innerHTML = `<section class="discovery-section" aria-labelledby="library-latest-title"><div class="discovery-heading"><div><p class="eyebrow">${articleListing ? "Latest Articles" : "Latest updates"}</p><h2 id="library-latest-title">${articleListing ? "Newest published articles." : "Newest in the Library."}</h2></div></div><div class="${articleListing ? "" : "discovery-grid"}" data-library-latest>${articleListing && latestArticles.length ? latestCoverflowMarkup(latestArticles, "article", "Articles") : ""}</div></section><section class="discovery-section" aria-labelledby="library-all-title"><div class="discovery-heading"><div><p class="eyebrow">${articleListing ? "All Articles" : "All learning"}</p><h2 id="library-all-title">${articleListing ? "Published articles." : "Published medical learning."}</h2></div><p data-library-latest-summary role="status"></p></div><form class="article-filters article-filters--library" data-article-filters><label class="article-filter-search">Search<input name="query" type="search" placeholder="Title, author, disease, or topic"></label><label>Audience<select name="audience"><option value="">All audiences</option>${registryApi.AUDIENCES.map((value) => option(value, audienceLabel(value), value === selectedAudience)).join("")}</select></label><label>Content type<select name="type"><option value="">All types</option>${types.map(([id, label]) => option(id, label, id === selectedType)).join("")}</select></label><details class="article-filter-details"><summary>More filters</summary><div class="article-filter-details__grid"><label>Content category<select name="category"><option value="">All categories</option>${categories.map((category) => option(category.id, category.label, category.id === selectedCategory)).join("")}</select></label><label>Disease group<select name="diseaseGroup"><option value="">All disease groups</option>${data.diseaseTaxonomy.map((group) => option(group.id, group.name, group.id === selectedDisease)).join("")}</select></label><label>Disease / condition<select name="condition"><option value="">All conditions</option>${conditions.map(([id, label]) => option(id, label, id === selectedCondition)).join("")}</select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(([id, label]) => option(id, label, id === selectedTopic)).join("")}</select></label><label>Author / source<select name="author"><option value="">All authors and sources</option>${authors.map(([id, label]) => option(id, label, id === selectedAuthor)).join("")}</select></label></div></details><button type="reset">Clear filters</button></form><p class="article-filter-context" data-library-filter-context></p><div class="discovery-grid" data-library-all></div><nav class="discovery-pagination" aria-label="Library pages"><button type="button" data-page="previous">Previous</button><span data-page-status></span><button type="button" data-page="next">Next</button></nav></section>`;
+  if (articleListing && latestArticles.length) initLatestCoverflow(target.querySelector("[data-latest-coverflow]"));
   const filterForm = target.querySelector("[data-article-filters]");
   const filterContext = target.querySelector("[data-library-filter-context]");
   const latestSummary = target.querySelector("[data-library-latest-summary]");
@@ -664,7 +677,7 @@ function renderLibrary() {
     const maxPage = Math.max(1, Math.ceil(matchingRecords.length / 18));
     page = Math.min(page, maxPage);
     latestSummary.textContent = `${matchingRecords.length} matching item${matchingRecords.length === 1 ? "" : "s"}, newest publication or update first.`;
-    target.querySelector("[data-library-latest]").innerHTML = matchingRecords.length ? matchingRecords.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("") : `<p class="discovery-empty">No published learning matches these filters yet.</p>`;
+    if (!articleListing) target.querySelector("[data-library-latest]").innerHTML = matchingRecords.length ? matchingRecords.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("") : `<p class="discovery-empty">No published learning matches these filters yet.</p>`;
     target.querySelector("[data-library-all]").innerHTML = matchingRecords.length ? matchingRecords.slice((page - 1) * 18, page * 18).map(record => discoveryCard(record)).join("") : `<p class="discovery-empty">No published learning matches these filters yet.</p>`;
     initDiscoveryImageFallbacks(target);
     target.querySelector(".discovery-pagination").hidden = maxPage <= 1;
@@ -763,7 +776,7 @@ function renderContentDiscovery() {
     const pageSize = family === "ebook" ? 18 : 18;
     const params = new URLSearchParams(location.search);
     let page = Math.max(1, Number(params.get("page")) || 1);
-    target.innerHTML = `<section class="discovery-section" aria-labelledby="latest-${escapeHtml(family)}-title"><div class="discovery-heading"><div><p class="eyebrow">Latest ${escapeHtml(label)}</p><h2 id="latest-${escapeHtml(family)}-title">Newest published ${escapeHtml(label.toLowerCase())}.</h2></div></div><div class="discovery-grid" data-discovery-latest></div></section><section class="discovery-section" aria-labelledby="all-${escapeHtml(family)}-title"><div class="discovery-heading"><div><p class="eyebrow">All ${escapeHtml(label)}</p><h2 id="all-${escapeHtml(family)}-title">Published ${escapeHtml(label.toLowerCase())}.</h2></div><p data-discovery-status role="status"></p></div><form class="discovery-controls" data-discovery-controls><label>Search ${escapeHtml(label)}<input name="query" type="search" placeholder="Title, topic, or source"></label><button type="reset">Clear</button></form><div class="discovery-grid" data-discovery-all></div><nav class="discovery-pagination" aria-label="${escapeHtml(label)} pages"><button type="button" data-discovery-page="previous">Previous</button><span data-discovery-page-status></span><button type="button" data-discovery-page="next">Next</button></nav></section>`;
+    target.innerHTML = `<section class="discovery-section" aria-labelledby="latest-${escapeHtml(family)}-title"><div class="discovery-heading"><div><p class="eyebrow">Latest ${escapeHtml(label)}</p><h2 id="latest-${escapeHtml(family)}-title">Newest published ${escapeHtml(label.toLowerCase())}.</h2></div></div><div class="${family === "ebook" ? "" : "discovery-grid"}" data-discovery-latest></div></section><section class="discovery-section" aria-labelledby="all-${escapeHtml(family)}-title"><div class="discovery-heading"><div><p class="eyebrow">All ${escapeHtml(label)}</p><h2 id="all-${escapeHtml(family)}-title">Published ${escapeHtml(label.toLowerCase())}.</h2></div><p data-discovery-status role="status"></p></div><form class="discovery-controls" data-discovery-controls><label>Search ${escapeHtml(label)}<input name="query" type="search" placeholder="Title, topic, or source"></label><button type="reset">Clear</button></form><div class="discovery-grid" data-discovery-all></div><nav class="discovery-pagination" aria-label="${escapeHtml(label)} pages"><button type="button" data-discovery-page="previous">Previous</button><span data-discovery-page-status></span><button type="button" data-discovery-page="next">Next</button></nav></section>`;
     const form = target.querySelector("[data-discovery-controls]");
     const update = ({ syncUrl = false } = {}) => {
       const query = String(new FormData(form).get("query") || "").trim().toLowerCase();
@@ -771,7 +784,9 @@ function renderContentDiscovery() {
       const matching = records.filter((record) => terms.every((term) => record.searchable.includes(term)));
       const pageCount = Math.max(1, Math.ceil(matching.length / pageSize));
       page = Math.min(page, pageCount);
-      target.querySelector("[data-discovery-latest]").innerHTML = matching.length ? matching.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("") : `<p class="discovery-empty">No published ${escapeHtml(label.toLowerCase())} match this search.</p>`;
+      const latestTarget = target.querySelector("[data-discovery-latest]");
+      latestTarget.innerHTML = matching.length ? (family === "ebook" ? latestCoverflowMarkup(matching.slice(0, 6), "ebook", "eBooks") : matching.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")) : `<p class="discovery-empty">No published ${escapeHtml(label.toLowerCase())} match this search.</p>`;
+      if (family === "ebook" && matching.length) initLatestCoverflow(latestTarget.querySelector("[data-latest-coverflow]"));
       target.querySelector("[data-discovery-all]").innerHTML = matching.length ? matching.slice((page - 1) * pageSize, page * pageSize).map(record => discoveryCard(record)).join("") : `<p class="discovery-empty">No published ${escapeHtml(label.toLowerCase())} match this search.</p>`;
       initDiscoveryImageFallbacks(target);
       target.querySelector("[data-discovery-status]").textContent = `${matching.length} published item${matching.length === 1 ? "" : "s"}.`;
@@ -1219,7 +1234,7 @@ function renderVideoHub() {
       });
     };
     const latest = videoRecords.slice(0, 6);
-    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">The newest medical video learning.</h2></div></div><div class="video-coverflow" data-video-latest data-video-coverflow role="region" aria-roledescription="carousel" aria-label="Latest Videos coverflow" tabindex="0"><div class="video-coverflow__stage"><div class="video-coverflow__track">${latest.map(videoCoverflowCard).join("")}</div><button class="video-coverflow__nav video-coverflow__nav--previous" type="button" data-video-coverflow-nav="previous" aria-label="Previous latest video">←</button><button class="video-coverflow__nav video-coverflow__nav--next" type="button" data-video-coverflow-nav="next" aria-label="Next latest video">→</button></div><div class="video-coverflow__footer"><p class="video-coverflow__status" data-video-coverflow-status aria-live="polite"></p><div class="video-coverflow__indicators" data-video-coverflow-indicators aria-label="Choose a latest video"></div></div></div></section><form class="discovery-controls discovery-controls--video" data-video-controls aria-label="Filter the video collection"><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or publisher"></label><label>Source<select name="source"><option value="">All Videos</option><option value="ba-medicale">BA Medicale Originals</option><option value="youtube">Dr. Bob on YouTube</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><section class="discovery-section video-source-collection" data-video-originals-section aria-labelledby="original-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale Originals</p><h2 id="original-videos-title">Original medical education and visual learning.</h2></div><p><span data-video-originals-status role="status"></span></p></div><div class="discovery-grid" data-video-originals></div></section><section class="discovery-section video-source-collection" data-video-youtube-section aria-labelledby="youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Dr. Bob on YouTube</p><h2 id="youtube-videos-title">Medical education, interviews, and clinical discussions.</h2></div><p><span data-video-youtube-status role="status"></span></p></div><div class="discovery-grid" data-video-youtube></div><nav class="discovery-pagination" aria-label="Dr. Bob YouTube video pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav></section>`;
+    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">The newest medical video learning.</h2></div></div>${latestCoverflowMarkup(latest, "video", "Videos")}</section><form class="discovery-controls discovery-controls--video" data-video-controls aria-label="Filter the video collection"><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or publisher"></label><label>Source<select name="source"><option value="">All Videos</option><option value="ba-medicale">BA Medicale Originals</option><option value="youtube">Dr. Bob on YouTube</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><section class="discovery-section video-source-collection" data-video-originals-section aria-labelledby="original-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale Originals</p><h2 id="original-videos-title">Original medical education and visual learning.</h2></div><p><span data-video-originals-status role="status"></span></p></div><div class="discovery-grid" data-video-originals></div></section><section class="discovery-section video-source-collection" data-video-youtube-section aria-labelledby="youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Dr. Bob on YouTube</p><h2 id="youtube-videos-title">Medical education, interviews, and clinical discussions.</h2></div><p><span data-video-youtube-status role="status"></span></p></div><div class="discovery-grid" data-video-youtube></div><nav class="discovery-pagination" aria-label="Dr. Bob YouTube video pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav></section>`;
     initVideoCoverflow(hub.querySelector("[data-video-coverflow]"));
     const form = hub.querySelector("[data-video-controls]");
     const controlsFromUrl = () => {
@@ -1274,7 +1289,8 @@ function renderVideoHub() {
   document.body.append(dialog);
   const player = dialog.querySelector("div");
   const sourceLink = dialog.querySelector("a");
-  const openVideo = (id) => {
+  let videoReturnFocus = null;
+  const openVideo = (id, opener = null) => {
     const video = videos.find((item) => item.id === id);
     if (!video) return;
     const embedUrl = safeYouTubeEmbedUrl(video.embed_url);
@@ -1290,9 +1306,11 @@ function renderVideoHub() {
     frame.allowFullscreen = true;
     player.replaceChildren(frame);
     sourceLink.href = sourceUrl;
+    videoReturnFocus = opener;
     dialog.showModal();
+    dialog.querySelector("button").focus();
   };
-  const openLocalVideo = (id) => {
+  const openLocalVideo = (id, opener = null) => {
     const video = originalVideos.find((item) => item.id === id);
     if (!video) return;
     const videoUrl = safeInternalUrl(video.video_url);
@@ -1305,13 +1323,24 @@ function renderVideoHub() {
     media.playsInline = true;
     player.replaceChildren(media);
     sourceLink.href = videoUrl;
+    videoReturnFocus = opener;
     dialog.showModal();
+    dialog.querySelector("button").focus();
   };
+  hub?.addEventListener("latestcoverflowopen", event => {
+    const card = event.detail?.card;
+    const opener = event.detail?.opener;
+    const id = card?.querySelector("[data-coverflow-video-id]")?.dataset.coverflowVideoId;
+    const source = card?.querySelector("[data-coverflow-video-source]")?.dataset.coverflowVideoSource;
+    if (!id) return;
+    trackAnalytics("video_engagement", analyticsParams({ content_type: "video", content_id: id, destination: "play" }));
+    if (source === "ba-medicale") openLocalVideo(id, opener); else openVideo(id, opener);
+  });
   document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay)));
   document.querySelectorAll("[data-video-local]").forEach((button) => button.addEventListener("click", () => openLocalVideo(button.dataset.videoLocal)));
   const requestedVideo = new URLSearchParams(location.search).get("video");
   if (requestedVideo) requestAnimationFrame(() => originalVideos.some(item => item.id === requestedVideo) ? openLocalVideo(requestedVideo) : openVideo(requestedVideo));
-  dialog.addEventListener("close", () => { player.replaceChildren(); });
+  dialog.addEventListener("close", () => { player.replaceChildren(); videoReturnFocus?.focus(); videoReturnFocus = null; });
   dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
 }
 

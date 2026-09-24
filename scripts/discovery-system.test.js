@@ -76,18 +76,23 @@ test('video discovery keeps originals and attributed external sources distinct',
   assert.match(app, /originalVideos\.some\(item => item\.id === requestedVideo\)/);
 });
 
-test('Latest Videos uses a native accessible coverflow without changing canonical records', () => {
-  assert.match(app, /function initVideoCoverflow\(root\)/);
-  assert.match(app, /latest\.map\(videoCoverflowCard\)/);
-  assert.match(app, /data-video-coverflow-nav="previous"/);
+test('Latest Videos, Articles and eBooks use one native accessible coverflow without changing canonical records', () => {
+  assert.match(app, /function initLatestCoverflow\(root\)/);
+  assert.match(app, /latestCoverflowMarkup\(latest, "video", "Videos"\)/);
+  assert.match(app, /latestCoverflowMarkup\(latestArticles, "article", "Articles"\)/);
+  assert.match(app, /latestCoverflowMarkup\(matching\.slice\(0, 6\), "ebook", "eBooks"\)/);
+  assert.match(app, /data-latest-coverflow-nav="previous"/);
   assert.match(app, /event\.key === "ArrowLeft"/);
   assert.match(app, /stage\.addEventListener\("pointerdown"/);
   assert.match(app, /const normalizeIndex = index => \(\(index % cards\.length\) \+ cards\.length\) % cards\.length/);
   assert.match(app, /const circularPosition = index =>/);
-  assert.match(app, /play\.disabled = position !== 0/);
+  assert.match(app, /latestcoverflowopen/);
+  assert.doesNotMatch(app, /data-video-coverflow-play|video-coverflow__action/);
   assert.doesNotMatch(app, /cloneNode\(|setInterval\([^)]*coverflow|new Swiper|THREE\.|gsap\./);
   assert.match(styles, /\.video-coverflow__stage\{[^}]*perspective:1700px/);
   assert.match(styles, /\.video-coverflow__card\{[\s\S]*rotateY\(var\(--coverflow-rotate\)\)/);
-  assert.match(styles, /\.video-coverflow__action::after\{content:"▶"/);
+  assert.match(styles, /\.video-coverflow--article\{[^}]*--coverflow-card-width/);
+  assert.match(styles, /\.video-coverflow--ebook\{[^}]*--coverflow-card-width/);
+  assert.doesNotMatch(styles, /\.video-coverflow__action/);
   assert.match(styles, /@media\(prefers-reduced-motion:reduce\)[\s\S]*\.video-coverflow__card/);
 });
