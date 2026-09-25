@@ -916,7 +916,7 @@ When sufficient source material or context exists, automatically turn it into co
 
 ## NAVIGATION / AUDIENCE PROVEN PATTERN
 
-- Desktop and mobile primary navigation derive from the same grouped source: **Home**, **Education** (Doctors, Healthcare Workers, Public), **Knowledge** (Library & Articles, Videos, eBooks, Resources), **Learning** (Courses & Seminars), **About** (BA Medicale, Team, Traffic, Contact Us). Keep Search visible and Member Login compact; use accessible dropdowns on desktop and grouped mobile disclosures before the header becomes cramped. Preserve keyboard, Escape and outside-dismiss behavior. The shared footer BA Medicale group keeps About, Team, Traffic, Contact, and Privacy in that order.
+- Desktop and mobile primary navigation derive from the same grouped source: **Home**, **Education** (For Doctors, For Healthcare Professionals, For Public), **Knowledge** (Library, Videos, eBooks, Resources), **Learning** (Courses & Seminars), **About** (BA Medicale, Team, Traffic, Contact Us). Keep Search visible and Member Login compact; use accessible dropdowns on desktop and grouped mobile disclosures before the header becomes cramped. Preserve keyboard, Escape and outside-dismiss behavior. The shared footer BA Medicale group keeps About, Team, Traffic, Contact, and Privacy in that order.
 - PUBLIC, DOCTOR, and HEALTHCARE WORKER each require a dedicated audience destination. Healthcare Worker discovery reuses shared taxonomy and content records, shows only its primary-audience content, and accepts an intentional empty state; future HEALTHCARE WORKER content becomes discoverable there automatically.
 
 ## BA MEDICALE POSITIONING / ONCOLOGY FLAGSHIP PROVEN PATTERN

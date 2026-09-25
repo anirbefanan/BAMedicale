@@ -1871,6 +1871,12 @@ body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand
 .video-coverflow__media:focus-visible,.video-coverflow__nav:focus-visible,.video-coverflow__indicators button:focus-visible{outline:3px solid var(--brand-primary);outline-offset:3px}
 .video-coverflow--article{--coverflow-card-width:clamp(390px,38vw,560px);--coverflow-card-height:clamp(219px,21.375vw,315px);--coverflow-step:clamp(278px,28vw,405px)}
 .video-coverflow--ebook{--coverflow-card-width:clamp(246px,21vw,306px);--coverflow-card-height:clamp(328px,28vw,408px);--coverflow-step:clamp(205px,19vw,276px)}
+.video-coverflow--library{--coverflow-card-height:clamp(320px,28vw,370px)}
+.video-coverflow--library .video-coverflow__card[data-coverflow-family="ebook"]{width:min(var(--coverflow-card-width),calc(var(--coverflow-card-height) * .75))}
+.video-coverflow--library .video-coverflow__card:is([data-coverflow-family="article"],[data-coverflow-family="video"],[data-coverflow-family="presentation"]){height:min(var(--coverflow-card-height),calc(var(--coverflow-card-width) * .5625))}
+.video-coverflow--library .video-coverflow__card:is([data-coverflow-family="ebook"],[data-coverflow-family="article"],[data-coverflow-family="presentation"],[data-coverflow-family="seminar"]) .video-coverflow__media img{object-fit:contain}
+.video-coverflow--library .video-coverflow__card[data-coverflow-family="ebook"] .video-coverflow__copy{padding:62px 16px 16px}
+.video-coverflow--library .video-coverflow__card[data-coverflow-family="ebook"] .video-coverflow__copy h3{font-size:1.02rem}
 .video-coverflow--article .video-coverflow__copy{padding-top:52px}
 .video-coverflow--ebook .video-coverflow__media img{object-fit:cover;object-position:center top}
 .video-coverflow--ebook .video-coverflow__copy{padding:76px 18px 17px}
@@ -1922,6 +1928,7 @@ body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand
   .video-coverflow{--coverflow-card-width:clamp(326px,45vw,410px);--coverflow-card-height:clamp(316px,43vw,376px);--coverflow-step:clamp(230px,32vw,306px)}
   .video-coverflow--article{--coverflow-card-width:clamp(340px,55vw,480px);--coverflow-card-height:clamp(191px,30.94vw,270px);--coverflow-step:clamp(245px,40vw,350px)}
   .video-coverflow--ebook{--coverflow-card-width:clamp(238px,31vw,286px);--coverflow-card-height:clamp(317px,41.33vw,381px);--coverflow-step:clamp(198px,26vw,250px)}
+  .video-coverflow--library{--coverflow-card-height:clamp(290px,38vw,350px)}
   .video-coverflow__stage{height:calc(var(--coverflow-card-height) + 64px);perspective:1300px}
   .video-coverflow__card[data-coverflow-position="-1"]{--coverflow-rotate:21deg}.video-coverflow__card[data-coverflow-position="1"]{--coverflow-rotate:-21deg}
 }
@@ -1929,6 +1936,9 @@ body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand
   .video-coverflow{--coverflow-card-width:min(73vw,298px);--coverflow-card-height:min(78vw,316px);--coverflow-step:min(50vw,195px)}
   .video-coverflow--article{--coverflow-card-width:min(78vw,318px);--coverflow-card-height:min(43.875vw,179px);--coverflow-step:min(54vw,214px)}
   .video-coverflow--ebook{--coverflow-card-width:min(62vw,254px);--coverflow-card-height:min(82.67vw,339px);--coverflow-step:min(48vw,190px)}
+  .video-coverflow--library{--coverflow-card-height:min(73vw,292px)}
+  .video-coverflow--library .video-coverflow__card[data-coverflow-family="ebook"] .video-coverflow__copy{padding:58px 12px 13px}
+  .video-coverflow--library .video-coverflow__card[data-coverflow-family="ebook"] .video-coverflow__copy h3{font-size:.87rem}
   .video-coverflow__stage{height:calc(var(--coverflow-card-height) + 58px);margin-inline:-18px;perspective:980px}
   .video-coverflow__stage::before{inset:8px 0 4px}.video-coverflow__stage::after{bottom:12px;width:82vw}
   .video-coverflow__card{border-radius:18px}

@@ -10,6 +10,8 @@ test('shared discovery cards use locked hierarchy and contextual actions', () =>
   assert.match(app, /const discoveryCard =/);
   for (const label of ['Read Article', 'Open eBook', 'View Seminar', 'Watch Video', 'Full Read']) assert.match(app, new RegExp(label));
   assert.match(app, /data-library-latest/);
+  assert.equal(fs.existsSync('articles.html'), false);
+  assert.doesNotMatch(app, /Library & Articles|Latest Articles|All Articles/);
   assert.match(app, /slice\(0, 6\)/);
   assert.match(app, /Math\.ceil\(matchingRecords\.length \/ 18\)/);
 });
@@ -76,10 +78,10 @@ test('video discovery keeps originals and attributed external sources distinct',
   assert.match(app, /requestedRecord\(requestedVideo\)/);
 });
 
-test('Latest Videos, Articles and eBooks use one native accessible coverflow without changing canonical records', () => {
+test('Latest Videos, mixed Library updates and eBooks use one native accessible coverflow without changing canonical records', () => {
   assert.match(app, /function initLatestCoverflow\(root\)/);
   assert.match(app, /latestCoverflowMarkup\(latest, "video", "Videos"\)/);
-  assert.match(app, /latestCoverflowMarkup\(latestArticles, "article", "Articles"\)/);
+  assert.match(app, /latestCoverflowMarkup\(matchingRecords\.slice\(0, 6\), "library", "Library updates"\)/);
   assert.match(app, /latestCoverflowMarkup\(matching\.slice\(0, 6\), "ebook", "eBooks"\)/);
   assert.match(app, /data-latest-coverflow-nav="previous"/);
   assert.match(app, /event\.key === "ArrowLeft"/);
