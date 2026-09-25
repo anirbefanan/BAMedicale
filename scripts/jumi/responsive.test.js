@@ -9,14 +9,14 @@ test('Apps Script registers the real mobile viewport after authorization',()=>{
   assert.deepEqual(calls[2],['viewport','width=device-width, initial-scale=1']);
   calls.length=0;context.jumiAuthorize_=()=>{throw Error('denied')};assert.equal(context.doGet(),'denied');assert.equal(calls.length,0);
 });
-test('publishing bars encode counts on one shared zero-based scale',()=>{
-  const source=client.slice(client.indexOf('  function publishingTrend('),client.indexOf('  function dashboardBase('));
-  const context={esc:String,fmt:String,empty:String};vm.createContext(context);vm.runInContext(source,context);
-  const html=context.publishingTrend([{period:'2026-08',Article:2,eBook:1,Seminar:1},{period:'2026-09',Article:0,eBook:0,Seminar:0}]);
-  assert.match(html,/width:50%/);assert.equal((html.match(/width:25%/g)||[]).length,2);assert.equal((html.match(/width:0%/g)||[]).length,5);
-  assert.match(html,/Article: 2 · eBook: 1 · Seminar: 1/);assert.match(html,/shared scale 0–4/);
-});
-test('negative operational statuses cannot appear healthy',()=>{
+test('period trend and mix remain accessible and share a zero-based scale',()=>{
+  const source=client.slice(client.indexOf('  function distribution('),client.indexOf('  function dashboardBase('));
+  const context={esc:String,fmt:String};vm.createContext(context);vm.runInContext(source,context);
+  const bars=context.distribution([{label:'Article',count:2},{label:'eBook',count:1},{label:'Video',count:0}]);
+  assert.match(bars,/width:100%/);assert.match(bars,/width:50%/);assert.match(bars,/width:0%/);
+  const trend=context.trendPlot({rows:[{period:'2026-08',count:2},{period:'2026-09',count:0}]});
+  assert.match(trend,/role="img"/);assert.match(trend,/Publishing trend/);assert.match(trend,/View period values/);
+});test('negative operational statuses cannot appear healthy',()=>{
   const source=client.match(/const statusClass=[^\r\n]+/)[0],context={};vm.createContext(context);vm.runInContext(source+'this.classify=statusClass',context);
   for(const state of ['Not Connected','Not Eligible','Not Sent','Attention needed'])assert.equal(context.classify(state),'wait');
   assert.equal(context.classify('Not Attended'),'bad');assert.equal(context.classify('Connected'),'good');

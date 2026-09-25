@@ -11,7 +11,16 @@
       "publicUrl": "https://bamedicale.com/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
       "eventId": "management-thyroid-nodules-2026",
       "speakerId": "dr-dr-bob-andinata-sp-b-subsp-onk-k",
-      "speakerName": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"
+      "speakerName": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [],
+      "primaryTopic": "Diagnosis",
+      "topics": [
+        "Diagnosis",
+        "Treatment Planning"
+      ],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
     },
     {
       "id": "ultrasound-imaging-and-tirads-classification-in-thyroid-nodules",
@@ -23,7 +32,16 @@
       "publicUrl": "https://bamedicale.com/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
       "eventId": "management-thyroid-nodules-2026",
       "speakerId": "dr-achmad-fachri-sp-rad-k",
-      "speakerName": "dr. Achmad Fachri, Sp.Rad(K)"
+      "speakerName": "dr. Achmad Fachri, Sp.Rad(K)",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [],
+      "primaryTopic": "Diagnosis",
+      "topics": [
+        "Diagnosis",
+        "Thyroid nodules"
+      ],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
     },
     {
       "id": "bethesda-system-for-reporting-thyroid-cytopathology",
@@ -35,7 +53,16 @@
       "publicUrl": "https://bamedicale.com/presentations/bethesda-system-for-reporting-thyroid-cytopathology.html",
       "eventId": "management-thyroid-nodules-2026",
       "speakerId": "dr-vinesia-lestari-riddi-sppa-mph",
-      "speakerName": "Dr. Vinesia Lestari Riddi, SpPA, MPH"
+      "speakerName": "Dr. Vinesia Lestari Riddi, SpPA, MPH",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [],
+      "primaryTopic": "Diagnosis",
+      "topics": [
+        "Diagnosis",
+        "Thyroid nodules"
+      ],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
     },
     {
       "id": "ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
@@ -44,7 +71,16 @@
       "slug": "ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
       "status": "Published",
       "publishedAt": "2026-09-25",
-      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026"
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [],
+      "primaryTopic": "Thyroid nodule diagnosis and management",
+      "topics": [
+        "Diagnosis",
+        "Treatment Planning"
+      ],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
     },
     {
       "id": "ba-medicale-clinical-learning-preview",
@@ -53,7 +89,15 @@
       "slug": "ba-medicale-clinical-learning-preview",
       "status": "Published",
       "publishedAt": "2026-08-24",
-      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-clinical-learning-preview"
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-clinical-learning-preview",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryTopic": "Clinical education",
+      "topics": [
+        "Clinical Education"
+      ],
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "updatedAt": ""
     },
     {
       "id": "ba-medicale-original-initial-scene",
@@ -62,7 +106,15 @@
       "slug": "ba-medicale-original-initial-scene",
       "status": "Published",
       "publishedAt": "2026-08-24",
-      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-original-initial-scene"
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-original-initial-scene",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryTopic": "Platform introduction",
+      "topics": [
+        "Tumor & Cancer Basics"
+      ],
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "updatedAt": ""
     },
     {
       "id": "ba-medicale-medical-office-learning-brief",
@@ -71,7 +123,15 @@
       "slug": "ba-medicale-medical-office-learning-brief",
       "status": "Published",
       "publishedAt": "2026-08-24",
-      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-medical-office-learning-brief"
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-medical-office-learning-brief",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryTopic": "Clinical education",
+      "topics": [
+        "Clinical Education"
+      ],
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "updatedAt": ""
     },
     {
       "id": "ba-medicale-neoplasia-definition-early-detection",
@@ -80,7 +140,16 @@
       "slug": "ba-medicale-neoplasia-definition-early-detection",
       "status": "Published",
       "publishedAt": "2026-08-24",
-      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-neoplasia-definition-early-detection"
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-neoplasia-definition-early-detection",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryTopic": "Neoplasia basics",
+      "topics": [
+        "Early Detection",
+        "Tumor & Cancer Basics"
+      ],
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "updatedAt": ""
     },
     {
       "id": "ba-medicale-medical-office-platform-brief",
@@ -89,7 +158,15 @@
       "slug": "ba-medicale-medical-office-platform-brief",
       "status": "Published",
       "publishedAt": "2026-08-24",
-      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-medical-office-platform-brief"
+      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-medical-office-platform-brief",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryTopic": "Platform introduction",
+      "topics": [
+        "Tumor & Cancer Basics"
+      ],
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "updatedAt": ""
     },
     {
       "id": "indonesia-cancer-statistics-2026",
@@ -98,7 +175,16 @@
       "slug": "indonesia-cancer-tumor-statistics-2026-policy-update",
       "status": "Published",
       "publishedAt": "2026-08-24",
-      "publicUrl": "https://bamedicale.com/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html"
+      "publicUrl": "https://bamedicale.com/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [
+        "DOCTOR",
+        "HEALTHCARE WORKER"
+      ],
+      "primaryTopic": "Epidemiology & Statistics",
+      "topics": [],
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "updatedAt": ""
     },
     {
       "id": "nutri-level-metabolic-disease-prevention",
@@ -107,7 +193,13 @@
       "slug": "front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention",
       "status": "Published",
       "publishedAt": "2026-09-25",
-      "publicUrl": "https://bamedicale.com/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html"
+      "publicUrl": "https://bamedicale.com/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryTopic": "Food labeling and metabolic disease prevention",
+      "topics": [],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
     },
     {
       "id": "tumor-vs-cancer-guide",
@@ -116,7 +208,16 @@
       "slug": "tumor-vs-cancer-understanding-the-difference",
       "status": "Published",
       "publishedAt": "2026-08-25",
-      "publicUrl": "https://bamedicale.com/articles/tumor-vs-cancer-understanding-the-difference.html"
+      "publicUrl": "https://bamedicale.com/articles/tumor-vs-cancer-understanding-the-difference.html",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [
+        "DOCTOR",
+        "HEALTHCARE WORKER"
+      ],
+      "primaryTopic": "Tumor & Cancer Basics",
+      "topics": [],
+      "primaryDiseaseGroup": "cancer-neoplastic",
+      "updatedAt": ""
     },
     {
       "id": "parotid-gland-metastasis-from-breast-cancer",
@@ -125,7 +226,15 @@
       "slug": "parotid-gland-metastasis-from-breast-cancer",
       "status": "Published",
       "publishedAt": "2026-09-01",
-      "publicUrl": "https://bamedicale.com/articles/parotid-gland-metastasis-from-breast-cancer.html"
+      "publicUrl": "https://bamedicale.com/articles/parotid-gland-metastasis-from-breast-cancer.html",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [
+        "HEALTHCARE WORKER"
+      ],
+      "primaryTopic": "Diagnostic advances",
+      "topics": [],
+      "primaryDiseaseGroup": "breast",
+      "updatedAt": ""
     },
     {
       "id": "ebook-advanced-diagnostics-and-management-of-thyroid-nodules",
@@ -134,7 +243,16 @@
       "slug": "advanced-diagnostics-and-management-of-thyroid-nodules",
       "status": "Published",
       "publishedAt": "2026-09-19",
-      "publicUrl": "https://bamedicale.com/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html"
+      "publicUrl": "https://bamedicale.com/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [],
+      "primaryTopic": "",
+      "topics": [
+        "Diagnosis",
+        "Treatment Planning"
+      ],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
     },
     {
       "id": "content_2e4b0308648641e4b4213ad29685a5a9",
@@ -143,7 +261,16 @@
       "slug": "the-silent-elevation-understanding-high-blood-pressure",
       "status": "Published",
       "publishedAt": "2026-09-22",
-      "publicUrl": "https://bamedicale.com/ebooks/the-silent-elevation-understanding-high-blood-pressure.html"
+      "publicUrl": "https://bamedicale.com/ebooks/the-silent-elevation-understanding-high-blood-pressure.html",
+      "primaryAudience": "PUBLIC",
+      "secondaryAudiences": [],
+      "primaryTopic": "",
+      "topics": [
+        "Hypertension",
+        "Blood Pressure"
+      ],
+      "primaryDiseaseGroup": "cardiovascular",
+      "updatedAt": ""
     },
     {
       "id": "content_f28370b4752128e2bbdf06433537f941",
@@ -152,7 +279,20 @@
       "slug": "feline-fungal-zoonoses-cat-transmitted-sporotrichosis",
       "status": "Published",
       "publishedAt": "2026-09-23",
-      "publicUrl": "https://bamedicale.com/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html"
+      "publicUrl": "https://bamedicale.com/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [
+        "HEALTHCARE WORKER",
+        "PUBLIC"
+      ],
+      "primaryTopic": "",
+      "topics": [
+        "Feline Sporotrichosis",
+        "Fungal Zoonoses",
+        "One Health"
+      ],
+      "primaryDiseaseGroup": "infectious",
+      "updatedAt": ""
     },
     {
       "id": "management-thyroid-nodules-2026",
@@ -160,9 +300,20 @@
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
       "slug": "management-thyroid-nodules-2026",
       "status": "Published",
-      "publishedAt": "Saturday, 19 September 2026",
+      "publishedAt": "2026-08-22",
       "startAt": "Saturday, 19 September 2026",
-      "publicUrl": "https://bamedicale.com/events/management-thyroid-nodules-2026.html"
+      "publicUrl": "https://bamedicale.com/events/management-thyroid-nodules-2026.html",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [],
+      "primaryTopic": "",
+      "topics": [
+        "Diagnosis",
+        "Imaging",
+        "Pathology",
+        "Treatment Planning"
+      ],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
     }
   ]
 }

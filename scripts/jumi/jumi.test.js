@@ -113,7 +113,7 @@ test("JUMI Content OS adds type-specific publishing without replacing seminar CR
   assert.doesNotMatch(client,/github_pat_|ghp_|AIza|BEGIN PRIVATE KEY/);
   assert.doesNotMatch(backend,/github_pat_|ghp_|BEGIN PRIVATE KEY/);
   assert.doesNotMatch(client,/JUMI_GITHUB_TOKEN|api\.github\.com/);
-  for(const label of ["Publishing Growth","Content Calendar","Recent Publishing Activity","Quick Insights","Seminar Operations","Content Health","System Health"])assert.match(client,new RegExp(label));
+  for(const label of ["Publishing Trend","Content Mix","Audience Coverage","Content Inventory","Coverage Gaps","Content Calendar","Recent Publishing Activity","Seminar Operations","Content Health","System Health"])assert.match(client,new RegExp(label));
   for(const tab of ["Seminars","Articles","eBooks","Event Details","Event Tools"])assert.match(client,new RegExp(tab));
   assert.doesNotMatch(client,/\bDoD\b|day-over-day/i);
   assert.match(backend,/jumiTrafficSnapshot_/);
