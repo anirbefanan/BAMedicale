@@ -181,6 +181,149 @@ window.BAMEDICALE_DATA = {
         hashtags: ["#IndonesiaCancer", "#CancerStatistics", "#BAMedicaleCom"]
       }
     },
+    "nutri-level-metabolic-disease-prevention": {
+      id: "nutri-level-metabolic-disease-prevention",
+      slug: "front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention",
+      title: "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+      seoTitle: "Nutri-Level Food Labels and Metabolic Disease Prevention | BA Medicale",
+      dek: "A patient guide to comparing packaged foods by front-of-pack grades while keeping sugar, sodium, fats, portions, and overall eating habits in view.",
+      excerpt: "How a simple front-of-pack grade can help compare packaged foods—and why ingredients, portions, daily habits, and medical follow-up still matter.",
+      primaryAudience: "PUBLIC",
+      secondaryAudiences: [],
+      author: { name: "BA Medicale", type: "Organization" },
+      primaryTopic: "Food labeling and metabolic disease prevention",
+      tags: ["Front-of-pack labeling", "Nutrition", "Type 2 diabetes", "Hypertension"],
+      primaryDiseaseGroup: "endocrine-metabolic",
+      secondaryDiseaseGroups: ["cardiovascular", "nutritional", "preventive-public-health"],
+      diseaseCondition: "Type 2 diabetes and primary hypertension",
+      contentType: "Article",
+      sourceAttribution: "BA Medicale patient guide; WHO, PAHO/WHO, and FDA references listed in the source PDF",
+      publishedDate: "2026-09-25",
+      updatedDate: "",
+      sortOrder: 0,
+      focalPosition: "50% 50%",
+      sourcePdf: "assets/articles/nutri-level-metabolic-disease-prevention-source.pdf",
+      cover: "assets/articles/nutri-level-metabolic-disease-prevention-cover.jpg",
+      label: "Patient guide",
+      intro: [
+        "A front-of-pack ‘Nutri-Level’ grade is presented in this guide as a quick way to compare packaged foods and drinks. The illustrated A–E scale draws attention to nutrients of concern, particularly free sugars, sodium, and unhealthy fats. It is a comparison aid, not a diagnosis or a guarantee that a food is healthy. [1][2][8]",
+        "Packaged foods and sweetened drinks can contribute to excess intake of these nutrients. Over time, diet is one part of the risk picture for type 2 diabetes, high blood pressure, cardiovascular disease, and other conditions. Labels are most useful alongside a balanced eating pattern, appropriate portions, regular activity, and medical care when needed. [1][2][4]"
+      ],
+      sections: [
+        {
+          title: "The big picture: what the label means",
+          body: [
+            "A front-of-pack label simplifies information that otherwise takes longer to find in the full nutrition panel. In the guide’s illustrative Nutri-Level system, grades A and B generally indicate lower amounts of nutrients of concern, while grades D and E prompt a closer look. Compare products within the same category rather than treating a grade as a complete judgment of a meal or diet. [2][8]",
+            "Type 2 diabetes is a chronic condition in which the body becomes resistant to insulin or does not use it effectively, allowing blood sugar to rise. Primary hypertension is persistently high blood pressure that develops over time, often without one identifiable cause. Both may develop gradually; everyday habits, including diet, influence risk. [6][7]"
+          ],
+          bullets: [
+            "A better grade does not mean unlimited portions. Serving size and how often a food is eaten still matter. [1][10]",
+            "A product that looks healthy can still contain substantial sugar or sodium. Read the ingredient list and nutrition information when deciding what to buy. [2][8]",
+            "A front-of-pack label supports informed choices; it does not replace individual medical advice or treatment. [2][8]"
+          ]
+        },
+        {
+          title: "Signs that deserve attention",
+          body: [
+            "Type 2 diabetes can cause increased thirst, frequent urination, unusual fatigue, blurred vision, slower wound healing, or numbness and tingling in the hands or feet. These signs can be subtle and have other causes; discuss recurring symptoms with a healthcare professional. [6]",
+            "High blood pressure often causes no symptoms, so measurement matters even when someone feels well. A severe rise in blood pressure may be accompanied by headache, chest pain, shortness of breath, dizziness, or vision changes. Severe symptoms need urgent medical attention. [7]"
+          ]
+        },
+        {
+          title: "Hidden nutrients and everyday risk",
+          body: [
+            "Foods and drinks that are convenient or appealing can contain more free sugars, sodium, or unhealthy fats than expected. Frequent excess intake can add up over time. Too much free sugar can contribute to unhealthy weight gain and metabolic risk; high sodium intake can raise blood pressure; and industrial trans fats increase cardiovascular risk. [1][3][4][5][6][7]",
+            "The guide pairs these nutrients with official intake benchmarks. They describe overall intake, not a target for any single packaged food. [3][4][5]"
+          ],
+          compare: [
+            ["Nutrient", "Why it matters", "Official benchmark"],
+            ["Free sugars", "Excess intake can contribute to unhealthy weight gain and metabolic risk.", "WHO recommends less than 10% of total energy from free sugars; below 5% brings additional benefits. [3]"],
+            ["Sodium", "High intake increases blood-pressure risk.", "WHO recommends less than 2 g sodium per day, equivalent to less than 5 g salt. [4]"],
+            ["Trans fat", "Intake increases cardiovascular risk and should be minimized.", "WHO recommends less than 1% of total energy from trans fat and elimination of industrial trans fats. [5]"]
+          ]
+        },
+        {
+          title: "How to use a front-of-pack grade",
+          body: [
+            "A simple A–E visual scale can help people compare options quickly. In the source guide, A and B generally signal lower amounts of sugars, sodium, and unhealthy fats; D and E signal higher amounts. The illustrated grades are examples for learning how to compare foods, not a substitute for the full nutrition facts. [2][8]"
+          ],
+          bullets: [
+            "Compare similar products: yogurt with yogurt, or cereal with cereal, rather than unrelated foods. [2]",
+            "Prefer the better grade more often when choosing packaged foods, while considering the whole meal. [2][8]",
+            "Check serving size, ingredients, and the nutrition panel to understand what the grade cannot show. [1][10]"
+          ]
+        },
+        {
+          title: "Red flags and real-life shopping",
+          body: [
+            "Slow down when a product has a poorer grade or clear warnings for sugar, sodium, or unhealthy fats. Sweetened drinks, salty snacks, instant meals, desserts, and highly processed packaged foods often warrant a second look. People living with diabetes, high blood pressure, kidney disease, obesity, or strong family risk should discuss diet choices with a healthcare professional. [1][2][4][5][6][7][8]",
+            "The guide’s shopping table uses illustrative examples: bottled iced tea with grade D has high sugar but low sodium and is better treated as an occasional choice; a plain yogurt drink with grade B has low or moderate sugar and low sodium and may be a better frequent choice; an instant noodle cup with grade E has low sugar but high sodium and calls for careful comparison and limited frequency. The examples show why one nutrient or one grade never tells the whole story. [2][8]"
+          ],
+          bullets: [
+            "Compare similar products, not completely different foods. [2]",
+            "Choose a better grade more often, especially for foods eaten regularly. [2][8]",
+            "Check portion size, ingredients, and how often you eat the product. [1][10]",
+            "Build most meals around minimally processed foods; use labels to make smarter packaged-food choices. [1]"
+          ],
+          subsections: [
+            {
+              title: "A label is a guide, not a health guarantee",
+              body: [
+                "The full nutrition facts, ingredients, and overall eating pattern still matter. A useful label supports better choices, but long-term prevention also depends on movement, sleep, and medical follow-up when needed. [1][6][7][10]"
+              ]
+            }
+          ]
+        },
+        {
+          title: "Prevention in practice",
+          body: [
+            "Front-of-pack labels work best as one part of a wider prevention approach: clearer food information, healthier shopping and meals, an active lifestyle, and clinical follow-up when appropriate. [1][2][6][7]"
+          ],
+          subsections: [
+            {
+              title: "Medical care when needed",
+              body: [
+                "People at risk of, or already diagnosed with, high blood pressure may need blood-pressure checks and follow-up. Blood glucose or HbA1c testing may be appropriate when clinically indicated. Individual counselling can address diet, weight, and cardiovascular risk. Prescribed medicines and ongoing follow-up remain part of care for people who need them. [1][6][7]"
+              ]
+            },
+            {
+              title: "Everyday actions",
+              body: [
+                "Choose better grades more often when buying packaged foods; cut back on sugary drinks and foods high in sodium or unhealthy fats; and build meals around vegetables, fruit, legumes, whole grains, and other minimally processed foods. Stay physically active, maintain a healthy body weight, do not smoke, and follow professional advice about alcohol and sleep. If you already live with diabetes or hypertension, follow your treatment plan and attend routine check-ups. [1][2][3][4][5][6][7][8]"
+              ]
+            }
+          ]
+        }
+      ],
+      takeaways: [
+        "Better food information can support better choices, but a front-of-pack grade is only a quick guide. [1][2]",
+        "Free sugars, sodium, and trans fats matter because excess intake can influence long-term metabolic and cardiovascular risk. [3][4][5]",
+        "Compare similar products and check portions, ingredients, and the full nutrition panel. [2][8][10]",
+        "Prevention works best when labels, daily habits, and appropriate medical care work together. [1][6][7]"
+      ],
+      referencesOrdered: true,
+      references: [
+        "World Health Organization. Healthy diet. WHO. Updated 26 Jan 2026.",
+        "World Health Organization. Nutrition labelling. WHO Food Systems for Health. Accessed Sep 2026.",
+        "World Health Organization. Guideline: Sugars intake for adults and children. WHO. 2015.",
+        "World Health Organization. Sodium reduction. WHO. Updated 11 May 2026.",
+        "World Health Organization. Trans fat. WHO. Updated 24 Jan 2024.",
+        "World Health Organization. Diabetes. WHO Fact Sheet. Updated 14 Nov 2024.",
+        "World Health Organization. Hypertension. WHO Fact Sheet. Updated 25 Sep 2025.",
+        "Pan American Health Organization / World Health Organization. Front-of-package labelling. PAHO/WHO. Accessed Sep 2026.",
+        "World Health Organization. Nutrition labelling: policy brief. WHO. 7 Jun 2022.",
+        "U.S. Food and Drug Administration. How to Understand and Use the Nutrition Facts Label. FDA. Updated 5 Mar 2024."
+      ],
+      promotion: {
+        hook: "What can a front-of-pack grade tell you—and what can it miss?",
+        teaser: [
+          "Compare packaged foods more quickly while keeping sugar, sodium, fats, and portion size in view.",
+          "See how everyday shopping choices fit into a broader plan for metabolic health."
+        ],
+        cta: "Read the full guide at BAMedicale.com",
+        hashtags: ["#FoodLabels", "#MetabolicHealth", "#BAMedicaleCom"]
+      }
+    },
     "tumor-vs-cancer-guide": {
       id: "tumor-vs-cancer-guide",
       slug: "tumor-vs-cancer-understanding-the-difference",
