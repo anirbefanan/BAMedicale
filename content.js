@@ -444,7 +444,7 @@ window.BAMEDICALE_DATA = {
       dek: "A published case report describing parotid gland metastasis from breast cancer, including diagnostic evaluation, local control, and systemic treatment planning.",
       excerpt: "A published case report of parotid gland metastasis from breast cancer, with imaging, cytology, surgery, pathology, radiotherapy, and systemic treatment considerations.",
       primaryAudience: "DOCTOR",
-      secondaryAudiences: ["HEALTHCARE WORKER"],
+      secondaryAudiences: [],
       authors: [
         { name: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)", type: "Person" },
         { name: "Dewi Iriani", type: "Person" },
