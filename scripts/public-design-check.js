@@ -77,7 +77,7 @@ const fullPageRoutes=new Set(['/','/clinical.html','/public.html','/healthcare-w
    const articleRoute='/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html',articleId='nutri-level-metabolic-disease-prevention';
    await page.goto(origin+articleRoute);assert.match(await page.locator('h1').innerText(),/Nutri.Level/);assert.equal(await page.locator('.seo-article-references ol li').count(),10);assert.equal(await page.locator('a[href="../assets/articles/nutri-level-metabolic-disease-prevention-source.pdf"]').count(),1);assert(await page.locator('img[src="../assets/articles/nutri-level-metabolic-disease-prevention-cover.jpg"]').isVisible());
    await page.goto(origin+'/library.html');assert.equal(await page.locator('[data-library-latest] [data-content-id="'+articleId+'"]').count(),1);assert.equal(await page.locator('[data-library-all] [data-content-id="'+articleId+'"]').count(),1);
-   await page.goto(origin+'/public.html');assert(await page.locator('[data-public-publications] a[href="'+articleRoute.slice(1)+'"]').count()>0);
+   await page.goto(origin+'/public.html');assert(await page.locator('[data-education-articles] a[href="'+articleRoute.slice(1)+'"]').count()>0);
    await page.goto(origin+'/search.html');await page.locator('[data-search-input]').fill('Nutri-Level');assert(await page.locator('[data-search-results] a[href="'+articleRoute.slice(1)+'"]').count()>0);
  }
  assert.deepEqual(errors,[],'Public interaction/runtime errors');
@@ -88,7 +88,7 @@ const fullPageRoutes=new Set(['/','/clinical.html','/public.html','/healthcare-w
    assert.deepEqual(await cards.evaluateAll(nodes=>nodes.map(node=>node.dataset.contentId)),expected.map(record=>record.id));
    assert.equal(await page.locator('.audience-article--feature').count(),expected.length?1:0);
    if(expected.length){assert.equal(await cards.first().locator('h3 a').getAttribute('href'),expected[0].route);assert.equal(await cards.locator('img').evaluateAll(images=>images.filter(image=>!image.complete||image.naturalWidth===0).length),0);}
-   assert.equal(await page.locator('.audience-articles__grid .audience-article').count(),Math.max(0,expected.length-1));
+   assert.equal(await page.locator('.education-supporting__grid .audience-article').count(),expected.length===2?1:Math.min(2,Math.max(0,expected.length-2)));assert.equal(await page.locator('.audience-articles__grid .audience-article').count(),expected.length===2?0:Math.max(0,expected.length-1-Math.min(2,Math.max(0,expected.length-2))));
  }
  console.log(`Public interactions, ${total}-record preservation, separated Video sources, all published eBook reading modes and observer-free reduced motion passed.`);
  }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));}

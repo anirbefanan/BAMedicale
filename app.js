@@ -531,28 +531,28 @@ function renderAudienceArticleDiscovery(target, audience) {
         <div class="audience-article__footer">${date}<a href="${escapeHtml(record.route)}" aria-label="Read ${escapeHtml(record.title)}">Read Article <span aria-hidden="true">→</span></a></div>
       </div></article>`;
   };
+  const supportingCount = records.length === 2 ? 1 : Math.min(2, Math.max(0, records.length - 2));
+  const supporting = records.slice(1, 1 + supportingCount);
+  const previous = records.slice(1 + supportingCount);
   target.classList.add("audience-articles");
-  target.innerHTML = records.length ? `<div class="audience-articles__heading"><p class="eyebrow">For ${escapeHtml(label)}</p><h2>Latest Article</h2></div>${articleCard(records[0], true)}${records.length > 1 ? `<div class="audience-articles__heading audience-articles__heading--archive"><p class="eyebrow">More to read</p><h2>Previous Articles</h2></div><div class="audience-articles__grid">${records.slice(1).map((record) => articleCard(record)).join("")}</div>` : ""}` : `<div class="audience-articles__heading"><p class="eyebrow">For ${escapeHtml(label)}</p><h2>Articles</h2></div><p>Articles for ${escapeHtml(label)} will appear here when published.</p>`;
+  target.innerHTML = `<div class="audience-articles__heading"><p class="eyebrow">For ${escapeHtml(label)}</p><h2>Latest Article</h2></div>
+    <div class="education-lead">${records.length ? articleCard(records[0], true) : `<p class="education-empty">Articles for ${escapeHtml(label)} will appear here when published.</p>`}
+      <section class="education-supporting" aria-label="Supporting recent articles"><div class="audience-articles__heading"><h2>Supporting Recent Articles</h2></div>
+        <div class="education-supporting__grid">${supporting.length ? supporting.map((record) => articleCard(record)).join("") : '<p class="education-empty">More articles will appear here when published.</p>'}</div></section></div>
+    <div class="audience-articles__heading audience-articles__heading--archive"><p class="eyebrow">More to read</p><h2>Previous Articles</h2></div>
+    <div class="audience-articles__grid">${previous.length ? previous.map((record) => articleCard(record)).join("") : '<p class="education-empty">No earlier articles are available yet.</p>'}</div>`;
 }
 
-function renderHealthcareWorkerPage() {
-  const categoriesTarget = document.querySelector("[data-healthcare-categories]");
-  const chipsTarget = document.querySelector("[data-healthcare-category-chips]");
-  const target = document.querySelector("[data-healthcare-worker-content]");
-  const categories = healthcareContentCategories();
-  if (chipsTarget) chipsTarget.innerHTML = categories.map((category) => {
-    const records = healthcareContentForCategory(category.id);
-    const href = records.length ? contentRegistry.destination(records, { audience: "HEALTHCARE WORKER", category: category.id }) : `#${category.anchor}`;
-    return `<a class="${records.length ? "is-available" : ""}" href="${escapeHtml(href)}">${escapeHtml(category.label)}</a>`;
-  }).join("");
-  renderAudienceCategories(categoriesTarget, categories, (category) => {
-    const records = healthcareContentForCategory(category.id);
-    return audienceCategoryCard(category, records, {
-      href: records.length ? contentRegistry.destination(records, { audience: "HEALTHCARE WORKER", category: category.id }) : "",
-      id: category.anchor, emptyLabel: category.emptyLabel
-    });
-  });
-  renderAudienceArticleDiscovery(target, "HEALTHCARE WORKER");
+function renderEducationAudiencePage() {
+  const target = document.querySelector("[data-education-articles]");
+  if (!target) return;
+  const audience = target.dataset.educationArticles;
+  renderAudienceArticleDiscovery(target, audience);
+  const continueTarget = document.querySelector("[data-education-continue]");
+  if (!continueTarget) return;
+  const related = contentRegistry.query({ audience }).filter((record) => record.family !== "article").slice(0, 3);
+  continueTarget.innerHTML = `<div class="audience-articles__heading"><p class="eyebrow">Beyond Articles</p><h2>Continue Exploring</h2></div>${related.length ? `<div class="discovery-grid">${related.map((record) => discoveryCard(record, { showSummary: false })).join("")}</div>` : '<p class="education-empty">More formats will appear here when published.</p>'}`;
+  initDiscoveryImageFallbacks(continueTarget);
 }
 
 function renderHome() {
@@ -601,46 +601,6 @@ function renderHome() {
 }
 
 const comingSoonCard = (title, description, context = "medical-learning") => `<article class="discovery-card discovery-card--coming-soon" data-artwork-context="${escapeHtml(context)}"><div class="discovery-artwork" data-artwork-context="${escapeHtml(context)}" role="img" aria-label="BA Medicale ${escapeHtml(title)} editorial artwork"><span class="discovery-artwork__grid" aria-hidden="true"></span><span class="discovery-artwork__orbit" aria-hidden="true"></span><span class="discovery-artwork__symbol" aria-hidden="true">${diseaseIcon(context === "healthcare-worker" ? "aid" : "dna")}</span><span class="discovery-artwork__type">BA Medicale</span><span class="discovery-artwork__context">Editorial preparation</span></div><div class="discovery-card__body"><div class="discovery-card__labels"><span>Coming Soon</span><span>Verified release only</span></div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p></div></article>`;
-
-function renderDoctorClinicalPage() {
-  const categoriesTarget = document.querySelector("[data-doctor-categories]");
-  const chipsTarget = document.querySelector("[data-doctor-category-chips]");
-  const publicationsTarget = document.querySelector("[data-doctor-publications]");
-  const categories = doctorContentCategories();
-  if (chipsTarget) chipsTarget.innerHTML = categories.filter((category) => !category.independent).map((category) => {
-    const records = doctorContentForCategory(category.id);
-    const href = doctorContentDestination(records, { category: category.id });
-    return `<a class="${records.length ? "is-available" : ""}" href="${escapeHtml(href)}"${records.length ? ` aria-label="Open ${escapeHtml(category.label)} content"` : ""}>${escapeHtml(category.label)}</a>`;
-  }).join("");
-  renderAudienceCategories(categoriesTarget, categories, (category) => {
-    const records = doctorContentForCategory(category.id);
-    return audienceCategoryCard(category, records, {
-      href: records.length ? doctorContentDestination(records, { category: category.id }) : "",
-      id: category.id, emptyLabel: category.independent ? "Coming soon" : "Growing collection", showLatest: true
-    });
-  });
-  renderAudienceArticleDiscovery(publicationsTarget, "DOCTOR");
-}
-
-function renderPublicPage() {
-  const categoriesTarget = document.querySelector("[data-public-categories]");
-  const chipsTarget = document.querySelector("[data-public-category-chips]");
-  const publicationsTarget = document.querySelector("[data-public-publications]");
-  const categories = publicContentCategories();
-  if (chipsTarget) chipsTarget.innerHTML = categories.filter((category) => !category.independent).map((category) => {
-    const articles = publicContentForCategory(category.id);
-    const href = articles.length ? publicContentDestination(articles, { category: category.id }) : `#${category.anchor}`;
-    return `<a class="${articles.length ? "is-available" : ""}" href="${escapeHtml(href)}"${articles.length ? ` aria-label="Open ${escapeHtml(category.label)} articles"` : ""}>${escapeHtml(category.label)}</a>`;
-  }).join("");
-  renderAudienceCategories(categoriesTarget, categories, (category) => {
-    const articles = publicContentForCategory(category.id);
-    return audienceCategoryCard(category, articles, {
-      href: articles.length ? publicContentDestination(articles, { category: category.id }) : category.fallbackHref,
-      id: category.anchor, showLatest: true
-    });
-  });
-  renderAudienceArticleDiscovery(publicationsTarget, "PUBLIC");
-}
 
 function renderLibrary() {
   const target = document.querySelector("[data-article-library]");
@@ -1591,12 +1551,10 @@ async function bootstrap() {
   await loadContentRegistry();
   renderContentDiscovery();
   renderHome();
-  renderDoctorClinicalPage();
-  renderPublicPage();
+  renderEducationAudiencePage();
   renderLibrary();
   initArticleReader();
   bindEventQuickRead();
-  renderHealthcareWorkerPage();
   renderResources();
   initSearch();
   renderVideoHub();
