@@ -514,6 +514,27 @@ const renderAudienceCategories = (target, categories, render) => {
   });
 };
 
+
+function renderAudienceArticleDiscovery(target, audience) {
+  if (!target) return;
+  const records = contentRegistry.query({ audience, family: "article" });
+  const label = audienceLabel(audience);
+  const articleCard = (record, feature = false) => {
+    const topic = record.topics?.[0] || "Medical education";
+    const date = record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : "";
+    const media = record.cover ? `<img src="${escapeHtml(record.cover)}" alt="" loading="eager" decoding="async" width="1280" height="720">` : `<span class="audience-article__fallback" aria-hidden="true">BA Medicale · Article</span>`;
+    return `<article class="audience-article${feature ? " audience-article--feature" : ""}" data-content-id="${escapeHtml(record.id)}">
+      <a class="audience-article__media" href="${escapeHtml(record.route)}" aria-label="Read ${escapeHtml(record.title)}">${media}</a>
+      <div class="audience-article__content"><p class="audience-article__identity"><span>Article</span><span>${escapeHtml(topic)}</span></p>
+        <h3><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a></h3>
+        ${feature && record.summary ? `<p class="audience-article__summary">${escapeHtml(record.summary)}</p>` : ""}
+        <div class="audience-article__footer">${date}<a href="${escapeHtml(record.route)}" aria-label="Read ${escapeHtml(record.title)}">Read Article <span aria-hidden="true">→</span></a></div>
+      </div></article>`;
+  };
+  target.classList.add("audience-articles");
+  target.innerHTML = records.length ? `<div class="audience-articles__heading"><p class="eyebrow">For ${escapeHtml(label)}</p><h2>Latest Article</h2></div>${articleCard(records[0], true)}${records.length > 1 ? `<div class="audience-articles__heading audience-articles__heading--archive"><p class="eyebrow">More to read</p><h2>Previous Articles</h2></div><div class="audience-articles__grid">${records.slice(1).map((record) => articleCard(record)).join("")}</div>` : ""}` : `<div class="audience-articles__heading"><p class="eyebrow">For ${escapeHtml(label)}</p><h2>Articles</h2></div><p>Articles for ${escapeHtml(label)} will appear here when published.</p>`;
+}
+
 function renderHealthcareWorkerPage() {
   const categoriesTarget = document.querySelector("[data-healthcare-categories]");
   const chipsTarget = document.querySelector("[data-healthcare-category-chips]");
@@ -531,14 +552,7 @@ function renderHealthcareWorkerPage() {
       id: category.anchor, emptyLabel: category.emptyLabel
     });
   });
-  if (!target) return;
-  // The latest collection is a section wrapper, never a legacy card grid.
-  // Normalize stale markup defensively so its nested discovery grid keeps the
-  // full page width instead of becoming a grid item inside another grid.
-  target.classList.remove("knowledge-grid");
-  target.classList.add("audience-learning-content");
-  const records = publishedContentForAudience("HEALTHCARE WORKER");
-  target.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest Healthcare Professional learning</p><h2>Multidisciplinary knowledge for patient care.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "HEALTHCARE WORKER" }))}">View Healthcare Professional learning <span>→</span></a></div>${records.length ? `<div class="discovery-grid">${records.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Healthcare Professional learning", "Practical medical education for diagnostics, care coordination, and patient support.", "healthcare-worker")}`;
+  renderAudienceArticleDiscovery(target, "HEALTHCARE WORKER");
 }
 
 function renderHome() {
@@ -605,10 +619,7 @@ function renderDoctorClinicalPage() {
       id: category.id, emptyLabel: category.independent ? "Coming soon" : "Growing collection", showLatest: true
     });
   });
-  if (!publicationsTarget) return;
-  const records = publishedDoctorScientificContent();
-  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest doctor publications</p><h2>Recent scientific papers and case reports.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "DOCTOR" }))}">Browse professional publications in Library <span>→</span></a></div>${records.length ? `<div class="discovery-grid">${records.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Doctor publications", "Clinical papers and case-based learning for diagnosis, management, and evidence-informed decisions.", "clinical-learning")}`;
-  initDiscoveryImageFallbacks(publicationsTarget);
+  renderAudienceArticleDiscovery(publicationsTarget, "DOCTOR");
 }
 
 function renderPublicPage() {
@@ -628,10 +639,7 @@ function renderPublicPage() {
       id: category.anchor, showLatest: true
     });
   });
-  if (!publicationsTarget) return;
-  const records = contentRegistry.query({ audience: "PUBLIC", primaryAudienceOnly: true, family: "article" });
-  publicationsTarget.innerHTML = `<div class="section-head"><div><p class="eyebrow">Latest public education</p><h2>Recent public education.</h2></div><a class="text-link" href="${escapeHtml(libraryPath({ audience: "PUBLIC" }))}">Browse public education in Library <span>→</span></a></div>${records.length ? `<div class="discovery-grid">${records.slice(0, 6).map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Public education", "Clear health education about symptoms, evaluation, treatment context, and appropriate care.", "public-education")}`;
-  initDiscoveryImageFallbacks(publicationsTarget);
+  renderAudienceArticleDiscovery(publicationsTarget, "PUBLIC");
 }
 
 function renderLibrary() {
