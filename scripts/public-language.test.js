@@ -86,7 +86,7 @@ test('public templates do not explain internal site architecture', () => {
   const internalExplanations = /Two distinct video collections|canonical (?:identity|record|event page|registry)|professional education architecture|source separation architecture|first-party videos play|public video catalog is being refreshed|source-backed editions, newest first|selected from the real catalog|release integrity|local preview status|production Google OAuth application/i;
   for (const file of files) assert.doesNotMatch(read(file), internalExplanations, `${file} exposes internal site mechanics`);
   assert.match(read('app.js'), /BA Medicale Original/);
-  assert.match(read('app.js'), /YouTube · Dr\. Bob/);
+  assert.match(read('app.js'), /Dr\. dr\. Bob Andinata, Sp\.B\., Subsp\. Onk\(K\) on YouTube/);
 });
 
 test('published HTML contains no user-facing implementation explanations', () => {

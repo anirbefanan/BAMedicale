@@ -124,6 +124,15 @@ const safeUrl = (value, { external = false, hosts = [] } = {}) => {
 };
 const safeInternalUrl = (value) => safeUrl(value);
 const safeExternalUrl = (value) => safeUrl(value, { external: true });
+const safeVideoSourceUrl = (value, source) => {
+  const url = safeExternalUrl(value);
+  if (!url) return "";
+  try {
+    const host = new URL(url, window.location.href).hostname.toLowerCase();
+    const allowed = source === "instagram" ? ["instagram.com", "www.instagram.com"] : ["youtube.com", "www.youtube.com", "youtu.be"];
+    return allowed.includes(host) ? url : "";
+  } catch { return ""; }
+};
 const safeImageUrl = (value) => safeUrl(value, { external: true, hosts: ["i.ytimg.com"] });
 const copyText = async (value) => {
   if (navigator.clipboard?.writeText) {
@@ -193,7 +202,14 @@ const audienceLabel = value => registryApi.publicAudienceLabel(value);
 const recordAudience = record => registryApi.publicAudienceList(record.audiences || []) || "All";
 const discoveryActionLabel = record => ({ article: "Read Article", ebook: "Open eBook", seminar: "View Seminar", video: "Watch Video", presentation: "Full Read" }[record.family] || "Open resource");
 const discoveryTypeLabel = record => ({ article: "Article", ebook: "eBook", seminar: "Seminar", video: "Video", presentation: "Presentation" }[record.family] || record.contentType);
-const discoveryActions = record => `${record.family === "presentation" && data.presentations?.[record.id]?.quickRead?.length ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}"${record.family === "video" && record.sourceRecord?.speaker ? ` aria-label="Watch ${escapeHtml(record.title)} by ${escapeHtml(record.sourceRecord.speaker)}"` : ""}>${discoveryActionLabel(record)}</a>`;
+const discoveryActions = record => {
+  if (record.family === "video" && record.sourceRecord?.source !== "ba-medicale") {
+    const source = record.sourceRecord.source === "instagram" ? "instagram" : "youtube";
+    const action = source === "instagram" ? "Watch on Instagram" : "Watch on YouTube";
+    return `<a href="${escapeHtml(safeVideoSourceUrl(record.sourceRecord.url, source))}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(action + ": " + record.title)}">${action} ↗</a>`;
+  }
+  return `${record.family === "presentation" && data.presentations?.[record.id]?.quickRead?.length ? `<a href="${escapeHtml(record.route)}" data-article-reader="${escapeHtml(record.id)}">Quick Read</a>` : ""}<a href="${escapeHtml(record.route)}"${record.family === "video" && record.sourceRecord?.speaker ? ` aria-label="Watch ${escapeHtml(record.title)} by ${escapeHtml(record.sourceRecord.speaker)}"` : ""}>${discoveryActionLabel(record)}</a>`;
+};
 const discoveryArtworkProfile = (record) => {
   const evidence = [record.primaryDiseaseGroup, record.diseaseCondition, record.contentType, ...(record.topics || []), ...(record.tags || [])].join(" ").toLowerCase();
   const profiles = [
@@ -233,18 +249,20 @@ const videoDurationLabel = seconds => {
 };
 const latestCoverflowCard = (record, index, kind = record.family) => {
   const cardKind = kind === "library" ? record.family : kind;
-  const original = cardKind === "video" && record.sourceRecord.source === "ba-medicale";
+  const source = cardKind === "video" ? record.sourceRecord.source : "";
+  const original = source === "ba-medicale";
+  const externalSource = source === "instagram" ? "instagram" : "youtube";
   const cover = safeImageUrl(record.cover);
   const portrait = cardKind === "ebook";
   const media = cover ? `<img src="${escapeHtml(cover)}" alt="" width="${portrait ? 720 : 960}" height="${portrait ? 960 : 540}" loading="${index < 2 ? "eager" : "lazy"}"${cardKind === "video" && !original ? ' referrerpolicy="no-referrer"' : ""}>` : discoveryDefaultArtwork(record);
   const duration = cardKind === "video" ? videoDurationLabel(record.sourceRecord.duration_seconds) : "";
-  const provenance = cardKind === "video" ? (original ? "BA Medicale Original" : "YouTube · Dr. Bob") : `${discoveryTypeLabel(record)} · ${recordAudience(record)}`;
+  const provenance = cardKind === "video" ? (original ? "BA Medicale Original" : source === "instagram" ? "BA Medicale on Instagram" : source === "ba-medicale-youtube" ? "BA Medicale on YouTube" : "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) on YouTube") : `${discoveryTypeLabel(record)} · ${recordAudience(record)}`;
   const context = duration || (record.topics || [])[0] || "";
   const route = safeInternalUrl(record.route);
   const selector = kind === "video"
-    ? `<button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-latest-coverflow-select="${index}" data-coverflow-video-id="${escapeHtml(record.id)}" data-coverflow-video-source="${original ? "ba-medicale" : "youtube"}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></button>`
+    ? `<button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-latest-coverflow-select="${index}" data-coverflow-video-id="${escapeHtml(record.id)}" data-coverflow-video-source="${original ? "ba-medicale" : externalSource}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></button>`
     : `<a class="video-coverflow__media${cover ? "" : " is-default-artwork"}" href="${escapeHtml(route)}" data-latest-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></a>`;
-  return `<article class="video-coverflow__card" data-latest-coverflow-card${kind === "video" ? " data-video-coverflow-card" : ""} data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-coverflow-family="${escapeHtml(cardKind)}" data-source="${cardKind === "video" ? (original ? "ba-medicale" : "youtube") : escapeHtml(cardKind)}">${selector}<div class="video-coverflow__copy"><p class="video-coverflow__provenance">${escapeHtml(provenance)}</p><h3>${escapeHtml(record.title)}</h3>${record.sourceRecord?.speaker ? `<p class="video-coverflow__speaker">${escapeHtml(record.sourceRecord.speaker)}</p>` : ""}<div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${context ? `<span>${escapeHtml(context)}</span>` : ""}</div></div></article>`;
+  return `<article class="video-coverflow__card" data-latest-coverflow-card${kind === "video" ? " data-video-coverflow-card" : ""} data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-coverflow-family="${escapeHtml(cardKind)}" data-source="${cardKind === "video" ? (original ? "ba-medicale" : externalSource) : escapeHtml(cardKind)}">${selector}<div class="video-coverflow__copy"><p class="video-coverflow__provenance">${escapeHtml(provenance)}</p><h3>${escapeHtml(record.title)}</h3>${record.sourceRecord?.speaker ? `<p class="video-coverflow__speaker">${escapeHtml(record.sourceRecord.speaker)}</p>` : ""}<div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${context ? `<span>${escapeHtml(context)}</span>` : ""}</div>${kind === "video" ? `<a class="video-coverflow__watch" href="${escapeHtml(original ? record.route : safeVideoSourceUrl(record.sourceRecord.url, source))}"${original ? "" : ' target="_blank" rel="noopener noreferrer"'} data-video-coverflow-watch>${original ? "Play Original" : source === "instagram" ? "Watch on Instagram ↗" : "Watch on YouTube ↗"}</a>` : ""}</div></article>`;
 };
 const latestCoverflowMarkup = (records, kind, label) => `<div class="video-coverflow video-coverflow--${escapeHtml(kind)}" data-latest-coverflow data-coverflow-kind="${escapeHtml(kind)}"${kind === "video" ? " data-video-coverflow data-video-latest" : ""} role="region" aria-roledescription="carousel" aria-label="Latest ${escapeHtml(label)} coverflow" tabindex="0"><div class="video-coverflow__stage"><div class="video-coverflow__track">${records.map((record, index) => latestCoverflowCard(record, index, kind)).join("")}</div><button class="video-coverflow__nav video-coverflow__nav--previous" type="button" data-latest-coverflow-nav="previous" aria-label="Previous latest ${escapeHtml(kind)}">←</button><button class="video-coverflow__nav video-coverflow__nav--next" type="button" data-latest-coverflow-nav="next" aria-label="Next latest ${escapeHtml(kind)}">→</button></div><div class="video-coverflow__footer"><p class="video-coverflow__status" data-latest-coverflow-status aria-live="polite"></p><div class="video-coverflow__indicators" data-latest-coverflow-indicators aria-label="Choose a latest ${escapeHtml(kind)}"></div></div></div>`;
 function initLatestCoverflow(root) {
@@ -292,7 +310,8 @@ function initLatestCoverflow(root) {
       card.toggleAttribute("data-coverflow-active", position === 0);
       card.setAttribute("aria-hidden", Math.abs(position) > 2 ? "true" : "false");
       const selector = card.querySelector("[data-latest-coverflow-select]");
-      const action = root.dataset.coverflowKind === "library" ? ({ article: "Read", ebook: "Open", video: "Watch", seminar: "View", presentation: "Read" }[card.dataset.coverflowFamily] || "Open") : root.dataset.coverflowKind === "video" ? "Play" : root.dataset.coverflowKind === "article" ? "Read" : "Open";
+      const source = card.dataset.source;
+      const action = root.dataset.coverflowKind === "library" ? ({ article: "Read", ebook: "Open", video: "Watch", seminar: "View", presentation: "Read" }[card.dataset.coverflowFamily] || "Open") : root.dataset.coverflowKind === "video" ? source === "ba-medicale" ? "Play" : source === "instagram" ? "Watch on Instagram" : "Watch on YouTube" : root.dataset.coverflowKind === "article" ? "Read" : "Open";
       selector.tabIndex = Math.abs(position) <= 2 ? 0 : -1;
       const cardLabel = [card.querySelector("h3")?.textContent || "content", card.querySelector(".video-coverflow__speaker")?.textContent].filter(Boolean).join(" — ");
       selector.setAttribute("aria-label", position === 0 ? `${action} ${cardLabel}` : `Show ${cardLabel}`);
@@ -326,6 +345,15 @@ function initLatestCoverflow(root) {
       root.dispatchEvent(new CustomEvent("latestcoverflowopen", { bubbles: true, detail: { card, opener: event.currentTarget } }));
     }
   }));
+  root.addEventListener("click", event => {
+    const action = event.target.closest("[data-video-coverflow-watch]");
+    if (!action || root.dataset.coverflowKind !== "video") return;
+    const card = action.closest("[data-latest-coverflow-card]");
+    if (card?.dataset.source === "ba-medicale") {
+      event.preventDefault();
+      root.dispatchEvent(new CustomEvent("latestcoverflowopen", { bubbles: true, detail: { card, opener: action } }));
+    }
+  });
   stage.addEventListener("click", event => {
     if (suppressClick || event.target.closest("[data-latest-coverflow-select], [data-latest-coverflow-nav]")) return;
     const bounds = stage.getBoundingClientRect();
@@ -1190,24 +1218,26 @@ function renderVideoHub() {
   const latestOriginals = originalVideos.slice(-4).reverse();
   const latestYouTube = videos.slice().sort((a, b) => String(b.publish_date || "").localeCompare(String(a.publish_date || ""))).slice(0, 4);
   const previewLocalCard = (video) => `<article class="video-preview video-preview--original"><button type="button" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
-  const previewYouTubeCard = (video) => `<article class="video-preview"><button type="button" data-video-play="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
+  const previewYouTubeCard = (video) => `<article class="video-preview"><a href="${escapeHtml(safeVideoSourceUrl(video.url, video.source))}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${escapeHtml(video.title)} on YouTube"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>↗</span></a><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3><a href="${escapeHtml(safeVideoSourceUrl(video.url, video.source))}" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></article>`;
   if (hub) {
     const topics = [...new Set(videoRecords.flatMap((record) => record.topics).filter(Boolean))].sort();
     const videoCard = (record, options = {}) => {
-      const original = record.sourceRecord.source === "ba-medicale";
+      const source = record.sourceRecord.source;
+      const original = source === "ba-medicale";
+      const identityLabel = original ? "BA Medicale Original" : source === "instagram" ? "BA Medicale on Instagram" : source === "ba-medicale-youtube" ? "BA Medicale on YouTube" : "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) on YouTube";
       return discoveryCard(record, {
         ...options,
-        identityLabel: original ? "BA Medicale Original" : "YouTube · Dr. Bob",
-        metaLabel: original ? record.topics[0] || "BA Medicale" : record.sourceRecord.source_label || "YouTube"
+        identityLabel,
+        metaLabel: original ? record.topics[0] || "BA Medicale" : identityLabel
       });
     };
     const latest = videoRecords.slice(0, 6);
-    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">The newest medical video learning.</h2></div></div>${latestCoverflowMarkup(latest, "video", "Videos")}</section><form class="discovery-controls discovery-controls--video" data-video-controls aria-label="Filter the video collection"><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or publisher"></label><label>Source<select name="source"><option value="">All Videos</option><option value="ba-medicale">BA Medicale Originals</option><option value="youtube">Dr. Bob on YouTube</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><section class="discovery-section video-source-collection" data-video-originals-section aria-labelledby="original-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale Originals</p><h2 id="original-videos-title">Original medical education and visual learning.</h2></div><p><span data-video-originals-status role="status"></span></p></div><div class="discovery-grid" data-video-originals></div></section><section class="discovery-section video-source-collection" data-video-youtube-section aria-labelledby="youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Dr. Bob on YouTube</p><h2 id="youtube-videos-title">Medical education, interviews, and clinical discussions.</h2></div><p><span data-video-youtube-status role="status"></span></p></div><div class="discovery-grid" data-video-youtube></div><nav class="discovery-pagination" aria-label="Dr. Bob YouTube video pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav></section>`;
+    hub.innerHTML = `<section class="discovery-section" aria-labelledby="latest-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Latest Videos</p><h2 id="latest-videos-title">The newest medical video learning.</h2></div></div>${latestCoverflowMarkup(latest, "video", "Videos")}</section><form class="discovery-controls discovery-controls--video" data-video-controls aria-label="Filter the video collection"><label>Search Videos<input name="query" type="search" placeholder="Title, topic, or publisher"></label><label>Source<select name="source"><option value="">All Videos</option><option value="ba-medicale">BA Medicale Originals</option><option value="youtube">Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) on YouTube</option><option value="ba-medicale-youtube">BA Medicale on YouTube</option><option value="instagram">BA Medicale on Instagram</option></select></label><label>Topic<select name="topic"><option value="">All topics</option>${topics.map(topic => `<option value="${escapeHtml(registryApi.slugify(topic))}">${escapeHtml(topic)}</option>`).join("")}</select></label><button type="reset">Clear</button></form><section class="discovery-section video-source-collection" data-video-originals-section aria-labelledby="original-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale Originals</p><h2 id="original-videos-title">Original medical education and visual learning.</h2></div><p><span data-video-originals-status role="status"></span></p></div><div class="discovery-grid" data-video-originals></div></section><section class="discovery-section video-source-collection" data-video-youtube-section aria-labelledby="youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) on YouTube</p><h2 id="youtube-videos-title">Medical education, interviews, and clinical discussions.</h2></div><p><span data-video-youtube-status role="status"></span></p></div><div class="discovery-grid" data-video-youtube></div><nav class="discovery-pagination" aria-label="Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) YouTube video pages"><button type="button" data-video-page="previous">Previous</button><span data-video-page-status></span><button type="button" data-video-page="next">Next</button></nav></section><section class="discovery-section video-source-collection" data-video-bamedicale-youtube-section aria-labelledby="bamedicale-youtube-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale on YouTube</p><h2 id="bamedicale-youtube-videos-title">Videos from the BA Medicale YouTube channel.</h2></div><p><span data-video-bamedicale-youtube-status role="status"></span></p></div><div class="discovery-grid" data-video-bamedicale-youtube></div></section><section class="discovery-section video-source-collection" data-video-instagram-section aria-labelledby="instagram-videos-title"><div class="discovery-heading"><div><p class="eyebrow">BA Medicale on Instagram</p><h2 id="instagram-videos-title">Videos from the BA Medicale Instagram account.</h2></div></div><div class="video-source-state"><h2>Instagram videos will appear here.</h2><p>There are no videos to show yet. Visit <a href="https://www.instagram.com/bamedicale/" target="_blank" rel="noopener noreferrer">BA Medicale on Instagram ↗</a>.</p></div></section>`;
     initVideoCoverflow(hub.querySelector("[data-video-coverflow]"));
     const form = hub.querySelector("[data-video-controls]");
     const controlsFromUrl = () => {
       const params = new URLSearchParams(location.search);
-      form.elements.source.value = ["ba-medicale", "youtube"].includes(params.get("source")) ? params.get("source") : "";
+      form.elements.source.value = ["ba-medicale", "youtube", "ba-medicale-youtube", "instagram"].includes(params.get("source")) ? params.get("source") : "";
       form.elements.topic.value = topics.some(topic => registryApi.slugify(topic) === params.get("topic")) ? params.get("topic") : "";
       return Math.max(1, Number(params.get("page")) || 1);
     };
@@ -1216,18 +1246,28 @@ function renderVideoHub() {
       const values = Object.fromEntries(new FormData(form));
       const terms = String(values.query || "").trim().toLowerCase().split(/\s+/).filter(Boolean);
       const matches = (record) => (!values.topic || record.topics.some(topic => registryApi.slugify(topic) === values.topic)) && terms.every(term => record.searchable.includes(term));
-      const matchingOriginals = videoRecords.filter(record => record.sourceRecord.source === "ba-medicale" && matches(record));
-      const matchingYouTube = videoRecords.filter(record => record.sourceRecord.source === "youtube" && matches(record));
-      const showOriginals = values.source !== "youtube";
-      const showYouTube = values.source !== "ba-medicale";
+      const sourceOf = record => record.sourceRecord.source;
+      const matchingOriginals = videoRecords.filter(record => sourceOf(record) === "ba-medicale" && matches(record));
+      const matchingYouTube = videoRecords.filter(record => sourceOf(record) === "youtube" && matches(record));
+      const matchingBAYouTube = videoRecords.filter(record => sourceOf(record) === "ba-medicale-youtube" && matches(record));
+      const matchingInstagram = videoRecords.filter(record => sourceOf(record) === "instagram" && matches(record));
+      const showOriginals = !values.source || values.source === "ba-medicale";
+      const showYouTube = !values.source || values.source === "youtube";
+      const showBAYouTube = !values.source || values.source === "ba-medicale-youtube";
+      const showInstagram = !values.source || values.source === "instagram";
       const pageCount = Math.max(1, Math.ceil(matchingYouTube.length / 18));
       page = Math.min(page, pageCount);
       hub.querySelector("[data-video-originals-section]").hidden = !showOriginals;
       hub.querySelector("[data-video-youtube-section]").hidden = !showYouTube;
+      hub.querySelector("[data-video-bamedicale-youtube-section]").hidden = !showBAYouTube;
+      hub.querySelector("[data-video-instagram-section]").hidden = !showInstagram;
       hub.querySelector("[data-video-originals]").innerHTML = matchingOriginals.length ? matchingOriginals.map(record => videoCard(record)).join("") : `<p class="discovery-empty">No BA Medicale Originals match these filters.</p>`;
-      hub.querySelector("[data-video-youtube]").innerHTML = matchingYouTube.length ? matchingYouTube.slice((page - 1) * 18, page * 18).map(record => videoCard(record)).join("") : `<p class="discovery-empty">No Dr. Bob YouTube videos match these filters.</p>`;
+      hub.querySelector("[data-video-youtube]").innerHTML = matchingYouTube.length ? matchingYouTube.slice((page - 1) * 18, page * 18).map(record => videoCard(record)).join("") : `<p class="discovery-empty">No videos from Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) on YouTube match these filters.</p>`;
+      hub.querySelector("[data-video-bamedicale-youtube]").innerHTML = matchingBAYouTube.length ? matchingBAYouTube.map(record => videoCard(record)).join("") : `<p class="discovery-empty">No BA Medicale YouTube videos match these filters.</p>`;
+      hub.querySelector("[data-video-instagram-section] .video-source-state").innerHTML = matchingInstagram.length ? matchingInstagram.map(record => videoCard(record)).join("") : `<h2>Instagram videos will appear here.</h2><p>There are no videos to show yet. Visit <a href="https://www.instagram.com/bamedicale/" target="_blank" rel="noopener noreferrer">BA Medicale on Instagram ↗</a>.</p>`;
       hub.querySelector("[data-video-originals-status]").textContent = `${matchingOriginals.length} original video${matchingOriginals.length === 1 ? "" : "s"}.`;
-      hub.querySelector("[data-video-youtube-status]").textContent = `${matchingYouTube.length} YouTube video${matchingYouTube.length === 1 ? "" : "s"}.`;
+      hub.querySelector("[data-video-youtube-status]").textContent = `${matchingYouTube.length} video${matchingYouTube.length === 1 ? "" : "s"}.`;
+      hub.querySelector("[data-video-bamedicale-youtube-status]").textContent = `${matchingBAYouTube.length} video${matchingBAYouTube.length === 1 ? "" : "s"}.`;
       const pagination = hub.querySelector(".discovery-pagination");
       pagination.hidden = !showYouTube || pageCount <= 1;
       hub.querySelector("[data-video-page-status]").textContent = `Page ${page} of ${pageCount}`;
@@ -1258,6 +1298,7 @@ function renderVideoHub() {
   document.body.append(dialog);
   const player = dialog.querySelector(".video-player__media");
   const sourceLink = dialog.querySelector("a");
+  sourceLink.textContent = "Watch on YouTube ↗";
   const playerSource = dialog.querySelector("[data-video-player-source]");
   const playerTitle = dialog.querySelector("[data-video-player-title]");
   const playerSpeaker = dialog.querySelector("[data-video-player-speaker]");
@@ -1283,7 +1324,7 @@ function renderVideoHub() {
     const video = videos.find((item) => item.id === id);
     if (!video) return false;
     const embedUrl = safeYouTubeEmbedUrl(video.embed_url);
-    const sourceUrl = safeExternalUrl(video.url);
+    const sourceUrl = safeVideoSourceUrl(video.url, video.source);
     if (!embedUrl || !sourceUrl) return false;
     if (autoplay) embedUrl.searchParams.set("autoplay", "1"); else embedUrl.searchParams.delete("autoplay");
     const frame = document.createElement("iframe");
@@ -1295,8 +1336,8 @@ function renderVideoHub() {
     frame.allowFullscreen = true;
     player.replaceChildren(frame);
     sourceLink.href = sourceUrl;
-    sourceLink.textContent = "Open original YouTube source ↗";
-    setDialogContext(video, "YouTube · Dr. Bob");
+    sourceLink.textContent = "Watch on YouTube ↗";
+    setDialogContext(video, video.source_label === "BA Medicale on YouTube" ? "BA Medicale on YouTube" : "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) on YouTube");
     if (syncRoute) setVideoRoute(id);
     showDialog(opener);
     return true;
@@ -1324,6 +1365,14 @@ function renderVideoHub() {
     return true;
   };
   const requestedRecord = id => originalVideos.find(item => item.id === id) || videos.find(item => item.id === id);
+  const openExternalVideo = (video, opener = null, { syncRoute = false } = {}) => {
+    const sourceUrl = safeVideoSourceUrl(video?.url, video?.source);
+    if (!sourceUrl) return false;
+    trackAnalytics("video_engagement", analyticsParams({ content_type: "video", content_id: video.id, destination: "external" }));
+    window.open(sourceUrl, "_blank", "noopener,noreferrer");
+    videoReturnFocus = opener;
+    return true;
+  };
   const showInvalidVideoLink = (id) => {
     if (!hub || !id || hub.querySelector("[data-video-link-status]")) return;
     const notice = document.createElement("p");
@@ -1358,10 +1407,10 @@ function renderVideoHub() {
     const id = card?.querySelector("[data-coverflow-video-id]")?.dataset.coverflowVideoId;
     const source = card?.querySelector("[data-coverflow-video-source]")?.dataset.coverflowVideoSource;
     if (!id) return;
-    trackAnalytics("video_engagement", analyticsParams({ content_type: "video", content_id: id, destination: "play" }));
-    if (source === "ba-medicale") openLocalVideo(id, opener, { syncRoute: true }); else openVideo(id, opener, { syncRoute: true });
+    const record = requestedRecord(id);
+    if (source === "ba-medicale") openLocalVideo(id, opener, { syncRoute: true }); else if (record) openVideo(id, opener, { syncRoute: true });
   });
-  document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => openVideo(button.dataset.videoPlay, button, { syncRoute: true })));
+  document.querySelectorAll("[data-video-play]").forEach((button) => button.addEventListener("click", () => { const video = videos.find(item => item.id === button.dataset.videoPlay); if (video) openExternalVideo(video, button, { syncRoute: true }); }));
   document.querySelectorAll("[data-video-local]").forEach((button) => button.addEventListener("click", () => openLocalVideo(button.dataset.videoLocal, button, { syncRoute: true })));
   requestAnimationFrame(syncViewerFromUrl);
   window.addEventListener("popstate", syncViewerFromUrl);

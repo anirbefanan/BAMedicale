@@ -11,6 +11,35 @@
   },
   "videos": [
     {
+      "id": "youtube-0c8kxJi-S2c",
+      "youtube_id": "0c8kxJi-S2c",
+      "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules | dr. Bob Andinata",
+      "short_description": "Current diagnostic approach and considerations in therapy selection for patients with thyroid nodules.",
+      "source": "ba-medicale-youtube",
+      "source_label": "BA Medicale on YouTube",
+      "url": "https://www.youtube.com/watch?v=0c8kxJi-S2c",
+      "embed_url": "https://www.youtube-nocookie.com/embed/0c8kxJi-S2c",
+      "thumbnail": "https://i.ytimg.com/vi/0c8kxJi-S2c/hqdefault.jpg",
+      "topic": "Thyroid nodule diagnosis and management",
+      "audience": "Doctors",
+      "featured": false,
+      "person": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+      "duration_seconds": 1458,
+      "verified_identity": true,
+      "primaryAudience": "DOCTOR",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Thyroid nodules",
+      "topics": [
+        "Thyroid nodule diagnosis and management",
+        "Diagnosis",
+        "Treatment Planning"
+      ],
+      "sourceRecordType": "external",
+      "source_type": "youtube"
+    },
+    {
       "id": "youtube-_nbR7ATfZy0",
       "youtube_id": "_nbR7ATfZy0",
       "title": "Bincang Sehat Seputar Deteksi Dini Kanker Part 1 Bersama dr. Bob Andinata, Sp.B.Subsp.Onk (K)",

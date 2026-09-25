@@ -65,24 +65,6 @@
       "updatedAt": ""
     },
     {
-      "id": "ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
-      "type": "Video",
-      "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
-      "slug": "ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
-      "status": "Published",
-      "publishedAt": "2026-09-25",
-      "publicUrl": "https://bamedicale.com/videos.html?video=ba-medicale-current-diagnostic-approach-thyroid-nodules-seminar-2026",
-      "primaryAudience": "DOCTOR",
-      "secondaryAudiences": [],
-      "primaryTopic": "Thyroid nodule diagnosis and management",
-      "topics": [
-        "Diagnosis",
-        "Treatment Planning"
-      ],
-      "primaryDiseaseGroup": "endocrine-metabolic",
-      "updatedAt": ""
-    },
-    {
       "id": "ba-medicale-clinical-learning-preview",
       "type": "Video",
       "title": "BA Medicale Clinical Learning Preview",
