@@ -16,3 +16,6 @@ test-results/
 node_modules/
 .clasp.json
 .clasprc.json
+
+# Local-only video masters; publish optimized derivatives from assets/videos/ instead.
+/Material/Video/
