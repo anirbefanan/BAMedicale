@@ -1953,8 +1953,8 @@ body:not(.approved-home) a.team-card:focus-visible{outline:2px solid var(--brand
   .video-coverflow--article .video-coverflow__nav--next,.video-coverflow--ebook .video-coverflow__nav--next{right:30px}
   .video-coverflow__footer{min-height:40px;flex-direction:column-reverse;gap:5px;margin-top:-5px;padding-inline:0}
   .video-coverflow__status{max-width:100%;font-size:.68rem;text-align:center}
-  .video-coverflow--article .video-coverflow__footer,.video-coverflow--ebook .video-coverflow__footer{padding-inline:54px}
-  .video-coverflow--article .video-coverflow__status,.video-coverflow--ebook .video-coverflow__status{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .video-coverflow--article .video-coverflow__footer,.video-coverflow--ebook .video-coverflow__footer,.video-coverflow--library .video-coverflow__footer{padding-inline:54px}
+  .video-coverflow--article .video-coverflow__status,.video-coverflow--ebook .video-coverflow__status,.video-coverflow--library .video-coverflow__status{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 }
 @media(prefers-reduced-motion:reduce){
   .discovery-card,.discovery-card__media img,.video-coverflow__track,.video-coverflow__card,.video-coverflow__indicators button{transition:none!important}
