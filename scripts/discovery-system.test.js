@@ -52,6 +52,19 @@ test('search, homepage, audience recents and related learning reuse discovery pr
   assert.match(styles, /\.discovery-related-card/);
 });
 
+test('Disease Explorer availability and unified Library destination use registry results', () => {
+  assert.match(app, /publishedContentForDisease = \(disease\) => contentRegistry\.queryDisease\(disease\)/);
+  assert.match(app, /diseaseContentDestination = \(disease\) => contentRegistry\.libraryPath\(\{ disease \}\)/);
+  assert.match(app, /hasPublishedContent \? "a" : "div"/);
+  assert.match(app, /hasPublishedContent \? " disease-group--available doctor-content-card--active" : ""/);
+  assert.match(app, /contentRegistry\.queryDisease\(values\.diseaseGroup, filters\)/);
+  assert.match(app, /library-disease-context/);
+  assert.match(app, /data-library-disease-count/);
+  assert.match(app, /sourceRecord\?\.source !== "ba-medicale"/);
+  assert.match(app, /Watch on YouTube/);
+  assert.match(app, /Watch on Instagram/);
+});
+
 test('eBook listing keeps server-rendered content and gains shared Latest and All sections', () => {
   assert.match(ebooks, /data-content-discovery="ebook"/);
   assert.match(ebooks, /Latest eBooks/);

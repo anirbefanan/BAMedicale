@@ -16,6 +16,45 @@
   const PROFESSIONAL_NAMES = Object.freeze({
     BOB_ANDINATA: "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)"
   });
+  // Deterministic, metadata-only disease classification. These are strong
+  // clinical concepts and common synonyms mapped to the existing canonical
+  // disease IDs; body text is deliberately excluded to avoid incidental hits
+  // and repeated full-text scans during page initialization.
+  const DISEASE_SIGNALS = Object.freeze({
+    "cancer-neoplastic": /\b(?:cancer|cancers|malignan\w*|neoplas\w*|carcinoma\w*|oncolog\w*|tumou?rs?|lymphoma\w*|leuk[ae]mia\w*|myeloma\w*)\b/i,
+    cardiovascular: /\b(?:cardiovascular(?: disease)?s?|hypertension|high blood pressure|blood pressure|heart disease|coronary artery disease|ischemic heart disease)\b/i,
+    respiratory: /\b(?:respiratory disease\w*|pulmonary disease\w*|asthma|copd|chronic obstructive pulmonary disease|pneumonia|lung cancer|lung disease\w*)\b/i,
+    neurological: /\b(?:neurolog\w* disease\w*|stroke|epilepsy|parkinson\w*|alzheimer\w*|dementia|migraine|brain tumour\w*|brain tumor\w*)\b/i,
+    gastrointestinal: /\b(?:gastrointestinal disease\w*|digestive disease\w*|crohn(?:'s)? disease|ulcerative colitis|\bibs\b|irritable bowel syndrome|inflammatory bowel disease|gastritis|peptic ulcer\w*)\b/i,
+    "liver-biliary-pancreatic": /\b(?:liver disease\w*|hepatic disease\w*|hepatitis|cirrhosis|biliary disease\w*|gallstone\w*|pancreatitis|pancreatic disease\w*)\b/i,
+    "kidney-urinary": /\b(?:kidney disease\w*|renal disease\w*|chronic kidney disease|\bckd\b|urinary tract disease\w*|bladder disease\w*|nephropath\w*|urolithiasis)\b/i,
+    "endocrine-metabolic": /\b(?:endocrine disease\w*|metabolic disease\w*|metabolic disorder\w*|thyroid\w*|diabetes(?: mellitus)?|diabetic\w*|dyslipid\w*|metabolic syndrome)\b/i,
+    hematologic: /\b(?:hematolog\w* disease\w*|haematolog\w* disease\w*|lymphoma\w*|leuk[ae]mia\w*|myeloma\w*|blood disorder\w*|hematologic malignan\w*|haematologic malignan\w*)\b/i,
+    infectious: /\b(?:infectious disease\w*|sporotrichosis|sporothrix|tuberculosis|malaria|dengue|fungal infection\w*|viral infection\w*|bacterial infection\w*|zoonosis|zoonotic disease\w*)\b/i,
+    musculoskeletal: /\b(?:musculoskeletal disease\w*|osteoarthritis|rheumatoid arthritis|osteoporosis|fracture\w*|joint disease\w*|tendon disorder\w*|soft tissue sarcoma\w*)\b/i,
+    "rheumatologic-autoimmune": /\b(?:rheumatologic disease\w*|rheumatoid arthritis|autoimmune disease\w*|autoimmune disorder\w*|systemic lupus|lupus erythematosus|scleroderma|vasculitis)\b/i,
+    dermatologic: /\b(?:dermatologic disease\w*|skin disease\w*|dermatitis|eczema|psoriasis|melanoma\w*|skin cancer\w*|alopecia)\b/i,
+    "obstetric-gynecologic": /\b(?:obstetric\w*|gynecolog\w*|gynaecolog\w*|endometriosis|polycystic ovary syndrome|\bpcos\b|ovarian cancer\w*|cervical cancer\w*|uterine cancer\w*|cervical disease\w*)\b/i,
+    "male-reproductive": /\b(?:male reproductive disease\w*|prostate disease\w*|prostate cancer\w*|testicular disease\w*|testicular cancer\w*|erectile dysfunction|male infertility)\b/i,
+    breast: /\b(?:breast disease\w*|breast cancer\w*|breast tumour\w*|breast tumor\w*|breast nodule\w*|breast lump\w*|mammary neoplasm\w*)\b/i,
+    eye: /\b(?:eye disease\w*|ocular disease\w*|glaucoma|cataract\w*|retinopathy|macular degeneration|uveitis)\b/i,
+    "ear-nose-throat": /\b(?:ear nose and throat|\bent disease\w*|otolaryngolog\w*|sinusitis|rhinitis|tonsillitis|laryngeal cancer\w*|nasopharyngeal cancer\w*)\b/i,
+    "oral-dental": /\b(?:oral disease\w*|dental disease\w*|periodontal disease\w*|gingivitis|tooth decay|oral cancer\w*|mouth cancer\w*)\b/i,
+    "allergic-immunologic": /\b(?:allerg\w* disease\w*|allergic disease\w*|immunologic disease\w*|immunodeficien\w*|anaphylaxis|allergic rhinitis)\b/i,
+    "mental-behavioral": /\b(?:mental health disorder\w*|mental illness\w*|depression|anxiety disorder\w*|bipolar disorder\w*|schizophren\w*|eating disorder\w*|substance use disorder\w*)\b/i,
+    "pediatric-congenital": /\b(?:pediatric disease\w*|paediatric disease\w*|congenital disorder\w*|congenital disease\w*|birth defect\w*|neonatal disease\w*|childhood cancer\w*)\b/i,
+    "genetic-rare": /\b(?:genetic disorder\w*|genetic disease\w*|rare disease\w*|inherited disorder\w*|hereditary disease\w*|familial cancer\w*|germline mutation\w*)\b/i,
+    nutritional: /\b(?:nutrition|nutritional disease\w*|malnutrition|undernutrition|nutrient deficienc\w*|nutrition-related disease\w*|front-of-pack|nutri-level|dietary disease\w*)\b/i,
+    "injury-poisoning-other": /\b(?:injur\w*|poisoning|toxic exposure\w*|trauma\w*|overdose\w*|envenomation)\b/i,
+    "preventive-public-health": /\b(?:public health|population health|epidemiolog\w*|disease prevention|cancer prevention|early detection|screening program\w*|health promotion)\b/i
+  });
+  const PRIMARY_DISEASE_TIE_ORDER = Object.freeze([
+    "breast", "hematologic", "endocrine-metabolic", "cardiovascular", "respiratory", "neurological",
+    "gastrointestinal", "liver-biliary-pancreatic", "kidney-urinary", "infectious", "musculoskeletal",
+    "rheumatologic-autoimmune", "dermatologic", "obstetric-gynecologic", "male-reproductive", "eye",
+    "ear-nose-throat", "oral-dental", "allergic-immunologic", "mental-behavioral", "pediatric-congenital",
+    "genetic-rare", "nutritional", "injury-poisoning-other", "preventive-public-health", "cancer-neoplastic"
+  ]);
 
   const compact = (values) => [...new Set((values || []).flat().filter(Boolean))];
   const slugify = (value = "") => String(value)
@@ -76,6 +115,42 @@
     [record.author?.name, record.person, record.source_label]
   );
   const diseaseGroupsFor = (record) => compact([record.primaryDiseaseGroup, ...(record.secondaryDiseaseGroups || [])]);
+  const classifyDiseaseGroups = (record, data = {}) => {
+    const validIds = new Set((data.diseaseTaxonomy || []).map((group) => group.id));
+    const canonicalNames = new Map((data.diseaseTaxonomy || []).map((group) => [group.id, String(group.name || "").toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ").trim()]));
+    const explicitPrimary = validIds.has(record.primaryDiseaseGroup) ? record.primaryDiseaseGroup : "";
+    const explicitSecondary = compact(record.secondaryDiseaseGroups || []).filter((id) => validIds.has(id));
+    const signals = [
+      [record.title, 10], [record.subtitle, 8], [record.diseaseCondition || record.diseaseSite, 10],
+      [record.primaryTopic, 8], [record.topic, 8], [record.topics, 8], [record.tags, 8],
+      [record.categories, 7], [record.publicCategories, 7], [record.searchableMetadata, 7],
+      [record.summary, 4], [record.excerpt, 4], [record.short_description, 4], [record.description, 4],
+      [record.paper?.keywords, 7]
+    ];
+    const candidates = [];
+    for (const [id, pattern] of Object.entries(DISEASE_SIGNALS)) {
+      if (!validIds.has(id)) continue;
+      const score = signals.reduce((best, [value, weight]) => {
+        const text = Array.isArray(value) ? value.join(" ") : String(value || "");
+        const normalizedText = text.toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ");
+        const canonicalName = canonicalNames.get(id);
+        return pattern.test(text) || (canonicalName && normalizedText.includes(canonicalName)) ? Math.max(best, weight) : best;
+      }, 0);
+      if (score >= 6) candidates.push({ id, score });
+    }
+    const rank = new Map(PRIMARY_DISEASE_TIE_ORDER.map((id, index) => [id, index]));
+    candidates.sort((a, b) => b.score - a.score || (rank.get(a.id) ?? 99) - (rank.get(b.id) ?? 99));
+    const inferredPrimary = explicitPrimary || candidates.find(({ id }) => !explicitSecondary.includes(id))?.id || "";
+    const inferredSecondary = candidates.map(({ id }) => id).filter((id) => id !== inferredPrimary);
+    const secondaryDiseaseGroups = compact([...explicitSecondary, ...inferredSecondary]).filter((id) => id !== inferredPrimary);
+    return {
+      primaryDiseaseGroup: inferredPrimary,
+      secondaryDiseaseGroups,
+      diseaseGroups: compact([inferredPrimary, ...secondaryDiseaseGroups]),
+      inferredDiseaseGroups: compact([inferredPrimary && !explicitPrimary ? inferredPrimary : "", ...inferredSecondary.filter((id) => !explicitSecondary.includes(id))]),
+      classificationSource: explicitPrimary ? (inferredSecondary.some((id) => !explicitSecondary.includes(id)) ? "explicit+inferred" : "explicit") : inferredPrimary || inferredSecondary.length ? "inferred" : "unclassified"
+    };
+  };
   const topicsFor = (record) => compact([record.primaryTopic, record.topic, ...(record.topics || []), ...(record.tags || [])]);
   const explicitCategoriesFor = (record) => compact([
     record.professionalCategory,
@@ -89,10 +164,9 @@
     ...(data.healthcareWorkerContentCategories || []),
     ...(data.resourceCategories || [])
   ]);
-  const matchesCategory = (record, category) => {
+  const matchesCategory = (record, category, diseaseGroups) => {
     const topics = topicsFor(record).map((value) => String(value).toLowerCase());
     const typeId = slugify(record.contentType);
-    const diseaseGroups = diseaseGroupsFor(record);
     return Boolean(
       category.matchAnyPublished ||
       (category.matchTopics || []).some((value) => topics.includes(String(value).toLowerCase())) ||
@@ -100,9 +174,9 @@
       (category.matchDiseaseGroups || []).some((value) => diseaseGroups.includes(value))
     );
   };
-  const categoriesFor = (record, data) => compact([
+  const categoriesFor = (record, data, diseaseGroups) => compact([
     ...explicitCategoriesFor(record),
-    ...categoryDefinitions(data).filter((category) => matchesCategory(record, category)).map((category) => category.id)
+    ...categoryDefinitions(data).filter((category) => matchesCategory(record, category, diseaseGroups)).map((category) => category.id)
   ]);
   const doiFor = (record) => record.doi || record.paper?.articleInfo?.find(([label]) => /doi/i.test(label))?.[1] || record.paper?.publicationDetails?.match(/DOI:\s*([^\s·]+)/i)?.[1] || "";
   const affiliationFor = (record) => compact(record.affiliations || record.paper?.affiliations || []);
@@ -127,8 +201,9 @@
     const publicationStatus = normalizeStatus(record, publishedDate || (family === "video" && record.verified_identity) ? PUBLISHED : family === "ebook" ? "planned" : "draft");
     const authors = authorsFor(record);
     const topics = topicsFor(record);
-    const diseaseGroups = diseaseGroupsFor(record);
-    const categories = categoriesFor(record, data);
+    const diseaseClassification = classifyDiseaseGroups(record, data);
+    const diseaseGroups = diseaseClassification.diseaseGroups;
+    const categories = categoriesFor(record, data, diseaseGroups);
     const route = routeFor(record, family);
     const searchable = compact([
       record.title, publicProfessionalText(record.title), summaryFor(record), contentType, ...authors, ...affiliationFor(record),
@@ -147,9 +222,11 @@
       primaryAudience,
       secondaryAudiences,
       audiences: compact([primaryAudience, ...secondaryAudiences]),
-      primaryDiseaseGroup: record.primaryDiseaseGroup || "",
-      secondaryDiseaseGroups: compact(record.secondaryDiseaseGroups || []),
+      primaryDiseaseGroup: diseaseClassification.primaryDiseaseGroup,
+      secondaryDiseaseGroups: diseaseClassification.secondaryDiseaseGroups,
       diseaseGroups,
+      inferredDiseaseGroups: diseaseClassification.inferredDiseaseGroups,
+      diseaseClassificationSource: diseaseClassification.classificationSource,
       diseaseCondition: record.diseaseCondition || record.diseaseSite || "",
       categories,
       topics,
@@ -242,6 +319,7 @@
     const byIdMap = new Map(records.map((record) => [record.id, record]));
     const navRecords = navigationRecords(data);
     const query = (filters = {}) => records.filter((record) => matchesFilters(record, { publishedOnly: filters.publishedOnly !== false, ...filters })).sort(compareRecords);
+    const queryDisease = (disease, filters = {}) => query({ ...filters, disease });
     const search = (text = "") => {
       const terms = String(text).toLowerCase().split(/\s+/).filter(Boolean);
       return [...query({ text }), ...navRecords.filter((record) => terms.every((term) => record.searchable.includes(term)))];
@@ -250,9 +328,14 @@
     const related = (recordOrId, limit = 3) => {
       const record = typeof recordOrId === "string" ? byIdMap.get(recordOrId) : recordOrId;
       if (!record) return [];
+      const relatedDiseaseGroups = (item) => compact([
+        item.sourceRecord?.primaryDiseaseGroup || item.primaryDiseaseGroup,
+        ...(item.sourceRecord?.secondaryDiseaseGroups || [])
+      ]);
+      const sourceDiseaseGroups = relatedDiseaseGroups(record);
       return query().filter((candidate) => candidate.id !== record.id).map((candidate) => {
         const sameCondition = record.diseaseCondition && slugify(candidate.diseaseCondition) === slugify(record.diseaseCondition);
-        const diseaseOverlap = candidate.diseaseGroups.filter((value) => record.diseaseGroups.includes(value)).length;
+        const diseaseOverlap = relatedDiseaseGroups(candidate).filter((value) => sourceDiseaseGroups.includes(value)).length;
         const categoryOverlap = candidate.categories.filter((value) => record.categories.includes(value)).length;
         const topicOverlap = candidate.topics.map(slugify).filter((value) => record.topics.map(slugify).includes(value)).length;
         const audienceOverlap = candidate.audiences.some((value) => record.audiences.includes(value));
@@ -260,7 +343,7 @@
         return { candidate, score };
       }).filter((entry) => entry.score > 0).sort((a, b) => b.score - a.score || compareRecords(a.candidate, b.candidate)).slice(0, limit).map((entry) => entry.candidate);
     };
-    return Object.freeze({ records, navigationRecords: navRecords, byId: (id) => byIdMap.get(id), query, search, destination, related, libraryPath });
+    return Object.freeze({ records, navigationRecords: navRecords, byId: (id) => byIdMap.get(id), query, queryDisease, search, destination, related, libraryPath });
   };
 
   const validate = (registry, data = {}, { root = "", exists = () => true } = {}) => {
@@ -280,7 +363,7 @@
       if (!record.title) errors.push(`${record.id}: missing title`);
       if (!record.contentType) errors.push(`${record.id}: missing content type`);
       if (!record.primaryAudience) errors.push(`${record.id}: missing valid primary audience`);
-      if (!record.primaryDiseaseGroup || !diseaseIds.has(record.primaryDiseaseGroup)) errors.push(`${record.id}: unknown primary disease group`);
+      if (record.primaryDiseaseGroup && !diseaseIds.has(record.primaryDiseaseGroup)) errors.push(`${record.id}: unknown primary disease group`);
       record.secondaryDiseaseGroups.forEach((id) => { if (!diseaseIds.has(id)) errors.push(`${record.id}: unknown secondary disease group ${id}`); });
       record.categories.forEach((id) => { if (!categoryIds.has(id)) errors.push(`${record.id}: unknown content category ${id}`); });
       if (record.publicationStatus === PUBLISHED && !record.route) errors.push(`${record.id}: published content missing route`);
@@ -301,5 +384,5 @@
     return true;
   };
 
-  return Object.freeze({ AUDIENCES, PUBLIC_AUDIENCE_LABELS, PROFESSIONAL_NAMES, PUBLISHED, create, validate, slugify, normalizeAudience, publicAudienceLabel, publicAudienceList, publicProfessionalText, defaultEditorialDescription, libraryPath });
+  return Object.freeze({ AUDIENCES, PUBLIC_AUDIENCE_LABELS, PROFESSIONAL_NAMES, PUBLISHED, create, validate, classifyDiseaseGroups, slugify, normalizeAudience, publicAudienceLabel, publicAudienceList, publicProfessionalText, defaultEditorialDescription, libraryPath });
 });

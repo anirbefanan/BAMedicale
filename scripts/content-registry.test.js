@@ -30,6 +30,74 @@ test("Disease Explorer destinations derive from result cardinality as the catalo
   assert.equal(registry.destination(multiple, { disease: "breast" }), "library.html?disease=breast");
 });
 
+test("disease classification preserves explicit groups and infers strong clinical evidence", () => {
+  const explicit = registryApi.classifyDiseaseGroups({
+    title: "Hypertension and High Blood Pressure",
+    primaryDiseaseGroup: "infectious",
+    secondaryDiseaseGroups: ["cancer-neoplastic"]
+  }, data);
+  assert.equal(explicit.primaryDiseaseGroup, "infectious");
+  assert.deepEqual(explicit.secondaryDiseaseGroups, ["cancer-neoplastic", "cardiovascular"]);
+
+  const breastCancer = registryApi.classifyDiseaseGroups({ title: "Breast Cancer Diagnosis" }, data);
+  assert.equal(breastCancer.primaryDiseaseGroup, "breast");
+  assert.deepEqual(breastCancer.secondaryDiseaseGroups, ["cancer-neoplastic"]);
+
+  const lymphoma = registryApi.classifyDiseaseGroups({ title: "Lymphoma: Diagnosis and Care" }, data);
+  assert.equal(lymphoma.primaryDiseaseGroup, "hematologic");
+  assert.deepEqual(lymphoma.secondaryDiseaseGroups, ["cancer-neoplastic"]);
+
+  assert.equal(registryApi.classifyDiseaseGroups({ title: "High Blood Pressure" }, data).primaryDiseaseGroup, "cardiovascular");
+  assert.equal(registryApi.classifyDiseaseGroups({ title: "A General Health Question", topics: ["High Blood Pressure"] }, data).primaryDiseaseGroup, "cardiovascular");
+  assert.equal(registryApi.classifyDiseaseGroups({ title: "Sporotrichosis in cats" }, data).primaryDiseaseGroup, "infectious");
+  assert.equal(registryApi.classifyDiseaseGroups({ title: "Nutrition and Metabolic Disease Prevention" }, data).primaryDiseaseGroup, "endocrine-metabolic");
+  assert.ok(registryApi.classifyDiseaseGroups({ title: "Nutrition and Metabolic Disease Prevention" }, data).secondaryDiseaseGroups.includes("nutritional"));
+});
+
+test("weak incidental mentions do not classify and unpublished content never activates a disease group", () => {
+  const incidental = registryApi.classifyDiseaseGroups({
+    title: "A General Overview of Health Decisions",
+    summary: "This talk briefly mentions hypertension as one of several unrelated examples."
+  }, data);
+  assert.equal(incidental.primaryDiseaseGroup, "");
+  assert.deepEqual(incidental.diseaseGroups, []);
+  assert.deepEqual(registryApi.classifyDiseaseGroups({ title: "General Learning", body: "Breast cancer education." }, data).diseaseGroups, []);
+
+  const fixtureData = structuredClone(data);
+  fixtureData.articles["inferred-hypertension"] = {
+    id: "inferred-hypertension", slug: "inferred-hypertension", title: "High Blood Pressure",
+    publicationStatus: "published", primaryAudience: "PUBLIC", publishedDate: "2026-09-26", contentType: "Article"
+  };
+  fixtureData.articles["unpublished-breast"] = {
+    id: "unpublished-breast", slug: "unpublished-breast", title: "Breast Cancer",
+    publicationStatus: "draft", primaryAudience: "PUBLIC", contentType: "Article"
+  };
+  const inferredRegistry = registryApi.create(fixtureData);
+  assert.equal(inferredRegistry.queryDisease("cardiovascular").length, registry.queryDisease("cardiovascular").length + 1);
+  assert.ok(!inferredRegistry.queryDisease("breast").some((record) => record.id === "unpublished-breast"));
+  delete fixtureData.articles["inferred-hypertension"];
+  assert.equal(registryApi.create(fixtureData).queryDisease("cardiovascular").length, registry.queryDisease("cardiovascular").length);
+});
+
+test("Disease Explorer counts and Library results share one published disease query", () => {
+  assert.equal(data.diseaseTaxonomy.length, 26);
+  for (const group of data.diseaseTaxonomy) assert.equal(registryApi.classifyDiseaseGroups({ title: group.name }, data).primaryDiseaseGroup, group.id, `${group.id} should be covered by its canonical disease label`);
+  for (const group of data.diseaseTaxonomy) {
+    const count = registry.queryDisease(group.id).length;
+    assert.equal(count, registry.query({ disease: group.id }).length);
+    assert.equal(count > 0, registry.queryDisease(group.id).length > 0);
+    assert.equal(registry.libraryPath({ disease: group.id }), `library.html?disease=${group.id}`);
+  }
+  assert.ok(registry.queryDisease("endocrine-metabolic").some((record) => record.family === "article"));
+  assert.ok(registry.queryDisease("endocrine-metabolic").some((record) => record.family === "ebook"));
+  assert.ok(registry.queryDisease("endocrine-metabolic").some((record) => record.family === "seminar"));
+  assert.ok(registry.queryDisease("endocrine-metabolic").some((record) => record.family === "presentation"));
+  assert.ok(registry.queryDisease("endocrine-metabolic").some((record) => record.family === "video"));
+  assert.ok(registry.queryDisease("endocrine-metabolic", { type: "video", text: "thyroid" }).every((record) => record.family === "video"));
+  const nutrilevelRelated = registry.related("nutri-level-metabolic-disease-prevention").map((record) => record.id);
+  assert.ok(nutrilevelRelated.includes("youtube-yT5W5tNjKBM"));
+});
+
 test("Public and Doctor publications propagate through shared queries", () => {
   const publicArticle = registry.byId("tumor-vs-cancer-guide");
   assert.ok(publicArticle);
