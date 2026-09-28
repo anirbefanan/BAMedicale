@@ -1,6 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const vm = require('node:vm');
 
 const app = fs.readFileSync('app.js', 'utf8');
 const styles = fs.readFileSync('styles.css', 'utf8');
@@ -75,14 +76,34 @@ test('eBook listing keeps server-rendered content and gains shared Latest and Al
 test('video discovery keeps originals and attributed external sources distinct', () => {
   const originals = JSON.parse(fs.readFileSync('data/original-videos.json', 'utf8')).videos;
   const youtube = JSON.parse(fs.readFileSync('data/videos.json', 'utf8')).videos;
+  const source = { window: {} };
+  vm.runInNewContext(fs.readFileSync('content.js', 'utf8'), source);
+  const registryApi = require('../content-registry');
+  const registry = registryApi.create(source.window.BAMEDICALE_DATA, { videos: youtube, originalVideos: originals });
   assert.ok(originals.length >= 1);
-  assert.equal(youtube.length, 20);
+  assert.equal(youtube.length, 22);
   assert.ok(originals.every(record => record.source === 'ba-medicale'));
   assert.ok(youtube.every(record => ['youtube', 'ba-medicale-youtube'].includes(record.source)));
   const baMedicaleYoutube = youtube.find(record => record.id === 'youtube-0c8kxJi-S2c');
   assert.equal(baMedicaleYoutube.source, 'ba-medicale-youtube');
   assert.equal(baMedicaleYoutube.source_type, 'youtube');
   assert.equal(baMedicaleYoutube.publish_date, undefined);
+  for (const [id, title, speaker, date, duration] of [
+    ['youtube-YSQLloquzvE', 'BETHESDA Classification in Thyroid Nodules | dr.Vinesia L. Riddi', 'Dr. Vinesia Lestari Riddi, SpPA, MPH', '2026-09-28', 1380],
+    ['youtube-ieCejtK8v6g', 'Ultrasound Imaging & TIRADS Classification in Thyroid Nodules | dr. Achmad Fachri', 'dr. Achmad Fachri, Sp.Rad(K)', '2026-09-25', 1347]
+  ]) {
+    const record = youtube.find(item => item.id === id);
+    assert(record);
+    assert.equal(record.title, title);
+    assert.equal(record.source, 'ba-medicale-youtube');
+    assert.equal(record.speaker, speaker);
+    assert.equal(record.publish_date, date);
+    assert.equal(record.duration_seconds, duration);
+    assert.equal(record.thumbnail, `https://i.ytimg.com/vi/${record.youtube_id}/hqdefault.jpg`);
+    assert.equal(registry.byId(id).primaryDiseaseGroup, 'endocrine-metabolic');
+    assert.equal(registryApi.classifyDiseaseGroups({ ...record, primaryDiseaseGroup: '', secondaryDiseaseGroups: [] }, source.window.BAMEDICALE_DATA).primaryDiseaseGroup, 'endocrine-metabolic');
+    assert.ok(registry.queryDisease('endocrine-metabolic', { type: 'video' }).some(item => item.id === id));
+  }
   assert.equal(new Set([...originals, ...youtube].map(record => record.id)).size, originals.length + youtube.length);
   assert.match(app, /record\.sourceRecord\.source === "ba-medicale"/);
   assert.match(app, /const source = record\.sourceRecord\.source/);
