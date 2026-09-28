@@ -6,6 +6,7 @@ const vm = require('node:vm');
 const app = fs.readFileSync('app.js', 'utf8');
 const styles = fs.readFileSync('styles.css', 'utf8');
 const ebooks = fs.readFileSync('ebooks.html', 'utf8');
+const home = fs.readFileSync('index.html', 'utf8');
 
 test('shared discovery cards use locked hierarchy and contextual actions', () => {
   assert.match(app, /const discoveryCard =/);
@@ -118,7 +119,13 @@ test('video discovery keeps originals and attributed external sources distinct',
 
 test('Latest Videos, mixed Library updates and eBooks use one native accessible coverflow without changing canonical records', () => {
   assert.match(app, /function initLatestCoverflow\(root\)/);
+  assert.match(app, /contentRegistry\.latestVideos\(\)/);
+  assert.equal((app.match(/contentRegistry\.latestVideos\(\)/g) || []).length, 2);
+  assert.match(app, /latestCoverflowMarkup\(videos\.slice\(0, previewCount\), "video", "Videos"\)/);
   assert.match(app, /latestCoverflowMarkup\(latest, "video", "Videos"\)/);
+  assert.match(app, /data-video-browse-more/);
+  assert.match(app, /videos\.length <= previewCount/);
+  assert.match(home, /href="videos\.html" data-video-browse-more hidden>Browse More Videos/);
   assert.match(app, /latestCoverflowMarkup\(matchingRecords\.slice\(0, 6\), "library", "Library updates"\)/);
   assert.match(app, /latestCoverflowMarkup\(matching\.slice\(0, 6\), "ebook", "eBooks"\)/);
   assert.match(app, /data-latest-coverflow-nav="previous"/);
@@ -128,7 +135,9 @@ test('Latest Videos, mixed Library updates and eBooks use one native accessible 
   assert.match(app, /const circularPosition = index =>/);
   assert.match(app, /latestcoverflowopen/);
   assert.doesNotMatch(app, /data-video-coverflow-play|video-coverflow__action/);
-  assert.doesNotMatch(app, /cloneNode\(|setInterval\([^)]*coverflow|new Swiper|THREE\.|gsap\./);
+  assert.match(app, /setInterval\(\(\) => \{[\s\S]*move\(1\)[\s\S]*\}, 6000\)/);
+  assert.match(app, /prefers-reduced-motion: reduce/);
+  assert.doesNotMatch(app, /cloneNode\(|new Swiper|THREE\.|gsap\./);
   assert.match(styles, /\.video-coverflow__stage\{[^}]*perspective:1700px/);
   assert.match(styles, /\.video-coverflow__card\{[\s\S]*rotateY\(var\(--coverflow-rotate\)\)/);
   assert.match(styles, /\.video-coverflow--article\{[^}]*--coverflow-card-width/);

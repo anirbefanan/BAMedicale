@@ -262,7 +262,8 @@ const latestCoverflowCard = (record, index, kind = record.family) => {
   const selector = kind === "video"
     ? `<button class="video-coverflow__media${cover ? "" : " is-default-artwork"}" type="button" data-latest-coverflow-select="${index}" data-coverflow-video-id="${escapeHtml(record.id)}" data-coverflow-video-source="${original ? "ba-medicale" : externalSource}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></button>`
     : `<a class="video-coverflow__media${cover ? "" : " is-default-artwork"}" href="${escapeHtml(route)}" data-latest-coverflow-select="${index}" aria-label="Center ${escapeHtml(record.title)}">${media}<span class="video-coverflow__media-shade" aria-hidden="true"></span></a>`;
-  return `<article class="video-coverflow__card" data-latest-coverflow-card${kind === "video" ? " data-video-coverflow-card" : ""} data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-coverflow-family="${escapeHtml(cardKind)}" data-source="${cardKind === "video" ? (original ? "ba-medicale" : externalSource) : escapeHtml(cardKind)}">${selector}<div class="video-coverflow__copy"><p class="video-coverflow__provenance">${escapeHtml(provenance)}</p><h3>${escapeHtml(record.title)}</h3>${record.sourceRecord?.speaker ? `<p class="video-coverflow__speaker">${escapeHtml(record.sourceRecord.speaker)}</p>` : ""}<div class="video-coverflow__meta">${record.sortDate ? `<time datetime="${escapeHtml(record.sortDate)}">${escapeHtml(formatPublishedDate(record.sortDate))}</time>` : ""}${context ? `<span>${escapeHtml(context)}</span>` : ""}</div>${kind === "video" ? `<a class="video-coverflow__watch" href="${escapeHtml(original ? record.route : safeVideoSourceUrl(record.sourceRecord.url, source))}"${original ? "" : ' target="_blank" rel="noopener noreferrer"'} data-video-coverflow-watch>${original ? "Play Original" : source === "instagram" ? "Watch on Instagram ↗" : "Watch on YouTube ↗"}</a>` : ""}</div></article>`;
+  const publicationDate = cardKind === "video" ? record.videoPublishedDate : record.sortDate;
+  return `<article class="video-coverflow__card" data-latest-coverflow-card${kind === "video" ? " data-video-coverflow-card" : ""} data-coverflow-index="${index}" data-content-id="${escapeHtml(record.id)}" data-coverflow-family="${escapeHtml(cardKind)}" data-source="${cardKind === "video" ? (original ? "ba-medicale" : externalSource) : escapeHtml(cardKind)}">${selector}<div class="video-coverflow__copy"><p class="video-coverflow__provenance">${escapeHtml(provenance)}</p><h3>${escapeHtml(record.title)}</h3>${record.sourceRecord?.speaker ? `<p class="video-coverflow__speaker">${escapeHtml(record.sourceRecord.speaker)}</p>` : ""}<div class="video-coverflow__meta">${publicationDate ? `<time datetime="${escapeHtml(publicationDate)}">${escapeHtml(formatPublishedDate(publicationDate))}</time>` : ""}${context ? `<span>${escapeHtml(context)}</span>` : ""}</div>${kind === "video" ? `<a class="video-coverflow__watch" href="${escapeHtml(original ? record.route : safeVideoSourceUrl(record.sourceRecord.url, source))}"${original ? "" : ' target="_blank" rel="noopener noreferrer"'} data-video-coverflow-watch>${original ? "Play Original" : source === "instagram" ? "Watch on Instagram ↗" : "Watch on YouTube ↗"}</a>` : ""}</div></article>`;
 };
 const latestCoverflowMarkup = (records, kind, label) => `<div class="video-coverflow video-coverflow--${escapeHtml(kind)}" data-latest-coverflow data-coverflow-kind="${escapeHtml(kind)}"${kind === "video" ? " data-video-coverflow data-video-latest" : ""} role="region" aria-roledescription="carousel" aria-label="Latest ${escapeHtml(label)} coverflow" tabindex="0"><div class="video-coverflow__stage"><div class="video-coverflow__track">${records.map((record, index) => latestCoverflowCard(record, index, kind)).join("")}</div><button class="video-coverflow__nav video-coverflow__nav--previous" type="button" data-latest-coverflow-nav="previous" aria-label="Previous latest ${escapeHtml(kind)}">←</button><button class="video-coverflow__nav video-coverflow__nav--next" type="button" data-latest-coverflow-nav="next" aria-label="Next latest ${escapeHtml(kind)}">→</button></div><div class="video-coverflow__footer"><p class="video-coverflow__status" data-latest-coverflow-status aria-live="polite"></p><div class="video-coverflow__indicators" data-latest-coverflow-indicators aria-label="Choose a latest ${escapeHtml(kind)}"></div></div></div>`;
 function initLatestCoverflow(root) {
@@ -406,6 +407,25 @@ function initLatestCoverflow(root) {
   stage.addEventListener("pointercancel", endDrag);
   setActive(0, { announce: false });
   requestAnimationFrame(() => status.setAttribute("aria-live", "polite"));
+  if (root.dataset.coverflowKind === "video") {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let rotation = 0;
+    const stopRotation = () => { clearInterval(rotation); rotation = 0; };
+    const startRotation = () => {
+      stopRotation();
+      if (cards.length > 1 && !reducedMotion.matches && !document.hidden && !root.matches(":hover") && !root.contains(document.activeElement)) rotation = setInterval(() => {
+        if (!root.isConnected) { stopRotation(); return; }
+        move(1);
+      }, 6000);
+    };
+    root.addEventListener("mouseenter", stopRotation);
+    root.addEventListener("mouseleave", startRotation);
+    root.addEventListener("focusin", stopRotation);
+    root.addEventListener("focusout", () => setTimeout(startRotation, 0));
+    document.addEventListener("visibilitychange", startRotation);
+    reducedMotion.addEventListener?.("change", startRotation);
+    startRotation();
+  }
 }
 function initVideoCoverflow(root) { initLatestCoverflow(root); }
 const initDiscoveryImageFallbacks = (root = document) => {
@@ -627,6 +647,15 @@ function renderHome() {
     const latest = contentRegistry.query().slice(0, 6);
     updates.innerHTML = `<div class="approved-home-updates__heading"><p class="approved-kicker">Latest updates</p><h2>Continue with what is new.</h2><p>Recent source-backed reading, events, presentations, eBooks, and video learning.</p></div>${latest.length ? `<div class="discovery-grid">${latest.map((record, index) => discoveryCard(record, { eager: index < 2, showSummary: false })).join("")}</div>` : comingSoonCard("Latest learning", "New medical learning is coming soon.", "medical-learning")}`;
     initDiscoveryImageFallbacks(updates);
+  }
+  const videoPreview = document.querySelector("[data-video-preview-list]");
+  if (videoPreview) {
+    const videos = contentRegistry.latestVideos();
+    const previewCount = 6;
+    videoPreview.innerHTML = videos.length ? latestCoverflowMarkup(videos.slice(0, previewCount), "video", "Videos") : `<p class="discovery-empty">Verified medical videos will appear here when published.</p>`;
+    if (videos.length) initVideoCoverflow(videoPreview.querySelector("[data-video-coverflow]"));
+    const browseMore = document.querySelector("[data-video-browse-more]");
+    if (browseMore) browseMore.hidden = videos.length <= previewCount;
   }
 }
 
@@ -1215,20 +1244,14 @@ function initHomeSeminarPromotion() {
 
 function renderVideoHub() {
   const hub = document.querySelector("[data-video-hub]");
-  const preview = document.querySelector("[data-video-preview-list]");
-  if (!hub && !preview) return;
-  const videoRecords = contentRegistry.query({ family: "video" });
+  if (!hub && !document.querySelector("[data-video-preview-list]")) return;
+  const videoRecords = contentRegistry.latestVideos();
   const videos = videoRecords.filter((record) => record.sourceRecord.source !== "ba-medicale").map((record) => ({ ...record.sourceRecord, title: record.title }));
   const originalVideos = videoRecords.filter((record) => record.sourceRecord.source === "ba-medicale").map((record) => record.sourceRecord);
   if (!videos.length && !originalVideos.length) {
     if (hub) hub.innerHTML = `<div class="video-hub__empty"><p class="eyebrow">Medical videos</p><h2>Videos are temporarily unavailable.</h2><p>Please return soon.</p></div>`;
     return;
   }
-  const localThumbnail = (video) => safeImageUrl(video.thumbnail);
-  const latestOriginals = originalVideos.slice(-4).reverse();
-  const latestYouTube = videos.slice().sort((a, b) => String(b.publish_date || "").localeCompare(String(a.publish_date || ""))).slice(0, 4);
-  const previewLocalCard = (video) => `<article class="video-preview video-preview--original"><button type="button" data-video-local="${escapeHtml(video.id)}" aria-label="Play ${escapeHtml(video.title)}"><img src="${escapeHtml(localThumbnail(video))}" alt="Preview of ${escapeHtml(video.title)}" width="960" height="540" loading="lazy"><span>▶</span></button><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3></article>`;
-  const previewYouTubeCard = (video) => `<article class="video-preview"><a href="${escapeHtml(safeVideoSourceUrl(video.url, video.source))}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${escapeHtml(video.title)} on YouTube"><img src="${escapeHtml(safeImageUrl(video.thumbnail))}" alt="${escapeHtml(video.title)}" width="480" height="360" loading="eager" referrerpolicy="no-referrer"><span>↗</span></a><p>${escapeHtml(video.source_label)}</p><h3>${escapeHtml(video.title)}</h3><a href="${escapeHtml(safeVideoSourceUrl(video.url, video.source))}" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></article>`;
   if (hub) {
     const topics = [...new Set(videoRecords.flatMap((record) => record.topics).filter(Boolean))].sort();
     const videoCard = (record, options = {}) => {
@@ -1300,7 +1323,6 @@ function renderVideoHub() {
     window.addEventListener("popstate", () => { page = controlsFromUrl(); render(); });
     render();
   }
-  if (preview) preview.innerHTML = `${latestOriginals.map(previewLocalCard).join("")}${latestYouTube.map(previewYouTubeCard).join("")}`;
   const dialog = document.createElement("dialog");
   dialog.className = "video-player";
   dialog.setAttribute("aria-labelledby", "video-player-title");
@@ -1411,7 +1433,7 @@ function renderVideoHub() {
     if (record.source === "ba-medicale") openLocalVideo(requestedVideo, null, { autoplay: false });
     else openVideo(requestedVideo, null, { autoplay: false });
   };
-  hub?.addEventListener("latestcoverflowopen", event => {
+  document.addEventListener("latestcoverflowopen", event => {
     const card = event.detail?.card;
     const opener = event.detail?.opener;
     const id = card?.querySelector("[data-coverflow-video-id]")?.dataset.coverflowVideoId;

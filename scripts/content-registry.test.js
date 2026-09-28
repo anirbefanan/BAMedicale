@@ -30,6 +30,39 @@ test("Disease Explorer destinations derive from result cardinality as the catalo
   assert.equal(registry.destination(multiple, { disease: "breast" }), "library.html?disease=breast");
 });
 
+test("canonical latest order starts with the verified 28 Sep and 25 Sep videos", () => {
+  assert.deepEqual(registry.latestVideos(2).map(record => record.id), ["youtube-YSQLloquzvE", "youtube-ieCejtK8v6g"]);
+});
+
+test("one latest-video selector orders verified published records across sources and ignores metadata edits", () => {
+  const sourceFixture = (id, source, extra = {}) => ({
+    id, title: `Video ${id}`, source, url: source === "instagram" ? `https://www.instagram.com/reel/${id}/` : source === "ba-medicale" ? `assets/videos/${id}.mp4` : `https://youtu.be/${id.padEnd(11, "x").slice(0, 11)}`,
+    verified_identity: true, source_label: source, ...extra
+  });
+  const fixture = registryApi.create(data, {
+    videos: [
+      sourceFixture("youtube-new", "youtube", { youtube_id: "youtube-new", publish_date: "2026-09-28", updatedDate: "2026-09-29" }),
+      sourceFixture("youtube-older", "ba-medicale-youtube", { youtube_id: "youtube-old", publish_date: "2026-09-25", publishedDate: "2026-10-03", updatedDate: "2026-10-04" }),
+      sourceFixture("instagram-date", "instagram", { publish_date: "2026-09-26" }),
+      sourceFixture("youtube-undated", "youtube", { sortOrder: 2 }),
+      sourceFixture("youtube-duplicate", "youtube", { youtube_id: "youtube-new", publish_date: "2026-09-28" }),
+      sourceFixture("youtube-unverified", "youtube", { verified_identity: false, publish_date: "2026-10-01" }),
+      sourceFixture("youtube-unpublished", "youtube", { publicationStatus: "draft", publish_date: "2026-10-02" })
+    ],
+    originalVideos: [sourceFixture("original-date", "ba-medicale", { publishedDate: "2026-09-27" })]
+  });
+  const latestIds = fixture.latestVideos().map(record => record.id);
+  assert.ok(["youtube-new", "youtube-duplicate"].includes(latestIds[0]));
+  assert.deepEqual(latestIds.slice(1), ["original-date", "instagram-date", "youtube-older", "youtube-undated"]);
+  assert.deepEqual(fixture.latestVideos(2).map(record => record.id), fixture.latestVideos().slice(0, 2).map(record => record.id));
+  assert.ok(fixture.latestVideos().every(record => record.publicationStatus === "published"));
+  assert.ok(fixture.latestVideos().some(record => record.sourceRecord.source === "instagram"));
+  assert.ok(!fixture.latestVideos().some(record => ["youtube-unverified", "youtube-unpublished"].includes(record.id)));
+  assert.equal(fixture.latestVideos().filter(record => ["youtube-new", "youtube-duplicate"].includes(record.id)).length, 1);
+  const removed = registryApi.create(data, { videos: fixture.latestVideos().filter(record => record.sourceRecord.source !== "instagram").map(record => record.sourceRecord), originalVideos: [] });
+  assert.ok(!removed.latestVideos().some(record => record.sourceRecord.source === "instagram"));
+});
+
 test("disease classification preserves explicit groups and infers strong clinical evidence", () => {
   const explicit = registryApi.classifyDiseaseGroups({
     title: "Hypertension and High Blood Pressure",

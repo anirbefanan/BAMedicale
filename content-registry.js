@@ -198,6 +198,7 @@
     const contentType = record.contentType || labelFor(record, family);
     const publishedDate = normalizeDate(record.publishedDate);
     const originalPublicationDate = normalizeDate(record.sourcePublicationDate || record.originalPublicationDate || record.publish_date);
+    const videoPublishedDate = family === "video" ? (record.source === "ba-medicale" ? publishedDate : originalPublicationDate) : "";
     const publicationStatus = normalizeStatus(record, publishedDate || (family === "video" && record.verified_identity) ? PUBLISHED : family === "ebook" ? "planned" : "draft");
     const authors = authorsFor(record);
     const topics = topicsFor(record);
@@ -236,6 +237,7 @@
       doi: doiFor(record),
       source: record.sourceAttribution || record.source_label || record.paper?.publicationDetails || "",
       publishedDate,
+      videoPublishedDate,
       updatedDate: normalizeDate(record.updatedDate),
       originalPublicationDate,
       sortDate: normalizeDate(record.updatedDate) || publishedDate || originalPublicationDate,
@@ -320,6 +322,28 @@
     const navRecords = navigationRecords(data);
     const query = (filters = {}) => records.filter((record) => matchesFilters(record, { publishedOnly: filters.publishedOnly !== false, ...filters })).sort(compareRecords);
     const queryDisease = (disease, filters = {}) => query({ ...filters, disease });
+    // Keep video recency tied to source publication dates; metadata edits must not resurface older videos.
+    const latestVideos = (limit = Infinity) => {
+      const identity = (record) => {
+        const source = record.sourceRecord || {};
+        if (source.youtube_id) return `youtube:${source.youtube_id}`;
+        const url = String(source.url || "");
+        const youtubeId = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?.*v=|embed\/|shorts\/))([\w-]{11})/i)?.[1];
+        if (youtubeId) return `youtube:${youtubeId}`;
+        if (source.source === "instagram" && url) return `instagram:${url.split("?")[0].replace(/\/$/, "")}`;
+        return `video:${record.id}`;
+      };
+      const dated = query({ family: "video" }).sort((a, b) => String(b.videoPublishedDate || "").localeCompare(String(a.videoPublishedDate || "")) || b.sortOrder - a.sortOrder || String(a.title || "").localeCompare(String(b.title || "")) || String(a.id).localeCompare(String(b.id)));
+      const identities = new Set();
+      const unique = dated.filter((record) => {
+        const key = identity(record);
+        if (identities.has(key)) return false;
+        identities.add(key);
+        return true;
+      });
+      const ordered = unique.sort((a, b) => String(b.videoPublishedDate || "").localeCompare(String(a.videoPublishedDate || "")) || b.sortOrder - a.sortOrder || String(a.title || "").localeCompare(String(b.title || "")) || String(a.id).localeCompare(String(b.id)));
+      return Number.isFinite(limit) ? ordered.slice(0, Math.max(0, limit)) : ordered;
+    };
     const search = (text = "") => {
       const terms = String(text).toLowerCase().split(/\s+/).filter(Boolean);
       return [...query({ text }), ...navRecords.filter((record) => terms.every((term) => record.searchable.includes(term)))];
@@ -343,7 +367,7 @@
         return { candidate, score };
       }).filter((entry) => entry.score > 0).sort((a, b) => b.score - a.score || compareRecords(a.candidate, b.candidate)).slice(0, limit).map((entry) => entry.candidate);
     };
-    return Object.freeze({ records, navigationRecords: navRecords, byId: (id) => byIdMap.get(id), query, queryDisease, search, destination, related, libraryPath });
+    return Object.freeze({ records, navigationRecords: navRecords, byId: (id) => byIdMap.get(id), query, queryDisease, latestVideos, search, destination, related, libraryPath });
   };
 
   const validate = (registry, data = {}, { root = "", exists = () => true } = {}) => {
