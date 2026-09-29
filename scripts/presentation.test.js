@@ -42,7 +42,7 @@ test('presentation discovery and canonical authorship remain professional and so
  assert(html.includes(escape(data.profile.name)));
  assert(fs.readFileSync('sitemap.xml','utf8').includes(p.canonicalUrl));
 });
-test('Dr. Bob canonical presentation keeps the complete reusable reading and download experience',()=>{
+test('Dr. Bob canonical presentation keeps the complete reusable web-reading experience',()=>{
  assert.equal(p.title,'Current Diagnostic Approach and Therapy Selection for Thyroid Nodules');
  assert.equal(p.author.name,'Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)');
  assert.equal(p.eventId,'management-thyroid-nodules-2026');
@@ -50,11 +50,19 @@ test('Dr. Bob canonical presentation keeps the complete reusable reading and dow
  assert(p.cover.includes('infographic'));
  assert(Array.isArray(p.quickRead)&&p.quickRead.length>0);
  for(const entry of p.quickRead){assert(entry.title&&entry.body);assert((Array.isArray(entry.pages)&&entry.pages.every(page=>Number.isInteger(page)&&page>0))||typeof entry.pages==="string"&&entry.pages.length>0);}
- for(const token of['Quick Read','Full Read','Download Original PDF','data-download-material','data-slide-open','Read selectable slide text','Return to seminar'])assert(html.includes(token),token);
+ for(const token of['Quick Read','Full Read','data-slide-open','Read selectable slide text','Return to seminar','<h1>Current Diagnostic Approach and Therapy Selection for Thyroid Nodules</h1>'])assert(html.includes(token),token);
+ assert(!/Download Presentation|Download Original|data-download-material|sourcePdf|downloadFile|contentUrl|isBasedOn/.test(html));
+ assert(html.includes('<link rel="canonical"'));
+ assert(!html.includes('name="robots" content="noindex'));
+ assert(html.includes('Endocrine &amp; Metabolic Diseases'));
+ assert(html.includes('Management of Thyroid Nodules'));
+ assert(html.includes('"@type":"Audience","audienceType":"Doctors"'));
+ assert(html.includes('"@type":"Event"'));
  const client=fs.readFileSync('presentation.js','utf8');
  assert.match(client,/ArrowLeft/);assert.match(client,/ArrowRight/);assert.match(client,/dialog\.showModal\(\)/);assert.match(client,/dialog\.addEventListener\('close'/);assert.match(client,/opener\?\.focus\(\)/);
  const app=fs.readFileSync('app.js','utf8');
- assert.match(app,/openDownload\(presentation,trigger\)/);
+ assert(!app.includes('data-download-material'));
+ assert(!app.includes('download-client.js'));
  assert.match(app,/data\.seminars\?\.\[presentation\.eventId\]/);
  assert(!app.includes('19 September 2026 seminar · Summary of the supplied PDF'));
  assert(html.includes('bamedicale-approved-logo.jpg'));

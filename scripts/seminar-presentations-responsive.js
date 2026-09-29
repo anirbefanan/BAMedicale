@@ -26,10 +26,12 @@ const root=path.resolve(__dirname,'..'),ids=['current-diagnostic-approach-and-th
     await page.keyboard.press('ArrowLeft');assert.equal(await page.locator('.slide-viewer__counter').innerText(),`1 / ${[20,25,29][index]}`);
     await page.keyboard.press('Escape');assert(!(await page.locator('.slide-viewer').isVisible()));
     assert(await page.locator('.presentation-index [data-slide-open="1"]').evaluate(el=>el===document.activeElement));
-    await page.locator('[data-download-material]').first().click();await page.locator('.download-dialog').waitFor({state:'visible'});
-    assert((await page.locator('.download-dialog').innerText()).includes(index?'PPTX':'PDF'));
-    await page.locator('[data-download-cancel]').click();
+    assert.deepEqual(await page.locator('.presentation-actions a').allTextContents().then(items=>items.map(text=>text.replace('→','').trim())),['Full Read','Quick Read']);
     await page.locator('[data-article-reader]').first().click();assert(await page.getByText('Quick Read · Presentation summary').isVisible());
+    assert(await page.locator('.article-reader__actions a').filter({hasText:'Full Read'}).isVisible());
+    assert.equal(await page.locator('.article-reader__bar [data-article-pdf]').count(),0);
+    await page.keyboard.press('Escape');assert(!(await page.locator('.article-reader').isVisible()));
+    assert(await page.locator('[data-article-reader]').first().evaluate(element=>element===document.activeElement));
     checks++;
    }
   }
