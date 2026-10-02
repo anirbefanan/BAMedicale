@@ -30,8 +30,8 @@ test("Disease Explorer destinations derive from result cardinality as the catalo
   assert.equal(registry.destination(multiple, { disease: "breast" }), "library.html?disease=breast");
 });
 
-test("canonical latest order starts with the verified 28 Sep and 25 Sep videos", () => {
-  assert.deepEqual(registry.latestVideos(2).map(record => record.id), ["youtube-YSQLloquzvE", "youtube-ieCejtK8v6g"]);
+test("canonical latest order follows each verified source publication date", () => {
+  assert.deepEqual(registry.latestVideos(3).map(record => record.id), ["youtube-B-6sIIjefas", "youtube-YSQLloquzvE", "youtube-ieCejtK8v6g"]);
 });
 
 test("one latest-video selector orders verified published records across sources and ignores metadata edits", () => {

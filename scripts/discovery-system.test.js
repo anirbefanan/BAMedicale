@@ -82,7 +82,7 @@ test('video discovery keeps originals and attributed external sources distinct',
   const registryApi = require('../content-registry');
   const registry = registryApi.create(source.window.BAMEDICALE_DATA, { videos: youtube, originalVideos: originals });
   assert.ok(originals.length >= 1);
-  assert.equal(youtube.length, 22);
+  assert.equal(youtube.length, 23);
   assert.ok(originals.every(record => record.source === 'ba-medicale'));
   assert.ok(youtube.every(record => ['youtube', 'ba-medicale-youtube'].includes(record.source)));
   const baMedicaleYoutube = youtube.find(record => record.id === 'youtube-0c8kxJi-S2c');
@@ -105,6 +105,20 @@ test('video discovery keeps originals and attributed external sources distinct',
     assert.equal(registryApi.classifyDiseaseGroups({ ...record, primaryDiseaseGroup: '', secondaryDiseaseGroups: [] }, source.window.BAMEDICALE_DATA).primaryDiseaseGroup, 'endocrine-metabolic');
     assert.ok(registry.queryDisease('endocrine-metabolic', { type: 'video' }).some(item => item.id === id));
   }
+  const thyroidNoduleQa = youtube.find(item => item.id === 'youtube-B-6sIIjefas');
+  assert(thyroidNoduleQa);
+  assert.equal(thyroidNoduleQa.title, 'Management of Thyroid Nodules: How to Make a Good Diagnosis? | Case Discussion & Q&A');
+  assert.equal(thyroidNoduleQa.source, 'ba-medicale-youtube');
+  assert.equal(thyroidNoduleQa.source_label, 'BA Medicale on YouTube');
+  assert.equal(thyroidNoduleQa.url, 'https://www.youtube.com/watch?v=B-6sIIjefas');
+  assert.equal(thyroidNoduleQa.publish_date, '2026-09-30');
+  assert.equal(thyroidNoduleQa.duration_seconds, 2877);
+  assert.equal(thyroidNoduleQa.primaryAudience, 'HEALTHCARE WORKER');
+  assert.equal(thyroidNoduleQa.person, undefined);
+  assert.equal(thyroidNoduleQa.speaker, undefined);
+  assert.equal(registry.byId(thyroidNoduleQa.id).primaryDiseaseGroup, 'endocrine-metabolic');
+  assert.ok(registry.queryDisease('endocrine-metabolic', { type: 'video' }).some(item => item.id === thyroidNoduleQa.id));
+  assert.equal(registry.latestVideos()[0].id, thyroidNoduleQa.id);
   assert.equal(new Set([...originals, ...youtube].map(record => record.id)).size, originals.length + youtube.length);
   assert.match(app, /record\.sourceRecord\.source === "ba-medicale"/);
   assert.match(app, /const source = record\.sourceRecord\.source/);
@@ -114,6 +128,9 @@ test('video discovery keeps originals and attributed external sources distinct',
   assert.match(app, /BA Medicale on Instagram/);
   assert.match(app, /sourceRecord\.source/);
   assert.match(app, /searchParams\.set\("source", values\.source\)/);
+  assert.match(app, /name="audience"[\s\S]*registryApi\.AUDIENCES\.map/);
+  assert.match(app, /record\.primaryAudience === values\.audience/);
+  assert.match(app, /searchParams\.set\("audience", values\.audience\)/);
   assert.match(app, /requestedRecord\(requestedVideo\)/);
 });
 

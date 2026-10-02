@@ -119,6 +119,45 @@
       "source_type": "youtube"
     },
     {
+      "id": "youtube-B-6sIIjefas",
+      "youtube_id": "B-6sIIjefas",
+      "title": "Management of Thyroid Nodules: How to Make a Good Diagnosis? | Case Discussion & Q&A",
+      "short_description": "Case discussion and interactive Q&A on clinical diagnostic and management considerations for thyroid nodules.",
+      "description": "Thyroid Nodules: Case Discussion & Q&A\n\nThis video features the case discussion and interactive Q&A session from the BAMedicale webinar:\n\n“Management of Thyroid Nodules: How to Make a Good Diagnosis?”\n\nThe session includes clinical case discussions and questions from participants, providing an opportunity to explore the diagnostic approach and management considerations of thyroid nodules in clinical practice.\n\n🎤 Session\nCase Discussion & Q&A\n\n📚 Webinar\nManagement of Thyroid Nodules: How to Make a Good Diagnosis?\n\nThis video is intended for medical education purposes and is primarily intended for healthcare professionals.\n\nFollow BAMedicale for more medical education content and information about upcoming webinars.\n\n#BAMedicale #ThyroidNodules #CaseDiscussion #MedicalEducation #QandA #Thyroid #MedicalWebinar",
+      "source": "ba-medicale-youtube",
+      "source_label": "BA Medicale on YouTube",
+      "url": "https://www.youtube.com/watch?v=B-6sIIjefas",
+      "embed_url": "https://www.youtube-nocookie.com/embed/B-6sIIjefas",
+      "thumbnail": "https://i.ytimg.com/vi/B-6sIIjefas/hqdefault.jpg",
+      "publish_date": "2026-09-30",
+      "topic": "Thyroid Nodules: Case Discussion & Q&A",
+      "audience": "Healthcare professionals",
+      "featured": false,
+      "duration_seconds": 2877,
+      "verified_identity": true,
+      "verification": {
+        "identity_evidence": "YouTube public video metadata identifies the source channel as BA Medicale (channel ID UCJZEq4jQeml8zjIexwZpazg); the official BA Medicale channel listing contains this video.",
+        "metadata_source": "YouTube oEmbed metadata, official channel listing, and public video metadata",
+        "last_verified_at": "2026-10-02"
+      },
+      "discovered_at": "2026-10-02",
+      "last_verified_at": "2026-10-02",
+      "primaryAudience": "HEALTHCARE WORKER",
+      "contentType": "Video",
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "secondaryDiseaseGroups": [],
+      "diseaseCondition": "Thyroid nodules",
+      "topics": [
+        "Thyroid Nodules",
+        "Diagnosis",
+        "Management",
+        "Case Discussion",
+        "Q&A"
+      ],
+      "sourceRecordType": "external",
+      "source_type": "youtube"
+    },
+    {
       "id": "youtube-_nbR7ATfZy0",
       "youtube_id": "_nbR7ATfZy0",
       "title": "Bincang Sehat Seputar Deteksi Dini Kanker Part 1 Bersama dr. Bob Andinata, Sp.B.Subsp.Onk (K)",
