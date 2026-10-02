@@ -33,7 +33,7 @@ test("traffic page local assets and scripts resolve in the repository", () => {
 
 test("shared navigation, footer, and sitemap place Traffic correctly", () => {
   assert.match(app, /\{ label: "BA Medicale", href: "about\.html" \},\s*\{ label: "Team", href: "team\.html" \},\s*\{ label: "Traffic", href: "traffic\.html" \},\s*\{ label: "Contact Us", href: "contact\.html" \}/);
-  assert.match(app, /About BA Medicale<\/a><a href="team\.html">Team<\/a><a href="traffic\.html">Traffic<\/a><a href="contact\.html">Contact Us<\/a><a href="privacy-policy\.html">Privacy Policy<\/a>/);
+  assert.match(app, /navigationHref\("about\.html"\)\}\">About BA Medicale<\/a><a href="\$\{navigationHref\("team\.html"\)\}\">Team<\/a><a href="\$\{navigationHref\("traffic\.html"\)\}\">Traffic<\/a><a href="\$\{navigationHref\("contact\.html"\)\}\">Contact Us<\/a><a href="\$\{navigationHref\("privacy-policy\.html"\)\}\">Privacy Policy<\/a>/);
   assert.match(app, /route === "traffic\.html".*group: "About", child: "traffic\.html"/);
   assert.match(sitemap, /<loc>https:\/\/bamedicale\.com\/traffic\.html<\/loc>/);
 });

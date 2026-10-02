@@ -118,6 +118,12 @@ Do not confuse more activity with higher quality.
 
 Never turn routine website work into an engineering investigation.
 
+## Autonomous BAU Execution & Self-Healing
+
+For Codex Local and Cloud, default to end-to-end BA Medicale execution: inspect and safely sync, implement, test, diagnose routine failures, safely fix, regenerate canonical outputs when required, retest until passing, minimize the diff, commit, push, and deploy/verify when production completion is requested. Resolve safe, in-scope environment, configuration, generated-output, test, lint, build, and content-check failures without unnecessary user round-trips. Never weaken tests or security rules, hide failures, or overwrite unrelated work; preserve protected systems.
+
+Escalate only material, destructive, or ambiguous decisions involving protected `Material/`, out-of-scope JUMI or Apps Script architecture, secrets, destructive Git or force pushes, substantial data deletion, canonical URLs, locked design or product behavior, medical facts or meaning, doctor credentials, security or privacy, paid infrastructure, or significant migrations.
+
 ---
 
 # 4. EXECUTION MODES
