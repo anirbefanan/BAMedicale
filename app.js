@@ -607,16 +607,16 @@ function renderHome() {
   const pathways = document.querySelector("[data-home-pathways]");
   if (pathways) {
     const pathwayDefinitions = [
-      { audience: "DOCTOR", label: "For Doctors", title: "Move from evidence to clinical context.", description: "Scientific publications, diagnostic thinking, and professional learning organized around clinical questions.", icon: "path" },
-      { audience: "HEALTHCARE WORKER", label: "For Healthcare Professionals", title: "Connect knowledge across the care team.", description: "Practical learning for diagnostics, care pathways, coordination, and multidisciplinary patient support.", icon: "book" },
-      { audience: "PUBLIC", label: "For Public", title: "Understand health and navigate care.", description: "Clear information about symptoms, diagnosis, treatment context, and informed conversations with healthcare professionals.", icon: "cell" }
+      { audience: "DOCTOR", label: "For Doctors", title: "Move from evidence to clinical context.", description: "Scientific publications, diagnostic thinking, and professional learning organized around clinical questions.", icon: "path", artwork: "assets/home/pathway-doctors.jpg", artworkAlt: "Clinical anatomy, diagnostic imaging, and medical references for doctors" },
+      { audience: "HEALTHCARE WORKER", label: "For Healthcare Professionals", title: "Connect knowledge across the care team.", description: "Practical learning for diagnostics, care pathways, coordination, and multidisciplinary patient support.", icon: "book", artwork: "assets/home/pathway-healthcare-professionals.jpg", artworkAlt: "Multidisciplinary care team and shared clinical learning resources" },
+      { audience: "PUBLIC", label: "For Public", title: "Understand health and navigate care.", description: "Clear information about symptoms, diagnosis, treatment context, and informed conversations with healthcare professionals.", icon: "cell", artwork: "assets/home/pathway-public.jpg", artworkAlt: "Family health, prevention, and public medical learning resources" }
     ];
     pathways.innerHTML = `<header class="home-pathways__head"><p class="approved-kicker">Choose your pathway</p><h2>One medical-learning environment, shaped around your role in care.</h2></header><div class="home-pathways__grid">${pathwayDefinitions.map((pathway) => {
       const records = publishedContentForAudience(pathway.audience);
       const latest = records[0];
       const href = contentRegistry.destination(records, { audience: pathway.audience });
       const availability = `${records.length} published ${records.length === 1 ? "item" : "items"}`;
-      return `<a class="home-pathway" href="${escapeHtml(href)}" data-pathway-audience="${escapeHtml(pathway.audience)}"><span class="home-pathway__icon">${icon(pathway.icon)}</span><span class="home-pathway__index">${escapeHtml(pathway.label)}</span><h3>${escapeHtml(pathway.title)}</h3><p>${escapeHtml(pathway.description)}</p><span class="home-pathway__context"><b>${escapeHtml(availability)}</b>${latest ? `<small>Latest: ${escapeHtml(latest.title)}</small>` : ""}</span><span class="home-pathway__action">Enter pathway <i aria-hidden="true">→</i></span></a>`;
+      return `<a class="home-pathway" href="${escapeHtml(href)}" data-pathway-audience="${escapeHtml(pathway.audience)}"><div class="home-pathway__media"><img src="${escapeHtml(pathway.artwork)}" alt="${escapeHtml(pathway.artworkAlt)}" width="1254" height="1254" loading="eager" decoding="sync"></div><div class="home-pathway__body"><div class="home-pathway__eyebrow"><span class="home-pathway__icon" aria-hidden="true">${icon(pathway.icon)}</span><span class="home-pathway__index">${escapeHtml(pathway.label)}</span></div><h3>${escapeHtml(pathway.title)}</h3><p>${escapeHtml(pathway.description)}</p><span class="home-pathway__context"><b>${escapeHtml(availability)}</b>${latest ? `<small>Latest: ${escapeHtml(latest.title)}</small>` : ""}</span><span class="home-pathway__action">Enter pathway <i aria-hidden="true">→</i></span></div></a>`;
     }).join("")}</div>`;
   }
   const diseaseExplorer = document.querySelector("[data-disease-explorer]");
