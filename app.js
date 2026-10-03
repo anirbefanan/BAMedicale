@@ -1185,21 +1185,81 @@ function initImmersiveExperience() {
 }
 
 function initLightbox() {
-  const triggers = document.querySelectorAll("[data-lightbox-image]");
+  const triggers = [...document.querySelectorAll("[data-lightbox-image]")];
   if (!triggers.length) return;
   const dialog = document.createElement("dialog");
   dialog.className = "medical-lightbox";
-  dialog.innerHTML = `<button type="button" aria-label="Close image">×</button><img alt="">`;
+  dialog.innerHTML = `<button class="medical-lightbox__close" type="button" aria-label="Close image">×</button><div class="medical-lightbox__viewport"><img alt=""></div><nav class="medical-lightbox__navigation" aria-label="Visual navigation" hidden><button type="button" data-lightbox-previous aria-label="Previous visual">←</button><p><span data-lightbox-position></span><strong data-lightbox-title></strong></p><button type="button" data-lightbox-next aria-label="Next visual">→</button><button type="button" data-lightbox-zoom aria-label="Zoom in visual" aria-pressed="false">+</button></nav>`;
   document.body.append(dialog);
   const image = dialog.querySelector("img");
-  triggers.forEach((trigger) => trigger.addEventListener("click", () => {
+  const navigation = dialog.querySelector(".medical-lightbox__navigation");
+  const viewport = dialog.querySelector(".medical-lightbox__viewport");
+  const zoomButton = dialog.querySelector("[data-lightbox-zoom]");
+  let sequence = [];
+  let activeIndex = 0;
+  let opener = null;
+  let previousOverflow = "";
+  const resetZoom = () => {
+    dialog.classList.remove("is-zoomed");
+    zoomButton.setAttribute("aria-pressed", "false");
+    zoomButton.setAttribute("aria-label", "Zoom in visual");
+    zoomButton.textContent = "+";
+    viewport.scrollTo(0, 0);
+  };
+  const showImage = (trigger) => {
     const source = safeInternalUrl(trigger.dataset.lightboxImage);
-    if (!source) return;
+    if (!source) return false;
     image.src = source;
     image.alt = trigger.dataset.lightboxAlt || "Medical education illustration";
+    if (sequence.length > 1) {
+      dialog.querySelector("[data-lightbox-position]").textContent = `${activeIndex + 1} / ${sequence.length}`;
+      dialog.querySelector("[data-lightbox-title]").textContent = trigger.dataset.lightboxLabel || image.alt;
+    }
+    return true;
+  };
+  triggers.forEach((trigger) => trigger.addEventListener("click", () => {
+    opener = trigger;
+    const group = trigger.dataset.lightboxSequence;
+    sequence = group ? triggers.filter((item) => item.dataset.lightboxSequence === group) : [];
+    activeIndex = sequence.indexOf(trigger);
+    navigation.hidden = sequence.length < 2;
+    dialog.classList.toggle("medical-lightbox--sequence", sequence.length > 1);
+    resetZoom();
+    if (!showImage(trigger)) return;
+    dialog.setAttribute("aria-label", sequence.length > 1 ? "Neoplasia visual learning viewer" : "Medical education image viewer");
+    previousOverflow = document.documentElement.style.overflow;
     dialog.showModal();
+    document.documentElement.style.overflow = "hidden";
+    dialog.querySelector(".medical-lightbox__close").focus();
   }));
-  dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.matches("button")) dialog.close(); });
+  const step = (direction) => {
+    if (sequence.length < 2) return;
+    activeIndex = (activeIndex + direction + sequence.length) % sequence.length;
+    resetZoom();
+    showImage(sequence[activeIndex]);
+  };
+  dialog.querySelector("[data-lightbox-previous]").addEventListener("click", () => step(-1));
+  dialog.querySelector("[data-lightbox-next]").addEventListener("click", () => step(1));
+  zoomButton.addEventListener("click", () => {
+    const zoomed = dialog.classList.toggle("is-zoomed");
+    zoomButton.setAttribute("aria-pressed", String(zoomed));
+    zoomButton.setAttribute("aria-label", zoomed ? "Zoom out visual" : "Zoom in visual");
+    zoomButton.textContent = zoomed ? "−" : "+";
+    viewport.scrollTo(0, 0);
+  });
+  dialog.addEventListener("keydown", (event) => {
+    if (sequence.length < 2 || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+    event.preventDefault();
+    step(event.key === "ArrowRight" ? 1 : -1);
+  });
+  dialog.addEventListener("click", (event) => { if (event.target === dialog || event.target.closest(".medical-lightbox__close")) dialog.close(); });
+  dialog.addEventListener("close", () => {
+    document.documentElement.style.overflow = previousOverflow;
+    image.removeAttribute("src");
+    resetZoom();
+    opener?.focus();
+    opener = null;
+  });
 }
 
 function shouldShowHomeSeminarPromotion(now = new Date()) {
