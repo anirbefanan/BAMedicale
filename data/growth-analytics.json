@@ -9,19 +9,19 @@
         "previousStartDate": "2026-10-02",
         "previousEndDate": "2026-10-02"
       },
-      "generatedAt": "2026-10-03T20:19:19.902Z",
+      "generatedAt": "2026-10-04T03:16:30.478Z",
       "summary": {
         "activeUsers": 3,
         "newUsers": 2,
         "screenPageViews": 10,
         "sessions": 5,
-        "engagedSessions": 4,
+        "engagedSessions": 5,
         "userEngagementDuration": 91,
         "eventCount": 21,
         "keyEvents": 0,
         "totalUsers": 3,
         "averageEngagementTimeSeconds": 30.3333,
-        "engagementRate": 0.8,
+        "engagementRate": 1,
         "returningUsers": 1
       },
       "previous": {
@@ -52,13 +52,13 @@
             "newUsers": 2,
             "screenPageViews": 10,
             "sessions": 5,
-            "engagedSessions": 4,
+            "engagedSessions": 5,
             "userEngagementDuration": 91,
             "eventCount": 21,
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 30.3333,
-            "engagementRate": 0.8,
+            "engagementRate": 1,
             "returningUsers": 1
           }
         ],
@@ -95,11 +95,6 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
             "sessions": 0
           }
         ]
@@ -117,11 +112,6 @@
           },
           {
             "label": "Organic Social",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "Unassigned",
             "activeUsers": 1,
             "sessions": 1
           }
@@ -150,7 +140,7 @@
         "status": "ok",
         "rows": [
           {
-            "label": "(not set)",
+            "label": "(direct) / (none)",
             "activeUsers": 1,
             "sessions": 3
           },
@@ -169,11 +159,6 @@
       "sessionSources": {
         "status": "ok",
         "rows": [
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
-          },
           {
             "label": "bing / organic",
             "activeUsers": 1,
@@ -227,7 +212,7 @@
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 2,
-            "engagementRate": 0.5
+            "engagementRate": 1
           },
           {
             "path": "/videos.html",
@@ -252,19 +237,19 @@
         "previousStartDate": "2026-09-20",
         "previousEndDate": "2026-09-26"
       },
-      "generatedAt": "2026-10-03T20:19:19.902Z",
+      "generatedAt": "2026-10-04T03:16:30.478Z",
       "summary": {
         "activeUsers": 16,
         "newUsers": 13,
         "screenPageViews": 80,
         "sessions": 37,
-        "engagedSessions": 16,
+        "engagedSessions": 17,
         "userEngagementDuration": 653,
         "eventCount": 191,
         "keyEvents": 0,
         "totalUsers": 18,
         "averageEngagementTimeSeconds": 40.8125,
-        "engagementRate": 0.4324,
+        "engagementRate": 0.4595,
         "returningUsers": 5
       },
       "previous": {
@@ -385,13 +370,13 @@
             "newUsers": 2,
             "screenPageViews": 10,
             "sessions": 5,
-            "engagedSessions": 4,
+            "engagedSessions": 5,
             "userEngagementDuration": 91,
             "eventCount": 21,
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 30.3333,
-            "engagementRate": 0.8,
+            "engagementRate": 1,
             "returningUsers": 1
           }
         ],
@@ -512,11 +497,6 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
             "sessions": 8
           }
         ]
@@ -539,11 +519,6 @@
           },
           {
             "label": "Organic Social",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "Unassigned",
             "activeUsers": 1,
             "sessions": 1
           }
@@ -580,7 +555,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 9,
-            "sessions": 25
+            "sessions": 28
           },
           {
             "label": "google / organic",
@@ -591,11 +566,6 @@
             "label": "bing / organic",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
           },
           {
             "label": "facebook.com / referral",
@@ -621,11 +591,6 @@
             "label": "bing / organic",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "facebook.com / referral",
@@ -769,7 +734,7 @@
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 6,
-            "engagementRate": 0.6667
+            "engagementRate": 0.8333
           },
           {
             "path": "/events/management-thyroid-nodules-2026.html",
@@ -830,19 +795,19 @@
         "previousStartDate": "2026-08-09",
         "previousEndDate": "2026-09-05"
       },
-      "generatedAt": "2026-10-03T20:19:19.902Z",
+      "generatedAt": "2026-10-04T03:16:30.478Z",
       "summary": {
         "activeUsers": 221,
         "newUsers": 214,
         "screenPageViews": 1240,
         "sessions": 453,
-        "engagedSessions": 271,
+        "engagedSessions": 272,
         "userEngagementDuration": 25265,
         "eventCount": 3658,
         "keyEvents": 0,
         "totalUsers": 223,
         "averageEngagementTimeSeconds": 114.3213,
-        "engagementRate": 0.5982,
+        "engagementRate": 0.6004,
         "returningUsers": 48
       },
       "previous": {
@@ -1278,13 +1243,13 @@
             "newUsers": 2,
             "screenPageViews": 10,
             "sessions": 5,
-            "engagedSessions": 4,
+            "engagedSessions": 5,
             "userEngagementDuration": 91,
             "eventCount": 21,
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 30.3333,
-            "engagementRate": 0.8,
+            "engagementRate": 1,
             "returningUsers": 1
           }
         ],
@@ -1699,11 +1664,6 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
             "sessions": 38
           }
         ]
@@ -1736,8 +1696,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -1782,7 +1742,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 187,
-            "sessions": 366
+            "sessions": 369
           },
           {
             "label": "google / organic",
@@ -1808,11 +1768,6 @@
             "label": "facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
           },
           {
             "label": "dataindex.pro / referral",
@@ -1850,14 +1805,14 @@
             "sessions": 3
           },
           {
-            "label": "(not set)",
+            "label": "facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
           },
           {
-            "label": "facebook.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "dataindex.pro / referral",
@@ -2192,7 +2147,7 @@
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 48,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6875
           },
           {
             "path": "/videos.html",
@@ -2350,19 +2305,19 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-03"
       },
-      "generatedAt": "2026-10-03T20:19:19.902Z",
+      "generatedAt": "2026-10-04T03:16:30.478Z",
       "summary": {
         "activeUsers": 4,
         "newUsers": 3,
         "screenPageViews": 22,
         "sessions": 13,
-        "engagedSessions": 5,
+        "engagedSessions": 6,
         "userEngagementDuration": 182,
         "eventCount": 48,
         "keyEvents": 0,
         "totalUsers": 6,
         "averageEngagementTimeSeconds": 45.5,
-        "engagementRate": 0.3846,
+        "engagementRate": 0.4615,
         "returningUsers": 2
       },
       "previous": {
@@ -2423,13 +2378,13 @@
             "newUsers": 2,
             "screenPageViews": 10,
             "sessions": 5,
-            "engagedSessions": 4,
+            "engagedSessions": 5,
             "userEngagementDuration": 91,
             "eventCount": 21,
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 30.3333,
-            "engagementRate": 0.8,
+            "engagementRate": 1,
             "returningUsers": 1
           }
         ],
@@ -2494,11 +2449,6 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
             "sessions": 4
           }
         ]
@@ -2516,11 +2466,6 @@
           },
           {
             "label": "Organic Social",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "Unassigned",
             "activeUsers": 1,
             "sessions": 1
           },
@@ -2556,12 +2501,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 1,
-            "sessions": 6
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
+            "sessions": 9
           },
           {
             "label": "bing / organic",
@@ -2587,11 +2527,6 @@
             "label": "google / organic",
             "activeUsers": 2,
             "sessions": 8
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -2673,7 +2608,7 @@
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 3,
-            "engagementRate": 0.6667
+            "engagementRate": 1
           },
           {
             "path": "/videos.html",
@@ -2716,7 +2651,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-03T20:19:19.902Z",
+      "generatedAt": "2026-10-04T03:16:30.478Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5063,10 +4998,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-03T20:19:19.902Z",
+  "generatedAt": "2026-10-04T03:16:30.478Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-03T20:19:19.902Z",
+    "generatedAt": "2026-10-04T03:16:30.478Z",
     "windowMinutes": 30
   }
 }

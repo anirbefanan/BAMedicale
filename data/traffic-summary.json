@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T20:19:19.419Z",
+  "generatedAt": "2026-10-04T03:16:30.021Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-06",
@@ -24,7 +24,7 @@
       "views": 284,
       "activeUsers": 64,
       "eventCount": 697,
-      "bounceRate": 0.3081395348837209
+      "bounceRate": 0.3023255813953488
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -109,10 +109,6 @@
       "activeUsers": 2
     },
     {
-      "label": "Not set",
-      "activeUsers": 1
-    },
-    {
       "label": "dataindex.pro / referral",
       "activeUsers": 1
     }
@@ -143,12 +139,12 @@
       "sessions": 3
     },
     {
-      "label": "Not set",
+      "label": "facebook.com / referral",
       "sessions": 2
     },
     {
-      "label": "facebook.com / referral",
-      "sessions": 2
+      "label": "Not set",
+      "sessions": 1
     },
     {
       "label": "dataindex.pro / referral",
