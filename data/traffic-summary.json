@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-04T16:06:54.456Z",
+  "generatedAt": "2026-10-04T20:36:52.447Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-06",
-    "endDate": "2026-10-03"
+    "startDate": "2026-09-07",
+    "endDate": "2026-10-04"
   },
   "summary": {
-    "activeUsers": 221,
-    "newUsers": 214,
-    "averageEngagementTimeSeconds": 114.56561085972851,
-    "eventCount": 3668
+    "activeUsers": 220,
+    "newUsers": 213,
+    "averageEngagementTimeSeconds": 114.97272727272727,
+    "eventCount": 3650
   },
   "topPages": [
     {
@@ -21,10 +21,10 @@
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 284,
-      "activeUsers": 64,
-      "eventCount": 697,
-      "bounceRate": 0.3023255813953488
+      "views": 282,
+      "activeUsers": 63,
+      "eventCount": 688,
+      "bounceRate": 0.2958579881656805
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -42,9 +42,9 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 73,
+      "views": 72,
       "activeUsers": 12,
-      "eventCount": 163,
+      "eventCount": 160,
       "bounceRate": 0
     },
     {
@@ -76,17 +76,17 @@
       "bounceRate": 0.058823529411764705
     },
     {
-      "title": "Management of Thyroid Nodules — How to Make an Accurate Diagnosis? | BA Medicale",
-      "views": 29,
-      "activeUsers": 11,
-      "eventCount": 96,
-      "bounceRate": 0.20833333333333334
+      "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules | Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
+      "views": 27,
+      "activeUsers": 9,
+      "eventCount": 75,
+      "bounceRate": 0.07692307692307693
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 187
+      "activeUsers": 186
     },
     {
       "label": "google / organic",
@@ -109,6 +109,10 @@
       "activeUsers": 2
     },
     {
+      "label": "Not set",
+      "activeUsers": 1
+    },
+    {
       "label": "dataindex.pro / referral",
       "activeUsers": 1
     }
@@ -116,7 +120,7 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 281
+      "sessions": 276
     },
     {
       "label": "google / organic",
@@ -124,7 +128,7 @@
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 18
+      "sessions": 19
     },
     {
       "label": "bing / organic",
