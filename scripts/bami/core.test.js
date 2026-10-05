@@ -60,10 +60,12 @@ test("private JUMI metrics use real denominators, periods, and zero-safe empty s
   assert.ok(schema.BAMI_INQUIRY_HEADERS.includes("referenced_urls"));
 });
 
-test("public launcher remains disabled until a separate secure service is configured", () => {
+test("public launcher uses a separate configured Apps Script service without exposing secrets", () => {
   const config = JSON.parse(fs.readFileSync(path.join(root, "data/bami-config.json"), "utf8"));
-  assert.equal(config.enabled, false);
-  assert.equal(config.endpoint, "");
+  assert.equal(config.enabled, true);
+  assert.match(config.endpoint, /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/);
+  const jumiConfig = fs.readFileSync(path.join(root, "jumi/config.js"), "utf8");
+  assert.ok(!jumiConfig.includes(config.endpoint));
   const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
   const launcher = fs.readFileSync(path.join(root, "bami/launcher.js"), "utf8");
   assert.match(app, /bami\/launcher\.js/);

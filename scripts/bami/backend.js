@@ -57,7 +57,7 @@ function bamiVisitor_(token) {
   const decoded = Utilities.newBlob(Utilities.base64DecodeWebSafe(parts[0])).getDataAsString().split("|");
   if (!/^visitor_[a-f0-9]{32}$/.test(decoded[0]) || Date.now() - Number(decoded[1]) > 365 * 86400000) throw new Error("Please start BAMI again.");
   const row = bamiRows_("visitors").find(item => item.visitor_id === decoded[0]);
-  if (!row || row.consent !== "TRUE" || row.consent_version !== BAMI_CORE.consentVersion) throw new Error("Please start BAMI again.");
+  if (!row || String(row.consent).toUpperCase() !== "TRUE" || row.consent_version !== BAMI_CORE.consentVersion) throw new Error("Please start BAMI again.");
   return row;
 }
 function bamiThrottle_(key, seconds) {

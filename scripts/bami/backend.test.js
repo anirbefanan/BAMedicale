@@ -74,6 +74,8 @@ test("onboarding, resume, new chat, isolation, feedback, and unavailable AI rema
   const first = s.context.bamiApi("onboard", profile);
   assert.ok(first.token); assert.equal(s.sheets.get("AI_Visitors").rows.length, 2);
   assert.equal(s.context.bamiApi("resume", { token: first.token }).sessionId, first.sessionId);
+  s.sheets.get("AI_Visitors").rows[1][s.sheets.get("AI_Visitors").rows[0].indexOf("consent")] = true;
+  assert.equal(s.context.bamiApi("resume", { token: first.token }).sessionId, first.sessionId);
   const second = s.context.bamiApi("newChat", { token: first.token });
   assert.notEqual(second.sessionId, first.sessionId);
   assert.equal(s.context.bamiApi("resume", { token: first.token }).sessionId, second.sessionId);
