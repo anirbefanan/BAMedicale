@@ -36,7 +36,7 @@ const mock = (action, input) => {
     if (name === "/data/bami-config.json") return res.writeHead(200, { "Content-Type": "application/json" }).end(JSON.stringify({ enabled: true, endpoint }));
     const file = path.resolve(root, `.${name === "/" ? "/index.html" : name}`);
     if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return res.writeHead(404).end();
-    res.setHeader("Content-Type", ({ ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".png": "image/png" })[path.extname(file)] || "application/octet-stream");
+    res.setHeader("Content-Type", ({ ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".png": "image/png", ".webp": "image/webp" })[path.extname(file)] || "application/octet-stream");
     fs.createReadStream(file).pipe(res);
   });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
@@ -52,14 +52,24 @@ const mock = (action, input) => {
       const html = frame.replace("<?!= JSON.stringify(bridge) ?>", JSON.stringify(bridge)).replace('const parentOrigin="https://bamedicale.com"', `const parentOrigin=${JSON.stringify(origin)}`).replace("<script>\n(() =>", `<script>\n${stub}\n(() =>`);
       route.fulfill({ status: 200, contentType: "text/html", body: html });
     });
-    for (const width of [360, 390, 820, 1440]) {
+    for (const width of [360, 390, 430, 820, 1024, 1440]) {
       const page = await context.newPage();
       await page.setViewportSize({ width, height: 850 });
       await page.goto(origin + "/");
-      const launcher = page.getByRole("button", { name: "Ask BAMI" });
+      const launcher = page.getByRole("button", { name: "Open BAMI" });
       await launcher.waitFor();
+      assert.equal(await launcher.locator("img").getAttribute("src"), "/assets/bami/bami-mascot.webp");
+      assert.equal(await launcher.locator("img").evaluate(img => img.complete && img.naturalWidth > 0), true);
+      assert.equal(await launcher.textContent(), "");
+      assert.equal(await page.getByRole("button", { name: "Ask BAMI", exact: true }).count(), 0);
+      const idle = await launcher.locator(".bami-mascot").evaluate(node => getComputedStyle(node).animationName);
+      assert.equal(idle, "bami-idle");
       assert.equal(await launcher.getAttribute("aria-expanded"), "false");
-      await launcher.click();
+      if (width === 360) {
+        await page.getByText("Hi, I’m BAMI").waitFor({ timeout: 4000 });
+        assert.equal(await page.getByRole("button", { name: "Start a chat →" }).count(), 1);
+        await page.getByRole("button", { name: "Start a chat →" }).click();
+      } else await launcher.click();
       const chat = page.frameLocator(".bami-panel iframe");
       try { await chat.getByText("Your guide to BA Medicale knowledge.").waitFor({ timeout: 7000 }); }
       catch (error) { console.error("BAMI frame URLs:", page.frames().map(item => item.url())); console.error("Frame body:", await chat.locator("body").innerText().catch(() => "unavailable")); throw error; }
@@ -95,8 +105,9 @@ const mock = (action, input) => {
       await chat.getByRole("button", { name: "Minimize BAMI" }).click();
       assert.equal(await launcher.getAttribute("aria-expanded"), "false");
       await page.goto(origin + "/library.html");
-      const again = page.getByRole("button", { name: "Ask BAMI" });
+      const again = page.getByRole("button", { name: "Open BAMI" });
       await again.waitFor();
+      assert.equal(await page.getByText("Hi, I’m BAMI").isVisible(), false);
       assert.equal(await again.getAttribute("aria-expanded"), "false");
       await again.click();
       await chat.getByText("Published BA Medicale thyroid learning is available.").first().waitFor();
@@ -104,6 +115,12 @@ const mock = (action, input) => {
       await chat.locator(".empty").waitFor();
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
       assert.equal(overflow, false, `${width}px horizontal overflow`);
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      assert.equal(await again.locator(".bami-mascot").evaluate(node => getComputedStyle(node).animationName), "none");
+      await page.emulateMedia({ reducedMotion: "no-preference" });
+      await page.evaluate(() => Object.defineProperty(document, "hidden", { configurable: true, value: true }));
+      await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+      assert.equal(await again.evaluate(node => node.classList.contains("bami-paused")), true);
       await page.evaluate(() => localStorage.clear());
       await page.close();
       console.log(`BAMI browser mock: ${width}px PASS`);
