@@ -58,6 +58,10 @@ const mock = (action, input) => {
       await page.goto(origin + "/");
       const launcher = page.getByRole("button", { name: "Open BAMI" });
       await launcher.waitFor();
+      const siteFont = await page.locator("body").evaluate(node => getComputedStyle(node).fontFamily);
+      assert.equal(siteFont, '"Plus Jakarta Sans", Arial, sans-serif');
+      const introFont = await page.locator(".bami-intro strong").evaluate(node => getComputedStyle(node).fontFamily);
+      assert.equal(introFont, siteFont);
       assert.equal(await launcher.locator("img").getAttribute("src"), "/assets/bami/bami-mascot.webp");
       assert.equal(await launcher.locator("img").evaluate(img => img.complete && img.naturalWidth > 0), true);
       assert.equal(await launcher.textContent(), "");
@@ -73,6 +77,19 @@ const mock = (action, input) => {
       const chat = page.frameLocator(".bami-panel iframe");
       try { await chat.getByText("Your guide to BA Medicale knowledge.").waitFor({ timeout: 7000 }); }
       catch (error) { console.error("BAMI frame URLs:", page.frames().map(item => item.url())); console.error("Frame body:", await chat.locator("body").innerText().catch(() => "unavailable")); throw error; }
+      const chatFonts = await chat.locator("body").evaluate(node => {
+        const doc = node.ownerDocument;
+        const font = selector => {
+          const style = getComputedStyle(doc.querySelector(selector));
+          return { family: style.fontFamily, weight: style.fontWeight };
+        };
+        return { body: font("body"), heading: font("h1"), label: font(".field span"), input: font(".field input"), button: font(".primary"), stylesheet: Boolean(doc.querySelector('link[href*="family=Plus+Jakarta+Sans"]')) };
+      });
+      assert.equal(chatFonts.stylesheet, true);
+      for (const role of ["body", "heading", "label", "input", "button"]) assert.equal(chatFonts[role].family, siteFont, `${width}px ${role} font`);
+      assert.equal(chatFonts.heading.weight, "700");
+      assert.equal(chatFonts.label.weight, "700");
+      assert.equal(chatFonts.button.weight, "700");
       const start = chat.getByRole("button", { name: "Start Chat" });
       assert.equal(await start.isDisabled(), true);
       await chat.getByRole("textbox", { name: "Email" }).fill("nana@example.com");
@@ -85,6 +102,7 @@ const mock = (action, input) => {
       await chat.getByRole("textbox", { name: "Ask BAMI a question" }).fill("halo");
       await chat.getByRole("button", { name: "Send" }).click();
       await chat.getByText("Halo! Ada yang bisa BAMI bantu?").waitFor();
+      assert.equal(await chat.locator(".bubble").first().evaluate(node => getComputedStyle(node).fontFamily), siteFont);
       assert.equal(await chat.getByRole("textbox", { name: "Ajukan pertanyaan kepada BAMI" }).getAttribute("placeholder"), "Tanyakan materi BA Medicale");
       await chat.getByRole("textbox", { name: "Ajukan pertanyaan kepada BAMI" }).fill("ada video tentang thyroid?");
       await chat.getByRole("button", { name: "Kirim" }).click();
