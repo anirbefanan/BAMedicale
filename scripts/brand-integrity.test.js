@@ -60,7 +60,7 @@ test('public pages load the current shared shell asset version',()=>{
     const html=fs.readFileSync(file,'utf8');
     if(!html.includes('app.js?v='))continue;
     const relative=path.relative(root,file);
-    assert.match(html,/app\.js\?v=knowledge-platform-20260923/,relative);
+    assert.match(html,/app\.js\?v=bami-mascot-20261006/,relative);
     assert.doesNotMatch(html,/app\.js\?v=design-system-20260920/,path.relative(root,file));
   }
 });

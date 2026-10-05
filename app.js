@@ -1713,7 +1713,7 @@ async function bootstrap() {
   protectExternalLinks();
   if (document.querySelector("[data-shell]") && !/\/(?:jumi|admin|attendance|login)(?:\/|\.|$)/i.test(location.pathname)) {
     const bamiScript = document.createElement("script");
-    bamiScript.src = "/bami/launcher.js";
+    bamiScript.src = "/bami/launcher.js?v=bami-mascot-20261006";
     bamiScript.async = true;
     document.body.append(bamiScript);
     window.addEventListener("bami:analytics", event => {
