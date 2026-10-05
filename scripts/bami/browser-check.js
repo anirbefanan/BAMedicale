@@ -1,0 +1,100 @@
+"use strict";
+/* Focused local UI QA with a fake Apps Script transport. No production rows or AI calls. */
+const { chromium } = require("playwright");
+const http = require("node:http");
+const fs = require("node:fs");
+const path = require("node:path");
+const assert = require("node:assert/strict");
+const root = path.resolve(__dirname, "../..");
+const frame = fs.readFileSync(path.join(__dirname, "frame.html"), "utf8");
+const endpoint = "https://script.google.com/macros/s/bami-mock/exec";
+const sessions = new Map();
+let id = 0;
+const mock = (action, input) => {
+  if (action === "onboard") {
+    const token = `test-token-${++id}`, sessionId = `session-${id}`;
+    sessions.set(token, { sessionId, history: [] });
+    return { token, sessionId, audience: input.audience, profession: input.profession, history: [] };
+  }
+  const current = sessions.get(input.token);
+  if (!current) return { error: "Please start BAMI again." };
+  if (action === "resume") return { sessionId: current.sessionId, history: current.history };
+  if (action === "newChat") { current.sessionId = `session-${++id}`; current.history = []; return { sessionId: current.sessionId }; }
+  if (action === "ask") {
+    if (input.sessionId !== current.sessionId) return { error: "Please enter a shorter question in the current chat." };
+    const answer = { id: `answer-${++id}`, answer: "Published BA Medicale thyroid learning is available.", status: "GROUNDED", sources: [{ type: "Article", title: "Thyroid knowledge", url: "https://bamedicale.com/library.html?disease=endocrine-metabolic" }] };
+    current.history.push({ id: answer.id, question: input.question, answer: answer.answer, status: answer.status, sources: answer.sources });
+    return answer;
+  }
+  if (action === "feedback") return { saved: true };
+  return { error: "Unsupported action." };
+};
+(async () => {
+  const server = http.createServer((req, res) => {
+    const name = new URL(req.url, "http://localhost").pathname;
+    if (name === "/data/bami-config.json") return res.writeHead(200, { "Content-Type": "application/json" }).end(JSON.stringify({ enabled: true, endpoint }));
+    const file = path.resolve(root, `.${name === "/" ? "/index.html" : name}`);
+    if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return res.writeHead(404).end();
+    res.setHeader("Content-Type", ({ ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".png": "image/png" })[path.extname(file)] || "application/octet-stream");
+    fs.createReadStream(file).pipe(res);
+  });
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  let browser;
+  try {
+    browser = await chromium.launch({ channel: "chrome", headless: true });
+    const context = await browser.newContext();
+    await context.exposeBinding("__bamiMock", (_source, action, input) => mock(action, input));
+    await context.route("https://script.google.com/macros/s/bami-mock/exec**", route => {
+      const bridge = new URL(route.request().url()).searchParams.get("bridge") || "";
+      const stub = `window.google={script:{run:{withSuccessHandler(fn){this.ok=fn;return this},withFailureHandler(fn){this.fail=fn;return this},bamiApi(action,input){window.__bamiMock(action,input).then(this.ok,this.fail)}}}};`;
+      const html = frame.replace("<?!= JSON.stringify(bridge) ?>", JSON.stringify(bridge)).replace('const parentOrigin="https://bamedicale.com"', `const parentOrigin=${JSON.stringify(origin)}`).replace("<script>\n(() =>", `<script>\n${stub}\n(() =>`);
+      route.fulfill({ status: 200, contentType: "text/html", body: html });
+    });
+    for (const width of [360, 390, 820, 1440]) {
+      const page = await context.newPage();
+      await page.setViewportSize({ width, height: 850 });
+      await page.goto(origin + "/");
+      const launcher = page.getByRole("button", { name: "Ask BAMI" });
+      await launcher.waitFor();
+      assert.equal(await launcher.getAttribute("aria-expanded"), "false");
+      await launcher.click();
+      const chat = page.frameLocator(".bami-panel iframe");
+      try { await chat.getByText("Your guide to BA Medicale knowledge.").waitFor({ timeout: 7000 }); }
+      catch (error) { console.error("BAMI frame URLs:", page.frames().map(item => item.url())); console.error("Frame body:", await chat.locator("body").innerText().catch(() => "unavailable")); throw error; }
+      const start = chat.getByRole("button", { name: "Start Chat" });
+      assert.equal(await start.isDisabled(), true);
+      await chat.getByRole("textbox", { name: "Email" }).fill("nana@example.com");
+      await chat.getByRole("textbox", { name: "WhatsApp / mobile" }).fill("081234567890");
+      await chat.getByLabel("I am a…").selectOption("Doctors");
+      await chat.locator('select[name="profession"]').selectOption("General Practitioner");
+      await chat.getByRole("checkbox").check();
+      assert.equal(await start.isEnabled(), true);
+      await start.click();
+      await chat.getByRole("textbox", { name: "Ask BAMI a question" }).fill("Thyroid materials?");
+      await chat.getByRole("button", { name: "Send" }).click();
+      await chat.getByText("Published BA Medicale thyroid learning is available.").waitFor();
+      await chat.getByRole("button", { name: "Helpful", exact: true }).click();
+      await chat.getByText("Thank you for the feedback.").waitFor();
+      await chat.getByRole("button", { name: "Minimize BAMI" }).click();
+      assert.equal(await launcher.getAttribute("aria-expanded"), "false");
+      await page.goto(origin + "/library.html");
+      const again = page.getByRole("button", { name: "Ask BAMI" });
+      await again.waitFor();
+      assert.equal(await again.getAttribute("aria-expanded"), "false");
+      await again.click();
+      await chat.getByText("Published BA Medicale thyroid learning is available.").waitFor();
+      await chat.getByRole("button", { name: "New Chat" }).click();
+      await chat.getByText("Ask about BA Medicale articles").waitFor();
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
+      assert.equal(overflow, false, `${width}px horizontal overflow`);
+      await page.evaluate(() => localStorage.clear());
+      await page.close();
+      console.log(`BAMI browser mock: ${width}px PASS`);
+    }
+    await context.close();
+  } finally {
+    if (browser) await browser.close();
+    await new Promise(resolve => server.close(resolve));
+  }
+})().catch(error => { console.error(error); process.exitCode = 1; });

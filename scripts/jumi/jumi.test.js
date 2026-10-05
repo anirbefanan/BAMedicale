@@ -90,7 +90,7 @@ test("private mutations use independent statuses, locks, audit rows, and confirm
 
 test("JUMI Content OS adds type-specific publishing without replacing seminar CRM",()=>{
   assert.match(html,/BA Medicale Content OS/);
-  assert.match(client,/"Dashboard","Content","Community","Settings"/);
+  assert.match(client,/"Dashboard","Content","Community","BAMI Insights","Settings"/);
   assert.match(client,/"Overview","Event Details","Registration","Payments","Attendance","Notifications","Certificates","Event Tools","Preview","Publish"/);
   assert.match(client,/Create Content/);
   assert.match(client,/data-create-type="Seminar"/);

@@ -1711,6 +1711,15 @@ async function bootstrap() {
   initImmersiveExperience();
   initMotion();
   protectExternalLinks();
+  if (document.querySelector("[data-shell]") && !/\/(?:jumi|admin|attendance|login)(?:\/|\.|$)/i.test(location.pathname)) {
+    const bamiScript = document.createElement("script");
+    bamiScript.src = "/bami/launcher.js";
+    bamiScript.async = true;
+    document.body.append(bamiScript);
+    window.addEventListener("bami:analytics", event => {
+      if (["bami_open", "bami_onboarding_start", "bami_onboarding_complete", "bami_answer", "bami_content_click", "bami_feedback", "bami_content_gap"].includes(event.detail)) trackAnalytics(event.detail, {});
+    });
+  }
 }
 
 bootstrap();

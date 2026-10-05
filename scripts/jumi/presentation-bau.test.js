@@ -98,7 +98,7 @@ test("published presentations integrate with their Seminar without manual event-
   assert.match(eventTemplate, /p\.speakerId && p\.speakerId === speakerId/);
   assert.match(eventTemplate, /data-article-reader/);
   assert.match(publicClient, /data\.seminars\?\.\[presentation\.eventId\]/);
-  assert.match(publicClient, /presentation\.downloadable===false/);
+  assert.match(publicClient, /data\.presentations\?\.\[record\.id\]\?\.quickRead\?\.length/);
 });
 
 test("Presentation privacy and responsive safeguards remain locked", () => {

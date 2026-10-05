@@ -1,0 +1,4 @@
+/* Shared schema for the public BAMI service and private JUMI Insights. */
+const BAMI_VISITOR_HEADERS = ["visitor_id","created_at","first_activity_at","last_activity_at","email","phone_normalized","audience","profession","profession_detail","consent","consent_timestamp","consent_version","first_session_id","last_session_id","session_count","inquiry_count"];
+const BAMI_INQUIRY_HEADERS = ["inquiry_id","timestamp","visitor_id","session_id","audience","profession","question","answer","answer_status","topic","disease","referenced_content_ids","referenced_content_types","referenced_urls","safety_flag","content_gap","helpful_feedback","response_latency_ms","model_or_engine","error_code"];
+if (typeof module === "object" && module.exports) module.exports = { BAMI_VISITOR_HEADERS, BAMI_INQUIRY_HEADERS };

@@ -34,6 +34,95 @@
 var JUMI_VIDEO_TAXONOMY=[{"id":"cancer-neoplastic","name":"Cancer & Neoplastic Diseases"},{"id":"cardiovascular","name":"Cardiovascular Diseases"},{"id":"respiratory","name":"Respiratory Diseases"},{"id":"neurological","name":"Neurological Diseases"},{"id":"gastrointestinal","name":"Gastrointestinal Diseases"},{"id":"liver-biliary-pancreatic","name":"Liver, Biliary & Pancreatic Diseases"},{"id":"kidney-urinary","name":"Kidney & Urinary Diseases"},{"id":"endocrine-metabolic","name":"Endocrine & Metabolic Diseases"},{"id":"hematologic","name":"Hematologic Diseases"},{"id":"infectious","name":"Infectious Diseases"},{"id":"musculoskeletal","name":"Musculoskeletal Diseases"},{"id":"rheumatologic-autoimmune","name":"Rheumatologic & Autoimmune Diseases"},{"id":"dermatologic","name":"Dermatologic Diseases"},{"id":"obstetric-gynecologic","name":"Obstetric & Gynecologic Diseases"},{"id":"male-reproductive","name":"Male Reproductive Diseases"},{"id":"breast","name":"Breast Diseases"},{"id":"eye","name":"Eye Diseases"},{"id":"ear-nose-throat","name":"Ear, Nose & Throat Diseases"},{"id":"oral-dental","name":"Oral & Dental Diseases"},{"id":"allergic-immunologic","name":"Allergic & Immunologic Diseases"},{"id":"mental-behavioral","name":"Mental & Behavioral Disorders"},{"id":"pediatric-congenital","name":"Pediatric & Congenital Diseases"},{"id":"genetic-rare","name":"Genetic & Rare Diseases"},{"id":"nutritional","name":"Nutritional Diseases"},{"id":"injury-poisoning-other","name":"Injury, Poisoning & Other Conditions"},{"id":"preventive-public-health","name":"Preventive Medicine & Public Health"}];
 if(typeof module==="object"&&module.exports)module.exports=JUMI_VIDEO_TAXONOMY;
 
+/* Shared schema for the public BAMI service and private JUMI Insights. */
+const BAMI_VISITOR_HEADERS = ["visitor_id","created_at","first_activity_at","last_activity_at","email","phone_normalized","audience","profession","profession_detail","consent","consent_timestamp","consent_version","first_session_id","last_session_id","session_count","inquiry_count"];
+const BAMI_INQUIRY_HEADERS = ["inquiry_id","timestamp","visitor_id","session_id","audience","profession","question","answer","answer_status","topic","disease","referenced_content_ids","referenced_content_types","referenced_urls","safety_flag","content_gap","helpful_feedback","response_latency_ms","model_or_engine","error_code"];
+if (typeof module === "object" && module.exports) module.exports = { BAMI_VISITOR_HEADERS, BAMI_INQUIRY_HEADERS };
+/* Shared deterministic BAMI rules. Bundled into the separate public Apps Script service. */
+const BAMI_CORE = (() => {
+  const professions = Object.freeze({
+    Doctors: ["General Practitioner", "Specialist", "Resident", "Medical Student", "Other"],
+    "Healthcare Professionals": ["Nurse", "Midwife", "Pharmacist", "Nutritionist / Dietitian", "Medical Laboratory Professional", "Radiographer", "Physiotherapist", "Other"],
+    Public: ["Private Employee", "Government Employee", "Student", "Entrepreneur", "Homemaker", "Retired", "Other"]
+  });
+  const consentVersion = "bami-v1-2026-10";
+  const email = value => String(value || "").trim().toLowerCase();
+  const phone = value => {
+    const raw = String(value || "").replace(/[\s().-]/g, "");
+    const normalized = raw.startsWith("+62") ? raw : raw.startsWith("62") ? `+${raw}` : raw.startsWith("08") ? `+62${raw.slice(1)}` : "";
+    return /^\+628[1-9]\d{7,11}$/.test(normalized) ? normalized : "";
+  };
+  const validProfile = input => {
+    const address = email(input.email), mobile = phone(input.phone), audience = String(input.audience || ""), profession = String(input.profession || "");
+    if (!/^[^\s@]{1,64}@[^\s@]+\.[^\s@]{2,}$/.test(address) || address.length > 254) return { error: "Enter a valid email address." };
+    if (!mobile) return { error: "Enter a valid Indonesian mobile number." };
+    if (!professions[audience] || !professions[audience].includes(profession)) return { error: "Choose your audience and profession." };
+    if (input.consent !== true || input.consentVersion !== consentVersion) return { error: "Consent is required to start BAMI." };
+    const detail = String(input.professionDetail || "").trim().slice(0, 80);
+    if (detail && !(profession === "Other" || profession === "Specialist")) return { error: "Profession detail is not applicable." };
+    return { profile: { email: address, phone: mobile, audience, profession, professionDetail: detail, consent: true, consentVersion } };
+  };
+  const normalize = value => String(value || "").toLowerCase().normalize("NFKD").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  const stopwords = new Set("a an and are about apa apakah ada artikel buku can could dan di do dokter for from have is itu i ingin ke mengenai of on or please saya see show tell the to tentang untuk video what which who you your yang".split(" "));
+  const terms = value => normalize(value).split(" ").filter(word => word.length > 2 && !stopwords.has(word));
+  const retrieve = (question, items, limit = 5) => {
+    const queryTerms = terms(question).slice(0, 16);
+    if (!queryTerms.length || !Array.isArray(items)) return [];
+    return items.filter(item => item && /^https:\/\/bamedicale\.com\//.test(String(item.url || "")))
+      .map(item => {
+        const title = normalize(item.title), metadata = normalize([item.type, item.family, item.audience, ...(item.disease || []), ...(item.topics || []), ...(item.authors || [])].join(" "));
+        const body = normalize(`${item.summary || ""} ${item.content || ""}`);
+        const score = queryTerms.reduce((total, term) => total + (title.includes(term) ? 8 : 0) + (metadata.includes(term) ? 5 : 0) + (body.includes(term) ? 1 : 0), 0)
+          + (item.family === "profile" && /\b(who|siapa)\b/i.test(question) ? 20 : 0);
+        return { item, score };
+      }).filter(entry => entry.score >= 5).sort((a, b) => b.score - a.score || String(a.item.title).localeCompare(String(b.item.title))).slice(0, Math.max(0, Math.min(8, limit)))
+      .map(entry => entry.item);
+  };
+  const classifySafety = question => {
+    const text = normalize(question);
+    if (/difficulty breathing|cannot breathe|trouble breathing|sesak napas|sulit bernapas|unconscious|tidak sadar|severe chest pain|nyeri dada hebat/.test(text)) return "urgent";
+    if (/what medicine should i take|which medicine should i take|can i stop (this|my) medicine|obat apa yang harus saya minum|bolehkah saya berhenti (minum )?obat|diagnose me|diagnosis saya|(?:i have|my child has|my mother has|my father has|saya punya|saya mengalami|anak saya|ibu saya|ayah saya).{0,100}(?:pain|lump|symptom|disease|cancer|thyroid|nyeri|benjolan|gejala|penyakit|kanker|tiroid)/.test(text)) return "personal";
+    return "normal";
+  };
+  const redact = value => String(value || "").replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "[email]").replace(/(?:\+?62|0)8\d[\d\s().-]{7,14}/g, "[phone]").slice(0, 1000);
+  const logQuestion = (question, safety) => safety === "normal" && !/\b(my|mine|saya|anak saya|ibu saya|ayah saya|aku|istri saya|suami saya)\b/i.test(question) ? redact(question) : "[personal medical question withheld]";
+  const periodStart = (period, now) => {
+    const offset = 7 * 3600000, today = new Date(now + offset), day = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()) - offset;
+    if (period === "Today") return day;
+    if (period === "7 Days") return day - 6 * 86400000;
+    if (period === "30 Days") return day - 29 * 86400000;
+    if (period === "This Month") return Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 1) - offset;
+    if (period === "Previous Month") return Date.UTC(today.getUTCFullYear(), today.getUTCMonth() - 1, 1) - offset;
+    return 0;
+  };
+  const withinPeriod = (value, period, now) => {
+    const at = Date.parse(value), today = new Date(now + 7 * 3600000), end = period === "Previous Month" ? Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 1) - 7 * 3600000 : Infinity;
+    return Number.isFinite(at) && at >= periodStart(period, now) && at < end;
+  };
+  const insights = (visitors, inquiries, period = "30 Days", now = Date.now()) => {
+    const start = periodStart(period, now);
+    const selected = inquiries.filter(row => withinPeriod(row.timestamp, period, now));
+    const selectedVisitors = visitors.filter(row => period === "All Time" || withinPeriod(row.created_at, period, now) || withinPeriod(row.last_activity_at, period, now));
+    const count = predicate => selected.filter(predicate).length;
+    const rated = count(row => row.helpful_feedback === "HELPFUL" || row.helpful_feedback === "NOT_HELPFUL");
+    const by = field => Object.entries(selected.reduce((acc, row) => { const key = String(row[field] || "").trim(); if (key) acc[key] = (acc[key] || 0) + 1; return acc; }, {})).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([label, value]) => ({ label, count: value }));
+    const opportunities = by("topic").map(row => ({ ...row, gaps: selected.filter(item => item.topic === row.label && item.content_gap === "TRUE").length })).filter(row => row.count >= 3 && row.gaps > 0);
+    return {
+      period, totalVisitors: selectedVisitors.length, newVisitors: selectedVisitors.filter(row => withinPeriod(row.created_at, period, now)).length,
+      returningVisitors: selectedVisitors.filter(row => period === "All Time" ? Number(row.session_count) > 1 : !withinPeriod(row.created_at, period, now)).length,
+      sessions: new Set(selected.map(row => row.session_id)).size, inquiries: selected.length,
+      groundedRate: selected.length ? count(row => row.answer_status === "GROUNDED") / selected.length : null,
+      contentGapRate: selected.length ? count(row => row.content_gap === "TRUE") / selected.length : null,
+      helpfulRate: rated ? count(row => row.helpful_feedback === "HELPFUL") / rated : null,
+      safetyLimited: count(row => row.answer_status === "SAFETY_LIMITED"),
+      averageLatencyMs: selected.length ? selected.reduce((sum, row) => sum + (Number(row.response_latency_ms) || 0), 0) / selected.length : null,
+      audiences: by("audience"), professions: by("profession"), questions: by("question"), topics: by("topic"), diseases: by("disease"),
+      statuses: by("answer_status"), opportunities, recent: selected.slice(-30).reverse()
+    };
+  };
+  return Object.freeze({ professions, consentVersion, email, phone, validProfile, retrieve, classifySafety, redact, logQuestion, periodStart, withinPeriod, insights });
+})();
+if (typeof module === "object" && module.exports) module.exports = BAMI_CORE;
 /* Separate private JUMI Apps Script deployment. Never merge with the anonymous attendance deployment. */
 const JUMI_ORIGIN = 'https://bamedicale.com';
 const JUMI_TZ = 'Asia/Jakarta';
@@ -48,6 +137,7 @@ const JUMI_AUDIT_HEADERS = ['Timestamp','Admin','Action','Entity Type','Entity I
 const JUMI_CONTENT_HEADERS = ['Content ID','Content Type','Title','Subtitle','Slug','Status','Source File ID','Artwork File ID','Type Data JSON','Validation State','Validation Issues JSON','Preview State','Public URL','Created At','Created By','Updated At','Updated By','Published At','Version','Media File ID','Infographic File ID'];
 const JUMI_TABS = {events:['JUMI Events',JUMI_EVENT_HEADERS],registrants:['JUMI Registrants',JUMI_REGISTRANT_HEADERS],notifications:['JUMI Notifications',JUMI_NOTIFICATION_HEADERS],certificates:['JUMI Certificates',JUMI_CERTIFICATE_HEADERS],content:['JUMI Content',JUMI_CONTENT_HEADERS],audit:['JUMI Audit',JUMI_AUDIT_HEADERS]};
 const JUMI_ALLOWED_ACTIONS = ['jumi_bootstrap','jumi_save_event','jumi_upload_event_poster','jumi_analyze_seminar_source','jumi_generate_seminar','jumi_auto_publish_seminar','jumi_mark_paid','jumi_save_notification','jumi_preview_notification','jumi_schedule_notifications','jumi_reschedule_notification','jumi_retry_notification','jumi_cancel_notification','jumi_process_notifications','jumi_review_certificate','jumi_override_certificate','jumi_generate_certificates','jumi_preview_certificate','jumi_approve_certificate','jumi_queue_certificate','jumi_correct_certificate_name','jumi_reissue_certificate','jumi_upload_proof','jumi_get_proof_url','jumi_save_content','jumi_resume_content','jumi_find_content_draft','jumi_upload_content_asset','jumi_analyze_article_source','jumi_analyze_ebook_source','jumi_generate_video','jumi_preview_video','jumi_validate_content','jumi_record_content_preview','jumi_publish_content','jumi_auto_publish_content','jumi_publication_status'];
+JUMI_ALLOWED_ACTIONS.push('jumi_bami_insights');
 const JUMI_CONTENT_TYPES = ['Article','eBook','Seminar','Presentation','Video'];
 const JUMI_CONTENT_STATES = ['Draft','Generated','Validation Required','Ready for Preview','Ready to Publish','Published','Failed'];
 const JUMI_ARTICLE_AUDIENCES = ['Doctors','Other HCP','Public','All','Healthcare Professionals','Other Healthcare Professionals'];
@@ -142,10 +232,28 @@ function doGet(){
 function jumiApi(action,data){
   const admin=jumiAuthorize_();jumiAssert_(JUMI_ALLOWED_ACTIONS.includes(action),'Unsupported action.');
   const input=data&&typeof data==='object'?data:{};
+  if(action==='jumi_bami_insights')return jumiBamiInsights_(input,admin);
   try{return{jumi_resume_content:jumiResumeContent_,jumi_bootstrap:jumiBootstrap_,jumi_save_event:jumiSaveEvent_,jumi_upload_event_poster:jumiUploadEventPoster_,jumi_analyze_seminar_source:jumiAnalyzeSeminarSource_,jumi_generate_seminar:jumiGenerateSeminar_,jumi_auto_publish_seminar:jumiAutoPublishSeminar_,jumi_mark_paid:jumiMarkPaid_,jumi_save_notification:jumiSaveNotification_,jumi_preview_notification:jumiPreviewNotification_,jumi_schedule_notifications:jumiScheduleNotifications_,jumi_reschedule_notification:jumiRescheduleNotification_,jumi_retry_notification:jumiRetryNotification_,jumi_cancel_notification:jumiCancelNotification_,jumi_process_notifications:(_,authorized)=>jumiProcessNotificationQueue_(authorized),jumi_review_certificate:jumiReviewCertificate_,jumi_override_certificate:jumiOverrideCertificate_,jumi_generate_certificates:jumiGenerateCertificates_,jumi_preview_certificate:jumiPreviewCertificate_,jumi_approve_certificate:jumiApproveCertificate_,jumi_queue_certificate:jumiQueueCertificate_,jumi_correct_certificate_name:jumiCorrectCertificateName_,jumi_reissue_certificate:jumiReissueCertificate_,jumi_upload_proof:jumiUploadProof_,jumi_get_proof_url:jumiGetProofUrl_,jumi_save_content:jumiSaveContent_,jumi_find_content_draft:jumiFindContentDraft_,jumi_upload_content_asset:jumiUploadContentAsset_,jumi_analyze_article_source:jumiAnalyzeArticleSource_,jumi_analyze_ebook_source:jumiAnalyzeEbookSource_,jumi_generate_video:jumiGenerateVideo_,jumi_preview_video:jumiPreviewVideo_,jumi_validate_content:jumiValidateContent_,jumi_record_content_preview:jumiRecordContentPreview_,jumi_publish_content:jumiPublishContent_,jumi_auto_publish_content:jumiAutoPublishContent_,jumi_publication_status:jumiPublicationStatus_}[action](input,admin);}catch(error){if(error.jumiSafe)throw error;const diagnostic=String(error.stack||error).replace(/Bearer\s+\S+|github[_]pat[_]\S+|gh[p][_]\S+/g,'[redacted]').slice(0,6000);try{jumiAudit_(jumiSs_(),admin,'OPERATION_FAILED','content',String(input.contentId||input.id||''),{},{action,diagnostic});}catch(_){}throw new Error('Publication failed while processing the stored source. Your files are safe. Retry after the issue is resolved.');}
 }
 
 function jumiSs_(){const id=jumiProps_().getProperty('JUMI_TRACKER_ID');jumiAssert_(id,'JUMI tracker is not configured.');return SpreadsheetApp.openById(id);}
+function jumiBamiRows_(ss,name,headers){
+  const sheet=ss.getSheetByName(name);if(!sheet)return[];
+  const actual=sheet.getRange(1,1,1,headers.length).getValues()[0].map(String);
+  jumiAssert_(JSON.stringify(actual)===JSON.stringify(headers),'Unexpected '+name+' headers.');
+  if(sheet.getLastRow()<2)return[];
+  return sheet.getRange(2,1,sheet.getLastRow()-1,headers.length).getValues().map(values=>Object.fromEntries(headers.map((header,index)=>[header,String(values[index]??'')])));
+}
+function jumiBamiInsights_(input){
+  const period=String(input.period||'30 Days');jumiAssert_(['Today','7 Days','30 Days','This Month','Previous Month','All Time'].includes(period),'Unsupported period.');
+  const ss=jumiSs_(),visitors=jumiBamiRows_(ss,'AI_Visitors',BAMI_VISITOR_HEADERS),inquiries=jumiBamiRows_(ss,'AI_Inquiries',BAMI_INQUIRY_HEADERS);
+  const insights=BAMI_CORE.insights(visitors,inquiries,period,Date.now());
+  const references=new Map();
+  inquiries.filter(row=>BAMI_CORE.withinPeriod(row.timestamp,period,Date.now())).forEach(row=>{const entries=jumiJson_(row.referenced_urls,[]);if(!Array.isArray(entries))return;entries.forEach(item=>{const id=String(item.id||'');if(!id)return;const prior=references.get(id)||{id,title:String(item.title||''),type:String(item.type||''),url:String(item.url||''),count:0};prior.count++;references.set(id,prior);});});
+  insights.references=[...references.values()].sort((a,b)=>b.count-a.count).slice(0,20);
+  insights.recent=insights.recent.map(row=>({timestamp:row.timestamp,visitor_id:row.visitor_id,audience:row.audience,profession:row.profession,question:row.question,answer:row.answer,answer_status:row.answer_status,content_gap:row.content_gap,safety_flag:row.safety_flag,helpful_feedback:row.helpful_feedback,referenced_urls:row.referenced_urls}));
+  return insights;
+}
 function jumiAudit_(ss,admin,action,type,id,before,after){jumiWriteRow_(jumiTab_(ss,'audit'),JUMI_AUDIT_HEADERS,{'Timestamp':jumiNow_(),'Admin':admin.email,'Action':action,'Entity Type':type,'Entity ID':id,'Previous JSON':JSON.stringify(before||{}),'New JSON':JSON.stringify(after||{})});}
 function jumiSpeakerRecords_(value){const rows=Array.isArray(value)?value:jumiJson_(value,[]);return rows.map((item,index)=>{if(item&&typeof item==='object')return{id:String(item.id||jumiSlug_(item.name)||'speaker-'+(index+1)),name:String(item.name||''),credentials:String(item.credentials||''),role:String(item.role||''),topic:String(item.topic||'')};const parts=String(item||'').split('|').map(part=>part.trim()),name=parts[0]||'';return{id:jumiSlug_(name)||'speaker-'+(index+1),name,credentials:parts[1]||'',role:parts[2]||'Speaker',topic:parts[3]||''};}).filter(item=>item.name);}
 function jumiEventPublic_(row){const poster=String(row['Poster Ref']||''),privatePoster=poster.indexOf('private:')===0,speakerRecords=jumiSpeakerRecords_(row['Speakers JSON']);return{id:String(row['Event ID']),title:String(row.Title),subtitle:String(row.Subtitle||''),startAt:String(row['Start At']||''),endAt:String(row['End At']||''),registrationOpen:String(row['Registration Open']||''),registrationClose:String(row['Registration Close']||''),format:String(row.Format||''),platform:String(row.Platform||''),meetingUrl:String(row['Meeting URL']||''),venue:String(row.Venue||''),address:String(row.Address||''),commercial:String(row.Commercial||''),price:Number(row.Price)||0,currency:String(row.Currency||'IDR'),paymentInstructions:String(row['Payment Instructions Ref']||''),posterReference:privatePoster?'':poster,posterStored:Boolean(poster),posterRatioValid:privatePoster?/^private:[^:]+:\d+x\d+:valid$/.test(poster):Boolean(poster),speakers:speakerRecords.map(item=>[item.name,item.credentials,item.role,item.topic].filter(Boolean).join(' | ')).join('\n'),speakerRecords,description:String(row.Description||''),audience:String(row.Audience||''),capacity:Number(row.Capacity)||0,skp:String(row['SKP Info']||''),lms:String(row['LMS Info']||''),certificateProgram:String(row['Certificate Program']||'None'),certificateRule:String(row['Certificate Rule']||''),certificateSignatory:String(row['Certificate Signatory']||''),certificateSignatoryRole:String(row['Certificate Signatory Role']||''),sourceStored:Boolean(row['Source File ID']),sourceMime:String(row['Source MIME']||''),sourceAnalysis:jumiJson_(row['Source Analysis JSON'],{}),lifecycle:String(row.Lifecycle||'Draft'),publicUrl:String(row['Public URL']||''),updatedAt:String(row['Updated At']||'')};}
