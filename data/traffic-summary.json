@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-05T12:56:00.893Z",
+  "generatedAt": "2026-10-05T23:26:54.466Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-07",
-    "endDate": "2026-10-04"
+    "startDate": "2026-09-08",
+    "endDate": "2026-10-05"
   },
   "summary": {
-    "activeUsers": 220,
-    "newUsers": 213,
-    "averageEngagementTimeSeconds": 114.97272727272727,
-    "eventCount": 3650
+    "activeUsers": 218,
+    "newUsers": 210,
+    "averageEngagementTimeSeconds": 116.43577981651376,
+    "eventCount": 3664
   },
   "topPages": [
     {
@@ -21,30 +21,30 @@
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 282,
-      "activeUsers": 63,
-      "eventCount": 688,
-      "bounceRate": 0.2958579881656805
+      "views": 285,
+      "activeUsers": 61,
+      "eventCount": 697,
+      "bounceRate": 0.2976190476190476
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 90,
+      "views": 91,
       "activeUsers": 12,
-      "eventCount": 202,
-      "bounceRate": 0.0625
+      "eventCount": 203,
+      "bounceRate": 0.06060606060606061
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 79,
+      "views": 80,
       "activeUsers": 9,
-      "eventCount": 174,
-      "bounceRate": 0.18604651162790697
+      "eventCount": 176,
+      "bounceRate": 0.18181818181818182
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 72,
+      "views": 73,
       "activeUsers": 12,
-      "eventCount": 160,
+      "eventCount": 162,
       "bounceRate": 0
     },
     {
@@ -86,15 +86,19 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 186
+      "activeUsers": 185
     },
     {
       "label": "google / organic",
-      "activeUsers": 21
+      "activeUsers": 20
     },
     {
       "label": "bing / organic",
       "activeUsers": 4
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 3
     },
     {
       "label": "l.instagram.com / referral",
@@ -116,15 +120,15 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 276
+      "sessions": 273
     },
     {
       "label": "google / organic",
-      "sessions": 138
+      "sessions": 140
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 19
+      "sessions": 20
     },
     {
       "label": "bing / organic",
@@ -139,12 +143,12 @@
       "sessions": 3
     },
     {
-      "label": "facebook.com / referral",
+      "label": "Not set",
       "sessions": 2
     },
     {
-      "label": "Not set",
-      "sessions": 1
+      "label": "facebook.com / referral",
+      "sessions": 2
     },
     {
       "label": "dataindex.pro / referral",
@@ -154,7 +158,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 68
+      "activeUsers": 67
     },
     {
       "label": "Not set",
