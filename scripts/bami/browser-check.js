@@ -22,8 +22,9 @@ const mock = (action, input) => {
   if (action === "newChat") { current.sessionId = `session-${++id}`; current.history = []; return { sessionId: current.sessionId }; }
   if (action === "ask") {
     if (input.sessionId !== current.sessionId) return { error: "Please enter a shorter question in the current chat." };
-    const answer = { id: `answer-${++id}`, answer: "Published BA Medicale thyroid learning is available.", status: "GROUNDED", sources: [{ type: "Article", title: "Thyroid knowledge", url: "https://bamedicale.com/library.html?disease=endocrine-metabolic" }] };
-    current.history.push({ id: answer.id, question: input.question, answer: answer.answer, status: answer.status, sources: answer.sources });
+    const greeting = input.question === "halo" || input.question === "hello", language = /halo|ada video/.test(input.question) ? "id" : "en";
+    const answer = { id: `answer-${++id}`, answer: greeting ? language === "id" ? "Halo! Ada yang bisa BAMI bantu?" : "Hi! How can BAMI help?" : language === "id" ? "BAMI menemukan video tiroid yang relevan." : "Published BA Medicale thyroid learning is available.", status: greeting ? "CONVERSATIONAL" : "GROUNDED", language, sources: greeting ? [] : [{ type: "Article", title: "Thyroid knowledge", url: "https://bamedicale.com/library.html?disease=endocrine-metabolic" }] };
+    current.history.push({ id: answer.id, question: input.question, answer: answer.answer, status: answer.status, language, sources: answer.sources });
     return answer;
   }
   if (action === "feedback") return { saved: true };
@@ -71,11 +72,26 @@ const mock = (action, input) => {
       await chat.getByRole("checkbox").check();
       assert.equal(await start.isEnabled(), true);
       await start.click();
-      await chat.getByRole("textbox", { name: "Ask BAMI a question" }).fill("Thyroid materials?");
+      await chat.getByRole("textbox", { name: "Ask BAMI a question" }).fill("halo");
       await chat.getByRole("button", { name: "Send" }).click();
-      await chat.getByText("Published BA Medicale thyroid learning is available.").waitFor();
+      await chat.getByText("Halo! Ada yang bisa BAMI bantu?").waitFor();
+      assert.equal(await chat.getByRole("textbox", { name: "Ajukan pertanyaan kepada BAMI" }).getAttribute("placeholder"), "Tanyakan materi BA Medicale");
+      await chat.getByRole("textbox", { name: "Ajukan pertanyaan kepada BAMI" }).fill("ada video tentang thyroid?");
+      await chat.getByRole("button", { name: "Kirim" }).click();
+      await chat.getByText("BAMI menemukan video tiroid yang relevan.").waitFor();
+      await chat.getByRole("button", { name: "Membantu", exact: true }).last().click();
+      await chat.getByText("Terima kasih. Masukan kamu membantu BAMI menjadi lebih baik.").waitFor();
+      assert.equal(await chat.getByText("BAMI menemukan video tiroid yang relevan.").count(), 1);
+      await chat.getByRole("button", { name: "Percakapan Baru" }).click();
+      await chat.getByRole("textbox", { name: "Ajukan pertanyaan kepada BAMI" }).fill("Thyroid materials?");
+      await chat.getByRole("button", { name: "Kirim" }).click();
+      await chat.getByText("Published BA Medicale thyroid learning is available.").first().waitFor();
       await chat.getByRole("button", { name: "Helpful", exact: true }).click();
-      await chat.getByText("Thank you for the feedback.").waitFor();
+      await chat.getByText("Thank you. Your feedback helps BAMI improve.").waitFor();
+      await chat.getByRole("textbox", { name: "Ask BAMI a question" }).fill("More thyroid materials?");
+      await chat.getByRole("button", { name: "Send" }).click();
+      await chat.getByRole("button", { name: "Not Helpful", exact: true }).click();
+      await chat.getByText("Thank you. Your feedback has been recorded and will help BAMI improve its answers.").waitFor();
       await chat.getByRole("button", { name: "Minimize BAMI" }).click();
       assert.equal(await launcher.getAttribute("aria-expanded"), "false");
       await page.goto(origin + "/library.html");
@@ -83,9 +99,9 @@ const mock = (action, input) => {
       await again.waitFor();
       assert.equal(await again.getAttribute("aria-expanded"), "false");
       await again.click();
-      await chat.getByText("Published BA Medicale thyroid learning is available.").waitFor();
+      await chat.getByText("Published BA Medicale thyroid learning is available.").first().waitFor();
       await chat.getByRole("button", { name: "New Chat" }).click();
-      await chat.getByText("Ask about BA Medicale articles").waitFor();
+      await chat.locator(".empty").waitFor();
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
       assert.equal(overflow, false, `${width}px horizontal overflow`);
       await page.evaluate(() => localStorage.clear());
