@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T02:52:15.364Z",
+  "generatedAt": "2026-10-05T12:56:00.893Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-07",
@@ -107,10 +107,6 @@
     {
       "label": "facebook.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     },
     {
       "label": "dataindex.pro / referral",
