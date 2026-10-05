@@ -6,6 +6,11 @@ const path = require("node:path");
 const vm = require("node:vm");
 const crypto = require("node:crypto");
 
+test("BAMI setup manifest requests the owner email scope", () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, "appsscript.json"), "utf8"));
+  assert.ok(manifest.oauthScopes.includes("https://www.googleapis.com/auth/userinfo.email"));
+});
+
 function service() {
   const props = new Map(), cache = new Map(), sheets = new Map();
   let sequence = 0, active = "owner@example.com";
