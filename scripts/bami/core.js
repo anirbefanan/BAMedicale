@@ -115,13 +115,14 @@ const BAMI_CORE = (() => {
     const knowledgeCount = predicate => knowledge.filter(predicate).length;
     const rated = count(row => row.helpful_feedback === "HELPFUL" || row.helpful_feedback === "NOT_HELPFUL");
     const by = (field, rows = selected) => Object.entries(rows.reduce((acc, row) => { const key = String(row[field] || "").trim(); if (key) acc[key] = (acc[key] || 0) + 1; return acc; }, {})).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([label, value]) => ({ label, count: value }));
-    const opportunities = by("topic", knowledge).map(row => ({ ...row, gaps: knowledgeCount(item => item.topic === row.label && item.content_gap === "TRUE") })).filter(row => row.count >= 3 && row.gaps > 0);
+    const isGap = row => String(row.content_gap).toUpperCase() === "TRUE";
+    const opportunities = by("topic", knowledge).map(row => ({ ...row, gaps: knowledgeCount(item => item.topic === row.label && isGap(item)) })).filter(row => row.count >= 3 && row.gaps > 0);
     return {
       period, totalVisitors: selectedVisitors.length, newVisitors: selectedVisitors.filter(row => withinPeriod(row.created_at, period, now)).length,
       returningVisitors: selectedVisitors.filter(row => period === "All Time" ? Number(row.session_count) > 1 : !withinPeriod(row.created_at, period, now)).length,
       sessions: new Set(selected.map(row => row.session_id)).size, inquiries: selected.length,
       groundedRate: knowledge.length ? knowledgeCount(row => row.answer_status === "GROUNDED") / knowledge.length : null,
-      contentGapRate: knowledge.length ? knowledgeCount(row => row.content_gap === "TRUE") / knowledge.length : null,
+      contentGapRate: knowledge.length ? knowledgeCount(isGap) / knowledge.length : null,
       helpfulRate: rated ? count(row => row.helpful_feedback === "HELPFUL") / rated : null,
       safetyLimited: count(row => row.answer_status === "SAFETY_LIMITED"),
       averageLatencyMs: selected.length ? selected.reduce((sum, row) => sum + (Number(row.response_latency_ms) || 0), 0) / selected.length : null,

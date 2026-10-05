@@ -89,7 +89,7 @@ test("conversation turns preserve inquiry volume without distorting knowledge me
     { timestamp, session_id: "s", answer_status: "CONVERSATIONAL", question: "halo", topic: "", content_gap: "FALSE" },
     { timestamp, session_id: "s", answer_status: "CONVERSATIONAL", question: "thanks", topic: "", content_gap: "FALSE" },
     { timestamp, session_id: "s", answer_status: "CONTENT_GAP", question: "halo", topic: "", content_gap: "TRUE" },
-    { timestamp, session_id: "s", answer_status: "CONTENT_GAP", question: "unavailable condition", topic: "Rare topic", content_gap: "TRUE" },
+    { timestamp, session_id: "s", answer_status: "CONTENT_GAP", question: "unavailable condition", topic: "Rare topic", content_gap: true },
     { timestamp, session_id: "s", answer_status: "GROUNDED", question: "thyroid article", topic: "Thyroid", content_gap: "FALSE", helpful_feedback: "HELPFUL" }
   ];
   const result = core.insights([], rows, "Today", now);
