@@ -121,39 +121,49 @@ const BAMI_CORE = (() => {
     return Number.isFinite(at) && at >= periodStart(period, now) && at < end;
   };
   const insights = (visitors, inquiries, period = "30 Days", now = Date.now(), publishedItems = null) => {
-    const start = periodStart(period, now);
-    const selected = inquiries.filter(row => withinPeriod(row.timestamp, period, now));
-    const selectedVisitors = visitors.filter(row => period === "All Time" || withinPeriod(row.created_at, period, now) || withinPeriod(row.last_activity_at, period, now));
+    const real = row => String(row.is_qa || "").toUpperCase() !== "TRUE";
+    const selected = inquiries.filter(row => real(row) && withinPeriod(row.timestamp, period, now));
+    const selectedVisitors = visitors.filter(row => real(row) && (period === "All Time" || withinPeriod(row.created_at, period, now) || withinPeriod(row.last_activity_at, period, now)));
     const count = predicate => selected.filter(predicate).length;
-    // Conversation and safety turns remain in visitor/session/inquiry totals but are not knowledge-answer opportunities.
-    const knowledge = selected.filter(row => !["CONVERSATIONAL", "SAFETY_LIMITED", "ERROR"].includes(row.answer_status) && (injection(row.question) || intent(row.question) === "KNOWLEDGE"));
+    // Only recorded knowledge outcomes enter the denominator. Old rows without a reliable
+    // status stay unknown; current corpus changes never rewrite historical outcomes.
+    const knowledge = selected.filter(row => ["GROUNDED", "PARTIAL", "CONTENT_GAP"].includes(String(row.answer_status)) && !injection(row.question) && intent(row.question) === "KNOWLEDGE");
     const knowledgeCount = predicate => knowledge.filter(predicate).length;
     const rated = count(row => row.helpful_feedback === "HELPFUL" || row.helpful_feedback === "NOT_HELPFUL");
     const by = (field, rows = selected) => Object.entries(rows.reduce((acc, row) => { const key = String(row[field] || "").trim(); if (key) acc[key] = (acc[key] || 0) + 1; return acc; }, {})).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([label, value]) => ({ label, count: value }));
-    const isGap = row => String(row.content_gap).toUpperCase() === "TRUE";
     const gapKind = row => {
-      if (!isGap(row)) return "NOT_GAP";
-      if (injection(row.question) || row.answer_status === "SAFETY_LIMITED") return "SAFETY_LIMITED";
-      if (intent(row.question) !== "KNOWLEDGE") return "CONVERSATIONAL";
-      if (!Array.isArray(publishedItems)) return "UNVERIFIED";
-      const at = Date.parse(row.timestamp);
-      const contemporary = publishedItems.filter(item => item.date && Number.isFinite(at) && Date.parse(item.date) <= at);
-      if (retrieve(row.question, contemporary, 1).length) return "RETRIEVAL_MISS";
-      if (terms(row.question).length === 0 || /^\[/.test(String(row.question || ""))) return "AMBIGUOUS_QUERY";
-      return "GENUINE_CONTENT_GAP";
+      if (!Array.isArray(publishedItems)) return "UNAVAILABLE";
+      if (!terms(row.question).length || /^\[/.test(String(row.question || ""))) return "UNKNOWN";
+      return retrieve(row.question, publishedItems, 1).length ? "COVERED" : "UNRESOLVED";
     };
-    const auditedGaps = knowledge.filter(isGap);
-    const gapAudit = Object.fromEntries(["GENUINE_CONTENT_GAP", "RETRIEVAL_MISS", "AMBIGUOUS_QUERY", "CONVERSATIONAL", "SAFETY_LIMITED", "UNVERIFIED"].map(kind => [kind, auditedGaps.filter(row => gapKind(row) === kind).length]));
-    const opportunities = by("topic", knowledge.filter(row => gapKind(row) === "GENUINE_CONTENT_GAP"))
-      .map(row => ({ label: row.label, count: knowledgeCount(item => item.topic === row.label), gaps: row.count }))
-      .filter(row => row.count >= 3);
+    const gapAudit = Object.fromEntries(["COVERED", "UNRESOLVED", "UNKNOWN", "UNAVAILABLE"].map(kind => [kind, knowledge.filter(row => gapKind(row) === kind).length]));
+    // Unresolved records often have no topic because retrieval found no source.
+    // Cluster by recorded topic when present, otherwise by the exact normalized question.
+    const clusters = new Map();
+    knowledge.filter(row => gapKind(row) === "UNRESOLVED").forEach(row => {
+      const label = String(row.topic || row.question || "").trim();
+      if (!label) return;
+      const key = label.toLowerCase().replace(/\s+/g, " ");
+      const prior = clusters.get(key) || { label, count: 0, gaps: 0, lastAsked: "" };
+      prior.count++; prior.gaps++; if (String(row.timestamp) > prior.lastAsked) prior.lastAsked = String(row.timestamp);
+      clusters.set(key, prior);
+    });
+    const opportunities = [...clusters.values()].filter(row => row.count >= 3)
+      .sort((a, b) => b.count - a.count || b.lastAsked.localeCompare(a.lastAsked)).slice(0, 10);
     return {
       period, totalVisitors: selectedVisitors.length, newVisitors: selectedVisitors.filter(row => withinPeriod(row.created_at, period, now)).length,
       returningVisitors: selectedVisitors.filter(row => period === "All Time" ? Number(row.session_count) > 1 : !withinPeriod(row.created_at, period, now)).length,
       sessions: new Set(selected.map(row => row.session_id)).size, inquiries: selected.length,
       groundedRate: knowledge.length ? knowledgeCount(row => row.answer_status === "GROUNDED") / knowledge.length : null,
-      contentGapRate: knowledge.length ? knowledgeCount(isGap) / knowledge.length : null,
-      correctedGenuineGapRate: Array.isArray(publishedItems) && knowledge.length && gapAudit.AMBIGUOUS_QUERY === 0 && gapAudit.UNVERIFIED === 0 ? gapAudit.GENUINE_CONTENT_GAP / knowledge.length : null,
+      historicalEligible: knowledge.length, historicalGaps: knowledgeCount(row => row.answer_status === "CONTENT_GAP"),
+      historicalGapRate: knowledge.length ? knowledgeCount(row => row.answer_status === "CONTENT_GAP") / knowledge.length : null,
+      currentAudited: knowledge.length - gapAudit.UNKNOWN - gapAudit.UNAVAILABLE,
+      currentUnresolved: gapAudit.UNRESOLVED,
+      currentCorpusGapRate: Array.isArray(publishedItems) && knowledge.length && gapAudit.UNKNOWN === 0 ? gapAudit.UNRESOLVED / knowledge.length : null,
+      historicalGapsResolved: knowledge.filter(row => row.answer_status === "CONTENT_GAP" && gapKind(row) === "COVERED").length,
+      unknownRows: selected.length - knowledge.length - count(row => ["CONVERSATIONAL", "SAFETY_LIMITED", "ERROR"].includes(String(row.answer_status))),
+      excludedConversation: count(row => row.answer_status === "CONVERSATIONAL"), excludedSafety: count(row => row.answer_status === "SAFETY_LIMITED"), excludedErrors: count(row => row.answer_status === "ERROR"),
+      qaInquiries: inquiries.filter(row => String(row.is_qa || "").toUpperCase() === "TRUE" && withinPeriod(row.timestamp, period, now)).length,
       gapAudit,
       helpfulRate: rated ? count(row => row.helpful_feedback === "HELPFUL") / rated : null,
       safetyLimited: count(row => row.answer_status === "SAFETY_LIMITED"),

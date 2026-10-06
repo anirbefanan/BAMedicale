@@ -113,25 +113,34 @@ function jumiApi(action,data){
 
 function jumiSs_(){const id=jumiProps_().getProperty('JUMI_TRACKER_ID');jumiAssert_(id,'JUMI tracker is not configured.');return SpreadsheetApp.openById(id);}
 function jumiBamiRows_(ss,name,headers){
-  const sheet=ss.getSheetByName(name);if(!sheet)return[];
-  const actual=sheet.getRange(1,1,1,headers.length).getValues()[0].map(String);
-  jumiAssert_(JSON.stringify(actual)===JSON.stringify(headers),'Unexpected '+name+' headers.');
+  const sheet=ss.getSheetByName(name);jumiAssert_(sheet,'BAMI historical data is unavailable: '+name+' tab is missing.');
+  const actual=sheet.getRange(1,1,1,Math.max(sheet.getLastColumn(),1)).getValues()[0].map(value=>String(value||'').trim());
+  jumiAssert_(['AI_Inquiries'===name?'inquiry_id':'visitor_id',name==='AI_Inquiries'?'timestamp':'created_at'].every(header=>actual.includes(header)),'BAMI historical data is unavailable: '+name+' lacks required headers.');
+  jumiAssert_(new Set(actual.filter(Boolean)).size===actual.filter(Boolean).length,'BAMI historical data has duplicate headers.');
   if(sheet.getLastRow()<2)return[];
-  return sheet.getRange(2,1,sheet.getLastRow()-1,headers.length).getValues().map(values=>Object.fromEntries(headers.map((header,index)=>[header,String(values[index]??'')])));
+  return sheet.getRange(2,1,sheet.getLastRow()-1,actual.length).getValues().map(values=>Object.fromEntries(headers.map(header=>[header,String(values[actual.indexOf(header)]??'')])));
+}
+function jumiBamiCorpus_(){
+  const cache=CacheService.getScriptCache(),prefix='jumi_bami_corpus_v1_',count=Number(cache.get(prefix+'count')||0);
+  if(count>0&&count<=20){const chunks=Array.from({length:count},(_,index)=>cache.get(prefix+index));if(chunks.every(Boolean)){const stored=jumiJson_(chunks.join(''),{});if(stored.schemaVersion===1&&Array.isArray(stored.items))return stored.items;}}
+  const response=UrlFetchApp.fetch('https://bamedicale.com/data/bami-knowledge.json',{muteHttpExceptions:true,followRedirects:true});
+  if(response.getResponseCode()!==200)throw new Error('Current BAMI corpus is unavailable.');
+  const corpus=jumiJson_(response.getContentText(),{});
+  if(corpus.schemaVersion!==1||!Array.isArray(corpus.items))throw new Error('Current BAMI corpus is unavailable.');
+  const chunks=JSON.stringify(corpus).match(/[\s\S]{1,40000}/g)||[];
+  if(chunks.length&&chunks.length<=20){chunks.forEach((chunk,index)=>cache.put(prefix+index,chunk,600));cache.put(prefix+'count',String(chunks.length),600);}
+  return corpus.items;
 }
 function jumiBamiInsights_(input){
   const period=String(input.period||'30 Days');jumiAssert_(['Today','7 Days','30 Days','This Month','Previous Month','All Time'].includes(period),'Unsupported period.');
   const ss=jumiSs_(),visitors=jumiBamiRows_(ss,'AI_Visitors',BAMI_VISITOR_HEADERS),inquiries=jumiBamiRows_(ss,'AI_Inquiries',BAMI_INQUIRY_HEADERS);
   let publishedItems=null;
-  try{
-    const response=UrlFetchApp.fetch('https://bamedicale.com/data/bami-knowledge.json',{muteHttpExceptions:true,followRedirects:true});
-    if(response.getResponseCode()===200){const corpus=jumiJson_(response.getContentText(),{});if(corpus.schemaVersion===1&&Array.isArray(corpus.items))publishedItems=corpus.items;}
-  }catch(_){/* Preserve observed history when the public corpus cannot be audited. */}
+  try{publishedItems=jumiBamiCorpus_();}catch(_){/* Historical outcomes remain intact; current-corpus rate is unavailable. */}
   const insights=BAMI_CORE.insights(visitors,inquiries,period,Date.now(),publishedItems);
   const references=new Map();
-  inquiries.filter(row=>BAMI_CORE.withinPeriod(row.timestamp,period,Date.now())).forEach(row=>{const entries=jumiJson_(row.referenced_urls,[]);if(!Array.isArray(entries))return;entries.forEach(item=>{const id=String(item.id||'');if(!id)return;const prior=references.get(id)||{id,title:String(item.title||''),type:String(item.type||''),url:String(item.url||''),count:0};prior.count++;references.set(id,prior);});});
+  inquiries.filter(row=>String(row.is_qa||'').toUpperCase()!=='TRUE'&&BAMI_CORE.withinPeriod(row.timestamp,period,Date.now())).forEach(row=>{const entries=jumiJson_(row.referenced_urls,[]);if(!Array.isArray(entries))return;entries.forEach(item=>{const id=String(item.id||'');if(!id)return;const prior=references.get(id)||{id,title:String(item.title||''),type:String(item.type||''),url:String(item.url||''),count:0};prior.count++;references.set(id,prior);});});
   insights.references=[...references.values()].sort((a,b)=>b.count-a.count).slice(0,20);
-  insights.recent=insights.recent.map(row=>({timestamp:row.timestamp,visitor_id:row.visitor_id,audience:row.audience,profession:row.profession,question:row.question,answer:row.answer,answer_status:row.answer_status,content_gap:row.content_gap,safety_flag:row.safety_flag,helpful_feedback:row.helpful_feedback,referenced_urls:row.referenced_urls}));
+  insights.recent=insights.recent.map(row=>({timestamp:row.timestamp,visitor_id:String(row.visitor_id||'').slice(0,12)+'…',audience:row.audience,profession:row.profession,question:row.question,answer:row.answer,answer_status:row.answer_status,content_gap:row.content_gap,safety_flag:row.safety_flag,helpful_feedback:row.helpful_feedback,referenced_urls:row.referenced_urls}));
   return insights;
 }
 function jumiAudit_(ss,admin,action,type,id,before,after){jumiWriteRow_(jumiTab_(ss,'audit'),JUMI_AUDIT_HEADERS,{'Timestamp':jumiNow_(),'Admin':admin.email,'Action':action,'Entity Type':type,'Entity ID':id,'Previous JSON':JSON.stringify(before||{}),'New JSON':JSON.stringify(after||{})});}

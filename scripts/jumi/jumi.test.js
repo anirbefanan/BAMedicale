@@ -160,6 +160,14 @@ test("new Content OS artwork is validated server-side while historical Seminar p
   assert.match(backend,/privatePoster\?\'\':poster/);
 });
 
+test("BAMI historical read accepts additive old schema and rejects missing data",()=>{
+  const context={console};vm.createContext(context);vm.runInContext(backend,context);
+  const sheet={getLastColumn:()=>4,getLastRow:()=>2,getRange:(row,col,count,width)=>({getValues:()=>row===1?[["inquiry_id","timestamp","question","answer_status"]]:[["i1","2026-10-05T09:00:00Z","thyroid nodule","CONTENT_GAP"]]})};
+  const result=context.jumiBamiRows_({getSheetByName:()=>sheet},"AI_Inquiries",["inquiry_id","timestamp","question","answer_status","is_qa"]);
+  assert.equal(result.length,1);assert.equal(result[0].answer_status,"CONTENT_GAP");assert.equal(result[0].is_qa,"");
+  assert.throws(()=>context.jumiBamiRows_({getSheetByName:()=>null},"AI_Inquiries",["inquiry_id"]),/unavailable/);
+});
+
 test("Apps Script validates PNG and JPEG dimensions from source bytes",()=>{
   const context={console};vm.createContext(context);vm.runInContext(backend,context);
   const png=Buffer.alloc(24);Buffer.from([137,80,78,71,13,10,26,10]).copy(png);Buffer.from('IHDR').copy(png,12);png.writeUInt32BE(900,16);png.writeUInt32BE(1200,20);

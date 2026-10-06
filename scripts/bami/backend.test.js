@@ -22,7 +22,7 @@ function service() {
       getValues: () => Array.from({ length: count }, (_, i) => Array.from({ length: width }, (_, j) => this.rows[row - 1 + i]?.[col - 1 + j] ?? "")),
       setValues: values => { values.forEach((line, i) => { const target = this.rows[row - 1 + i] || []; line.forEach((value, j) => { target[col - 1 + j] = value; }); this.rows[row - 1 + i] = target; }); }
     }; }
-    appendRow(values) { this.rows.push(values); }
+    appendRow(values) { this.rows.push(values.map((value,index) => this.rows[0]?.[index] === "is_qa" && value === "TRUE" ? true : value)); }
     setFrozenRows() {}
   }
   const context = {
@@ -36,6 +36,7 @@ function service() {
       base64EncodeWebSafe: value => Buffer.from(value).toString("base64url"),
       base64DecodeWebSafe: value => Buffer.from(value, "base64url"),
       computeHmacSha256Signature: (value, key) => [...crypto.createHmac("sha256", key).update(value).digest()],
+      sleep() {},
       newBlob: value => ({ getDataAsString: () => Buffer.from(value).toString("utf8") })
     },
     UrlFetchApp: { fetch: (url, options) => { fetches.push({ url, options }); const body = url.includes("bami-knowledge.json") ? { schemaVersion: 1, items: [
@@ -43,7 +44,7 @@ function service() {
       { id: "thyroid-article", type: "Article", family: "article", title: "Thyroid Nodules Article", summary: "Thyroid nodule learning", url: "https://bamedicale.com/articles/thyroid.html", topics: ["thyroid"], disease: ["endocrine-metabolic"], authors: [] }
     ] } : { candidates: [{ content: { parts: [{ text: options.payload.includes("natural Bahasa Indonesia") ? "BAMI menemukan video tiroid yang relevan." : "BAMI found a relevant thyroid video." }] } }] }; return { getResponseCode: () => 200, getContentText: () => JSON.stringify(body) }; } },
     HtmlService: { XFrameOptionsMode: { ALLOWALL: "ALLOWALL" }, createTemplateFromFile: () => ({ evaluate() { return { addMetaTag() { return this; }, setTitle() { return this; }, setXFrameOptionsMode(value) { assert.equal(value, "ALLOWALL"); return this; } }; } }) },
-    console, Buffer, Date
+    console: { log() {} }, Buffer, Date
   };
   vm.createContext(context);
   vm.runInContext(fs.readFileSync(path.join(__dirname, "Code.gs"), "utf8"), context);
@@ -66,6 +67,47 @@ test("BAMI sheet setup is owner-only, additive, and idempotent", () => {
 test("public BAMI view supports the first-party embedded launcher", () => {
   const s = service();
   assert.ok(s.context.doGet({ parameter: { bridge: "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa" } }));
+});
+
+test("owner QA uses the real answer/logging path while public QA flags are ignored", () => {
+  const s = service(); s.context.setupBami("A".repeat(40)); s.props.set("BAMI_GEMINI_API_KEY", "mock-key");
+  s.setActive(""); assert.throws(() => s.context.runBamiProductionQa(), /owner/);
+  s.setActive("owner@example.com");
+  const run = s.context.runBamiProductionQa();
+  assert.equal(run.pass, true, JSON.stringify(run));
+  assert.equal(run.analyticsExcluded, true);
+  assert.ok(run.qa_run_id.startsWith("qa_"));
+  assert.equal(run.cases.length, 4);
+  assert.equal(s.fetches.filter(item => item.url.includes("generativelanguage.googleapis.com")).length, 2);
+  const inquiries = s.sheets.get("AI_Inquiries"), head = inquiries.rows[0];
+  const field = (row, name) => row[head.indexOf(name)];
+  assert.equal(inquiries.rows.slice(1).filter(row => String(field(row, "is_qa")).toUpperCase() === "TRUE").length, 4);
+  assert.equal(inquiries.rows.slice(1).find(row => field(row, "qa_scenario") === "grounded_id")[head.indexOf("helpful_feedback")], "HELPFUL");
+  const publicProfile = { email: "a@example.com", phone: "081234567890", audience: "Public", profession: "Student", consent: true, consentVersion: "bami-v1-2026-10", is_qa: true, qa_run_id: run.qa_run_id };
+  const publicVisitor = s.context.bamiApi("onboard", publicProfile);
+  const visitor = s.sheets.get("AI_Visitors"), visitorHead = visitor.rows[0];
+  assert.notEqual(visitor.rows.at(-1)[visitorHead.indexOf("is_qa")], "TRUE");
+  const publicAnswer = s.context.bamiApi("ask", { token: publicVisitor.token, sessionId: publicVisitor.sessionId, question: "halo", is_qa: true, qaScenario: "spoof" });
+  assert.notEqual(inquiries.rows.find(row => field(row, "inquiry_id") === publicAnswer.id)[head.indexOf("is_qa")], "TRUE");
+});
+
+test("provider HTTP failures stay private while the public answer remains generic", () => {
+  const s = service();s.context.setupBami("A".repeat(40));s.props.set("BAMI_GEMINI_API_KEY","mock-key");
+  const original=s.context.UrlFetchApp.fetch;
+  s.context.UrlFetchApp.fetch=(url,options)=>url.includes("generativelanguage.googleapis.com")?{getResponseCode:()=>429,getContentText:()=>"{}"}:original(url,options);
+  const visitor=s.context.bamiApi("onboard",{email:"a@example.com",phone:"081234567890",audience:"Public",profession:"Student",consent:true,consentVersion:"bami-v1-2026-10"});
+  const answer=s.context.bamiApi("ask",{token:visitor.token,sessionId:visitor.sessionId,question:"do you have videos about thyroid?"});
+  assert.equal(answer.status,"ERROR");assert.doesNotMatch(JSON.stringify(answer),/429/);
+  const sheet=s.sheets.get("AI_Inquiries");assert.equal(sheet.rows[1][sheet.rows[0].indexOf("error_code")],"BAMI_PROVIDER_HTTP_429");
+});
+
+test("a transient Gemini failure receives only one bounded retry", () => {
+  const s=service();s.context.setupBami("A".repeat(40));s.props.set("BAMI_GEMINI_API_KEY","mock-key");
+  const original=s.context.UrlFetchApp.fetch;let attempts=0;
+  s.context.UrlFetchApp.fetch=(url,options)=>url.includes("generativelanguage.googleapis.com")&&++attempts===1?{getResponseCode:()=>503,getContentText:()=>"{}"}:original(url,options);
+  const visitor=s.context.bamiApi("onboard",{email:"a@example.com",phone:"081234567890",audience:"Public",profession:"Student",consent:true,consentVersion:"bami-v1-2026-10"});
+  const answer=s.context.bamiApi("ask",{token:visitor.token,sessionId:visitor.sessionId,question:"do you have videos about thyroid?"});
+  assert.equal(answer.status,"PARTIAL");assert.equal(attempts,2);
 });
 
 test("onboarding, resume, new chat, isolation, feedback, and unavailable AI remain safe", () => {

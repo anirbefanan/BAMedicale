@@ -70,14 +70,14 @@ test("private JUMI metrics use real denominators, periods, and zero-safe empty s
     { visitor_id: "v1", created_at: "2026-10-05T08:00:00+07:00", session_count: "2" },
     { visitor_id: "v2", created_at: "2026-09-01T08:00:00+07:00", session_count: "1" }
   ], inquiries = [
-    { visitor_id: "v1", session_id: "s1", timestamp: "2026-10-05T09:00:00+07:00", answer_status: "GROUNDED", helpful_feedback: "HELPFUL", audience: "Doctors", profession: "Specialist", topic: "Thyroid", content_gap: "FALSE", response_latency_ms: "100" },
-    { visitor_id: "v1", session_id: "s2", timestamp: "2026-10-05T10:00:00+07:00", answer_status: "CONTENT_GAP", helpful_feedback: "NOT_HELPFUL", audience: "Doctors", profession: "Specialist", topic: "Thyroid", content_gap: "TRUE", response_latency_ms: "300" },
+    { visitor_id: "v1", session_id: "s1", timestamp: "2026-10-05T09:00:00+07:00", answer_status: "GROUNDED", question: "thyroid article", helpful_feedback: "HELPFUL", audience: "Doctors", profession: "Specialist", topic: "Thyroid", content_gap: "FALSE", response_latency_ms: "100" },
+    { visitor_id: "v1", session_id: "s2", timestamp: "2026-10-05T10:00:00+07:00", answer_status: "CONTENT_GAP", question: "rare medicine", helpful_feedback: "NOT_HELPFUL", audience: "Doctors", profession: "Specialist", topic: "Thyroid", content_gap: "TRUE", response_latency_ms: "300" },
     { visitor_id: "v2", session_id: "s3", timestamp: "2026-09-01T10:00:00+07:00", answer_status: "GROUNDED", audience: "Public", profession: "Student", content_gap: "FALSE", response_latency_ms: "500" }
   ];
   const today = core.insights(visitors, inquiries, "Today", now);
   assert.equal(today.totalVisitors, 1); assert.equal(today.newVisitors, 1); assert.equal(today.returningVisitors, 0);
   assert.equal(today.sessions, 2); assert.equal(today.inquiries, 2); assert.equal(today.groundedRate, .5);
-  assert.equal(today.contentGapRate, .5); assert.equal(today.helpfulRate, .5); assert.equal(today.averageLatencyMs, 200);
+  assert.equal(today.historicalGapRate, .5); assert.equal(today.currentCorpusGapRate, null); assert.equal(today.helpfulRate, .5); assert.equal(today.averageLatencyMs, 200);
   const empty = core.insights([], [], "All Time", now);
   assert.equal(empty.groundedRate, null); assert.equal(empty.helpfulRate, null);
   assert.ok(schema.BAMI_VISITOR_HEADERS.includes("consent_version"));
@@ -97,13 +97,13 @@ test("conversation turns preserve inquiry volume without distorting knowledge me
   assert.equal(result.inquiries, 5);
   assert.equal(result.sessions, 1);
   assert.equal(result.groundedRate, .5);
-  assert.equal(result.contentGapRate, .5);
+  assert.equal(result.historicalGapRate, .5);
   assert.deepEqual(result.questions.map(row => row.label), ["unavailable condition", "thyroid article"]);
   assert.equal(result.opportunities.length, 0);
   assert.equal(result.helpfulRate, 1);
 });
 
-test("historical content gaps are audited against records already published at the inquiry date", () => {
+test("historical gaps stay fixed while current-corpus coverage is re-evaluated", () => {
   const at = "2026-10-05T09:00:00+07:00", now = Date.parse("2026-10-05T12:00:00+07:00");
   const rows = [
     { timestamp: at, session_id: "s", answer_status: "CONTENT_GAP", question: "ada hal yang berkaitan dengan kucing?", topic: "Feline", content_gap: "TRUE" },
@@ -111,13 +111,48 @@ test("historical content gaps are audited against records already published at t
   ];
   const published = [{ id: "cat", title: "Feline fungal zoonosis", family: "ebook", summary: "Cat-transmitted sporotrichosis", date: "2026-09-23", url: "https://bamedicale.com/ebooks/cat.html" }];
   const result = core.insights([], rows, "Today", now, published);
-  assert.equal(result.contentGapRate, 1);
-  assert.equal(result.gapAudit.RETRIEVAL_MISS, 1);
-  assert.equal(result.gapAudit.GENUINE_CONTENT_GAP, 1);
-  assert.equal(result.correctedGenuineGapRate, .5);
+  assert.equal(result.historicalGapRate, 1);
+  assert.equal(result.gapAudit.COVERED, 1);
+  assert.equal(result.gapAudit.UNRESOLVED, 1);
+  assert.equal(result.currentCorpusGapRate, .5);
+  assert.equal(result.historicalGapsResolved, 1);
   assert.deepEqual(result.opportunities, []);
   const later = core.insights([], rows, "Today", now, [{ ...published[0], date: "2026-10-06" }]);
-  assert.equal(later.gapAudit.RETRIEVAL_MISS, 0);
+  assert.equal(later.historicalGapRate, 1);
+  assert.equal(later.currentCorpusGapRate, .5);
+});
+
+test("QA never changes production visitors, inquiries, rates, or opportunities", () => {
+  const now = Date.parse("2026-10-05T12:00:00+07:00"), stamp = "2026-10-05T09:00:00+07:00";
+  const realVisitors = [{ visitor_id: "real", created_at: stamp, last_activity_at: stamp, session_count: 1 }];
+  const realRows = Array.from({ length: 3 }, (_, index) => ({ timestamp: stamp, session_id: "real", answer_status: "CONTENT_GAP", question: "rare unpublished medicine", topic: "Rare", helpful_feedback: index ? "" : "NOT_HELPFUL" }));
+  const corpus = [{ id: "thyroid", title: "Thyroid nodule diagnosis", summary: "Diagnostic guidance", url: "https://bamedicale.com/articles/thyroid.html" }];
+  const before = core.insights(realVisitors, realRows, "Today", now, corpus);
+  const qaVisitors = [{ visitor_id: "qa", created_at: stamp, last_activity_at: stamp, is_qa: "TRUE", session_count: 1 }];
+  const qaRows = [{ timestamp: stamp, session_id: "qa", is_qa: "TRUE", answer_status: "GROUNDED", question: "thyroid nodule diagnosis", topic: "Thyroid", helpful_feedback: "HELPFUL" }];
+  const after = core.insights([...realVisitors, ...qaVisitors], [...realRows, ...qaRows], "Today", now, corpus);
+  for (const field of ["totalVisitors", "sessions", "inquiries", "groundedRate", "historicalGapRate", "currentCorpusGapRate", "helpfulRate", "opportunities"]) assert.deepEqual(after[field], before[field]);
+  assert.equal(after.qaInquiries, 1);
+  assert.equal(after.currentCorpusGapRate, 1);
+  assert.equal(after.opportunities[0].label, "Rare");
+  const resolved = core.insights(realVisitors, realRows, "Today", now, [...corpus, { id: "rare", title: "Rare unpublished medicine", summary: "Published coverage", url: "https://bamedicale.com/articles/rare.html" }]);
+  assert.equal(resolved.historicalGapRate, 1);
+  assert.equal(resolved.currentCorpusGapRate, 0);
+  assert.equal(resolved.historicalGapsResolved, 3);
+  assert.equal(resolved.opportunities.length, 0);
+  assert.equal(core.insights([], [], "All Time", now, corpus).historicalGapRate, null);
+});
+
+test("old and invalid rows remain explicit unknowns rather than invented gaps", () => {
+  const now = Date.parse("2026-10-05T12:00:00+07:00"), timestamp = "2026-10-05T09:00:00+07:00";
+  const rows = [{ timestamp, question: "thyroid nodule", answer_status: "" }, { timestamp, question: "halo", answer_status: "CONVERSATIONAL" }];
+  const result = core.insights([], rows, "Today", now, []);
+  assert.equal(result.inquiries, 2);
+  assert.equal(result.unknownRows, 1);
+  assert.equal(result.excludedConversation, 1);
+  assert.equal(result.historicalEligible, 0);
+  assert.equal(result.historicalGapRate, null);
+  assert.equal(result.currentCorpusGapRate, null);
 });
 
 test("public launcher uses a separate configured Apps Script service without exposing secrets", () => {

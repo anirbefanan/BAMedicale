@@ -35,8 +35,8 @@ var JUMI_VIDEO_TAXONOMY=[{"id":"cancer-neoplastic","name":"Cancer & Neoplastic D
 if(typeof module==="object"&&module.exports)module.exports=JUMI_VIDEO_TAXONOMY;
 
 /* Shared schema for the public BAMI service and private JUMI Insights. */
-const BAMI_VISITOR_HEADERS = ["visitor_id","created_at","first_activity_at","last_activity_at","email","phone_normalized","audience","profession","profession_detail","consent","consent_timestamp","consent_version","first_session_id","last_session_id","session_count","inquiry_count"];
-const BAMI_INQUIRY_HEADERS = ["inquiry_id","timestamp","visitor_id","session_id","audience","profession","question","answer","answer_status","topic","disease","referenced_content_ids","referenced_content_types","referenced_urls","safety_flag","content_gap","helpful_feedback","response_latency_ms","model_or_engine","error_code"];
+const BAMI_VISITOR_HEADERS = ["visitor_id","created_at","first_activity_at","last_activity_at","email","phone_normalized","audience","profession","profession_detail","consent","consent_timestamp","consent_version","first_session_id","last_session_id","session_count","inquiry_count","is_qa","qa_run_id"];
+const BAMI_INQUIRY_HEADERS = ["inquiry_id","timestamp","visitor_id","session_id","audience","profession","question","answer","answer_status","topic","disease","referenced_content_ids","referenced_content_types","referenced_urls","safety_flag","content_gap","helpful_feedback","response_latency_ms","model_or_engine","error_code","is_qa","qa_run_id","qa_scenario"];
 if (typeof module === "object" && module.exports) module.exports = { BAMI_VISITOR_HEADERS, BAMI_INQUIRY_HEADERS };
 /* Shared deterministic BAMI rules. Bundled into the separate public Apps Script service. */
 const BAMI_CORE = (() => {
@@ -161,39 +161,49 @@ const BAMI_CORE = (() => {
     return Number.isFinite(at) && at >= periodStart(period, now) && at < end;
   };
   const insights = (visitors, inquiries, period = "30 Days", now = Date.now(), publishedItems = null) => {
-    const start = periodStart(period, now);
-    const selected = inquiries.filter(row => withinPeriod(row.timestamp, period, now));
-    const selectedVisitors = visitors.filter(row => period === "All Time" || withinPeriod(row.created_at, period, now) || withinPeriod(row.last_activity_at, period, now));
+    const real = row => String(row.is_qa || "").toUpperCase() !== "TRUE";
+    const selected = inquiries.filter(row => real(row) && withinPeriod(row.timestamp, period, now));
+    const selectedVisitors = visitors.filter(row => real(row) && (period === "All Time" || withinPeriod(row.created_at, period, now) || withinPeriod(row.last_activity_at, period, now)));
     const count = predicate => selected.filter(predicate).length;
-    // Conversation and safety turns remain in visitor/session/inquiry totals but are not knowledge-answer opportunities.
-    const knowledge = selected.filter(row => !["CONVERSATIONAL", "SAFETY_LIMITED", "ERROR"].includes(row.answer_status) && (injection(row.question) || intent(row.question) === "KNOWLEDGE"));
+    // Only recorded knowledge outcomes enter the denominator. Old rows without a reliable
+    // status stay unknown; current corpus changes never rewrite historical outcomes.
+    const knowledge = selected.filter(row => ["GROUNDED", "PARTIAL", "CONTENT_GAP"].includes(String(row.answer_status)) && !injection(row.question) && intent(row.question) === "KNOWLEDGE");
     const knowledgeCount = predicate => knowledge.filter(predicate).length;
     const rated = count(row => row.helpful_feedback === "HELPFUL" || row.helpful_feedback === "NOT_HELPFUL");
     const by = (field, rows = selected) => Object.entries(rows.reduce((acc, row) => { const key = String(row[field] || "").trim(); if (key) acc[key] = (acc[key] || 0) + 1; return acc; }, {})).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([label, value]) => ({ label, count: value }));
-    const isGap = row => String(row.content_gap).toUpperCase() === "TRUE";
     const gapKind = row => {
-      if (!isGap(row)) return "NOT_GAP";
-      if (injection(row.question) || row.answer_status === "SAFETY_LIMITED") return "SAFETY_LIMITED";
-      if (intent(row.question) !== "KNOWLEDGE") return "CONVERSATIONAL";
-      if (!Array.isArray(publishedItems)) return "UNVERIFIED";
-      const at = Date.parse(row.timestamp);
-      const contemporary = publishedItems.filter(item => item.date && Number.isFinite(at) && Date.parse(item.date) <= at);
-      if (retrieve(row.question, contemporary, 1).length) return "RETRIEVAL_MISS";
-      if (terms(row.question).length === 0 || /^\[/.test(String(row.question || ""))) return "AMBIGUOUS_QUERY";
-      return "GENUINE_CONTENT_GAP";
+      if (!Array.isArray(publishedItems)) return "UNAVAILABLE";
+      if (!terms(row.question).length || /^\[/.test(String(row.question || ""))) return "UNKNOWN";
+      return retrieve(row.question, publishedItems, 1).length ? "COVERED" : "UNRESOLVED";
     };
-    const auditedGaps = knowledge.filter(isGap);
-    const gapAudit = Object.fromEntries(["GENUINE_CONTENT_GAP", "RETRIEVAL_MISS", "AMBIGUOUS_QUERY", "CONVERSATIONAL", "SAFETY_LIMITED", "UNVERIFIED"].map(kind => [kind, auditedGaps.filter(row => gapKind(row) === kind).length]));
-    const opportunities = by("topic", knowledge.filter(row => gapKind(row) === "GENUINE_CONTENT_GAP"))
-      .map(row => ({ label: row.label, count: knowledgeCount(item => item.topic === row.label), gaps: row.count }))
-      .filter(row => row.count >= 3);
+    const gapAudit = Object.fromEntries(["COVERED", "UNRESOLVED", "UNKNOWN", "UNAVAILABLE"].map(kind => [kind, knowledge.filter(row => gapKind(row) === kind).length]));
+    // Unresolved records often have no topic because retrieval found no source.
+    // Cluster by recorded topic when present, otherwise by the exact normalized question.
+    const clusters = new Map();
+    knowledge.filter(row => gapKind(row) === "UNRESOLVED").forEach(row => {
+      const label = String(row.topic || row.question || "").trim();
+      if (!label) return;
+      const key = label.toLowerCase().replace(/\s+/g, " ");
+      const prior = clusters.get(key) || { label, count: 0, gaps: 0, lastAsked: "" };
+      prior.count++; prior.gaps++; if (String(row.timestamp) > prior.lastAsked) prior.lastAsked = String(row.timestamp);
+      clusters.set(key, prior);
+    });
+    const opportunities = [...clusters.values()].filter(row => row.count >= 3)
+      .sort((a, b) => b.count - a.count || b.lastAsked.localeCompare(a.lastAsked)).slice(0, 10);
     return {
       period, totalVisitors: selectedVisitors.length, newVisitors: selectedVisitors.filter(row => withinPeriod(row.created_at, period, now)).length,
       returningVisitors: selectedVisitors.filter(row => period === "All Time" ? Number(row.session_count) > 1 : !withinPeriod(row.created_at, period, now)).length,
       sessions: new Set(selected.map(row => row.session_id)).size, inquiries: selected.length,
       groundedRate: knowledge.length ? knowledgeCount(row => row.answer_status === "GROUNDED") / knowledge.length : null,
-      contentGapRate: knowledge.length ? knowledgeCount(isGap) / knowledge.length : null,
-      correctedGenuineGapRate: Array.isArray(publishedItems) && knowledge.length && gapAudit.AMBIGUOUS_QUERY === 0 && gapAudit.UNVERIFIED === 0 ? gapAudit.GENUINE_CONTENT_GAP / knowledge.length : null,
+      historicalEligible: knowledge.length, historicalGaps: knowledgeCount(row => row.answer_status === "CONTENT_GAP"),
+      historicalGapRate: knowledge.length ? knowledgeCount(row => row.answer_status === "CONTENT_GAP") / knowledge.length : null,
+      currentAudited: knowledge.length - gapAudit.UNKNOWN - gapAudit.UNAVAILABLE,
+      currentUnresolved: gapAudit.UNRESOLVED,
+      currentCorpusGapRate: Array.isArray(publishedItems) && knowledge.length && gapAudit.UNKNOWN === 0 ? gapAudit.UNRESOLVED / knowledge.length : null,
+      historicalGapsResolved: knowledge.filter(row => row.answer_status === "CONTENT_GAP" && gapKind(row) === "COVERED").length,
+      unknownRows: selected.length - knowledge.length - count(row => ["CONVERSATIONAL", "SAFETY_LIMITED", "ERROR"].includes(String(row.answer_status))),
+      excludedConversation: count(row => row.answer_status === "CONVERSATIONAL"), excludedSafety: count(row => row.answer_status === "SAFETY_LIMITED"), excludedErrors: count(row => row.answer_status === "ERROR"),
+      qaInquiries: inquiries.filter(row => String(row.is_qa || "").toUpperCase() === "TRUE" && withinPeriod(row.timestamp, period, now)).length,
       gapAudit,
       helpfulRate: rated ? count(row => row.helpful_feedback === "HELPFUL") / rated : null,
       safetyLimited: count(row => row.answer_status === "SAFETY_LIMITED"),
@@ -320,25 +330,34 @@ function jumiApi(action,data){
 
 function jumiSs_(){const id=jumiProps_().getProperty('JUMI_TRACKER_ID');jumiAssert_(id,'JUMI tracker is not configured.');return SpreadsheetApp.openById(id);}
 function jumiBamiRows_(ss,name,headers){
-  const sheet=ss.getSheetByName(name);if(!sheet)return[];
-  const actual=sheet.getRange(1,1,1,headers.length).getValues()[0].map(String);
-  jumiAssert_(JSON.stringify(actual)===JSON.stringify(headers),'Unexpected '+name+' headers.');
+  const sheet=ss.getSheetByName(name);jumiAssert_(sheet,'BAMI historical data is unavailable: '+name+' tab is missing.');
+  const actual=sheet.getRange(1,1,1,Math.max(sheet.getLastColumn(),1)).getValues()[0].map(value=>String(value||'').trim());
+  jumiAssert_(['AI_Inquiries'===name?'inquiry_id':'visitor_id',name==='AI_Inquiries'?'timestamp':'created_at'].every(header=>actual.includes(header)),'BAMI historical data is unavailable: '+name+' lacks required headers.');
+  jumiAssert_(new Set(actual.filter(Boolean)).size===actual.filter(Boolean).length,'BAMI historical data has duplicate headers.');
   if(sheet.getLastRow()<2)return[];
-  return sheet.getRange(2,1,sheet.getLastRow()-1,headers.length).getValues().map(values=>Object.fromEntries(headers.map((header,index)=>[header,String(values[index]??'')])));
+  return sheet.getRange(2,1,sheet.getLastRow()-1,actual.length).getValues().map(values=>Object.fromEntries(headers.map(header=>[header,String(values[actual.indexOf(header)]??'')])));
+}
+function jumiBamiCorpus_(){
+  const cache=CacheService.getScriptCache(),prefix='jumi_bami_corpus_v1_',count=Number(cache.get(prefix+'count')||0);
+  if(count>0&&count<=20){const chunks=Array.from({length:count},(_,index)=>cache.get(prefix+index));if(chunks.every(Boolean)){const stored=jumiJson_(chunks.join(''),{});if(stored.schemaVersion===1&&Array.isArray(stored.items))return stored.items;}}
+  const response=UrlFetchApp.fetch('https://bamedicale.com/data/bami-knowledge.json',{muteHttpExceptions:true,followRedirects:true});
+  if(response.getResponseCode()!==200)throw new Error('Current BAMI corpus is unavailable.');
+  const corpus=jumiJson_(response.getContentText(),{});
+  if(corpus.schemaVersion!==1||!Array.isArray(corpus.items))throw new Error('Current BAMI corpus is unavailable.');
+  const chunks=JSON.stringify(corpus).match(/[\s\S]{1,40000}/g)||[];
+  if(chunks.length&&chunks.length<=20){chunks.forEach((chunk,index)=>cache.put(prefix+index,chunk,600));cache.put(prefix+'count',String(chunks.length),600);}
+  return corpus.items;
 }
 function jumiBamiInsights_(input){
   const period=String(input.period||'30 Days');jumiAssert_(['Today','7 Days','30 Days','This Month','Previous Month','All Time'].includes(period),'Unsupported period.');
   const ss=jumiSs_(),visitors=jumiBamiRows_(ss,'AI_Visitors',BAMI_VISITOR_HEADERS),inquiries=jumiBamiRows_(ss,'AI_Inquiries',BAMI_INQUIRY_HEADERS);
   let publishedItems=null;
-  try{
-    const response=UrlFetchApp.fetch('https://bamedicale.com/data/bami-knowledge.json',{muteHttpExceptions:true,followRedirects:true});
-    if(response.getResponseCode()===200){const corpus=jumiJson_(response.getContentText(),{});if(corpus.schemaVersion===1&&Array.isArray(corpus.items))publishedItems=corpus.items;}
-  }catch(_){/* Preserve observed history when the public corpus cannot be audited. */}
+  try{publishedItems=jumiBamiCorpus_();}catch(_){/* Historical outcomes remain intact; current-corpus rate is unavailable. */}
   const insights=BAMI_CORE.insights(visitors,inquiries,period,Date.now(),publishedItems);
   const references=new Map();
-  inquiries.filter(row=>BAMI_CORE.withinPeriod(row.timestamp,period,Date.now())).forEach(row=>{const entries=jumiJson_(row.referenced_urls,[]);if(!Array.isArray(entries))return;entries.forEach(item=>{const id=String(item.id||'');if(!id)return;const prior=references.get(id)||{id,title:String(item.title||''),type:String(item.type||''),url:String(item.url||''),count:0};prior.count++;references.set(id,prior);});});
+  inquiries.filter(row=>String(row.is_qa||'').toUpperCase()!=='TRUE'&&BAMI_CORE.withinPeriod(row.timestamp,period,Date.now())).forEach(row=>{const entries=jumiJson_(row.referenced_urls,[]);if(!Array.isArray(entries))return;entries.forEach(item=>{const id=String(item.id||'');if(!id)return;const prior=references.get(id)||{id,title:String(item.title||''),type:String(item.type||''),url:String(item.url||''),count:0};prior.count++;references.set(id,prior);});});
   insights.references=[...references.values()].sort((a,b)=>b.count-a.count).slice(0,20);
-  insights.recent=insights.recent.map(row=>({timestamp:row.timestamp,visitor_id:row.visitor_id,audience:row.audience,profession:row.profession,question:row.question,answer:row.answer,answer_status:row.answer_status,content_gap:row.content_gap,safety_flag:row.safety_flag,helpful_feedback:row.helpful_feedback,referenced_urls:row.referenced_urls}));
+  insights.recent=insights.recent.map(row=>({timestamp:row.timestamp,visitor_id:String(row.visitor_id||'').slice(0,12)+'…',audience:row.audience,profession:row.profession,question:row.question,answer:row.answer,answer_status:row.answer_status,content_gap:row.content_gap,safety_flag:row.safety_flag,helpful_feedback:row.helpful_feedback,referenced_urls:row.referenced_urls}));
   return insights;
 }
 function jumiAudit_(ss,admin,action,type,id,before,after){jumiWriteRow_(jumiTab_(ss,'audit'),JUMI_AUDIT_HEADERS,{'Timestamp':jumiNow_(),'Admin':admin.email,'Action':action,'Entity Type':type,'Entity ID':id,'Previous JSON':JSON.stringify(before||{}),'New JSON':JSON.stringify(after||{})});}
