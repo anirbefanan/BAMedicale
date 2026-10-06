@@ -1,79 +1,79 @@
 {
-  "generatedAt": "2026-10-06T12:22:29.807Z",
+  "generatedAt": "2026-10-06T21:59:02.169Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-08",
-    "endDate": "2026-10-05"
+    "startDate": "2026-09-09",
+    "endDate": "2026-10-06"
   },
   "summary": {
-    "activeUsers": 218,
-    "newUsers": 210,
-    "averageEngagementTimeSeconds": 116.43577981651376,
-    "eventCount": 3664
+    "activeUsers": 214,
+    "newUsers": 207,
+    "averageEngagementTimeSeconds": 122.40186915887851,
+    "eventCount": 3758
   },
   "topPages": [
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 339,
-      "activeUsers": 158,
-      "eventCount": 1409,
-      "bounceRate": 0.33884297520661155
+      "views": 340,
+      "activeUsers": 159,
+      "eventCount": 1413,
+      "bounceRate": 0.3374485596707819
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 285,
-      "activeUsers": 61,
-      "eventCount": 697,
-      "bounceRate": 0.2976190476190476
+      "views": 291,
+      "activeUsers": 57,
+      "eventCount": 718,
+      "bounceRate": 0.2934131736526946
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 91,
+      "views": 95,
       "activeUsers": 12,
-      "eventCount": 203,
-      "bounceRate": 0.06060606060606061
+      "eventCount": 218,
+      "bounceRate": 0.05555555555555555
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 80,
+      "views": 89,
       "activeUsers": 9,
-      "eventCount": 176,
-      "bounceRate": 0.18181818181818182
+      "eventCount": 193,
+      "bounceRate": 0.1702127659574468
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 73,
-      "activeUsers": 12,
-      "eventCount": 162,
+      "views": 70,
+      "activeUsers": 11,
+      "eventCount": 156,
       "bounceRate": 0
     },
     {
       "title": "Digital Bookshelf | BA Medicale",
-      "views": 44,
+      "views": 46,
       "activeUsers": 6,
-      "eventCount": 95,
-      "bounceRate": 0.07142857142857142
+      "eventCount": 100,
+      "bounceRate": 0.06896551724137931
     },
     {
       "title": "Advanced Diagnostics and Management of Thyroid Nodules | BA Medicale",
-      "views": 38,
+      "views": 39,
       "activeUsers": 6,
-      "eventCount": 121,
-      "bounceRate": 0.07142857142857142
+      "eventCount": 124,
+      "bounceRate": 0.06666666666666667
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 36,
+      "views": 38,
       "activeUsers": 9,
-      "eventCount": 89,
-      "bounceRate": 0.045454545454545456
+      "eventCount": 94,
+      "bounceRate": 0.043478260869565216
     },
     {
       "title": "For Public | BA Medicale",
-      "views": 32,
+      "views": 33,
       "activeUsers": 5,
-      "eventCount": 69,
-      "bounceRate": 0.058823529411764705
+      "eventCount": 72,
+      "bounceRate": 0.05555555555555555
     },
     {
       "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules | Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -86,75 +86,79 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 185
+      "activeUsers": 182
     },
     {
       "label": "google / organic",
-      "activeUsers": 20
+      "activeUsers": 22
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 4
     },
     {
       "label": "bing / organic",
       "activeUsers": 4
     },
     {
-      "label": "l.instagram.com / referral",
-      "activeUsers": 3
-    },
-    {
-      "label": "m.facebook.com / referral",
-      "activeUsers": 3
-    },
-    {
       "label": "facebook.com / referral",
       "activeUsers": 2
     },
     {
+      "label": "l.instagram.com / referral",
+      "activeUsers": 2
+    },
+    {
       "label": "dataindex.pro / referral",
+      "activeUsers": 1
+    },
+    {
+      "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 273
+      "sessions": 270
     },
     {
       "label": "google / organic",
-      "sessions": 140
+      "sessions": 142
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 20
+      "sessions": 21
     },
     {
       "label": "bing / organic",
       "sessions": 5
     },
     {
-      "label": "l.instagram.com / referral",
-      "sessions": 3
-    },
-    {
-      "label": "m.facebook.com / referral",
-      "sessions": 3
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "facebook.com / referral",
       "sessions": 2
     },
     {
-      "label": "Not set",
-      "sessions": 1
+      "label": "l.instagram.com / referral",
+      "sessions": 2
     },
     {
       "label": "dataindex.pro / referral",
+      "sessions": 1
+    },
+    {
+      "label": "m.facebook.com / referral",
       "sessions": 1
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 67
+      "activeUsers": 66
     },
     {
       "label": "Not set",
