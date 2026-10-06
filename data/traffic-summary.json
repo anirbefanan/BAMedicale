@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T03:42:20.736Z",
+  "generatedAt": "2026-10-06T12:22:29.807Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-08",
@@ -97,10 +97,6 @@
       "activeUsers": 4
     },
     {
-      "label": "Not set",
-      "activeUsers": 3
-    },
-    {
       "label": "l.instagram.com / referral",
       "activeUsers": 3
     },
@@ -143,12 +139,12 @@
       "sessions": 3
     },
     {
-      "label": "Not set",
+      "label": "facebook.com / referral",
       "sessions": 2
     },
     {
-      "label": "facebook.com / referral",
-      "sessions": 2
+      "label": "Not set",
+      "sessions": 1
     },
     {
       "label": "dataindex.pro / referral",
