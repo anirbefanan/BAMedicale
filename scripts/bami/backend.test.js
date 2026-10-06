@@ -41,7 +41,8 @@ function service() {
     },
     UrlFetchApp: { fetch: (url, options) => { fetches.push({ url, options }); const body = url.includes("bami-knowledge.json") ? { schemaVersion: 1, items: [
       { id: "thyroid-video", type: "Video", family: "video", title: "Thyroid Nodules Video", summary: "Thyroid nodule education", url: "https://bamedicale.com/videos.html?video=thyroid-video", topics: ["thyroid"], disease: ["endocrine-metabolic"], authors: [] },
-      { id: "thyroid-article", type: "Article", family: "article", title: "Thyroid Nodules Article", summary: "Thyroid nodule learning", url: "https://bamedicale.com/articles/thyroid.html", topics: ["thyroid"], disease: ["endocrine-metabolic"], authors: [] }
+      { id: "thyroid-article", type: "Article", family: "article", title: "Thyroid Nodules Article", summary: "Thyroid nodule learning", url: "https://bamedicale.com/articles/thyroid.html", topics: ["thyroid"], disease: ["endocrine-metabolic"], authors: [] },
+      { id: "thyroid-seminar", type: "Seminar", family: "seminar", title: "Thyroid Nodules Seminar", summary: "Thyroid nodule diagnosis", status: "published", eventStart: "2026-09-19T09:00:00+07:00", eventEnd: "2026-09-19T11:00:00+07:00", url: "https://bamedicale.com/events/thyroid.html", topics: ["thyroid"], authors: [] }
     ] } : { candidates: [{ content: { parts: [{ text: options.payload.includes("natural Bahasa Indonesia") ? "BAMI menemukan video tiroid yang relevan." : "BAMI found a relevant thyroid video." }] } }] }; return { getResponseCode: () => 200, getContentText: () => JSON.stringify(body) }; } },
     HtmlService: { XFrameOptionsMode: { ALLOWALL: "ALLOWALL" }, createTemplateFromFile: () => ({ evaluate() { return { addMetaTag() { return this; }, setTitle() { return this; }, setXFrameOptionsMode(value) { assert.equal(value, "ALLOWALL"); return this; } }; } }) },
     console: { log() {} }, Buffer, Date
@@ -77,11 +78,11 @@ test("owner QA uses the real answer/logging path while public QA flags are ignor
   assert.equal(run.pass, true, JSON.stringify(run));
   assert.equal(run.analyticsExcluded, true);
   assert.ok(run.qa_run_id.startsWith("qa_"));
-  assert.equal(run.cases.length, 4);
+  assert.equal(run.cases.length, 6);
   assert.equal(s.fetches.filter(item => item.url.includes("generativelanguage.googleapis.com")).length, 2);
   const inquiries = s.sheets.get("AI_Inquiries"), head = inquiries.rows[0];
   const field = (row, name) => row[head.indexOf(name)];
-  assert.equal(inquiries.rows.slice(1).filter(row => String(field(row, "is_qa")).toUpperCase() === "TRUE").length, 4);
+  assert.equal(inquiries.rows.slice(1).filter(row => String(field(row, "is_qa")).toUpperCase() === "TRUE").length, 6);
   assert.equal(inquiries.rows.slice(1).find(row => field(row, "qa_scenario") === "grounded_id")[head.indexOf("helpful_feedback")], "HELPFUL");
   const publicProfile = { email: "a@example.com", phone: "081234567890", audience: "Public", profession: "Student", consent: true, consentVersion: "bami-v1-2026-10", is_qa: true, qa_run_id: run.qa_run_id };
   const publicVisitor = s.context.bamiApi("onboard", publicProfile);

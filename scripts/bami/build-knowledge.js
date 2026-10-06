@@ -48,23 +48,43 @@ const safeRoute = route => {
 const eligible = registry.query();
 const fromRegistry = (records, base = root) => records.map(record => ({
   id: record.id,
+  contentId: record.id,
   type: record.contentType,
+  contentType: record.contentType,
   family: record.family,
   title: record.title,
   subtitle: excerpt(record.sourceRecord?.subtitle, 300),
   summary: excerpt(record.summary, 600),
   content: sourceText(record, base),
   authors: record.authors,
+  author: record.authors,
   audience: record.primaryAudience,
+  audiences: record.audiences,
   disease: record.diseaseGroups,
+  diseases: record.diseaseGroups,
   condition: record.diseaseCondition,
   categories: record.categories,
+  category: record.categories,
   topics: record.topics,
   source: record.source,
-  date: record.publishedDate || record.originalPublicationDate || "",
+  date: record.videoPublishedDate || record.publishedDate || record.originalPublicationDate || "",
+  publishedDate: record.videoPublishedDate || record.publishedDate || record.originalPublicationDate || "",
+  status: record.publicationStatus,
+  eventStart: record.family === "seminar" ? String(record.sourceRecord?.startDate || "") : "",
+  eventEnd: record.family === "seminar" ? String(record.sourceRecord?.endDate || "") : "",
+  eventDate: record.family === "seminar" ? String(record.sourceRecord?.startDate || "").slice(0, 10) : record.family === "presentation" ? String(record.sourceRecord?.presentationDate || "") : "",
+  eventId: record.family !== "seminar" ? String(record.sourceRecord?.eventId || "") : "",
+  speakers: record.family === "seminar" ? (record.sourceRecord?.faculty || []).filter(row => Array.isArray(row) && /speaker|keynote/i.test(row[0])).map(row => row[1]) : [],
+  presenters: record.family === "presentation" ? record.authors : [],
+  tags: record.sourceRecord?.tags || [],
+  relatedContentIds: record.family !== "seminar" && record.sourceRecord?.eventId ? [record.sourceRecord.eventId] : [],
+  sourceMedia: safeRoute(record.cover),
   url: safeRoute(record.route)
 }));
 const items = fromRegistry(eligible);
+for (const item of items.filter(entry => entry.family === "seminar")) {
+  item.relatedContentIds = items.filter(entry => entry.eventId === item.id).map(entry => entry.id);
+}
 if (items.some(item => !item.id || !item.title || !item.url) || new Set(items.map(item => item.id)).size !== eligible.length) {
   throw new Error("BAMI coverage failed: a published canonical record is missing, duplicated, or has an invalid public route.");
 }
@@ -79,7 +99,7 @@ for (const match of team.matchAll(cardPattern)) {
   const name = plain(match[3].replace(/&amp;/g, "&"));
   items.push({ id: `profile-${path.basename(match[1], ".html")}`, type: "Person", family: "profile", title: name,
     summary: excerpt(`${plain(match[2])}. ${description}`, 600), content: "", authors: [], audience: "",
-    disease: [], topics: [], date: "", url: `https://bamedicale.com/${match[1]}` });
+    disease: [], topics: [], date: "", status: "published", url: `https://bamedicale.com/${match[1]}` });
 }
 
 const output = JSON.stringify({ schemaVersion: 1, items }, null, 2) + "\n";

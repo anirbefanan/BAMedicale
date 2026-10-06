@@ -32,6 +32,59 @@ test("knowledge is published-only, source-bound, and canonical", () => {
   assert.equal(core.retrieve("thyroid", [{ title: "Thyroid", url: "https://evil.example/x" }]).length, 0);
 });
 
+test("website inventory resolves Jakarta calendar windows, known zero, and follow-ups from canonical records", () => {
+  const now = Date.parse("2026-10-06T12:00:00+07:00"), items = knowledge.items;
+  const october = core.websiteLookup("ada seminar gak bulan ini?", items, "id", now);
+  assert.equal(october.status, "STRUCTURED"); assert.equal(october.count, 0);
+  assert.match(october.answer, /Oktober 2026/); assert.doesNotMatch(october.answer, /informasi yang cukup/);
+  const september = core.websiteLookup("kalo bulan lalu ada seminar gak?", items, "id", now, { question: "ada seminar gak bulan ini?", ids: [] });
+  assert.equal(september.count, 1); assert.equal(september.sources[0].id, "management-thyroid-nodules-2026");
+  assert.match(september.answer, /19 September 2026/);
+  const detail = core.websiteLookup("materinya apa?", items, "id", now, { question: "kalo bulan lalu ada seminar gak?", ids: september.sources.map(row => row.id) });
+  assert.equal(detail.count, 1); assert.match(detail.answer, /TIRADS|thyroid nodule/i);
+  const presentations = core.websiteLookup("ada presentasinya?", items, "id", now, { question: "materinya apa?", ids: september.sources.map(row => row.id) });
+  assert.equal(presentations.count, 3); assert.ok(presentations.sources.every(row => /presentations\//.test(row.url)));
+  const speakers = core.websiteLookup("siapa pembicaranya?", items, "id", now, { question: "materinya apa?", ids: september.sources.map(row => row.id) });
+  assert.equal(speakers.count, 1); assert.match(speakers.answer, /Bob Andinata/);
+  const video = core.websiteLookup("ada videonya?", items, "id", now, { question: "materinya apa?", ids: september.sources.map(row => row.id) });
+  assert.equal(video.status, "STRUCTURED");
+  const english = core.websiteLookup("Are there any seminars this month?", items, "en", now);
+  assert.equal(english.count, 0); assert.match(english.answer, /October 2026/);
+  const last = core.websiteLookup("What about last month?", items, "en", now, { question: "Are there any seminars this month?", ids: [] });
+  assert.equal(last.count, 1); assert.match(last.answer, /19 September 2026/);
+  const link = core.websiteLookup("Kasih linknya", items, "id", now, { question: "Kalau bulan lalu?", ids: last.sources.map(row => row.id) });
+  assert.equal(link.sources[0].url, last.sources[0].url);
+});
+
+test("website inventory counts only published records and preserves educational retrieval", () => {
+  const now = Date.parse("2026-10-06T12:00:00+07:00"), items = knowledge.items;
+  assert.equal(items.length, 44);
+  assert.ok(items.every(item => item.status === "published" && item.url));
+  assert.ok(items.filter(item => item.family !== "profile").every(item => item.content && item.contentId === item.id && item.contentType && Array.isArray(item.diseases)));
+  assert.equal(items.find(item => item.id === "management-thyroid-nodules-2026").eventDate, "2026-09-19");
+  assert.equal(core.websiteLookup("Ada berapa eBook?", items, "id", now).count, 3);
+  assert.equal(core.websiteLookup("Video terbaru apa?", items, "id", now).sources[0].id, "youtube-B-6sIIjefas");
+  assert.equal(core.websiteLookup("What is the latest video?", items, "en", now).sources[0].id, "youtube-B-6sIIjefas");
+  assert.equal(core.websiteLookup("Video thyroid terbaru menjelaskan apa?", items, "id", now).needsSynthesis, true);
+  assert.equal(core.websiteLookup("Artikel apa saja yang ada?", items, "id", now).count, 4);
+  assert.equal(core.websiteLookup("Do you have an eBook about diabetes?", items, "en", now).count, 0);
+  assert.ok(core.websiteLookup("Ada berapa konten untuk dokter?", items, "id", now).count > 0);
+  assert.equal(core.websiteLookup("Do you have videos about thyroid?", items, "en", now), null);
+  assert.equal(core.websiteLookup("Do you have material about mitochondrial optic neuropathy?", items, "en", now), null);
+  const unpublished = { id: "draft", family: "seminar", title: "Draft seminar", status: "draft", eventStart: "2026-10-10T09:00:00+07:00", url: "https://bamedicale.com/events/draft.html" };
+  assert.equal(core.websiteLookup("Ada seminar bulan ini?", [...items, unpublished], "id", now).count, 0);
+});
+
+test("current-corpus audit resolves old website-inventory gaps without rewriting history", () => {
+  const now = Date.parse("2026-10-06T12:00:00+07:00"), timestamp = "2026-10-06T09:00:00+07:00";
+  const rows = [{ timestamp, session_id: "s1", answer_status: "CONTENT_GAP", content_gap: "TRUE", question: "ada seminar gak bulan ini?" },
+    { timestamp, session_id: "s1", answer_status: "STRUCTURED", content_gap: "FALSE", question: "ada berapa eBook?" }];
+  const result = core.insights([], rows, "Today", now, knowledge.items);
+  assert.equal(result.historicalGaps, 1); assert.equal(result.historicalGapRate, 1);
+  assert.equal(result.currentCorpusGapRate, 0); assert.equal(result.historicalGapsResolved, 1);
+  assert.equal(result.excludedStructured, 1); assert.equal(result.unknownRows, 0);
+});
+
 test("medical safety, prompt-injection boundary, and log minimization are deterministic", () => {
   assert.equal(core.classifySafety("My child has difficulty breathing"), "urgent");
   assert.equal(core.classifySafety("What medicine should I take?"), "personal");
