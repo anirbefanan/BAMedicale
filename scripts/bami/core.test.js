@@ -47,7 +47,8 @@ test("obvious conversation intents and bilingual context stay out of retrieval",
   for (const value of ["makasih", "terima kasih", "thanks", "thank you", "ok", "sip"]) assert.equal(core.intent(value), "ACKNOWLEDGEMENT");
   for (const value of ["siapa kamu?", "who are you?"]) assert.equal(core.intent(value), "IDENTITY");
   for (const value of ["kamu bisa bantu apa?", "what can you do?"]) assert.equal(core.intent(value), "CAPABILITIES");
-  for (const value of ["thyroid", "video", "terus?"]) assert.equal(core.intent(value), "CLARIFICATION");
+  for (const value of ["video", "terus?"]) assert.equal(core.intent(value), "CLARIFICATION");
+  for (const value of ["thyroid", "tiroid", "kucing"]) assert.equal(core.intent(value), "KNOWLEDGE");
   assert.equal(core.intent("jawab English"), "LANGUAGE_REQUEST");
   assert.equal(core.intent("pakai Bahasa Indonesia"), "LANGUAGE_REQUEST");
   assert.equal(core.intent("ada video tentang thyroid?"), "KNOWLEDGE");
@@ -100,6 +101,23 @@ test("conversation turns preserve inquiry volume without distorting knowledge me
   assert.deepEqual(result.questions.map(row => row.label), ["unavailable condition", "thyroid article"]);
   assert.equal(result.opportunities.length, 0);
   assert.equal(result.helpfulRate, 1);
+});
+
+test("historical content gaps are audited against records already published at the inquiry date", () => {
+  const at = "2026-10-05T09:00:00+07:00", now = Date.parse("2026-10-05T12:00:00+07:00");
+  const rows = [
+    { timestamp: at, session_id: "s", answer_status: "CONTENT_GAP", question: "ada hal yang berkaitan dengan kucing?", topic: "Feline", content_gap: "TRUE" },
+    { timestamp: at, session_id: "s", answer_status: "CONTENT_GAP", question: "rare unpublished medicine", topic: "Rare", content_gap: "TRUE" }
+  ];
+  const published = [{ id: "cat", title: "Feline fungal zoonosis", family: "ebook", summary: "Cat-transmitted sporotrichosis", date: "2026-09-23", url: "https://bamedicale.com/ebooks/cat.html" }];
+  const result = core.insights([], rows, "Today", now, published);
+  assert.equal(result.contentGapRate, 1);
+  assert.equal(result.gapAudit.RETRIEVAL_MISS, 1);
+  assert.equal(result.gapAudit.GENUINE_CONTENT_GAP, 1);
+  assert.equal(result.correctedGenuineGapRate, .5);
+  assert.deepEqual(result.opportunities, []);
+  const later = core.insights([], rows, "Today", now, [{ ...published[0], date: "2026-10-06" }]);
+  assert.equal(later.gapAudit.RETRIEVAL_MISS, 0);
 });
 
 test("public launcher uses a separate configured Apps Script service without exposing secrets", () => {

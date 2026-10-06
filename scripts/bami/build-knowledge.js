@@ -1,4 +1,6 @@
 "use strict";
+// content:build (also used by JUMI publishing) regenerates this public corpus;
+// the deployed BAMI service reads it with a bounded ten-minute cache.
 
 const fs = require("node:fs");
 const path = require("node:path");
@@ -16,10 +18,26 @@ const registry = registryApi.create(data, { videos, originalVideos });
 
 const plain = value => String(value || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 const excerpt = (value, limit = 1800) => plain(value).slice(0, limit);
-const bodyOf = source => {
-  const sections = Array.isArray(source.sections) ? source.sections : [];
-  return excerpt(sections.map(section => [section.heading || section.title, section.body, section.text,
-    ...(section.paragraphs || [])].filter(Boolean).join(" ")).join(" "));
+const textParts = value => {
+  if (typeof value === "string") return [value];
+  if (Array.isArray(value)) return value.flatMap(textParts);
+  if (!value || typeof value !== "object") return [];
+  return Object.entries(value).filter(([key]) => !/^(?:id|url|href|src|image|cover|file|path|sha\w*|hash)$/i.test(key)).flatMap(([, part]) => textParts(part));
+};
+const sourceText = (record, base = root) => {
+  const source = record.sourceRecord || {};
+  const parts = [source.intro, source.sections, source.takeaways, source.highlights, source.paper?.abstract, source.paper?.keywords, source.quickRead,
+    source.programFocus, source.schedule, source.program, source.description, source.short_description,
+    source.sessions, source.speakers, source.transcript, source.captions];
+  const manifest = record.family === "ebook" ? source.pageManifest : record.family === "presentation" ? source.sourceManifest : "";
+  if (manifest) {
+    const file = path.resolve(base, manifest);
+    if (!file.startsWith(base + path.sep) || !/\.json$/i.test(file) || !fs.existsSync(file)) throw new Error(`BAMI source manifest unavailable: ${record.id}`);
+    const pages = JSON.parse(fs.readFileSync(file, "utf8")).pages;
+    if (!Array.isArray(pages)) throw new Error(`BAMI source manifest has no pages: ${record.id}`);
+    parts.push(pages.map(page => page.text));
+  }
+  return plain(textParts(parts).join(" "));
 };
 const safeRoute = route => {
   const value = String(route || "");
@@ -27,20 +45,29 @@ const safeRoute = route => {
   if (/^(?!\/|.*\.\.)(?:[a-z0-9_-]+\/)*[a-z0-9_?=&%./-]+$/i.test(value)) return `https://bamedicale.com/${value}`;
   return "";
 };
-const items = registry.query().map(record => ({
+const eligible = registry.query();
+const fromRegistry = (records, base = root) => records.map(record => ({
   id: record.id,
   type: record.contentType,
   family: record.family,
   title: record.title,
+  subtitle: excerpt(record.sourceRecord?.subtitle, 300),
   summary: excerpt(record.summary, 600),
-  content: bodyOf(record.sourceRecord),
+  content: sourceText(record, base),
   authors: record.authors,
   audience: record.primaryAudience,
   disease: record.diseaseGroups,
+  condition: record.diseaseCondition,
+  categories: record.categories,
   topics: record.topics,
+  source: record.source,
   date: record.publishedDate || record.originalPublicationDate || "",
   url: safeRoute(record.route)
-})).filter(item => item.url);
+}));
+const items = fromRegistry(eligible);
+if (items.some(item => !item.id || !item.title || !item.url) || new Set(items.map(item => item.id)).size !== eligible.length) {
+  throw new Error("BAMI coverage failed: a published canonical record is missing, duplicated, or has an invalid public route.");
+}
 
 const team = fs.readFileSync(path.join(root, "team.html"), "utf8");
 const cardPattern = /<a class="team-card[^"\n]*" href="([a-z0-9-]+-profile\.html)"[^>]*>[\s\S]*?<div class="team-card__copy"><span>([^<]+)<\/span><h3>([^<]+)<\/h3>/gi;
@@ -56,14 +83,17 @@ for (const match of team.matchAll(cardPattern)) {
 }
 
 const output = JSON.stringify({ schemaVersion: 1, items }, null, 2) + "\n";
-if (process.argv.includes("--check")) {
-  if (!fs.existsSync(outputPath) || fs.readFileSync(outputPath, "utf8") !== output) {
-    console.error("BAMI published knowledge is stale. Run npm run bami:build.");
-    process.exitCode = 1;
-  } else console.log(`BAMI published knowledge current (${items.length} records).`);
-} else {
-  fs.writeFileSync(outputPath, output);
-  console.log(`BAMI published knowledge generated (${items.length} records).`);
+if (items.filter(item => item.family !== "profile").length !== eligible.length) throw new Error("BAMI coverage differs from the published registry.");
+if (require.main === module) {
+  if (process.argv.includes("--check")) {
+    if (!fs.existsSync(outputPath) || fs.readFileSync(outputPath, "utf8") !== output) {
+      console.error("BAMI published knowledge is stale. Run npm run bami:build.");
+      process.exitCode = 1;
+    } else console.log(`BAMI published knowledge current (${items.length} records).`);
+  } else {
+    fs.writeFileSync(outputPath, output);
+    console.log(`BAMI published knowledge generated (${items.length} records).`);
+  }
 }
 
-module.exports = { items, safeRoute };
+module.exports = { items, safeRoute, sourceText, fromRegistry };

@@ -429,13 +429,13 @@ function initLatestCoverflow(root) {
 }
 function initVideoCoverflow(root) { initLatestCoverflow(root); }
 const initDiscoveryImageFallbacks = (root = document) => {
-  root.querySelectorAll('.discovery-card__media img:not([data-fallback-bound]), .discovery-related-card__media img:not([data-fallback-bound])').forEach((image) => {
+  root.querySelectorAll('.discovery-card__media img:not([data-fallback-bound]), .discovery-related-card__media img:not([data-fallback-bound]), .seo-related-card__media img:not([data-fallback-bound])').forEach((image) => {
     image.dataset.fallbackBound = 'true';
     const fallback = () => {
       if (image.dataset.fallbackApplied) return;
       image.dataset.fallbackApplied = 'true';
       image.classList.add('is-unavailable');
-      image.closest('.discovery-card__media, .discovery-related-card__media')?.classList.add('is-default-artwork');
+      image.closest('.discovery-card__media, .discovery-related-card__media, .seo-related-card__media')?.classList.add('is-default-artwork');
     };
     image.addEventListener('error', fallback, { once: true });
     if (image.complete && !image.naturalWidth) fallback();
@@ -876,6 +876,7 @@ function enhanceRelatedLearning() {
     if (!record || link.dataset.discoveryEnhanced) return;
     link.dataset.discoveryEnhanced = "true";
     link.dataset.contentId = record.id;
+    if (link.classList.contains('seo-related-card')) return;
     link.classList.add("discovery-related-card");
     const image = record.cover ? `<img src="${escapeHtml(safeImageUrl(record.cover))}" alt="" width="320" height="180" loading="lazy"${record.family === "video" ? ' referrerpolicy="no-referrer"' : ""}>` : "";
     link.innerHTML = `<span class="discovery-related-card__media${record.cover ? "" : " is-default-artwork"}">${discoveryDefaultArtwork(record)}${image}</span><span class="discovery-related-card__copy"><span>${escapeHtml(discoveryTypeLabel(record))} · ${escapeHtml(recordAudience(record))}</span><b>${escapeHtml(record.title)}</b><small>${escapeHtml(record.topics[0] || record.diseaseCondition || "Medical learning")}</small><i aria-hidden="true">→</i></span>`;

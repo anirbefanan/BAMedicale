@@ -2257,10 +2257,19 @@ a.audience-card:focus-visible .audience-card__action{text-decoration:underline;t
 .doctor-category-chooser__list a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:9px 0;color:var(--on-brand);font-size:.76rem;font-weight:750;line-height:1.4}
 .doctor-category-chooser__list a+a{border-top:1px solid rgba(255,255,255,.18)}
 .resource-card--available .doctor-category-chooser__list span{margin:0!important;padding:0!important;border:0!important}
-.seo-related--publications>div{display:grid;gap:8px}
-.seo-related--publications a{display:grid;gap:4px;align-items:start;border-radius:var(--control-radius)}
-.seo-related--publications a span{font-size:.68rem;text-transform:uppercase}
-.seo-related--publications a b{color:var(--text-primary);font-size:.84rem;line-height:1.35}
+.seo-related>.seo-related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+.seo-related .seo-related-card{display:flex;flex-direction:column;align-items:stretch;min-width:0;min-height:100%;padding:0;overflow:hidden;color:var(--text-primary);background:var(--card-surface);border:1px solid var(--card-border);border-radius:var(--card-radius);box-shadow:var(--card-shadow);font-size:.875rem;text-decoration:none}
+.seo-related-card__media{position:relative;display:grid;place-items:center;min-height:0;aspect-ratio:16/10;overflow:hidden;background:var(--control-surface);color:var(--brand-primary)}
+.seo-related-card--ebook .seo-related-card__media,.seo-related-card--seminar .seo-related-card__media{aspect-ratio:4/3}
+.seo-related-card__media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.seo-related-card__media img.is-unavailable{display:none}
+.seo-related-card__fallback{font-size:.9rem;font-weight:800}
+.seo-related-card__body{display:grid;gap:9px;align-content:start;flex:1;padding:14px}
+.seo-related-card__type{color:var(--brand-primary);font-size:.7rem;font-weight:800;text-transform:uppercase}
+.seo-related-card__body b{color:var(--text-primary);font-size:.9rem;line-height:1.4}
+.seo-related-card__action{align-self:end;margin-top:auto;color:var(--brand-primary);font-size:.78rem;font-weight:750}
+.seo-related .seo-related-card:is(:hover,:focus-visible){border-color:var(--brand-primary);box-shadow:var(--card-action-shadow)}
+.seo-related .seo-related-card:focus-visible{outline:2px solid var(--brand-primary);outline-offset:3px}
 .article-filters--library{grid-template-columns:repeat(4,minmax(0,1fr))}
 .article-filter-details{grid-column:1/-1;min-width:0}
 .article-filter-details summary{display:flex;align-items:center;min-height:44px;cursor:pointer;color:var(--brand-primary);font-weight:650}
