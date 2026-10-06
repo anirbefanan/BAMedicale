@@ -69,7 +69,7 @@ const BAMI_CORE = (() => {
     if (/\b(jawab|pakai|gunakan|balas|respond|answer|reply|speak|use)\b.{0,30}\b(bahasa indonesia|indonesian)\b/.test(text)) return "id";
     if (/\b(jawab|pakai|gunakan|balas|respond|answer|reply|speak|use)\b.{0,30}\b(english|inggris)\b/.test(text)) return "en";
     if (/^(thanks|thank you|ok|okay|yes|no|bye|goodbye|why|what about it|video|ebook|seminar)$/.test(text)) return previous === "id" ? "id" : "en";
-    const idWords = new Set("ada aku apa artikel bagaimana bantu berkaitan bisa buat cari dengan dong gak hai hal halo ini itu kamu kanker kucing jamur tiroid payudara hipertensi lanjut makasih mau mengenai nggak pakai pagi saya selamat seminar siapa siang sore malam tentang terima kasih terus tidak untuk ya".split(" "));
+    const idWords = new Set("ada aku apa artikel bagaimana bantu berkaitan bisa buat cari dengan dong gak hai hal halo hipertensi ini itu jelaskan kamu kanker kucing jamur lanjut makasih materi mau mengenai menjelaskan nggak pakai pagi payudara poin saya selamat seminar siapa siang sore malam tentang terima kasih terbaru terus tidak tiroid untuk ya".split(" "));
     const enWords = new Set("about anything are breast can cancer cats do feline fungal have hello hey hi how i is me morning nodule please related see show thanks thank thyroid what who why with you your".split(" "));
     const words = text.split(" ");
     const id = words.filter(word => idWords.has(word)).length, en = words.filter(word => enWords.has(word)).length;
@@ -123,7 +123,8 @@ const BAMI_CORE = (() => {
   const concepts = words => [...new Set(words.map(word => Object.keys(aliases).find(key => aliases[key].includes(word)) || word))];
   const hasConcept = (text, concept) => (aliases[concept] || [concept]).some(alias => new RegExp(`(?:^|\\s)${alias.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?:$|\\s)`).test(text));
   const conceptFrequency = (text, concept) => (aliases[concept] || [concept]).reduce((total, alias) => total + (text.match(new RegExp(`(?:^|\\s)${alias.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?:$|\\s)`, "g")) || []).length, 0);
-  const requestedFamily = query => ["ebook", "seminar", "video", "presentation", "article"].find(family => hasConcept(query, family));
+  const requestedFamily = query => ["ebook", "seminar", "video", "presentation", "article"].find(family => hasConcept(query, family)) ||
+    (/\bseminarnya\b/.test(query) ? "seminar" : /\bpresentasinya\b/.test(query) ? "presentation" : /\bvideonya\b/.test(query) ? "video" : /\bebooknya\b/.test(query) ? "ebook" : /\bartikelnya\b/.test(query) ? "article" : "");
   const retrieve = (question, items, limit = 5) => {
     const query = normalize(question), family = requestedFamily(query);
     const queryTerms = concepts(terms(question)).filter(term => term !== family).slice(0, 16);
@@ -146,10 +147,10 @@ const BAMI_CORE = (() => {
     const family = requestedFamily(q) || (/\bebooknya\b/.test(q) ? "ebook" : /\bvideonya\b/.test(q) ? "video" : /\bartikelnya\b/.test(q) ? "article" : /\b(kalo|kalau|what about|materinya|presentasinya|pembicara(?:nya)?|speaker|terbaru|latest|linknya|dimana|where|dokter|doctors?|physicians?)\b/.test(q) ? priorItems[0]?.family || requestedFamily(normalize(prior?.question || "")) : "");
     const periods = [[/\b(bulan lalu|last month|previous month)\b/, "last_month"], [/\b(bulan ini|this month)\b/, "this_month"], [/\b(tahun lalu|last year)\b/, "last_year"], [/\b(tahun ini|this year)\b/, "this_year"], [/\b(minggu lalu|last week)\b/, "last_week"], [/\b(minggu ini|this week)\b/, "this_week"], [/\b(kemarin|yesterday)\b/, "yesterday"], [/\b(hari ini|today)\b/, "today"]];
     const period = periods.find(([pattern]) => pattern.test(q))?.[1] || "", latest = /\b(terbaru|terakhir|latest|newest|recent)\b/.test(q), count = /\b(berapa|how many)\b/.test(q);
-    const inventory = /\b(ada|punya|tersedia|terdaftar|apa saja|mana|dimana|link|which|where|do you have|are there|any|show|find|list)\b/.test(q);
-    const detail = /\b(materinya apa|membahas apa|presentasinya|videonya|ebooknya dimana|artikelnya dimana|linknya|siapa pembicara(?:nya)?|who spoke|speakers?)\b/.test(q);
+    const inventory = /\b(ada|punya|tersedia|terdaftar|apa saja|mana|dimana|link|what|which|where|do you have|are there|any|show|find|list|bisa baca|can i read)\b/.test(q);
+    const detail = /\b(materinya apa|membahas apa|presentasinya|videonya|ebooknya dimana|artikelnya dimana|linknya|link artikel ini|materi seminarnya|siapa pembicara(?:nya)?|who spoke|speakers?)\b/.test(q);
     const general = /\b(materi|konten|content|materials?|resources?)\b/.test(q);
-    if ((!family && !priorItems.length && !general) || (!period && !latest && !count && !inventory && !detail && !/\b(yang untuk|for doctors?|for public|untuk dokter)\b/.test(q))) return null;
+    if ((!family && !priorItems.length && !general) || (!period && !latest && !count && !inventory && !detail && !/\b(yang untuk|for doctors?|for public|untuk dokter|upcoming|past|mendatang|lampau)\b/.test(q))) return null;
     if (/\b(apa itu|what is|jelaskan|explain|kenapa|why|bagaimana)\b/.test(q) && !latest && !count && !/\b(ada|do you have|are there|membahas apa|materinya apa)\b/.test(q)) return null;
     const local = new Date(now + 7 * 3600000), y = local.getUTCFullYear(), m = local.getUTCMonth(), d = local.getUTCDate(), weekday = (local.getUTCDay() + 6) % 7;
     const at = (year, month, day) => Date.UTC(year, month, day) - 7 * 3600000;
@@ -161,11 +162,10 @@ const BAMI_CORE = (() => {
     if (period) found = found.filter(item => Number.isFinite(date(item)) && date(item) >= windows[period][0] && date(item) < windows[period][1]);
     else if (/\b(upcoming|mendatang)\b/.test(q)) found = found.filter(item => item.family === "seminar" && Date.parse(item.eventEnd || item.eventStart) > now);
     else if (/\b(past|lampau)\b/.test(q)) found = found.filter(item => item.family === "seminar" && Date.parse(item.eventEnd || item.eventStart) <= now);
-    const topicTerms = concepts(terms(q)).filter(term => term !== family && !/^(?:last|previous|month|this|year|week|today|yesterday|bulan|lalu|ini|tahun|minggu|hari|kemarin|terbaru|terakhir|latest|newest|recent|gak|kalo|kalau|penyakit|disease|contents?|materials?|konten|materi|resources?|jumlah|berapa|saja|there|dokter|doctors?|physicians?|healthcare|professionals?|tenaga|kesehatan|public|masyarakat|umum|siapa|pembicara|speaker|speakers|membahas|menjelaskan|jelaskan|presentasinya|videonya|linknya)$/.test(term));
+    const topicTerms = concepts(terms(q)).filter(term => term !== family && !/^(?:last|previous|month|this|year|week|today|yesterday|bulan|lalu|ini|tahun|minggu|hari|kemarin|terbaru|terakhir|latest|newest|recent|gak|kalo|kalau|penyakit|disease|contents?|materials?|konten|materi|resources?|jumlah|berapa|saja|there|dokter|doctors?|physicians?|healthcare|professionals?|tenaga|kesehatan|public|masyarakat|umum|siapa|pembicara|speaker|speakers|membahas|menjelaskan|jelaskan|presentasinya|videonya|seminarnya|ebooknya|artikelnya|linknya|link|mana|dimana|where|baca|read|upcoming|past|mendatang|lampau|listed|registered|terdaftar)$/.test(term));
     if (priorItems.length && !period && !topicTerms.length && (latest || audience)) found = priorItems.filter(item => !audience || item.audience === audience || (item.audiences || []).includes(audience));
-    if (!family && topicTerms.length && !detail) return null; // Broad subject questions require source evidence, not an inventory-zero claim.
     if (topicTerms.length && (!detail || !priorItems.length)) found = retrieve(topicTerms.join(" "), found, found.length);
-    if (topicTerms.length && found.length && !period && !latest && !count && !detail) return null; // Hybrid discovery and explanation stays on grounded Gemini.
+    if (!family && topicTerms.length && !found.length) return null; // An absent broad medical subject needs an honest content-gap response.
     const resultFamily = detail && /\b(presentasinya|presentation)\b/.test(q) ? "presentation" : detail && /\bvideonya\b/.test(q) ? "video" : family;
     if (detail && priorItems.length && !period && !latest) found = (resultFamily === "presentation" || (/\bvideonya\b/.test(q) && priorItems[0].family === "seminar")) ? items.filter(item => item.family === resultFamily && item.eventId === priorItems[0].id) : priorItems;
     found.sort((a,b) => date(b) - date(a) || String(a.title).localeCompare(String(b.title)));

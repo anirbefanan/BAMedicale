@@ -206,14 +206,16 @@ function runBamiProductionQa() {
     ["conversation_id", "halo", "CONVERSATIONAL"],
     ["seminar_current_month", "Ada seminar bulan ini?", "STRUCTURED"],
     ["seminar_previous_month", "Kalau bulan lalu?", "STRUCTURED"],
+    ["inventory_en", "Do you have videos about thyroid?", "STRUCTURED"],
     ["grounded_id", "Apa materi BA Medicale tentang nodul tiroid?", "GROUNDED"],
-    ["grounded_en", "Do you have videos about thyroid?", "GROUNDED"],
+    ["grounded_en", "What do BA Medicale videos explain about thyroid nodules?", "GROUNDED"],
+    ["hybrid_id", "Video thyroid terbaru menjelaskan apa?", "GROUNDED"],
     ["absent", "Do you have material about mitochondrial optic neuropathy?", "CONTENT_GAP"]
   ];
   const results = cases.map(([scenario, question, expected]) => {
     const answer = bamiAsk_({ token, sessionId, question, qaScenario: scenario }, true);
     const row = bamiRows_("inquiries").find(item => item.inquiry_id === answer.id);
-    const language = scenario === "grounded_en" ? "en" : scenario === "absent" ? "en" : "id";
+    const language = ["grounded_en", "inventory_en", "absent"].includes(scenario) ? "en" : "id";
     const expectedInventory = expected === "STRUCTURED" ? BAMI_CORE.websiteLookup(question, bamiKnowledge_(), language, Date.now(),
       scenario === "seminar_previous_month" ? { question: "Ada seminar bulan ini?", ids: [] } : null) : null;
     const actualSourceIds = answer.sources.map(item => item.id);

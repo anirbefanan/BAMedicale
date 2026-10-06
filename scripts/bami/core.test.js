@@ -52,6 +52,9 @@ test("website inventory resolves Jakarta calendar windows, known zero, and follo
   assert.equal(english.count, 0); assert.match(english.answer, /October 2026/);
   const last = core.websiteLookup("What about last month?", items, "en", now, { question: "Are there any seminars this month?", ids: [] });
   assert.equal(last.count, 1); assert.match(last.answer, /19 September 2026/);
+  assert.equal(core.websiteLookup("What seminars are listed?", items, "en", now).count, 1);
+  assert.equal(core.websiteLookup("Any upcoming seminars?", items, "en", now).count, 0);
+  assert.equal(core.websiteLookup("Bisa baca materi seminarnya?", items, "id", now, { question: "Kalau bulan lalu?", ids: last.sources.map(row => row.id) }).sources[0].url, last.sources[0].url);
   const link = core.websiteLookup("Kasih linknya", items, "id", now, { question: "Kalau bulan lalu?", ids: last.sources.map(row => row.id) });
   assert.equal(link.sources[0].url, last.sources[0].url);
 });
@@ -69,7 +72,9 @@ test("website inventory counts only published records and preserves educational 
   assert.equal(core.websiteLookup("Artikel apa saja yang ada?", items, "id", now).count, 4);
   assert.equal(core.websiteLookup("Do you have an eBook about diabetes?", items, "en", now).count, 0);
   assert.ok(core.websiteLookup("Ada berapa konten untuk dokter?", items, "id", now).count > 0);
-  assert.equal(core.websiteLookup("Do you have videos about thyroid?", items, "en", now), null);
+  assert.ok(core.websiteLookup("Do you have videos about thyroid?", items, "en", now).count > 0);
+  assert.ok(core.websiteLookup("Ada materi tentang sporotrichosis?", items, "id", now).sources.some(row => /feline|sporotrichosis/i.test(row.title)));
+  assert.equal(core.websiteLookup("What do BA Medicale videos explain about thyroid nodules?", items, "en", now), null);
   assert.equal(core.websiteLookup("Do you have material about mitochondrial optic neuropathy?", items, "en", now), null);
   const unpublished = { id: "draft", family: "seminar", title: "Draft seminar", status: "draft", eventStart: "2026-10-10T09:00:00+07:00", url: "https://bamedicale.com/events/draft.html" };
   assert.equal(core.websiteLookup("Ada seminar bulan ini?", [...items, unpublished], "id", now).count, 0);
