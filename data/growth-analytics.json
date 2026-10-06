@@ -9,7 +9,7 @@
         "previousStartDate": "2026-10-04",
         "previousEndDate": "2026-10-04"
       },
-      "generatedAt": "2026-10-05T23:26:55.468Z",
+      "generatedAt": "2026-10-06T03:42:21.087Z",
       "summary": {
         "activeUsers": 3,
         "newUsers": 0,
@@ -284,7 +284,7 @@
         "previousStartDate": "2026-09-22",
         "previousEndDate": "2026-09-28"
       },
-      "generatedAt": "2026-10-05T23:26:55.468Z",
+      "generatedAt": "2026-10-06T03:42:21.087Z",
       "summary": {
         "activeUsers": 13,
         "newUsers": 9,
@@ -869,7 +869,7 @@
         "previousStartDate": "2026-08-11",
         "previousEndDate": "2026-09-07"
       },
-      "generatedAt": "2026-10-05T23:26:55.468Z",
+      "generatedAt": "2026-10-06T03:42:21.087Z",
       "summary": {
         "activeUsers": 218,
         "newUsers": 210,
@@ -881,7 +881,8 @@
         "keyEvents": 0,
         "totalUsers": 219,
         "averageEngagementTimeSeconds": 116.1881,
-        "engagementRate": 0.5991
+        "engagementRate": 0.5991,
+        "returningUsers": 47
       },
       "previous": {
         "activeUsers": 45,
@@ -894,7 +895,8 @@
         "keyEvents": 0,
         "totalUsers": 45,
         "averageEngagementTimeSeconds": 462.8222,
-        "engagementRate": 0.673
+        "engagementRate": 0.673,
+        "returningUsers": 13
       },
       "totals": {
         "status": "ok",
@@ -1721,8 +1723,29 @@
         ]
       },
       "audience": {
-        "status": "unavailable",
-        "rows": []
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 209,
+            "sessions": 209
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 47,
+            "sessions": 198
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 3
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 38
+          }
+        ]
       },
       "returningTrend": {
         "status": "ok"
@@ -2366,7 +2389,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-05"
       },
-      "generatedAt": "2026-10-05T23:26:55.468Z",
+      "generatedAt": "2026-10-06T03:42:21.087Z",
       "summary": {
         "activeUsers": 6,
         "newUsers": 3,
@@ -2836,7 +2859,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-05T23:26:55.468Z",
+      "generatedAt": "2026-10-06T03:42:21.087Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -2848,7 +2871,8 @@
         "keyEvents": 0,
         "totalUsers": 227,
         "averageEngagementTimeSeconds": 130.6978,
-        "engagementRate": 0.6095
+        "engagementRate": 0.6095,
+        "returningUsers": 50
       },
       "previous": {
         "activeUsers": 35,
@@ -2861,7 +2885,8 @@
         "keyEvents": 0,
         "totalUsers": 35,
         "averageEngagementTimeSeconds": 469.8286,
-        "engagementRate": 0.6893
+        "engagementRate": 0.6893,
+        "returningUsers": 9
       },
       "totals": {
         "status": "ok",
@@ -2883,7 +2908,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 426.6667,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-02",
@@ -2897,7 +2923,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 286,
-            "engagementRate": 0.8
+            "engagementRate": 0.8,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-03",
@@ -2911,7 +2938,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 130.1667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 5
           },
           {
             "date": "2026-09-04",
@@ -2925,7 +2953,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 39,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-05",
@@ -2939,7 +2968,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 85,
-            "engagementRate": 0.4286
+            "engagementRate": 0.4286,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-06",
@@ -2953,7 +2983,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 15,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-07",
@@ -2967,7 +2998,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 3.5,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6667,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-08",
@@ -2981,7 +3013,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 54.875,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-09",
@@ -2995,7 +3028,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 46.5,
-            "engagementRate": 0.75
+            "engagementRate": 0.75,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-10",
@@ -3009,7 +3043,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 285,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-11",
@@ -3023,7 +3058,8 @@
             "keyEvents": 0,
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 35,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-12",
@@ -3037,7 +3073,8 @@
             "keyEvents": 0,
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 149,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-13",
@@ -3051,7 +3088,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 173.7143,
-            "engagementRate": 0.6842
+            "engagementRate": 0.6842,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-14",
@@ -3065,7 +3103,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 132.25,
-            "engagementRate": 0.5
+            "engagementRate": 0.5,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-15",
@@ -3079,7 +3118,8 @@
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 126.6,
-            "engagementRate": 0.6667
+            "engagementRate": 0.6667,
+            "returningUsers": 3
           },
           {
             "date": "2026-09-16",
@@ -3093,7 +3133,8 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 7.5,
-            "engagementRate": 0.8
+            "engagementRate": 0.8,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-17",
@@ -3107,7 +3148,8 @@
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 18.25,
-            "engagementRate": 0.375
+            "engagementRate": 0.375,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-18",
@@ -3121,7 +3163,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 171.6667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 6
           },
           {
             "date": "2026-09-19",
@@ -3135,7 +3178,8 @@
             "keyEvents": 0,
             "totalUsers": 159,
             "averageEngagementTimeSeconds": 57.0189,
-            "engagementRate": 0.625
+            "engagementRate": 0.625,
+            "returningUsers": 30
           },
           {
             "date": "2026-09-20",
@@ -3149,7 +3193,8 @@
             "keyEvents": 0,
             "totalUsers": 11,
             "averageEngagementTimeSeconds": 227.4,
-            "engagementRate": 0.64
+            "engagementRate": 0.64,
+            "returningUsers": 7
           },
           {
             "date": "2026-09-21",
@@ -3163,7 +3208,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 63.25,
-            "engagementRate": 0.4545
+            "engagementRate": 0.4545,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-22",
@@ -3177,7 +3223,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 84,
-            "engagementRate": 0.6154
+            "engagementRate": 0.6154,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-23",
@@ -3191,7 +3238,8 @@
             "keyEvents": 0,
             "totalUsers": 9,
             "averageEngagementTimeSeconds": 533,
-            "engagementRate": 0.7
+            "engagementRate": 0.7,
+            "returningUsers": 5
           },
           {
             "date": "2026-09-24",
@@ -3205,7 +3253,8 @@
             "keyEvents": 0,
             "totalUsers": 8,
             "averageEngagementTimeSeconds": 106.4,
-            "engagementRate": 0.5333
+            "engagementRate": 0.5333,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-25",
@@ -3219,7 +3268,8 @@
             "keyEvents": 0,
             "totalUsers": 12,
             "averageEngagementTimeSeconds": 199.7143,
-            "engagementRate": 0.6364
+            "engagementRate": 0.6364,
+            "returningUsers": 6
           },
           {
             "date": "2026-09-26",
@@ -3233,7 +3283,8 @@
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 98,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 4
           },
           {
             "date": "2026-09-27",
@@ -3247,7 +3298,8 @@
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 31,
-            "engagementRate": 0.4
+            "engagementRate": 0.4,
+            "returningUsers": 1
           },
           {
             "date": "2026-09-28",
@@ -3261,7 +3313,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 37,
-            "engagementRate": 0.3333
+            "engagementRate": 0.3333,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-29",
@@ -3275,7 +3328,8 @@
             "keyEvents": 0,
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 39.6667,
-            "engagementRate": 0.5833
+            "engagementRate": 0.5833,
+            "returningUsers": 2
           },
           {
             "date": "2026-09-30",
@@ -3289,7 +3343,8 @@
             "keyEvents": 0,
             "totalUsers": 3,
             "averageEngagementTimeSeconds": 2,
-            "engagementRate": 0.25
+            "engagementRate": 0.25,
+            "returningUsers": 1
           }
         ],
         "previous": [
@@ -3730,16 +3785,57 @@
         ]
       },
       "audience": {
-        "status": "unavailable",
-        "rows": []
+        "status": "ok",
+        "rows": [
+          {
+            "label": "New",
+            "activeUsers": 216,
+            "sessions": 216
+          },
+          {
+            "label": "Returning",
+            "activeUsers": 50,
+            "sessions": 229
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 38
+          }
+        ]
       },
       "returningTrend": {
-        "status": "unavailable",
-        "rows": []
+        "status": "ok"
       },
       "channels": {
-        "status": "unavailable",
-        "rows": []
+        "status": "ok",
+        "rows": [
+          {
+            "label": "Direct",
+            "activeUsers": 191,
+            "sessions": 314
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 27,
+            "sessions": 142
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 7,
+            "sessions": 7
+          },
+          {
+            "label": "Referral",
+            "activeUsers": 2,
+            "sessions": 19
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 1,
+            "sessions": 1
+          }
+        ]
       },
       "devices": {
         "status": "ok",
@@ -5110,10 +5206,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-05T23:26:55.468Z",
+  "generatedAt": "2026-10-06T03:42:21.087Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-05T23:26:55.468Z",
+    "generatedAt": "2026-10-06T03:42:21.087Z",
     "windowMinutes": 30
   }
 }
