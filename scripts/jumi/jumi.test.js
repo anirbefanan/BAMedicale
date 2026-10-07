@@ -160,6 +160,16 @@ test("new Content OS artwork is validated server-side while historical Seminar p
   assert.match(backend,/privatePoster\?\'\':poster/);
 });
 
+test("private BAMI Intelligence Health uses authorized canonical data and hides visitor questions from clusters",()=>{
+  assert.match(backend,/function jumiBamiInsights_\(input\)/);
+  assert.match(backend,/BAMI_CORE\.intelligenceHealth\(inquiries,publishedItems,period,Date\.now\(\)\)/);
+  assert.match(client,/function intelligenceHealthView\(data\)/);
+  assert.match(client,/Historical answers stay unchanged; QA and conversation turns are excluded/);
+  assert.match(client,/confirmed.*suspected intelligence gaps.*current content gaps/);
+  assert.match(client,/group\.regressionCases\.map\(esc\)/);
+  assert.doesNotMatch(client,/data\.clusters.*group\.question/);
+});
+
 test("BAMI historical read accepts additive old schema and rejects missing data",()=>{
   const context={console};vm.createContext(context);vm.runInContext(backend,context);
   const sheet={getLastColumn:()=>4,getLastRow:()=>2,getRange:(row,col,count,width)=>({getValues:()=>row===1?[["inquiry_id","timestamp","question","answer_status"]]:[["i1","2026-10-05T09:00:00Z","thyroid nodule","CONTENT_GAP"]]})};

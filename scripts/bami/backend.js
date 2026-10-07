@@ -114,6 +114,32 @@ function bamiValidateGenerated_(answer, records) {
   return urls.every(value => records.some(record => record.url === value.replace(/[.,;!?]+$/, ""))) &&
     numbers.every(value => evidence.includes(value.toLowerCase()));
 }
+// A bounded language-only fallback for wording the deterministic parser did
+// not understand. It cannot return facts, URLs, medical claims or source IDs.
+function bamiInterpretWebsite_(question, prior) {
+  const model=bamiProps_().getProperty("BAMI_MODEL")||"gemini-3.5-flash-lite";
+  const key=bamiProps_().getProperty("BAMI_GEMINI_API_KEY");if(!key)return null;
+  const cache=CacheService.getScriptCache(),input=String(question||"")+"|"+String(prior?.question||"");
+  let hash=2166136261;for(let i=0;i<input.length;i++)hash=Math.imul(hash^input.charCodeAt(i),16777619);
+  const cacheKey="bami_intent_"+(hash>>>0).toString(16),saved=bamiJson_(cache.get(cacheKey),null);
+  if(saved)return saved.kind==="NONE"?null:saved;
+  const schema='Return ONLY JSON with kind DISCOVERY, EDUCATION, or UNKNOWN; family one of article, ebook, video, seminar, presentation, or empty; period one of this_month, last_month, this_year, last_year, this_week, last_week, today, yesterday, or empty; sort LATEST or empty; action COUNT or DISCOVER; topic one short subject copied from the user question or empty. Interpret language only. Do not answer the question, invent a topic, or provide any facts.';
+  const payload={systemInstruction:{parts:[{text:schema}]},contents:[{role:"user",parts:[{text:JSON.stringify({question:BAMI_CORE.redact(question),priorQuestion:BAMI_CORE.redact(prior?.question||"")})}]}],generationConfig:{temperature:0,maxOutputTokens:150,responseMimeType:"application/json"}};
+  try {
+    bamiDailyModelQuota_();
+    const response=UrlFetchApp.fetch("https://generativelanguage.googleapis.com/v1beta/models/"+encodeURIComponent(model)+":generateContent",{method:"post",contentType:"application/json",headers:{"x-goog-api-key":key},payload:JSON.stringify(payload),muteHttpExceptions:true});
+    if(response.getResponseCode()!==200)return null;
+    const body=bamiJson_(response.getContentText(),{}),raw=String((body.candidates||[])[0]?.content?.parts?.map(part=>part.text||"").join("")||"");
+    const parsed=bamiJson_(raw,null),families=["","article","ebook","video","seminar","presentation"],periods=["","this_month","last_month","this_year","last_year","this_week","last_week","today","yesterday"];
+    if(!parsed||!["DISCOVERY","EDUCATION","UNKNOWN"].includes(parsed.kind)||!families.includes(parsed.family)||!periods.includes(parsed.period)||!["","LATEST"].includes(parsed.sort)||!["COUNT","DISCOVER"].includes(parsed.action))return null;
+    const topic=String(parsed.topic||"").toLowerCase().trim().slice(0,80);
+    const original=String(question||"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
+    if(topic&&!original.includes(topic.replace(/[^\p{L}\p{N}]+/gu," ").trim()))return null;
+    const result={kind:parsed.kind,family:parsed.family,period:parsed.period,sort:parsed.sort,action:parsed.action,topic};
+    cache.put(cacheKey,JSON.stringify(result.kind==="DISCOVERY"?result:{kind:"NONE"}),3600);
+    return result.kind==="DISCOVERY"?result:null;
+  } catch(_){return null;}
+}
 function bamiAnswer_(question, profile, matches, lang, intent, safety) {
   const bahasa = lang === "id";
   if (safety === "urgent") return { answer: bahasa ? "Jika seseorang sulit bernapas atau mengalami gejala gawat, segera cari pertolongan medis darurat. BAMI tidak dapat menilai keadaan darurat." : "If someone has difficulty breathing or another urgent symptom, seek emergency medical care now. BAMI cannot assess an emergency.", status: "SAFETY_LIMITED", safety };
@@ -177,10 +203,14 @@ function bamiAsk_(input, trustedQa) {
   const intent = safety === "normal" && !BAMI_CORE.injection(question) ? BAMI_CORE.intent(question) : "KNOWLEDGE";
   const knowledge = intent === "KNOWLEDGE" && safety === "normal" && !BAMI_CORE.injection(question) ? bamiKnowledge_() : [];
   const previous = prior ? { question: prior.question, ids: bamiJson_(prior.referenced_content_ids, []) } : null;
-  const structured = knowledge.length ? BAMI_CORE.websiteLookup(question, knowledge, lang, Date.now(), previous) : null;
+  let structured = knowledge.length ? BAMI_CORE.websiteLookup(question, knowledge, lang, Date.now(), previous) : null;
   const contextual = /\b(materi ini|konten ini|video ini|ebook ini|artikel ini|yang tadi|tentang itu|this material|this video|this ebook|that material)\b/i.test(question);
   const priorMatches = contextual ? (previous?.ids || []).map(id => knowledge.find(item => item.id === id)).filter(Boolean).slice(0, 5) : [];
-  const matches = structured ? structured.sources.map(source => knowledge.find(item => item.id === source.id)).filter(Boolean) : priorMatches.length ? priorMatches : knowledge.length ? BAMI_CORE.retrieve(question, knowledge) : [];
+  let matches = structured ? structured.sources.map(source => knowledge.find(item => item.id === source.id)).filter(Boolean) : priorMatches.length ? priorMatches : knowledge.length ? BAMI_CORE.retrieve(question, knowledge) : [];
+  if(!structured&&!matches.length&&knowledge.length&&safety==="normal"&&intent==="KNOWLEDGE"&&!BAMI_CORE.injection(question)){
+    const interpreted=bamiInterpretWebsite_(question,previous);
+    if(interpreted){structured=BAMI_CORE.websiteLookup(question,knowledge,lang,Date.now(),previous,interpreted);if(structured)matches=structured.sources.map(source=>knowledge.find(item=>item.id===source.id)).filter(Boolean);}
+  }
   let result;
   try { result = structured && !structured.needsSynthesis ? { answer: structured.answer, status: structured.status, safety: "normal", model: structured.route } : bamiAnswer_(question, visitor, matches, lang, intent, safety); }
   catch (error) { result = { answer: lang === "id" ? "BAMI sedang tidak tersedia. Silakan coba lagi sebentar." : "BAMI is temporarily unavailable. Please try again shortly.", status: "ERROR", safety, model: "unavailable", errorCode: /^BAMI_PROVIDER_(HTTP_\d+|EMPTY)$/.test(String(error.message||"")) ? error.message : "PROVIDER_UNAVAILABLE" }; }

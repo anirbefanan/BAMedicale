@@ -137,6 +137,7 @@ function jumiBamiInsights_(input){
   let publishedItems=null;
   try{publishedItems=jumiBamiCorpus_();}catch(_){/* Historical outcomes remain intact; current-corpus rate is unavailable. */}
   const insights=BAMI_CORE.insights(visitors,inquiries,period,Date.now(),publishedItems);
+  insights.intelligenceHealth=BAMI_CORE.intelligenceHealth(inquiries,publishedItems,period,Date.now());
   const references=new Map();
   inquiries.filter(row=>String(row.is_qa||'').toUpperCase()!=='TRUE'&&BAMI_CORE.withinPeriod(row.timestamp,period,Date.now())).forEach(row=>{const entries=jumiJson_(row.referenced_urls,[]);if(!Array.isArray(entries))return;entries.forEach(item=>{const id=String(item.id||'');if(!id)return;const prior=references.get(id)||{id,title:String(item.title||''),type:String(item.type||''),url:String(item.url||''),count:0};prior.count++;references.set(id,prior);});});
   insights.references=[...references.values()].sort((a,b)=>b.count-a.count).slice(0,20);

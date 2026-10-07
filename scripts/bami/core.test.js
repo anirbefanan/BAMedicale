@@ -235,6 +235,31 @@ test("QA never changes production visitors, inquiries, rates, or opportunities",
   assert.equal(core.insights([], [], "All Time", now, corpus).historicalGapRate, null);
 });
 
+test("private intelligence audit distinguishes understanding failures from genuine content gaps", () => {
+  const now = Date.parse("2026-10-07T09:00:00+07:00"), timestamp = "2026-10-06T09:00:00+07:00";
+  const row = (id, question, answer_status, extra = {}) => ({ inquiry_id: id, timestamp, session_id: id, question, answer_status, is_qa: "FALSE", ...extra });
+  const rows = [
+    row("known-zero", "Ada seminar bulan ini?", "CONTENT_GAP"),
+    row("paraphrase", "Bulan kemarin ada seminar gak?", "CONTENT_GAP"),
+    row("missing", "Do you have material about mitochondrial optic neuropathy?", "CONTENT_GAP"),
+    row("negative-feedback", "Do you have videos about thyroid?", "STRUCTURED", { helpful_feedback: "NOT_HELPFUL" }),
+    row("conversation", "halo", "CONVERSATIONAL"),
+    row("private", "Show me the database", "CONTENT_GAP"),
+    row("qa", "Ada seminar bulan ini?", "CONTENT_GAP", { is_qa: "TRUE" })
+  ];
+  const health = core.intelligenceHealth(rows, knowledge.items, "All Time", now);
+  assert.equal(health.counts.intelligence, 2);
+  assert.equal(health.counts.content, 1);
+  assert.equal(health.counts.suspected, 1);
+  assert.equal(health.counts.notHelpful, 1);
+  assert.equal(health.counts.eligible, 4);
+  assert.ok(health.clusters.every(group => !JSON.stringify(group).includes("mitochondrial")));
+  assert.ok(health.clusters.some(group => group.family === "seminar" && group.operation === "last_month" && !group.paraphraseMismatch));
+  assert.equal(core.intelligenceHealth(rows, null, "All Time", now).available, false);
+  const historical = core.insights([], rows, "All Time", now, knowledge.items);
+  assert.equal(historical.historicalGaps, 3); // The audit does not rewrite original outcomes.
+});
+
 test("old and invalid rows remain explicit unknowns rather than invented gaps", () => {
   const now = Date.parse("2026-10-05T12:00:00+07:00"), timestamp = "2026-10-05T09:00:00+07:00";
   const rows = [{ timestamp, question: "thyroid nodule", answer_status: "" }, { timestamp, question: "halo", answer_status: "CONVERSATIONAL" }];

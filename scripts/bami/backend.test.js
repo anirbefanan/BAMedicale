@@ -80,7 +80,7 @@ test("owner QA uses the real answer/logging path while public QA flags are ignor
   assert.ok(run.qa_run_id.startsWith("qa_"));
   assert.equal(run.cases.length, 15);
   assert.equal(run.paraphrasesAgree, true);
-  assert.equal(s.fetches.filter(item => item.url.includes("generativelanguage.googleapis.com")).length, 3);
+  assert.equal(s.fetches.filter(item => item.url.includes("generativelanguage.googleapis.com")).length, 4); // Three grounded answers and one bounded interpretation of a true gap.
   const inquiries = s.sheets.get("AI_Inquiries"), head = inquiries.rows[0];
   const field = (row, name) => row[head.indexOf(name)];
   assert.equal(inquiries.rows.slice(1).filter(row => String(field(row, "is_qa")).toUpperCase() === "TRUE").length, 15);
@@ -109,6 +109,24 @@ test("generated answer rejects invented URLs and numerical claims before reachin
   assert.equal(s.context.bamiValidateGenerated_("Published in 2026.", records), true);
   assert.equal(s.context.bamiValidateGenerated_("A 99% success rate.", records), false);
   assert.equal(s.context.bamiValidateGenerated_("https://example.com/guessed", records), false);
+});
+
+test("bounded Gemini interpretation supplies intent slots only and cannot invent a medical topic", () => {
+  const s = service(); s.context.setupBami("A".repeat(40)); s.props.set("BAMI_GEMINI_API_KEY", "mock-key");
+  const original = s.context.UrlFetchApp.fetch; let interpretedCalls = 0;
+  s.context.UrlFetchApp.fetch = (url, options) => url.includes("generativelanguage.googleapis.com")
+    ? (interpretedCalls++, { getResponseCode: () => 200, getContentText: () => JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ kind: "DISCOVERY", family: "article", period: "", sort: "LATEST", action: "DISCOVER", topic: "" }) }] } }] }) })
+    : original(url, options);
+  const profile = s.context.bamiApi("onboard", { email: "a@example.com", phone: "081234567890", audience: "Public", profession: "Student", consent: true, consentVersion: "bami-v1-2026-10" });
+  const answer = s.context.bamiApi("ask", { token: profile.token, sessionId: profile.sessionId, question: "Could I browse whatever you released most lately?" });
+  assert.equal(answer.status, "STRUCTURED");
+  assert.equal(answer.sources[0].id, "thyroid-article");
+  assert.equal(s.context.bamiInterpretWebsite_("Could I browse whatever you released most lately?", null).family, "article"); // cached
+  assert.equal(interpretedCalls, 1); // Cached repeat, no grounded answer provider call.
+  s.context.UrlFetchApp.fetch = (url, options) => url.includes("generativelanguage.googleapis.com")
+    ? { getResponseCode: () => 200, getContentText: () => JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ kind: "DISCOVERY", family: "article", period: "", sort: "LATEST", action: "DISCOVER", topic: "cancer" }) }] } }] }) }
+    : original(url, options);
+  assert.equal(s.context.bamiInterpretWebsite_("Could I browse whatever you released recently?", null), null);
 });
 
 test("a transient Gemini failure receives only one bounded retry", () => {

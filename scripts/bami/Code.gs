@@ -95,7 +95,7 @@ const BAMI_CORE = (() => {
   // Normalize website-discovery language into facts the registry can answer. Keep
   // grammar words out of medical-topic retrieval; the same intent works across
   // languages and paraphrases without making Gemini the inventory database.
-  const discoveryWords = new Set("ada apa apakah are any artikel articles article baru bawakan berapa bulan can cari could did do does dont e book ebook ebooks gak give have healthcare hi how i in ini is it itu kah kalau kalo kemarin know last latest lalu link linknya list listed mana materi masyarakat me minggu month months most newest new of pada paling past pembicara previous professionals public publish published recently recent registered released resources saja sebelumnya see seminar seminars show siang something tahun tell tenaga there this to terbaru terakhir tersedia upcoming untuk was were which what where who you your yang yes".split(" "));
+  const discoveryWords = new Set("ada apa apakah are any artikel articles article baru bawakan berapa browse bulan can cari could did do does dont e book ebook ebooks gak give have healthcare hi how i in ini is it itu kah kalau kalo kemarin know last latest lately lalu link linknya list listed mana materi masyarakat me minggu month months most newest new of pada paling past pembicara previous professionals public publish published recently recent registered released resources saja sebelumnya see seminar seminars show siang something tahun tell tenaga there this to terbaru terakhir tersedia upcoming untuk was were what whatever where which who you your yang yes".split(" "));
   const queryMeaning = (question, prior = null) => {
     const q = normalizeDiscovery(question), words = q.split(" ");
     const family = requestedFamily(q) || (prior && /\b(bulan|month|kemarin|lalu|last|previous|yang|what about|kalo|kalau|materinya|pembicara|speaker|link|video|presentasi)\b/.test(q) ? requestedFamily(normalize(prior.question || "")) : "");
@@ -131,11 +131,16 @@ const BAMI_CORE = (() => {
       .map(entry => entry.item);
   };
   // Complete published inventory answers are deterministic, including a verified zero.
-  const websiteLookup = (question, items, lang = "en", now = Date.now(), prior = null) => {
+  const websiteLookup = (question, items, lang = "en", now = Date.now(), prior = null, interpreted = null) => {
     if (!Array.isArray(items) || !items.length) return null;
     const priorItems = (prior?.ids || []).map(id => items.find(item => item.id === id)).filter(Boolean);
-    const meaning = queryMeaning(question, prior), { q, period, latest, count, detail, general, topicTerms } = meaning;
-    const family = requestedFamily(q) || meaning.family;
+    const recognized = queryMeaning(question, prior);
+    const safe = interpreted && interpreted.kind === "DISCOVERY" ? interpreted : null;
+    const meaning = safe ? { ...recognized, family: safe.family || recognized.family, period: safe.period || recognized.period,
+      latest: safe.sort === "LATEST" || recognized.latest, count: safe.action === "COUNT" || recognized.count,
+      discover: true, general: true, topicTerms: safe.topic ? concepts(terms(safe.topic)) : recognized.topicTerms } : recognized;
+    const { q, period, latest, count, detail, general, topicTerms } = meaning;
+    const family = safe?.family || requestedFamily(q) || meaning.family;
     if ((!family && !priorItems.length && !general) || (!period && !latest && !count && !meaning.discover && !detail && !/\b(yang untuk|for doctors?|for public|untuk dokter|upcoming|past|mendatang|lampau)\b/.test(q))) return null;
     if (/\b(apa itu|what is|jelaskan|explain|kenapa|why|bagaimana)\b/.test(q) && !latest && !count && !/\b(ada|do you have|are there|membahas apa|materinya apa)\b/.test(q)) return null;
     const local = new Date(now + 7 * 3600000), y = local.getUTCFullYear(), m = local.getUTCMonth(), d = local.getUTCDate(), weekday = (local.getUTCDay() + 6) % 7;
@@ -236,7 +241,85 @@ const BAMI_CORE = (() => {
       statuses: by("answer_status"), opportunities, recent: selected.slice(-30).reverse()
     };
   };
-  return Object.freeze({ professions, consentVersion, email, phone, validProfile, retrieve, websiteLookup, searchTerms: value => concepts(terms(value)).flatMap(concept => aliases[concept] || [concept]), classifySafety, injection, language, intent, conversation, redact, logQuestion, periodStart, withinPeriod, insights });
+  // Private, read-only audit. It never rewrites a historical answer and never
+  // treats visitor assertions as medical evidence. Suggestions contain only
+  // taxonomy/intent slots, never a visitor's question or personal details.
+  const intelligenceHealth = (inquiries, publishedItems, period = "30 Days", now = Date.now()) => {
+    const available = Array.isArray(publishedItems);
+    const real = (Array.isArray(inquiries) ? inquiries : []).filter(row => String(row.is_qa || "").toUpperCase() !== "TRUE" && withinPeriod(row.timestamp, period, now))
+      .sort((a, b) => String(a.timestamp).localeCompare(String(b.timestamp)));
+    const priorBySession = new Map(), issues = [], counts = { eligible: 0, intelligence: 0, suspected: 0, content: 0, notHelpful: 0, lowConfidence: 0, unknown: 0, resolvedByContent: 0 };
+    for (const row of real) {
+      const question = String(row.question || ""), session = String(row.session_id || ""), prior = session ? priorBySession.get(session) : null;
+      if (session) priorBySession.set(session, row);
+      if (!question || /^\[/.test(question) || injection(question) || intent(question) !== "KNOWLEDGE" || ["CONVERSATIONAL", "SAFETY_LIMITED", "ERROR"].includes(String(row.answer_status))) continue;
+      counts.eligible++;
+      const status = String(row.answer_status || ""), notHelpful = row.helpful_feedback === "NOT_HELPFUL";
+      if (notHelpful) counts.notHelpful++;
+      if (!available) { counts.unknown++; continue; }
+      const at = Date.parse(row.timestamp) || now, priorIds = (() => { try { const value = JSON.parse(prior?.referenced_content_ids || "[]"); return Array.isArray(value) ? value.slice(0, 5) : []; } catch { return []; } })();
+      const context = prior ? { question: prior.question, ids: priorIds } : null;
+      const meaning = queryMeaning(question, context), lookup = websiteLookup(question, publishedItems, language(question), at, context);
+      const matches = lookup?.sources?.length ? lookup.sources.map(source => publishedItems.find(item => item.id === source.id)).filter(Boolean) : !lookup ? retrieve(question, publishedItems, 3) : [];
+      const knownZero = Boolean(lookup && lookup.count === 0 && meaning.topicTerms.length === 0 && (lookup.family || meaning.general));
+      const covered = knownZero || matches.length > 0;
+      const historicalFailure = status === "CONTENT_GAP" || (status === "PARTIAL" && !String(row.referenced_content_ids || "").replace(/[\[\]"\s]/g, "")) || notHelpful;
+      const lowConfidence = !meaning.family && !meaning.general && !meaning.topicTerms.length && !lookup;
+      if (lowConfidence) counts.lowConfidence++;
+      if (!historicalFailure && !lowConfidence) continue;
+      const sourceDate = item => Date.parse(item.publishedDate || item.eventStart || item.eventDate || "");
+      const newerSource = matches.some(item => Number.isFinite(sourceDate(item)) && sourceDate(item) > at);
+      const oldSource = matches.some(item => Number.isFinite(sourceDate(item)) && sourceDate(item) <= at);
+      let kind = "UNKNOWN";
+      if (!covered) kind = status === "CONTENT_GAP" ? "CONTENT_GAP" : "SUSPECTED_CONTENT_GAP";
+      else if (status === "CONTENT_GAP" && newerSource && !oldSource) kind = "RESOLVED_BY_CONTENT";
+      else if (status === "CONTENT_GAP" && (knownZero || (oldSource && lookup?.sources?.length))) kind = "INTELLIGENCE_GAP";
+      else kind = "SUSPECTED_INTELLIGENCE_GAP";
+      if (kind === "CONTENT_GAP" || kind === "SUSPECTED_CONTENT_GAP") counts.content++;
+      else if (kind === "INTELLIGENCE_GAP") counts.intelligence++;
+      else if (kind === "SUSPECTED_INTELLIGENCE_GAP") counts.suspected++;
+      else if (kind === "RESOLVED_BY_CONTENT") counts.resolvedByContent++;
+      else counts.unknown++;
+      const operation = meaning.latest ? "latest" : meaning.count ? "count" : meaning.period || "discover";
+      issues.push({ kind, family: meaning.family || lookup?.family || "general", operation, timestamp: String(row.timestamp || ""), notHelpful, lowConfidence, covered,
+        status: covered && lookup && lookup.status === "STRUCTURED" ? "Resolved in current logic" : kind === "RESOLVED_BY_CONTENT" ? "Resolved by new content" : "Needs review" });
+    }
+    const clusters = new Map();
+    for (const issue of issues) {
+      const key = [issue.kind, issue.family, issue.operation].join("|");
+      const group = clusters.get(key) || { kind: issue.kind, family: issue.family, operation: issue.operation, count: 0, notHelpful: 0, lowConfidence: 0, latest: "", status: issue.status };
+      group.count++; group.notHelpful += Number(issue.notHelpful); group.lowConfidence += Number(issue.lowConfidence);
+      if (issue.timestamp > group.latest) group.latest = issue.timestamp;
+      if (issue.status === "Needs review") group.status = "Needs review";
+      clusters.set(key, group);
+    }
+    const daysAgo = value => Math.max(0, (now - (Date.parse(value) || 0)) / 86400000);
+    const ranked = [...clusters.values()].map(group => ({ ...group,
+      priority: Math.round(group.count * 3 + group.notHelpful * 2 + group.lowConfidence + Math.max(0, 7 - daysAgo(group.latest)) + (group.kind === "INTELLIGENCE_GAP" ? 4 : 0)) }))
+      .sort((a, b) => b.priority - a.priority || b.latest.localeCompare(a.latest)).slice(0, 12);
+    const regressionCases = group => {
+      const nouns = { article: ["article", "artikel"], ebook: ["eBook", "eBook"], video: ["video", "video"], seminar: ["seminar", "seminar"], presentation: ["presentation", "presentasi"] }[group.family];
+      if (!nouns) return [];
+      const dates = { last_month: [`Ada ${nouns[1]} bulan lalu?`, `Bulan kemarin ada ${nouns[1]}?`, `Any ${nouns[0]} last month?`, `What ${nouns[0]} were there in the previous month?`],
+        this_month: [`Ada ${nouns[1]} bulan ini?`, `Any ${nouns[0]} this month?`], last_year: [`Ada ${nouns[1]} tahun lalu?`, `Any ${nouns[0]} last year?`],
+        this_year: [`Ada ${nouns[1]} tahun ini?`, `Any ${nouns[0]} this year?`], last_week: [`Ada ${nouns[1]} minggu lalu?`, `Any ${nouns[0]} last week?`],
+        this_week: [`Ada ${nouns[1]} minggu ini?`, `Any ${nouns[0]} this week?`], today: [`Ada ${nouns[1]} hari ini?`, `Any ${nouns[0]} today?`],
+        yesterday: [`Ada ${nouns[1]} kemarin?`, `Any ${nouns[0]} yesterday?`] };
+      if (dates[group.operation]) return dates[group.operation];
+      if (group.operation === "latest") return [`${nouns[1]} terbaru apa?`, `What is the latest ${nouns[0]}?`, `Show the newest ${nouns[0]}`];
+      if (group.operation === "count") return [`Ada berapa ${nouns[1]}?`, `How many ${nouns[0]} are published?`];
+      return [`Ada ${nouns[1]}?`, `Do you have ${nouns[0]}?`];
+    };
+    const families = ranked.map(group => {
+      const cases = regressionCases(group);
+      const facts = cases.map(question => websiteLookup(question, publishedItems, language(question), now));
+      const signature = result => result ? JSON.stringify({ count: result.count, ids: result.sources.map(source => source.id) }) : "UNRESOLVED";
+      return { ...group, regressionFamily: `${group.family} · ${group.operation}`, regressionCases: cases,
+        paraphraseMismatch: cases.length ? facts.some(result => signature(result) !== signature(facts[0])) : false };
+    });
+    return { available, counts, clusters: families, scanned: real.length, evaluated: counts.eligible, source: "current published corpus", generatedAt: new Date(now).toISOString() };
+  };
+  return Object.freeze({ professions, consentVersion, email, phone, validProfile, retrieve, websiteLookup, intelligenceHealth, searchTerms: value => concepts(terms(value)).flatMap(concept => aliases[concept] || [concept]), classifySafety, injection, language, intent, conversation, redact, logQuestion, periodStart, withinPeriod, insights });
 })();
 if (typeof module === "object" && module.exports) module.exports = BAMI_CORE;
 
@@ -356,6 +439,32 @@ function bamiValidateGenerated_(answer, records) {
   return urls.every(value => records.some(record => record.url === value.replace(/[.,;!?]+$/, ""))) &&
     numbers.every(value => evidence.includes(value.toLowerCase()));
 }
+// A bounded language-only fallback for wording the deterministic parser did
+// not understand. It cannot return facts, URLs, medical claims or source IDs.
+function bamiInterpretWebsite_(question, prior) {
+  const model=bamiProps_().getProperty("BAMI_MODEL")||"gemini-3.5-flash-lite";
+  const key=bamiProps_().getProperty("BAMI_GEMINI_API_KEY");if(!key)return null;
+  const cache=CacheService.getScriptCache(),input=String(question||"")+"|"+String(prior?.question||"");
+  let hash=2166136261;for(let i=0;i<input.length;i++)hash=Math.imul(hash^input.charCodeAt(i),16777619);
+  const cacheKey="bami_intent_"+(hash>>>0).toString(16),saved=bamiJson_(cache.get(cacheKey),null);
+  if(saved)return saved.kind==="NONE"?null:saved;
+  const schema='Return ONLY JSON with kind DISCOVERY, EDUCATION, or UNKNOWN; family one of article, ebook, video, seminar, presentation, or empty; period one of this_month, last_month, this_year, last_year, this_week, last_week, today, yesterday, or empty; sort LATEST or empty; action COUNT or DISCOVER; topic one short subject copied from the user question or empty. Interpret language only. Do not answer the question, invent a topic, or provide any facts.';
+  const payload={systemInstruction:{parts:[{text:schema}]},contents:[{role:"user",parts:[{text:JSON.stringify({question:BAMI_CORE.redact(question),priorQuestion:BAMI_CORE.redact(prior?.question||"")})}]}],generationConfig:{temperature:0,maxOutputTokens:150,responseMimeType:"application/json"}};
+  try {
+    bamiDailyModelQuota_();
+    const response=UrlFetchApp.fetch("https://generativelanguage.googleapis.com/v1beta/models/"+encodeURIComponent(model)+":generateContent",{method:"post",contentType:"application/json",headers:{"x-goog-api-key":key},payload:JSON.stringify(payload),muteHttpExceptions:true});
+    if(response.getResponseCode()!==200)return null;
+    const body=bamiJson_(response.getContentText(),{}),raw=String((body.candidates||[])[0]?.content?.parts?.map(part=>part.text||"").join("")||"");
+    const parsed=bamiJson_(raw,null),families=["","article","ebook","video","seminar","presentation"],periods=["","this_month","last_month","this_year","last_year","this_week","last_week","today","yesterday"];
+    if(!parsed||!["DISCOVERY","EDUCATION","UNKNOWN"].includes(parsed.kind)||!families.includes(parsed.family)||!periods.includes(parsed.period)||!["","LATEST"].includes(parsed.sort)||!["COUNT","DISCOVER"].includes(parsed.action))return null;
+    const topic=String(parsed.topic||"").toLowerCase().trim().slice(0,80);
+    const original=String(question||"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
+    if(topic&&!original.includes(topic.replace(/[^\p{L}\p{N}]+/gu," ").trim()))return null;
+    const result={kind:parsed.kind,family:parsed.family,period:parsed.period,sort:parsed.sort,action:parsed.action,topic};
+    cache.put(cacheKey,JSON.stringify(result.kind==="DISCOVERY"?result:{kind:"NONE"}),3600);
+    return result.kind==="DISCOVERY"?result:null;
+  } catch(_){return null;}
+}
 function bamiAnswer_(question, profile, matches, lang, intent, safety) {
   const bahasa = lang === "id";
   if (safety === "urgent") return { answer: bahasa ? "Jika seseorang sulit bernapas atau mengalami gejala gawat, segera cari pertolongan medis darurat. BAMI tidak dapat menilai keadaan darurat." : "If someone has difficulty breathing or another urgent symptom, seek emergency medical care now. BAMI cannot assess an emergency.", status: "SAFETY_LIMITED", safety };
@@ -419,10 +528,14 @@ function bamiAsk_(input, trustedQa) {
   const intent = safety === "normal" && !BAMI_CORE.injection(question) ? BAMI_CORE.intent(question) : "KNOWLEDGE";
   const knowledge = intent === "KNOWLEDGE" && safety === "normal" && !BAMI_CORE.injection(question) ? bamiKnowledge_() : [];
   const previous = prior ? { question: prior.question, ids: bamiJson_(prior.referenced_content_ids, []) } : null;
-  const structured = knowledge.length ? BAMI_CORE.websiteLookup(question, knowledge, lang, Date.now(), previous) : null;
+  let structured = knowledge.length ? BAMI_CORE.websiteLookup(question, knowledge, lang, Date.now(), previous) : null;
   const contextual = /\b(materi ini|konten ini|video ini|ebook ini|artikel ini|yang tadi|tentang itu|this material|this video|this ebook|that material)\b/i.test(question);
   const priorMatches = contextual ? (previous?.ids || []).map(id => knowledge.find(item => item.id === id)).filter(Boolean).slice(0, 5) : [];
-  const matches = structured ? structured.sources.map(source => knowledge.find(item => item.id === source.id)).filter(Boolean) : priorMatches.length ? priorMatches : knowledge.length ? BAMI_CORE.retrieve(question, knowledge) : [];
+  let matches = structured ? structured.sources.map(source => knowledge.find(item => item.id === source.id)).filter(Boolean) : priorMatches.length ? priorMatches : knowledge.length ? BAMI_CORE.retrieve(question, knowledge) : [];
+  if(!structured&&!matches.length&&knowledge.length&&safety==="normal"&&intent==="KNOWLEDGE"&&!BAMI_CORE.injection(question)){
+    const interpreted=bamiInterpretWebsite_(question,previous);
+    if(interpreted){structured=BAMI_CORE.websiteLookup(question,knowledge,lang,Date.now(),previous,interpreted);if(structured)matches=structured.sources.map(source=>knowledge.find(item=>item.id===source.id)).filter(Boolean);}
+  }
   let result;
   try { result = structured && !structured.needsSynthesis ? { answer: structured.answer, status: structured.status, safety: "normal", model: structured.route } : bamiAnswer_(question, visitor, matches, lang, intent, safety); }
   catch (error) { result = { answer: lang === "id" ? "BAMI sedang tidak tersedia. Silakan coba lagi sebentar." : "BAMI is temporarily unavailable. Please try again shortly.", status: "ERROR", safety, model: "unavailable", errorCode: /^BAMI_PROVIDER_(HTTP_\d+|EMPTY)$/.test(String(error.message||"")) ? error.message : "PROVIDER_UNAVAILABLE" }; }
