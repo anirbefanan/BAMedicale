@@ -80,6 +80,40 @@ test("website inventory counts only published records and preserves educational 
   assert.equal(core.websiteLookup("Ada seminar bulan ini?", [...items, unpublished], "id", now).count, 0);
 });
 
+test("discovery paraphrases resolve equivalent canonical facts without phrase-specific answers", () => {
+  const now = Date.parse("2026-10-06T12:00:00+07:00"), items = knowledge.items;
+  const previous = { question: "Ada seminar bulan ini?", ids: [] };
+  const monthQuestions = [
+    "bulan lalu ada seminar gak?", "bulan kemarin ada seminar gak?", "seminar bulan sebelumnya ada?",
+    "what seminars were there last month?", "any seminars in the previous month?", "Kalau bulan kemarin?"
+  ];
+  const month = monthQuestions.map(question => core.websiteLookup(question, items, core.language(question), now, previous));
+  assert.ok(month.every(result => result?.status === "STRUCTURED" && result.period === "last_month"));
+  assert.ok(month.every(result => result.sources.map(source => source.id).join("|") === month[0].sources.map(source => source.id).join("|")));
+  assert.equal(month[0].sources[0]?.id, "management-thyroid-nodules-2026");
+  const articleQuestions = [
+    "Do you know the latest article published?", "artikel terbaru apa?", "what is your newest article?",
+    "Which article was published most recently?", "Show me the most recent article"
+  ];
+  const articles = articleQuestions.map(question => core.websiteLookup(question, items, core.language(question), now));
+  assert.ok(articles.every(result => result?.status === "STRUCTURED" && result.sources.length === 1));
+  assert.ok(articles.every(result => result.sources[0].id === articles[0].sources[0].id));
+  assert.equal(articles[0].sources[0].id, items.filter(item => item.family === "article" && item.status === "published")
+    .sort((a, b) => Date.parse(b.date) - Date.parse(a.date) || a.title.localeCompare(b.title))[0].id);
+  const zero = ["ada seminar bulan ini?", "Are there any seminars this month?", "seminar this month ada?"].map(question =>
+    core.websiteLookup(question, items, core.language(question), now));
+  assert.ok(zero.every(result => result?.status === "STRUCTURED" && result.count === 0 && result.sources.length === 0));
+  for (const question of ["latset artcle?", "artike terbaru apa?", "seminer buln kemarin ada?"]) {
+    const result = core.websiteLookup(question, items, core.language(question), now);
+    assert.ok(result?.status === "STRUCTURED", question);
+    assert.ok(result.sources.length > 0, question);
+  }
+  const newArticle = { ...items.find(item => item.family === "article"), id: "fixture-new-article", title: "Fixture publication", date: "2026-10-07", publishedDate: "2026-10-07", url: "https://bamedicale.com/articles/fixture-publication.html" };
+  assert.equal(core.websiteLookup("What is your newest article?", [...items, newArticle], "en", now).sources[0].id, newArticle.id);
+  assert.notEqual(core.websiteLookup("What is your newest article?", [...items, { ...newArticle, status: "draft" }], "en", now).sources[0].id, newArticle.id);
+  assert.equal(core.websiteLookup("What do BA Medicale videos explain about thyroid nodules?", items, "en", now), null);
+});
+
 test("current-corpus audit resolves old website-inventory gaps without rewriting history", () => {
   const now = Date.parse("2026-10-06T12:00:00+07:00"), timestamp = "2026-10-06T09:00:00+07:00";
   const rows = [{ timestamp, session_id: "s1", answer_status: "CONTENT_GAP", content_gap: "TRUE", question: "ada seminar gak bulan ini?" },
