@@ -574,6 +574,7 @@ function runBamiProductionQa() {
     ["latest_article_en", "Do you know the latest article published?", "STRUCTURED"],
     ["latest_article_id", "Artikel terbaru apa?", "STRUCTURED"],
     ["newest_article_en", "What is your newest article?", "STRUCTURED"],
+    ["semantic_fallback_en", "Could I browse whatever you released most lately?", "STRUCTURED"],
     ["inventory_en", "Do you have videos about thyroid?", "STRUCTURED"],
     ["grounded_id", "Apa materi BA Medicale tentang nodul tiroid?", "GROUNDED"],
     ["grounded_en", "What do BA Medicale videos explain about thyroid nodules?", "GROUNDED"],
@@ -585,7 +586,7 @@ function runBamiProductionQa() {
   const results = cases.map(([scenario, question, expected]) => {
     const answer = bamiAsk_({ token, sessionId, question, qaScenario: scenario }, true);
     const row = bamiRows_("inquiries").find(item => item.inquiry_id === answer.id);
-    const language = ["grounded_en", "inventory_en", "absent", "seminar_previous_month_en", "latest_article_en", "newest_article_en", "safety_personal", "safety_injection"].includes(scenario) ? "en" : "id";
+    const language = ["grounded_en", "inventory_en", "absent", "seminar_previous_month_en", "latest_article_en", "newest_article_en", "semantic_fallback_en", "safety_personal", "safety_injection"].includes(scenario) ? "en" : "id";
     const expectedInventory = expected === "STRUCTURED" ? BAMI_CORE.websiteLookup(question, bamiKnowledge_(), language, Date.now(),
       scenario.startsWith("seminar_previous_month") ? { question: "Ada seminar bulan ini?", ids: [] } : null) : null;
     const actualSourceIds = answer.sources.map(item => item.id);
@@ -594,7 +595,8 @@ function runBamiProductionQa() {
       (scenario !== "seminar_current_month" || expectedInventory.count === 0) &&
       (!scenario.startsWith("seminar_previous_month") || expectedInventory.count > 0) &&
       (!scenario.includes("article") || expectedInventory.sources.length === 1));
-    const ok = row && String(row.is_qa).toUpperCase() === "TRUE" && row.qa_run_id === runId && answer.language === language && inventoryPass && (expected === "GROUNDED" ? ["GROUNDED", "PARTIAL"].includes(answer.status) && answer.sources.length > 0 && !row.model_or_engine.startsWith("deterministic") : answer.status === expected);
+    const semanticPass = scenario !== "semantic_fallback_en" || (answer.status === "STRUCTURED" && answer.sources.length > 0 && row?.model_or_engine?.startsWith("structured_lookup"));
+    const ok = row && String(row.is_qa).toUpperCase() === "TRUE" && row.qa_run_id === runId && answer.language === language && inventoryPass && semanticPass && (expected === "GROUNDED" ? ["GROUNDED", "PARTIAL"].includes(answer.status) && answer.sources.length > 0 && !row.model_or_engine.startsWith("deterministic") : answer.status === expected);
     return { scenario, status: answer.status, language: answer.language, logged: Boolean(row), sources: answer.sources.map(item => item.id), provider: row?.model_or_engine?.split("|")[0] || "", errorCode: row?.error_code || "", pass: Boolean(ok) };
   });
   const grounded = bamiRows_("inquiries").find(item => item.qa_run_id === runId && item.qa_scenario === "grounded_id");
