@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T03:09:29.035Z",
+  "generatedAt": "2026-10-07T12:14:48.513Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-09",
@@ -93,24 +93,16 @@
       "activeUsers": 22
     },
     {
-      "label": "Not set",
-      "activeUsers": 4
-    },
-    {
       "label": "bing / organic",
       "activeUsers": 4
     },
     {
-      "label": "l.instagram.com / referral",
+      "label": "facebook.com / referral",
       "activeUsers": 3
     },
     {
-      "label": "facebook.com / referral",
-      "activeUsers": 2
-    },
-    {
-      "label": "(data not available)",
-      "activeUsers": 1
+      "label": "l.instagram.com / referral",
+      "activeUsers": 3
     },
     {
       "label": "dataindex.pro / referral",
@@ -128,18 +120,18 @@
     },
     {
       "label": "google / organic",
-      "sessions": 143
+      "sessions": 144
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 21
+      "sessions": 20
     },
     {
       "label": "bing / organic",
       "sessions": 5
     },
     {
-      "label": "Not set",
+      "label": "facebook.com / referral",
       "sessions": 3
     },
     {
@@ -147,11 +139,7 @@
       "sessions": 3
     },
     {
-      "label": "facebook.com / referral",
-      "sessions": 2
-    },
-    {
-      "label": "(data not available)",
+      "label": "Not set",
       "sessions": 1
     },
     {

@@ -9,7 +9,7 @@
         "previousStartDate": "2026-10-05",
         "previousEndDate": "2026-10-05"
       },
-      "generatedAt": "2026-10-07T03:09:29.583Z",
+      "generatedAt": "2026-10-07T12:14:48.929Z",
       "summary": {
         "activeUsers": 8,
         "newUsers": 4,
@@ -90,12 +90,7 @@
           {
             "label": "Returning",
             "activeUsers": 4,
-            "sessions": 7
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 4
+            "sessions": 10
           },
           {
             "label": "Unclassified",
@@ -113,7 +108,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 4,
-            "sessions": 7
+            "sessions": 8
           },
           {
             "label": "Direct",
@@ -121,23 +116,8 @@
             "sessions": 4
           },
           {
-            "label": "Cross-network",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
             "label": "Organic Social",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "Referral",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 1,
+            "activeUsers": 2,
             "sessions": 2
           }
         ]
@@ -171,17 +151,17 @@
         "status": "ok",
         "rows": [
           {
-            "label": "(not set)",
-            "activeUsers": 4,
-            "sessions": 11
+            "label": "(direct) / (none)",
+            "activeUsers": 3,
+            "sessions": 6
           },
           {
             "label": "google / organic",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 3,
+            "sessions": 6
           },
           {
-            "label": "(data not available)",
+            "label": "facebook.com / referral",
             "activeUsers": 1,
             "sessions": 1
           },
@@ -198,7 +178,7 @@
           {
             "label": "google / organic",
             "activeUsers": 4,
-            "sessions": 7
+            "sessions": 8
           },
           {
             "label": "(direct) / (none)",
@@ -206,17 +186,7 @@
             "sessions": 4
           },
           {
-            "label": "(data not available)",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 2
-          },
-          {
-            "label": "keep.google.com / referral",
+            "label": "facebook.com / referral",
             "activeUsers": 1,
             "sessions": 1
           },
@@ -425,12 +395,6 @@
             "engagementRate": 0.5
           },
           {
-            "path": "/library.html",
-            "title": "Medical Library",
-            "sessions": 2,
-            "engagementRate": 0.5
-          },
-          {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "sessions": 1,
@@ -443,22 +407,10 @@
             "engagementRate": 1
           },
           {
-            "path": "/public.html",
-            "title": "For Public",
+            "path": "/library.html",
+            "title": "Medical Library",
             "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/resources.html",
-            "title": "Resources",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/videos.html",
-            "title": "Videos",
-            "sessions": 1,
-            "engagementRate": 0
+            "engagementRate": 1
           }
         ]
       },
@@ -477,7 +429,7 @@
         "previousStartDate": "2026-09-23",
         "previousEndDate": "2026-09-29"
       },
-      "generatedAt": "2026-10-07T03:09:29.583Z",
+      "generatedAt": "2026-10-07T12:14:48.929Z",
       "summary": {
         "activeUsers": 13,
         "newUsers": 9,
@@ -732,12 +684,7 @@
           {
             "label": "Returning",
             "activeUsers": 6,
-            "sessions": 18
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 4
+            "sessions": 21
           },
           {
             "label": "Unclassified",
@@ -755,7 +702,12 @@
           {
             "label": "Organic Search",
             "activeUsers": 8,
-            "sessions": 23
+            "sessions": 24
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "Direct",
@@ -763,22 +715,7 @@
             "sessions": 10
           },
           {
-            "label": "Organic Social",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "Cross-network",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
             "label": "Referral",
-            "activeUsers": 1,
-            "sessions": 3
-          },
-          {
-            "label": "Unassigned",
             "activeUsers": 1,
             "sessions": 2
           }
@@ -815,30 +752,20 @@
           {
             "label": "google / organic",
             "activeUsers": 6,
-            "sessions": 11
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 4,
-            "sessions": 11
+            "sessions": 15
           },
           {
             "label": "(direct) / (none)",
-            "activeUsers": 2,
-            "sessions": 14
-          },
-          {
-            "label": "(data not available)",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "bing / organic",
-            "activeUsers": 1,
-            "sessions": 1
+            "activeUsers": 3,
+            "sessions": 20
           },
           {
             "label": "facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "bing / organic",
             "activeUsers": 1,
             "sessions": 1
           },
@@ -855,7 +782,7 @@
           {
             "label": "google / organic",
             "activeUsers": 7,
-            "sessions": 22
+            "sessions": 23
           },
           {
             "label": "(direct) / (none)",
@@ -863,13 +790,8 @@
             "sessions": 10
           },
           {
-            "label": "(data not available)",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
+            "label": "facebook.com / referral",
+            "activeUsers": 2,
             "sessions": 2
           },
           {
@@ -878,14 +800,9 @@
             "sessions": 1
           },
           {
-            "label": "facebook.com / referral",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
             "label": "keep.google.com / referral",
             "activeUsers": 1,
-            "sessions": 3
+            "sessions": 2
           },
           {
             "label": "l.instagram.com / referral",
@@ -1103,8 +1020,8 @@
           {
             "path": "/videos.html",
             "title": "Videos",
-            "sessions": 4,
-            "engagementRate": 0.5
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
@@ -1121,24 +1038,12 @@
           {
             "path": "/library.html",
             "title": "Medical Library",
-            "sessions": 2,
-            "engagementRate": 0.5
+            "sessions": 1,
+            "engagementRate": 1
           },
           {
             "path": "/nana-febrina-profile.html",
             "title": "Nana Febrina | Operations & Digital Development",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/public.html",
-            "title": "For Public",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/resources.html",
-            "title": "Resources",
             "sessions": 1,
             "engagementRate": 0
           }
@@ -1159,7 +1064,7 @@
         "previousStartDate": "2026-08-12",
         "previousEndDate": "2026-09-08"
       },
-      "generatedAt": "2026-10-07T03:09:29.583Z",
+      "generatedAt": "2026-10-07T12:14:48.929Z",
       "summary": {
         "activeUsers": 216,
         "newUsers": 209,
@@ -2023,12 +1928,7 @@
           {
             "label": "Returning",
             "activeUsers": 46,
-            "sessions": 200
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 4
+            "sessions": 203
           },
           {
             "label": "Unclassified",
@@ -2051,25 +1951,20 @@
           {
             "label": "Organic Search",
             "activeUsers": 28,
-            "sessions": 148
+            "sessions": 149
           },
           {
             "label": "Organic Social",
-            "activeUsers": 6,
-            "sessions": 6
+            "activeUsers": 7,
+            "sessions": 7
           },
           {
             "label": "Referral",
             "activeUsers": 2,
-            "sessions": 22
+            "sessions": 21
           },
           {
             "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 3
-          },
-          {
-            "label": "Cross-network",
             "activeUsers": 1,
             "sessions": 1
           }
@@ -2116,17 +2011,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 182,
-            "sessions": 354
+            "sessions": 360
           },
           {
             "label": "google / organic",
             "activeUsers": 22,
-            "sessions": 73
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 4,
-            "sessions": 11
+            "sessions": 77
           },
           {
             "label": "bing / organic",
@@ -2134,19 +2024,14 @@
             "sessions": 5
           },
           {
-            "label": "l.instagram.com / referral",
+            "label": "facebook.com / referral",
             "activeUsers": 3,
             "sessions": 3
           },
           {
-            "label": "facebook.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(data not available)",
-            "activeUsers": 1,
-            "sessions": 1
+            "label": "l.instagram.com / referral",
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "dataindex.pro / referral",
@@ -2171,12 +2056,17 @@
           {
             "label": "google / organic",
             "activeUsers": 24,
-            "sessions": 143
+            "sessions": 144
           },
           {
             "label": "bing / organic",
             "activeUsers": 4,
             "sessions": 5
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "l.instagram.com / referral",
@@ -2185,16 +2075,6 @@
           },
           {
             "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 3
-          },
-          {
-            "label": "facebook.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(data not available)",
             "activeUsers": 1,
             "sessions": 1
           },
@@ -2206,7 +2086,7 @@
           {
             "label": "keep.google.com / referral",
             "activeUsers": 1,
-            "sessions": 21
+            "sessions": 20
           },
           {
             "label": "m.facebook.com / referral",
@@ -2541,8 +2421,8 @@
           {
             "path": "/videos.html",
             "title": "Videos",
-            "sessions": 19,
-            "engagementRate": 0.5263
+            "sessions": 18,
+            "engagementRate": 0.5556
           },
           {
             "path": "/traffic.html",
@@ -2553,8 +2433,8 @@
           {
             "path": "/library.html",
             "title": "Medical Library",
-            "sessions": 9,
-            "engagementRate": 0.6667
+            "sessions": 8,
+            "engagementRate": 0.75
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
@@ -2593,12 +2473,6 @@
             "engagementRate": 0
           },
           {
-            "path": "/public.html",
-            "title": "For Public",
-            "sessions": 4,
-            "engagementRate": 0.5
-          },
-          {
             "path": "/seminar.html",
             "title": "Courses & Seminars",
             "sessions": 4,
@@ -2609,6 +2483,12 @@
             "title": "BA Medicale Team | Physician-Led Medical Education",
             "sessions": 4,
             "engagementRate": 0.5
+          },
+          {
+            "path": "/public.html",
+            "title": "For Public",
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
@@ -2643,12 +2523,6 @@
           {
             "path": "/ebooks/essentials-of-breast-health.html",
             "title": "Essentials of Breast Health",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/resources.html",
-            "title": "Resources",
             "sessions": 1,
             "engagementRate": 0
           }
@@ -2706,7 +2580,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-06"
       },
-      "generatedAt": "2026-10-07T03:09:29.583Z",
+      "generatedAt": "2026-10-07T12:14:48.929Z",
       "summary": {
         "activeUsers": 11,
         "newUsers": 7,
@@ -2932,12 +2806,7 @@
           {
             "label": "Returning",
             "activeUsers": 5,
-            "sessions": 17
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 4
+            "sessions": 20
           },
           {
             "label": "Unclassified",
@@ -2955,7 +2824,12 @@
           {
             "label": "Organic Search",
             "activeUsers": 6,
-            "sessions": 20
+            "sessions": 21
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "Direct",
@@ -2963,22 +2837,7 @@
             "sessions": 9
           },
           {
-            "label": "Organic Social",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "Cross-network",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
             "label": "Referral",
-            "activeUsers": 1,
-            "sessions": 3
-          },
-          {
-            "label": "Unassigned",
             "activeUsers": 1,
             "sessions": 2
           }
@@ -3013,32 +2872,22 @@
         "status": "ok",
         "rows": [
           {
-            "label": "(not set)",
-            "activeUsers": 4,
-            "sessions": 11
-          },
-          {
             "label": "google / organic",
             "activeUsers": 4,
-            "sessions": 8
+            "sessions": 12
           },
           {
             "label": "(direct) / (none)",
-            "activeUsers": 2,
-            "sessions": 13
-          },
-          {
-            "label": "(data not available)",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "bing / organic",
-            "activeUsers": 1,
-            "sessions": 1
+            "activeUsers": 3,
+            "sessions": 19
           },
           {
             "label": "facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "bing / organic",
             "activeUsers": 1,
             "sessions": 1
           },
@@ -3055,7 +2904,7 @@
           {
             "label": "google / organic",
             "activeUsers": 5,
-            "sessions": 19
+            "sessions": 20
           },
           {
             "label": "(direct) / (none)",
@@ -3063,13 +2912,8 @@
             "sessions": 9
           },
           {
-            "label": "(data not available)",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
+            "label": "facebook.com / referral",
+            "activeUsers": 2,
             "sessions": 2
           },
           {
@@ -3078,14 +2922,9 @@
             "sessions": 1
           },
           {
-            "label": "facebook.com / referral",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
             "label": "keep.google.com / referral",
             "activeUsers": 1,
-            "sessions": 3
+            "sessions": 2
           },
           {
             "label": "l.instagram.com / referral",
@@ -3295,16 +3134,16 @@
             "engagementRate": 0.7143
           },
           {
-            "path": "/videos.html",
-            "title": "Videos",
-            "sessions": 4,
-            "engagementRate": 0.5
-          },
-          {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "sessions": 3,
             "engagementRate": 0.3333
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
@@ -3321,24 +3160,12 @@
           {
             "path": "/library.html",
             "title": "Medical Library",
-            "sessions": 2,
-            "engagementRate": 0.5
+            "sessions": 1,
+            "engagementRate": 1
           },
           {
             "path": "/nana-febrina-profile.html",
             "title": "Nana Febrina | Operations & Digital Development",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/public.html",
-            "title": "For Public",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/resources.html",
-            "title": "Resources",
             "sessions": 1,
             "engagementRate": 0
           }
@@ -3359,7 +3186,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-07T03:09:29.583Z",
+      "generatedAt": "2026-10-07T12:14:48.929Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5706,10 +5533,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-07T03:09:29.583Z",
+  "generatedAt": "2026-10-07T12:14:48.929Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-07T03:09:29.583Z",
+    "generatedAt": "2026-10-07T12:14:48.929Z",
     "windowMinutes": 30
   }
 }
