@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-08T12:24:46.376Z",
+  "generatedAt": "2026-10-08T22:37:20.743Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-10",
-    "endDate": "2026-10-07"
+    "startDate": "2026-09-11",
+    "endDate": "2026-10-08"
   },
   "summary": {
-    "activeUsers": 216,
-    "newUsers": 209,
-    "averageEngagementTimeSeconds": 121.59722222222223,
-    "eventCount": 3788
+    "activeUsers": 212,
+    "newUsers": 205,
+    "averageEngagementTimeSeconds": 117.11792452830188,
+    "eventCount": 3760
   },
   "topPages": [
     {
@@ -21,23 +21,23 @@
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 298,
-      "activeUsers": 57,
-      "eventCount": 745,
-      "bounceRate": 0.3179190751445087
+      "views": 294,
+      "activeUsers": 53,
+      "eventCount": 728,
+      "bounceRate": 0.3333333333333333
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 97,
+      "views": 95,
       "activeUsers": 12,
-      "eventCount": 221,
+      "eventCount": 217,
       "bounceRate": 0.05555555555555555
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 90,
+      "views": 94,
       "activeUsers": 9,
-      "eventCount": 194,
+      "eventCount": 209,
       "bounceRate": 0.1702127659574468
     },
     {
@@ -56,17 +56,17 @@
     },
     {
       "title": "Advanced Diagnostics and Management of Thyroid Nodules | BA Medicale",
-      "views": 39,
-      "activeUsers": 6,
-      "eventCount": 124,
-      "bounceRate": 0.06666666666666667
+      "views": 40,
+      "activeUsers": 7,
+      "eventCount": 127,
+      "bounceRate": 0.125
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 38,
-      "activeUsers": 9,
-      "eventCount": 94,
-      "bounceRate": 0.043478260869565216
+      "views": 37,
+      "activeUsers": 8,
+      "eventCount": 92,
+      "bounceRate": 0.045454545454545456
     },
     {
       "title": "For Public | BA Medicale",
@@ -90,23 +90,23 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 22
-    },
-    {
-      "label": "bing / organic",
-      "activeUsers": 4
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 3
+      "activeUsers": 21
     },
     {
       "label": "facebook.com / referral",
       "activeUsers": 3
     },
     {
+      "label": "bing / organic",
+      "activeUsers": 2
+    },
+    {
       "label": "l.instagram.com / referral",
-      "activeUsers": 3
+      "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
     },
     {
       "label": "dataindex.pro / referral",
@@ -131,19 +131,19 @@
       "sessions": 20
     },
     {
-      "label": "bing / organic",
-      "sessions": 5
-    },
-    {
       "label": "facebook.com / referral",
       "sessions": 3
     },
     {
-      "label": "l.instagram.com / referral",
-      "sessions": 3
+      "label": "Not set",
+      "sessions": 2
     },
     {
-      "label": "Not set",
+      "label": "bing / organic",
+      "sessions": 2
+    },
+    {
+      "label": "l.instagram.com / referral",
       "sessions": 2
     },
     {
@@ -158,7 +158,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 67
+      "activeUsers": 65
     },
     {
       "label": "Not set",
