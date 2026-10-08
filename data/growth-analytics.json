@@ -9,20 +9,20 @@
         "previousStartDate": "2026-10-06",
         "previousEndDate": "2026-10-06"
       },
-      "generatedAt": "2026-10-07T22:24:17.777Z",
+      "generatedAt": "2026-10-08T03:25:26.657Z",
       "summary": {
-        "activeUsers": 2,
+        "activeUsers": 3,
         "newUsers": 0,
-        "screenPageViews": 6,
-        "sessions": 5,
+        "screenPageViews": 7,
+        "sessions": 6,
         "engagedSessions": 2,
-        "userEngagementDuration": 13,
-        "eventCount": 20,
+        "userEngagementDuration": 15,
+        "eventCount": 23,
         "keyEvents": 0,
-        "totalUsers": 4,
-        "averageEngagementTimeSeconds": 6.5,
-        "engagementRate": 0.4,
-        "returningUsers": 2
+        "totalUsers": 5,
+        "averageEngagementTimeSeconds": 5,
+        "engagementRate": 0.3333,
+        "returningUsers": 3
       },
       "previous": {
         "activeUsers": 8,
@@ -48,18 +48,18 @@
         "current": [
           {
             "date": "2026-10-07",
-            "activeUsers": 2,
+            "activeUsers": 3,
             "newUsers": 0,
-            "screenPageViews": 6,
-            "sessions": 5,
+            "screenPageViews": 7,
+            "sessions": 6,
             "engagedSessions": 2,
-            "userEngagementDuration": 13,
-            "eventCount": 20,
+            "userEngagementDuration": 15,
+            "eventCount": 23,
             "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 6.5,
-            "engagementRate": 0.4,
-            "returningUsers": 2
+            "totalUsers": 5,
+            "averageEngagementTimeSeconds": 5,
+            "engagementRate": 0.3333,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -84,8 +84,8 @@
         "rows": [
           {
             "label": "Returning",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "Unclassified",
@@ -107,8 +107,8 @@
         "rows": [
           {
             "label": "Organic Search",
-            "activeUsers": 2,
-            "sessions": 3
+            "activeUsers": 3,
+            "sessions": 4
           },
           {
             "label": "Unassigned",
@@ -132,8 +132,8 @@
           },
           {
             "label": "desktop",
-            "activeUsers": 0,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 3
           }
         ]
       },
@@ -146,8 +146,8 @@
         "rows": [
           {
             "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
+            "activeUsers": 3,
+            "sessions": 6
           }
         ]
       },
@@ -156,8 +156,8 @@
         "rows": [
           {
             "label": "google / organic",
-            "activeUsers": 2,
-            "sessions": 3
+            "activeUsers": 3,
+            "sessions": 4
           },
           {
             "label": "(not set)",
@@ -178,10 +178,10 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 6,
-            "eventCount": 20,
-            "engagement": 6.5
+            "activeUsers": 3,
+            "views": 7,
+            "eventCount": 23,
+            "engagement": 5
           }
         ]
       },
@@ -191,8 +191,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 3,
-            "engagementRate": 0.3333
+            "sessions": 4,
+            "engagementRate": 0.25
           },
           {
             "path": "/index.html",
@@ -217,19 +217,19 @@
         "previousStartDate": "2026-09-24",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-10-07T22:24:17.777Z",
+      "generatedAt": "2026-10-08T03:25:26.657Z",
       "summary": {
         "activeUsers": 12,
         "newUsers": 7,
-        "screenPageViews": 116,
-        "sessions": 40,
+        "screenPageViews": 117,
+        "sessions": 41,
         "engagedSessions": 20,
-        "userEngagementDuration": 1717,
-        "eventCount": 321,
+        "userEngagementDuration": 1719,
+        "eventCount": 324,
         "keyEvents": 0,
         "totalUsers": 14,
-        "averageEngagementTimeSeconds": 143.0833,
-        "engagementRate": 0.5,
+        "averageEngagementTimeSeconds": 143.25,
+        "engagementRate": 0.4878,
         "returningUsers": 6
       },
       "previous": {
@@ -346,18 +346,18 @@
           },
           {
             "date": "2026-10-07",
-            "activeUsers": 2,
+            "activeUsers": 3,
             "newUsers": 0,
-            "screenPageViews": 6,
-            "sessions": 5,
+            "screenPageViews": 7,
+            "sessions": 6,
             "engagedSessions": 2,
-            "userEngagementDuration": 13,
-            "eventCount": 20,
+            "userEngagementDuration": 15,
+            "eventCount": 23,
             "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 6.5,
-            "engagementRate": 0.4,
-            "returningUsers": 2
+            "totalUsers": 5,
+            "averageEngagementTimeSeconds": 5,
+            "engagementRate": 0.3333,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -472,7 +472,7 @@
           {
             "label": "Returning",
             "activeUsers": 6,
-            "sessions": 22
+            "sessions": 23
           },
           {
             "label": "Unclassified",
@@ -495,7 +495,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 7,
-            "sessions": 24
+            "sessions": 25
           },
           {
             "label": "Organic Social",
@@ -525,7 +525,7 @@
           {
             "label": "desktop",
             "activeUsers": 9,
-            "sessions": 24
+            "sessions": 25
           },
           {
             "label": "mobile",
@@ -540,7 +540,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 7,
-            "sessions": 33
+            "sessions": 34
           }
         ]
       },
@@ -559,8 +559,8 @@
           },
           {
             "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
+            "activeUsers": 3,
+            "sessions": 6
           },
           {
             "label": "facebook.com / referral",
@@ -585,7 +585,7 @@
           {
             "label": "google / organic",
             "activeUsers": 6,
-            "sessions": 23
+            "sessions": 24
           },
           {
             "label": "(direct) / (none)",
@@ -627,9 +627,9 @@
             "title": "BA Medicale — Home",
             "type": "Other public pages",
             "activeUsers": 7,
-            "views": 56,
-            "eventCount": 151,
-            "engagement": 127.1429
+            "views": 57,
+            "eventCount": 154,
+            "engagement": 127.4286
           },
           {
             "path": "/videos.html",
@@ -810,8 +810,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 17,
-            "engagementRate": 0.5294
+            "sessions": 18,
+            "engagementRate": 0.5
           },
           {
             "path": "/index.html",
@@ -872,19 +872,19 @@
         "previousStartDate": "2026-08-13",
         "previousEndDate": "2026-09-09"
       },
-      "generatedAt": "2026-10-07T22:24:17.777Z",
+      "generatedAt": "2026-10-08T03:25:26.657Z",
       "summary": {
         "activeUsers": 216,
         "newUsers": 209,
-        "screenPageViews": 1278,
-        "sessions": 452,
+        "screenPageViews": 1279,
+        "sessions": 453,
         "engagedSessions": 269,
-        "userEngagementDuration": 26209,
-        "eventCount": 3775,
+        "userEngagementDuration": 26211,
+        "eventCount": 3778,
         "keyEvents": 0,
         "totalUsers": 218,
-        "averageEngagementTimeSeconds": 121.338,
-        "engagementRate": 0.5951,
+        "averageEngagementTimeSeconds": 121.3472,
+        "engagementRate": 0.5938,
         "returningUsers": 46
       },
       "previous": {
@@ -1316,18 +1316,18 @@
           },
           {
             "date": "2026-10-07",
-            "activeUsers": 2,
+            "activeUsers": 3,
             "newUsers": 0,
-            "screenPageViews": 6,
-            "sessions": 5,
+            "screenPageViews": 7,
+            "sessions": 6,
             "engagedSessions": 2,
-            "userEngagementDuration": 13,
-            "eventCount": 20,
+            "userEngagementDuration": 15,
+            "eventCount": 23,
             "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 6.5,
-            "engagementRate": 0.4,
-            "returningUsers": 2
+            "totalUsers": 5,
+            "averageEngagementTimeSeconds": 5,
+            "engagementRate": 0.3333,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -1736,7 +1736,7 @@
           {
             "label": "Returning",
             "activeUsers": 46,
-            "sessions": 202
+            "sessions": 203
           },
           {
             "label": "Unclassified",
@@ -1764,7 +1764,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 28,
-            "sessions": 149
+            "sessions": 150
           },
           {
             "label": "Organic Social",
@@ -1794,7 +1794,7 @@
           {
             "label": "desktop",
             "activeUsers": 90,
-            "sessions": 192
+            "sessions": 193
           },
           {
             "label": "tablet",
@@ -1809,7 +1809,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 185,
-            "sessions": 407
+            "sessions": 408
           },
           {
             "label": "United States",
@@ -1837,6 +1837,11 @@
             "sessions": 5
           },
           {
+            "label": "(not set)",
+            "activeUsers": 3,
+            "sessions": 6
+          },
+          {
             "label": "facebook.com / referral",
             "activeUsers": 3,
             "sessions": 3
@@ -1845,11 +1850,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 3,
             "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
           },
           {
             "label": "dataindex.pro / referral",
@@ -1874,7 +1874,7 @@
           {
             "label": "google / organic",
             "activeUsers": 24,
-            "sessions": 144
+            "sessions": 145
           },
           {
             "label": "bing / organic",
@@ -1930,9 +1930,9 @@
             "title": "BA Medicale — Home",
             "type": "Other public pages",
             "activeUsers": 57,
-            "views": 297,
-            "eventCount": 742,
-            "engagement": 96.6667
+            "views": 298,
+            "eventCount": 745,
+            "engagement": 96.7018
           },
           {
             "path": "/library.html",
@@ -2227,8 +2227,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 93,
-            "engagementRate": 0.5914
+            "sessions": 94,
+            "engagementRate": 0.5851
           },
           {
             "path": "/index.html",
@@ -2398,19 +2398,19 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-07"
       },
-      "generatedAt": "2026-10-07T22:24:17.777Z",
+      "generatedAt": "2026-10-08T03:25:26.657Z",
       "summary": {
         "activeUsers": 12,
         "newUsers": 7,
-        "screenPageViews": 116,
-        "sessions": 40,
+        "screenPageViews": 117,
+        "sessions": 41,
         "engagedSessions": 20,
-        "userEngagementDuration": 1717,
-        "eventCount": 321,
+        "userEngagementDuration": 1719,
+        "eventCount": 324,
         "keyEvents": 0,
         "totalUsers": 14,
-        "averageEngagementTimeSeconds": 143.0833,
-        "engagementRate": 0.5,
+        "averageEngagementTimeSeconds": 143.25,
+        "engagementRate": 0.4878,
         "returningUsers": 6
       },
       "previous": {
@@ -2527,18 +2527,18 @@
           },
           {
             "date": "2026-10-07",
-            "activeUsers": 2,
+            "activeUsers": 3,
             "newUsers": 0,
-            "screenPageViews": 6,
-            "sessions": 5,
+            "screenPageViews": 7,
+            "sessions": 6,
             "engagedSessions": 2,
-            "userEngagementDuration": 13,
-            "eventCount": 20,
+            "userEngagementDuration": 15,
+            "eventCount": 23,
             "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 6.5,
-            "engagementRate": 0.4,
-            "returningUsers": 2
+            "totalUsers": 5,
+            "averageEngagementTimeSeconds": 5,
+            "engagementRate": 0.3333,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -2653,7 +2653,7 @@
           {
             "label": "Returning",
             "activeUsers": 6,
-            "sessions": 22
+            "sessions": 23
           },
           {
             "label": "Unclassified",
@@ -2676,7 +2676,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 7,
-            "sessions": 24
+            "sessions": 25
           },
           {
             "label": "Organic Social",
@@ -2706,7 +2706,7 @@
           {
             "label": "desktop",
             "activeUsers": 9,
-            "sessions": 24
+            "sessions": 25
           },
           {
             "label": "mobile",
@@ -2721,7 +2721,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 7,
-            "sessions": 33
+            "sessions": 34
           }
         ]
       },
@@ -2740,8 +2740,8 @@
           },
           {
             "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
+            "activeUsers": 3,
+            "sessions": 6
           },
           {
             "label": "facebook.com / referral",
@@ -2766,7 +2766,7 @@
           {
             "label": "google / organic",
             "activeUsers": 6,
-            "sessions": 23
+            "sessions": 24
           },
           {
             "label": "(direct) / (none)",
@@ -2808,9 +2808,9 @@
             "title": "BA Medicale — Home",
             "type": "Other public pages",
             "activeUsers": 7,
-            "views": 56,
-            "eventCount": 151,
-            "engagement": 127.1429
+            "views": 57,
+            "eventCount": 154,
+            "engagement": 127.4286
           },
           {
             "path": "/videos.html",
@@ -2991,8 +2991,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 17,
-            "engagementRate": 0.5294
+            "sessions": 18,
+            "engagementRate": 0.5
           },
           {
             "path": "/index.html",
@@ -3053,7 +3053,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-07T22:24:17.777Z",
+      "generatedAt": "2026-10-08T03:25:26.657Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5400,10 +5400,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-07T22:24:17.777Z",
+  "generatedAt": "2026-10-08T03:25:26.657Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-07T22:24:17.777Z",
+    "generatedAt": "2026-10-08T03:25:26.657Z",
     "windowMinutes": 30
   }
 }
