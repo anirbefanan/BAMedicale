@@ -16,7 +16,7 @@ test("traffic page exposes the required semantic, SEO, and fallback content", ()
   assert.match(html, /<h1 id="traffic-title">Website Traffic &amp; Education Impact<\/h1>/);
   assert.match(html, /data-growth-period/);
   assert.match(html, /Loading the latest public aggregates/);
-  assert.match(html, /does not display individual visitor information/);
+  assert.match(html, /Source: Google Analytics 4\. Statistics are aggregated, updated every six hours, and do not identify individual visitors\./);
   assert.match(html, /data-growth-content/);
   assert.match(html, /data-shell/);
   assert.match(html, /data-footer/);
@@ -60,4 +60,5 @@ test("dashboard uses one six-hour aggregate payload without realtime polling", (
   assert.match(dashboard, /Last updated:/);
   assert.doesNotMatch(dashboard, /traffic-realtime|loadRealtime|5\s*\*\s*60\s*\*\s*1000/);
   assert.doesNotMatch(dashboard, /analyticsdata\.googleapis\.com/);
+  assert.doesNotMatch(dashboard, /Metric definitions and reporting scope|GA4 metric definitions/);
 });
