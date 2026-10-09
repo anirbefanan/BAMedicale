@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-09T12:14:16.221Z",
+  "generatedAt": "2026-10-09T21:58:25.678Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-11",
-    "endDate": "2026-10-08"
+    "startDate": "2026-09-12",
+    "endDate": "2026-10-09"
   },
   "summary": {
-    "activeUsers": 212,
-    "newUsers": 205,
-    "averageEngagementTimeSeconds": 117.11792452830188,
-    "eventCount": 3760
+    "activeUsers": 213,
+    "newUsers": 206,
+    "averageEngagementTimeSeconds": 119.06103286384976,
+    "eventCount": 3768
   },
   "topPages": [
     {
@@ -21,10 +21,10 @@
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 294,
+      "views": 293,
       "activeUsers": 53,
-      "eventCount": 728,
-      "bounceRate": 0.3333333333333333
+      "eventCount": 733,
+      "bounceRate": 0.3391812865497076
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -35,10 +35,10 @@
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 94,
+      "views": 95,
       "activeUsers": 9,
-      "eventCount": 209,
-      "bounceRate": 0.1702127659574468
+      "eventCount": 211,
+      "bounceRate": 0.16666666666666666
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -59,14 +59,14 @@
       "views": 40,
       "activeUsers": 7,
       "eventCount": 127,
-      "bounceRate": 0.125
+      "bounceRate": 0.0625
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 37,
+      "views": 38,
       "activeUsers": 8,
-      "eventCount": 92,
-      "bounceRate": 0.045454545454545456
+      "eventCount": 95,
+      "bounceRate": 0.08695652173913043
     },
     {
       "title": "For Public | BA Medicale",
@@ -76,11 +76,11 @@
       "bounceRate": 0.05555555555555555
     },
     {
-      "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules | Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
+      "title": "BA Medicale Growth & Education Impact Dashboard",
       "views": 27,
-      "activeUsers": 9,
-      "eventCount": 75,
-      "bounceRate": 0.07692307692307693
+      "activeUsers": 4,
+      "eventCount": 65,
+      "bounceRate": 0.2
     }
   ],
   "firstUserSources": [
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 21
+      "activeUsers": 22
     },
     {
       "label": "facebook.com / referral",
@@ -120,11 +120,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 273
+      "sessions": 274
     },
     {
       "label": "google / organic",
-      "sessions": 145
+      "sessions": 142
     },
     {
       "label": "keep.google.com / referral",
