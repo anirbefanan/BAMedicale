@@ -9,7 +9,7 @@
         "previousStartDate": "2026-10-08",
         "previousEndDate": "2026-10-08"
       },
-      "generatedAt": "2026-10-10T11:32:05.473Z",
+      "generatedAt": "2026-10-10T16:32:20.630Z",
       "summary": {
         "activeUsers": 3,
         "newUsers": 2,
@@ -96,11 +96,6 @@
             "label": "Unclassified",
             "activeUsers": 0,
             "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
           }
         ]
       },
@@ -119,11 +114,6 @@
             "label": "Direct",
             "activeUsers": 1,
             "sessions": 2
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
           }
         ]
       },
@@ -145,19 +135,14 @@
         "status": "ok",
         "rows": [
           {
-            "label": "(direct) / (none)",
-            "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
+            "label": "google / organic",
+            "activeUsers": 2,
             "sessions": 2
           },
           {
-            "label": "google / organic",
+            "label": "(direct) / (none)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           }
         ]
       },
@@ -173,11 +158,6 @@
             "label": "(direct) / (none)",
             "activeUsers": 1,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           }
         ]
       },
@@ -260,12 +240,6 @@
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 1,
             "engagementRate": 1
-          },
-          {
-            "path": "/traffic.html",
-            "title": "BA Medicale Growth & Education Impact Dashboard",
-            "sessions": 1,
-            "engagementRate": 0
           }
         ]
       },
@@ -284,7 +258,7 @@
         "previousStartDate": "2026-09-26",
         "previousEndDate": "2026-10-02"
       },
-      "generatedAt": "2026-10-10T11:32:05.473Z",
+      "generatedAt": "2026-10-10T16:32:20.630Z",
       "summary": {
         "activeUsers": 15,
         "newUsers": 10,
@@ -544,12 +518,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 8
+            "sessions": 9
           }
         ]
       },
@@ -578,11 +547,6 @@
             "label": "Referral",
             "activeUsers": 1,
             "sessions": 2
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
           }
         ]
       },
@@ -617,21 +581,16 @@
           {
             "label": "google / organic",
             "activeUsers": 6,
-            "sessions": 16
+            "sessions": 17
           },
           {
             "label": "(direct) / (none)",
             "activeUsers": 5,
-            "sessions": 19
+            "sessions": 20
           },
           {
             "label": "facebook.com / referral",
             "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
             "sessions": 2
           },
           {
@@ -663,11 +622,6 @@
             "label": "facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -924,12 +878,6 @@
             "title": "Medical Library",
             "sessions": 1,
             "engagementRate": 1
-          },
-          {
-            "path": "/traffic.html",
-            "title": "BA Medicale Growth & Education Impact Dashboard",
-            "sessions": 1,
-            "engagementRate": 0
           }
         ]
       },
@@ -985,7 +933,7 @@
         "previousStartDate": "2026-08-15",
         "previousEndDate": "2026-09-11"
       },
-      "generatedAt": "2026-10-10T11:32:05.473Z",
+      "generatedAt": "2026-10-10T16:32:20.630Z",
       "summary": {
         "activeUsers": 213,
         "newUsers": 206,
@@ -1854,12 +1802,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 41
+            "sessions": 42
           }
         ]
       },
@@ -1891,8 +1834,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -1937,12 +1880,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 182,
-            "sessions": 356
+            "sessions": 357
           },
           {
             "label": "google / organic",
             "activeUsers": 22,
-            "sessions": 79
+            "sessions": 80
           },
           {
             "label": "facebook.com / referral",
@@ -1957,11 +1900,6 @@
           {
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
             "sessions": 2
           },
           {
@@ -1995,11 +1933,6 @@
             "sessions": 3
           },
           {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
             "label": "bing / organic",
             "activeUsers": 2,
             "sessions": 2
@@ -2008,6 +1941,11 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
             "sessions": 2
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "dataindex.pro / referral",
@@ -2358,8 +2296,8 @@
           {
             "path": "/traffic.html",
             "title": "BA Medicale Growth & Education Impact Dashboard",
-            "sessions": 11,
-            "engagementRate": 0.5455
+            "sessions": 10,
+            "engagementRate": 0.6
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
@@ -2511,7 +2449,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-09"
       },
-      "generatedAt": "2026-10-10T11:32:05.473Z",
+      "generatedAt": "2026-10-10T16:32:20.630Z",
       "summary": {
         "activeUsers": 16,
         "newUsers": 11,
@@ -2829,12 +2767,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 12
+            "sessions": 13
           }
         ]
       },
@@ -2863,11 +2796,6 @@
             "label": "Referral",
             "activeUsers": 1,
             "sessions": 2
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
           }
         ]
       },
@@ -2902,21 +2830,16 @@
           {
             "label": "google / organic",
             "activeUsers": 7,
-            "sessions": 18
+            "sessions": 19
           },
           {
             "label": "(direct) / (none)",
             "activeUsers": 5,
-            "sessions": 25
+            "sessions": 26
           },
           {
             "label": "facebook.com / referral",
             "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
             "sessions": 2
           },
           {
@@ -2948,11 +2871,6 @@
             "label": "facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -3215,12 +3133,6 @@
             "title": "Nana Febrina | Operations & Digital Development",
             "sessions": 1,
             "engagementRate": 0
-          },
-          {
-            "path": "/traffic.html",
-            "title": "BA Medicale Growth & Education Impact Dashboard",
-            "sessions": 1,
-            "engagementRate": 0
           }
         ]
       },
@@ -3276,7 +3188,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-10T11:32:05.473Z",
+      "generatedAt": "2026-10-10T16:32:20.630Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5623,10 +5535,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-10T11:32:05.473Z",
+  "generatedAt": "2026-10-10T16:32:20.630Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-10T11:32:05.473Z",
+    "generatedAt": "2026-10-10T16:32:20.630Z",
     "windowMinutes": 30
   }
 }

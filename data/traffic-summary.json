@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T11:32:05.007Z",
+  "generatedAt": "2026-10-10T16:32:20.177Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-12",
@@ -66,7 +66,7 @@
       "views": 38,
       "activeUsers": 8,
       "eventCount": 95,
-      "bounceRate": 0.08695652173913043
+      "bounceRate": 0.043478260869565216
     },
     {
       "title": "For Public | BA Medicale",
@@ -80,7 +80,7 @@
       "views": 27,
       "activeUsers": 4,
       "eventCount": 65,
-      "bounceRate": 0.2
+      "bounceRate": 0.15
     }
   ],
   "firstUserSources": [
@@ -103,10 +103,6 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     },
     {
       "label": "dataindex.pro / referral",
@@ -135,16 +131,16 @@
       "sessions": 3
     },
     {
-      "label": "Not set",
-      "sessions": 2
-    },
-    {
       "label": "bing / organic",
       "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
+    },
+    {
+      "label": "Not set",
+      "sessions": 1
     },
     {
       "label": "dataindex.pro / referral",
