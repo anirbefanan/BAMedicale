@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-10-13T13:06:38.566Z",
+  "generatedAt": "2026-10-13T22:03:23.186Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-15",
-    "endDate": "2026-10-12"
+    "startDate": "2026-09-16",
+    "endDate": "2026-10-13"
   },
   "summary": {
-    "activeUsers": 213,
-    "newUsers": 203,
-    "averageEngagementTimeSeconds": 111.70422535211267,
-    "eventCount": 3601
+    "activeUsers": 209,
+    "newUsers": 201,
+    "averageEngagementTimeSeconds": 111.32535885167464,
+    "eventCount": 3568
   },
   "topPages": [
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 338,
-      "activeUsers": 159,
-      "eventCount": 1408,
-      "bounceRate": 0.34024896265560167
+      "views": 333,
+      "activeUsers": 157,
+      "eventCount": 1394,
+      "bounceRate": 0.34309623430962344
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 262,
-      "activeUsers": 53,
-      "eventCount": 664,
-      "bounceRate": 0.34615384615384615
+      "views": 253,
+      "activeUsers": 50,
+      "eventCount": 649,
+      "bounceRate": 0.34415584415584416
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 93,
+      "views": 95,
       "activeUsers": 9,
-      "eventCount": 205,
-      "bounceRate": 0.17391304347826086
+      "eventCount": 208,
+      "bounceRate": 0.1702127659574468
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -42,9 +42,9 @@
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 65,
-      "activeUsers": 11,
-      "eventCount": 146,
+      "views": 63,
+      "activeUsers": 10,
+      "eventCount": 141,
       "bounceRate": 0
     },
     {
@@ -86,11 +86,15 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 180
+      "activeUsers": 177
     },
     {
       "label": "google / organic",
-      "activeUsers": 23
+      "activeUsers": 22
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 4
     },
     {
       "label": "bing / organic",
@@ -116,11 +120,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 260
+      "sessions": 257
     },
     {
       "label": "google / organic",
-      "sessions": 135
+      "sessions": 136
     },
     {
       "label": "keep.google.com / referral",
@@ -128,19 +132,19 @@
     },
     {
       "label": "bing / organic",
-      "sessions": 3
+      "sessions": 5
     },
     {
       "label": "facebook.com / referral",
       "sessions": 3
     },
     {
-      "label": "l.instagram.com / referral",
+      "label": "Not set",
       "sessions": 2
     },
     {
-      "label": "Not set",
-      "sessions": 1
+      "label": "l.instagram.com / referral",
+      "sessions": 2
     },
     {
       "label": "dataindex.pro / referral",
@@ -154,7 +158,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 63
+      "activeUsers": 61
     },
     {
       "label": "Not set",
