@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T04:28:04.609Z",
+  "generatedAt": "2026-10-13T13:06:38.566Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-15",
@@ -103,10 +103,6 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     },
     {
       "label": "dataindex.pro / referral",

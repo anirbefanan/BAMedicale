@@ -186,7 +186,7 @@
         "previousStartDate": "2026-09-29",
         "previousEndDate": "2026-10-05"
       },
-      "generatedAt": "2026-10-13T04:28:04.997Z",
+      "generatedAt": "2026-10-13T13:06:38.934Z",
       "summary": {
         "activeUsers": 17,
         "newUsers": 12,
@@ -441,12 +441,7 @@
           {
             "label": "Returning",
             "activeUsers": 6,
-            "sessions": 16
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 2
+            "sessions": 18
           },
           {
             "label": "Unclassified",
@@ -514,12 +509,7 @@
           {
             "label": "google / organic",
             "activeUsers": 7,
-            "sessions": 14
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
+            "sessions": 17
           },
           {
             "label": "bing / organic",
@@ -864,7 +854,7 @@
         "previousStartDate": "2026-08-18",
         "previousEndDate": "2026-09-14"
       },
-      "generatedAt": "2026-10-13T04:28:04.997Z",
+      "generatedAt": "2026-10-13T13:06:38.934Z",
       "summary": {
         "activeUsers": 213,
         "newUsers": 203,
@@ -1728,12 +1718,7 @@
           {
             "label": "Returning",
             "activeUsers": 45,
-            "sessions": 181
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 2
+            "sessions": 183
           },
           {
             "label": "Unclassified",
@@ -1821,7 +1806,7 @@
           {
             "label": "google / organic",
             "activeUsers": 23,
-            "sessions": 79
+            "sessions": 82
           },
           {
             "label": "bing / organic",
@@ -1837,11 +1822,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
           },
           {
             "label": "dataindex.pro / referral",
@@ -2390,7 +2370,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-12"
       },
-      "generatedAt": "2026-10-13T04:28:04.997Z",
+      "generatedAt": "2026-10-13T13:06:38.934Z",
       "summary": {
         "activeUsers": 20,
         "newUsers": 15,
@@ -2790,12 +2770,7 @@
           {
             "label": "Returning",
             "activeUsers": 7,
-            "sessions": 26
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 2
+            "sessions": 28
           },
           {
             "label": "Unclassified",
@@ -2863,7 +2838,7 @@
           {
             "label": "google / organic",
             "activeUsers": 8,
-            "sessions": 20
+            "sessions": 23
           },
           {
             "label": "(direct) / (none)",
@@ -2879,11 +2854,6 @@
             "label": "facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
           },
           {
             "label": "l.instagram.com / referral",
@@ -3244,7 +3214,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-13T04:28:04.997Z",
+      "generatedAt": "2026-10-13T13:06:38.934Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5591,11 +5561,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-13T04:28:04.997Z",
+  "generatedAt": "2026-10-13T13:06:38.934Z",
   "realtime": {
-    "status": "ok",
-    "generatedAt": "2026-10-13T04:28:04.997Z",
-    "activeUsers": 1,
+    "status": "unavailable",
+    "generatedAt": "2026-10-13T13:06:38.934Z",
     "windowMinutes": 30
   }
 }
