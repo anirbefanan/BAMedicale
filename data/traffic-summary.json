@@ -1,30 +1,37 @@
 {
-  "generatedAt": "2026-10-14T16:07:23.634Z",
+  "generatedAt": "2026-10-14T21:04:51.774Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-16",
-    "endDate": "2026-10-13"
+    "startDate": "2026-09-17",
+    "endDate": "2026-10-14"
   },
   "summary": {
-    "activeUsers": 209,
-    "newUsers": 201,
-    "averageEngagementTimeSeconds": 111.32535885167464,
-    "eventCount": 3568
+    "activeUsers": 215,
+    "newUsers": 207,
+    "averageEngagementTimeSeconds": 109.48372093023256,
+    "eventCount": 3633
   },
   "topPages": [
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 333,
+      "views": 330,
       "activeUsers": 157,
-      "eventCount": 1394,
-      "bounceRate": 0.34309623430962344
+      "eventCount": 1388,
+      "bounceRate": 0.3445378151260504
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 253,
-      "activeUsers": 50,
-      "eventCount": 649,
-      "bounceRate": 0.34415584415584416
+      "views": 257,
+      "activeUsers": 54,
+      "eventCount": 664,
+      "bounceRate": 0.3670886075949367
+    },
+    {
+      "title": "Medical Library | BA Medicale",
+      "views": 96,
+      "activeUsers": 13,
+      "eventCount": 223,
+      "bounceRate": 0.08571428571428572
     },
     {
       "title": "Videos | BA Medicale",
@@ -32,13 +39,6 @@
       "activeUsers": 9,
       "eventCount": 208,
       "bounceRate": 0.1702127659574468
-    },
-    {
-      "title": "Medical Library | BA Medicale",
-      "views": 91,
-      "activeUsers": 11,
-      "eventCount": 206,
-      "bounceRate": 0.06060606060606061
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -49,10 +49,10 @@
     },
     {
       "title": "Digital Bookshelf | BA Medicale",
-      "views": 46,
-      "activeUsers": 6,
-      "eventCount": 100,
-      "bounceRate": 0.06896551724137931
+      "views": 47,
+      "activeUsers": 7,
+      "eventCount": 104,
+      "bounceRate": 0.1
     },
     {
       "title": "Advanced Diagnostics and Management of Thyroid Nodules | BA Medicale",
@@ -86,11 +86,15 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 177
+      "activeUsers": 184
     },
     {
       "label": "google / organic",
-      "activeUsers": 22
+      "activeUsers": 23
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 3
     },
     {
       "label": "bing / organic",
@@ -98,7 +102,7 @@
     },
     {
       "label": "facebook.com / referral",
-      "activeUsers": 3
+      "activeUsers": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -107,20 +111,16 @@
     {
       "label": "dataindex.pro / referral",
       "activeUsers": 1
-    },
-    {
-      "label": "m.facebook.com / referral",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 257
+      "sessions": 264
     },
     {
       "label": "google / organic",
-      "sessions": 136
+      "sessions": 137
     },
     {
       "label": "keep.google.com / referral",
@@ -131,23 +131,19 @@
       "sessions": 5
     },
     {
-      "label": "facebook.com / referral",
+      "label": "Not set",
       "sessions": 3
+    },
+    {
+      "label": "facebook.com / referral",
+      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
     },
     {
-      "label": "Not set",
-      "sessions": 1
-    },
-    {
       "label": "dataindex.pro / referral",
-      "sessions": 1
-    },
-    {
-      "label": "m.facebook.com / referral",
       "sessions": 1
     }
   ],
