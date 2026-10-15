@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T02:13:53.923Z",
+  "generatedAt": "2026-10-15T10:30:51.138Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-17",
@@ -24,7 +24,7 @@
       "views": 257,
       "activeUsers": 54,
       "eventCount": 664,
-      "bounceRate": 0.3670886075949367
+      "bounceRate": 0.36075949367088606
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -93,10 +93,6 @@
       "activeUsers": 23
     },
     {
-      "label": "Not set",
-      "activeUsers": 3
-    },
-    {
       "label": "bing / organic",
       "activeUsers": 3
     },
@@ -131,16 +127,16 @@
       "sessions": 5
     },
     {
-      "label": "Not set",
-      "sessions": 3
-    },
-    {
       "label": "facebook.com / referral",
       "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
+    },
+    {
+      "label": "Not set",
+      "sessions": 1
     },
     {
       "label": "dataindex.pro / referral",
@@ -154,7 +150,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 13
+      "activeUsers": 14
     },
     {
       "label": "Padang",
