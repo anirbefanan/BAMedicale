@@ -1,3 +1,30 @@
+# 1. Project Overview
+BA Medicale (bamedicale.com) — medical education platform covering For Doctors (clinical.html), For Healthcare Professionals (healthcare-workers.html), For Public (public.html), and digital ebooks/articles.
+
+# 2. Actual Tech Stack & File Structure
+- **Tech Stack:** Vanilla HTML, CSS (`styles.css`), and JavaScript (`app.js`, `content.js`). No frontend frameworks like React or Vue. Node.js is used strictly for build scripts (`scripts/`).
+- **File Structure:**
+  - `index.html`, `clinical.html`, `healthcare-workers.html`, `public.html`: Main entry pages for different audiences.
+  - `styles.css`: The single source of truth for shared styles, tokens, and responsive behavior.
+  - `app.js`, `content.js`, `content-registry.js`: Core frontend logic and content catalog.
+  - `scripts/`: Node.js scripts for generating static pages (e.g., `build-articles.js`), verifying data, and checking design rules.
+  - `data/`: JSON data sources (e.g., traffic, videos).
+  - `assets/`: Images, videos, and PDFs.
+  - `articles/`, `events/`, `ebooks/`: Generated or static detail pages for content.
+  - `.github/workflows/`: GitHub Actions for CI/CD and traffic updates.
+- **Deployment:** The `main` branch is deployed statically to GitHub Pages, served at the custom domain `https://bamedicale.com/`.
+
+# 3. Strict Preservation Rules
+- Never alter unrelated pages, navigation links, URLs, or existing content when making a targeted update.
+- Reuse existing CSS classes, typography, layout patterns, and responsive breakpoints.
+- Keep medical disclaimers, source attributions, and audience separation (Doctors vs. Healthcare Professionals vs. Public) intact.
+- Prefer minimal, clean diffs; never refactor working architecture unless explicitly instructed.
+
+# 4. Validation Checklist
+- Verify all internal links, asset paths, and mobile/desktop responsiveness before finishing any task.
+- For content updates, run `npm run content:check` and any related build scripts.
+- Ensure the shared UI styling in `styles.css` is strictly followed without introducing conflicting inline styles or arbitrary new CSS classes.
+
 # BAMedicale Website Steward
 
 ## Project-scoped website skill
