@@ -1,44 +1,44 @@
 {
-  "generatedAt": "2026-10-15T15:54:54.847Z",
+  "generatedAt": "2026-10-15T20:39:58.002Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-17",
-    "endDate": "2026-10-14"
+    "startDate": "2026-09-18",
+    "endDate": "2026-10-15"
   },
   "summary": {
-    "activeUsers": 215,
-    "newUsers": 207,
-    "averageEngagementTimeSeconds": 109.48372093023256,
-    "eventCount": 3633
+    "activeUsers": 217,
+    "newUsers": 209,
+    "averageEngagementTimeSeconds": 108.63133640552995,
+    "eventCount": 3642
   },
   "topPages": [
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 330,
+      "views": 328,
       "activeUsers": 157,
-      "eventCount": 1388,
-      "bounceRate": 0.3445378151260504
+      "eventCount": 1382,
+      "bounceRate": 0.3459915611814346
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 257,
-      "activeUsers": 54,
-      "eventCount": 664,
-      "bounceRate": 0.36075949367088606
+      "views": 260,
+      "activeUsers": 55,
+      "eventCount": 675,
+      "bounceRate": 0.3803680981595092
     },
     {
       "title": "Medical Library | BA Medicale",
       "views": 96,
-      "activeUsers": 13,
-      "eventCount": 223,
+      "activeUsers": 14,
+      "eventCount": 226,
       "bounceRate": 0.08571428571428572
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 95,
+      "views": 94,
       "activeUsers": 9,
-      "eventCount": 208,
-      "bounceRate": 0.1702127659574468
+      "eventCount": 206,
+      "bounceRate": 0.17391304347826086
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -63,17 +63,17 @@
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 31,
-      "activeUsers": 6,
-      "eventCount": 79,
+      "views": 33,
+      "activeUsers": 7,
+      "eventCount": 83,
       "bounceRate": 0
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 27,
-      "activeUsers": 4,
-      "eventCount": 65,
-      "bounceRate": 0.15
+      "views": 28,
+      "activeUsers": 5,
+      "eventCount": 68,
+      "bounceRate": 0.14285714285714285
     },
     {
       "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules | Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K) | BA Medicale",
@@ -86,15 +86,19 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 184
+      "activeUsers": 185
     },
     {
       "label": "google / organic",
-      "activeUsers": 23
+      "activeUsers": 24
     },
     {
       "label": "bing / organic",
       "activeUsers": 3
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 2
     },
     {
       "label": "facebook.com / referral",
@@ -112,11 +116,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 264
+      "sessions": 266
     },
     {
       "label": "google / organic",
-      "sessions": 137
+      "sessions": 140
     },
     {
       "label": "keep.google.com / referral",
@@ -158,7 +162,7 @@
     },
     {
       "label": "Makassar",
-      "activeUsers": 10
+      "activeUsers": 11
     },
     {
       "label": "Depok",
@@ -170,7 +174,7 @@
     },
     {
       "label": "South Tangerang",
-      "activeUsers": 7
+      "activeUsers": 8
     },
     {
       "label": "Pontianak",
