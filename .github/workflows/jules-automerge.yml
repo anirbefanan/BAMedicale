@@ -1,0 +1,52 @@
+name: Jules Automerge
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - main
+  push:
+    branches-ignore:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    name: Automerge Jules PRs
+    runs-on: ubuntu-latest
+    if: github.actor == 'jules' || github.actor == 'jules-ai' || contains(github.actor, 'jules')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Enable Auto-merge for PR
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge "${{ github.event.pull_request.number }}" --auto --merge
+
+      - name: Create PR and Enable Auto-merge for Push
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH_NAME="${{ github.ref_name }}"
+          # Check if PR exists. .[].number returns empty string if no PR found.
+          PR_EXISTS=$(gh pr list --head "$BRANCH_NAME" --base main --json number --jq '.[].number')
+          if [ -z "$PR_EXISTS" ]; then
+            echo "Creating PR for $BRANCH_NAME"
+            gh pr create --head "$BRANCH_NAME" --base main --title "Automerge: $BRANCH_NAME" --body "Automatically created PR for Jules branch $BRANCH_NAME"
+            PR_NUMBER=$(gh pr list --head "$BRANCH_NAME" --base main --json number --jq '.[].number')
+          else
+            echo "PR already exists for $BRANCH_NAME (PR #$PR_EXISTS)"
+            PR_NUMBER="$PR_EXISTS"
+          fi
+
+          if [ -n "$PR_NUMBER" ]; then
+            echo "Enabling auto-merge for PR #$PR_NUMBER"
+            gh pr merge "$PR_NUMBER" --auto --merge
+          fi
