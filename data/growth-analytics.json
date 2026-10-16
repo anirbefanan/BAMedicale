@@ -9,7 +9,7 @@
         "previousStartDate": "2026-10-14",
         "previousEndDate": "2026-10-14"
       },
-      "generatedAt": "2026-10-16T10:18:03.762Z",
+      "generatedAt": "2026-10-16T15:43:18.187Z",
       "summary": {
         "activeUsers": 5,
         "newUsers": 4,
@@ -266,7 +266,7 @@
         "previousStartDate": "2026-10-02",
         "previousEndDate": "2026-10-08"
       },
-      "generatedAt": "2026-10-16T10:18:03.762Z",
+      "generatedAt": "2026-10-16T15:43:18.187Z",
       "summary": {
         "activeUsers": 23,
         "newUsers": 18,
@@ -776,7 +776,7 @@
           },
           {
             "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | Operations & Digital Development",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
@@ -868,7 +868,7 @@
         "previousStartDate": "2026-08-21",
         "previousEndDate": "2026-09-17"
       },
-      "generatedAt": "2026-10-16T10:18:03.762Z",
+      "generatedAt": "2026-10-16T15:43:18.187Z",
       "summary": {
         "activeUsers": 217,
         "newUsers": 209,
@@ -2083,7 +2083,7 @@
           },
           {
             "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | Operations & Digital Development",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "type": "Other public pages",
             "activeUsers": 3,
             "views": 5,
@@ -2286,7 +2286,7 @@
           },
           {
             "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | Operations & Digital Development",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "sessions": 2,
             "engagementRate": 0
           },
@@ -2374,7 +2374,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-15"
       },
-      "generatedAt": "2026-10-16T10:18:03.762Z",
+      "generatedAt": "2026-10-16T15:43:18.187Z",
       "summary": {
         "activeUsers": 34,
         "newUsers": 27,
@@ -3106,7 +3106,7 @@
           },
           {
             "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | Operations & Digital Development",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "type": "Other public pages",
             "activeUsers": 2,
             "views": 3,
@@ -3306,7 +3306,7 @@
           },
           {
             "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | Operations & Digital Development",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -3370,7 +3370,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-16T10:18:03.762Z",
+      "generatedAt": "2026-10-16T15:43:18.187Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -4649,7 +4649,7 @@
           },
           {
             "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | Operations & Digital Development",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "type": "Other public pages",
             "activeUsers": 4,
             "views": 8,
@@ -4852,7 +4852,7 @@
           },
           {
             "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | Operations & Digital Development",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "sessions": 4,
             "engagementRate": 0
           },
@@ -5717,10 +5717,11 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-16T10:18:03.762Z",
+  "generatedAt": "2026-10-16T15:43:18.187Z",
   "realtime": {
-    "status": "unavailable",
-    "generatedAt": "2026-10-16T10:18:03.762Z",
+    "status": "ok",
+    "generatedAt": "2026-10-16T15:43:18.187Z",
+    "activeUsers": 1,
     "windowMinutes": 30
   }
 }
