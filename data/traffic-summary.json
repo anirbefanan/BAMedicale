@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T02:04:51.875Z",
+  "generatedAt": "2026-10-16T10:18:03.372Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-18",
@@ -97,10 +97,6 @@
       "activeUsers": 3
     },
     {
-      "label": "Not set",
-      "activeUsers": 2
-    },
-    {
       "label": "facebook.com / referral",
       "activeUsers": 2
     },
@@ -154,7 +150,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 14
+      "activeUsers": 15
     },
     {
       "label": "Padang",
