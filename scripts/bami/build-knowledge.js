@@ -98,7 +98,7 @@ for (const match of team.matchAll(cardPattern)) {
   const description = html.match(/<meta name="description" content="([^"]+)"/i)?.[1] || "";
   const name = plain(match[3].replace(/&amp;/g, "&"));
   items.push({ id: `profile-${path.basename(match[1], ".html")}`, type: "Person", family: "profile", title: name,
-    summary: excerpt(`${plain(match[2])}. ${description}`, 600), content: "", authors: [], audience: "",
+    summary: excerpt(`${match[2]}. ${description}`.replace(/&amp;/g, "&"), 600), content: "", authors: [], audience: "",
     disease: [], topics: [], date: "", status: "published", url: `https://bamedicale.com/${match[1]}` });
 }
 
