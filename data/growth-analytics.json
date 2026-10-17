@@ -9,20 +9,20 @@
         "previousStartDate": "2026-10-15",
         "previousEndDate": "2026-10-15"
       },
-      "generatedAt": "2026-10-17T01:59:25.866Z",
+      "generatedAt": "2026-10-17T09:51:51.384Z",
       "summary": {
-        "activeUsers": 5,
-        "newUsers": 5,
-        "screenPageViews": 13,
-        "sessions": 7,
-        "engagedSessions": 4,
-        "userEngagementDuration": 262,
-        "eventCount": 37,
+        "activeUsers": 15,
+        "newUsers": 15,
+        "screenPageViews": 53,
+        "sessions": 25,
+        "engagedSessions": 13,
+        "userEngagementDuration": 532,
+        "eventCount": 129,
         "keyEvents": 0,
-        "totalUsers": 6,
-        "averageEngagementTimeSeconds": 52.4,
-        "engagementRate": 0.5714,
-        "returningUsers": 1
+        "totalUsers": 18,
+        "averageEngagementTimeSeconds": 35.4667,
+        "engagementRate": 0.52,
+        "returningUsers": 3
       },
       "previous": {
         "activeUsers": 5,
@@ -48,18 +48,18 @@
         "current": [
           {
             "date": "2026-10-16",
-            "activeUsers": 5,
-            "newUsers": 5,
-            "screenPageViews": 13,
-            "sessions": 7,
-            "engagedSessions": 4,
-            "userEngagementDuration": 262,
-            "eventCount": 37,
+            "activeUsers": 15,
+            "newUsers": 15,
+            "screenPageViews": 53,
+            "sessions": 25,
+            "engagedSessions": 13,
+            "userEngagementDuration": 532,
+            "eventCount": 129,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 52.4,
-            "engagementRate": 0.5714,
-            "returningUsers": 1
+            "totalUsers": 18,
+            "averageEngagementTimeSeconds": 35.4667,
+            "engagementRate": 0.52,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -84,23 +84,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 5,
-            "sessions": 5
+            "activeUsers": 15,
+            "sessions": 15
           },
           {
             "label": "Returning",
-            "activeUsers": 1,
-            "sessions": 1
+            "activeUsers": 3,
+            "sessions": 6
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
+            "sessions": 4
           }
         ]
       },
@@ -112,13 +107,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 10,
+            "sessions": 17
           },
           {
             "label": "Organic Search",
-            "activeUsers": 2,
-            "sessions": 4
+            "activeUsers": 5,
+            "sessions": 8
           }
         ]
       },
@@ -127,35 +122,41 @@
         "rows": [
           {
             "label": "mobile",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 10,
+            "sessions": 18
           },
           {
             "label": "desktop",
-            "activeUsers": 2,
-            "sessions": 4
+            "activeUsers": 5,
+            "sessions": 7
           }
         ]
       },
       "countries": {
         "status": "ok",
-        "rows": []
+        "rows": [
+          {
+            "label": "Indonesia",
+            "activeUsers": 12,
+            "sessions": 22
+          }
+        ]
       },
       "firstSources": {
         "status": "ok",
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 10,
+            "sessions": 17
           },
           {
             "label": "google / organic",
-            "activeUsers": 2,
-            "sessions": 3
+            "activeUsers": 5,
+            "sessions": 7
           },
           {
-            "label": "(not set)",
+            "label": "bing / organic",
             "activeUsers": 0,
             "sessions": 1
           }
@@ -166,13 +167,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 10,
+            "sessions": 17
           },
           {
             "label": "google / organic",
-            "activeUsers": 2,
-            "sessions": 3
+            "activeUsers": 5,
+            "sessions": 7
           },
           {
             "label": "bing / organic",
@@ -188,19 +189,46 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 4,
-            "views": 4,
-            "eventCount": 15,
-            "engagement": 27.25
+            "activeUsers": 12,
+            "views": 25,
+            "eventCount": 70,
+            "engagement": 21.5833
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 9,
+            "eventCount": 13,
+            "engagement": 55.5
           },
           {
             "path": "/team.html",
             "title": "BA Medicale Team | Physician-Led Medical Education",
             "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 8,
+            "eventCount": 13,
+            "engagement": 28
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 3,
+            "views": 4,
+            "eventCount": 17,
+            "engagement": 12.3333
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
             "activeUsers": 2,
             "views": 3,
             "eventCount": 6,
-            "engagement": 38.5
+            "engagement": 4.5
           },
           {
             "path": "/about.html",
@@ -212,15 +240,6 @@
             "engagement": 32
           },
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "type": "Articles",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 4,
-            "engagement": 0
-          },
-          {
             "path": "/dr-bob-profile.html",
             "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
             "type": "Other public pages",
@@ -228,15 +247,6 @@
             "views": 1,
             "eventCount": 1,
             "engagement": 0
-          },
-          {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 2,
-            "engagement": 44
           }
         ]
       },
@@ -246,8 +256,14 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 4,
-            "engagementRate": 0.75
+            "sessions": 14,
+            "engagementRate": 0.4286
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
             "path": "/about.html",
@@ -256,10 +272,22 @@
             "engagementRate": 0.5
           },
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 2,
+            "engagementRate": 0.5
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
             "sessions": 1,
-            "engagementRate": 0
+            "engagementRate": 1
           }
         ]
       },
@@ -278,20 +306,20 @@
         "previousStartDate": "2026-10-03",
         "previousEndDate": "2026-10-09"
       },
-      "generatedAt": "2026-10-17T01:59:25.866Z",
+      "generatedAt": "2026-10-17T09:51:51.384Z",
       "summary": {
-        "activeUsers": 26,
-        "newUsers": 21,
-        "screenPageViews": 73,
-        "sessions": 44,
-        "engagedSessions": 18,
-        "userEngagementDuration": 1105,
-        "eventCount": 231,
+        "activeUsers": 36,
+        "newUsers": 31,
+        "screenPageViews": 113,
+        "sessions": 62,
+        "engagedSessions": 27,
+        "userEngagementDuration": 1375,
+        "eventCount": 323,
         "keyEvents": 0,
-        "totalUsers": 28,
-        "averageEngagementTimeSeconds": 42.5,
-        "engagementRate": 0.4091,
-        "returningUsers": 8
+        "totalUsers": 38,
+        "averageEngagementTimeSeconds": 38.1944,
+        "engagementRate": 0.4355,
+        "returningUsers": 10
       },
       "previous": {
         "activeUsers": 15,
@@ -407,18 +435,18 @@
           },
           {
             "date": "2026-10-16",
-            "activeUsers": 5,
-            "newUsers": 5,
-            "screenPageViews": 13,
-            "sessions": 7,
-            "engagedSessions": 4,
-            "userEngagementDuration": 262,
-            "eventCount": 37,
+            "activeUsers": 15,
+            "newUsers": 15,
+            "screenPageViews": 53,
+            "sessions": 25,
+            "engagedSessions": 13,
+            "userEngagementDuration": 532,
+            "eventCount": 129,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 52.4,
-            "engagementRate": 0.5714,
-            "returningUsers": 1
+            "totalUsers": 18,
+            "averageEngagementTimeSeconds": 35.4667,
+            "engagementRate": 0.52,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -527,23 +555,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 21,
-            "sessions": 21
+            "activeUsers": 31,
+            "sessions": 31
           },
           {
             "label": "Returning",
-            "activeUsers": 8,
-            "sessions": 17
+            "activeUsers": 10,
+            "sessions": 22
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 5
+            "sessions": 9
           }
         ]
       },
@@ -555,13 +578,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 16,
-            "sessions": 20
+            "activeUsers": 23,
+            "sessions": 34
           },
           {
             "label": "Organic Search",
-            "activeUsers": 10,
-            "sessions": 24
+            "activeUsers": 13,
+            "sessions": 28
           }
         ]
       },
@@ -570,13 +593,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 19,
-            "sessions": 33
+            "activeUsers": 22,
+            "sessions": 36
           },
           {
             "label": "mobile",
-            "activeUsers": 7,
-            "sessions": 11
+            "activeUsers": 14,
+            "sessions": 26
           }
         ]
       },
@@ -585,8 +608,8 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 14,
-            "sessions": 32
+            "activeUsers": 22,
+            "sessions": 48
           },
           {
             "label": "United States",
@@ -600,23 +623,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 16,
-            "sessions": 20
+            "activeUsers": 23,
+            "sessions": 34
           },
           {
             "label": "google / organic",
-            "activeUsers": 9,
-            "sessions": 20
+            "activeUsers": 12,
+            "sessions": 24
           },
           {
             "label": "bing / organic",
             "activeUsers": 1,
-            "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 1
+            "sessions": 4
           }
         ]
       },
@@ -625,13 +643,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 16,
-            "sessions": 20
+            "activeUsers": 23,
+            "sessions": 34
           },
           {
             "label": "google / organic",
-            "activeUsers": 9,
-            "sessions": 20
+            "activeUsers": 12,
+            "sessions": 24
           },
           {
             "label": "bing / organic",
@@ -647,10 +665,28 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 20,
-            "views": 31,
-            "eventCount": 101,
-            "engagement": 20.15
+            "activeUsers": 28,
+            "views": 52,
+            "eventCount": 156,
+            "engagement": 19.75
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 10,
+            "eventCount": 22,
+            "engagement": 50.4
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 10,
+            "eventCount": 15,
+            "engagement": 44
           },
           {
             "path": "/library.html",
@@ -662,13 +698,22 @@
             "engagement": 20.5
           },
           {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 5,
+            "views": 6,
+            "eventCount": 30,
+            "engagement": 17.2
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
             "type": "Other public pages",
-            "activeUsers": 4,
+            "activeUsers": 3,
             "views": 5,
-            "eventCount": 15,
-            "engagement": 61.25
+            "eventCount": 10,
+            "engagement": 6.3333
           },
           {
             "path": "/about.html",
@@ -689,15 +734,6 @@
             "engagement": 36
           },
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "type": "Articles",
-            "activeUsers": 3,
-            "views": 3,
-            "eventCount": 17,
-            "engagement": 16.3333
-          },
-          {
             "path": "/dr-bob-profile.html",
             "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
             "type": "Other public pages",
@@ -707,15 +743,6 @@
             "engagement": 6.5
           },
           {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 2,
-            "eventCount": 4,
-            "engagement": 32.5
-          },
-          {
             "path": "/search.html",
             "title": "Search",
             "type": "Other public pages",
@@ -723,15 +750,6 @@
             "views": 2,
             "eventCount": 6,
             "engagement": 18.5
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 2,
-            "eventCount": 4,
-            "engagement": 10
           },
           {
             "path": "/videos.html",
@@ -813,8 +831,14 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 24,
-            "engagementRate": 0.4583
+            "sessions": 34,
+            "engagementRate": 0.4118
+          },
+          {
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 6,
+            "engagementRate": 0.3333
           },
           {
             "path": "/about.html",
@@ -823,16 +847,16 @@
             "engagementRate": 0.25
           },
           {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 4,
-            "engagementRate": 0.25
-          },
-          {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 4,
+            "engagementRate": 0.5
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
             "sessions": 2,
-            "engagementRate": 0
+            "engagementRate": 1
           },
           {
             "path": "/library.html",
@@ -841,9 +865,9 @@
             "engagementRate": 0.5
           },
           {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "sessions": 1,
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "sessions": 2,
             "engagementRate": 1
           },
           {
@@ -881,20 +905,20 @@
         "previousStartDate": "2026-08-22",
         "previousEndDate": "2026-09-18"
       },
-      "generatedAt": "2026-10-17T01:59:25.866Z",
+      "generatedAt": "2026-10-17T09:51:51.384Z",
       "summary": {
-        "activeUsers": 219,
-        "newUsers": 210,
-        "screenPageViews": 1148,
-        "sessions": 434,
-        "engagedSessions": 247,
-        "userEngagementDuration": 22236,
-        "eventCount": 3473,
+        "activeUsers": 229,
+        "newUsers": 220,
+        "screenPageViews": 1188,
+        "sessions": 452,
+        "engagedSessions": 256,
+        "userEngagementDuration": 22506,
+        "eventCount": 3565,
         "keyEvents": 0,
-        "totalUsers": 220,
-        "averageEngagementTimeSeconds": 101.5342,
-        "engagementRate": 0.5691,
-        "returningUsers": 45
+        "totalUsers": 230,
+        "averageEngagementTimeSeconds": 98.2795,
+        "engagementRate": 0.5664,
+        "returningUsers": 47
       },
       "previous": {
         "activeUsers": 74,
@@ -1325,18 +1349,18 @@
           },
           {
             "date": "2026-10-16",
-            "activeUsers": 5,
-            "newUsers": 5,
-            "screenPageViews": 13,
-            "sessions": 7,
-            "engagedSessions": 4,
-            "userEngagementDuration": 262,
-            "eventCount": 37,
+            "activeUsers": 15,
+            "newUsers": 15,
+            "screenPageViews": 53,
+            "sessions": 25,
+            "engagedSessions": 13,
+            "userEngagementDuration": 532,
+            "eventCount": 129,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 52.4,
-            "engagementRate": 0.5714,
-            "returningUsers": 1
+            "totalUsers": 18,
+            "averageEngagementTimeSeconds": 35.4667,
+            "engagementRate": 0.52,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -1739,23 +1763,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 209,
-            "sessions": 209
+            "activeUsers": 219,
+            "sessions": 219
           },
           {
             "label": "Returning",
-            "activeUsers": 45,
-            "sessions": 179
+            "activeUsers": 47,
+            "sessions": 184
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 44
+            "sessions": 48
           }
         ]
       },
@@ -1767,13 +1786,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 184,
-            "sessions": 264
+            "activeUsers": 191,
+            "sessions": 278
           },
           {
             "label": "Organic Search",
-            "activeUsers": 30,
-            "sessions": 143
+            "activeUsers": 33,
+            "sessions": 147
           },
           {
             "label": "Organic Social",
@@ -1797,13 +1816,13 @@
         "rows": [
           {
             "label": "mobile",
-            "activeUsers": 122,
-            "sessions": 240
+            "activeUsers": 129,
+            "sessions": 255
           },
           {
             "label": "desktop",
-            "activeUsers": 95,
-            "sessions": 191
+            "activeUsers": 98,
+            "sessions": 194
           },
           {
             "label": "tablet",
@@ -1817,8 +1836,8 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 186,
-            "sessions": 389
+            "activeUsers": 194,
+            "sessions": 405
           },
           {
             "label": "United States",
@@ -1832,18 +1851,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 185,
-            "sessions": 332
+            "activeUsers": 192,
+            "sessions": 346
           },
           {
             "label": "google / organic",
-            "activeUsers": 26,
-            "sessions": 90
+            "activeUsers": 29,
+            "sessions": 94
           },
           {
             "label": "bing / organic",
             "activeUsers": 3,
-            "sessions": 5
+            "sessions": 6
           },
           {
             "label": "facebook.com / referral",
@@ -1859,11 +1878,6 @@
             "label": "dataindex.pro / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 1
           }
         ]
       },
@@ -1872,13 +1886,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 184,
-            "sessions": 264
+            "activeUsers": 191,
+            "sessions": 278
           },
           {
             "label": "google / organic",
-            "activeUsers": 27,
-            "sessions": 137
+            "activeUsers": 30,
+            "sessions": 141
           },
           {
             "label": "bing / organic",
@@ -1928,10 +1942,10 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 54,
-            "views": 244,
-            "eventCount": 641,
-            "engagement": 64.037
+            "activeUsers": 62,
+            "views": 265,
+            "eventCount": 696,
+            "engagement": 58.1935
           },
           {
             "path": "/videos.html",
@@ -1979,6 +1993,15 @@
             "engagement": 152.2857
           },
           {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 9,
+            "views": 36,
+            "eventCount": 89,
+            "engagement": 46.8889
+          },
+          {
             "path": "/traffic.html",
             "title": "BA Medicale Growth & Education Impact Dashboard",
             "type": "Other public pages",
@@ -1986,15 +2009,6 @@
             "views": 35,
             "eventCount": 82,
             "engagement": 330.6
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "type": "Other public pages",
-            "activeUsers": 7,
-            "views": 33,
-            "eventCount": 83,
-            "engagement": 59
           },
           {
             "path": "/public.html",
@@ -2024,6 +2038,15 @@
             "engagement": 129.8889
           },
           {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 7,
+            "views": 17,
+            "eventCount": 45,
+            "engagement": 60.2857
+          },
+          {
             "path": "/about.html",
             "title": "About BA Medicale | Medical Learning for Better Care",
             "type": "Other public pages",
@@ -2033,6 +2056,24 @@
             "engagement": 20.8333
           },
           {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 11,
+            "views": 14,
+            "eventCount": 68,
+            "engagement": 32.8182
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "type": "Other public pages",
+            "activeUsers": 5,
+            "views": 14,
+            "eventCount": 25,
+            "engagement": 39.2
+          },
+          {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
             "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
             "type": "Articles",
@@ -2040,24 +2081,6 @@
             "views": 13,
             "eventCount": 52,
             "engagement": 36.5
-          },
-          {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "type": "Other public pages",
-            "activeUsers": 6,
-            "views": 12,
-            "eventCount": 38,
-            "engagement": 69.1667
-          },
-          {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "type": "Articles",
-            "activeUsers": 9,
-            "views": 11,
-            "eventCount": 55,
-            "engagement": 36
           },
           {
             "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
@@ -2103,15 +2126,6 @@
             "views": 6,
             "eventCount": 12,
             "engagement": 10.6
-          },
-          {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
-            "type": "Other public pages",
-            "activeUsers": 4,
-            "views": 6,
-            "eventCount": 14,
-            "engagement": 32.25
           },
           {
             "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
@@ -2226,20 +2240,26 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 94,
-            "engagementRate": 0.5319
+            "sessions": 104,
+            "engagementRate": 0.5096
           },
           {
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 29,
-            "engagementRate": 0.6207
+            "sessions": 31,
+            "engagementRate": 0.6129
           },
           {
             "path": "/videos.html",
             "title": "Videos",
             "sessions": 18,
             "engagementRate": 0.5556
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 11,
+            "engagementRate": 0.3636
           },
           {
             "path": "/library.html",
@@ -2260,12 +2280,6 @@
             "engagementRate": 0.3333
           },
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 9,
-            "engagementRate": 0.2222
-          },
-          {
             "path": "/ebooks.html",
             "title": "Digital Bookshelf",
             "sessions": 8,
@@ -2284,9 +2298,21 @@
             "engagementRate": 0.4
           },
           {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "sessions": 4,
+            "engagementRate": 0.5
+          },
+          {
             "path": "/seminar.html",
             "title": "Courses & Seminars",
             "sessions": 3,
+            "engagementRate": 1
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "sessions": 2,
             "engagementRate": 1
           },
           {
@@ -2300,12 +2326,6 @@
             "title": "The Silent Elevation: Understanding High Blood Pressure",
             "sessions": 2,
             "engagementRate": 0.5
-          },
-          {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
-            "sessions": 2,
-            "engagementRate": 0
           },
           {
             "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
@@ -2322,12 +2342,6 @@
           {
             "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
             "title": "Tumor vs Cancer: Understanding the Difference",
-            "sessions": 1,
-            "engagementRate": 1
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
             "sessions": 1,
             "engagementRate": 1
           },
@@ -2368,9 +2382,9 @@
           },
           {
             "title": "Articles",
-            "activeUsers": 16,
-            "views": 35,
-            "engagement": 40.0625
+            "activeUsers": 18,
+            "views": 38,
+            "engagement": 37.6667
           },
           {
             "title": "Presentations",
@@ -2397,20 +2411,20 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-16"
       },
-      "generatedAt": "2026-10-17T01:59:25.866Z",
+      "generatedAt": "2026-10-17T09:51:51.384Z",
       "summary": {
-        "activeUsers": 39,
-        "newUsers": 32,
-        "screenPageViews": 216,
-        "sessions": 93,
-        "engagedSessions": 40,
-        "userEngagementDuration": 3699,
-        "eventCount": 632,
+        "activeUsers": 49,
+        "newUsers": 42,
+        "screenPageViews": 256,
+        "sessions": 111,
+        "engagedSessions": 49,
+        "userEngagementDuration": 3969,
+        "eventCount": 724,
         "keyEvents": 0,
-        "totalUsers": 41,
-        "averageEngagementTimeSeconds": 94.8462,
-        "engagementRate": 0.4301,
-        "returningUsers": 12
+        "totalUsers": 51,
+        "averageEngagementTimeSeconds": 81,
+        "engagementRate": 0.4414,
+        "returningUsers": 14
       },
       "previous": {
         "activeUsers": 40,
@@ -2661,18 +2675,18 @@
           },
           {
             "date": "2026-10-16",
-            "activeUsers": 5,
-            "newUsers": 5,
-            "screenPageViews": 13,
-            "sessions": 7,
-            "engagedSessions": 4,
-            "userEngagementDuration": 262,
-            "eventCount": 37,
+            "activeUsers": 15,
+            "newUsers": 15,
+            "screenPageViews": 53,
+            "sessions": 25,
+            "engagedSessions": 13,
+            "userEngagementDuration": 532,
+            "eventCount": 129,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 52.4,
-            "engagementRate": 0.5714,
-            "returningUsers": 1
+            "totalUsers": 18,
+            "averageEngagementTimeSeconds": 35.4667,
+            "engagementRate": 0.52,
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -2907,23 +2921,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 32,
-            "sessions": 32
-          },
-          {
-            "label": "Returning",
-            "activeUsers": 12,
+            "activeUsers": 42,
             "sessions": 42
           },
           {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 1
+            "label": "Returning",
+            "activeUsers": 14,
+            "sessions": 47
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 18
+            "sessions": 22
           }
         ]
       },
@@ -2935,13 +2944,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 20,
-            "sessions": 34
+            "activeUsers": 27,
+            "sessions": 48
           },
           {
             "label": "Organic Search",
-            "activeUsers": 16,
-            "sessions": 54
+            "activeUsers": 19,
+            "sessions": 58
           },
           {
             "label": "Organic Social",
@@ -2960,13 +2969,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 29,
-            "sessions": 63
+            "activeUsers": 32,
+            "sessions": 66
           },
           {
             "label": "mobile",
-            "activeUsers": 10,
-            "sessions": 30
+            "activeUsers": 17,
+            "sessions": 45
           }
         ]
       },
@@ -2975,8 +2984,8 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 21,
-            "sessions": 73
+            "activeUsers": 29,
+            "sessions": 89
           },
           {
             "label": "United States",
@@ -2990,18 +2999,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 21,
-            "sessions": 46
+            "activeUsers": 28,
+            "sessions": 60
           },
           {
             "label": "google / organic",
-            "activeUsers": 13,
-            "sessions": 39
+            "activeUsers": 16,
+            "sessions": 43
           },
           {
             "label": "bing / organic",
             "activeUsers": 2,
-            "sessions": 4
+            "sessions": 5
           },
           {
             "label": "facebook.com / referral",
@@ -3012,11 +3021,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 1
           }
         ]
       },
@@ -3025,13 +3029,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 20,
-            "sessions": 34
+            "activeUsers": 27,
+            "sessions": 48
           },
           {
             "label": "google / organic",
-            "activeUsers": 14,
-            "sessions": 49
+            "activeUsers": 17,
+            "sessions": 53
           },
           {
             "label": "bing / organic",
@@ -3062,10 +3066,10 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 27,
-            "views": 99,
-            "eventCount": 285,
-            "engagement": 56.4815
+            "activeUsers": 35,
+            "views": 120,
+            "eventCount": 340,
+            "engagement": 47.8571
           },
           {
             "path": "/videos.html",
@@ -3086,6 +3090,42 @@
             "engagement": 31.1429
           },
           {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 12,
+            "eventCount": 28,
+            "engagement": 50.5
+          },
+          {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 12,
+            "eventCount": 20,
+            "engagement": 40.25
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 8,
+            "views": 10,
+            "eventCount": 50,
+            "engagement": 14.375
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 8,
+            "eventCount": 18,
+            "engagement": 14.5
+          },
+          {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
             "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis",
             "type": "eBooks",
@@ -3104,24 +3144,6 @@
             "engagement": 262.5
           },
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "type": "Articles",
-            "activeUsers": 6,
-            "views": 7,
-            "eventCount": 37,
-            "engagement": 13
-          },
-          {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "type": "Other public pages",
-            "activeUsers": 5,
-            "views": 7,
-            "eventCount": 21,
-            "engagement": 59.2
-          },
-          {
             "path": "/about.html",
             "title": "About BA Medicale | Medical Learning for Better Care",
             "type": "Other public pages",
@@ -3138,24 +3160,6 @@
             "views": 5,
             "eventCount": 23,
             "engagement": 36
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 5,
-            "eventCount": 12,
-            "engagement": 24.5
-          },
-          {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
-            "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 4,
-            "eventCount": 9,
-            "engagement": 31.3333
           },
           {
             "path": "/ebooks.html",
@@ -3309,20 +3313,20 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 48,
-            "engagementRate": 0.4375
+            "sessions": 58,
+            "engagementRate": 0.4138
           },
           {
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 14,
-            "engagementRate": 0.5714
+            "sessions": 16,
+            "engagementRate": 0.5625
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 6,
-            "engagementRate": 0.1667
+            "sessions": 8,
+            "engagementRate": 0.375
           },
           {
             "path": "/about.html",
@@ -3343,10 +3347,22 @@
             "engagementRate": 0.6667
           },
           {
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
+            "sessions": 3,
+            "engagementRate": 0.6667
+          },
+          {
             "path": "/videos.html",
             "title": "Videos",
             "sessions": 3,
             "engagementRate": 0.6667
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "sessions": 2,
+            "engagementRate": 1
           },
           {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
@@ -3355,20 +3371,8 @@
             "engagementRate": 0
           },
           {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "sessions": 1,
-            "engagementRate": 1
-          },
-          {
             "path": "/ebooks.html",
             "title": "Digital Bookshelf",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -3391,9 +3395,9 @@
           },
           {
             "title": "Articles",
-            "activeUsers": 7,
-            "views": 13,
-            "engagement": 21.4286
+            "activeUsers": 9,
+            "views": 16,
+            "engagement": 20.7778
           },
           {
             "title": "eBooks",
@@ -3432,7 +3436,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-17T01:59:25.866Z",
+      "generatedAt": "2026-10-17T09:51:51.384Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5779,10 +5783,11 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-17T01:59:25.866Z",
+  "generatedAt": "2026-10-17T09:51:51.384Z",
   "realtime": {
-    "status": "unavailable",
-    "generatedAt": "2026-10-17T01:59:25.866Z",
+    "status": "ok",
+    "generatedAt": "2026-10-17T09:51:51.384Z",
+    "activeUsers": 1,
     "windowMinutes": 30
   }
 }

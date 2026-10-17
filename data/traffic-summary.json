@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-17T01:59:25.409Z",
+  "generatedAt": "2026-10-17T09:51:51.064Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-19",
     "endDate": "2026-10-16"
   },
   "summary": {
-    "activeUsers": 219,
-    "newUsers": 210,
-    "averageEngagementTimeSeconds": 101.78082191780823,
-    "eventCount": 3483
+    "activeUsers": 229,
+    "newUsers": 220,
+    "averageEngagementTimeSeconds": 98.64192139737992,
+    "eventCount": 3580
   },
   "topPages": [
     {
@@ -21,10 +21,10 @@
     },
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 244,
-      "activeUsers": 54,
-      "eventCount": 641,
-      "bounceRate": 0.37341772151898733
+      "views": 265,
+      "activeUsers": 62,
+      "eventCount": 696,
+      "bounceRate": 0.3930635838150289
     },
     {
       "title": "Videos | BA Medicale",
@@ -63,9 +63,9 @@
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 33,
-      "activeUsers": 7,
-      "eventCount": 83,
+      "views": 36,
+      "activeUsers": 9,
+      "eventCount": 89,
       "bounceRate": 0
     },
     {
@@ -86,11 +86,11 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 185
+      "activeUsers": 192
     },
     {
       "label": "google / organic",
-      "activeUsers": 26
+      "activeUsers": 29
     },
     {
       "label": "bing / organic",
@@ -112,11 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 264
+      "sessions": 278
     },
     {
       "label": "google / organic",
-      "sessions": 137
+      "sessions": 141
     },
     {
       "label": "keep.google.com / referral",
@@ -146,7 +146,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 60
+      "activeUsers": 66
     },
     {
       "label": "Not set",
@@ -162,10 +162,14 @@
     },
     {
       "label": "Depok",
-      "activeUsers": 8
+      "activeUsers": 9
     },
     {
       "label": "Medan",
+      "activeUsers": 9
+    },
+    {
+      "label": "Denpasar",
       "activeUsers": 8
     },
     {
@@ -173,12 +177,8 @@
       "activeUsers": 8
     },
     {
-      "label": "Denpasar",
-      "activeUsers": 7
-    },
-    {
       "label": "Bandung",
-      "activeUsers": 6
+      "activeUsers": 7
     },
     {
       "label": "Pontianak",
