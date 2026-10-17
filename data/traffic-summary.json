@@ -1,72 +1,65 @@
 {
-  "generatedAt": "2026-10-17T14:35:21.216Z",
+  "generatedAt": "2026-10-17T19:48:12.925Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-19",
-    "endDate": "2026-10-16"
+    "startDate": "2026-09-20",
+    "endDate": "2026-10-17"
   },
   "summary": {
-    "activeUsers": 229,
-    "newUsers": 220,
-    "averageEngagementTimeSeconds": 98.64192139737992,
-    "eventCount": 3580
+    "activeUsers": 81,
+    "newUsers": 67,
+    "averageEngagementTimeSeconds": 166.77777777777777,
+    "eventCount": 2028
   },
   "topPages": [
     {
-      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 309,
-      "activeUsers": 155,
-      "eventCount": 1307,
-      "bounceRate": 0.34782608695652173
-    },
-    {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 265,
-      "activeUsers": 62,
-      "eventCount": 696,
-      "bounceRate": 0.3930635838150289
+      "views": 231,
+      "activeUsers": 55,
+      "eventCount": 611,
+      "bounceRate": 0.41139240506329117
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 94,
-      "activeUsers": 9,
-      "eventCount": 206,
-      "bounceRate": 0.17391304347826086
+      "views": 90,
+      "activeUsers": 7,
+      "eventCount": 180,
+      "bounceRate": 0.18604651162790697
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 91,
-      "activeUsers": 14,
-      "eventCount": 209,
-      "bounceRate": 0.08571428571428572
+      "views": 81,
+      "activeUsers": 12,
+      "eventCount": 188,
+      "bounceRate": 0.0967741935483871
+    },
+    {
+      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
+      "views": 46,
+      "activeUsers": 11,
+      "eventCount": 165,
+      "bounceRate": 0.2926829268292683
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 32,
+      "activeUsers": 7,
+      "eventCount": 77,
+      "bounceRate": 0
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 52,
-      "activeUsers": 9,
-      "eventCount": 116,
+      "views": 30,
+      "activeUsers": 5,
+      "eventCount": 67,
       "bounceRate": 0
     },
     {
       "title": "Digital Bookshelf | BA Medicale",
-      "views": 47,
-      "activeUsers": 7,
-      "eventCount": 104,
-      "bounceRate": 0.1
-    },
-    {
-      "title": "Advanced Diagnostics and Management of Thyroid Nodules | BA Medicale",
-      "views": 40,
-      "activeUsers": 7,
-      "eventCount": 127,
-      "bounceRate": 0.0625
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 36,
-      "activeUsers": 9,
-      "eventCount": 89,
-      "bounceRate": 0
+      "views": 29,
+      "activeUsers": 6,
+      "eventCount": 66,
+      "bounceRate": 0.13636363636363635
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
@@ -76,21 +69,28 @@
       "bounceRate": 0.14285714285714285
     },
     {
+      "title": "Advanced Diagnostics and Management of Thyroid Nodules | BA Medicale",
+      "views": 22,
+      "activeUsers": 6,
+      "eventCount": 69,
+      "bounceRate": 0.09090909090909091
+    },
+    {
       "title": "For Public | BA Medicale",
-      "views": 24,
-      "activeUsers": 4,
-      "eventCount": 54,
+      "views": 22,
+      "activeUsers": 3,
+      "eventCount": 50,
       "bounceRate": 0
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 192
+      "activeUsers": 48
     },
     {
       "label": "google / organic",
-      "activeUsers": 29
+      "activeUsers": 26
     },
     {
       "label": "bing / organic",
@@ -103,24 +103,20 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "dataindex.pro / referral",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
-      "label": "(direct) / (none)",
-      "sessions": 278
+      "label": "google / organic",
+      "sessions": 122
     },
     {
-      "label": "google / organic",
-      "sessions": 141
+      "label": "(direct) / (none)",
+      "sessions": 104
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 20
+      "sessions": 16
     },
     {
       "label": "bing / organic",
@@ -133,56 +129,48 @@
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
-    },
-    {
-      "label": "Not set",
-      "sessions": 1
-    },
-    {
-      "label": "dataindex.pro / referral",
-      "sessions": 1
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 66
+      "activeUsers": 32
     },
     {
       "label": "Not set",
-      "activeUsers": 15
-    },
-    {
-      "label": "Padang",
-      "activeUsers": 12
-    },
-    {
-      "label": "Makassar",
-      "activeUsers": 11
-    },
-    {
-      "label": "Depok",
-      "activeUsers": 9
-    },
-    {
-      "label": "Medan",
-      "activeUsers": 9
-    },
-    {
-      "label": "Denpasar",
-      "activeUsers": 8
-    },
-    {
-      "label": "South Tangerang",
       "activeUsers": 8
     },
     {
       "label": "Bandung",
-      "activeUsers": 7
+      "activeUsers": 4
     },
     {
-      "label": "Pontianak",
-      "activeUsers": 6
+      "label": "Denpasar",
+      "activeUsers": 4
+    },
+    {
+      "label": "Medan",
+      "activeUsers": 3
+    },
+    {
+      "label": "Semarang",
+      "activeUsers": 3
+    },
+    {
+      "label": "Boardman",
+      "activeUsers": 2
+    },
+    {
+      "label": "Council Bluffs",
+      "activeUsers": 2
+    },
+    {
+      "label": "Kuta Selatan",
+      "activeUsers": 2
+    },
+    {
+      "label": "Makassar",
+      "activeUsers": 2
     }
   ]
 }
