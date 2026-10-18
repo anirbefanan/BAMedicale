@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-18T01:58:14.495Z",
+  "generatedAt": "2026-10-18T10:03:28.956Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-20",
     "endDate": "2026-10-17"
   },
   "summary": {
-    "activeUsers": 82,
-    "newUsers": 68,
-    "averageEngagementTimeSeconds": 164.90243902439025,
-    "eventCount": 2039
+    "activeUsers": 83,
+    "newUsers": 69,
+    "averageEngagementTimeSeconds": 163.36144578313252,
+    "eventCount": 2044
   },
   "topPages": [
     {
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 26
+      "activeUsers": 27
     },
     {
       "label": "bing / organic",
@@ -103,16 +103,12 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 122
+      "sessions": 123
     },
     {
       "label": "(direct) / (none)",
