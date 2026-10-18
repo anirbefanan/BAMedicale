@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-17T19:48:12.925Z",
+  "generatedAt": "2026-10-18T01:58:14.495Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-20",
     "endDate": "2026-10-17"
   },
   "summary": {
-    "activeUsers": 81,
-    "newUsers": 67,
-    "averageEngagementTimeSeconds": 166.77777777777777,
-    "eventCount": 2028
+    "activeUsers": 82,
+    "newUsers": 68,
+    "averageEngagementTimeSeconds": 164.90243902439025,
+    "eventCount": 2039
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 231,
-      "activeUsers": 55,
-      "eventCount": 611,
-      "bounceRate": 0.41139240506329117
+      "views": 233,
+      "activeUsers": 56,
+      "eventCount": 617,
+      "bounceRate": 0.4125
     },
     {
       "title": "Videos | BA Medicale",
@@ -55,18 +55,18 @@
       "bounceRate": 0
     },
     {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 29,
+      "activeUsers": 6,
+      "eventCount": 69,
+      "bounceRate": 0.13636363636363635
+    },
+    {
       "title": "Digital Bookshelf | BA Medicale",
       "views": 29,
       "activeUsers": 6,
       "eventCount": 66,
       "bounceRate": 0.13636363636363635
-    },
-    {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 28,
-      "activeUsers": 5,
-      "eventCount": 68,
-      "bounceRate": 0.14285714285714285
     },
     {
       "title": "Advanced Diagnostics and Management of Thyroid Nodules | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 48
+      "activeUsers": 49
     },
     {
       "label": "google / organic",
@@ -103,6 +103,10 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
@@ -112,7 +116,7 @@
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 104
+      "sessions": 107
     },
     {
       "label": "keep.google.com / referral",
