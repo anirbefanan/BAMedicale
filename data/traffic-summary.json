@@ -1,79 +1,65 @@
 {
-  "generatedAt": "2026-10-18T15:03:05.569Z",
+  "generatedAt": "2026-10-19T02:15:11.017Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-20",
-    "endDate": "2026-10-17"
+    "startDate": "2026-09-21",
+    "endDate": "2026-10-18"
   },
   "summary": {
-    "activeUsers": 83,
-    "newUsers": 69,
-    "averageEngagementTimeSeconds": 163.36144578313252,
-    "eventCount": 2044
+    "activeUsers": 78,
+    "newUsers": 67,
+    "averageEngagementTimeSeconds": 145.05128205128204,
+    "eventCount": 1836
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 233,
-      "activeUsers": 56,
-      "eventCount": 617,
-      "bounceRate": 0.4125
+      "views": 217,
+      "activeUsers": 53,
+      "eventCount": 578,
+      "bounceRate": 0.42105263157894735
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 90,
-      "activeUsers": 7,
-      "eventCount": 180,
-      "bounceRate": 0.18604651162790697
+      "views": 91,
+      "activeUsers": 8,
+      "eventCount": 183,
+      "bounceRate": 0.18181818181818182
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 81,
+      "views": 80,
       "activeUsers": 12,
-      "eventCount": 188,
-      "bounceRate": 0.0967741935483871
+      "eventCount": 186,
+      "bounceRate": 0.1
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 46,
-      "activeUsers": 11,
-      "eventCount": 165,
-      "bounceRate": 0.2926829268292683
+      "views": 36,
+      "activeUsers": 8,
+      "eventCount": 131,
+      "bounceRate": 0.29411764705882354
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 32,
+      "views": 31,
       "activeUsers": 7,
-      "eventCount": 77,
+      "eventCount": 75,
       "bounceRate": 0
     },
     {
       "title": "Courses & Seminars | BA Medicale",
-      "views": 30,
+      "views": 24,
       "activeUsers": 5,
-      "eventCount": 67,
+      "eventCount": 55,
       "bounceRate": 0
     },
     {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 29,
-      "activeUsers": 6,
-      "eventCount": 69,
-      "bounceRate": 0.13636363636363635
-    },
-    {
       "title": "Digital Bookshelf | BA Medicale",
-      "views": 29,
-      "activeUsers": 6,
-      "eventCount": 66,
-      "bounceRate": 0.13636363636363635
-    },
-    {
-      "title": "Advanced Diagnostics and Management of Thyroid Nodules | BA Medicale",
       "views": 22,
       "activeUsers": 6,
-      "eventCount": 69,
-      "bounceRate": 0.09090909090909091
+      "eventCount": 49,
+      "bounceRate": 0.1111111111111111
     },
     {
       "title": "For Public | BA Medicale",
@@ -81,16 +67,30 @@
       "activeUsers": 3,
       "eventCount": 50,
       "bounceRate": 0
+    },
+    {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 18,
+      "activeUsers": 5,
+      "eventCount": 50,
+      "bounceRate": 0.06666666666666667
+    },
+    {
+      "title": "BA Medicale Team | Physician-Led Medical Education",
+      "views": 18,
+      "activeUsers": 7,
+      "eventCount": 43,
+      "bounceRate": 0.11764705882352941
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 49
+      "activeUsers": 43
     },
     {
       "label": "google / organic",
-      "activeUsers": 27
+      "activeUsers": 28
     },
     {
       "label": "bing / organic",
@@ -103,20 +103,24 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 123
+      "sessions": 115
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 107
+      "sessions": 94
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 16
+      "sessions": 15
     },
     {
       "label": "bing / organic",
@@ -134,19 +138,19 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 32
+      "activeUsers": 33
     },
     {
       "label": "Not set",
-      "activeUsers": 8
-    },
-    {
-      "label": "Bandung",
-      "activeUsers": 4
+      "activeUsers": 6
     },
     {
       "label": "Denpasar",
       "activeUsers": 4
+    },
+    {
+      "label": "Bandung",
+      "activeUsers": 3
     },
     {
       "label": "Medan",
