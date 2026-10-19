@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-19T17:54:23.461Z",
+  "generatedAt": "2026-10-19T21:49:59.938Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-22",
     "endDate": "2026-10-19"
   },
   "summary": {
-    "activeUsers": 76,
-    "newUsers": 66,
-    "averageEngagementTimeSeconds": 145.53947368421052,
-    "eventCount": 1810
+    "activeUsers": 77,
+    "newUsers": 67,
+    "averageEngagementTimeSeconds": 145.37662337662337,
+    "eventCount": 1820
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 214,
-      "activeUsers": 52,
-      "eventCount": 569,
-      "bounceRate": 0.4228187919463087
+      "views": 216,
+      "activeUsers": 53,
+      "eventCount": 575,
+      "bounceRate": 0.423841059602649
     },
     {
       "title": "Videos | BA Medicale",
@@ -70,10 +70,10 @@
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 18,
+      "views": 19,
       "activeUsers": 7,
-      "eventCount": 43,
-      "bounceRate": 0.11764705882352941
+      "eventCount": 45,
+      "bounceRate": 0.1111111111111111
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 44
+      "activeUsers": 45
     },
     {
       "label": "google / organic",
@@ -103,6 +103,10 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
@@ -112,7 +116,7 @@
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 90
+      "sessions": 92
     },
     {
       "label": "keep.google.com / referral",
@@ -134,7 +138,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 31
+      "activeUsers": 32
     },
     {
       "label": "Not set",
