@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-10-20T15:58:56.680Z",
+  "generatedAt": "2026-10-20T20:58:56.712Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-22",
-    "endDate": "2026-10-19"
+    "startDate": "2026-09-23",
+    "endDate": "2026-10-20"
   },
   "summary": {
-    "activeUsers": 79,
-    "newUsers": 69,
-    "averageEngagementTimeSeconds": 143.43037974683546,
-    "eventCount": 1836
+    "activeUsers": 77,
+    "newUsers": 67,
+    "averageEngagementTimeSeconds": 147.85714285714286,
+    "eventCount": 1768
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 217,
-      "activeUsers": 54,
-      "eventCount": 580,
-      "bounceRate": 0.42105263157894735
+      "views": 205,
+      "activeUsers": 52,
+      "eventCount": 561,
+      "bounceRate": 0.4228187919463087
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 91,
+      "views": 89,
       "activeUsers": 8,
-      "eventCount": 183,
-      "bounceRate": 0.18181818181818182
+      "eventCount": 180,
+      "bounceRate": 0.18604651162790697
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -34,13 +34,6 @@
       "bounceRate": 0.1
     },
     {
-      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 33,
-      "activeUsers": 7,
-      "eventCount": 121,
-      "bounceRate": 0.2903225806451613
-    },
-    {
       "title": "For Doctors | BA Medicale",
       "views": 31,
       "activeUsers": 7,
@@ -48,18 +41,18 @@
       "bounceRate": 0
     },
     {
-      "title": "Courses & Seminars | BA Medicale",
-      "views": 24,
-      "activeUsers": 5,
-      "eventCount": 55,
-      "bounceRate": 0
+      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
+      "views": 29,
+      "activeUsers": 7,
+      "eventCount": 98,
+      "bounceRate": 0.2962962962962963
     },
     {
-      "title": "Digital Bookshelf | BA Medicale",
-      "views": 22,
-      "activeUsers": 6,
-      "eventCount": 49,
-      "bounceRate": 0.1111111111111111
+      "title": "Courses & Seminars | BA Medicale",
+      "views": 23,
+      "activeUsers": 5,
+      "eventCount": 53,
+      "bounceRate": 0
     },
     {
       "title": "For Public | BA Medicale",
@@ -69,6 +62,13 @@
       "bounceRate": 0
     },
     {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 19,
+      "activeUsers": 6,
+      "eventCount": 52,
+      "bounceRate": 0.0625
+    },
+    {
       "title": "BA Medicale Team | Physician-Led Medical Education",
       "views": 19,
       "activeUsers": 7,
@@ -76,25 +76,29 @@
       "bounceRate": 0.1111111111111111
     },
     {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "title": "Digital Bookshelf | BA Medicale",
       "views": 17,
-      "activeUsers": 5,
-      "eventCount": 48,
-      "bounceRate": 0
+      "activeUsers": 6,
+      "eventCount": 38,
+      "bounceRate": 0.13333333333333333
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 46
+      "activeUsers": 45
     },
     {
       "label": "google / organic",
-      "activeUsers": 25
+      "activeUsers": 24
     },
     {
       "label": "bing / organic",
       "activeUsers": 4
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 2
     },
     {
       "label": "facebook.com / referral",
@@ -108,11 +112,11 @@
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 111
+      "sessions": 106
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 93
+      "sessions": 90
     },
     {
       "label": "keep.google.com / referral",
@@ -120,7 +124,7 @@
     },
     {
       "label": "bing / organic",
-      "sessions": 7
+      "sessions": 8
     },
     {
       "label": "facebook.com / referral",
@@ -129,16 +133,20 @@
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
+    },
+    {
+      "label": "Not set",
+      "sessions": 1
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 33
+      "activeUsers": 34
     },
     {
       "label": "Not set",
-      "activeUsers": 6
+      "activeUsers": 5
     },
     {
       "label": "Denpasar",
