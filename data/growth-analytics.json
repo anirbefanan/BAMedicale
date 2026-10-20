@@ -9,19 +9,19 @@
         "previousStartDate": "2026-10-18",
         "previousEndDate": "2026-10-18"
       },
-      "generatedAt": "2026-10-20T02:29:39.382Z",
+      "generatedAt": "2026-10-20T10:34:39.561Z",
       "summary": {
-        "activeUsers": 4,
-        "newUsers": 3,
-        "screenPageViews": 8,
-        "sessions": 6,
-        "engagedSessions": 1,
-        "userEngagementDuration": 133,
-        "eventCount": 22,
+        "activeUsers": 5,
+        "newUsers": 4,
+        "screenPageViews": 11,
+        "sessions": 7,
+        "engagedSessions": 2,
+        "userEngagementDuration": 270,
+        "eventCount": 34,
         "keyEvents": 0,
-        "totalUsers": 6,
-        "averageEngagementTimeSeconds": 33.25,
-        "engagementRate": 0.1667,
+        "totalUsers": 7,
+        "averageEngagementTimeSeconds": 54,
+        "engagementRate": 0.2857,
         "returningUsers": 1
       },
       "previous": {
@@ -48,17 +48,17 @@
         "current": [
           {
             "date": "2026-10-19",
-            "activeUsers": 4,
-            "newUsers": 3,
-            "screenPageViews": 8,
-            "sessions": 6,
-            "engagedSessions": 1,
-            "userEngagementDuration": 133,
-            "eventCount": 22,
+            "activeUsers": 5,
+            "newUsers": 4,
+            "screenPageViews": 11,
+            "sessions": 7,
+            "engagedSessions": 2,
+            "userEngagementDuration": 270,
+            "eventCount": 34,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 33.25,
-            "engagementRate": 0.1667,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 54,
+            "engagementRate": 0.2857,
             "returningUsers": 1
           }
         ],
@@ -84,8 +84,8 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 4,
+            "sessions": 4
           },
           {
             "label": "Returning",
@@ -96,11 +96,6 @@
             "label": "Unclassified",
             "activeUsers": 0,
             "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
           }
         ]
       },
@@ -117,8 +112,8 @@
           },
           {
             "label": "Organic Search",
-            "activeUsers": 0,
-            "sessions": 1
+            "activeUsers": 1,
+            "sessions": 2
           }
         ]
       },
@@ -132,8 +127,8 @@
           },
           {
             "label": "desktop",
-            "activeUsers": 0,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 3
           }
         ]
       },
@@ -146,13 +141,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 4,
+            "sessions": 5
           },
           {
-            "label": "(not set)",
+            "label": "bing / organic",
             "activeUsers": 1,
-            "sessions": 3
+            "sessions": 1
+          },
+          {
+            "label": "google / organic",
+            "activeUsers": 0,
+            "sessions": 1
           }
         ]
       },
@@ -163,6 +163,11 @@
             "label": "(direct) / (none)",
             "activeUsers": 4,
             "sessions": 5
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "google / organic",
@@ -178,10 +183,10 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 4,
-            "eventCount": 10,
-            "engagement": 11
+            "activeUsers": 3,
+            "views": 5,
+            "eventCount": 15,
+            "engagement": 21
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
@@ -191,6 +196,15 @@
             "views": 2,
             "eventCount": 8,
             "engagement": 0
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 7,
+            "engagement": 96
           },
           {
             "path": "/dr-bob-profile.html",
@@ -218,8 +232,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 3,
-            "engagementRate": 0.3333
+            "sessions": 4,
+            "engagementRate": 0.5
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
@@ -250,19 +264,19 @@
         "previousStartDate": "2026-10-06",
         "previousEndDate": "2026-10-12"
       },
-      "generatedAt": "2026-10-20T02:29:39.382Z",
+      "generatedAt": "2026-10-20T10:34:39.561Z",
       "summary": {
-        "activeUsers": 40,
-        "newUsers": 34,
-        "screenPageViews": 121,
-        "sessions": 69,
-        "engagedSessions": 30,
-        "userEngagementDuration": 1260,
-        "eventCount": 339,
+        "activeUsers": 41,
+        "newUsers": 35,
+        "screenPageViews": 124,
+        "sessions": 70,
+        "engagedSessions": 31,
+        "userEngagementDuration": 1397,
+        "eventCount": 351,
         "keyEvents": 0,
-        "totalUsers": 43,
-        "averageEngagementTimeSeconds": 31.5,
-        "engagementRate": 0.4348,
+        "totalUsers": 44,
+        "averageEngagementTimeSeconds": 34.0732,
+        "engagementRate": 0.4429,
         "returningUsers": 11
       },
       "previous": {
@@ -379,17 +393,17 @@
           },
           {
             "date": "2026-10-19",
-            "activeUsers": 4,
-            "newUsers": 3,
-            "screenPageViews": 8,
-            "sessions": 6,
-            "engagedSessions": 1,
-            "userEngagementDuration": 133,
-            "eventCount": 22,
+            "activeUsers": 5,
+            "newUsers": 4,
+            "screenPageViews": 11,
+            "sessions": 7,
+            "engagedSessions": 2,
+            "userEngagementDuration": 270,
+            "eventCount": 34,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 33.25,
-            "engagementRate": 0.1667,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 54,
+            "engagementRate": 0.2857,
             "returningUsers": 1
           }
         ],
@@ -499,8 +513,8 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 34,
-            "sessions": 34
+            "activeUsers": 35,
+            "sessions": 35
           },
           {
             "label": "Returning",
@@ -510,12 +524,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 10
+            "sessions": 12
           }
         ]
       },
@@ -532,8 +541,8 @@
           },
           {
             "label": "Organic Search",
-            "activeUsers": 14,
-            "sessions": 27
+            "activeUsers": 15,
+            "sessions": 28
           }
         ]
       },
@@ -542,8 +551,8 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 23,
-            "sessions": 35
+            "activeUsers": 24,
+            "sessions": 36
           },
           {
             "label": "mobile",
@@ -562,8 +571,8 @@
           },
           {
             "label": "United States",
-            "activeUsers": 7,
-            "sessions": 7
+            "activeUsers": 8,
+            "sessions": 8
           }
         ]
       },
@@ -573,22 +582,17 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 26,
-            "sessions": 40
+            "sessions": 42
           },
           {
             "label": "google / organic",
             "activeUsers": 13,
-            "sessions": 23
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
+            "sessions": 24
           },
           {
             "label": "bing / organic",
-            "activeUsers": 1,
-            "sessions": 3
+            "activeUsers": 2,
+            "sessions": 4
           }
         ]
       },
@@ -607,8 +611,8 @@
           },
           {
             "label": "bing / organic",
-            "activeUsers": 1,
-            "sessions": 3
+            "activeUsers": 2,
+            "sessions": 4
           }
         ]
       },
@@ -619,10 +623,10 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 28,
-            "views": 56,
-            "eventCount": 159,
-            "engagement": 17.1786
+            "activeUsers": 29,
+            "views": 57,
+            "eventCount": 164,
+            "engagement": 18
           },
           {
             "path": "/team.html",
@@ -715,6 +719,15 @@
             "engagement": 30
           },
           {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 7,
+            "engagement": 96
+          },
+          {
             "path": "/dr-bob-profile.html",
             "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
             "type": "Other public pages",
@@ -776,8 +789,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 37,
-            "engagementRate": 0.3514
+            "sessions": 38,
+            "engagementRate": 0.3684
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
@@ -862,19 +875,19 @@
         "previousStartDate": "2026-08-25",
         "previousEndDate": "2026-09-21"
       },
-      "generatedAt": "2026-10-20T02:29:39.382Z",
+      "generatedAt": "2026-10-20T10:34:39.561Z",
       "summary": {
-        "activeUsers": 78,
-        "newUsers": 68,
-        "screenPageViews": 699,
-        "sessions": 229,
-        "engagedSessions": 116,
-        "userEngagementDuration": 11125,
-        "eventCount": 1813,
+        "activeUsers": 79,
+        "newUsers": 69,
+        "screenPageViews": 702,
+        "sessions": 230,
+        "engagedSessions": 117,
+        "userEngagementDuration": 11262,
+        "eventCount": 1825,
         "keyEvents": 0,
-        "totalUsers": 88,
-        "averageEngagementTimeSeconds": 142.6282,
-        "engagementRate": 0.5066,
+        "totalUsers": 89,
+        "averageEngagementTimeSeconds": 142.557,
+        "engagementRate": 0.5087,
         "returningUsers": 19
       },
       "previous": {
@@ -1306,17 +1319,17 @@
           },
           {
             "date": "2026-10-19",
-            "activeUsers": 4,
-            "newUsers": 3,
-            "screenPageViews": 8,
-            "sessions": 6,
-            "engagedSessions": 1,
-            "userEngagementDuration": 133,
-            "eventCount": 22,
+            "activeUsers": 5,
+            "newUsers": 4,
+            "screenPageViews": 11,
+            "sessions": 7,
+            "engagedSessions": 2,
+            "userEngagementDuration": 270,
+            "eventCount": 34,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 33.25,
-            "engagementRate": 0.1667,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 54,
+            "engagementRate": 0.2857,
             "returningUsers": 1
           }
         ],
@@ -1720,8 +1733,8 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 68,
-            "sessions": 68
+            "activeUsers": 69,
+            "sessions": 69
           },
           {
             "label": "Returning",
@@ -1731,12 +1744,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 42
+            "sessions": 44
           }
         ]
       },
@@ -1753,8 +1761,8 @@
           },
           {
             "label": "Organic Search",
-            "activeUsers": 29,
-            "sessions": 117
+            "activeUsers": 30,
+            "sessions": 118
           },
           {
             "label": "Organic Social",
@@ -1773,8 +1781,8 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 42,
-            "sessions": 107
+            "activeUsers": 43,
+            "sessions": 108
           },
           {
             "label": "mobile",
@@ -1798,8 +1806,8 @@
           },
           {
             "label": "United States",
-            "activeUsers": 9,
-            "sessions": 9
+            "activeUsers": 10,
+            "sessions": 10
           }
         ]
       },
@@ -1809,17 +1817,17 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 46,
-            "sessions": 143
+            "sessions": 145
           },
           {
             "label": "google / organic",
             "activeUsers": 25,
-            "sessions": 73
+            "sessions": 74
           },
           {
             "label": "bing / organic",
-            "activeUsers": 3,
-            "sessions": 6
+            "activeUsers": 4,
+            "sessions": 7
           },
           {
             "label": "facebook.com / referral",
@@ -1830,11 +1838,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
           }
         ]
       },
@@ -1853,8 +1856,8 @@
           },
           {
             "label": "bing / organic",
-            "activeUsers": 3,
-            "sessions": 6
+            "activeUsers": 4,
+            "sessions": 7
           },
           {
             "label": "facebook.com / referral",
@@ -1880,10 +1883,10 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 53,
-            "views": 216,
-            "eventCount": 575,
-            "engagement": 51.2075
+            "activeUsers": 54,
+            "views": 217,
+            "eventCount": 580,
+            "engagement": 51.0185
           },
           {
             "path": "/videos.html",
@@ -2048,6 +2051,15 @@
             "engagement": 24.5
           },
           {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 6,
+            "eventCount": 19,
+            "engagement": 71.6667
+          },
+          {
             "path": "/search.html",
             "title": "Search",
             "type": "Other public pages",
@@ -2082,15 +2094,6 @@
             "views": 4,
             "eventCount": 10,
             "engagement": 37
-          },
-          {
-            "path": "/contact.html",
-            "title": "Contact BA Medicale | Medical Education Enquiries",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 4,
-            "eventCount": 12,
-            "engagement": 59.5
           },
           {
             "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
@@ -2145,8 +2148,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 94,
-            "engagementRate": 0.4787
+            "sessions": 95,
+            "engagementRate": 0.4842
           },
           {
             "path": "/index.html",
@@ -2298,19 +2301,19 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-19"
       },
-      "generatedAt": "2026-10-20T02:29:39.382Z",
+      "generatedAt": "2026-10-20T10:34:39.561Z",
       "summary": {
-        "activeUsers": 56,
-        "newUsers": 49,
-        "screenPageViews": 274,
-        "sessions": 125,
-        "engagedSessions": 55,
-        "userEngagementDuration": 4181,
-        "eventCount": 775,
+        "activeUsers": 57,
+        "newUsers": 50,
+        "screenPageViews": 277,
+        "sessions": 126,
+        "engagedSessions": 56,
+        "userEngagementDuration": 4318,
+        "eventCount": 787,
         "keyEvents": 0,
-        "totalUsers": 58,
-        "averageEngagementTimeSeconds": 74.6607,
-        "engagementRate": 0.44,
+        "totalUsers": 59,
+        "averageEngagementTimeSeconds": 75.7544,
+        "engagementRate": 0.4444,
         "returningUsers": 15
       },
       "previous": {
@@ -2607,17 +2610,17 @@
           },
           {
             "date": "2026-10-19",
-            "activeUsers": 4,
-            "newUsers": 3,
-            "screenPageViews": 8,
-            "sessions": 6,
-            "engagedSessions": 1,
-            "userEngagementDuration": 133,
-            "eventCount": 22,
+            "activeUsers": 5,
+            "newUsers": 4,
+            "screenPageViews": 11,
+            "sessions": 7,
+            "engagedSessions": 2,
+            "userEngagementDuration": 270,
+            "eventCount": 34,
             "keyEvents": 0,
-            "totalUsers": 6,
-            "averageEngagementTimeSeconds": 33.25,
-            "engagementRate": 0.1667,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 54,
+            "engagementRate": 0.2857,
             "returningUsers": 1
           }
         ],
@@ -2895,8 +2898,8 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 49,
-            "sessions": 49
+            "activeUsers": 50,
+            "sessions": 50
           },
           {
             "label": "Returning",
@@ -2906,12 +2909,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 23
+            "sessions": 25
           }
         ]
       },
@@ -2928,8 +2926,8 @@
           },
           {
             "label": "Organic Search",
-            "activeUsers": 21,
-            "sessions": 62
+            "activeUsers": 22,
+            "sessions": 63
           },
           {
             "label": "Organic Social",
@@ -2948,8 +2946,8 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 35,
-            "sessions": 71
+            "activeUsers": 36,
+            "sessions": 72
           },
           {
             "label": "mobile",
@@ -2968,8 +2966,8 @@
           },
           {
             "label": "United States",
-            "activeUsers": 9,
-            "sessions": 9
+            "activeUsers": 10,
+            "sessions": 10
           }
         ]
       },
@@ -2979,27 +2977,22 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 33,
-            "sessions": 68
+            "sessions": 70
           },
           {
             "label": "google / organic",
             "activeUsers": 18,
-            "sessions": 46
+            "sessions": 47
           },
           {
             "label": "bing / organic",
-            "activeUsers": 2,
-            "sessions": 5
+            "activeUsers": 3,
+            "sessions": 6
           },
           {
             "label": "facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 3
           },
           {
             "label": "l.instagram.com / referral",
@@ -3023,8 +3016,8 @@
           },
           {
             "label": "bing / organic",
-            "activeUsers": 2,
-            "sessions": 5
+            "activeUsers": 3,
+            "sessions": 6
           },
           {
             "label": "facebook.com / referral",
@@ -3050,10 +3043,10 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 38,
-            "views": 128,
-            "eventCount": 361,
-            "engagement": 44.7632
+            "activeUsers": 39,
+            "views": 129,
+            "eventCount": 366,
+            "engagement": 44.6667
           },
           {
             "path": "/videos.html",
@@ -3146,6 +3139,15 @@
             "engagement": 36
           },
           {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 4,
+            "eventCount": 13,
+            "engagement": 77.5
+          },
+          {
             "path": "/dr-bob-profile.html",
             "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
             "type": "Other public pages",
@@ -3198,15 +3200,6 @@
             "views": 2,
             "eventCount": 6,
             "engagement": 18.5
-          },
-          {
-            "path": "/contact.html",
-            "title": "Contact BA Medicale | Medical Education Enquiries",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 2,
-            "eventCount": 6,
-            "engagement": 59
           },
           {
             "path": "/seminar.html",
@@ -3297,8 +3290,8 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 64,
-            "engagementRate": 0.3906
+            "sessions": 65,
+            "engagementRate": 0.4
           },
           {
             "path": "/index.html",
@@ -3426,7 +3419,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-20T02:29:39.382Z",
+      "generatedAt": "2026-10-20T10:34:39.561Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5773,10 +5766,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-20T02:29:39.382Z",
+  "generatedAt": "2026-10-20T10:34:39.561Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-20T02:29:39.382Z",
+    "generatedAt": "2026-10-20T10:34:39.561Z",
     "windowMinutes": 30
   }
 }
