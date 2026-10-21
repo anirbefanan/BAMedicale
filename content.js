@@ -436,6 +436,48 @@ window.BAMEDICALE_DATA = {
         hashtags: ["#TumorVsCancer", "#CancerEducation", "#BAMedicaleCom"]
       }
     },
+    "thyroid-cancer-four-main-types": {
+      id: "thyroid-cancer-four-main-types",
+      slug: "thyroid-cancer-four-main-types",
+      title: "Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis",
+      seoTitle: "Thyroid Cancer: Four Main Types, Spread and Prognosis | BA Medicale",
+      dek: "Understanding these differences is essential because each type has distinct patterns of progression, metastatic behaviour, and prognosis.",
+      excerpt: "An author-edited overview of papillary, follicular, medullary, and anaplastic thyroid carcinoma, including spread patterns and prognosis.",
+      primaryAudience: "DOCTOR",
+      secondaryAudiences: [],
+      author: { name: "dr. Adlina Karisyah, SpB.", type: "Person" },
+      primaryTopic: "Thyroid cancer",
+      professionalCategory: "pathology",
+      professionalArea: "Pathology & cytology",
+      tags: ["Thyroid Cancer", "Pathology", "Prognosis"],
+      primaryDiseaseGroup: "endocrine-metabolic",
+      secondaryDiseaseGroups: ["cancer-neoplastic"],
+      diseaseCondition: "Thyroid cancer",
+      diseaseSite: "Thyroid gland",
+      contentType: "Article",
+      sourceAttribution: "Author-edited BA Medicale manuscript",
+      publishedDate: "2026-10-21",
+      updatedDate: "",
+      sortOrder: 4,
+      focalPosition: "50% 50%",
+      cover: "assets/articles/thyroid-cancer-four-main-types/poster.jpg",
+      sourceFile: "assets/articles/thyroid-cancer-four-main-types/source.docx",
+      sourceManifest: "assets/articles/thyroid-cancer-four-main-types/manuscript.json",
+      label: "Doctor education article",
+      intro: [],
+      sections: [],
+      takeaways: [],
+      references: [],
+      promotion: {
+        hook: "Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis",
+        teaser: [
+          "Understanding these differences is essential because each type has distinct patterns of progression, metastatic behaviour, and prognosis.",
+          "The specific cancer type, stage, and extent of disease are critical factors in determining prognosis."
+        ],
+        cta: "Read the full article at BAMedicale.com",
+        hashtags: ["#ThyroidCancer", "#MedicalEducation", "#BAMedicaleCom"]
+      }
+    },
     "parotid-gland-metastasis-from-breast-cancer": {
       id: "parotid-gland-metastasis-from-breast-cancer",
       slug: "parotid-gland-metastasis-from-breast-cancer",

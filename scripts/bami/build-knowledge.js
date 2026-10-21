@@ -29,11 +29,12 @@ const sourceText = (record, base = root) => {
   const parts = [source.intro, source.sections, source.takeaways, source.highlights, source.paper?.abstract, source.paper?.keywords, source.quickRead,
     source.programFocus, source.schedule, source.program, source.description, source.short_description,
     source.sessions, source.speakers, source.transcript, source.captions];
-  const manifest = record.family === "ebook" ? source.pageManifest : record.family === "presentation" ? source.sourceManifest : "";
+  const manifest = record.family === "ebook" ? source.pageManifest : ["article", "presentation"].includes(record.family) ? source.sourceManifest : "";
   if (manifest) {
     const file = path.resolve(base, manifest);
     if (!file.startsWith(base + path.sep) || !/\.json$/i.test(file) || !fs.existsSync(file)) throw new Error(`BAMI source manifest unavailable: ${record.id}`);
-    const pages = JSON.parse(fs.readFileSync(file, "utf8")).pages;
+    const data = JSON.parse(fs.readFileSync(file, "utf8"));
+    const pages = record.family === "article" ? data.paragraphs : data.pages;
     if (!Array.isArray(pages)) throw new Error(`BAMI source manifest has no pages: ${record.id}`);
     parts.push(pages.map(page => page.text));
   }

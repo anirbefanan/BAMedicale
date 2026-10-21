@@ -2,6 +2,72 @@
   "schemaVersion": 1,
   "items": [
     {
+      "id": "thyroid-cancer-four-main-types",
+      "contentId": "thyroid-cancer-four-main-types",
+      "type": "Article",
+      "contentType": "Article",
+      "family": "article",
+      "title": "Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis",
+      "subtitle": "",
+      "summary": "An author-edited overview of papillary, follicular, medullary, and anaplastic thyroid carcinoma, including spread patterns and prognosis.",
+      "content": "BA MEDICALE | MEDICAL EDUCATION ARTICLE Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis Written by Dr. Adlina | Published by BA Medicale Thyroid carcinoma represents the most common malignancy of the endocrine system [1]. Based on cellular origin, histopathological features, and biological behavior, thyroid carcinomas are broadly categorized into four primary histological subtypes: papillary, follicular, medullary, and anaplastic thyroid carcinoma [1,2]. Understanding these differences is essential because each type has distinct patterns of progression, metastatic behaviour, and prognosis. Key Highlights • Papillary thyroid carcinoma (PTC): The most common type, accounting for nearly 90% of cases, with generally excellent long-term survival. • Follicular thyroid carcinoma (FTC): The second most common type, with a greater tendency to spread through the bloodstream. • Medullary thyroid carcinoma (MTC): A rare neuroendocrine cancer, approximately 25% of cases being hereditary. • Anaplastic thyroid carcinoma (ATC): A rare but extremely aggressive cancer associated with poor survival outcomes. 1. Papillary Thyroid Carcinoma (PTC) The Most Common Type, With an Excellent Prognosis Prevalence and cellular origin Papillary thyroid carcinoma accounts for nearly 90% of all thyroid cancer cases [1]. It originates from thyroid follicular cells and is most commonly diagnosed between the ages of 30 and 50. Women are approximately three times more likely than men to develop PTC [2]. How it spreads PTC primarily spreads through the lymphatic system to lymph nodes in the neck. Approximately 70% of patients may develop cervical lymph node metastases[2,3]. Distant metastases are relatively uncommon [2]. Prognosis PTC generally has an excellent prognosis, with 10-year survival rates exceeding 90%. In selected cases diagnosed at an early stage, cure rates may approach 100% [1,3]. However, individual outcomes depend on disease stage and other clinical factors. 2. Follicular Thyroid Carcinoma (FTC) A Thyroid Cancer That Can Spread Through the Bloodstream Prevalence and cellular origin Follicular thyroid carcinoma is the second most common thyroid cancer, accounting for approximately 10–20% of cases. Its reported frequency may increase to 25–40% in iodine-deficient endemic regions [1]. FTC originates from thyroid follicular cells and is generally diagnosed at an older age (average ~60 years) How it spreads Unlike papillary thyroid carcinoma, FTC tends to spread through the bloodstream, a process known as hematogenous metastasis. Common distant metastatic sites include the lungs and bones (approximately 6–20% of cases), while lymph node involvement is relatively uncommon, affecting fewer than 10% [3]. Prognosis FTC generally has a favorable prognosis, with approximately 80% of cases having relatively indolent behaviour. However, FTC can be more aggressive than PTC because of its tendency to spread through the bloodstream [1,3]. Long-term outcomes depend on the extent of disease and the presence of distant metastases. 3. Medullary Thyroid Carcinoma (MTC) A Rare Thyroid Cancer With a Genetic Connection Prevalence and cellular origin Medullary thyroid carcinoma is a rare neuroendocrine malignancy, accounting for approximately 1–5% of thyroid cancers [4]. Unlike papillary and follicular thyroid cancers, MTC originates from parafollicular C cells, which produce the hormone calcitonin [1]. Hereditary characteristics Approximately 75% of MTC cases occur sporadically, without an inherited familial pattern. The remaining 25% are hereditary and may be associated with: • Multiple Endocrine Neoplasia type 2A (MEN2A) • Multiple Endocrine Neoplasia type 2B (MEN2B) • Familial Medullary Thyroid Cancer (FMTC) These hereditary conditions are clinically important because genetic susceptibility can affect family members [1,5]. Prognosis Overall survival rate of MTC estimates by stage: Stage I — 100% Stage II — 93% Stage III — 71% Stage IV — 21% Treatment outcomes depend heavily on early detection, complete surgical management, and whether distant metastases are present. 4. Anaplastic Thyroid Carcinoma (ATC) The Rarest but Most Aggressive Major Type Prevalence and cellular origin Anaplastic thyroid carcinoma accounts for approximately 1–2% of thyroid cancer cases [1]. It is an undifferentiated, highly aggressive malignancy associated with thyroid follicular cells. ATC predominantly affects older adults, particularly individuals over 65 years of age [3]. How it spreads ATC can rapidly invade surrounding structures in the neck and spread to distant organs, including the lungs, bones, and brain. Approximately 20–50% of patients already have distant metastases when the disease is first diagnosed [1]. Prognosis ATC has a particularly poor prognosis. Although it represents only a small proportion of thyroid cancers, it is reported that it accounts for up to 50% of thyroid cancer-related deaths. Historically reported outcomes include: • Average survival of approximately 5–6 months following diagnosis. • Fewer than 20% of patients surviving beyond one year [1]. These historical figures should not be interpreted as predictions for individual patients. Prognosis may differ with disease characteristics and available treatments. Key Takeaways A thyroid cancer diagnosis does not automatically mean a poor prognosis. Most thyroid cancers are papillary or follicular carcinomas, which generally have favorable outcomes, particularly when detected and managed appropriately. However, medullary thyroid cancer may require consideration of hereditary risk, while anaplastic thyroid cancer demands urgent clinical attention because of its aggressive nature. The specific cancer type, stage, and extent of disease are critical factors in determining prognosis. References [1] Forma A, Kłodnicka K, Pająk W, Flieger J, Teresińska B, Januszewski J, et al. Thyroid cancer: epidemiology, classification, risk factors, diagnostic and prognostic markers, and current treatment strategies. International Journal of Molecular Sciences. 2025;26(11):5173. [2] Ringel MD, Sosa JA, Baloch Z, Bischoff L, Bloom G, Brent GA, et al. 2025 American Thyroid Association management guidelines for adult patients with differentiated thyroid cancer. Thyroid. 2025;35(8):843–945. [3] Wild CP, Weiderpass E, Stewart BW, editors. World Cancer Report: Cancer Research for Cancer Prevention. Lyon: International Agency for Research on Cancer; 2020. [4] Wells SA Jr, Asa SL, Dralle H, Elisei R, Evans DB, Gagel RF, et al. Revised American Thyroid Association guidelines for the management of medullary thyroid carcinoma. Thyroid. 2015;25(6):567–610. [5] Shah J, Patel S, Singh B, Wong R. Jatin Shah’s Head and Neck Surgery and Oncology. 5th ed. Elsevier; 2019. Medical Disclaimer: This article is intended for educational and informational purposes only. It does not replace professional medical evaluation, diagnosis, or treatment. Patients should consult a qualified healthcare professional for individualized medical advice. Editorial note: This English adaptation preserves the supplied document’s claims, figures, and references while improving readability for BA Medicale’s website. The statistics and references have not been independently verified. Clinical review is recommended before publication, particularly for historical survival estimates and subtype prevalence figures.",
+      "authors": [
+        "dr. Adlina Karisyah, SpB."
+      ],
+      "author": [
+        "dr. Adlina Karisyah, SpB."
+      ],
+      "audience": "DOCTOR",
+      "audiences": [
+        "DOCTOR"
+      ],
+      "disease": [
+        "endocrine-metabolic",
+        "cancer-neoplastic"
+      ],
+      "diseases": [
+        "endocrine-metabolic",
+        "cancer-neoplastic"
+      ],
+      "condition": "Thyroid cancer",
+      "categories": [
+        "pathology",
+        "public-diagnosis",
+        "healthcare-clinical-context",
+        "healthcare-testing"
+      ],
+      "category": [
+        "pathology",
+        "public-diagnosis",
+        "healthcare-clinical-context",
+        "healthcare-testing"
+      ],
+      "topics": [
+        "Thyroid cancer",
+        "Thyroid Cancer",
+        "Pathology",
+        "Prognosis"
+      ],
+      "source": "Author-edited BA Medicale manuscript",
+      "date": "2026-10-21",
+      "publishedDate": "2026-10-21",
+      "status": "published",
+      "eventStart": "",
+      "eventEnd": "",
+      "eventDate": "",
+      "eventId": "",
+      "speakers": [],
+      "presenters": [],
+      "tags": [
+        "Thyroid Cancer",
+        "Pathology",
+        "Prognosis"
+      ],
+      "relatedContentIds": [],
+      "sourceMedia": "https://bamedicale.com/assets/articles/thyroid-cancer-four-main-types/poster.jpg",
+      "url": "https://bamedicale.com/articles/thyroid-cancer-four-main-types.html"
+    },
+    {
       "id": "youtube-B-6sIIjefas",
       "contentId": "youtube-B-6sIIjefas",
       "type": "Video",

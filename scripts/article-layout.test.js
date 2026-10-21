@@ -58,6 +58,21 @@ for (const article of Object.values(records.articles)) {
   });
 }
 
+test("Dr. Adlina's thyroid manuscript is rendered verbatim from its author-supplied source", () => {
+  const article = records.articles["thyroid-cancer-four-main-types"];
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, article.sourceManifest), "utf8"));
+  const html = fs.readFileSync(path.join(root, "articles", `${article.slug}.html`), "utf8");
+  const expected = manifest.paragraphs.map(({ tag, text }) => `<${tag}>${escape(text)}</${tag}>`).join("");
+  assert.ok(html.includes(`<section class="seo-article-section seo-article-manuscript" data-source-manuscript>${expected}</section>`));
+  assert.equal(article.primaryAudience, "DOCTOR");
+  assert.deepEqual(Array.from(article.secondaryAudiences), []);
+  assert.equal(article.author.name, "dr. Adlina Karisyah, SpB.");
+  assert.ok(html.includes('meta name="author" content="dr. Adlina Karisyah, SpB."'));
+  assert.ok(html.includes('By dr. Adlina Karisyah, SpB.'));
+  const publicArticle = fs.readFileSync(path.join(root, "articles", "front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html"), "utf8");
+  assert.ok(!publicArticle.includes('seo-related-card seo-related-card--article" href="/articles/thyroid-cancer-four-main-types.html"'));
+});
+
 test("shared reading style reserves landscape media without cropping", () => {
   const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
   assert.match(css, /\.seo-article-hero\{[^}]*grid-template-columns:minmax\(0,1fr\)/);

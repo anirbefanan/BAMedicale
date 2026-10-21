@@ -1,4 +1,5 @@
 const fs = require("node:fs");
+const crypto = require("node:crypto");
 const path = require("node:path");
 const vm = require("node:vm");
 const renderEventPage = require("./event-template");
@@ -34,6 +35,19 @@ const formatPublishedDate = (value) => {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
     .format(new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]))));
 };
+const sourceManuscripts = new Map();
+const readSourceManuscript = (article) => {
+  if (!article.sourceManifest) return null;
+  const manifestPath = path.resolve(root, article.sourceManifest);
+  const sourcePath = path.resolve(root, article.sourceFile || "");
+  assert(manifestPath.startsWith(root + path.sep) && sourcePath.startsWith(root + path.sep), `${article.id}: source paths must stay inside the repository`);
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  const actualHash = crypto.createHash("sha256").update(fs.readFileSync(sourcePath)).digest("hex");
+  assert(manifest.sourceSha256 === actualHash, `${article.id}: manuscript no longer matches its author-supplied DOCX`);
+  assert(Array.isArray(manifest.paragraphs) && manifest.paragraphs.length > 0, `${article.id}: source manuscript is empty`);
+  assert(manifest.paragraphs.every((entry) => ["p", "h2", "h3"].includes(entry.tag) && typeof entry.text === "string" && entry.text.trim()), `${article.id}: invalid source paragraph`);
+  return manifest.paragraphs;
+};
 
 for (const article of articles) {
   for (const field of ["id", "slug", "title", "dek", "excerpt", "cover", "primaryTopic", "contentType", "sourceAttribution"]) assert(article[field], `${article.id || "Article"}: missing ${field}`);
@@ -43,7 +57,9 @@ for (const article of articles) {
   assert(diseaseGroups.has(article.primaryDiseaseGroup), `${article.id}: valid primaryDiseaseGroup is required`);
   const authors = article.authors?.length ? article.authors : [article.author];
   assert(authors.every((author) => author?.name && ["Organization", "Person"].includes(author.type)), `${article.id}: valid author metadata is required`);
-  assert(Array.isArray(article.sections) && article.sections.length, `${article.id}: article body is required`);
+  const manuscript = readSourceManuscript(article);
+  if (manuscript) sourceManuscripts.set(article.id, manuscript);
+  assert(manuscript || (Array.isArray(article.sections) && article.sections.length), `${article.id}: article body is required`);
   assert(article.promotion && article.promotion.hook && Array.isArray(article.promotion.teaser) && article.promotion.teaser.length, `${article.id}: source-specific promotion hook and teaser are required`);
   assert(Array.isArray(article.promotion.hashtags) && article.promotion.hashtags.length >= 2 && article.promotion.hashtags.length <= 3, `${article.id}: use two or three source-specific promotion hashtags`);
   assert(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug), `${article.id}: invalid slug`);
@@ -71,6 +87,7 @@ const renderCompare = (rows = []) => {
 const renderFigures = (figures = []) => figures.length ? `<div class="seo-article-figure-grid">${figures.map((figure) => `<figure class="seo-article-figure"><button type="button" data-lightbox-image="${relative(figure.src)}" data-lightbox-alt="${escape(figure.caption)}" aria-label="Open ${escape(figure.caption)}"><img src="${relative(figure.src)}" alt="${escape(figure.caption)}" loading="lazy"></button><figcaption>${escape(figure.caption)}</figcaption></figure>`).join("")}</div>` : "";
 const renderSubsections = (subsections = []) => subsections.map((subsection) => `<section class="seo-article-subsection"><h3>${escape(subsection.title)}</h3>${(subsection.body || []).map((text) => `<p>${escape(text)}</p>`).join("")}</section>`).join("");
 const renderSection = (section) => `<section class="seo-article-section"><h2>${escape(section.title)}</h2>${(section.body || []).map((text) => `<p>${escape(text)}</p>`).join("")}${renderCompare(section.compare)}${section.bullets ? `<ul>${section.bullets.map((text) => `<li>${escape(text)}</li>`).join("")}</ul>` : ""}${renderFigures(section.figures)}${renderSubsections(section.subsections)}</section>`;
+const renderSourceManuscript = (paragraphs) => `<section class="seo-article-section seo-article-manuscript" data-source-manuscript>${paragraphs.map(({ tag, text }) => `<${tag}>${escape(text)}</${tag}>`).join("")}</section>`;
 const renderPaperSource = (article, authorNames) => {
   const paper = article.paper;
   if (!paper) return "";
@@ -108,11 +125,12 @@ const renderPage = (article, index) => {
   const next = navigableArticles[navigationIndex + 1];
   const promotion = socialPromotion(article, canonical);
   const diseaseGroup = diseaseGroups.get(article.primaryDiseaseGroup);
-  const relatedContent = contentRegistry.related(article.id);
+  const relatedContent = contentRegistry.related(article.id, contentRegistry.query().length)
+    .filter((record) => record.audiences.includes(article.primaryAudience)).slice(0, 3);
   const socialText = `${article.title} — ${canonical}`;
   const renderedReferences = `<section class="seo-article-section seo-article-references"><h2>${escape(article.referencesTitle || "References and sources")}</h2>${article.referencesOrdered ? `<ol>${article.references.map((text) => `<li>${escape(text)}</li>`).join("")}</ol>` : `<ul>${article.references.map((text) => `<li>${escape(text)}</li>`).join("")}</ul>`}${article.sourcePdf ? `<a class="button button-outline" href="${relative(article.sourcePdf)}">Open source PDF</a>` : ""}</section>`;
   const renderedSections = article.sections.map(renderSection).join("");
-  const bodySections = article.paper ? [
+  const bodySections = sourceManuscripts.has(article.id) ? renderSourceManuscript(sourceManuscripts.get(article.id)) : article.paper ? [
     renderPaperSource(article, authorNames),
     renderedSections,
     article.takeaways?.length ? `<section class="seo-article-section"><h2>Key educational takeaways</h2><ul>${article.takeaways.map((text) => `<li>${escape(text)}</li>`).join("")}</ul></section>` : "",

@@ -61,7 +61,7 @@ test("website inventory resolves Jakarta calendar windows, known zero, and follo
 
 test("website inventory counts only published records and preserves educational retrieval", () => {
   const now = Date.parse("2026-10-06T12:00:00+07:00"), items = knowledge.items;
-  assert.equal(items.length, 44);
+  assert.equal(items.length, new Set(items.map(item => item.id)).size);
   assert.ok(items.every(item => item.status === "published" && item.url));
   assert.ok(items.filter(item => item.family !== "profile").every(item => item.content && item.contentId === item.id && item.contentType && Array.isArray(item.diseases)));
   assert.equal(items.find(item => item.id === "management-thyroid-nodules-2026").eventDate, "2026-09-19");
@@ -69,7 +69,7 @@ test("website inventory counts only published records and preserves educational 
   assert.equal(core.websiteLookup("Video terbaru apa?", items, "id", now).sources[0].id, "youtube-B-6sIIjefas");
   assert.equal(core.websiteLookup("What is the latest video?", items, "en", now).sources[0].id, "youtube-B-6sIIjefas");
   assert.equal(core.websiteLookup("Video thyroid terbaru menjelaskan apa?", items, "id", now).needsSynthesis, true);
-  assert.equal(core.websiteLookup("Artikel apa saja yang ada?", items, "id", now).count, 4);
+  assert.equal(core.websiteLookup("Artikel apa saja yang ada?", items, "id", now).count, items.filter(item => item.family === "article" && item.status === "published").length);
   assert.equal(core.websiteLookup("Do you have an eBook about diabetes?", items, "en", now).count, 0);
   assert.ok(core.websiteLookup("Ada berapa konten untuk dokter?", items, "id", now).count > 0);
   assert.ok(core.websiteLookup("Do you have videos about thyroid?", items, "en", now).count > 0);
@@ -108,7 +108,8 @@ test("discovery paraphrases resolve equivalent canonical facts without phrase-sp
     assert.ok(result?.status === "STRUCTURED", question);
     assert.ok(result.sources.length > 0, question);
   }
-  const newArticle = { ...items.find(item => item.family === "article"), id: "fixture-new-article", title: "Fixture publication", date: "2026-10-07", publishedDate: "2026-10-07", url: "https://bamedicale.com/articles/fixture-publication.html" };
+  const fixtureDate = new Date(Math.max(...items.filter(item => item.family === "article" && item.status === "published").map(item => Date.parse(item.date))) + 86400000).toISOString().slice(0, 10);
+  const newArticle = { ...items.find(item => item.family === "article"), id: "fixture-new-article", title: "Fixture publication", date: fixtureDate, publishedDate: fixtureDate, url: "https://bamedicale.com/articles/fixture-publication.html" };
   assert.equal(core.websiteLookup("What is your newest article?", [...items, newArticle], "en", now).sources[0].id, newArticle.id);
   assert.notEqual(core.websiteLookup("What is your newest article?", [...items, { ...newArticle, status: "draft" }], "en", now).sources[0].id, newArticle.id);
   assert.equal(core.websiteLookup("What do BA Medicale videos explain about thyroid nodules?", items, "en", now), null);

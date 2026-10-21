@@ -1,0 +1,433 @@
+{
+  "sourceSha256": "bedfce5e8189d923b4fce8cc5744efb832e94da7d8a48bcc71141c6f58fad8d8",
+  "paragraphs": [
+    {
+      "tag": "p",
+      "text": "BA MEDICALE | MEDICAL EDUCATION ARTICLE"
+    },
+    {
+      "tag": "p",
+      "text": "Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis"
+    },
+    {
+      "tag": "p",
+      "text": "Written by Dr. Adlina | Published by BA Medicale"
+    },
+    {
+      "tag": "p",
+      "text": "Thyroid carcinoma represents the most common malignancy of the endocrine system [1]. Based on cellular origin, histopathological features, and biological behavior, thyroid carcinomas are broadly categorized into four primary histological subtypes: papillary, follicular, medullary, and anaplastic thyroid carcinoma [1,2]."
+    },
+    {
+      "tag": "p",
+      "text": "Understanding these differences is essential because each type has distinct patterns of progression, metastatic behaviour, and prognosis."
+    },
+    {
+      "tag": "h2",
+      "text": "Key Highlights "
+    },
+    {
+      "tag": "p",
+      "text": "• Papillary thyroid carcinoma (PTC): The most common type, accounting for nearly 90% of cases, with generally excellent long-term survival."
+    },
+    {
+      "tag": "p",
+      "text": "• Follicular thyroid carcinoma (FTC): The second most common type, with a greater tendency to spread"
+    },
+    {
+      "tag": "p",
+      "text": "through the bloodstream."
+    },
+    {
+      "tag": "p",
+      "text": "• Medullary thyroid carcinoma (MTC): A rare neuroendocrine cancer, approximately 25% of cases being"
+    },
+    {
+      "tag": "p",
+      "text": "hereditary."
+    },
+    {
+      "tag": "p",
+      "text": "• Anaplastic thyroid carcinoma (ATC): A rare but extremely aggressive cancer associated with poor"
+    },
+    {
+      "tag": "p",
+      "text": "survival outcomes."
+    },
+    {
+      "tag": "h2",
+      "text": "1. Papillary Thyroid Carcinoma (PTC) The Most Common Type, With an Excellent Prognosis"
+    },
+    {
+      "tag": "h3",
+      "text": "Prevalence and cellular origin"
+    },
+    {
+      "tag": "p",
+      "text": "Papillary thyroid carcinoma accounts for nearly 90% of all thyroid cancer cases [1]. It originates from"
+    },
+    {
+      "tag": "p",
+      "text": "thyroid follicular cells and is most commonly diagnosed between the ages of 30 and 50."
+    },
+    {
+      "tag": "p",
+      "text": "Women are approximately three times more likely than men to develop PTC [2]."
+    },
+    {
+      "tag": "h3",
+      "text": "How it spreads"
+    },
+    {
+      "tag": "p",
+      "text": "PTC primarily spreads through the lymphatic system to lymph nodes in the neck. Approximately 70% of"
+    },
+    {
+      "tag": "p",
+      "text": "patients may develop cervical lymph node metastases[2,3]. Distant metastases are relatively uncommon [2]."
+    },
+    {
+      "tag": "h3",
+      "text": "Prognosis"
+    },
+    {
+      "tag": "p",
+      "text": "PTC generally has an excellent prognosis, with 10-year survival rates exceeding 90%."
+    },
+    {
+      "tag": "p",
+      "text": "In selected cases diagnosed at an early stage, cure rates may approach 100% [1,3]."
+    },
+    {
+      "tag": "p",
+      "text": "However, individual outcomes depend on disease stage and other clinical factors."
+    },
+    {
+      "tag": "h2",
+      "text": "2. Follicular Thyroid Carcinoma (FTC) A Thyroid Cancer That Can Spread Through the Bloodstream"
+    },
+    {
+      "tag": "h3",
+      "text": "Prevalence and cellular origin"
+    },
+    {
+      "tag": "p",
+      "text": "Follicular thyroid carcinoma is the second most common thyroid cancer, accounting for approximately"
+    },
+    {
+      "tag": "p",
+      "text": "10–20% of cases."
+    },
+    {
+      "tag": "p",
+      "text": "Its reported frequency may increase to 25–40% in iodine-deficient endemic regions [1]."
+    },
+    {
+      "tag": "p",
+      "text": "FTC originates from thyroid follicular cells and is generally diagnosed at an older age (average ~60 years)"
+    },
+    {
+      "tag": "h3",
+      "text": "How it spreads"
+    },
+    {
+      "tag": "p",
+      "text": "Unlike papillary thyroid carcinoma, FTC tends to spread through the bloodstream, a process known as"
+    },
+    {
+      "tag": "p",
+      "text": "hematogenous metastasis."
+    },
+    {
+      "tag": "p",
+      "text": "Common distant metastatic sites include the lungs and bones (approximately 6–20% of cases), while lymph"
+    },
+    {
+      "tag": "p",
+      "text": "node involvement is relatively uncommon, affecting fewer than 10% [3]."
+    },
+    {
+      "tag": "h3",
+      "text": "Prognosis"
+    },
+    {
+      "tag": "p",
+      "text": "FTC generally has a favorable prognosis, with approximately 80% of cases having relatively indolent behaviour."
+    },
+    {
+      "tag": "p",
+      "text": "However, FTC can be more aggressive than PTC because of its tendency to spread through the"
+    },
+    {
+      "tag": "p",
+      "text": "bloodstream [1,3]."
+    },
+    {
+      "tag": "p",
+      "text": "Long-term outcomes depend on the extent of disease and the presence of distant metastases."
+    },
+    {
+      "tag": "h2",
+      "text": "3. Medullary Thyroid Carcinoma (MTC) A Rare Thyroid Cancer With a Genetic Connection"
+    },
+    {
+      "tag": "h3",
+      "text": "Prevalence and cellular origin"
+    },
+    {
+      "tag": "p",
+      "text": "Medullary thyroid carcinoma is a rare neuroendocrine malignancy, accounting for approximately 1–5% of"
+    },
+    {
+      "tag": "p",
+      "text": "thyroid cancers [4]."
+    },
+    {
+      "tag": "p",
+      "text": "Unlike papillary and follicular thyroid cancers, MTC originates from parafollicular C cells, which produce"
+    },
+    {
+      "tag": "p",
+      "text": "the hormone calcitonin [1]."
+    },
+    {
+      "tag": "h3",
+      "text": "Hereditary characteristics"
+    },
+    {
+      "tag": "p",
+      "text": "Approximately 75% of MTC cases occur sporadically, without an inherited familial pattern."
+    },
+    {
+      "tag": "p",
+      "text": "The remaining 25% are hereditary and may be associated with:"
+    },
+    {
+      "tag": "p",
+      "text": "• Multiple Endocrine Neoplasia type 2A (MEN2A)"
+    },
+    {
+      "tag": "p",
+      "text": "• Multiple Endocrine Neoplasia type 2B (MEN2B)"
+    },
+    {
+      "tag": "p",
+      "text": "• Familial Medullary Thyroid Cancer (FMTC)"
+    },
+    {
+      "tag": "p",
+      "text": "These hereditary conditions are clinically important because genetic susceptibility can affect family"
+    },
+    {
+      "tag": "p",
+      "text": "members [1,5]."
+    },
+    {
+      "tag": "h3",
+      "text": "Prognosis"
+    },
+    {
+      "tag": "p",
+      "text": "Overall survival rate of MTC estimates by stage:"
+    },
+    {
+      "tag": "p",
+      "text": "Stage I — 100%"
+    },
+    {
+      "tag": "p",
+      "text": "Stage II — 93%"
+    },
+    {
+      "tag": "p",
+      "text": "Stage III — 71%"
+    },
+    {
+      "tag": "p",
+      "text": "Stage IV — 21%"
+    },
+    {
+      "tag": "p",
+      "text": "Treatment outcomes depend heavily on early detection, complete surgical management, and whether"
+    },
+    {
+      "tag": "p",
+      "text": "distant metastases are present."
+    },
+    {
+      "tag": "h2",
+      "text": "4. Anaplastic Thyroid Carcinoma (ATC) The Rarest but Most Aggressive Major Type"
+    },
+    {
+      "tag": "h3",
+      "text": "Prevalence and cellular origin"
+    },
+    {
+      "tag": "p",
+      "text": "Anaplastic thyroid carcinoma accounts for approximately 1–2% of thyroid cancer cases [1]."
+    },
+    {
+      "tag": "p",
+      "text": "It is an undifferentiated, highly aggressive malignancy associated with thyroid follicular cells."
+    },
+    {
+      "tag": "p",
+      "text": "ATC predominantly affects older adults, particularly individuals over 65 years of age [3]."
+    },
+    {
+      "tag": "h3",
+      "text": "How it spreads"
+    },
+    {
+      "tag": "p",
+      "text": "ATC can rapidly invade surrounding structures in the neck and spread to distant organs, including the"
+    },
+    {
+      "tag": "p",
+      "text": "lungs, bones, and brain."
+    },
+    {
+      "tag": "p",
+      "text": "Approximately 20–50% of patients already have distant metastases when the disease is first diagnosed"
+    },
+    {
+      "tag": "p",
+      "text": "[1]."
+    },
+    {
+      "tag": "h3",
+      "text": "Prognosis"
+    },
+    {
+      "tag": "p",
+      "text": "ATC has a particularly poor prognosis."
+    },
+    {
+      "tag": "p",
+      "text": "Although it represents only a small proportion of thyroid cancers, it is reported that it"
+    },
+    {
+      "tag": "p",
+      "text": "accounts for up to 50% of thyroid cancer-related deaths."
+    },
+    {
+      "tag": "p",
+      "text": "Historically reported outcomes include:"
+    },
+    {
+      "tag": "p",
+      "text": "• Average survival of approximately 5–6 months following diagnosis."
+    },
+    {
+      "tag": "p",
+      "text": "• Fewer than 20% of patients surviving beyond one year [1]."
+    },
+    {
+      "tag": "p",
+      "text": "These historical figures should not be interpreted as predictions for individual patients. Prognosis may"
+    },
+    {
+      "tag": "p",
+      "text": "differ with disease characteristics and available treatments."
+    },
+    {
+      "tag": "h2",
+      "text": "Key Takeaways A thyroid cancer diagnosis does not automatically mean a poor prognosis."
+    },
+    {
+      "tag": "p",
+      "text": "Most thyroid cancers are papillary or follicular carcinomas, which generally have favorable outcomes,"
+    },
+    {
+      "tag": "p",
+      "text": "particularly when detected and managed appropriately."
+    },
+    {
+      "tag": "p",
+      "text": "However, medullary thyroid cancer may require consideration of hereditary risk, while anaplastic thyroid"
+    },
+    {
+      "tag": "p",
+      "text": "cancer demands urgent clinical attention because of its aggressive nature."
+    },
+    {
+      "tag": "p",
+      "text": "The specific cancer type, stage, and extent of disease are critical factors in determining prognosis."
+    },
+    {
+      "tag": "p",
+      "text": "References [1] Forma A, Kłodnicka K, Pająk W, Flieger J, Teresińska B, Januszewski J, et al. Thyroid cancer:"
+    },
+    {
+      "tag": "p",
+      "text": "epidemiology, classification, risk factors, diagnostic and prognostic markers, and current treatment"
+    },
+    {
+      "tag": "p",
+      "text": "strategies. International Journal of Molecular Sciences. 2025;26(11):5173."
+    },
+    {
+      "tag": "p",
+      "text": "[2] Ringel MD, Sosa JA, Baloch Z, Bischoff L, Bloom G, Brent GA, et al. 2025 American Thyroid Association"
+    },
+    {
+      "tag": "p",
+      "text": "management guidelines for adult patients with differentiated thyroid cancer. Thyroid."
+    },
+    {
+      "tag": "p",
+      "text": "2025;35(8):843–945."
+    },
+    {
+      "tag": "p",
+      "text": "[3] Wild CP, Weiderpass E, Stewart BW, editors. World Cancer Report: Cancer Research for Cancer"
+    },
+    {
+      "tag": "p",
+      "text": "Prevention. Lyon: International Agency for Research on Cancer; 2020."
+    },
+    {
+      "tag": "p",
+      "text": "[4] Wells SA Jr, Asa SL, Dralle H, Elisei R, Evans DB, Gagel RF, et al. Revised American Thyroid Association"
+    },
+    {
+      "tag": "p",
+      "text": "guidelines for the management of medullary thyroid carcinoma. Thyroid. 2015;25(6):567–610."
+    },
+    {
+      "tag": "p",
+      "text": "[5] Shah J, Patel S, Singh B, Wong R. Jatin Shah’s Head and Neck Surgery and Oncology. 5th ed. Elsevier;"
+    },
+    {
+      "tag": "p",
+      "text": "2019."
+    },
+    {
+      "tag": "p",
+      "text": "Medical Disclaimer: This article is intended for educational and informational purposes only. It does not"
+    },
+    {
+      "tag": "p",
+      "text": "replace professional medical evaluation, diagnosis, or treatment. Patients should consult a qualified"
+    },
+    {
+      "tag": "p",
+      "text": "healthcare professional for individualized medical advice."
+    },
+    {
+      "tag": "p",
+      "text": "Editorial note: This English adaptation preserves the supplied document’s claims, figures, and references"
+    },
+    {
+      "tag": "p",
+      "text": "while improving readability for BA Medicale’s website. The statistics and references have not been"
+    },
+    {
+      "tag": "p",
+      "text": "independently verified. Clinical review is recommended before publication, particularly for historical"
+    },
+    {
+      "tag": "p",
+      "text": "survival estimates and subtype prevalence figures."
+    }
+  ]
+}

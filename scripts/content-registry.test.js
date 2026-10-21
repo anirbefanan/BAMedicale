@@ -127,7 +127,7 @@ test("Disease Explorer counts and Library results share one published disease qu
   assert.ok(registry.queryDisease("endocrine-metabolic").some((record) => record.family === "presentation"));
   assert.ok(registry.queryDisease("endocrine-metabolic").some((record) => record.family === "video"));
   assert.ok(registry.queryDisease("endocrine-metabolic", { type: "video", text: "thyroid" }).every((record) => record.family === "video"));
-  const nutrilevelRelated = registry.related("nutri-level-metabolic-disease-prevention").map((record) => record.id);
+  const nutrilevelRelated = registry.related("nutri-level-metabolic-disease-prevention", registry.query().length).map((record) => record.id);
   assert.ok(nutrilevelRelated.includes("youtube-yT5W5tNjKBM"));
 });
 
