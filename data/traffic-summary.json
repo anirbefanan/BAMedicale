@@ -1,100 +1,104 @@
 {
-  "generatedAt": "2026-10-21T16:15:27.986Z",
+  "generatedAt": "2026-10-21T20:59:34.290Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-23",
-    "endDate": "2026-10-20"
+    "startDate": "2026-09-24",
+    "endDate": "2026-10-21"
   },
   "summary": {
-    "activeUsers": 77,
-    "newUsers": 67,
-    "averageEngagementTimeSeconds": 147.85714285714286,
-    "eventCount": 1768
+    "activeUsers": 78,
+    "newUsers": 69,
+    "averageEngagementTimeSeconds": 101.65384615384616,
+    "eventCount": 1486
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 205,
-      "activeUsers": 52,
-      "eventCount": 561,
-      "bounceRate": 0.4161073825503356
+      "views": 192,
+      "activeUsers": 51,
+      "eventCount": 525,
+      "bounceRate": 0.4397163120567376
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 89,
+      "views": 75,
       "activeUsers": 8,
-      "eventCount": 180,
-      "bounceRate": 0.18604651162790697
+      "eventCount": 154,
+      "bounceRate": 0.19444444444444445
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 80,
-      "activeUsers": 12,
-      "eventCount": 186,
-      "bounceRate": 0.1
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 31,
-      "activeUsers": 7,
-      "eventCount": 75,
-      "bounceRate": 0
+      "views": 50,
+      "activeUsers": 11,
+      "eventCount": 117,
+      "bounceRate": 0.13043478260869565
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 29,
+      "views": 26,
       "activeUsers": 7,
+      "eventCount": 87,
+      "bounceRate": 0.2727272727272727
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 25,
+      "activeUsers": 7,
+      "eventCount": 60,
+      "bounceRate": 0
+    },
+    {
+      "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
+      "views": 20,
+      "activeUsers": 16,
       "eventCount": 98,
-      "bounceRate": 0.2962962962962963
-    },
-    {
-      "title": "Courses & Seminars | BA Medicale",
-      "views": 23,
-      "activeUsers": 5,
-      "eventCount": 53,
-      "bounceRate": 0
-    },
-    {
-      "title": "For Public | BA Medicale",
-      "views": 22,
-      "activeUsers": 3,
-      "eventCount": 50,
-      "bounceRate": 0
-    },
-    {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 19,
-      "activeUsers": 6,
-      "eventCount": 52,
-      "bounceRate": 0
+      "bounceRate": 0.6
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 19,
-      "activeUsers": 7,
-      "eventCount": 45,
+      "views": 17,
+      "activeUsers": 6,
+      "eventCount": 39,
+      "bounceRate": 0.125
+    },
+    {
+      "title": "Courses & Seminars | BA Medicale",
+      "views": 15,
+      "activeUsers": 4,
+      "eventCount": 31,
+      "bounceRate": 0
+    },
+    {
+      "title": "Medical Education for Healthcare Professionals | BA Medicale",
+      "views": 15,
+      "activeUsers": 5,
+      "eventCount": 33,
       "bounceRate": 0.1111111111111111
     },
     {
-      "title": "Digital Bookshelf | BA Medicale",
-      "views": 17,
-      "activeUsers": 6,
-      "eventCount": 38,
-      "bounceRate": 0.13333333333333333
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 14,
+      "activeUsers": 4,
+      "eventCount": 39,
+      "bounceRate": 0
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 45
+      "activeUsers": 47
     },
     {
       "label": "google / organic",
-      "activeUsers": 24
+      "activeUsers": 23
     },
     {
       "label": "bing / organic",
       "activeUsers": 4
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 3
     },
     {
       "label": "facebook.com / referral",
@@ -108,15 +112,15 @@
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 106
+      "sessions": 98
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 90
+      "sessions": 89
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 15
+      "sessions": 11
     },
     {
       "label": "bing / organic",
@@ -134,23 +138,27 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 34
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 5
+      "activeUsers": 33
     },
     {
       "label": "Denpasar",
       "activeUsers": 4
     },
     {
-      "label": "Bandung",
+      "label": "Semarang",
       "activeUsers": 3
     },
     {
-      "label": "Semarang",
+      "label": "Singapore",
       "activeUsers": 3
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 2
+    },
+    {
+      "label": "Bandung",
+      "activeUsers": 2
     },
     {
       "label": "Boardman",
@@ -166,10 +174,6 @@
     },
     {
       "label": "Makassar",
-      "activeUsers": 2
-    },
-    {
-      "label": "Medan",
       "activeUsers": 2
     }
   ]
