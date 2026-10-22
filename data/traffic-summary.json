@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T02:18:54.185Z",
+  "generatedAt": "2026-10-22T10:48:04.963Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-24",
@@ -97,10 +97,6 @@
       "activeUsers": 4
     },
     {
-      "label": "Not set",
-      "activeUsers": 3
-    },
-    {
       "label": "facebook.com / referral",
       "activeUsers": 2
     },
@@ -145,16 +141,16 @@
       "activeUsers": 4
     },
     {
+      "label": "Not set",
+      "activeUsers": 3
+    },
+    {
       "label": "Semarang",
       "activeUsers": 3
     },
     {
       "label": "Singapore",
       "activeUsers": 3
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 2
     },
     {
       "label": "Bandung",
