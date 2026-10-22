@@ -75,7 +75,7 @@ test("Article publication contract assigns BA publication date at dispatch and p
 
 test("locked public renderer owns SEO, sharing, discovery, related content, and source-date presentation",()=>{
   assert.match(articleBuilder,/bamedicale-approved-logo\.jpg/);
-  assert.match(articleBuilder,/contentRegistry\.related\(article\.id\)/);
+  assert.match(articleBuilder,/contentRegistry\.related\(article\.id(?:,|\))/);
   assert.match(articleBuilder,/data-share-toggle/);
   assert.match(articleBuilder,/sourcePublicationDate \? formatPublishedDate/);
   assert.match(articleBuilder,/application\/ld\+json/);
