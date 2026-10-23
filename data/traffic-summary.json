@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T02:24:35.054Z",
+  "generatedAt": "2026-10-23T10:40:18.450Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-25",
@@ -45,7 +45,7 @@
       "views": 24,
       "activeUsers": 17,
       "eventCount": 111,
-      "bounceRate": 0.6521739130434783
+      "bounceRate": 0.6086956521739131
     },
     {
       "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
@@ -97,10 +97,6 @@
       "activeUsers": 4
     },
     {
-      "label": "Not set",
-      "activeUsers": 2
-    },
-    {
       "label": "facebook.com / referral",
       "activeUsers": 2
     },
@@ -133,10 +129,6 @@
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
-    },
-    {
-      "label": "Not set",
-      "sessions": 1
     }
   ],
   "cities": [
