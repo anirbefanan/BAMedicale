@@ -1,86 +1,86 @@
 {
-  "generatedAt": "2026-10-23T16:04:00.173Z",
+  "generatedAt": "2026-10-23T20:45:28.463Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-25",
-    "endDate": "2026-10-22"
+    "startDate": "2026-09-26",
+    "endDate": "2026-10-23"
   },
   "summary": {
-    "activeUsers": 77,
-    "newUsers": 68,
-    "averageEngagementTimeSeconds": 96.27272727272727,
-    "eventCount": 1421
+    "activeUsers": 80,
+    "newUsers": 72,
+    "averageEngagementTimeSeconds": 77.7125,
+    "eventCount": 1180
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 187,
-      "activeUsers": 50,
-      "eventCount": 510,
-      "bounceRate": 0.45255474452554745
+      "views": 177,
+      "activeUsers": 52,
+      "eventCount": 492,
+      "bounceRate": 0.4728682170542636
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 63,
-      "activeUsers": 7,
-      "eventCount": 130,
-      "bounceRate": 0.16666666666666666
-    },
-    {
-      "title": "Medical Library | BA Medicale",
-      "views": 38,
-      "activeUsers": 10,
-      "eventCount": 90,
-      "bounceRate": 0.1
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 25,
-      "activeUsers": 7,
-      "eventCount": 60,
-      "bounceRate": 0
+      "views": 42,
+      "activeUsers": 5,
+      "eventCount": 94,
+      "bounceRate": 0.17391304347826086
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 24,
-      "activeUsers": 17,
-      "eventCount": 111,
-      "bounceRate": 0.6086956521739131
+      "views": 30,
+      "activeUsers": 20,
+      "eventCount": 134,
+      "bounceRate": 0.6071428571428571
     },
     {
-      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 24,
-      "activeUsers": 7,
-      "eventCount": 80,
-      "bounceRate": 0.25
+      "title": "Medical Library | BA Medicale",
+      "views": 28,
+      "activeUsers": 9,
+      "eventCount": 69,
+      "bounceRate": 0.06666666666666667
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 17,
+      "views": 16,
       "activeUsers": 7,
-      "eventCount": 40,
-      "bounceRate": 0.11764705882352941
+      "eventCount": 37,
+      "bounceRate": 0.125
     },
     {
-      "title": "Medical Education for Healthcare Professionals | BA Medicale",
-      "views": 15,
-      "activeUsers": 5,
-      "eventCount": 33,
-      "bounceRate": 0.1111111111111111
-    },
-    {
-      "title": "Courses & Seminars | BA Medicale",
-      "views": 14,
-      "activeUsers": 4,
-      "eventCount": 29,
+      "title": "For Doctors | BA Medicale",
+      "views": 12,
+      "activeUsers": 6,
+      "eventCount": 27,
       "bounceRate": 0
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 13,
+      "views": 11,
       "activeUsers": 4,
-      "eventCount": 37,
+      "eventCount": 33,
       "bounceRate": 0
+    },
+    {
+      "title": "Nana Febrina | Operations & Digital Development | BA Medicale",
+      "views": 11,
+      "activeUsers": 5,
+      "eventCount": 20,
+      "bounceRate": 0.25
+    },
+    {
+      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
+      "views": 10,
+      "activeUsers": 4,
+      "eventCount": 34,
+      "bounceRate": 0.3333333333333333
+    },
+    {
+      "title": "About BA Medicale | Medical Learning for Better Care",
+      "views": 9,
+      "activeUsers": 5,
+      "eventCount": 22,
+      "bounceRate": 0.3333333333333333
     }
   ],
   "firstUserSources": [
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 25
+      "activeUsers": 26
     },
     {
       "label": "bing / organic",
@@ -98,50 +98,66 @@
     },
     {
       "label": "facebook.com / referral",
+      "activeUsers": 4
+    },
+    {
+      "label": "Not set",
       "activeUsers": 2
     },
     {
       "label": "l.instagram.com / referral",
-      "activeUsers": 2
+      "activeUsers": 1
+    },
+    {
+      "label": "m.facebook.com / referral",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 98
+      "sessions": 90
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 83
+      "sessions": 79
     },
     {
       "label": "bing / organic",
       "sessions": 8
     },
     {
-      "label": "keep.google.com / referral",
-      "sessions": 8
+      "label": "facebook.com / referral",
+      "sessions": 4
     },
     {
-      "label": "facebook.com / referral",
-      "sessions": 2
+      "label": "keep.google.com / referral",
+      "sessions": 4
     },
     {
       "label": "l.instagram.com / referral",
-      "sessions": 2
+      "sessions": 1
+    },
+    {
+      "label": "m.facebook.com / referral",
+      "sessions": 1
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 31
-    },
-    {
-      "label": "Denpasar",
-      "activeUsers": 4
+      "activeUsers": 29
     },
     {
       "label": "Not set",
+      "activeUsers": 3
+    },
+    {
+      "label": "Boardman",
+      "activeUsers": 3
+    },
+    {
+      "label": "Denpasar",
       "activeUsers": 3
     },
     {
@@ -161,15 +177,11 @@
       "activeUsers": 2
     },
     {
-      "label": "Boardman",
-      "activeUsers": 2
-    },
-    {
       "label": "Council Bluffs",
       "activeUsers": 2
     },
     {
-      "label": "Kuta Selatan",
+      "label": "Makassar",
       "activeUsers": 2
     }
   ]

@@ -4,13 +4,27 @@
   "periods": {
     "daily": {
       "range": {
-        "startDate": "2026-10-22",
-        "endDate": "2026-10-22",
-        "previousStartDate": "2026-10-21",
-        "previousEndDate": "2026-10-21"
+        "startDate": "2026-10-23",
+        "endDate": "2026-10-23",
+        "previousStartDate": "2026-10-22",
+        "previousEndDate": "2026-10-22"
       },
-      "generatedAt": "2026-10-23T16:04:00.523Z",
+      "generatedAt": "2026-10-23T20:45:28.907Z",
       "summary": {
+        "activeUsers": 7,
+        "newUsers": 5,
+        "screenPageViews": 10,
+        "sessions": 8,
+        "engagedSessions": 4,
+        "userEngagementDuration": 202,
+        "eventCount": 40,
+        "keyEvents": 0,
+        "totalUsers": 7,
+        "averageEngagementTimeSeconds": 28.8571,
+        "engagementRate": 0.5,
+        "returningUsers": 2
+      },
+      "previous": {
         "activeUsers": 3,
         "newUsers": 2,
         "screenPageViews": 8,
@@ -24,20 +38,6 @@
         "engagementRate": 0.3333,
         "returningUsers": 3
       },
-      "previous": {
-        "activeUsers": 7,
-        "newUsers": 4,
-        "screenPageViews": 20,
-        "sessions": 7,
-        "engagedSessions": 4,
-        "userEngagementDuration": 275,
-        "eventCount": 61,
-        "keyEvents": 0,
-        "totalUsers": 7,
-        "averageEngagementTimeSeconds": 39.2857,
-        "engagementRate": 0.5714,
-        "returningUsers": 3
-      },
       "totals": {
         "status": "ok",
         "thresholded": false,
@@ -46,6 +46,23 @@
       "trend": {
         "status": "ok",
         "current": [
+          {
+            "date": "2026-10-23",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 10,
+            "sessions": 8,
+            "engagedSessions": 4,
+            "userEngagementDuration": 202,
+            "eventCount": 40,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 28.8571,
+            "engagementRate": 0.5,
+            "returningUsers": 2
+          }
+        ],
+        "previous": [
           {
             "date": "2026-10-22",
             "activeUsers": 3,
@@ -58,24 +75,7 @@
             "keyEvents": 0,
             "totalUsers": 4,
             "averageEngagementTimeSeconds": 5.3333,
-            "engagementRate": 0.3333,
-            "returningUsers": 3
-          }
-        ],
-        "previous": [
-          {
-            "date": "2026-10-21",
-            "activeUsers": 7,
-            "newUsers": 4,
-            "screenPageViews": 20,
-            "sessions": 7,
-            "engagedSessions": 4,
-            "userEngagementDuration": 275,
-            "eventCount": 61,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 39.2857,
-            "engagementRate": 0.5714
+            "engagementRate": 0.3333
           }
         ]
       },
@@ -83,19 +83,19 @@
         "status": "ok",
         "rows": [
           {
-            "label": "Returning",
-            "activeUsers": 3,
-            "sessions": 3
+            "label": "New",
+            "activeUsers": 5,
+            "sessions": 5
           },
           {
-            "label": "New",
+            "label": "Returning",
             "activeUsers": 2,
-            "sessions": 2
+            "sessions": 3
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
+            "sessions": 0
           }
         ]
       },
@@ -106,9 +106,19 @@
         "status": "ok",
         "rows": [
           {
-            "label": "Organic Search",
+            "label": "Organic Social",
             "activeUsers": 3,
-            "sessions": 6
+            "sessions": 3
+          },
+          {
+            "label": "Direct",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "Organic Search",
+            "activeUsers": 2,
+            "sessions": 2
           }
         ]
       },
@@ -117,8 +127,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 3,
+            "activeUsers": 5,
             "sessions": 6
+          },
+          {
+            "label": "mobile",
+            "activeUsers": 2,
+            "sessions": 2
           }
         ]
       },
@@ -130,9 +145,29 @@
         "status": "ok",
         "rows": [
           {
+            "label": "(not set)",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "(direct) / (none)",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
             "label": "google / organic",
-            "activeUsers": 3,
-            "sessions": 6
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -140,9 +175,24 @@
         "status": "ok",
         "rows": [
           {
+            "label": "(direct) / (none)",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
             "label": "google / organic",
-            "activeUsers": 3,
-            "sessions": 6
+            "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -153,37 +203,28 @@
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 2,
-            "views": 4,
-            "eventCount": 13,
-            "engagement": 0.5
+            "activeUsers": 4,
+            "views": 6,
+            "eventCount": 24,
+            "engagement": 26
           },
           {
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 2,
-            "eventCount": 6,
-            "engagement": 11
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 11,
+            "engagement": 26.6667
           },
           {
-            "path": "/about.html",
-            "title": "About BA Medicale | Medical Learning for Better Care",
-            "type": "Other public pages",
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
             "activeUsers": 1,
             "views": 1,
-            "eventCount": 2,
-            "engagement": 4
-          },
-          {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 3,
-            "engagement": 0
+            "eventCount": 5,
+            "engagement": 18
           }
         ]
       },
@@ -193,20 +234,20 @@
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 3,
-            "engagementRate": 0.3333
+            "sessions": 4,
+            "engagementRate": 0.25
           },
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 1,
-            "engagementRate": 1
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
             "sessions": 1,
-            "engagementRate": 0
+            "engagementRate": 1
           }
         ]
       },
@@ -220,39 +261,39 @@
     },
     "7d": {
       "range": {
-        "startDate": "2026-10-16",
-        "endDate": "2026-10-22",
-        "previousStartDate": "2026-10-09",
-        "previousEndDate": "2026-10-15"
+        "startDate": "2026-10-17",
+        "endDate": "2026-10-23",
+        "previousStartDate": "2026-10-10",
+        "previousEndDate": "2026-10-16"
       },
-      "generatedAt": "2026-10-23T16:04:00.523Z",
+      "generatedAt": "2026-10-23T20:45:28.907Z",
       "summary": {
-        "activeUsers": 35,
-        "newUsers": 30,
-        "screenPageViews": 113,
-        "sessions": 57,
-        "engagedSessions": 30,
-        "userEngagementDuration": 1676,
-        "eventCount": 309,
+        "activeUsers": 29,
+        "newUsers": 20,
+        "screenPageViews": 70,
+        "sessions": 40,
+        "engagedSessions": 21,
+        "userEngagementDuration": 1346,
+        "eventCount": 220,
         "keyEvents": 0,
-        "totalUsers": 39,
-        "averageEngagementTimeSeconds": 47.8857,
-        "engagementRate": 0.5263,
-        "returningUsers": 13
+        "totalUsers": 32,
+        "averageEngagementTimeSeconds": 46.4138,
+        "engagementRate": 0.525,
+        "returningUsers": 12
       },
       "previous": {
-        "activeUsers": 23,
-        "newUsers": 18,
-        "screenPageViews": 73,
-        "sessions": 41,
-        "engagedSessions": 15,
-        "userEngagementDuration": 1444,
-        "eventCount": 233,
+        "activeUsers": 36,
+        "newUsers": 31,
+        "screenPageViews": 113,
+        "sessions": 62,
+        "engagedSessions": 27,
+        "userEngagementDuration": 1375,
+        "eventCount": 323,
         "keyEvents": 0,
-        "totalUsers": 25,
-        "averageEngagementTimeSeconds": 62.7826,
-        "engagementRate": 0.3659,
-        "returningUsers": 7
+        "totalUsers": 38,
+        "averageEngagementTimeSeconds": 38.1944,
+        "engagementRate": 0.4355,
+        "returningUsers": 10
       },
       "totals": {
         "status": "ok",
@@ -262,21 +303,6 @@
       "trend": {
         "status": "ok",
         "current": [
-          {
-            "date": "2026-10-16",
-            "activeUsers": 15,
-            "newUsers": 15,
-            "screenPageViews": 53,
-            "sessions": 25,
-            "engagedSessions": 13,
-            "userEngagementDuration": 532,
-            "eventCount": 129,
-            "keyEvents": 0,
-            "totalUsers": 18,
-            "averageEngagementTimeSeconds": 35.4667,
-            "engagementRate": 0.52,
-            "returningUsers": 3
-          },
           {
             "date": "2026-10-17",
             "activeUsers": 4,
@@ -366,23 +392,24 @@
             "averageEngagementTimeSeconds": 5.3333,
             "engagementRate": 0.3333,
             "returningUsers": 3
+          },
+          {
+            "date": "2026-10-23",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 10,
+            "sessions": 8,
+            "engagedSessions": 4,
+            "userEngagementDuration": 202,
+            "eventCount": 40,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 28.8571,
+            "engagementRate": 0.5,
+            "returningUsers": 2
           }
         ],
         "previous": [
-          {
-            "date": "2026-10-09",
-            "activeUsers": 3,
-            "newUsers": 2,
-            "screenPageViews": 13,
-            "sessions": 4,
-            "engagedSessions": 1,
-            "userEngagementDuration": 601,
-            "eventCount": 39,
-            "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 200.3333,
-            "engagementRate": 0.25
-          },
           {
             "date": "2026-10-10",
             "activeUsers": 1,
@@ -466,6 +493,20 @@
             "totalUsers": 8,
             "averageEngagementTimeSeconds": 21.4,
             "engagementRate": 0.3077
+          },
+          {
+            "date": "2026-10-16",
+            "activeUsers": 15,
+            "newUsers": 15,
+            "screenPageViews": 53,
+            "sessions": 25,
+            "engagedSessions": 13,
+            "userEngagementDuration": 532,
+            "eventCount": 129,
+            "keyEvents": 0,
+            "totalUsers": 18,
+            "averageEngagementTimeSeconds": 35.4667,
+            "engagementRate": 0.52
           }
         ]
       },
@@ -474,18 +515,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 30,
-            "sessions": 30
+            "activeUsers": 20,
+            "sessions": 20
           },
           {
             "label": "Returning",
-            "activeUsers": 13,
-            "sessions": 19
+            "activeUsers": 12,
+            "sessions": 16
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 8
+            "sessions": 4
           }
         ]
       },
@@ -497,13 +538,18 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 19,
-            "sessions": 31
+            "activeUsers": 13,
+            "sessions": 17
           },
           {
             "label": "Organic Search",
-            "activeUsers": 16,
-            "sessions": 26
+            "activeUsers": 13,
+            "sessions": 20
+          },
+          {
+            "label": "Organic Social",
+            "activeUsers": 3,
+            "sessions": 3
           }
         ]
       },
@@ -511,14 +557,14 @@
         "status": "ok",
         "rows": [
           {
-            "label": "mobile",
-            "activeUsers": 18,
-            "sessions": 30
-          },
-          {
             "label": "desktop",
             "activeUsers": 17,
-            "sessions": 27
+            "sessions": 26
+          },
+          {
+            "label": "mobile",
+            "activeUsers": 12,
+            "sessions": 14
           }
         ]
       },
@@ -527,13 +573,13 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 24,
-            "sessions": 44
+            "activeUsers": 16,
+            "sessions": 26
           },
           {
             "label": "United States",
-            "activeUsers": 5,
-            "sessions": 7
+            "activeUsers": 8,
+            "sessions": 9
           }
         ]
       },
@@ -542,18 +588,33 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 19,
-            "sessions": 31
+            "activeUsers": 12,
+            "sessions": 15
           },
           {
             "label": "google / organic",
-            "activeUsers": 15,
-            "sessions": 23
+            "activeUsers": 12,
+            "sessions": 17
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
           },
           {
             "label": "bing / organic",
             "activeUsers": 1,
-            "sessions": 3
+            "sessions": 2
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -562,18 +623,28 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 19,
-            "sessions": 31
+            "activeUsers": 13,
+            "sessions": 17
           },
           {
             "label": "google / organic",
-            "activeUsers": 15,
-            "sessions": 23
+            "activeUsers": 12,
+            "sessions": 18
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 2,
+            "sessions": 2
           },
           {
             "label": "bing / organic",
             "activeUsers": 1,
-            "sessions": 3
+            "sessions": 2
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -584,55 +655,28 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 22,
-            "views": 45,
-            "eventCount": 131,
-            "engagement": 30.2727
+            "activeUsers": 14,
+            "views": 23,
+            "eventCount": 72,
+            "engagement": 34.7857
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 11,
-            "views": 16,
-            "eventCount": 70,
-            "engagement": 16.0909
+            "activeUsers": 13,
+            "views": 18,
+            "eventCount": 77,
+            "engagement": 18.7692
           },
           {
             "path": "/team.html",
             "title": "BA Medicale Team | Physician-Led Medical Education",
             "type": "Other public pages",
-            "activeUsers": 4,
-            "views": 12,
-            "eventCount": 22,
-            "engagement": 25.5
-          },
-          {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 9,
-            "eventCount": 13,
-            "engagement": 55.5
-          },
-          {
-            "path": "/about.html",
-            "title": "About BA Medicale | Medical Learning for Better Care",
-            "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 5,
-            "eventCount": 13,
-            "engagement": 17.3333
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "type": "Other public pages",
             "activeUsers": 3,
             "views": 4,
-            "eventCount": 8,
-            "engagement": 10
+            "eventCount": 9,
+            "engagement": 6
           },
           {
             "path": "/contact.html",
@@ -642,6 +686,15 @@
             "views": 4,
             "eventCount": 12,
             "engagement": 122
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 13,
+            "engagement": 6
           },
           {
             "path": "/traffic.html",
@@ -662,13 +715,13 @@
             "engagement": 13.5
           },
           {
-            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
-            "title": "Tumor vs Cancer: Understanding the Difference",
-            "type": "Articles",
+            "path": "/about.html",
+            "title": "About BA Medicale | Medical Learning for Better Care",
+            "type": "Other public pages",
             "activeUsers": 2,
             "views": 2,
-            "eventCount": 8,
-            "engagement": 0
+            "eventCount": 4,
+            "engagement": 10
           },
           {
             "path": "/videos.html",
@@ -689,15 +742,6 @@
             "engagement": 0
           },
           {
-            "path": "/dr-bob-profile.html",
-            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 2,
-            "eventCount": 3,
-            "engagement": 102
-          },
-          {
             "path": "/articles/thyroid-cancer-four-main-types.html",
             "title": "Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis",
             "type": "Articles",
@@ -705,6 +749,24 @@
             "views": 1,
             "eventCount": 4,
             "engagement": 37
+          },
+          {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 21
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 102
           },
           {
             "path": "/healthcare-workers.html",
@@ -741,44 +803,26 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 29,
-            "engagementRate": 0.5172
+            "sessions": 18,
+            "engagementRate": 0.6111
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 12,
-            "engagementRate": 0.5
-          },
-          {
-            "path": "/index.html",
-            "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 5,
-            "engagementRate": 0.4
-          },
-          {
-            "path": "/about.html",
-            "title": "About BA Medicale | Medical Learning for Better Care",
-            "sessions": 2,
-            "engagementRate": 0.5
+            "sessions": 13,
+            "engagementRate": 0.3846
           },
           {
             "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
             "title": "Tumor vs Cancer: Understanding the Difference",
-            "sessions": 2,
-            "engagementRate": 0.5
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
-            "sessions": 2,
-            "engagementRate": 1
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "sessions": 1,
-            "engagementRate": 1
+            "path": "/index.html",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 3,
+            "engagementRate": 0.3333
           },
           {
             "path": "/team.html",
@@ -804,39 +848,39 @@
     },
     "28d": {
       "range": {
-        "startDate": "2026-09-25",
-        "endDate": "2026-10-22",
-        "previousStartDate": "2026-08-28",
-        "previousEndDate": "2026-09-24"
+        "startDate": "2026-09-26",
+        "endDate": "2026-10-23",
+        "previousStartDate": "2026-08-29",
+        "previousEndDate": "2026-09-25"
       },
-      "generatedAt": "2026-10-23T16:04:00.523Z",
+      "generatedAt": "2026-10-23T20:45:28.907Z",
       "summary": {
-        "activeUsers": 77,
-        "newUsers": 68,
-        "screenPageViews": 524,
-        "sessions": 201,
-        "engagedSessions": 98,
-        "userEngagementDuration": 7374,
-        "eventCount": 1413,
+        "activeUsers": 80,
+        "newUsers": 72,
+        "screenPageViews": 420,
+        "sessions": 187,
+        "engagedSessions": 88,
+        "userEngagementDuration": 6178,
+        "eventCount": 1172,
         "keyEvents": 0,
-        "totalUsers": 84,
-        "averageEngagementTimeSeconds": 95.7662,
-        "engagementRate": 0.4876,
-        "returningUsers": 23
+        "totalUsers": 83,
+        "averageEngagementTimeSeconds": 77.225,
+        "engagementRate": 0.4706,
+        "returningUsers": 22
       },
       "previous": {
         "activeUsers": 227,
-        "newUsers": 223,
-        "screenPageViews": 1738,
-        "sessions": 496,
-        "engagedSessions": 314,
-        "userEngagementDuration": 41302,
-        "eventCount": 4927,
+        "newUsers": 221,
+        "screenPageViews": 1821,
+        "sessions": 506,
+        "engagedSessions": 322,
+        "userEngagementDuration": 42094,
+        "eventCount": 5119,
         "keyEvents": 0,
         "totalUsers": 227,
-        "averageEngagementTimeSeconds": 181.9471,
-        "engagementRate": 0.6331,
-        "returningUsers": 49
+        "averageEngagementTimeSeconds": 185.4361,
+        "engagementRate": 0.6364,
+        "returningUsers": 50
       },
       "totals": {
         "status": "ok",
@@ -846,21 +890,6 @@
       "trend": {
         "status": "ok",
         "current": [
-          {
-            "date": "2026-09-25",
-            "activeUsers": 7,
-            "newUsers": 1,
-            "screenPageViews": 114,
-            "sessions": 22,
-            "engagedSessions": 14,
-            "userEngagementDuration": 1398,
-            "eventCount": 281,
-            "keyEvents": 0,
-            "totalUsers": 12,
-            "averageEngagementTimeSeconds": 199.7143,
-            "engagementRate": 0.6364,
-            "returningUsers": 6
-          },
           {
             "date": "2026-09-26",
             "activeUsers": 4,
@@ -1265,23 +1294,24 @@
             "averageEngagementTimeSeconds": 5.3333,
             "engagementRate": 0.3333,
             "returningUsers": 3
+          },
+          {
+            "date": "2026-10-23",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 10,
+            "sessions": 8,
+            "engagedSessions": 4,
+            "userEngagementDuration": 202,
+            "eventCount": 40,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 28.8571,
+            "engagementRate": 0.5,
+            "returningUsers": 2
           }
         ],
         "previous": [
-          {
-            "date": "2026-08-28",
-            "activeUsers": 6,
-            "newUsers": 3,
-            "screenPageViews": 31,
-            "sessions": 12,
-            "engagedSessions": 6,
-            "userEngagementDuration": 606,
-            "eventCount": 89,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 101,
-            "engagementRate": 0.5
-          },
           {
             "date": "2026-08-29",
             "activeUsers": 10,
@@ -1659,6 +1689,20 @@
             "totalUsers": 8,
             "averageEngagementTimeSeconds": 106.4,
             "engagementRate": 0.5333
+          },
+          {
+            "date": "2026-09-25",
+            "activeUsers": 7,
+            "newUsers": 1,
+            "screenPageViews": 114,
+            "sessions": 22,
+            "engagedSessions": 14,
+            "userEngagementDuration": 1398,
+            "eventCount": 281,
+            "keyEvents": 0,
+            "totalUsers": 12,
+            "averageEngagementTimeSeconds": 199.7143,
+            "engagementRate": 0.6364
           }
         ]
       },
@@ -1667,18 +1711,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 68,
-            "sessions": 68
+            "activeUsers": 72,
+            "sessions": 72
           },
           {
             "label": "Returning",
-            "activeUsers": 23,
-            "sessions": 95
+            "activeUsers": 22,
+            "sessions": 82
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 38
+            "sessions": 33
           }
         ]
       },
@@ -1691,22 +1735,22 @@
           {
             "label": "Direct",
             "activeUsers": 43,
-            "sessions": 83
+            "sessions": 79
           },
           {
             "label": "Organic Search",
-            "activeUsers": 30,
-            "sessions": 106
+            "activeUsers": 31,
+            "sessions": 98
           },
           {
             "label": "Organic Social",
-            "activeUsers": 4,
-            "sessions": 4
+            "activeUsers": 6,
+            "sessions": 6
           },
           {
             "label": "Referral",
             "activeUsers": 1,
-            "sessions": 8
+            "sessions": 4
           }
         ]
       },
@@ -1715,13 +1759,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 45,
-            "sessions": 104
+            "activeUsers": 47,
+            "sessions": 103
           },
           {
             "label": "mobile",
-            "activeUsers": 32,
-            "sessions": 97
+            "activeUsers": 33,
+            "sessions": 84
           }
         ]
       },
@@ -1730,13 +1774,13 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 47,
-            "sessions": 167
+            "activeUsers": 46,
+            "sessions": 149
           },
           {
             "label": "United States",
-            "activeUsers": 11,
-            "sessions": 13
+            "activeUsers": 14,
+            "sessions": 16
           }
         ]
       },
@@ -1746,12 +1790,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 44,
-            "sessions": 115
+            "sessions": 101
           },
           {
             "label": "google / organic",
-            "activeUsers": 25,
-            "sessions": 74
+            "activeUsers": 26,
+            "sessions": 69
           },
           {
             "label": "bing / organic",
@@ -1760,13 +1804,23 @@
           },
           {
             "label": "facebook.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
+          },
+          {
+            "label": "(not set)",
             "activeUsers": 2,
-            "sessions": 2
+            "sessions": 3
           },
           {
             "label": "l.instagram.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -1776,12 +1830,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 43,
-            "sessions": 83
+            "sessions": 79
           },
           {
             "label": "google / organic",
-            "activeUsers": 26,
-            "sessions": 98
+            "activeUsers": 27,
+            "sessions": 90
           },
           {
             "label": "bing / organic",
@@ -1790,18 +1844,23 @@
           },
           {
             "label": "facebook.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "l.instagram.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 4,
+            "sessions": 4
           },
           {
             "label": "keep.google.com / referral",
             "activeUsers": 1,
-            "sessions": 8
+            "sessions": 4
+          },
+          {
+            "label": "l.instagram.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "m.facebook.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -1812,91 +1871,46 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 50,
-            "views": 187,
-            "eventCount": 510,
-            "engagement": 50.48
+            "activeUsers": 52,
+            "views": 177,
+            "eventCount": 492,
+            "engagement": 48.1731
           },
           {
             "path": "/videos.html",
             "title": "Videos",
             "type": "Videos",
-            "activeUsers": 7,
-            "views": 63,
-            "eventCount": 130,
-            "engagement": 116.8571
-          },
-          {
-            "path": "/library.html",
-            "title": "Medical Library",
-            "type": "Other public pages",
-            "activeUsers": 10,
-            "views": 38,
-            "eventCount": 90,
-            "engagement": 39.4
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "type": "Other public pages",
-            "activeUsers": 7,
-            "views": 25,
-            "eventCount": 60,
-            "engagement": 40.5714
+            "activeUsers": 5,
+            "views": 42,
+            "eventCount": 94,
+            "engagement": 108.6
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 17,
-            "views": 24,
-            "eventCount": 111,
-            "engagement": 15.2353
+            "activeUsers": 20,
+            "views": 30,
+            "eventCount": 135,
+            "engagement": 18.15
           },
           {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "type": "Seminars / Events",
-            "activeUsers": 7,
-            "views": 24,
-            "eventCount": 81,
-            "engagement": 27.4286
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 9,
+            "views": 28,
+            "eventCount": 69,
+            "engagement": 35
           },
           {
             "path": "/team.html",
             "title": "BA Medicale Team | Physician-Led Medical Education",
             "type": "Other public pages",
             "activeUsers": 7,
-            "views": 17,
-            "eventCount": 40,
-            "engagement": 46.1429
-          },
-          {
-            "path": "/healthcare-workers.html",
-            "title": "Medical Education for Healthcare Professionals",
-            "type": "Other public pages",
-            "activeUsers": 5,
-            "views": 15,
-            "eventCount": 33,
-            "engagement": 26
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
-            "type": "Other public pages",
-            "activeUsers": 4,
-            "views": 14,
-            "eventCount": 29,
-            "engagement": 18.25
-          },
-          {
-            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
-            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "type": "Articles",
-            "activeUsers": 6,
-            "views": 13,
-            "eventCount": 52,
-            "engagement": 36.5
+            "views": 16,
+            "eventCount": 37,
+            "engagement": 45.8571
           },
           {
             "path": "/nana-febrina-profile.html",
@@ -1908,31 +1922,40 @@
             "engagement": 32.2
           },
           {
+            "path": "/clinical.html",
+            "title": "For Doctors",
+            "type": "Other public pages",
+            "activeUsers": 6,
+            "views": 12,
+            "eventCount": 27,
+            "engagement": 15.6667
+          },
+          {
             "path": "/traffic.html",
             "title": "BA Medicale Growth & Education Impact Dashboard",
             "type": "Other public pages",
             "activeUsers": 4,
-            "views": 13,
-            "eventCount": 37,
-            "engagement": 181.25
+            "views": 11,
+            "eventCount": 33,
+            "engagement": 168
           },
           {
-            "path": "/public.html",
-            "title": "For Public",
-            "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 13,
-            "eventCount": 30,
-            "engagement": 83.6667
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 4,
+            "views": 10,
+            "eventCount": 35,
+            "engagement": 14.5
           },
           {
             "path": "/about.html",
             "title": "About BA Medicale | Medical Learning for Better Care",
             "type": "Other public pages",
-            "activeUsers": 6,
-            "views": 10,
-            "eventCount": 25,
-            "engagement": 14.5
+            "activeUsers": 5,
+            "views": 9,
+            "eventCount": 22,
+            "engagement": 17.2
           },
           {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
@@ -1948,18 +1971,27 @@
             "title": "Tumor vs Cancer: Understanding the Difference",
             "type": "Articles",
             "activeUsers": 3,
-            "views": 7,
-            "eventCount": 31,
-            "engagement": 24
+            "views": 8,
+            "eventCount": 36,
+            "engagement": 30
           },
           {
-            "path": "/ebooks.html",
-            "title": "Digital Bookshelf",
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
             "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 7,
+            "eventCount": 15,
+            "engagement": 11.6667
+          },
+          {
+            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+            "type": "Articles",
             "activeUsers": 4,
             "views": 6,
-            "eventCount": 16,
-            "engagement": 29.75
+            "eventCount": 17,
+            "engagement": 1.25
           },
           {
             "path": "/contact.html",
@@ -1971,22 +2003,31 @@
             "engagement": 90.5
           },
           {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
+            "type": "Other public pages",
+            "activeUsers": 4,
+            "views": 5,
+            "eventCount": 12,
+            "engagement": 16.25
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 5,
+            "eventCount": 13,
+            "engagement": 37.3333
+          },
+          {
             "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
             "title": "Parotid Gland Metastasis From Breast Cancer: A Case Report",
             "type": "Case Reports",
             "activeUsers": 3,
-            "views": 5,
-            "eventCount": 11,
-            "engagement": 0.6667
-          },
-          {
-            "path": "/search.html",
-            "title": "Search",
-            "type": "Other public pages",
-            "activeUsers": 3,
             "views": 4,
-            "eventCount": 11,
-            "engagement": 28.6667
+            "eventCount": 8,
+            "engagement": 0.3333
           },
           {
             "path": "/ebooks/advanced-diagnostics-and-management-of-thyroid-nodules.html",
@@ -2007,13 +2048,31 @@
             "engagement": 57.5
           },
           {
+            "path": "/public.html",
+            "title": "For Public",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 7,
+            "engagement": 20
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 9,
+            "engagement": 42
+          },
+          {
             "path": "/ebooks/the-silent-elevation-understanding-high-blood-pressure.html",
             "title": "The Silent Elevation: Understanding High Blood Pressure",
             "type": "eBooks",
             "activeUsers": 2,
-            "views": 3,
-            "eventCount": 7,
-            "engagement": 6.5
+            "views": 2,
+            "eventCount": 4,
+            "engagement": 0
           },
           {
             "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
@@ -2034,15 +2093,6 @@
             "engagement": 30.5
           },
           {
-            "path": "/resources.html",
-            "title": "Resources",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 2,
-            "eventCount": 4,
-            "engagement": 25
-          },
-          {
             "path": "/articles/thyroid-cancer-four-main-types.html",
             "title": "Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis",
             "type": "Articles",
@@ -2059,6 +2109,15 @@
             "views": 1,
             "eventCount": 2,
             "engagement": 3
+          },
+          {
+            "path": "/resources.html",
+            "title": "Resources",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 36
           },
           {
             "path": "/yudi-febriadi-profile.html",
@@ -2089,38 +2148,32 @@
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 19,
-            "engagementRate": 0.3684
-          },
-          {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "sessions": 14,
-            "engagementRate": 0.6429
+            "sessions": 23,
+            "engagementRate": 0.3478
           },
           {
             "path": "/videos.html",
             "title": "Videos",
-            "sessions": 12,
-            "engagementRate": 0.5833
+            "sessions": 9,
+            "engagementRate": 0.5556
           },
           {
-            "path": "/library.html",
-            "title": "Medical Library",
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
             "sessions": 7,
-            "engagementRate": 0.7143
+            "engagementRate": 0.5714
           },
           {
             "path": "/about.html",
             "title": "About BA Medicale | Medical Learning for Better Care",
-            "sessions": 5,
-            "engagementRate": 0.4
+            "sessions": 4,
+            "engagementRate": 0.25
           },
           {
-            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
-            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "sessions": 5,
-            "engagementRate": 0.4
+            "path": "/library.html",
+            "title": "Medical Library",
+            "sessions": 4,
+            "engagementRate": 0.75
           },
           {
             "path": "/nana-febrina-profile.html",
@@ -2129,10 +2182,16 @@
             "engagementRate": 0.5
           },
           {
+            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+            "sessions": 3,
+            "engagementRate": 0.3333
+          },
+          {
             "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
             "title": "Tumor vs Cancer: Understanding the Difference",
-            "sessions": 2,
-            "engagementRate": 0.5
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
             "path": "/clinical.html",
@@ -2147,12 +2206,6 @@
             "engagementRate": 0
           },
           {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "sessions": 2,
-            "engagementRate": 1
-          },
-          {
             "path": "/ebooks.html",
             "title": "Digital Bookshelf",
             "sessions": 1,
@@ -2163,6 +2216,12 @@
             "title": "Advanced Diagnostics and Management of Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 0
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "sessions": 1,
+            "engagementRate": 1
           },
           {
             "path": "/traffic.html",
@@ -2176,34 +2235,34 @@
         "status": "ok",
         "rows": [
           {
-            "title": "Videos",
-            "activeUsers": 7,
-            "views": 63,
-            "engagement": 116.8571
-          },
-          {
             "title": "Articles",
-            "activeUsers": 23,
+            "activeUsers": 25,
             "views": 45,
-            "engagement": 25.5217
+            "engagement": 19.8
           },
           {
-            "title": "Seminars / Events",
-            "activeUsers": 7,
-            "views": 24,
-            "engagement": 27.4286
+            "title": "Videos",
+            "activeUsers": 5,
+            "views": 42,
+            "engagement": 108.6
           },
           {
             "title": "eBooks",
             "activeUsers": 7,
-            "views": 15,
-            "engagement": 22.5714
+            "views": 14,
+            "engagement": 20.7143
+          },
+          {
+            "title": "Seminars / Events",
+            "activeUsers": 4,
+            "views": 10,
+            "engagement": 14.5
           },
           {
             "title": "Case Reports",
             "activeUsers": 3,
-            "views": 5,
-            "engagement": 0.6667
+            "views": 4,
+            "engagement": 0.3333
           },
           {
             "title": "Presentations",
@@ -2220,38 +2279,38 @@
     "mtd": {
       "range": {
         "startDate": "2026-10-01",
-        "endDate": "2026-10-22",
+        "endDate": "2026-10-23",
         "previousStartDate": "2026-09-01",
-        "previousEndDate": "2026-09-22"
+        "previousEndDate": "2026-09-23"
       },
-      "generatedAt": "2026-10-23T16:04:00.523Z",
+      "generatedAt": "2026-10-23T20:45:28.907Z",
       "summary": {
-        "activeUsers": 65,
-        "newUsers": 57,
-        "screenPageViews": 316,
-        "sessions": 143,
-        "engagedSessions": 66,
-        "userEngagementDuration": 5113,
-        "eventCount": 904,
+        "activeUsers": 70,
+        "newUsers": 62,
+        "screenPageViews": 326,
+        "sessions": 151,
+        "engagedSessions": 70,
+        "userEngagementDuration": 5315,
+        "eventCount": 944,
         "keyEvents": 0,
-        "totalUsers": 67,
-        "averageEngagementTimeSeconds": 78.6615,
-        "engagementRate": 0.4615,
+        "totalUsers": 72,
+        "averageEngagementTimeSeconds": 75.9286,
+        "engagementRate": 0.4636,
         "returningUsers": 21
       },
       "previous": {
-        "activeUsers": 209,
-        "newUsers": 202,
-        "screenPageViews": 1032,
-        "sessions": 393,
-        "engagedSessions": 242,
-        "userEngagementDuration": 22883,
-        "eventCount": 3172,
+        "activeUsers": 211,
+        "newUsers": 204,
+        "screenPageViews": 1174,
+        "sessions": 411,
+        "engagedSessions": 255,
+        "userEngagementDuration": 26614,
+        "eventCount": 3515,
         "keyEvents": 0,
-        "totalUsers": 210,
-        "averageEngagementTimeSeconds": 109.488,
-        "engagementRate": 0.6158,
-        "returningUsers": 47
+        "totalUsers": 212,
+        "averageEngagementTimeSeconds": 126.1327,
+        "engagementRate": 0.6204,
+        "returningUsers": 48
       },
       "totals": {
         "status": "ok",
@@ -2590,6 +2649,21 @@
             "averageEngagementTimeSeconds": 5.3333,
             "engagementRate": 0.3333,
             "returningUsers": 3
+          },
+          {
+            "date": "2026-10-23",
+            "activeUsers": 7,
+            "newUsers": 5,
+            "screenPageViews": 10,
+            "sessions": 8,
+            "engagedSessions": 4,
+            "userEngagementDuration": 202,
+            "eventCount": 40,
+            "keyEvents": 0,
+            "totalUsers": 7,
+            "averageEngagementTimeSeconds": 28.8571,
+            "engagementRate": 0.5,
+            "returningUsers": 2
           }
         ],
         "previous": [
@@ -2900,6 +2974,20 @@
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 84,
             "engagementRate": 0.6154
+          },
+          {
+            "date": "2026-09-23",
+            "activeUsers": 7,
+            "newUsers": 2,
+            "screenPageViews": 142,
+            "sessions": 20,
+            "engagedSessions": 14,
+            "userEngagementDuration": 3731,
+            "eventCount": 343,
+            "keyEvents": 0,
+            "totalUsers": 9,
+            "averageEngagementTimeSeconds": 533,
+            "engagementRate": 0.7
           }
         ]
       },
@@ -2908,13 +2996,13 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 57,
-            "sessions": 57
+            "activeUsers": 62,
+            "sessions": 62
           },
           {
             "label": "Returning",
             "activeUsers": 21,
-            "sessions": 60
+            "sessions": 63
           },
           {
             "label": "Unclassified",
@@ -2931,18 +3019,18 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 35,
-            "sessions": 62
+            "activeUsers": 36,
+            "sessions": 65
           },
           {
             "label": "Organic Search",
-            "activeUsers": 27,
-            "sessions": 76
+            "activeUsers": 28,
+            "sessions": 78
           },
           {
             "label": "Organic Social",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 6,
+            "sessions": 6
           },
           {
             "label": "Referral",
@@ -2956,13 +3044,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 42,
-            "sessions": 86
+            "activeUsers": 45,
+            "sessions": 92
           },
           {
             "label": "mobile",
-            "activeUsers": 23,
-            "sessions": 57
+            "activeUsers": 25,
+            "sessions": 59
           }
         ]
       },
@@ -2971,13 +3059,13 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 37,
-            "sessions": 111
+            "activeUsers": 38,
+            "sessions": 115
           },
           {
             "label": "United States",
-            "activeUsers": 11,
-            "sessions": 13
+            "activeUsers": 14,
+            "sessions": 16
           }
         ]
       },
@@ -2986,13 +3074,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 36,
-            "sessions": 74
+            "activeUsers": 37,
+            "sessions": 75
           },
           {
             "label": "google / organic",
-            "activeUsers": 23,
-            "sessions": 59
+            "activeUsers": 24,
+            "sessions": 60
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
           },
           {
             "label": "bing / organic",
@@ -3000,12 +3093,17 @@
             "sessions": 7
           },
           {
-            "label": "facebook.com / referral",
+            "label": "(not set)",
             "activeUsers": 2,
-            "sessions": 2
+            "sessions": 3
           },
           {
             "label": "l.instagram.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "m.facebook.com / referral",
             "activeUsers": 1,
             "sessions": 1
           }
@@ -3016,23 +3114,23 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 35,
-            "sessions": 62
+            "activeUsers": 36,
+            "sessions": 65
           },
           {
             "label": "google / organic",
-            "activeUsers": 24,
-            "sessions": 69
+            "activeUsers": 25,
+            "sessions": 71
+          },
+          {
+            "label": "facebook.com / referral",
+            "activeUsers": 4,
+            "sessions": 4
           },
           {
             "label": "bing / organic",
             "activeUsers": 3,
             "sessions": 7
-          },
-          {
-            "label": "facebook.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
           },
           {
             "label": "keep.google.com / referral",
@@ -3041,6 +3139,11 @@
           },
           {
             "label": "l.instagram.com / referral",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "m.facebook.com / referral",
             "activeUsers": 1,
             "sessions": 1
           }
@@ -3053,10 +3156,19 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 43,
-            "views": 140,
-            "eventCount": 401,
-            "engagement": 48.4186
+            "activeUsers": 45,
+            "views": 143,
+            "eventCount": 412,
+            "engagement": 48.0444
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 19,
+            "views": 28,
+            "eventCount": 127,
+            "engagement": 18.8947
           },
           {
             "path": "/videos.html",
@@ -3066,15 +3178,6 @@
             "views": 27,
             "eventCount": 57,
             "engagement": 60
-          },
-          {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "type": "Articles",
-            "activeUsers": 16,
-            "views": 22,
-            "eventCount": 103,
-            "engagement": 15.9375
           },
           {
             "path": "/library.html",
@@ -3131,6 +3234,15 @@
             "engagement": 19.75
           },
           {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 3,
+            "views": 8,
+            "eventCount": 36,
+            "engagement": 30
+          },
+          {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
             "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis",
             "type": "eBooks",
@@ -3138,15 +3250,6 @@
             "views": 8,
             "eventCount": 30,
             "engagement": 41
-          },
-          {
-            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
-            "title": "Tumor vs Cancer: Understanding the Difference",
-            "type": "Articles",
-            "activeUsers": 3,
-            "views": 7,
-            "eventCount": 31,
-            "engagement": 24
           },
           {
             "path": "/contact.html",
@@ -3309,20 +3412,20 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 73,
-            "engagementRate": 0.4521
+            "sessions": 76,
+            "engagementRate": 0.4605
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 21,
+            "engagementRate": 0.381
           },
           {
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 19,
             "engagementRate": 0.5263
-          },
-          {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 17,
-            "engagementRate": 0.4118
           },
           {
             "path": "/about.html",
@@ -3335,6 +3438,12 @@
             "title": "Videos",
             "sessions": 4,
             "engagementRate": 0.75
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "sessions": 3,
+            "engagementRate": 0.6667
           },
           {
             "path": "/events/management-thyroid-nodules-2026.html",
@@ -3353,12 +3462,6 @@
             "title": "Nana Febrina | AI & Digital Transformation",
             "sessions": 3,
             "engagementRate": 0.6667
-          },
-          {
-            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
-            "title": "Tumor vs Cancer: Understanding the Difference",
-            "sessions": 2,
-            "engagementRate": 0.5
           },
           {
             "path": "/clinical.html",
@@ -3397,9 +3500,9 @@
         "rows": [
           {
             "title": "Articles",
-            "activeUsers": 18,
-            "views": 31,
-            "engagement": 20.2222
+            "activeUsers": 21,
+            "views": 38,
+            "engagement": 23.1429
           },
           {
             "title": "Videos",
@@ -3444,7 +3547,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-23T16:04:00.523Z",
+      "generatedAt": "2026-10-23T20:45:28.907Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -5791,10 +5894,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-23T16:04:00.523Z",
+  "generatedAt": "2026-10-23T20:45:28.907Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-23T16:04:00.523Z",
+    "generatedAt": "2026-10-23T20:45:28.907Z",
     "windowMinutes": 30
   }
 }
