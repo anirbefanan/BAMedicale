@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-23T20:45:28.463Z",
+  "generatedAt": "2026-10-24T02:22:18.387Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-26",
     "endDate": "2026-10-23"
   },
   "summary": {
-    "activeUsers": 80,
-    "newUsers": 72,
-    "averageEngagementTimeSeconds": 77.7125,
-    "eventCount": 1180
+    "activeUsers": 81,
+    "newUsers": 73,
+    "averageEngagementTimeSeconds": 76.87654320987654,
+    "eventCount": 1184
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 177,
-      "activeUsers": 52,
-      "eventCount": 492,
-      "bounceRate": 0.4728682170542636
+      "views": 178,
+      "activeUsers": 53,
+      "eventCount": 496,
+      "bounceRate": 0.46923076923076923
     },
     {
       "title": "Videos | BA Medicale",
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 26
+      "activeUsers": 27
     },
     {
       "label": "bing / organic",
@@ -116,7 +116,7 @@
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 90
+      "sessions": 91
     },
     {
       "label": "(direct) / (none)",
