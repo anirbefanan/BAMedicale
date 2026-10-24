@@ -1,44 +1,44 @@
 {
-  "generatedAt": "2026-10-24T15:01:09.474Z",
+  "generatedAt": "2026-10-24T19:57:14.019Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-26",
-    "endDate": "2026-10-23"
+    "startDate": "2026-09-27",
+    "endDate": "2026-10-24"
   },
   "summary": {
-    "activeUsers": 81,
-    "newUsers": 73,
-    "averageEngagementTimeSeconds": 76.87654320987654,
-    "eventCount": 1184
+    "activeUsers": 86,
+    "newUsers": 78,
+    "averageEngagementTimeSeconds": 71.70930232558139,
+    "eventCount": 1128
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 178,
-      "activeUsers": 53,
-      "eventCount": 496,
-      "bounceRate": 0.46923076923076923
-    },
-    {
-      "title": "Videos | BA Medicale",
-      "views": 42,
-      "activeUsers": 5,
-      "eventCount": 94,
-      "bounceRate": 0.17391304347826086
+      "views": 170,
+      "activeUsers": 55,
+      "eventCount": 483,
+      "bounceRate": 0.496
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 30,
-      "activeUsers": 20,
-      "eventCount": 134,
-      "bounceRate": 0.6071428571428571
+      "views": 34,
+      "activeUsers": 22,
+      "eventCount": 151,
+      "bounceRate": 0.5806451612903226
+    },
+    {
+      "title": "Videos | BA Medicale",
+      "views": 31,
+      "activeUsers": 5,
+      "eventCount": 64,
+      "bounceRate": 0.125
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 28,
+      "views": 26,
       "activeUsers": 9,
-      "eventCount": 69,
-      "bounceRate": 0.06666666666666667
+      "eventCount": 65,
+      "bounceRate": 0.07692307692307693
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -51,8 +51,8 @@
       "title": "For Doctors | BA Medicale",
       "views": 12,
       "activeUsers": 6,
-      "eventCount": 27,
-      "bounceRate": 0
+      "eventCount": 28,
+      "bounceRate": 0.1
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
@@ -69,28 +69,28 @@
       "bounceRate": 0.25
     },
     {
-      "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis? | BA Medicale",
-      "views": 10,
-      "activeUsers": 4,
-      "eventCount": 34,
-      "bounceRate": 0.3333333333333333
-    },
-    {
       "title": "About BA Medicale | Medical Learning for Better Care",
       "views": 9,
       "activeUsers": 5,
       "eventCount": 22,
       "bounceRate": 0.3333333333333333
+    },
+    {
+      "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis | BA Medicale",
+      "views": 8,
+      "activeUsers": 3,
+      "eventCount": 30,
+      "bounceRate": 0.5
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 44
+      "activeUsers": 47
     },
     {
       "label": "google / organic",
-      "activeUsers": 27
+      "activeUsers": 28
     },
     {
       "label": "bing / organic",
@@ -102,6 +102,10 @@
     },
     {
       "label": "l.instagram.com / referral",
+      "activeUsers": 2
+    },
+    {
+      "label": "Not set",
       "activeUsers": 1
     },
     {
@@ -112,11 +116,11 @@
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 91
+      "sessions": 85
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 79
+      "sessions": 80
     },
     {
       "label": "bing / organic",
@@ -128,10 +132,14 @@
     },
     {
       "label": "keep.google.com / referral",
-      "sessions": 4
+      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
+      "sessions": 2
+    },
+    {
+      "label": "Not set",
       "sessions": 1
     },
     {
@@ -157,10 +165,6 @@
       "activeUsers": 3
     },
     {
-      "label": "Semarang",
-      "activeUsers": 3
-    },
-    {
       "label": "Singapore",
       "activeUsers": 3
     },
@@ -174,6 +178,10 @@
     },
     {
       "label": "Council Bluffs",
+      "activeUsers": 2
+    },
+    {
+      "label": "Depok",
       "activeUsers": 2
     },
     {
