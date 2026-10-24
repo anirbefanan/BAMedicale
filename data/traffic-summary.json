@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T02:22:18.387Z",
+  "generatedAt": "2026-10-24T09:57:17.828Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-26",
@@ -101,10 +101,6 @@
       "activeUsers": 4
     },
     {
-      "label": "Not set",
-      "activeUsers": 2
-    },
-    {
       "label": "l.instagram.com / referral",
       "activeUsers": 1
     },
@@ -150,7 +146,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 3
+      "activeUsers": 4
     },
     {
       "label": "Boardman",
