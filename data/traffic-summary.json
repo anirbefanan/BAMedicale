@@ -1,86 +1,86 @@
 {
-  "generatedAt": "2026-10-25T15:12:22.668Z",
+  "generatedAt": "2026-10-25T20:06:53.452Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-27",
-    "endDate": "2026-10-24"
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-25"
   },
   "summary": {
     "activeUsers": 86,
     "newUsers": 78,
-    "averageEngagementTimeSeconds": 71.70930232558139,
-    "eventCount": 1128
+    "averageEngagementTimeSeconds": 99.03488372093024,
+    "eventCount": 1162
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 170,
+      "views": 174,
       "activeUsers": 55,
-      "eventCount": 483,
-      "bounceRate": 0.496
+      "eventCount": 493,
+      "bounceRate": 0.5
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 34,
-      "activeUsers": 22,
-      "eventCount": 151,
-      "bounceRate": 0.5806451612903226
+      "views": 37,
+      "activeUsers": 24,
+      "eventCount": 163,
+      "bounceRate": 0.5882352941176471
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 31,
+      "views": 32,
       "activeUsers": 5,
-      "eventCount": 64,
-      "bounceRate": 0.125
+      "eventCount": 65,
+      "bounceRate": 0.11764705882352941
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 26,
-      "activeUsers": 9,
-      "eventCount": 65,
+      "views": 20,
+      "activeUsers": 8,
+      "eventCount": 54,
       "bounceRate": 0.07692307692307693
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 16,
+      "views": 17,
       "activeUsers": 7,
-      "eventCount": 37,
-      "bounceRate": 0.125
+      "eventCount": 39,
+      "bounceRate": 0.11764705882352941
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 12,
-      "activeUsers": 6,
-      "eventCount": 28,
-      "bounceRate": 0.1
+      "views": 15,
+      "activeUsers": 7,
+      "eventCount": 37,
+      "bounceRate": 0.15384615384615385
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 11,
+      "views": 13,
       "activeUsers": 4,
-      "eventCount": 33,
+      "eventCount": 38,
       "bounceRate": 0
     },
     {
-      "title": "Nana Febrina | Operations & Digital Development | BA Medicale",
-      "views": 11,
+      "title": "About BA Medicale | Medical Learning for Better Care",
+      "views": 10,
       "activeUsers": 5,
-      "eventCount": 20,
-      "bounceRate": 0.25
+      "eventCount": 24,
+      "bounceRate": 0.4
     },
     {
-      "title": "About BA Medicale | Medical Learning for Better Care",
-      "views": 9,
-      "activeUsers": 5,
-      "eventCount": 22,
-      "bounceRate": 0.3333333333333333
+      "title": "Nana Febrina | Operations & Digital Development | BA Medicale",
+      "views": 10,
+      "activeUsers": 4,
+      "eventCount": 17,
+      "bounceRate": 0.14285714285714285
     },
     {
       "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis | BA Medicale",
-      "views": 8,
+      "views": 9,
       "activeUsers": 3,
-      "eventCount": 30,
-      "bounceRate": 0.5
+      "eventCount": 33,
+      "bounceRate": 0.4
     }
   ],
   "firstUserSources": [
@@ -90,15 +90,19 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 28
-    },
-    {
-      "label": "bing / organic",
-      "activeUsers": 4
+      "activeUsers": 29
     },
     {
       "label": "facebook.com / referral",
       "activeUsers": 4
+    },
+    {
+      "label": "bing / organic",
+      "activeUsers": 3
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -112,11 +116,11 @@
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 85
+      "sessions": 87
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 80
+      "sessions": 82
     },
     {
       "label": "bing / organic",
@@ -125,6 +129,10 @@
     {
       "label": "facebook.com / referral",
       "sessions": 4
+    },
+    {
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "keep.google.com / referral",
@@ -142,14 +150,22 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 29
+      "activeUsers": 27
     },
     {
       "label": "Not set",
       "activeUsers": 5
     },
     {
+      "label": "Bandung",
+      "activeUsers": 3
+    },
+    {
       "label": "Boardman",
+      "activeUsers": 3
+    },
+    {
+      "label": "Council Bluffs",
       "activeUsers": 3
     },
     {
@@ -163,14 +179,6 @@
     {
       "label": "South Tangerang",
       "activeUsers": 3
-    },
-    {
-      "label": "Bandung",
-      "activeUsers": 2
-    },
-    {
-      "label": "Council Bluffs",
-      "activeUsers": 2
     },
     {
       "label": "Depok",
