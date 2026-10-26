@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-26T11:47:33.239Z",
+  "generatedAt": "2026-10-26T17:49:46.514Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-09-28",
-    "endDate": "2026-10-25"
+    "startDate": "2026-09-29",
+    "endDate": "2026-10-26"
   },
   "summary": {
-    "activeUsers": 86,
-    "newUsers": 78,
-    "averageEngagementTimeSeconds": 99.03488372093024,
-    "eventCount": 1162
+    "activeUsers": 87,
+    "newUsers": 79,
+    "averageEngagementTimeSeconds": 97.4367816091954,
+    "eventCount": 1160
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 174,
+      "views": 171,
       "activeUsers": 55,
-      "eventCount": 493,
-      "bounceRate": 0.5
+      "eventCount": 490,
+      "bounceRate": 0.5079365079365079
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
@@ -28,10 +28,10 @@
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 32,
+      "views": 31,
       "activeUsers": 5,
-      "eventCount": 65,
-      "bounceRate": 0.11764705882352941
+      "eventCount": 63,
+      "bounceRate": 0.125
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -49,10 +49,10 @@
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 15,
-      "activeUsers": 7,
-      "eventCount": 37,
-      "bounceRate": 0.15384615384615385
+      "views": 16,
+      "activeUsers": 8,
+      "eventCount": 40,
+      "bounceRate": 0.21428571428571427
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 47
+      "activeUsers": 48
     },
     {
       "label": "google / organic",
@@ -105,6 +105,10 @@
       "activeUsers": 2
     },
     {
+      "label": "Not set",
+      "activeUsers": 1
+    },
+    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -112,11 +116,11 @@
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 87
+      "sessions": 88
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 82
+      "sessions": 81
     },
     {
       "label": "bing / organic",
@@ -135,6 +139,10 @@
       "sessions": 2
     },
     {
+      "label": "Not set",
+      "sessions": 1
+    },
+    {
       "label": "m.facebook.com / referral",
       "sessions": 1
     }
@@ -142,7 +150,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 27
+      "activeUsers": 28
     },
     {
       "label": "Not set",
