@@ -9,7 +9,7 @@
         "previousStartDate": "2026-10-24",
         "previousEndDate": "2026-10-24"
       },
-      "generatedAt": "2026-10-26T02:09:55.461Z",
+      "generatedAt": "2026-10-26T11:47:33.680Z",
       "summary": {
         "activeUsers": 5,
         "newUsers": 4,
@@ -22,7 +22,7 @@
         "totalUsers": 7,
         "averageEngagementTimeSeconds": 501,
         "engagementRate": 0.3333,
-        "returningUsers": 2
+        "returningUsers": 3
       },
       "previous": {
         "activeUsers": 6,
@@ -59,7 +59,7 @@
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 501,
             "engagementRate": 0.3333,
-            "returningUsers": 2
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -89,13 +89,13 @@
           },
           {
             "label": "Returning",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 3
+            "sessions": 2
           }
         ]
       },
@@ -114,11 +114,6 @@
             "label": "Organic Search",
             "activeUsers": 2,
             "sessions": 4
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
           }
         ]
       },
@@ -147,16 +142,16 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 3,
-            "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 6
+            "sessions": 5
           },
           {
             "label": "google / organic",
-            "activeUsers": 1,
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
+            "label": "bing / organic",
+            "activeUsers": 0,
             "sessions": 1
           }
         ]
@@ -168,11 +163,6 @@
             "label": "(direct) / (none)",
             "activeUsers": 3,
             "sessions": 5
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
           },
           {
             "label": "google / organic",
@@ -343,7 +333,7 @@
         "previousStartDate": "2026-10-12",
         "previousEndDate": "2026-10-18"
       },
-      "generatedAt": "2026-10-26T02:09:55.461Z",
+      "generatedAt": "2026-10-26T11:47:33.680Z",
       "summary": {
         "activeUsers": 33,
         "newUsers": 26,
@@ -356,7 +346,7 @@
         "totalUsers": 37,
         "averageEngagementTimeSeconds": 124.6667,
         "engagementRate": 0.4583,
-        "returningUsers": 11
+        "returningUsers": 12
       },
       "previous": {
         "activeUsers": 39,
@@ -483,7 +473,7 @@
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 501,
             "engagementRate": 0.3333,
-            "returningUsers": 2
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -597,18 +587,13 @@
           },
           {
             "label": "Returning",
-            "activeUsers": 11,
-            "sessions": 16
+            "activeUsers": 12,
+            "sessions": 17
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 3
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
+            "sessions": 5
           }
         ]
       },
@@ -632,11 +617,6 @@
             "label": "Organic Social",
             "activeUsers": 4,
             "sessions": 4
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
           }
         ]
       },
@@ -676,17 +656,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 16,
-            "sessions": 18
+            "sessions": 20
           },
           {
             "label": "google / organic",
             "activeUsers": 12,
-            "sessions": 19
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 6
+            "sessions": 21
           },
           {
             "label": "facebook.com / referral",
@@ -696,7 +671,7 @@
           {
             "label": "bing / organic",
             "activeUsers": 1,
-            "sessions": 2
+            "sessions": 3
           },
           {
             "label": "l.instagram.com / referral",
@@ -722,11 +697,6 @@
             "label": "google / organic",
             "activeUsers": 12,
             "sessions": 21
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
           },
           {
             "label": "facebook.com / referral",
@@ -982,7 +952,7 @@
         "previousStartDate": "2026-08-31",
         "previousEndDate": "2026-09-27"
       },
-      "generatedAt": "2026-10-26T02:09:55.461Z",
+      "generatedAt": "2026-10-26T11:47:33.680Z",
       "summary": {
         "activeUsers": 86,
         "newUsers": 78,
@@ -995,7 +965,7 @@
         "totalUsers": 88,
         "averageEngagementTimeSeconds": 98.5814,
         "engagementRate": 0.457,
-        "returningUsers": 23
+        "returningUsers": 24
       },
       "previous": {
         "activeUsers": 220,
@@ -1437,7 +1407,7 @@
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 501,
             "engagementRate": 0.3333,
-            "returningUsers": 2
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -1845,18 +1815,13 @@
           },
           {
             "label": "Returning",
-            "activeUsers": 23,
-            "sessions": 75
+            "activeUsers": 24,
+            "sessions": 76
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 3
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 30
+            "sessions": 32
           }
         ]
       },
@@ -1880,11 +1845,6 @@
             "label": "Organic Social",
             "activeUsers": 7,
             "sessions": 7
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
           },
           {
             "label": "Referral",
@@ -1929,12 +1889,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 47,
-            "sessions": 98
+            "sessions": 100
           },
           {
             "label": "google / organic",
             "activeUsers": 29,
-            "sessions": 69
+            "sessions": 71
           },
           {
             "label": "facebook.com / referral",
@@ -1944,12 +1904,7 @@
           {
             "label": "bing / organic",
             "activeUsers": 3,
-            "sessions": 7
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 6
+            "sessions": 8
           },
           {
             "label": "l.instagram.com / referral",
@@ -1985,11 +1940,6 @@
             "label": "bing / organic",
             "activeUsers": 3,
             "sessions": 8
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
           },
           {
             "label": "l.instagram.com / referral",
@@ -2421,7 +2371,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-25"
       },
-      "generatedAt": "2026-10-26T02:09:55.461Z",
+      "generatedAt": "2026-10-26T11:47:33.680Z",
       "summary": {
         "activeUsers": 80,
         "newUsers": 72,
@@ -2434,7 +2384,7 @@
         "totalUsers": 82,
         "averageEngagementTimeSeconds": 102.025,
         "engagementRate": 0.4551,
-        "returningUsers": 22
+        "returningUsers": 23
       },
       "previous": {
         "activeUsers": 215,
@@ -2831,7 +2781,7 @@
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 501,
             "engagementRate": 0.3333,
-            "returningUsers": 2
+            "returningUsers": 3
           }
         ],
         "previous": [
@@ -3197,18 +3147,13 @@
           },
           {
             "label": "Returning",
-            "activeUsers": 22,
-            "sessions": 66
+            "activeUsers": 23,
+            "sessions": 67
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 3
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 26
+            "sessions": 28
           }
         ]
       },
@@ -3232,11 +3177,6 @@
             "label": "Organic Social",
             "activeUsers": 7,
             "sessions": 7
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
           },
           {
             "label": "Referral",
@@ -3281,12 +3221,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 43,
-            "sessions": 83
+            "sessions": 85
           },
           {
             "label": "google / organic",
             "activeUsers": 27,
-            "sessions": 65
+            "sessions": 67
           },
           {
             "label": "facebook.com / referral",
@@ -3296,12 +3236,7 @@
           {
             "label": "bing / organic",
             "activeUsers": 3,
-            "sessions": 7
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 6
+            "sessions": 8
           },
           {
             "label": "l.instagram.com / referral",
@@ -3337,11 +3272,6 @@
             "label": "bing / organic",
             "activeUsers": 3,
             "sessions": 8
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
           },
           {
             "label": "l.instagram.com / referral",
@@ -3758,7 +3688,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-26T02:09:55.461Z",
+      "generatedAt": "2026-10-26T11:47:33.680Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -6105,10 +6035,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-26T02:09:55.461Z",
+  "generatedAt": "2026-10-26T11:47:33.680Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-26T02:09:55.461Z",
+    "generatedAt": "2026-10-26T11:47:33.680Z",
     "windowMinutes": 30
   }
 }
