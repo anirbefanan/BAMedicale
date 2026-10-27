@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T02:46:45.836Z",
+  "generatedAt": "2026-10-27T11:13:12.142Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-09-29",
@@ -17,7 +17,7 @@
       "views": 171,
       "activeUsers": 55,
       "eventCount": 490,
-      "bounceRate": 0.5079365079365079
+      "bounceRate": 0.5
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
@@ -105,10 +105,6 @@
       "activeUsers": 2
     },
     {
-      "label": "Not set",
-      "activeUsers": 1
-    },
-    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -137,10 +133,6 @@
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
-    },
-    {
-      "label": "Not set",
-      "sessions": 1
     },
     {
       "label": "m.facebook.com / referral",
