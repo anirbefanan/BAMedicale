@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-10-29T11:55:27.858Z",
+  "generatedAt": "2026-10-29T17:44:42.266Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-28"
+    "startDate": "2026-10-02",
+    "endDate": "2026-10-29"
   },
   "summary": {
-    "activeUsers": 84,
-    "newUsers": 76,
-    "averageEngagementTimeSeconds": 103.63095238095238,
-    "eventCount": 1090
+    "activeUsers": 86,
+    "newUsers": 78,
+    "averageEngagementTimeSeconds": 101.61627906976744,
+    "eventCount": 1107
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 158,
-      "activeUsers": 52,
-      "eventCount": 462,
-      "bounceRate": 0.5126050420168067
+      "views": 162,
+      "activeUsers": 53,
+      "eventCount": 472,
+      "bounceRate": 0.512396694214876
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 35,
-      "activeUsers": 23,
-      "eventCount": 155,
-      "bounceRate": 0.5625
+      "views": 36,
+      "activeUsers": 24,
+      "eventCount": 160,
+      "bounceRate": 0.5757575757575758
     },
     {
       "title": "Videos | BA Medicale",
@@ -35,10 +35,10 @@
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 22,
+      "views": 23,
       "activeUsers": 7,
-      "eventCount": 58,
-      "bounceRate": 0.14285714285714285
+      "eventCount": 60,
+      "bounceRate": 0.2
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -69,28 +69,28 @@
       "bounceRate": 0.4
     },
     {
-      "title": "Nana Febrina | Operations & Digital Development | BA Medicale",
-      "views": 10,
-      "activeUsers": 4,
-      "eventCount": 17,
-      "bounceRate": 0.14285714285714285
-    },
-    {
       "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis | BA Medicale",
       "views": 9,
       "activeUsers": 3,
       "eventCount": 33,
       "bounceRate": 0.4
+    },
+    {
+      "title": "Nana Febrina | Operations & Digital Development | BA Medicale",
+      "views": 9,
+      "activeUsers": 4,
+      "eventCount": 15,
+      "bounceRate": 0
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 45
+      "activeUsers": 46
     },
     {
       "label": "google / organic",
-      "activeUsers": 28
+      "activeUsers": 29
     },
     {
       "label": "facebook.com / referral",
@@ -105,6 +105,10 @@
       "activeUsers": 3
     },
     {
+      "label": "Not set",
+      "activeUsers": 1
+    },
+    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -112,11 +116,11 @@
   "sessionSources": [
     {
       "label": "google / organic",
-      "sessions": 81
+      "sessions": 82
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 76
+      "sessions": 78
     },
     {
       "label": "bing / organic",
@@ -177,11 +181,11 @@
       "activeUsers": 3
     },
     {
-      "label": "Depok",
+      "label": "Bengkulu",
       "activeUsers": 2
     },
     {
-      "label": "Makassar",
+      "label": "Depok",
       "activeUsers": 2
     }
   ]
