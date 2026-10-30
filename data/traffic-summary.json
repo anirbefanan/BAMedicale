@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-10-30T11:49:34.431Z",
+  "generatedAt": "2026-10-30T17:24:25.998Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-02",
-    "endDate": "2026-10-29"
+    "startDate": "2026-10-03",
+    "endDate": "2026-10-30"
   },
   "summary": {
-    "activeUsers": 86,
-    "newUsers": 78,
-    "averageEngagementTimeSeconds": 101.61627906976744,
-    "eventCount": 1107
+    "activeUsers": 89,
+    "newUsers": 81,
+    "averageEngagementTimeSeconds": 97.93258426966293,
+    "eventCount": 1104
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
       "views": 162,
-      "activeUsers": 53,
-      "eventCount": 472,
-      "bounceRate": 0.512396694214876
+      "activeUsers": 55,
+      "eventCount": 476,
+      "bounceRate": 0.5081967213114754
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 36,
-      "activeUsers": 24,
-      "eventCount": 160,
-      "bounceRate": 0.5757575757575758
+      "views": 35,
+      "activeUsers": 23,
+      "eventCount": 154,
+      "bounceRate": 0.5483870967741935
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 28,
-      "activeUsers": 5,
-      "eventCount": 58,
-      "bounceRate": 0.07692307692307693
+      "views": 24,
+      "activeUsers": 6,
+      "eventCount": 54,
+      "bounceRate": 0
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 29
+      "activeUsers": 32
     },
     {
       "label": "facebook.com / referral",
@@ -105,6 +105,10 @@
       "activeUsers": 3
     },
     {
+      "label": "Not set",
+      "activeUsers": 1
+    },
+    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -116,7 +120,7 @@
     },
     {
       "label": "(direct) / (none)",
-      "sessions": 78
+      "sessions": 77
     },
     {
       "label": "bing / organic",
@@ -131,12 +135,12 @@
       "sessions": 3
     },
     {
-      "label": "keep.google.com / referral",
+      "label": "Not set",
       "sessions": 2
     },
     {
-      "label": "Not set",
-      "sessions": 1
+      "label": "keep.google.com / referral",
+      "sessions": 2
     },
     {
       "label": "m.facebook.com / referral",
@@ -146,7 +150,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 25
+      "activeUsers": 27
     },
     {
       "label": "Not set",
@@ -177,11 +181,11 @@
       "activeUsers": 3
     },
     {
-      "label": "Bengkulu",
-      "activeUsers": 2
+      "label": "Sydney",
+      "activeUsers": 3
     },
     {
-      "label": "Depok",
+      "label": "Bengkulu",
       "activeUsers": 2
     }
   ]
