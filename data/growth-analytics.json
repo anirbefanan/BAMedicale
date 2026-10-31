@@ -9,19 +9,19 @@
         "previousStartDate": "2026-10-29",
         "previousEndDate": "2026-10-29"
       },
-      "generatedAt": "2026-10-31T03:06:27.493Z",
+      "generatedAt": "2026-10-31T11:22:46.446Z",
       "summary": {
         "activeUsers": 4,
         "newUsers": 4,
         "screenPageViews": 6,
         "sessions": 5,
-        "engagedSessions": 3,
+        "engagedSessions": 4,
         "userEngagementDuration": 68,
         "eventCount": 20,
         "keyEvents": 0,
         "totalUsers": 5,
         "averageEngagementTimeSeconds": 17,
-        "engagementRate": 0.6,
+        "engagementRate": 0.8,
         "returningUsers": 0
       },
       "previous": {
@@ -52,13 +52,13 @@
             "newUsers": 4,
             "screenPageViews": 6,
             "sessions": 5,
-            "engagedSessions": 3,
+            "engagedSessions": 4,
             "userEngagementDuration": 68,
             "eventCount": 20,
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 17,
-            "engagementRate": 0.6,
+            "engagementRate": 0.8,
             "returningUsers": 0
           }
         ],
@@ -93,11 +93,6 @@
             "sessions": 1
           },
           {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
-          },
-          {
             "label": "Returning",
             "activeUsers": 0,
             "sessions": 0
@@ -114,11 +109,6 @@
             "label": "Organic Search",
             "activeUsers": 4,
             "sessions": 4
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "Direct",
@@ -155,9 +145,9 @@
             "sessions": 4
           },
           {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 2
+            "label": "(direct) / (none)",
+            "activeUsers": 0,
+            "sessions": 1
           }
         ]
       },
@@ -168,11 +158,6 @@
             "label": "google / organic",
             "activeUsers": 4,
             "sessions": 4
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "(direct) / (none)",
@@ -235,7 +220,7 @@
             "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
             "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 1,
-            "engagementRate": 0
+            "engagementRate": 1
           },
           {
             "path": "/videos.html",
@@ -260,19 +245,19 @@
         "previousStartDate": "2026-10-17",
         "previousEndDate": "2026-10-23"
       },
-      "generatedAt": "2026-10-31T03:06:27.493Z",
+      "generatedAt": "2026-10-31T11:22:46.446Z",
       "summary": {
         "activeUsers": 23,
         "newUsers": 19,
         "screenPageViews": 55,
         "sessions": 34,
-        "engagedSessions": 12,
+        "engagedSessions": 13,
         "userEngagementDuration": 3435,
         "eventCount": 173,
         "keyEvents": 0,
         "totalUsers": 27,
         "averageEngagementTimeSeconds": 149.3478,
-        "engagementRate": 0.3529,
+        "engagementRate": 0.3824,
         "returningUsers": 6
       },
       "previous": {
@@ -393,13 +378,13 @@
             "newUsers": 4,
             "screenPageViews": 6,
             "sessions": 5,
-            "engagedSessions": 3,
+            "engagedSessions": 4,
             "userEngagementDuration": 68,
             "eventCount": 20,
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 17,
-            "engagementRate": 0.6,
+            "engagementRate": 0.8,
             "returningUsers": 0
           }
         ],
@@ -520,12 +505,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 5
+            "sessions": 6
           }
         ]
       },
@@ -552,8 +532,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -598,16 +578,11 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 10,
-            "sessions": 14
+            "sessions": 15
           },
           {
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
             "sessions": 2
           },
           {
@@ -631,14 +606,14 @@
             "sessions": 15
           },
           {
-            "label": "(not set)",
+            "label": "l.instagram.com / referral",
             "activeUsers": 2,
             "sessions": 2
           },
           {
-            "label": "l.instagram.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -833,7 +808,7 @@
             "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
             "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 2,
-            "engagementRate": 0.5
+            "engagementRate": 1
           },
           {
             "path": "/public.html",
@@ -870,19 +845,19 @@
         "previousStartDate": "2026-09-05",
         "previousEndDate": "2026-10-02"
       },
-      "generatedAt": "2026-10-31T03:06:27.493Z",
+      "generatedAt": "2026-10-31T11:22:46.446Z",
       "summary": {
         "activeUsers": 89,
         "newUsers": 81,
         "screenPageViews": 370,
         "sessions": 178,
-        "engagedSessions": 82,
+        "engagedSessions": 83,
         "userEngagementDuration": 8669,
         "eventCount": 1094,
         "keyEvents": 0,
         "totalUsers": 92,
         "averageEngagementTimeSeconds": 97.4045,
-        "engagementRate": 0.4607,
+        "engagementRate": 0.4663,
         "returningUsers": 22
       },
       "previous": {
@@ -1318,13 +1293,13 @@
             "newUsers": 4,
             "screenPageViews": 6,
             "sessions": 5,
-            "engagedSessions": 3,
+            "engagedSessions": 4,
             "userEngagementDuration": 68,
             "eventCount": 20,
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 17,
-            "engagementRate": 0.6,
+            "engagementRate": 0.8,
             "returningUsers": 0
           }
         ],
@@ -1739,12 +1714,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 27
+            "sessions": 28
           }
         ]
       },
@@ -1770,14 +1740,14 @@
             "sessions": 8
           },
           {
-            "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
             "label": "Referral",
             "activeUsers": 1,
             "sessions": 2
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -1817,7 +1787,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 46,
-            "sessions": 85
+            "sessions": 86
           },
           {
             "label": "google / organic",
@@ -1838,11 +1808,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 3,
             "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 2
           },
           {
             "label": "m.facebook.com / referral",
@@ -1881,8 +1846,8 @@
           },
           {
             "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "keep.google.com / referral",
@@ -2226,7 +2191,7 @@
             "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
             "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 2,
-            "engagementRate": 0.5
+            "engagementRate": 1
           },
           {
             "path": "/public.html",
@@ -2306,19 +2271,19 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-10-31T03:06:27.493Z",
+      "generatedAt": "2026-10-31T11:22:46.446Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
         "screenPageViews": 382,
         "sessions": 186,
-        "engagedSessions": 83,
+        "engagedSessions": 84,
         "userEngagementDuration": 8760,
         "eventCount": 1121,
         "keyEvents": 0,
         "totalUsers": 93,
         "averageEngagementTimeSeconds": 97.3333,
-        "engagementRate": 0.4462,
+        "engagementRate": 0.4516,
         "returningUsers": 23
       },
       "previous": {
@@ -2784,13 +2749,13 @@
             "newUsers": 4,
             "screenPageViews": 6,
             "sessions": 5,
-            "engagedSessions": 3,
+            "engagedSessions": 4,
             "userEngagementDuration": 68,
             "eventCount": 20,
             "keyEvents": 0,
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 17,
-            "engagementRate": 0.6,
+            "engagementRate": 0.8,
             "returningUsers": 0
           }
         ],
@@ -3233,12 +3198,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 31
+            "sessions": 32
           }
         ]
       },
@@ -3264,14 +3224,14 @@
             "sessions": 8
           },
           {
-            "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
             "label": "Referral",
             "activeUsers": 1,
             "sessions": 2
+          },
+          {
+            "label": "Unassigned",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -3311,7 +3271,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 46,
-            "sessions": 91
+            "sessions": 92
           },
           {
             "label": "google / organic",
@@ -3332,11 +3292,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 3,
             "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 2
           },
           {
             "label": "m.facebook.com / referral",
@@ -3375,8 +3330,8 @@
           },
           {
             "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "keep.google.com / referral",
@@ -3720,7 +3675,7 @@
             "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
             "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 2,
-            "engagementRate": 0.5
+            "engagementRate": 1
           },
           {
             "path": "/public.html",
@@ -3800,7 +3755,7 @@
         "previousStartDate": "2026-08-01",
         "previousEndDate": "2026-08-31"
       },
-      "generatedAt": "2026-10-31T03:06:27.493Z",
+      "generatedAt": "2026-10-31T11:22:46.446Z",
       "summary": {
         "activeUsers": 225,
         "newUsers": 218,
@@ -6147,10 +6102,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-10-31T03:06:27.493Z",
+  "generatedAt": "2026-10-31T11:22:46.446Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-10-31T03:06:27.493Z",
+    "generatedAt": "2026-10-31T11:22:46.446Z",
     "windowMinutes": 30
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T03:06:27.065Z",
+  "generatedAt": "2026-10-31T11:22:46.033Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-03",
@@ -105,10 +105,6 @@
       "activeUsers": 3
     },
     {
-      "label": "Not set",
-      "activeUsers": 1
-    },
-    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -135,12 +131,12 @@
       "sessions": 3
     },
     {
-      "label": "Not set",
+      "label": "keep.google.com / referral",
       "sessions": 2
     },
     {
-      "label": "keep.google.com / referral",
-      "sessions": 2
+      "label": "Not set",
+      "sessions": 1
     },
     {
       "label": "m.facebook.com / referral",
