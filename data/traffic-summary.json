@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T03:12:09.332Z",
+  "generatedAt": "2026-11-02T14:05:07.669Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-05",
@@ -24,7 +24,7 @@
       "views": 37,
       "activeUsers": 24,
       "eventCount": 163,
-      "bounceRate": 0.5625
+      "bounceRate": 0.53125
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -105,10 +105,6 @@
       "activeUsers": 2
     },
     {
-      "label": "Not set",
-      "activeUsers": 1
-    },
-    {
       "label": "m.facebook.com / referral",
       "activeUsers": 1
     }
@@ -136,7 +132,7 @@
     },
     {
       "label": "Not set",
-      "sessions": 2
+      "sessions": 1
     },
     {
       "label": "keep.google.com / referral",
