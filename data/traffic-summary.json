@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-03T13:11:34.161Z",
+  "generatedAt": "2026-11-03T22:42:50.503Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-06",
-    "endDate": "2026-11-02"
+    "startDate": "2026-10-07",
+    "endDate": "2026-11-03"
   },
   "summary": {
     "activeUsers": 93,
-    "newUsers": 85,
-    "averageEngagementTimeSeconds": 94.34408602150538,
-    "eventCount": 1095
+    "newUsers": 87,
+    "averageEngagementTimeSeconds": 81.24731182795699,
+    "eventCount": 923
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 144,
-      "activeUsers": 54,
-      "eventCount": 434,
-      "bounceRate": 0.5357142857142857
+      "views": 123,
+      "activeUsers": 55,
+      "eventCount": 372,
+      "bounceRate": 0.5377358490566038
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 39,
-      "activeUsers": 26,
-      "eventCount": 175,
-      "bounceRate": 0.47058823529411764
+      "views": 42,
+      "activeUsers": 28,
+      "eventCount": 188,
+      "bounceRate": 0.4594594594594595
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 24,
-      "activeUsers": 7,
-      "eventCount": 64,
-      "bounceRate": 0.2
-    },
-    {
-      "title": "Videos | BA Medicale",
-      "views": 22,
-      "activeUsers": 5,
-      "eventCount": 50,
-      "bounceRate": 0
+      "views": 18,
+      "activeUsers": 6,
+      "eventCount": 46,
+      "bounceRate": 0.25
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 17,
+      "views": 15,
       "activeUsers": 7,
-      "eventCount": 39,
-      "bounceRate": 0.11764705882352941
+      "eventCount": 33,
+      "bounceRate": 0.13333333333333333
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 14,
+      "views": 12,
       "activeUsers": 7,
-      "eventCount": 35,
-      "bounceRate": 0.23076923076923078
+      "eventCount": 30,
+      "bounceRate": 0.25
     },
     {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "title": "Videos | BA Medicale",
       "views": 12,
       "activeUsers": 4,
-      "eventCount": 36,
+      "eventCount": 32,
       "bounceRate": 0
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
-      "views": 10,
+      "views": 9,
       "activeUsers": 5,
-      "eventCount": 24,
-      "bounceRate": 0.4
+      "eventCount": 20,
+      "bounceRate": 0.5
     },
     {
-      "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis | BA Medicale",
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 9,
+      "activeUsers": 4,
+      "eventCount": 22,
+      "bounceRate": 0
+    },
+    {
+      "title": "Tumor vs Cancer: Understanding the Difference | BA Medicale",
       "views": 9,
       "activeUsers": 3,
-      "eventCount": 33,
-      "bounceRate": 0.4
+      "eventCount": 40,
+      "bounceRate": 0.16666666666666666
     },
     {
       "title": "Nana Febrina | Operations & Digital Development | BA Medicale",
-      "views": 9,
-      "activeUsers": 4,
-      "eventCount": 15,
+      "views": 8,
+      "activeUsers": 3,
+      "eventCount": 12,
       "bounceRate": 0
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 47
+      "activeUsers": 45
     },
     {
       "label": "google / organic",
-      "activeUsers": 35
+      "activeUsers": 37
     },
     {
-      "label": "facebook.com / referral",
+      "label": "bing / organic",
       "activeUsers": 3
     },
     {
-      "label": "l.instagram.com / referral",
+      "label": "facebook.com / referral",
       "activeUsers": 3
     },
     {
@@ -105,29 +105,29 @@
       "activeUsers": 3
     },
     {
-      "label": "bing / organic",
+      "label": "Not set",
+      "activeUsers": 2
+    },
+    {
+      "label": "l.instagram.com / referral",
       "activeUsers": 2
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 79
+      "sessions": 75
     },
     {
       "label": "google / organic",
-      "sessions": 78
+      "sessions": 75
     },
     {
       "label": "bing / organic",
-      "sessions": 7
+      "sessions": 8
     },
     {
       "label": "facebook.com / referral",
-      "sessions": 3
-    },
-    {
-      "label": "l.instagram.com / referral",
       "sessions": 3
     },
     {
@@ -136,13 +136,17 @@
     },
     {
       "label": "Not set",
-      "sessions": 1
+      "sessions": 2
+    },
+    {
+      "label": "l.instagram.com / referral",
+      "sessions": 2
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 27
+      "activeUsers": 24
     },
     {
       "label": "Not set",
@@ -165,7 +169,7 @@
       "activeUsers": 3
     },
     {
-      "label": "Singapore",
+      "label": "Depok",
       "activeUsers": 3
     },
     {
@@ -177,7 +181,7 @@
       "activeUsers": 3
     },
     {
-      "label": "Bekasi Regency",
+      "label": "Bengkulu",
       "activeUsers": 2
     }
   ]
