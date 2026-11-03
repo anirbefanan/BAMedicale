@@ -1,43 +1,43 @@
 {
-  "generatedAt": "2026-11-02T14:05:07.669Z",
+  "generatedAt": "2026-11-03T00:09:34.331Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-05",
-    "endDate": "2026-11-01"
+    "startDate": "2026-10-06",
+    "endDate": "2026-11-02"
   },
   "summary": {
-    "activeUsers": 89,
-    "newUsers": 81,
-    "averageEngagementTimeSeconds": 97.21348314606742,
-    "eventCount": 1091
+    "activeUsers": 93,
+    "newUsers": 85,
+    "averageEngagementTimeSeconds": 94.34408602150538,
+    "eventCount": 1095
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 153,
+      "views": 144,
       "activeUsers": 54,
-      "eventCount": 458,
-      "bounceRate": 0.5258620689655172
+      "eventCount": 434,
+      "bounceRate": 0.5357142857142857
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 37,
-      "activeUsers": 24,
-      "eventCount": 163,
-      "bounceRate": 0.53125
+      "views": 39,
+      "activeUsers": 26,
+      "eventCount": 175,
+      "bounceRate": 0.47058823529411764
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 23,
+      "views": 24,
       "activeUsers": 7,
-      "eventCount": 60,
+      "eventCount": 64,
       "bounceRate": 0.2
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 23,
+      "views": 22,
       "activeUsers": 5,
-      "eventCount": 52,
+      "eventCount": 50,
       "bounceRate": 0
     },
     {
@@ -86,11 +86,11 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 46
+      "activeUsers": 47
     },
     {
       "label": "google / organic",
-      "activeUsers": 34
+      "activeUsers": 35
     },
     {
       "label": "facebook.com / referral",
@@ -101,22 +101,26 @@
       "activeUsers": 3
     },
     {
+      "label": "m.facebook.com / referral",
+      "activeUsers": 3
+    },
+    {
       "label": "bing / organic",
       "activeUsers": 2
     },
     {
-      "label": "m.facebook.com / referral",
+      "label": "Not set",
       "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
-      "label": "google / organic",
-      "sessions": 80
+      "label": "(direct) / (none)",
+      "sessions": 79
     },
     {
-      "label": "(direct) / (none)",
-      "sessions": 77
+      "label": "google / organic",
+      "sessions": 78
     },
     {
       "label": "bing / organic",
@@ -131,15 +135,11 @@
       "sessions": 3
     },
     {
-      "label": "Not set",
-      "sessions": 1
-    },
-    {
-      "label": "keep.google.com / referral",
-      "sessions": 1
-    },
-    {
       "label": "m.facebook.com / referral",
+      "sessions": 3
+    },
+    {
+      "label": "Not set",
       "sessions": 1
     }
   ],
@@ -158,7 +158,7 @@
     },
     {
       "label": "Boardman",
-      "activeUsers": 3
+      "activeUsers": 4
     },
     {
       "label": "Council Bluffs",
@@ -181,7 +181,7 @@
       "activeUsers": 3
     },
     {
-      "label": "Bengkulu",
+      "label": "Bekasi Regency",
       "activeUsers": 2
     }
   ]
