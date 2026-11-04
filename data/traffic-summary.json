@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T22:42:50.503Z",
+  "generatedAt": "2026-11-04T03:45:45.297Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-07",
@@ -105,10 +105,6 @@
       "activeUsers": 3
     },
     {
-      "label": "Not set",
-      "activeUsers": 2
-    },
-    {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
     }
@@ -150,7 +146,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 6
+      "activeUsers": 7
     },
     {
       "label": "Bandung",
