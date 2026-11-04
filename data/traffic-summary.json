@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-11-04T13:26:06.854Z",
+  "generatedAt": "2026-11-04T22:58:29.311Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-07",
-    "endDate": "2026-11-03"
+    "startDate": "2026-10-08",
+    "endDate": "2026-11-04"
   },
   "summary": {
-    "activeUsers": 93,
-    "newUsers": 87,
-    "averageEngagementTimeSeconds": 81.24731182795699,
-    "eventCount": 923
+    "activeUsers": 95,
+    "newUsers": 90,
+    "averageEngagementTimeSeconds": 79.37894736842105,
+    "eventCount": 911
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 123,
-      "activeUsers": 55,
-      "eventCount": 372,
-      "bounceRate": 0.5377358490566038
+      "views": 119,
+      "activeUsers": 56,
+      "eventCount": 357,
+      "bounceRate": 0.5436893203883495
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 42,
-      "activeUsers": 28,
-      "eventCount": 188,
-      "bounceRate": 0.4594594594594595
+      "views": 43,
+      "activeUsers": 29,
+      "eventCount": 191,
+      "bounceRate": 0.47368421052631576
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -86,7 +86,7 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 45
+      "activeUsers": 47
     },
     {
       "label": "google / organic",
@@ -112,11 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 75
+      "sessions": 77
     },
     {
       "label": "google / organic",
-      "sessions": 75
+      "sessions": 71
     },
     {
       "label": "bing / organic",
@@ -142,7 +142,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 24
+      "activeUsers": 23
     },
     {
       "label": "Not set",
