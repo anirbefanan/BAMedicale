@@ -1,44 +1,44 @@
 {
-  "generatedAt": "2026-11-05T13:40:24.814Z",
+  "generatedAt": "2026-11-05T22:59:54.417Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-08",
-    "endDate": "2026-11-04"
+    "startDate": "2026-10-09",
+    "endDate": "2026-11-05"
   },
   "summary": {
-    "activeUsers": 95,
-    "newUsers": 90,
-    "averageEngagementTimeSeconds": 79.37894736842105,
-    "eventCount": 911
+    "activeUsers": 97,
+    "newUsers": 91,
+    "averageEngagementTimeSeconds": 75.50515463917526,
+    "eventCount": 902
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 119,
+      "views": 118,
       "activeUsers": 56,
-      "eventCount": 357,
+      "eventCount": 352,
       "bounceRate": 0.5436893203883495
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 43,
-      "activeUsers": 29,
-      "eventCount": 191,
-      "bounceRate": 0.47368421052631576
+      "views": 45,
+      "activeUsers": 31,
+      "eventCount": 203,
+      "bounceRate": 0.4878048780487805
     },
     {
       "title": "Medical Library | BA Medicale",
       "views": 18,
       "activeUsers": 6,
-      "eventCount": 46,
-      "bounceRate": 0.25
+      "eventCount": 48,
+      "bounceRate": 0.38461538461538464
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 15,
+      "views": 16,
       "activeUsers": 7,
-      "eventCount": 33,
-      "bounceRate": 0.13333333333333333
+      "eventCount": 35,
+      "bounceRate": 0.1875
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -46,13 +46,6 @@
       "activeUsers": 7,
       "eventCount": 30,
       "bounceRate": 0.25
-    },
-    {
-      "title": "Videos | BA Medicale",
-      "views": 12,
-      "activeUsers": 4,
-      "eventCount": 32,
-      "bounceRate": 0
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -81,6 +74,13 @@
       "activeUsers": 3,
       "eventCount": 12,
       "bounceRate": 0
+    },
+    {
+      "title": "Videos | BA Medicale",
+      "views": 8,
+      "activeUsers": 4,
+      "eventCount": 16,
+      "bounceRate": 0
     }
   ],
   "firstUserSources": [
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 37
+      "activeUsers": 39
     },
     {
       "label": "bing / organic",
@@ -103,6 +103,10 @@
     {
       "label": "m.facebook.com / referral",
       "activeUsers": 3
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -112,15 +116,19 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 77
+      "sessions": 78
     },
     {
       "label": "google / organic",
-      "sessions": 71
+      "sessions": 74
     },
     {
       "label": "bing / organic",
       "sessions": 8
+    },
+    {
+      "label": "Not set",
+      "sessions": 3
     },
     {
       "label": "facebook.com / referral",
@@ -129,10 +137,6 @@
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
-    },
-    {
-      "label": "Not set",
-      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -157,6 +161,10 @@
       "activeUsers": 4
     },
     {
+      "label": "Sydney",
+      "activeUsers": 4
+    },
+    {
       "label": "Council Bluffs",
       "activeUsers": 3
     },
@@ -170,10 +178,6 @@
     },
     {
       "label": "South Tangerang",
-      "activeUsers": 3
-    },
-    {
-      "label": "Sydney",
       "activeUsers": 3
     },
     {
