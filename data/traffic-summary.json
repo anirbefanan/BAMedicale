@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T22:59:54.417Z",
+  "generatedAt": "2026-11-06T04:01:40.463Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-09",
@@ -38,7 +38,7 @@
       "views": 16,
       "activeUsers": 7,
       "eventCount": 35,
-      "bounceRate": 0.1875
+      "bounceRate": 0.125
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -105,10 +105,6 @@
       "activeUsers": 3
     },
     {
-      "label": "Not set",
-      "activeUsers": 2
-    },
-    {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
     }
@@ -127,16 +123,16 @@
       "sessions": 8
     },
     {
-      "label": "Not set",
-      "sessions": 3
-    },
-    {
       "label": "facebook.com / referral",
       "sessions": 3
     },
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -150,7 +146,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 7
+      "activeUsers": 8
     },
     {
       "label": "Bandung",

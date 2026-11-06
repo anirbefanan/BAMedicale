@@ -9,7 +9,7 @@
         "previousStartDate": "2026-11-04",
         "previousEndDate": "2026-11-04"
       },
-      "generatedAt": "2026-11-05T22:59:54.816Z",
+      "generatedAt": "2026-11-06T04:01:40.808Z",
       "summary": {
         "activeUsers": 5,
         "newUsers": 3,
@@ -96,11 +96,6 @@
             "label": "Unclassified",
             "activeUsers": 0,
             "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
           }
         ]
       },
@@ -119,11 +114,6 @@
             "label": "Direct",
             "activeUsers": 1,
             "sessions": 2
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
           }
         ]
       },
@@ -145,19 +135,14 @@
         "status": "ok",
         "rows": [
           {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
-          },
-          {
             "label": "google / organic",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 4,
+            "sessions": 6
           },
           {
             "label": "(direct) / (none)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           }
         ]
       },
@@ -173,11 +158,6 @@
             "label": "(direct) / (none)",
             "activeUsers": 1,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           }
         ]
       },
@@ -268,12 +248,6 @@
             "engagementRate": 0
           },
           {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
             "path": "/videos.html",
             "title": "Videos",
             "sessions": 1,
@@ -296,7 +270,7 @@
         "previousStartDate": "2026-10-23",
         "previousEndDate": "2026-10-29"
       },
-      "generatedAt": "2026-11-05T22:59:54.816Z",
+      "generatedAt": "2026-11-06T04:01:40.808Z",
       "summary": {
         "activeUsers": 25,
         "newUsers": 22,
@@ -556,12 +530,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
+            "sessions": 5
           }
         ]
       },
@@ -588,8 +557,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -628,18 +597,13 @@
         "rows": [
           {
             "label": "google / organic",
-            "activeUsers": 13,
-            "sessions": 14
+            "activeUsers": 15,
+            "sessions": 18
           },
           {
             "label": "(direct) / (none)",
             "activeUsers": 6,
-            "sessions": 11
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
+            "sessions": 12
           },
           {
             "label": "m.facebook.com / referral",
@@ -672,14 +636,14 @@
             "sessions": 11
           },
           {
-            "label": "(not set)",
+            "label": "m.facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
           },
           {
-            "label": "m.facebook.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -856,12 +820,6 @@
             "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 1
-          },
-          {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "sessions": 1,
-            "engagementRate": 0
           }
         ]
       },
@@ -880,7 +838,7 @@
         "previousStartDate": "2026-09-11",
         "previousEndDate": "2026-10-08"
       },
-      "generatedAt": "2026-11-05T22:59:54.816Z",
+      "generatedAt": "2026-11-06T04:01:40.808Z",
       "summary": {
         "activeUsers": 97,
         "newUsers": 91,
@@ -1749,12 +1707,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 22
+            "sessions": 24
           }
         ]
       },
@@ -1781,8 +1734,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 3,
-            "sessions": 3
+            "activeUsers": 2,
+            "sessions": 2
           }
         ]
       },
@@ -1822,12 +1775,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 47,
-            "sessions": 78
+            "sessions": 79
           },
           {
             "label": "google / organic",
             "activeUsers": 39,
-            "sessions": 71
+            "sessions": 75
           },
           {
             "label": "bing / organic",
@@ -1843,11 +1796,6 @@
             "label": "m.facebook.com / referral",
             "activeUsers": 3,
             "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
           },
           {
             "label": "l.instagram.com / referral",
@@ -1870,11 +1818,6 @@
             "sessions": 74
           },
           {
-            "label": "(not set)",
-            "activeUsers": 3,
-            "sessions": 3
-          },
-          {
             "label": "bing / organic",
             "activeUsers": 3,
             "sessions": 8
@@ -1888,6 +1831,11 @@
             "label": "m.facebook.com / referral",
             "activeUsers": 3,
             "sessions": 3
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 2,
+            "sessions": 2
           },
           {
             "label": "l.instagram.com / referral",
@@ -2211,12 +2159,6 @@
             "engagementRate": 1
           },
           {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "sessions": 2,
-            "engagementRate": 0.5
-          },
-          {
             "path": "/ebooks.html",
             "title": "Digital Bookshelf",
             "sessions": 1,
@@ -2231,6 +2173,12 @@
           {
             "path": "/events/management-thyroid-nodules-2026.html",
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/team.html",
+            "title": "BA Medicale Team | Physician-Led Medical Education",
             "sessions": 1,
             "engagementRate": 1
           },
@@ -2294,7 +2242,7 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-05"
       },
-      "generatedAt": "2026-11-05T22:59:54.816Z",
+      "generatedAt": "2026-11-06T04:01:40.808Z",
       "summary": {
         "activeUsers": 21,
         "newUsers": 18,
@@ -2496,12 +2444,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 2
+            "sessions": 4
           }
         ]
       },
@@ -2528,8 +2471,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -2568,18 +2511,13 @@
         "rows": [
           {
             "label": "google / organic",
-            "activeUsers": 9,
-            "sessions": 10
+            "activeUsers": 11,
+            "sessions": 14
           },
           {
             "label": "(direct) / (none)",
             "activeUsers": 6,
-            "sessions": 10
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 5
+            "sessions": 11
           },
           {
             "label": "m.facebook.com / referral",
@@ -2612,14 +2550,14 @@
             "sessions": 10
           },
           {
-            "label": "(not set)",
+            "label": "m.facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
           },
           {
-            "label": "m.facebook.com / referral",
-            "activeUsers": 2,
-            "sessions": 2
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -2768,12 +2706,6 @@
             "engagementRate": 0
           },
           {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
             "path": "/videos.html",
             "title": "Videos",
             "sessions": 1,
@@ -2796,7 +2728,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-05T22:59:54.816Z",
+      "generatedAt": "2026-11-06T04:01:40.808Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5048,11 +4980,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-05T22:59:54.816Z",
+  "generatedAt": "2026-11-06T04:01:40.808Z",
   "realtime": {
-    "status": "ok",
-    "generatedAt": "2026-11-05T22:59:54.816Z",
-    "activeUsers": 1,
+    "status": "unavailable",
+    "generatedAt": "2026-11-06T04:01:40.808Z",
     "windowMinutes": 30
   }
 }
