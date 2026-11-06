@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-11-06T13:24:24.298Z",
+  "generatedAt": "2026-11-06T22:29:37.432Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-09",
-    "endDate": "2026-11-05"
+    "startDate": "2026-10-10",
+    "endDate": "2026-11-06"
   },
   "summary": {
-    "activeUsers": 97,
-    "newUsers": 91,
-    "averageEngagementTimeSeconds": 75.50515463917526,
-    "eventCount": 902
+    "activeUsers": 100,
+    "newUsers": 94,
+    "averageEngagementTimeSeconds": 67.23,
+    "eventCount": 882
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 118,
-      "activeUsers": 56,
-      "eventCount": 352,
-      "bounceRate": 0.5436893203883495
+      "views": 116,
+      "activeUsers": 58,
+      "eventCount": 346,
+      "bounceRate": 0.5576923076923077
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 45,
-      "activeUsers": 31,
-      "eventCount": 203,
-      "bounceRate": 0.4878048780487805
+      "views": 44,
+      "activeUsers": 30,
+      "eventCount": 198,
+      "bounceRate": 0.475
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 18,
-      "activeUsers": 6,
-      "eventCount": 48,
-      "bounceRate": 0.38461538461538464
+      "views": 20,
+      "activeUsers": 8,
+      "eventCount": 54,
+      "bounceRate": 0.4666666666666667
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -42,10 +42,10 @@
     },
     {
       "title": "For Doctors | BA Medicale",
-      "views": 12,
+      "views": 11,
       "activeUsers": 7,
-      "eventCount": 30,
-      "bounceRate": 0.25
+      "eventCount": 27,
+      "bounceRate": 0.2727272727272727
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -53,13 +53,6 @@
       "activeUsers": 5,
       "eventCount": 20,
       "bounceRate": 0.5
-    },
-    {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 9,
-      "activeUsers": 4,
-      "eventCount": 22,
-      "bounceRate": 0
     },
     {
       "title": "Tumor vs Cancer: Understanding the Difference | BA Medicale",
@@ -77,16 +70,23 @@
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 8,
+      "views": 7,
       "activeUsers": 4,
-      "eventCount": 16,
+      "eventCount": 14,
+      "bounceRate": 0
+    },
+    {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 6,
+      "activeUsers": 4,
+      "eventCount": 13,
       "bounceRate": 0
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 47
+      "activeUsers": 50
     },
     {
       "label": "google / organic",
@@ -112,7 +112,7 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 78
+      "sessions": 81
     },
     {
       "label": "google / organic",
@@ -157,6 +157,10 @@
       "activeUsers": 4
     },
     {
+      "label": "San Jose",
+      "activeUsers": 4
+    },
+    {
       "label": "Sydney",
       "activeUsers": 4
     },
@@ -175,10 +179,6 @@
     {
       "label": "South Tangerang",
       "activeUsers": 3
-    },
-    {
-      "label": "Bengkulu",
-      "activeUsers": 2
     }
   ]
 }
