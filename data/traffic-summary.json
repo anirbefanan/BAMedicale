@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-11-07T12:02:24.228Z",
+  "generatedAt": "2026-11-07T21:11:34.668Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-10",
-    "endDate": "2026-11-06"
+    "startDate": "2026-10-11",
+    "endDate": "2026-11-07"
   },
   "summary": {
-    "activeUsers": 100,
-    "newUsers": 94,
-    "averageEngagementTimeSeconds": 67.23,
-    "eventCount": 882
+    "activeUsers": 101,
+    "newUsers": 95,
+    "averageEngagementTimeSeconds": 66.98019801980197,
+    "eventCount": 894
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
       "views": 116,
       "activeUsers": 58,
-      "eventCount": 346,
-      "bounceRate": 0.5576923076923077
+      "eventCount": 348,
+      "bounceRate": 0.5480769230769231
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 44,
-      "activeUsers": 30,
-      "eventCount": 198,
-      "bounceRate": 0.475
+      "views": 45,
+      "activeUsers": 31,
+      "eventCount": 203,
+      "bounceRate": 0.4878048780487805
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -35,10 +35,10 @@
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 16,
-      "activeUsers": 7,
-      "eventCount": 35,
-      "bounceRate": 0.125
+      "views": 17,
+      "activeUsers": 8,
+      "eventCount": 38,
+      "bounceRate": 0.11764705882352941
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -86,11 +86,11 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 50
+      "activeUsers": 49
     },
     {
       "label": "google / organic",
-      "activeUsers": 39
+      "activeUsers": 41
     },
     {
       "label": "bing / organic",
@@ -112,11 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 81
+      "sessions": 80
     },
     {
       "label": "google / organic",
-      "sessions": 74
+      "sessions": 76
     },
     {
       "label": "bing / organic",
@@ -165,10 +165,6 @@
       "activeUsers": 4
     },
     {
-      "label": "Council Bluffs",
-      "activeUsers": 3
-    },
-    {
       "label": "Denpasar",
       "activeUsers": 3
     },
@@ -179,6 +175,10 @@
     {
       "label": "South Tangerang",
       "activeUsers": 3
+    },
+    {
+      "label": "Beijing",
+      "activeUsers": 2
     }
   ]
 }
