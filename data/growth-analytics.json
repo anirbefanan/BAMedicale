@@ -9,7 +9,7 @@
         "previousStartDate": "2026-11-05",
         "previousEndDate": "2026-11-05"
       },
-      "generatedAt": "2026-11-06T22:29:37.717Z",
+      "generatedAt": "2026-11-07T03:37:32.892Z",
       "summary": {
         "activeUsers": 5,
         "newUsers": 5,
@@ -240,7 +240,7 @@
         "previousStartDate": "2026-10-24",
         "previousEndDate": "2026-10-30"
       },
-      "generatedAt": "2026-11-06T22:29:37.717Z",
+      "generatedAt": "2026-11-07T03:37:32.892Z",
       "summary": {
         "activeUsers": 26,
         "newUsers": 23,
@@ -794,7 +794,7 @@
         "previousStartDate": "2026-09-12",
         "previousEndDate": "2026-10-09"
       },
-      "generatedAt": "2026-11-06T22:29:37.717Z",
+      "generatedAt": "2026-11-07T03:37:32.892Z",
       "summary": {
         "activeUsers": 100,
         "newUsers": 94,
@@ -2208,7 +2208,7 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-06"
       },
-      "generatedAt": "2026-11-06T22:29:37.717Z",
+      "generatedAt": "2026-11-07T03:37:32.892Z",
       "summary": {
         "activeUsers": 26,
         "newUsers": 23,
@@ -2733,7 +2733,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-06T22:29:37.717Z",
+      "generatedAt": "2026-11-07T03:37:32.892Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -4985,10 +4985,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-06T22:29:37.717Z",
+  "generatedAt": "2026-11-07T03:37:32.892Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-11-06T22:29:37.717Z",
+    "generatedAt": "2026-11-07T03:37:32.892Z",
     "windowMinutes": 30
   }
 }
