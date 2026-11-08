@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-11-08T12:23:21.869Z",
+  "generatedAt": "2026-11-08T21:26:50.303Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-11",
-    "endDate": "2026-11-07"
+    "startDate": "2026-10-12",
+    "endDate": "2026-11-08"
   },
   "summary": {
-    "activeUsers": 101,
-    "newUsers": 95,
-    "averageEngagementTimeSeconds": 66.98019801980197,
-    "eventCount": 894
+    "activeUsers": 109,
+    "newUsers": 103,
+    "averageEngagementTimeSeconds": 65.11009174311927,
+    "eventCount": 942
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 116,
+      "views": 119,
       "activeUsers": 58,
-      "eventCount": 348,
-      "bounceRate": 0.5480769230769231
+      "eventCount": 356,
+      "bounceRate": 0.5420560747663551
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 45,
-      "activeUsers": 31,
-      "eventCount": 203,
-      "bounceRate": 0.4878048780487805
+      "views": 47,
+      "activeUsers": 33,
+      "eventCount": 212,
+      "bounceRate": 0.5116279069767442
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -70,27 +70,31 @@
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 7,
+      "views": 8,
       "activeUsers": 4,
-      "eventCount": 14,
+      "eventCount": 16,
       "bounceRate": 0
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 6,
+      "views": 7,
       "activeUsers": 4,
-      "eventCount": 13,
-      "bounceRate": 0
+      "eventCount": 17,
+      "bounceRate": 0.14285714285714285
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 49
+      "activeUsers": 55
     },
     {
       "label": "google / organic",
-      "activeUsers": 41
+      "activeUsers": 43
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 4
     },
     {
       "label": "bing / organic",
@@ -112,15 +116,19 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 80
+      "sessions": 88
     },
     {
       "label": "google / organic",
-      "sessions": 76
+      "sessions": 80
     },
     {
       "label": "bing / organic",
       "sessions": 8
+    },
+    {
+      "label": "Not set",
+      "sessions": 4
     },
     {
       "label": "facebook.com / referral",
@@ -129,10 +137,6 @@
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
-    },
-    {
-      "label": "Not set",
-      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -150,6 +154,10 @@
     },
     {
       "label": "Bandung",
+      "activeUsers": 5
+    },
+    {
+      "label": "Ashburn",
       "activeUsers": 4
     },
     {
@@ -175,10 +183,6 @@
     {
       "label": "South Tangerang",
       "activeUsers": 3
-    },
-    {
-      "label": "Beijing",
-      "activeUsers": 2
     }
   ]
 }

@@ -4,13 +4,27 @@
   "periods": {
     "daily": {
       "range": {
-        "startDate": "2026-11-07",
-        "endDate": "2026-11-07",
-        "previousStartDate": "2026-11-06",
-        "previousEndDate": "2026-11-06"
+        "startDate": "2026-11-08",
+        "endDate": "2026-11-08",
+        "previousStartDate": "2026-11-07",
+        "previousEndDate": "2026-11-07"
       },
-      "generatedAt": "2026-11-08T12:23:22.143Z",
+      "generatedAt": "2026-11-08T21:26:50.694Z",
       "summary": {
+        "activeUsers": 10,
+        "newUsers": 8,
+        "screenPageViews": 14,
+        "sessions": 12,
+        "engagedSessions": 3,
+        "userEngagementDuration": 325,
+        "eventCount": 46,
+        "keyEvents": 0,
+        "totalUsers": 10,
+        "averageEngagementTimeSeconds": 32.5,
+        "engagementRate": 0.25,
+        "returningUsers": 2
+      },
+      "previous": {
         "activeUsers": 2,
         "newUsers": 2,
         "screenPageViews": 4,
@@ -24,20 +38,6 @@
         "engagementRate": 0.5,
         "returningUsers": 0
       },
-      "previous": {
-        "activeUsers": 5,
-        "newUsers": 5,
-        "screenPageViews": 6,
-        "sessions": 7,
-        "engagedSessions": 0,
-        "userEngagementDuration": 0,
-        "eventCount": 19,
-        "keyEvents": 0,
-        "totalUsers": 7,
-        "averageEngagementTimeSeconds": 0,
-        "engagementRate": 0,
-        "returningUsers": 0
-      },
       "totals": {
         "status": "ok",
         "thresholded": false,
@@ -46,6 +46,23 @@
       "trend": {
         "status": "ok",
         "current": [
+          {
+            "date": "2026-11-08",
+            "activeUsers": 10,
+            "newUsers": 8,
+            "screenPageViews": 14,
+            "sessions": 12,
+            "engagedSessions": 3,
+            "userEngagementDuration": 325,
+            "eventCount": 46,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 32.5,
+            "engagementRate": 0.25,
+            "returningUsers": 2
+          }
+        ],
+        "previous": [
           {
             "date": "2026-11-07",
             "activeUsers": 2,
@@ -58,24 +75,7 @@
             "keyEvents": 0,
             "totalUsers": 2,
             "averageEngagementTimeSeconds": 21,
-            "engagementRate": 0.5,
-            "returningUsers": 0
-          }
-        ],
-        "previous": [
-          {
-            "date": "2026-11-06",
-            "activeUsers": 5,
-            "newUsers": 5,
-            "screenPageViews": 6,
-            "sessions": 7,
-            "engagedSessions": 0,
-            "userEngagementDuration": 0,
-            "eventCount": 19,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 0,
-            "engagementRate": 0
+            "engagementRate": 0.5
           }
         ]
       },
@@ -84,13 +84,18 @@
         "rows": [
           {
             "label": "New",
+            "activeUsers": 8,
+            "sessions": 8
+          },
+          {
+            "label": "Returning",
             "activeUsers": 2,
             "sessions": 2
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 0
+            "sessions": 2
           }
         ]
       },
@@ -101,7 +106,17 @@
         "status": "ok",
         "rows": [
           {
+            "label": "Direct",
+            "activeUsers": 7,
+            "sessions": 8
+          },
+          {
             "label": "Organic Search",
+            "activeUsers": 3,
+            "sessions": 4
+          },
+          {
+            "label": "Unassigned",
             "activeUsers": 2,
             "sessions": 2
           }
@@ -112,8 +127,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 9,
+            "sessions": 11
+          },
+          {
+            "label": "mobile",
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -125,6 +145,16 @@
         "status": "ok",
         "rows": [
           {
+            "label": "(direct) / (none)",
+            "activeUsers": 6,
+            "sessions": 6
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 4,
+            "sessions": 6
+          },
+          {
             "label": "google / organic",
             "activeUsers": 2,
             "sessions": 2
@@ -135,7 +165,17 @@
         "status": "ok",
         "rows": [
           {
+            "label": "(direct) / (none)",
+            "activeUsers": 7,
+            "sessions": 8
+          },
+          {
             "label": "google / organic",
+            "activeUsers": 3,
+            "sessions": 4
+          },
+          {
+            "label": "(not set)",
             "activeUsers": 2,
             "sessions": 2
           }
@@ -145,13 +185,31 @@
         "status": "ok",
         "rows": [
           {
+            "path": "/",
+            "title": "BA Medicale — Home",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 8,
+            "engagement": 8.5
+          },
+          {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 9,
+            "engagement": 32
+          },
+          {
+            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+            "type": "Articles",
             "activeUsers": 1,
             "views": 1,
-            "eventCount": 5,
-            "engagement": 3
+            "eventCount": 4,
+            "engagement": 0
           },
           {
             "path": "/contact.html",
@@ -159,26 +217,71 @@
             "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
-            "eventCount": 2,
-            "engagement": 5
+            "eventCount": 3,
+            "engagement": 0
           },
           {
-            "path": "/team.html",
-            "title": "BA Medicale Team | Physician-Led Medical Education",
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 2
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
             "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
             "eventCount": 3,
-            "engagement": 25
+            "engagement": 0
           },
           {
-            "path": "/",
-            "title": "BA Medicale — Home",
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
             "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
+            "eventCount": 3,
+            "engagement": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 1,
+            "views": 1,
             "eventCount": 5,
-            "engagement": 9
+            "engagement": 209
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 0
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 33
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 0
           }
         ]
       },
@@ -186,16 +289,58 @@
         "status": "ok",
         "rows": [
           {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 1,
             "engagementRate": 1
           },
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
             "sessions": 1,
             "engagementRate": 0
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "sessions": 1,
+            "engagementRate": 1
           }
         ]
       },
@@ -209,39 +354,39 @@
     },
     "7d": {
       "range": {
-        "startDate": "2026-11-01",
-        "endDate": "2026-11-07",
-        "previousStartDate": "2026-10-25",
-        "previousEndDate": "2026-10-31"
+        "startDate": "2026-11-02",
+        "endDate": "2026-11-08",
+        "previousStartDate": "2026-10-26",
+        "previousEndDate": "2026-11-01"
       },
-      "generatedAt": "2026-11-08T12:23:22.143Z",
+      "generatedAt": "2026-11-08T21:26:50.694Z",
       "summary": {
-        "activeUsers": 28,
-        "newUsers": 25,
-        "screenPageViews": 50,
-        "sessions": 38,
-        "engagedSessions": 13,
-        "userEngagementDuration": 562,
-        "eventCount": 170,
+        "activeUsers": 35,
+        "newUsers": 31,
+        "screenPageViews": 60,
+        "sessions": 48,
+        "engagedSessions": 14,
+        "userEngagementDuration": 840,
+        "eventCount": 201,
         "keyEvents": 0,
-        "totalUsers": 29,
-        "averageEngagementTimeSeconds": 20.0714,
-        "engagementRate": 0.3421,
-        "returningUsers": 4
+        "totalUsers": 36,
+        "averageEngagementTimeSeconds": 24,
+        "engagementRate": 0.2917,
+        "returningUsers": 5
       },
       "previous": {
-        "activeUsers": 17,
-        "newUsers": 14,
-        "screenPageViews": 48,
-        "sessions": 28,
-        "engagedSessions": 11,
-        "userEngagementDuration": 3103,
-        "eventCount": 144,
+        "activeUsers": 14,
+        "newUsers": 12,
+        "screenPageViews": 28,
+        "sessions": 21,
+        "engagedSessions": 10,
+        "userEngagementDuration": 645,
+        "eventCount": 91,
         "keyEvents": 0,
-        "totalUsers": 21,
-        "averageEngagementTimeSeconds": 182.5294,
-        "engagementRate": 0.3929,
-        "returningUsers": 5
+        "totalUsers": 16,
+        "averageEngagementTimeSeconds": 46.0714,
+        "engagementRate": 0.4762,
+        "returningUsers": 2
       },
       "totals": {
         "status": "ok",
@@ -251,21 +396,6 @@
       "trend": {
         "status": "ok",
         "current": [
-          {
-            "date": "2026-11-01",
-            "activeUsers": 2,
-            "newUsers": 2,
-            "screenPageViews": 4,
-            "sessions": 2,
-            "engagedSessions": 2,
-            "userEngagementDuration": 47,
-            "eventCount": 15,
-            "keyEvents": 0,
-            "totalUsers": 2,
-            "averageEngagementTimeSeconds": 23.5,
-            "engagementRate": 1,
-            "returningUsers": 0
-          },
           {
             "date": "2026-11-02",
             "activeUsers": 5,
@@ -355,23 +485,24 @@
             "averageEngagementTimeSeconds": 21,
             "engagementRate": 0.5,
             "returningUsers": 0
+          },
+          {
+            "date": "2026-11-08",
+            "activeUsers": 10,
+            "newUsers": 8,
+            "screenPageViews": 14,
+            "sessions": 12,
+            "engagedSessions": 3,
+            "userEngagementDuration": 325,
+            "eventCount": 46,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 32.5,
+            "engagementRate": 0.25,
+            "returningUsers": 2
           }
         ],
         "previous": [
-          {
-            "date": "2026-10-25",
-            "activeUsers": 5,
-            "newUsers": 4,
-            "screenPageViews": 24,
-            "sessions": 9,
-            "engagedSessions": 3,
-            "userEngagementDuration": 2505,
-            "eventCount": 68,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 501,
-            "engagementRate": 0.3333
-          },
           {
             "date": "2026-10-26",
             "activeUsers": 2,
@@ -455,6 +586,20 @@
             "totalUsers": 0,
             "averageEngagementTimeSeconds": null,
             "engagementRate": null
+          },
+          {
+            "date": "2026-11-01",
+            "activeUsers": 2,
+            "newUsers": 2,
+            "screenPageViews": 4,
+            "sessions": 2,
+            "engagedSessions": 2,
+            "userEngagementDuration": 47,
+            "eventCount": 15,
+            "keyEvents": 0,
+            "totalUsers": 2,
+            "averageEngagementTimeSeconds": 23.5,
+            "engagementRate": 1
           }
         ]
       },
@@ -463,13 +608,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 25,
-            "sessions": 25
+            "activeUsers": 31,
+            "sessions": 31
           },
           {
             "label": "Returning",
-            "activeUsers": 4,
-            "sessions": 7
+            "activeUsers": 5,
+            "sessions": 9
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 2
           },
           {
             "label": "Unclassified",
@@ -485,14 +635,14 @@
         "status": "ok",
         "rows": [
           {
-            "label": "Organic Search",
-            "activeUsers": 15,
-            "sessions": 19
+            "label": "Direct",
+            "activeUsers": 17,
+            "sessions": 23
           },
           {
-            "label": "Direct",
-            "activeUsers": 10,
-            "sessions": 15
+            "label": "Organic Search",
+            "activeUsers": 15,
+            "sessions": 21
           },
           {
             "label": "Organic Social",
@@ -501,8 +651,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
+            "activeUsers": 3,
+            "sessions": 3
           }
         ]
       },
@@ -511,8 +661,8 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 23,
-            "sessions": 33
+            "activeUsers": 30,
+            "sessions": 43
           },
           {
             "label": "mobile",
@@ -526,13 +676,18 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 10,
-            "sessions": 20
+            "activeUsers": 12,
+            "sessions": 25
           },
           {
             "label": "United States",
-            "activeUsers": 8,
-            "sessions": 8
+            "activeUsers": 12,
+            "sessions": 12
+          },
+          {
+            "label": "China",
+            "activeUsers": 5,
+            "sessions": 5
           }
         ]
       },
@@ -540,14 +695,19 @@
         "status": "ok",
         "rows": [
           {
+            "label": "(direct) / (none)",
+            "activeUsers": 16,
+            "sessions": 22
+          },
+          {
             "label": "google / organic",
             "activeUsers": 14,
             "sessions": 18
           },
           {
-            "label": "(direct) / (none)",
-            "activeUsers": 10,
-            "sessions": 16
+            "label": "(not set)",
+            "activeUsers": 4,
+            "sessions": 6
           },
           {
             "label": "m.facebook.com / referral",
@@ -570,24 +730,24 @@
         "status": "ok",
         "rows": [
           {
-            "label": "google / organic",
-            "activeUsers": 14,
-            "sessions": 18
+            "label": "(direct) / (none)",
+            "activeUsers": 17,
+            "sessions": 23
           },
           {
-            "label": "(direct) / (none)",
-            "activeUsers": 10,
-            "sessions": 15
+            "label": "google / organic",
+            "activeUsers": 14,
+            "sessions": 20
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "m.facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -609,18 +769,27 @@
             "title": "BA Medicale — Home",
             "type": "Other public pages",
             "activeUsers": 14,
-            "views": 19,
-            "eventCount": 51,
-            "engagement": 4.2143
+            "views": 20,
+            "eventCount": 53,
+            "engagement": 5
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 11,
+            "activeUsers": 12,
             "views": 13,
             "eventCount": 63,
-            "engagement": 35.6364
+            "engagement": 34.5833
+          },
+          {
+            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+            "type": "Articles",
+            "activeUsers": 4,
+            "views": 6,
+            "eventCount": 22,
+            "engagement": 5.5
           },
           {
             "path": "/library.html",
@@ -632,13 +801,13 @@
             "engagement": 7.75
           },
           {
-            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
-            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "type": "Articles",
-            "activeUsers": 3,
-            "views": 5,
-            "eventCount": 18,
-            "engagement": 7.3333
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 2.5
           },
           {
             "path": "/team.html",
@@ -648,6 +817,24 @@
             "views": 2,
             "eventCount": 5,
             "engagement": 14.5
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 2
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 4,
+            "engagement": 0
           },
           {
             "path": "/about.html",
@@ -668,17 +855,8 @@
             "engagement": 6
           },
           {
-            "path": "/contact.html",
-            "title": "Contact BA Medicale | Medical Education Enquiries",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 2,
-            "engagement": 5
-          },
-          {
-            "path": "/dr-bob-profile.html",
-            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
             "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
@@ -695,13 +873,40 @@
             "engagement": 6
           },
           {
-            "path": "/videos.html",
-            "title": "Videos",
-            "type": "Videos",
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
+            "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
-            "eventCount": 2,
+            "eventCount": 3,
             "engagement": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 5,
+            "engagement": 209
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 0
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 33
           }
         ]
       },
@@ -717,13 +922,13 @@
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 11,
-            "engagementRate": 0.7273
+            "sessions": 12,
+            "engagementRate": 0.5833
           },
           {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
             "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "sessions": 4,
+            "sessions": 5,
             "engagementRate": 0
           },
           {
@@ -733,8 +938,32 @@
             "engagementRate": 0
           },
           {
+            "path": "/videos.html",
+            "title": "Videos",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
             "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -745,10 +974,16 @@
             "engagementRate": 0
           },
           {
-            "path": "/videos.html",
-            "title": "Videos",
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 1
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 1,
+            "engagementRate": 0
           }
         ]
       },
@@ -762,39 +997,39 @@
     },
     "28d": {
       "range": {
-        "startDate": "2026-10-11",
-        "endDate": "2026-11-07",
-        "previousStartDate": "2026-09-13",
-        "previousEndDate": "2026-10-10"
+        "startDate": "2026-10-12",
+        "endDate": "2026-11-08",
+        "previousStartDate": "2026-09-14",
+        "previousEndDate": "2026-10-11"
       },
-      "generatedAt": "2026-11-08T12:23:22.143Z",
+      "generatedAt": "2026-11-08T21:26:50.694Z",
       "summary": {
-        "activeUsers": 101,
-        "newUsers": 95,
-        "screenPageViews": 288,
-        "sessions": 174,
-        "engagedSessions": 75,
-        "userEngagementDuration": 6728,
-        "eventCount": 887,
+        "activeUsers": 109,
+        "newUsers": 103,
+        "screenPageViews": 302,
+        "sessions": 186,
+        "engagedSessions": 78,
+        "userEngagementDuration": 7053,
+        "eventCount": 933,
         "keyEvents": 0,
-        "totalUsers": 104,
-        "averageEngagementTimeSeconds": 66.6139,
-        "engagementRate": 0.431,
+        "totalUsers": 112,
+        "averageEngagementTimeSeconds": 64.7064,
+        "engagementRate": 0.4194,
         "returningUsers": 20
       },
       "previous": {
-        "activeUsers": 214,
-        "newUsers": 207,
-        "screenPageViews": 1260,
-        "sessions": 444,
-        "engagedSessions": 261,
-        "userEngagementDuration": 25157,
-        "eventCount": 3737,
+        "activeUsers": 212,
+        "newUsers": 202,
+        "screenPageViews": 1200,
+        "sessions": 425,
+        "engagedSessions": 248,
+        "userEngagementDuration": 23941,
+        "eventCount": 3585,
         "keyEvents": 0,
-        "totalUsers": 215,
-        "averageEngagementTimeSeconds": 117.5561,
-        "engagementRate": 0.5878,
-        "returningUsers": 45
+        "totalUsers": 213,
+        "averageEngagementTimeSeconds": 112.9292,
+        "engagementRate": 0.5835,
+        "returningUsers": 44
       },
       "totals": {
         "status": "ok",
@@ -804,21 +1039,6 @@
       "trend": {
         "status": "ok",
         "current": [
-          {
-            "date": "2026-10-11",
-            "activeUsers": 0,
-            "newUsers": 0,
-            "screenPageViews": 0,
-            "sessions": 0,
-            "engagedSessions": 0,
-            "userEngagementDuration": 0,
-            "eventCount": 0,
-            "keyEvents": 0,
-            "totalUsers": 0,
-            "averageEngagementTimeSeconds": null,
-            "engagementRate": null,
-            "returningUsers": 0
-          },
           {
             "date": "2026-10-12",
             "activeUsers": 4,
@@ -1223,23 +1443,24 @@
             "averageEngagementTimeSeconds": 21,
             "engagementRate": 0.5,
             "returningUsers": 0
+          },
+          {
+            "date": "2026-11-08",
+            "activeUsers": 10,
+            "newUsers": 8,
+            "screenPageViews": 14,
+            "sessions": 12,
+            "engagedSessions": 3,
+            "userEngagementDuration": 325,
+            "eventCount": 46,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 32.5,
+            "engagementRate": 0.25,
+            "returningUsers": 2
           }
         ],
         "previous": [
-          {
-            "date": "2026-09-13",
-            "activeUsers": 7,
-            "newUsers": 5,
-            "screenPageViews": 60,
-            "sessions": 19,
-            "engagedSessions": 13,
-            "userEngagementDuration": 1216,
-            "eventCount": 152,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 173.7143,
-            "engagementRate": 0.6842
-          },
           {
             "date": "2026-09-14",
             "activeUsers": 4,
@@ -1617,6 +1838,20 @@
             "totalUsers": 1,
             "averageEngagementTimeSeconds": 0,
             "engagementRate": 0
+          },
+          {
+            "date": "2026-10-11",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
           }
         ]
       },
@@ -1625,13 +1860,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 95,
-            "sessions": 95
+            "activeUsers": 103,
+            "sessions": 103
           },
           {
             "label": "Returning",
             "activeUsers": 20,
-            "sessions": 54
+            "sessions": 56
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 2
           },
           {
             "label": "Unclassified",
@@ -1648,13 +1888,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 49,
-            "sessions": 80
+            "activeUsers": 55,
+            "sessions": 88
           },
           {
             "label": "Organic Search",
-            "activeUsers": 44,
-            "sessions": 84
+            "activeUsers": 46,
+            "sessions": 88
           },
           {
             "label": "Organic Social",
@@ -1663,8 +1903,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 4,
+            "sessions": 4
           }
         ]
       },
@@ -1673,13 +1913,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 67,
-            "sessions": 121
+            "activeUsers": 74,
+            "sessions": 132
           },
           {
             "label": "mobile",
-            "activeUsers": 34,
-            "sessions": 53
+            "activeUsers": 35,
+            "sessions": 54
           }
         ]
       },
@@ -1688,13 +1928,18 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 48,
-            "sessions": 118
+            "activeUsers": 50,
+            "sessions": 124
           },
           {
             "label": "United States",
-            "activeUsers": 24,
-            "sessions": 27
+            "activeUsers": 28,
+            "sessions": 31
+          },
+          {
+            "label": "China",
+            "activeUsers": 5,
+            "sessions": 5
           }
         ]
       },
@@ -1703,13 +1948,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 49,
-            "sessions": 81
+            "activeUsers": 55,
+            "sessions": 87
           },
           {
             "label": "google / organic",
-            "activeUsers": 41,
-            "sessions": 77
+            "activeUsers": 43,
+            "sessions": 79
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 4,
+            "sessions": 6
           },
           {
             "label": "bing / organic",
@@ -1738,13 +1988,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 49,
-            "sessions": 80
+            "activeUsers": 55,
+            "sessions": 88
           },
           {
             "label": "google / organic",
-            "activeUsers": 41,
-            "sessions": 76
+            "activeUsers": 43,
+            "sessions": 80
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 4,
+            "sessions": 4
           },
           {
             "label": "bing / organic",
@@ -1762,11 +2017,6 @@
             "sessions": 3
           },
           {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 2
-          },
-          {
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
             "sessions": 2
@@ -1781,18 +2031,18 @@
             "title": "BA Medicale — Home",
             "type": "Other public pages",
             "activeUsers": 58,
-            "views": 116,
-            "eventCount": 348,
-            "engagement": 52.6207
+            "views": 119,
+            "eventCount": 356,
+            "engagement": 52.9138
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 31,
-            "views": 45,
-            "eventCount": 206,
-            "engagement": 34.8065
+            "activeUsers": 33,
+            "views": 47,
+            "eventCount": 215,
+            "engagement": 34.6364
           },
           {
             "path": "/library.html",
@@ -1853,45 +2103,63 @@
             "title": "Videos",
             "type": "Videos",
             "activeUsers": 4,
-            "views": 7,
-            "eventCount": 14,
+            "views": 8,
+            "eventCount": 16,
             "engagement": 2.75
           },
           {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
             "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
             "type": "Articles",
+            "activeUsers": 5,
+            "views": 7,
+            "eventCount": 24,
+            "engagement": 4.4
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
             "activeUsers": 4,
-            "views": 6,
-            "eventCount": 20,
-            "engagement": 5.5
+            "views": 7,
+            "eventCount": 19,
+            "engagement": 32.75
           },
           {
             "path": "/traffic.html",
             "title": "BA Medicale Growth & Education Impact Dashboard",
             "type": "Other public pages",
             "activeUsers": 4,
-            "views": 6,
-            "eventCount": 13,
-            "engagement": 81.25
-          },
-          {
-            "path": "/contact.html",
-            "title": "Contact BA Medicale | Medical Education Enquiries",
-            "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 6,
-            "eventCount": 16,
-            "engagement": 43.6667
+            "views": 7,
+            "eventCount": 17,
+            "engagement": 89.5
           },
           {
             "path": "/dr-bob-profile.html",
             "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
             "type": "Other public pages",
             "activeUsers": 3,
-            "views": 5,
-            "eventCount": 11,
-            "engagement": 57.3333
+            "views": 6,
+            "eventCount": 13,
+            "engagement": 58
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 9,
+            "engagement": 58
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 14,
+            "engagement": 115.6667
           },
           {
             "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
@@ -1912,15 +2180,6 @@
             "engagement": 42
           },
           {
-            "path": "/ebooks.html",
-            "title": "Digital Bookshelf",
-            "type": "Other public pages",
-            "activeUsers": 2,
-            "views": 2,
-            "eventCount": 6,
-            "engagement": 87
-          },
-          {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
             "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis",
             "type": "eBooks",
@@ -1930,13 +2189,22 @@
             "engagement": 31.5
           },
           {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
-            "type": "Presentations",
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
+            "type": "Other public pages",
             "activeUsers": 2,
             "views": 2,
-            "eventCount": 9,
-            "engagement": 69
+            "eventCount": 6,
+            "engagement": 17
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 4,
+            "engagement": 0
           },
           {
             "path": "/public.html",
@@ -1975,15 +2243,6 @@
             "engagement": 1
           },
           {
-            "path": "/healthcare-workers.html",
-            "title": "Medical Education for Healthcare Professionals",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 3,
-            "engagement": 34
-          },
-          {
             "path": "/privacy-policy.html",
             "title": "Privacy Policy & User Data Deletion",
             "type": "Other public pages",
@@ -1991,15 +2250,6 @@
             "views": 1,
             "eventCount": 3,
             "engagement": 21
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 1,
-            "engagement": 0
           },
           {
             "path": "/yudi-febriadi-profile.html",
@@ -2018,14 +2268,14 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 79,
-            "engagementRate": 0.4304
+            "sessions": 80,
+            "engagementRate": 0.4375
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 35,
-            "engagementRate": 0.5143
+            "sessions": 37,
+            "engagementRate": 0.4865
           },
           {
             "path": "/index.html",
@@ -2048,7 +2298,7 @@
           {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
             "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "sessions": 4,
+            "sessions": 5,
             "engagementRate": 0
           },
           {
@@ -2058,26 +2308,32 @@
             "engagementRate": 0.5
           },
           {
+            "path": "/videos.html",
+            "title": "Videos",
+            "sessions": 4,
+            "engagementRate": 1
+          },
+          {
             "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
             "title": "Tumor vs Cancer: Understanding the Difference",
             "sessions": 3,
             "engagementRate": 0.6667
           },
           {
-            "path": "/videos.html",
-            "title": "Videos",
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 3,
             "engagementRate": 1
           },
           {
-            "path": "/nana-febrina-profile.html",
-            "title": "Nana Febrina | AI & Digital Transformation",
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
             "sessions": 2,
-            "engagementRate": 1
+            "engagementRate": 0
           },
           {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "path": "/nana-febrina-profile.html",
+            "title": "Nana Febrina | AI & Digital Transformation",
             "sessions": 2,
             "engagementRate": 1
           },
@@ -2088,8 +2344,8 @@
             "engagementRate": 1
           },
           {
-            "path": "/ebooks.html",
-            "title": "Digital Bookshelf",
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -2104,6 +2360,18 @@
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
             "sessions": 1,
             "engagementRate": 1
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 1,
+            "engagementRate": 0
           },
           {
             "path": "/team.html",
@@ -2124,14 +2392,14 @@
         "rows": [
           {
             "title": "Articles",
-            "activeUsers": 35,
-            "views": 61,
-            "engagement": 35.2571
+            "activeUsers": 38,
+            "views": 64,
+            "engagement": 34.1579
           },
           {
             "title": "Videos",
             "activeUsers": 4,
-            "views": 7,
+            "views": 8,
             "engagement": 2.75
           },
           {
@@ -2141,16 +2409,16 @@
             "engagement": 0
           },
           {
+            "title": "Presentations",
+            "activeUsers": 3,
+            "views": 3,
+            "engagement": 115.6667
+          },
+          {
             "title": "eBooks",
             "activeUsers": 3,
             "views": 3,
             "engagement": 21
-          },
-          {
-            "title": "Presentations",
-            "activeUsers": 2,
-            "views": 2,
-            "engagement": 69
           },
           {
             "title": "Seminars / Events",
@@ -2167,37 +2435,37 @@
     "mtd": {
       "range": {
         "startDate": "2026-11-01",
-        "endDate": "2026-11-07",
+        "endDate": "2026-11-08",
         "previousStartDate": "2026-10-01",
-        "previousEndDate": "2026-10-07"
+        "previousEndDate": "2026-10-08"
       },
-      "generatedAt": "2026-11-08T12:23:22.143Z",
+      "generatedAt": "2026-11-08T21:26:50.694Z",
       "summary": {
-        "activeUsers": 28,
-        "newUsers": 25,
-        "screenPageViews": 50,
-        "sessions": 38,
-        "engagedSessions": 13,
-        "userEngagementDuration": 562,
-        "eventCount": 170,
+        "activeUsers": 37,
+        "newUsers": 33,
+        "screenPageViews": 64,
+        "sessions": 50,
+        "engagedSessions": 16,
+        "userEngagementDuration": 887,
+        "eventCount": 216,
         "keyEvents": 0,
-        "totalUsers": 29,
-        "averageEngagementTimeSeconds": 20.0714,
-        "engagementRate": 0.3421,
-        "returningUsers": 4
+        "totalUsers": 38,
+        "averageEngagementTimeSeconds": 23.973,
+        "engagementRate": 0.32,
+        "returningUsers": 5
       },
       "previous": {
-        "activeUsers": 12,
-        "newUsers": 7,
-        "screenPageViews": 117,
-        "sessions": 41,
-        "engagedSessions": 20,
-        "userEngagementDuration": 1719,
-        "eventCount": 324,
+        "activeUsers": 14,
+        "newUsers": 9,
+        "screenPageViews": 130,
+        "sessions": 45,
+        "engagedSessions": 21,
+        "userEngagementDuration": 1993,
+        "eventCount": 362,
         "keyEvents": 0,
-        "totalUsers": 14,
-        "averageEngagementTimeSeconds": 143.25,
-        "engagementRate": 0.4878,
+        "totalUsers": 16,
+        "averageEngagementTimeSeconds": 142.3571,
+        "engagementRate": 0.4667,
         "returningUsers": 6
       },
       "totals": {
@@ -2312,6 +2580,21 @@
             "averageEngagementTimeSeconds": 21,
             "engagementRate": 0.5,
             "returningUsers": 0
+          },
+          {
+            "date": "2026-11-08",
+            "activeUsers": 10,
+            "newUsers": 8,
+            "screenPageViews": 14,
+            "sessions": 12,
+            "engagedSessions": 3,
+            "userEngagementDuration": 325,
+            "eventCount": 46,
+            "keyEvents": 0,
+            "totalUsers": 10,
+            "averageEngagementTimeSeconds": 32.5,
+            "engagementRate": 0.25,
+            "returningUsers": 2
           }
         ],
         "previous": [
@@ -2412,6 +2695,20 @@
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 5,
             "engagementRate": 0.3333
+          },
+          {
+            "date": "2026-10-08",
+            "activeUsers": 2,
+            "newUsers": 2,
+            "screenPageViews": 13,
+            "sessions": 4,
+            "engagedSessions": 1,
+            "userEngagementDuration": 274,
+            "eventCount": 38,
+            "keyEvents": 0,
+            "totalUsers": 3,
+            "averageEngagementTimeSeconds": 137,
+            "engagementRate": 0.25
           }
         ]
       },
@@ -2420,13 +2717,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 25,
-            "sessions": 25
+            "activeUsers": 33,
+            "sessions": 33
           },
           {
             "label": "Returning",
-            "activeUsers": 4,
-            "sessions": 7
+            "activeUsers": 5,
+            "sessions": 9
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 2
           },
           {
             "label": "Unclassified",
@@ -2442,14 +2744,14 @@
         "status": "ok",
         "rows": [
           {
-            "label": "Organic Search",
-            "activeUsers": 15,
-            "sessions": 19
+            "label": "Direct",
+            "activeUsers": 17,
+            "sessions": 23
           },
           {
-            "label": "Direct",
-            "activeUsers": 10,
-            "sessions": 15
+            "label": "Organic Search",
+            "activeUsers": 17,
+            "sessions": 23
           },
           {
             "label": "Organic Social",
@@ -2458,8 +2760,8 @@
           },
           {
             "label": "Unassigned",
-            "activeUsers": 1,
-            "sessions": 1
+            "activeUsers": 3,
+            "sessions": 3
           }
         ]
       },
@@ -2468,13 +2770,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 23,
-            "sessions": 33
+            "activeUsers": 31,
+            "sessions": 44
           },
           {
             "label": "mobile",
-            "activeUsers": 5,
-            "sessions": 5
+            "activeUsers": 6,
+            "sessions": 6
           }
         ]
       },
@@ -2483,13 +2785,18 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 10,
-            "sessions": 20
+            "activeUsers": 13,
+            "sessions": 26
           },
           {
             "label": "United States",
-            "activeUsers": 8,
-            "sessions": 8
+            "activeUsers": 12,
+            "sessions": 12
+          },
+          {
+            "label": "China",
+            "activeUsers": 5,
+            "sessions": 5
           }
         ]
       },
@@ -2497,14 +2804,19 @@
         "status": "ok",
         "rows": [
           {
-            "label": "google / organic",
-            "activeUsers": 14,
-            "sessions": 18
+            "label": "(direct) / (none)",
+            "activeUsers": 16,
+            "sessions": 22
           },
           {
-            "label": "(direct) / (none)",
-            "activeUsers": 10,
-            "sessions": 16
+            "label": "google / organic",
+            "activeUsers": 16,
+            "sessions": 20
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 4,
+            "sessions": 6
           },
           {
             "label": "m.facebook.com / referral",
@@ -2527,24 +2839,24 @@
         "status": "ok",
         "rows": [
           {
-            "label": "google / organic",
-            "activeUsers": 14,
-            "sessions": 18
+            "label": "(direct) / (none)",
+            "activeUsers": 17,
+            "sessions": 23
           },
           {
-            "label": "(direct) / (none)",
-            "activeUsers": 10,
-            "sessions": 15
+            "label": "google / organic",
+            "activeUsers": 16,
+            "sessions": 22
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 3,
+            "sessions": 3
           },
           {
             "label": "m.facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 1
           },
           {
             "label": "bing / organic",
@@ -2565,19 +2877,28 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 14,
-            "views": 19,
-            "eventCount": 51,
-            "engagement": 4.2143
+            "activeUsers": 15,
+            "views": 22,
+            "eventCount": 59,
+            "engagement": 5.0667
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 11,
-            "views": 13,
-            "eventCount": 63,
-            "engagement": 35.6364
+            "activeUsers": 13,
+            "views": 15,
+            "eventCount": 72,
+            "engagement": 35.0769
+          },
+          {
+            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+            "type": "Articles",
+            "activeUsers": 4,
+            "views": 6,
+            "eventCount": 22,
+            "engagement": 5.5
           },
           {
             "path": "/library.html",
@@ -2589,13 +2910,13 @@
             "engagement": 7.75
           },
           {
-            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
-            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "type": "Articles",
-            "activeUsers": 3,
-            "views": 5,
-            "eventCount": 18,
-            "engagement": 7.3333
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 2.5
           },
           {
             "path": "/team.html",
@@ -2605,6 +2926,24 @@
             "views": 2,
             "eventCount": 5,
             "engagement": 14.5
+          },
+          {
+            "path": "/dr-bob-profile.html",
+            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 2
+          },
+          {
+            "path": "/videos.html",
+            "title": "Videos",
+            "type": "Videos",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 4,
+            "engagement": 0
           },
           {
             "path": "/about.html",
@@ -2625,17 +2964,8 @@
             "engagement": 6
           },
           {
-            "path": "/contact.html",
-            "title": "Contact BA Medicale | Medical Education Enquiries",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 2,
-            "engagement": 5
-          },
-          {
-            "path": "/dr-bob-profile.html",
-            "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
             "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
@@ -2652,13 +2982,40 @@
             "engagement": 6
           },
           {
-            "path": "/videos.html",
-            "title": "Videos",
-            "type": "Videos",
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
+            "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
-            "eventCount": 2,
+            "eventCount": 3,
             "engagement": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 5,
+            "engagement": 209
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 0
+          },
+          {
+            "path": "/traffic.html",
+            "title": "BA Medicale Growth & Education Impact Dashboard",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 33
           }
         ]
       },
@@ -2668,19 +3025,19 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 14,
-            "engagementRate": 0.2857
+            "sessions": 15,
+            "engagementRate": 0.3333
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 11,
-            "engagementRate": 0.7273
+            "sessions": 13,
+            "engagementRate": 0.6154
           },
           {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
             "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "sessions": 4,
+            "sessions": 5,
             "engagementRate": 0
           },
           {
@@ -2690,8 +3047,32 @@
             "engagementRate": 0
           },
           {
+            "path": "/videos.html",
+            "title": "Videos",
+            "sessions": 2,
+            "engagementRate": 1
+          },
+          {
+            "path": "/contact.html",
+            "title": "Contact BA Medicale | Medical Education Enquiries",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
             "title": "Feline Fungal Zoonoses & Cat-Transmitted Sporotrichosis",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/healthcare-workers.html",
+            "title": "Medical Education for Healthcare Professionals",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -2702,10 +3083,16 @@
             "engagementRate": 0
           },
           {
-            "path": "/videos.html",
-            "title": "Videos",
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 1
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 1,
+            "engagementRate": 0
           }
         ]
       },
@@ -2724,7 +3111,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-08T12:23:22.143Z",
+      "generatedAt": "2026-11-08T21:26:50.694Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -4976,10 +5363,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-08T12:23:22.143Z",
+  "generatedAt": "2026-11-08T21:26:50.694Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-11-08T12:23:22.143Z",
+    "generatedAt": "2026-11-08T21:26:50.694Z",
     "windowMinutes": 30
   }
 }
