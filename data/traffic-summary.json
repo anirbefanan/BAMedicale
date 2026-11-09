@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T21:26:50.303Z",
+  "generatedAt": "2026-11-09T03:30:36.528Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-12",
@@ -24,7 +24,7 @@
       "views": 47,
       "activeUsers": 33,
       "eventCount": 212,
-      "bounceRate": 0.5116279069767442
+      "bounceRate": 0.4883720930232558
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -93,10 +93,6 @@
       "activeUsers": 43
     },
     {
-      "label": "Not set",
-      "activeUsers": 4
-    },
-    {
       "label": "bing / organic",
       "activeUsers": 3
     },
@@ -127,16 +123,16 @@
       "sessions": 8
     },
     {
-      "label": "Not set",
-      "sessions": 4
-    },
-    {
       "label": "facebook.com / referral",
       "sessions": 3
     },
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
@@ -150,7 +146,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 8
+      "activeUsers": 9
     },
     {
       "label": "Bandung",
