@@ -9,7 +9,7 @@
         "previousStartDate": "2026-11-08",
         "previousEndDate": "2026-11-08"
       },
-      "generatedAt": "2026-11-10T00:57:11.143Z",
+      "generatedAt": "2026-11-10T13:54:48.969Z",
       "summary": {
         "activeUsers": 1,
         "newUsers": 0,
@@ -130,7 +130,7 @@
         "status": "ok",
         "rows": [
           {
-            "label": "(not set)",
+            "label": "google / organic",
             "activeUsers": 1,
             "sessions": 2
           }
@@ -201,7 +201,7 @@
         "previousStartDate": "2026-10-27",
         "previousEndDate": "2026-11-02"
       },
-      "generatedAt": "2026-11-10T00:57:11.143Z",
+      "generatedAt": "2026-11-10T13:54:48.969Z",
       "summary": {
         "activeUsers": 31,
         "newUsers": 27,
@@ -461,12 +461,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 5
+            "sessions": 6
           }
         ]
       },
@@ -544,12 +539,7 @@
           {
             "label": "google / organic",
             "activeUsers": 13,
-            "sessions": 19
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 2
+            "sessions": 21
           },
           {
             "label": "bing / organic",
@@ -825,7 +815,7 @@
         "previousStartDate": "2026-09-15",
         "previousEndDate": "2026-10-12"
       },
-      "generatedAt": "2026-11-10T00:57:11.143Z",
+      "generatedAt": "2026-11-10T13:54:48.969Z",
       "summary": {
         "activeUsers": 108,
         "newUsers": 100,
@@ -1694,12 +1684,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 25
+            "sessions": 26
           }
         ]
       },
@@ -1777,7 +1762,7 @@
           {
             "label": "google / organic",
             "activeUsers": 42,
-            "sessions": 77
+            "sessions": 79
           },
           {
             "label": "bing / organic",
@@ -1797,11 +1782,6 @@
           {
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
             "sessions": 2
           }
         ]
@@ -2253,7 +2233,7 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-09"
       },
-      "generatedAt": "2026-11-10T00:57:11.143Z",
+      "generatedAt": "2026-11-10T13:54:48.969Z",
       "summary": {
         "activeUsers": 37,
         "newUsers": 33,
@@ -2571,12 +2551,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 6
+            "sessions": 7
           }
         ]
       },
@@ -2654,16 +2629,11 @@
           {
             "label": "google / organic",
             "activeUsers": 16,
-            "sessions": 22
+            "sessions": 24
           },
           {
             "label": "m.facebook.com / referral",
             "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
             "sessions": 2
           },
           {
@@ -2954,7 +2924,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-10T00:57:11.143Z",
+      "generatedAt": "2026-11-10T13:54:48.969Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5206,10 +5176,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-10T00:57:11.143Z",
+  "generatedAt": "2026-11-10T13:54:48.969Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-11-10T00:57:11.143Z",
+    "generatedAt": "2026-11-10T13:54:48.969Z",
     "windowMinutes": 30
   }
 }
