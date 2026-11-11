@@ -73,6 +73,35 @@ test("Dr. Adlina's thyroid manuscript is rendered verbatim from its author-suppl
   assert.ok(!publicArticle.includes('seo-related-card seo-related-card--article" href="/articles/thyroid-cancer-four-main-types.html"'));
 });
 
+test("Anti-EGFR article preserves the approved source, citation mapping, figures, and Doctors-only routing", () => {
+  const article = records.articles["targeted-oncology-anti-egfr-therapeutics"];
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, article.sourceManifest), "utf8"));
+  const html = fs.readFileSync(path.join(root, "articles", `${article.slug}.html`), "utf8");
+  const textBlocks = manifest.paragraphs.filter(block => block.text).map(block => block.text);
+  const references = textBlocks.filter(text => /^\[\d+\]/.test(text));
+  const body = textBlocks.filter(text => !/^\[\d+\]/.test(text)).join("\n");
+  const cited = [...body.matchAll(/\[(\d+)\]/g)].map(match => Number(match[1]));
+  const numbered = references.map(text => Number(text.match(/^\[(\d+)\]/)[1]));
+
+  assert.equal(article.primaryAudience, "DOCTOR");
+  assert.deepEqual(Array.from(article.secondaryAudiences), []);
+  assert.equal(article.author.name, "dr. Adlina Karisyah, SpB.");
+  assert.deepEqual(numbered, Array.from({ length: 11 }, (_, index) => index + 1));
+  assert.ok(cited.every(number => numbered.includes(number)));
+  assert.match(body, /FLAURA2 trial.*\[8\]/);
+  assert.match(references[7], /^\[8\] Planchard D, Jänne PA, Cheng Y, et al\./);
+  assert.doesNotMatch(body, /MARIPOSA|PAPILLON|11\.1.month response|ORR 40%/i);
+  assert.equal(manifest.paragraphs.filter(block => block.tag === "table").length, 2);
+  assert.equal(manifest.paragraphs.filter(block => block.tag === "figure").length, 2);
+  for (const block of manifest.paragraphs) {
+    if (block.text) assert.ok(html.includes(escape(block.text)), `Missing source text: ${block.text.slice(0, 60)}`);
+    if (block.tag === "table") for (const row of block.rows) for (const cell of row) assert.ok(html.includes(escape(cell)));
+    if (block.tag === "figure") assert.ok(html.includes(`src="../${block.src}"`));
+  }
+  assert.ok(html.includes('By dr. Adlina Karisyah, SpB.'));
+  assert.ok(fs.readFileSync(path.join(root, "sitemap.xml"), "utf8").includes(`https://bamedicale.com/articles/${article.slug}.html`));
+});
+
 test("shared reading style reserves landscape media without cropping", () => {
   const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
   assert.match(css, /\.seo-article-hero\{[^}]*grid-template-columns:minmax\(0,1fr\)/);

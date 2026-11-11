@@ -478,6 +478,45 @@ window.BAMEDICALE_DATA = {
         hashtags: ["#ThyroidCancer", "#MedicalEducation", "#BAMedicaleCom"]
       }
     },
+    "targeted-oncology-anti-egfr-therapeutics": {
+      id: "targeted-oncology-anti-egfr-therapeutics",
+      slug: "targeted-oncology-anti-egfr-therapeutics",
+      title: "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+      seoTitle: "Anti-EGFR Therapeutics | BA Medicale",
+      dek: "Mechanisms of Action, Clinical Indications, Toxicity Management & Resistance Pathways",
+      excerpt: "An author-approved clinical monograph on anti-EGFR pharmacology, biomarker-driven indications, toxicity management, and resistance strategies.",
+      primaryAudience: "DOCTOR",
+      secondaryAudiences: [],
+      author: { name: "dr. Adlina Karisyah, SpB.", type: "Person" },
+      primaryTopic: "Systemic Therapy",
+      professionalCategory: "therapeutics",
+      professionalArea: "Therapeutics",
+      tags: ["EGFR", "Targeted Therapy", "Lung Cancer", "Colorectal Cancer"],
+      primaryDiseaseGroup: "cancer-neoplastic",
+      contentType: "Article",
+      sourceAttribution: "Author-approved BA Medicale clinical monograph",
+      publishedDate: "2026-11-11",
+      updatedDate: "",
+      sortOrder: 5,
+      focalPosition: "50% 50%",
+      cover: "assets/articles/targeted-oncology-anti-egfr-therapeutics/poster.jpg",
+      sourceFile: "assets/articles/targeted-oncology-anti-egfr-therapeutics/source.docx",
+      sourceManifest: "assets/articles/targeted-oncology-anti-egfr-therapeutics/manuscript.json",
+      label: "Doctor education article",
+      intro: [],
+      sections: [],
+      takeaways: [],
+      references: [],
+      promotion: {
+        hook: "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+        teaser: [
+          "Explore anti-EGFR pharmacology, biomarker-driven indications, toxicity management, and resistance strategies.",
+          "Read the author-approved clinical monograph by dr. Adlina Karisyah, SpB."
+        ],
+        cta: "Read the full article at BAMedicale.com",
+        hashtags: ["#TargetedOncology", "#EGFR", "#BAMedicaleCom"]
+      }
+    },
     "parotid-gland-metastasis-from-breast-cancer": {
       id: "parotid-gland-metastasis-from-breast-cancer",
       slug: "parotid-gland-metastasis-from-breast-cancer",

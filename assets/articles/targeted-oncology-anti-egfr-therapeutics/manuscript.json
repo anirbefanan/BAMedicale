@@ -1,0 +1,445 @@
+{
+  "sourceSha256": "cd8c981ecb6281a77a603f95e28ae6c8e9891c9e10e370bd3df64e5534c61c69",
+  "paragraphs": [
+    {
+      "tag": "p",
+      "text": "BA MEDICALE™ CLINICAL INTELLIGENCE SERIES"
+    },
+    {
+      "tag": "p",
+      "text": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS"
+    },
+    {
+      "tag": "p",
+      "text": "Mechanisms of Action, Clinical Indications, Toxicity Management & Resistance Pathways"
+    },
+    {
+      "tag": "h2",
+      "text": "EXECUTIVE CLINICAL OVERVIEW"
+    },
+    {
+      "tag": "p",
+      "text": "The identification of Epidermal Growth Factor Receptor (EGFR) as an oncogenic driver revolutionized modern clinical oncology, transitioning treatment from non-specific cytotoxic chemotherapy to biomarker-driven precision targeted therapy."
+    },
+    {
+      "tag": "p",
+      "text": "Anti-EGFR targeted therapies have improved progression-free survival (PFS) and overall survival (OS) in selected oncology populations, particularly when combined with standard chemotherapy or radiotherapy. The magnitude of benefit depends on cancer type, molecular selection, treatment regimen, and clinical context."
+    },
+    {
+      "tag": "p",
+      "text": "This BA Medicale™ Clinical Monograph provides an evidence-based synthesis of anti-EGFR pharmacology, molecular mechanisms, biomarker-driven clinical indications, adverse event mitigation frameworks, and resistance-overcoming strategies."
+    },
+    {
+      "tag": "h2",
+      "text": "KEY HIGHLIGHTS & CLINICAL AWARENESS POINTS"
+    },
+    {
+      "tag": "p",
+      "text": "Dual Pharmacological Action: Monoclonal antibodies (e.g., cetuximab) bind extracellularly to block ligand binding and may induce antibody-dependent cellular cytotoxicity (ADCC), whereas TKIs (e.g., osimertinib) inhibit intracellular EGFR tyrosine kinase signaling."
+    },
+    {
+      "tag": "p",
+      "text": "ADCC is an immune-mediated mechanism in which antibody-coated tumor cells are recognized by immune effector cells, particularly natural killer (NK) cells, with macrophages also contributing to antibody-mediated antitumor activity. ADCC does not cause a specific physical sensation in patients. Not all monoclonal antibodies elicit clinically meaningful ADCC; when present, it provides an additional antitumor mechanism alongside receptor blockade."
+    },
+    {
+      "tag": "p",
+      "text": "Mandatory Biomarker Screening: Anti-EGFR monoclonal antibody therapy in metastatic colorectal cancer (mCRC) requires appropriate molecular selection, including extended KRAS/NRAS testing. EGFR-targeted TKIs in NSCLC require identification of an actionable EGFR mutation, with treatment selection depending on the specific variant."
+    },
+    {
+      "tag": "p",
+      "text": "On-Target Dermatologic Toxicity: Papulopustular skin rash is a characteristic adverse event of EGFR inhibition. Incidence and severity vary by drug and regimen; supportive care and monitoring are important."
+    },
+    {
+      "tag": "h2",
+      "text": "CONTENTS"
+    },
+    {
+      "tag": "p",
+      "text": "1. Introduction, Classification & Molecular Mechanisms"
+    },
+    {
+      "tag": "p",
+      "text": "2. Clinical Indications, Biomarker Testing & Efficacy"
+    },
+    {
+      "tag": "p",
+      "text": "3. Toxicity Profiles, Side Effects & Clinical Management"
+    },
+    {
+      "tag": "p",
+      "text": "4. Acquired Resistance Mechanisms & Next-Generation Strategies"
+    },
+    {
+      "tag": "p",
+      "text": "5. Closing Summary, Clinical Decision Framework & References"
+    },
+    {
+      "tag": "h2",
+      "text": "1. INTRODUCTION, CLASSIFICATION & MOLECULAR MECHANISMS"
+    },
+    {
+      "tag": "h3",
+      "text": "1.1 The Epidermal Growth Factor Receptor (EGFR / ErbB1 / HER1)"
+    },
+    {
+      "tag": "p",
+      "text": "The Epidermal Growth Factor Receptor (EGFR; ErbB1/HER1) is a transmembrane glycoprotein belonging to the ErbB family of receptor tyrosine kinases (RTKs), which includes HER2 (ErbB2), HER3 (ErbB3), and HER4 (ErbB4). Under physiological conditions, EGFR regulates essential cellular processes including epithelial cell proliferation, differentiation, migration, and survival. However, in human malignancies, aberrant EGFR activation—driven by gene amplification, receptor overexpression, or somatic activating mutations—promotes uncontrolled cell division, inhibition of apoptosis, enhanced angiogenesis, and metastatic spread. EGFR overexpression or mutation is documented in non-small cell lung cancer (NSCLC, 10–50%), metastatic colorectal cancer (mCRC, 60–80%), head and neck squamous cell carcinoma (HNSCC, >90%), and pancreatic adenocarcinoma."
+    },
+    {
+      "tag": "h3",
+      "text": "1.2 Dual Pharmacological Classes: Monoclonal Antibodies vs Small-Molecule TKIs"
+    },
+    {
+      "tag": "p",
+      "text": "Anti-EGFR targeted therapeutics fall into two distinct pharmacological classes based on molecular structure, binding target, and mechanism:"
+    },
+    {
+      "tag": "li",
+      "text": "Monoclonal antibodies (mAbs): Target the extracellular ligand-binding domain (Domain III)."
+    },
+    {
+      "tag": "li",
+      "text": "Small-molecule tyrosine kinase inhibitors (TKIs): Reversibly or irreversibly bind the intracellular adenosine triphosphate (ATP)-binding pocket of the kinase domain."
+    },
+    {
+      "tag": "h3",
+      "text": "Selected anti-EGFR agents and clinical indications"
+    },
+    {
+      "tag": "table",
+      "rows": [
+        [
+          "Drug",
+          "Class",
+          "Mechanism / Target",
+          "Primary indication",
+          "Route"
+        ],
+        [
+          "Cetuximab",
+          "IgG1 mAb",
+          "EGFR extracellular blockade; ADCC",
+          "RAS wild-type mCRC; HNSCC",
+          "IV"
+        ],
+        [
+          "Panitumumab",
+          "IgG2 mAb",
+          "EGFR extracellular blockade",
+          "RAS wild-type mCRC",
+          "IV"
+        ],
+        [
+          "Gefitinib",
+          "First-generation TKI",
+          "Reversible EGFR kinase inhibition",
+          "EGFR-mutant NSCLC",
+          "Oral"
+        ],
+        [
+          "Erlotinib",
+          "First-generation TKI",
+          "Reversible EGFR kinase inhibition",
+          "EGFR-mutant NSCLC; pancreatic cancer",
+          "Oral"
+        ],
+        [
+          "Afatinib",
+          "Second-generation TKI",
+          "Irreversible ErbB-family kinase inhibition",
+          "EGFR-mutant NSCLC",
+          "Oral"
+        ],
+        [
+          "Osimertinib",
+          "Third-generation TKI",
+          "Mutant-selective EGFR kinase inhibition",
+          "EGFR-mutant NSCLC",
+          "Oral"
+        ],
+        [
+          "Amivantamab",
+          "Bispecific mAb",
+          "EGFR × MET targeting",
+          "EGFR-mutant NSCLC in specified settings",
+          "IV"
+        ]
+      ]
+    },
+    {
+      "tag": "h3",
+      "text": "Molecular mechanisms of action and cellular pathways"
+    },
+    {
+      "tag": "h3",
+      "text": "1.3 Receptor Architecture & Ligand-Induced Dimerization"
+    },
+    {
+      "tag": "p",
+      "text": "EGFR comprises an extracellular ligand-binding region (Domains I–IV), a single hydrophobic transmembrane helix, an intracellular juxtamembrane domain, a conserved tyrosine kinase domain, and a regulatory C-terminal tail containing key tyrosine autophosphorylation sites. In the unliganded state, EGFR exists in a tethered inactive conformation. Binding of endogenous growth factor ligands—such as Epidermal Growth Factor (EGF), Transforming Growth Factor-alpha (TGF-α), Amphiregulin, or Epiregulin—to Domains I and III induces a dramatic conformational shift, exposing a dimerization arm in Domain II. This promotes receptor homodimerization or heterodimerization (primarily with HER2 or HER3), leading to trans-autophosphorylation of intracellular C-terminal tyrosine residues."
+    },
+    {
+      "tag": "h3",
+      "text": "1.4 Intracellular Signal Transduction Cascades"
+    },
+    {
+      "tag": "p",
+      "text": "Phosphorylated tyrosine residues serve as docking sites for signal transducer proteins containing Src Homology 2 (SH2) or phosphotyrosine-binding (PTB) domains, launching three primary downstream intracellular cascades:"
+    },
+    {
+      "tag": "li",
+      "text": "RAS-RAF-MEK-ERK Pathway: Drives nuclear transcription factors (FOS, JUN, MYC) regulating cell cycle progression, G1-to-S phase transition, and cellular proliferation."
+    },
+    {
+      "tag": "li",
+      "text": "PI3K-AKT-mTOR Pathway: Inhibits pro-apoptotic proteins (BAD, Caspase-9) and promotes protein synthesis, cell growth, and anti-apoptotic survival signals."
+    },
+    {
+      "tag": "li",
+      "text": "STAT3 & PLC-γ Pathways: Regulate gene expression involved in tumor angiogenesis (via VEGF upregulation), cell motility, extracellular matrix remodeling, and invasive growth."
+    },
+    {
+      "tag": "h3",
+      "text": "1.5 Differentiated Mechanisms of Action: Extracellular Blocking vs Intracellular Kinase Inhibition"
+    },
+    {
+      "tag": "p",
+      "text": "Monoclonal Antibodies (Cetuximab & Panitumumab): Bind Domain III of the extracellular region with higher affinity than native EGF or TGF-α, sterically blocking ligand attachment and preventing dimerization. Furthermore, antibody binding induces rapid receptor internalization and lysosomal degradation. Cetuximab (an IgG1 chimeric antibody) uniquely engages immune effector cells via its Fc domain to trigger Antibody-Dependent Cellular Cytotoxicity (ADCC), recruiting natural killer (NK) cells and macrophages to lyse tumor cells [4]. Panitumumab (a fully human IgG2 mAb) acts primarily through steric blockade without inducing significant ADCC. Tyrosine Kinase Inhibitors (TKIs): Small molecules penetrate the cell membrane to reversibly or covalently bind the intracellular ATP-binding pocket (catalytic cleft) of the kinase domain. By blocking ATP binding, TKIs prevent autophosphorylation and completely shut down downstream RAS-RAF-MEK-ERK and PI3K-AKT-mTOR signaling cascades, arresting the cell cycle and inducing apoptotic cell death."
+    },
+    {
+      "tag": "h3",
+      "text": "EGFR signal transduction and pharmacological inhibition"
+    },
+    {
+      "tag": "p",
+      "text": "Ligand binding → EGFR dimerization and phosphorylation → RAS–RAF–MEK–ERK (proliferation), PI3K–AKT–mTOR (survival), and STAT3/PLC-γ signaling (motility and angiogenesis). Anti-EGFR antibodies act extracellularly; EGFR TKIs inhibit intracellular kinase activity."
+    },
+    {
+      "tag": "h2",
+      "text": "2. CLINICAL INDICATIONS, BIOMARKER TESTING & EFFICACY"
+    },
+    {
+      "tag": "h3",
+      "text": "2.1 Non-Small Cell Lung Cancer (NSCLC) & Activating EGFR Mutations"
+    },
+    {
+      "tag": "p",
+      "text": "EGFR mutations occur in approximately 10–15% of Western and 40–50% of Asian patients with non-squamous NSCLC. Over 90% of sensitizing mutations consist of Exon 19 in-frame deletions or the Exon 21 L858R point mutation. First-line treatment with third-generation Osimertinib demonstrated statistically superior median Progression-Free Survival (PFS) of 18.9 months compared to 10.2 months for 1st-generation TKIs in the landmark FLAURA trial, [3]. The recent FLAURA2 trial revealed that combining Osimertinib with platinum-pemetrexed chemotherapy extended median PFS to 25.5 months [8]."
+    },
+    {
+      "tag": "h3",
+      "text": "2.2 Metastatic Colorectal Cancer (mCRC) & Mandatory RAS Biomarker Screening"
+    },
+    {
+      "tag": "p",
+      "text": "Anti-EGFR monoclonal antibodies (Cetuximab and Panitumumab) are standard therapies in mCRC. However, clinical efficacy is strictly contingent upon RAS gene status. Oncogenic mutations in KRAS or NRAS (codons 12, 13, 59, 61, 117, 146) constitutively activate the downstream RAS-RAF-MEK-ERK pathway independent of upstream EGFR, rendering anti-EGFR mAbs ineffective. Mandatory extended RAS mutational testing is required prior to initiating therapy [4]. Furthermore, primary tumor sidedness plays a critical prognostic role: left-sided mCRC (descending colon to rectum) exhibits dramatic survival benefits from 1st-line anti-EGFR mAb + chemotherapy, whereas right-sided tumors show limited benefit due to distinct genomic profiles."
+    },
+    {
+      "tag": "h3",
+      "text": "2.3 Head and Neck Squamous Cell Carcinoma (HNSCC) & Pancreatic Cancer"
+    },
+    {
+      "tag": "p",
+      "text": "In HNSCC, EGFR is overexpressed in >90% of tumors. Cetuximab combined with radiotherapy (Bonner regimen) demonstrated a significant OS benefit (49.0 vs 29.3 months) compared to radiotherapy alone in locally advanced HNSCC [5]. In recurrent/metastatic HNSCC, Cetuximab plus platinum-fluorouracil (EXTREME regimen) established a standard 1st-line regimen. In advanced pancreatic adenocarcinoma, Erlotinib plus Gemcitabine demonstrated a modest but statistically significant OS advantage over Gemcitabine alone."
+    },
+    {
+      "tag": "h3",
+      "text": "Comparative PFS benchmarks (original figure; interpret across distinct trial populations)"
+    },
+    {
+      "tag": "figure",
+      "src": "assets/articles/targeted-oncology-anti-egfr-therapeutics/image1.png",
+      "alt": "Comparative PFS benchmarks from the author-approved Anti-EGFR Therapeutics manuscript",
+      "width": 833,
+      "height": 278
+    },
+    {
+      "tag": "h2",
+      "text": "3. TOXICITY PROFILES, SIDE EFFECTS & CLINICAL MANAGEMENT"
+    },
+    {
+      "tag": "h3",
+      "text": "3.1 On-Target Dermatologic Toxicity: Pathophysiology & Clinical Impact"
+    },
+    {
+      "tag": "p",
+      "text": "Because EGFR is expressed at high levels in basal keratinocytes, hair follicle outer root sheaths, and sweat glands, systemic EGFR inhibition disrupts epithelial architecture, impairs cutaneous barrier function, and triggers expression of pro-inflammatory chemokines (CCL2, CXCL10). This manifests as a characteristic papulopustular acneiform eruption in >80% of patients, typically appearing within 1–2 weeks of treatment onset on sebum-rich areas (face, neck, upper chest, back). Secondary cutaneous effects include severe xerosis, pruritus, painful paronychia (nail fold inflammation occurring in 15–30% of long-term users), and trichomegaly (eyelash elongation). Notably, multiple clinical trials confirm that the grade of dermatologic rash directly correlates with anti-tumor response and overall survival [6]."
+    },
+    {
+      "tag": "h3",
+      "text": "3.2 Gastrointestinal Toxicities & Electrolyte Imbalances"
+    },
+    {
+      "tag": "p",
+      "text": "Diarrhea: Frequent with small-molecule TKIs (up to 90% with Afatinib; 30–50% with Osimertinib), caused by mucosal inflammation and chloride secretion in intestinal epithelial cells. Hypomagnesemia: Unique to anti-EGFR monoclonal antibodies (Cetuximab and Panitumumab), occurring in up to 50% of treated patients. EGFR expressed in the ascending limb of Henle and distal convoluted tubule regulates the TRPM6 epithelial magnesium channel. Antibody blockade impairs renal magnesium reabsorption, causing progressive, asymptomatic or symptomatic hypomagnesemia that requires routine serum monitoring and intravenous/oral replacement [7]."
+    },
+    {
+      "tag": "h3",
+      "text": "3.3 Interstitial Lung Disease (ILD) / Pneumonitis"
+    },
+    {
+      "tag": "p",
+      "text": "Drug-induced Interstitial Lung Disease (ILD) or pneumonitis is a rare (1–3% incidence) but potentially fatal adverse event associated with EGFR TKIs (particularly in Asian populations). Symptoms include acute onset of dyspnea, dry cough, fever, and bilateral ground-glass opacities on chest CT. Immediate drug cessation and high-dose corticosteroid therapy are mandatory upon suspicion of Grade ≥2 ILD."
+    },
+    {
+      "tag": "h3",
+      "text": "Comparative toxicity profiles (figures are regimen-dependent)"
+    },
+    {
+      "tag": "table",
+      "rows": [
+        [
+          "Toxicity",
+          "Monoclonal antibodies",
+          "Earlier-generation TKIs",
+          "Osimertinib"
+        ],
+        [
+          "Acneiform rash",
+          "Common",
+          "Common",
+          "Common; often less severe"
+        ],
+        [
+          "Diarrhea",
+          "Variable",
+          "Common; can be severe",
+          "Common"
+        ],
+        [
+          "Hypomagnesemia",
+          "Characteristic risk",
+          "Uncommon",
+          "Uncommon"
+        ],
+        [
+          "Paronychia",
+          "Possible",
+          "Possible",
+          "Possible"
+        ],
+        [
+          "Pneumonitis / ILD",
+          "Uncommon",
+          "Uncommon but important",
+          "Uncommon but potentially serious"
+        ]
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "4. ACQUIRED RESISTANCE MECHANISMS & NEXT-GENERATION STRATEGIES"
+    },
+    {
+      "tag": "h3",
+      "text": "4.1 On-Target Secondary & Tertiary Resistance Mutations"
+    },
+    {
+      "tag": "p",
+      "text": "Despite dramatic initial responses, acquired resistance almost universally develops after a median of 10–19 months. Resistance mechanisms are broadly divided into on-target (EGFR-dependent) and off-target (EGFR-independent bypass) alterations: The Secondary T790M Gatekeeper Mutation: Accounts for 50–60% of resistance to 1st- and 2nd-generation TKIs. Substitution of threonine with bulky methionine at position 790 in Exon 20 creates steric hindrance that prevents 1st-gen TKI binding while restoring ATP binding affinity toward wild-type levels. Third-generation Osimertinib overcomes T790M by forming a covalent bond with Cys797 [3]. The Tertiary C797S Mutation: Develops in 7–10% of patients treated with 1st-line Osimertinib (and 10–20% post-2L Osimertinib). Mutation of cysteine to serine at position 797 abolishes covalent binding of Osimertinib, representing the main on-target resistance mechanism to 3rd-gen TKIs [9]."
+    },
+    {
+      "tag": "h3",
+      "text": "4.2 Off-Target Bypass Signaling & Phenotypic Transformation"
+    },
+    {
+      "tag": "p",
+      "text": "MET Gene Amplification: Represents the most common off-target resistance mechanism (15–20% post-1L Osimertinib). MET overactivation recruits ERBB3 (HER3) to activate downstream PI3K-AKT signaling, completely bypassing EGFR blockade. Other Bypass Mutations: HER2 gene amplification (5%), BRAF V600E mutations (3%), PIK3CA mutations (5%), and oncogenic gene fusions (RET, ALK, NTRK). Histological & Phenotypic Transformation: Small Cell Lung Cancer (SCLC) transformation occurs in 3–10% of EGFR-mutant NSCLC cases under TKI pressure, accompanied by RB1 and TP53 loss. transformed SCLC remains resistant to TKIs but responds to platinum-etoposide chemotherapy. Epithelial-to-Mesenchymal Transition (EMT) also confers drug tolerance."
+    },
+    {
+      "tag": "h3",
+      "text": "4.3 Next-Generation Therapeutic Strategies to Overcome Resistance"
+    },
+    {
+      "tag": "p",
+      "text": "1. Fourth-Generation Allosteric TKIs: Novel non-ATP competitive allosteric inhibitors (e.g., BLU-945, EAI045, JBJ-04-125) bind allosterically to target triple-mutant EGFR (Ex19del/L858R/T790M/C797S) [9]. 2. Bispecific Antibodies & ADCs: HER3-targeted Antibody-Drug Conjugates (Patritumab Deruxtecan; HER3-DXd) deliver cytotoxic topoisomerase I payloads to tumor cells expressing HER3 post-TKI progression. 3. Serial Liquid Biopsy Monitoring: Circulating tumor DNA (ctDNA) analysis enables real-time, non-invasive detection of resistance subclones months prior to radiologic progression, guiding timely therapeutic switching."
+    },
+    {
+      "tag": "p",
+      "text": "Figure 4.2. Illustrative distributions of acquired resistance mechanisms (percentages reproduced from the source monograph; not pooled comparative estimates)."
+    },
+    {
+      "tag": "figure",
+      "src": "assets/articles/targeted-oncology-anti-egfr-therapeutics/image2.png",
+      "alt": "Illustrative distributions of acquired resistance mechanisms from the author-approved Anti-EGFR Therapeutics manuscript",
+      "width": 1950,
+      "height": 1002
+    },
+    {
+      "tag": "h2",
+      "text": "5. CLOSING SUMMARY, CLINICAL DECISION FRAMEWORK & REFERENCES"
+    },
+    {
+      "tag": "h3",
+      "text": "5.1 Clinical Summary and Decision Framework"
+    },
+    {
+      "tag": "p",
+      "text": "Anti-EGFR therapeutics represent an important advance in precision oncology, changing treatment outcomes in molecularly selected NSCLC, mCRC, and HNSCC. Their use requires appropriate biomarker-based patient selection, assessment and mitigation of toxicity, and evaluation of acquired resistance."
+    },
+    {
+      "tag": "h3",
+      "text": "BA MEDICALE™ THREE-PRIORITY CLINICAL DECISION FRAMEWORK"
+    },
+    {
+      "tag": "p",
+      "text": "1. Mandatory biomarker profiling. Confirm the relevant molecular profile before selecting anti-EGFR therapy, including extended RAS status in mCRC and the specific EGFR mutation in NSCLC."
+    },
+    {
+      "tag": "p",
+      "text": "2. Weigh expected benefit against toxicity. Assess patient-specific risks, anticipated clinical benefit, and practical strategies to prevent, monitor, and mitigate treatment-related adverse events."
+    },
+    {
+      "tag": "p",
+      "text": "3. Evaluate potential resistance. At progression, investigate plausible resistance mechanisms using appropriate molecular testing and, when clinically indicated, tissue biopsy; adapt management to the identified mechanism and clinical context."
+    },
+    {
+      "tag": "h3",
+      "text": "5.2 Academic References"
+    },
+    {
+      "tag": "p",
+      "text": "[1] Lynch TJ, Bell DW, Sordella R, et al. Activating mutations in the epidermal growth factor receptor underlying responsiveness of non-small-cell lung cancer to gefitinib. N Engl J Med. 2004;350(21):2129-2139."
+    },
+    {
+      "tag": "p",
+      "text": "[2] Mok TS, Wu YL, Thongprasert S, et al. Gefitinib or carboplatin-paclitaxel in pulmonary adenocarcinoma. N Engl J Med. 2009;361(10):947-957."
+    },
+    {
+      "tag": "p",
+      "text": "[3] Soria JC, Ohe Y, Vansteenkiste J, et al. Osimertinib in untreated EGFR-mutated advanced non-small-cell lung cancer (FLAURA). N Engl J Med. 2018;378(2):113-125."
+    },
+    {
+      "tag": "p",
+      "text": "[4] Van Cutsem E, Köhne CH, Hitre E, et al. Cetuximab and chemotherapy for metastatic colorectal cancer (CRYSTAL). N Engl J Med. 2009;360(14):1408-1417."
+    },
+    {
+      "tag": "p",
+      "text": "[5] Bonner JA, Harari PM, Giralt J, et al. Radiotherapy plus cetuximab for squamous-cell carcinoma of the head and neck. N Engl J Med. 2006;354(6):567-578."
+    },
+    {
+      "tag": "p",
+      "text": "[6] Lacouture ME, Anadkat MJ, Bensadoun RJ, et al. Clinical practice guidelines for the prevention and treatment of EGFR inhibitor-associated dermatologic toxicities. Support Care Cancer. 2011;19(8):1079-1095."
+    },
+    {
+      "tag": "p",
+      "text": "[7] Tejpar S, Piessevaux H, Claes K, et al. Magnesium wasting associated with epidermal growth factor receptor-targeting antibodies in colorectal cancer: a prospective study. Lancet Oncol. 2007;8(5):387-394."
+    },
+    {
+      "tag": "p",
+      "text": "[8] Planchard D, Jänne PA, Cheng Y, et al. Osimertinib with or without chemotherapy in EGFR-mutated advanced NSCLC (FLAURA2). N Engl J Med. 2023;389(21):1935-1948."
+    },
+    {
+      "tag": "p",
+      "text": "[9] Passaro A, Jänne PA, Mok T, Peters S. Overcoming therapy resistance in EGFR-mutant lung cancer. Nat Rev Clin Oncol. 2021;18(5):269-284."
+    },
+    {
+      "tag": "p",
+      "text": "[10] Leonetti A, Sharma S, Minari R, et al. Resistance mechanisms to osimertinib in EGFR-mutated non-small cell lung cancer. Br J Cancer. 2019;121(9):725-737."
+    },
+    {
+      "tag": "p",
+      "text": "[11] National Comprehensive Cancer Network (NCCN). NCCN Clinical Practice Guidelines in Oncology: Non-Small Cell Lung Cancer & Colon Cancer. Version 2.2024."
+    }
+  ]
+}

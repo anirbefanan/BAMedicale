@@ -45,7 +45,12 @@ const readSourceManuscript = (article) => {
   const actualHash = crypto.createHash("sha256").update(fs.readFileSync(sourcePath)).digest("hex");
   assert(manifest.sourceSha256 === actualHash, `${article.id}: manuscript no longer matches its author-supplied DOCX`);
   assert(Array.isArray(manifest.paragraphs) && manifest.paragraphs.length > 0, `${article.id}: source manuscript is empty`);
-  assert(manifest.paragraphs.every((entry) => ["p", "h2", "h3"].includes(entry.tag) && typeof entry.text === "string" && entry.text.trim()), `${article.id}: invalid source paragraph`);
+  assert(manifest.paragraphs.every((entry) => {
+    if (["p", "h2", "h3", "li"].includes(entry.tag)) return typeof entry.text === "string" && entry.text.trim();
+    if (entry.tag === "table") return Array.isArray(entry.rows) && entry.rows.length > 1 && entry.rows.every((row) => Array.isArray(row) && row.length === entry.rows[0].length && row.every((cell) => typeof cell === "string"));
+    if (entry.tag === "figure") return typeof entry.alt === "string" && entry.alt.trim() && Number.isInteger(entry.width) && entry.width > 0 && Number.isInteger(entry.height) && entry.height > 0 && typeof entry.src === "string" && entry.src.startsWith(`assets/articles/${article.slug}/`) && fs.existsSync(path.join(root, entry.src));
+    return false;
+  }), `${article.id}: invalid source manuscript block`);
   return manifest.paragraphs;
 };
 
@@ -87,7 +92,30 @@ const renderCompare = (rows = []) => {
 const renderFigures = (figures = []) => figures.length ? `<div class="seo-article-figure-grid">${figures.map((figure) => `<figure class="seo-article-figure"><button type="button" data-lightbox-image="${relative(figure.src)}" data-lightbox-alt="${escape(figure.caption)}" aria-label="Open ${escape(figure.caption)}"><img src="${relative(figure.src)}" alt="${escape(figure.caption)}" loading="lazy"></button><figcaption>${escape(figure.caption)}</figcaption></figure>`).join("")}</div>` : "";
 const renderSubsections = (subsections = []) => subsections.map((subsection) => `<section class="seo-article-subsection"><h3>${escape(subsection.title)}</h3>${(subsection.body || []).map((text) => `<p>${escape(text)}</p>`).join("")}</section>`).join("");
 const renderSection = (section) => `<section class="seo-article-section"><h2>${escape(section.title)}</h2>${(section.body || []).map((text) => `<p>${escape(text)}</p>`).join("")}${renderCompare(section.compare)}${section.bullets ? `<ul>${section.bullets.map((text) => `<li>${escape(text)}</li>`).join("")}</ul>` : ""}${renderFigures(section.figures)}${renderSubsections(section.subsections)}</section>`;
-const renderSourceManuscript = (paragraphs) => `<section class="seo-article-section seo-article-manuscript" data-source-manuscript>${paragraphs.map(({ tag, text }) => `<${tag}>${escape(text)}</${tag}>`).join("")}</section>`;
+const renderSourceManuscript = (blocks) => {
+  let listOpen = false;
+  let html = "";
+  for (const block of blocks) {
+    if (block.tag === "li") {
+      if (!listOpen) html += "<ul>";
+      html += `<li>${escape(block.text)}</li>`;
+      listOpen = true;
+      continue;
+    }
+    if (listOpen) html += "</ul>";
+    listOpen = false;
+    if (block.tag === "table") {
+      const [head, ...rows] = block.rows;
+      html += `<div class="seo-article-manuscript-table" role="region" aria-label="${escape(head.join(", "))}" tabindex="0"><table><thead><tr>${head.map((cell) => `<th scope="col">${escape(cell)}</th>`).join("")}</tr></thead><tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${escape(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    } else if (block.tag === "figure") {
+      html += `<figure class="seo-article-manuscript-figure"><button type="button" data-lightbox-image="${relative(block.src)}" data-lightbox-alt="${escape(block.alt)}" aria-label="Open figure: ${escape(block.alt)}"><img src="${relative(block.src)}" alt="${escape(block.alt)}" width="${block.width}" height="${block.height}" loading="lazy"></button></figure>`;
+    } else {
+      html += `<${block.tag}>${escape(block.text)}</${block.tag}>`;
+    }
+  }
+  if (listOpen) html += "</ul>";
+  return `<section class="seo-article-section seo-article-manuscript" data-source-manuscript>${html}</section>`;
+};
 const renderPaperSource = (article, authorNames) => {
   const paper = article.paper;
   if (!paper) return "";
