@@ -1,37 +1,30 @@
 {
-  "generatedAt": "2026-11-11T13:08:14.640Z",
+  "generatedAt": "2026-11-11T23:48:29.202Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-14",
-    "endDate": "2026-11-10"
+    "startDate": "2026-10-15",
+    "endDate": "2026-11-11"
   },
   "summary": {
-    "activeUsers": 116,
-    "newUsers": 109,
-    "averageEngagementTimeSeconds": 58.508620689655174,
-    "eventCount": 936
+    "activeUsers": 120,
+    "newUsers": 113,
+    "averageEngagementTimeSeconds": 55.141666666666666,
+    "eventCount": 894
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 115,
-      "activeUsers": 57,
-      "eventCount": 333,
-      "bounceRate": 0.5643564356435643
+      "views": 107,
+      "activeUsers": 51,
+      "eventCount": 309,
+      "bounceRate": 0.5638297872340425
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
       "views": 53,
-      "activeUsers": 38,
-      "eventCount": 237,
-      "bounceRate": 0.4583333333333333
-    },
-    {
-      "title": "Medical Library | BA Medicale",
-      "views": 21,
-      "activeUsers": 9,
-      "eventCount": 57,
-      "bounceRate": 0.5
+      "activeUsers": 39,
+      "eventCount": 234,
+      "bounceRate": 0.4791666666666667
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
@@ -41,18 +34,18 @@
       "bounceRate": 0.06666666666666667
     },
     {
+      "title": "Medical Library | BA Medicale",
+      "views": 16,
+      "activeUsers": 9,
+      "eventCount": 41,
+      "bounceRate": 0.5714285714285714
+    },
+    {
       "title": "For Doctors | BA Medicale",
       "views": 12,
       "activeUsers": 7,
       "eventCount": 30,
       "bounceRate": 0.25
-    },
-    {
-      "title": "Tumor vs Cancer: Understanding the Difference | BA Medicale",
-      "views": 9,
-      "activeUsers": 3,
-      "eventCount": 40,
-      "bounceRate": 0.16666666666666666
     },
     {
       "title": "About BA Medicale | Medical Learning for Better Care",
@@ -81,12 +74,19 @@
       "activeUsers": 2,
       "eventCount": 10,
       "bounceRate": 0
+    },
+    {
+      "title": "Videos | BA Medicale",
+      "views": 7,
+      "activeUsers": 4,
+      "eventCount": 16,
+      "bounceRate": 0.14285714285714285
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 59
+      "activeUsers": 63
     },
     {
       "label": "google / organic",
@@ -107,16 +107,20 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 92
+      "sessions": 96
     },
     {
       "label": "google / organic",
-      "sessions": 80
+      "sessions": 79
     },
     {
       "label": "bing / organic",
@@ -142,19 +146,19 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 24
+      "activeUsers": 26
     },
     {
       "label": "Not set",
-      "activeUsers": 9
+      "activeUsers": 8
+    },
+    {
+      "label": "Ashburn",
+      "activeUsers": 8
     },
     {
       "label": "Bandung",
       "activeUsers": 5
-    },
-    {
-      "label": "Ashburn",
-      "activeUsers": 4
     },
     {
       "label": "Boardman",
@@ -177,8 +181,8 @@
       "activeUsers": 3
     },
     {
-      "label": "Beijing",
-      "activeUsers": 2
+      "label": "Semarang",
+      "activeUsers": 3
     }
   ]
 }

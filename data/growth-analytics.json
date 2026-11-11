@@ -4,13 +4,27 @@
   "periods": {
     "daily": {
       "range": {
-        "startDate": "2026-11-10",
-        "endDate": "2026-11-10",
-        "previousStartDate": "2026-11-09",
-        "previousEndDate": "2026-11-09"
+        "startDate": "2026-11-11",
+        "endDate": "2026-11-11",
+        "previousStartDate": "2026-11-10",
+        "previousEndDate": "2026-11-10"
       },
-      "generatedAt": "2026-11-11T13:08:14.978Z",
+      "generatedAt": "2026-11-11T23:48:29.600Z",
       "summary": {
+        "activeUsers": 13,
+        "newUsers": 12,
+        "screenPageViews": 16,
+        "sessions": 14,
+        "engagedSessions": 3,
+        "userEngagementDuration": 132,
+        "eventCount": 50,
+        "keyEvents": 0,
+        "totalUsers": 13,
+        "averageEngagementTimeSeconds": 10.1538,
+        "engagementRate": 0.2143,
+        "returningUsers": 1
+      },
+      "previous": {
         "activeUsers": 10,
         "newUsers": 9,
         "screenPageViews": 12,
@@ -24,20 +38,6 @@
         "engagementRate": 0.4545,
         "returningUsers": 2
       },
-      "previous": {
-        "activeUsers": 1,
-        "newUsers": 0,
-        "screenPageViews": 2,
-        "sessions": 2,
-        "engagedSessions": 0,
-        "userEngagementDuration": 1,
-        "eventCount": 6,
-        "keyEvents": 0,
-        "totalUsers": 2,
-        "averageEngagementTimeSeconds": 1,
-        "engagementRate": 0,
-        "returningUsers": 1
-      },
       "totals": {
         "status": "ok",
         "thresholded": false,
@@ -46,6 +46,23 @@
       "trend": {
         "status": "ok",
         "current": [
+          {
+            "date": "2026-11-11",
+            "activeUsers": 13,
+            "newUsers": 12,
+            "screenPageViews": 16,
+            "sessions": 14,
+            "engagedSessions": 3,
+            "userEngagementDuration": 132,
+            "eventCount": 50,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 10.1538,
+            "engagementRate": 0.2143,
+            "returningUsers": 1
+          }
+        ],
+        "previous": [
           {
             "date": "2026-11-10",
             "activeUsers": 10,
@@ -58,24 +75,7 @@
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 12.3,
-            "engagementRate": 0.4545,
-            "returningUsers": 2
-          }
-        ],
-        "previous": [
-          {
-            "date": "2026-11-09",
-            "activeUsers": 1,
-            "newUsers": 0,
-            "screenPageViews": 2,
-            "sessions": 2,
-            "engagedSessions": 0,
-            "userEngagementDuration": 1,
-            "eventCount": 6,
-            "keyEvents": 0,
-            "totalUsers": 2,
-            "averageEngagementTimeSeconds": 1,
-            "engagementRate": 0
+            "engagementRate": 0.4545
           }
         ]
       },
@@ -84,18 +84,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 9,
-            "sessions": 9
+            "activeUsers": 12,
+            "sessions": 12
           },
           {
             "label": "Returning",
-            "activeUsers": 2,
-            "sessions": 2
+            "activeUsers": 1,
+            "sessions": 1
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 0
+            "sessions": 1
           }
         ]
       },
@@ -107,13 +107,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 5,
-            "sessions": 5
+            "activeUsers": 12,
+            "sessions": 13
           },
           {
             "label": "Organic Search",
-            "activeUsers": 5,
-            "sessions": 6
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -122,13 +122,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 6,
-            "sessions": 7
+            "activeUsers": 9,
+            "sessions": 9
           },
           {
             "label": "mobile",
             "activeUsers": 4,
-            "sessions": 4
+            "sessions": 5
           }
         ]
       },
@@ -136,9 +136,14 @@
         "status": "ok",
         "rows": [
           {
+            "label": "United States",
+            "activeUsers": 6,
+            "sessions": 6
+          },
+          {
             "label": "Indonesia",
-            "activeUsers": 7,
-            "sessions": 8
+            "activeUsers": 5,
+            "sessions": 6
           }
         ]
       },
@@ -147,13 +152,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 5,
-            "sessions": 5
+            "activeUsers": 11,
+            "sessions": 11
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 2
           },
           {
             "label": "google / organic",
-            "activeUsers": 5,
-            "sessions": 6
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
@@ -162,38 +172,159 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 5,
-            "sessions": 5
+            "activeUsers": 12,
+            "sessions": 13
           },
           {
             "label": "google / organic",
-            "activeUsers": 5,
-            "sessions": 6
+            "activeUsers": 1,
+            "sessions": 1
           }
         ]
       },
       "pages": {
-        "status": "unavailable",
-        "rows": []
+        "status": "ok",
+        "rows": [
+          {
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "type": "Articles",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 11,
+            "engagement": 33.5
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 6,
+            "engagement": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 7,
+            "engagement": 22
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 6,
+            "engagement": 0
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale — Home",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 10.5
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 2,
+            "engagement": 0
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "type": "Articles",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 4,
+            "engagement": 0
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 0
+          },
+          {
+            "path": "/library.html",
+            "title": "Medical Library",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 0
+          },
+          {
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 0
+          }
+        ]
       },
       "landing": {
         "status": "ok",
         "rows": [
           {
-            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
-            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 6,
-            "engagementRate": 0.6667
-          },
-          {
-            "path": "/clinical.html",
-            "title": "For Doctors",
-            "sessions": 1,
-            "engagementRate": 1
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "sessions": 2,
+            "engagementRate": 0.5
           },
           {
             "path": "/events/management-thyroid-nodules-2026.html",
             "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "sessions": 2,
+            "engagementRate": 0.5
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/",
+            "title": "BA Medicale | Medical Education for Public & Professionals",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
+            "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -204,8 +335,8 @@
             "engagementRate": 0
           },
           {
-            "path": "/videos.html",
-            "title": "Videos",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 0
           }
@@ -221,38 +352,38 @@
     },
     "7d": {
       "range": {
-        "startDate": "2026-11-04",
-        "endDate": "2026-11-10",
-        "previousStartDate": "2026-10-28",
-        "previousEndDate": "2026-11-03"
+        "startDate": "2026-11-05",
+        "endDate": "2026-11-11",
+        "previousStartDate": "2026-10-29",
+        "previousEndDate": "2026-11-04"
       },
-      "generatedAt": "2026-11-11T13:08:14.978Z",
+      "generatedAt": "2026-11-11T23:48:29.600Z",
       "summary": {
-        "activeUsers": 34,
-        "newUsers": 30,
-        "screenPageViews": 52,
-        "sessions": 46,
-        "engagedSessions": 12,
-        "userEngagementDuration": 548,
-        "eventCount": 170,
+        "activeUsers": 43,
+        "newUsers": 39,
+        "screenPageViews": 64,
+        "sessions": 56,
+        "engagedSessions": 15,
+        "userEngagementDuration": 680,
+        "eventCount": 209,
         "keyEvents": 0,
-        "totalUsers": 36,
-        "averageEngagementTimeSeconds": 16.1176,
-        "engagementRate": 0.2609,
+        "totalUsers": 45,
+        "averageEngagementTimeSeconds": 15.814,
+        "engagementRate": 0.2679,
         "returningUsers": 6
       },
       "previous": {
         "activeUsers": 23,
         "newUsers": 21,
-        "screenPageViews": 42,
+        "screenPageViews": 43,
         "sessions": 31,
-        "engagedSessions": 16,
-        "userEngagementDuration": 673,
-        "eventCount": 148,
+        "engagedSessions": 15,
+        "userEngagementDuration": 557,
+        "eventCount": 146,
         "keyEvents": 0,
-        "totalUsers": 26,
-        "averageEngagementTimeSeconds": 29.2609,
-        "engagementRate": 0.5161,
+        "totalUsers": 25,
+        "averageEngagementTimeSeconds": 24.2174,
+        "engagementRate": 0.4839,
         "returningUsers": 3
       },
       "totals": {
@@ -263,21 +394,6 @@
       "trend": {
         "status": "ok",
         "current": [
-          {
-            "date": "2026-11-04",
-            "activeUsers": 3,
-            "newUsers": 3,
-            "screenPageViews": 4,
-            "sessions": 4,
-            "engagedSessions": 0,
-            "userEngagementDuration": 0,
-            "eventCount": 11,
-            "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 0,
-            "engagementRate": 0,
-            "returningUsers": 0
-          },
           {
             "date": "2026-11-05",
             "activeUsers": 5,
@@ -367,23 +483,24 @@
             "averageEngagementTimeSeconds": 12.3,
             "engagementRate": 0.4545,
             "returningUsers": 2
+          },
+          {
+            "date": "2026-11-11",
+            "activeUsers": 13,
+            "newUsers": 12,
+            "screenPageViews": 16,
+            "sessions": 14,
+            "engagedSessions": 3,
+            "userEngagementDuration": 132,
+            "eventCount": 50,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 10.1538,
+            "engagementRate": 0.2143,
+            "returningUsers": 1
           }
         ],
         "previous": [
-          {
-            "date": "2026-10-28",
-            "activeUsers": 3,
-            "newUsers": 3,
-            "screenPageViews": 3,
-            "sessions": 4,
-            "engagedSessions": 1,
-            "userEngagementDuration": 116,
-            "eventCount": 13,
-            "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 38.6667,
-            "engagementRate": 0.25
-          },
           {
             "date": "2026-10-29",
             "activeUsers": 3,
@@ -467,6 +584,20 @@
             "totalUsers": 7,
             "averageEngagementTimeSeconds": 27.2857,
             "engagementRate": 0.625
+          },
+          {
+            "date": "2026-11-04",
+            "activeUsers": 3,
+            "newUsers": 3,
+            "screenPageViews": 4,
+            "sessions": 4,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 11,
+            "keyEvents": 0,
+            "totalUsers": 4,
+            "averageEngagementTimeSeconds": 0,
+            "engagementRate": 0
           }
         ]
       },
@@ -475,18 +606,23 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 30,
-            "sessions": 30
+            "activeUsers": 39,
+            "sessions": 39
           },
           {
             "label": "Returning",
             "activeUsers": 6,
-            "sessions": 10
+            "sessions": 11
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 6
+            "sessions": 1
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 5
           }
         ]
       },
@@ -498,13 +634,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 20,
-            "sessions": 24
+            "activeUsers": 28,
+            "sessions": 33
           },
           {
             "label": "Organic Search",
-            "activeUsers": 14,
-            "sessions": 22
+            "activeUsers": 15,
+            "sessions": 23
           }
         ]
       },
@@ -513,13 +649,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 28,
-            "sessions": 40
+            "activeUsers": 34,
+            "sessions": 45
           },
           {
             "label": "mobile",
-            "activeUsers": 6,
-            "sessions": 6
+            "activeUsers": 9,
+            "sessions": 11
           }
         ]
       },
@@ -528,13 +664,13 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 14,
-            "sessions": 26
+            "activeUsers": 18,
+            "sessions": 31
           },
           {
             "label": "United States",
-            "activeUsers": 9,
-            "sessions": 9
+            "activeUsers": 13,
+            "sessions": 13
           },
           {
             "label": "China",
@@ -548,13 +684,18 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 20,
-            "sessions": 24
+            "activeUsers": 28,
+            "sessions": 31
           },
           {
             "label": "google / organic",
-            "activeUsers": 14,
-            "sessions": 22
+            "activeUsers": 15,
+            "sessions": 23
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 2
           }
         ]
       },
@@ -563,13 +704,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 20,
-            "sessions": 24
+            "activeUsers": 28,
+            "sessions": 33
           },
           {
             "label": "google / organic",
-            "activeUsers": 14,
-            "sessions": 22
+            "activeUsers": 15,
+            "sessions": 23
           }
         ]
       },
@@ -581,9 +722,9 @@
             "title": "BA Medicale — Home",
             "type": "Other public pages",
             "activeUsers": 10,
-            "views": 16,
-            "eventCount": 42,
-            "engagement": 3.2
+            "views": 15,
+            "eventCount": 39,
+            "engagement": 5.3
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
@@ -591,16 +732,43 @@
             "type": "Articles",
             "activeUsers": 12,
             "views": 13,
-            "eventCount": 63,
+            "eventCount": 64,
             "engagement": 19.6667
           },
           {
             "path": "/library.html",
             "title": "Medical Library",
             "type": "Other public pages",
-            "activeUsers": 4,
-            "views": 4,
-            "eventCount": 13,
+            "activeUsers": 5,
+            "views": 5,
+            "eventCount": 16,
+            "engagement": 0
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 9,
+            "engagement": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 12,
+            "engagement": 84.3333
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 9,
             "engagement": 0
           },
           {
@@ -611,6 +779,15 @@
             "views": 3,
             "eventCount": 6,
             "engagement": 9.6667
+          },
+          {
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "type": "Articles",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 11,
+            "engagement": 33.5
           },
           {
             "path": "/videos.html",
@@ -631,6 +808,15 @@
             "engagement": 2.5
           },
           {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 3,
+            "engagement": 0
+          },
+          {
             "path": "/dr-bob-profile.html",
             "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
             "type": "Other public pages",
@@ -640,21 +826,21 @@
             "engagement": 2
           },
           {
-            "path": "/adlina-karisyah-profile.html",
-            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 1,
-            "engagement": 0
-          },
-          {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
             "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
             "type": "Articles",
             "activeUsers": 1,
             "views": 1,
             "eventCount": 4,
+            "engagement": 0
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
             "engagement": 0
           },
           {
@@ -676,15 +862,6 @@
             "engagement": 0
           },
           {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "type": "Seminars / Events",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 3,
-            "engagement": 0
-          },
-          {
             "path": "/healthcare-workers.html",
             "title": "Medical Education for Healthcare Professionals",
             "type": "Other public pages",
@@ -694,18 +871,9 @@
             "engagement": 0
           },
           {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "type": "Presentations",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 5,
-            "engagement": 209
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
-            "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
             "eventCount": 3,
@@ -734,13 +902,31 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 11,
-            "engagementRate": 0.1818
+            "sessions": 9,
+            "engagementRate": 0.2222
           },
           {
             "path": "/library.html",
             "title": "Medical Library",
-            "sessions": 4,
+            "sessions": 5,
+            "engagementRate": 0
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 3,
+            "engagementRate": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "sessions": 3,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 3,
             "engagementRate": 0
           },
           {
@@ -750,14 +936,32 @@
             "engagementRate": 0.6667
           },
           {
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "sessions": 2,
+            "engagementRate": 0.5
+          },
+          {
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 2,
             "engagementRate": 0
           },
           {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
             "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -780,26 +984,14 @@
             "engagementRate": 0
           },
           {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
             "path": "/healthcare-workers.html",
             "title": "Medical Education for Healthcare Professionals",
             "sessions": 1,
             "engagementRate": 0
           },
           {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
-            "sessions": 1,
-            "engagementRate": 1
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 0
           }
@@ -815,38 +1007,38 @@
     },
     "28d": {
       "range": {
-        "startDate": "2026-10-14",
-        "endDate": "2026-11-10",
-        "previousStartDate": "2026-09-16",
-        "previousEndDate": "2026-10-13"
+        "startDate": "2026-10-15",
+        "endDate": "2026-11-11",
+        "previousStartDate": "2026-09-17",
+        "previousEndDate": "2026-10-14"
       },
-      "generatedAt": "2026-11-11T13:08:14.978Z",
+      "generatedAt": "2026-11-11T23:48:29.600Z",
       "summary": {
-        "activeUsers": 116,
-        "newUsers": 109,
-        "screenPageViews": 300,
-        "sessions": 187,
-        "engagedSessions": 78,
-        "userEngagementDuration": 6743,
-        "eventCount": 927,
+        "activeUsers": 120,
+        "newUsers": 113,
+        "screenPageViews": 289,
+        "sessions": 190,
+        "engagedSessions": 77,
+        "userEngagementDuration": 6573,
+        "eventCount": 885,
         "keyEvents": 0,
-        "totalUsers": 120,
-        "averageEngagementTimeSeconds": 58.1293,
-        "engagementRate": 0.4171,
+        "totalUsers": 124,
+        "averageEngagementTimeSeconds": 54.775,
+        "engagementRate": 0.4053,
         "returningUsers": 21
       },
       "previous": {
-        "activeUsers": 209,
-        "newUsers": 201,
-        "screenPageViews": 1185,
-        "sessions": 427,
+        "activeUsers": 215,
+        "newUsers": 207,
+        "screenPageViews": 1199,
+        "sessions": 433,
         "engagedSessions": 248,
-        "userEngagementDuration": 23213,
-        "eventCount": 3558,
+        "userEngagementDuration": 23485,
+        "eventCount": 3623,
         "keyEvents": 0,
-        "totalUsers": 211,
-        "averageEngagementTimeSeconds": 111.067,
-        "engagementRate": 0.5808,
+        "totalUsers": 217,
+        "averageEngagementTimeSeconds": 109.2326,
+        "engagementRate": 0.5727,
         "returningUsers": 44
       },
       "totals": {
@@ -857,21 +1049,6 @@
       "trend": {
         "status": "ok",
         "current": [
-          {
-            "date": "2026-10-14",
-            "activeUsers": 10,
-            "newUsers": 8,
-            "screenPageViews": 27,
-            "sessions": 11,
-            "engagedSessions": 4,
-            "userEngagementDuration": 302,
-            "eventCount": 92,
-            "keyEvents": 0,
-            "totalUsers": 11,
-            "averageEngagementTimeSeconds": 30.2,
-            "engagementRate": 0.3636,
-            "returningUsers": 2
-          },
           {
             "date": "2026-10-15",
             "activeUsers": 5,
@@ -1276,23 +1453,24 @@
             "averageEngagementTimeSeconds": 12.3,
             "engagementRate": 0.4545,
             "returningUsers": 2
+          },
+          {
+            "date": "2026-11-11",
+            "activeUsers": 13,
+            "newUsers": 12,
+            "screenPageViews": 16,
+            "sessions": 14,
+            "engagedSessions": 3,
+            "userEngagementDuration": 132,
+            "eventCount": 50,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 10.1538,
+            "engagementRate": 0.2143,
+            "returningUsers": 1
           }
         ],
         "previous": [
-          {
-            "date": "2026-09-16",
-            "activeUsers": 4,
-            "newUsers": 2,
-            "screenPageViews": 13,
-            "sessions": 5,
-            "engagedSessions": 4,
-            "userEngagementDuration": 30,
-            "eventCount": 27,
-            "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 7.5,
-            "engagementRate": 0.8
-          },
           {
             "date": "2026-09-17",
             "activeUsers": 4,
@@ -1670,6 +1848,20 @@
             "totalUsers": 5,
             "averageEngagementTimeSeconds": 26.75,
             "engagementRate": 0.5
+          },
+          {
+            "date": "2026-10-14",
+            "activeUsers": 10,
+            "newUsers": 8,
+            "screenPageViews": 27,
+            "sessions": 11,
+            "engagedSessions": 4,
+            "userEngagementDuration": 302,
+            "eventCount": 92,
+            "keyEvents": 0,
+            "totalUsers": 11,
+            "averageEngagementTimeSeconds": 30.2,
+            "engagementRate": 0.3636
           }
         ]
       },
@@ -1678,18 +1870,23 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 109,
-            "sessions": 109
+            "activeUsers": 113,
+            "sessions": 113
           },
           {
             "label": "Returning",
             "activeUsers": 21,
-            "sessions": 53
+            "sessions": 52
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 25
+            "sessions": 1
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 24
           }
         ]
       },
@@ -1701,13 +1898,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 59,
-            "sessions": 92
+            "activeUsers": 63,
+            "sessions": 96
           },
           {
             "label": "Organic Search",
             "activeUsers": 49,
-            "sessions": 85
+            "sessions": 84
           },
           {
             "label": "Organic Social",
@@ -1726,13 +1923,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 78,
-            "sessions": 130
+            "activeUsers": 79,
+            "sessions": 129
           },
           {
             "label": "mobile",
-            "activeUsers": 38,
-            "sessions": 57
+            "activeUsers": 41,
+            "sessions": 61
           }
         ]
       },
@@ -1741,18 +1938,18 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 54,
-            "sessions": 122
+            "activeUsers": 58,
+            "sessions": 125
           },
           {
             "label": "United States",
-            "activeUsers": 28,
-            "sessions": 31
+            "activeUsers": 31,
+            "sessions": 34
           },
           {
             "label": "China",
-            "activeUsers": 7,
-            "sessions": 7
+            "activeUsers": 8,
+            "sessions": 8
           }
         ]
       },
@@ -1761,13 +1958,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 59,
-            "sessions": 93
+            "activeUsers": 63,
+            "sessions": 95
           },
           {
             "label": "google / organic",
             "activeUsers": 47,
-            "sessions": 81
+            "sessions": 80
           },
           {
             "label": "facebook.com / referral",
@@ -1788,6 +1985,11 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
             "sessions": 2
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
+            "sessions": 2
           }
         ]
       },
@@ -1796,13 +1998,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 59,
-            "sessions": 92
+            "activeUsers": 63,
+            "sessions": 96
           },
           {
             "label": "google / organic",
             "activeUsers": 47,
-            "sessions": 80
+            "sessions": 79
           },
           {
             "label": "facebook.com / referral",
@@ -1838,28 +2040,28 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 57,
-            "views": 115,
-            "eventCount": 333,
-            "engagement": 50.4035
+            "activeUsers": 51,
+            "views": 107,
+            "eventCount": 309,
+            "engagement": 55.1569
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 38,
+            "activeUsers": 39,
             "views": 53,
-            "eventCount": 243,
-            "engagement": 33.2895
+            "eventCount": 240,
+            "engagement": 31.1795
           },
           {
             "path": "/library.html",
             "title": "Medical Library",
             "type": "Other public pages",
             "activeUsers": 9,
-            "views": 21,
-            "eventCount": 57,
-            "engagement": 51.5556
+            "views": 16,
+            "eventCount": 41,
+            "engagement": 44.6667
           },
           {
             "path": "/team.html",
@@ -1880,15 +2082,6 @@
             "engagement": 18.1429
           },
           {
-            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
-            "title": "Tumor vs Cancer: Understanding the Difference",
-            "type": "Articles",
-            "activeUsers": 3,
-            "views": 9,
-            "eventCount": 40,
-            "engagement": 32
-          },
-          {
             "path": "/nana-febrina-profile.html",
             "title": "Nana Febrina | AI & Digital Transformation",
             "type": "Other public pages",
@@ -1896,15 +2089,6 @@
             "views": 9,
             "eventCount": 13,
             "engagement": 55.5
-          },
-          {
-            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
-            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
-            "type": "Articles",
-            "activeUsers": 5,
-            "views": 7,
-            "eventCount": 24,
-            "engagement": 4.4
           },
           {
             "path": "/about.html",
@@ -1943,6 +2127,33 @@
             "engagement": 0.75
           },
           {
+            "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
+            "title": "Front-of-Pack ‘Nutri-Level’ Labeling for Metabolic Disease Prevention",
+            "type": "Articles",
+            "activeUsers": 4,
+            "views": 6,
+            "eventCount": 22,
+            "engagement": 5.5
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 5,
+            "views": 5,
+            "eventCount": 21,
+            "engagement": 78.2
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 4,
+            "views": 5,
+            "eventCount": 20,
+            "engagement": 6
+          },
+          {
             "path": "/dr-bob-profile.html",
             "title": "Dr. dr. Bob Andinata, Sp.B., Subsp. Onk(K)",
             "type": "Other public pages",
@@ -1952,22 +2163,22 @@
             "engagement": 80.5
           },
           {
-            "path": "/ebooks.html",
-            "title": "Digital Bookshelf",
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
             "type": "Other public pages",
-            "activeUsers": 3,
-            "views": 3,
-            "eventCount": 9,
-            "engagement": 58
+            "activeUsers": 4,
+            "views": 4,
+            "eventCount": 10,
+            "engagement": 0
           },
           {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
-            "type": "Presentations",
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
             "activeUsers": 3,
             "views": 3,
-            "eventCount": 14,
-            "engagement": 115.6667
+            "eventCount": 11,
+            "engagement": 0
           },
           {
             "path": "/articles/parotid-gland-metastasis-from-breast-cancer.html",
@@ -1979,13 +2190,22 @@
             "engagement": 0
           },
           {
-            "path": "/search.html",
-            "title": "Search",
-            "type": "Other public pages",
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "type": "Articles",
             "activeUsers": 2,
             "views": 3,
-            "eventCount": 9,
-            "engagement": 42
+            "eventCount": 11,
+            "engagement": 33.5
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
+            "type": "Other public pages",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 5,
+            "engagement": 86.5
           },
           {
             "path": "/ebooks/feline-fungal-zoonoses-cat-transmitted-sporotrichosis.html",
@@ -2006,12 +2226,12 @@
             "engagement": 17
           },
           {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
             "type": "Other public pages",
-            "activeUsers": 2,
+            "activeUsers": 1,
             "views": 2,
-            "eventCount": 4,
+            "eventCount": 3,
             "engagement": 0
           },
           {
@@ -2024,15 +2244,6 @@
             "engagement": 59
           },
           {
-            "path": "/adlina-karisyah-profile.html",
-            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 1,
-            "engagement": 0
-          },
-          {
             "path": "/articles/thyroid-cancer-four-main-types.html",
             "title": "Thyroid Cancer: Understanding the Four Main Types, How They Spread, and Their Prognosis",
             "type": "Articles",
@@ -2042,21 +2253,12 @@
             "engagement": 37
           },
           {
-            "path": "/ebooks/the-silent-elevation-understanding-high-blood-pressure.html",
-            "title": "The Silent Elevation: Understanding High Blood Pressure",
-            "type": "eBooks",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
+            "type": "Presentations",
             "activeUsers": 1,
             "views": 1,
-            "eventCount": 2,
-            "engagement": 0
-          },
-          {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "type": "Seminars / Events",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 5,
+            "eventCount": 3,
             "engagement": 0
           },
           {
@@ -2067,6 +2269,15 @@
             "views": 1,
             "eventCount": 3,
             "engagement": 21
+          },
+          {
+            "path": "/search.html",
+            "title": "Search",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 1,
+            "eventCount": 3,
+            "engagement": 47
           }
         ]
       },
@@ -2076,14 +2287,14 @@
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 77,
-            "engagementRate": 0.4156
+            "sessions": 69,
+            "engagementRate": 0.4058
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 43,
-            "engagementRate": 0.5349
+            "sessions": 44,
+            "engagementRate": 0.5227
           },
           {
             "path": "/index.html",
@@ -2110,10 +2321,22 @@
             "engagementRate": 0.6
           },
           {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "sessions": 5,
+            "engagementRate": 0.8
+          },
+          {
             "path": "/videos.html",
             "title": "Videos",
             "sessions": 5,
             "engagementRate": 0.8
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "sessions": 4,
+            "engagementRate": 0.5
           },
           {
             "path": "/about.html",
@@ -2122,22 +2345,22 @@
             "engagementRate": 0.3333
           },
           {
-            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
-            "title": "Tumor vs Cancer: Understanding the Difference",
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
             "sessions": 3,
-            "engagementRate": 0.6667
-          },
-          {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
-            "sessions": 3,
-            "engagementRate": 1
-          },
-          {
-            "path": "/ebooks.html",
-            "title": "Digital Bookshelf",
-            "sessions": 2,
             "engagementRate": 0
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 3,
+            "engagementRate": 0
+          },
+          {
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "sessions": 2,
+            "engagementRate": 0.5
           },
           {
             "path": "/nana-febrina-profile.html",
@@ -2152,8 +2375,20 @@
             "engagementRate": 1
           },
           {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
             "path": "/contact.html",
             "title": "Contact BA Medicale | Medical Education Enquiries",
+            "sessions": 1,
+            "engagementRate": 0
+          },
+          {
+            "path": "/ebooks.html",
+            "title": "Digital Bookshelf",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -2164,20 +2399,14 @@
             "engagementRate": 0
           },
           {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
             "path": "/healthcare-workers.html",
             "title": "Medical Education for Healthcare Professionals",
             "sessions": 1,
             "engagementRate": 0
           },
           {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 0
           },
@@ -2200,9 +2429,9 @@
         "rows": [
           {
             "title": "Articles",
-            "activeUsers": 43,
-            "views": 70,
-            "engagement": 33.0233
+            "activeUsers": 47,
+            "views": 68,
+            "engagement": 29.0638
           },
           {
             "title": "Videos",
@@ -2211,28 +2440,28 @@
             "engagement": 0.75
           },
           {
+            "title": "Presentations",
+            "activeUsers": 6,
+            "views": 6,
+            "engagement": 65.1667
+          },
+          {
             "title": "Case Reports",
             "activeUsers": 2,
             "views": 3,
             "engagement": 0
           },
           {
-            "title": "Presentations",
+            "title": "Seminars / Events",
             "activeUsers": 3,
             "views": 3,
-            "engagement": 115.6667
+            "engagement": 0
           },
           {
             "title": "eBooks",
-            "activeUsers": 3,
-            "views": 3,
-            "engagement": 21
-          },
-          {
-            "title": "Seminars / Events",
-            "activeUsers": 1,
-            "views": 1,
-            "engagement": 0
+            "activeUsers": 2,
+            "views": 2,
+            "engagement": 31.5
           }
         ]
       },
@@ -2243,23 +2472,23 @@
     "mtd": {
       "range": {
         "startDate": "2026-11-01",
-        "endDate": "2026-11-10",
+        "endDate": "2026-11-11",
         "previousStartDate": "2026-10-01",
-        "previousEndDate": "2026-10-10"
+        "previousEndDate": "2026-10-11"
       },
-      "generatedAt": "2026-11-11T13:08:14.978Z",
+      "generatedAt": "2026-11-11T23:48:29.600Z",
       "summary": {
-        "activeUsers": 47,
-        "newUsers": 42,
-        "screenPageViews": 78,
-        "sessions": 63,
-        "engagedSessions": 22,
-        "userEngagementDuration": 1011,
-        "eventCount": 266,
+        "activeUsers": 59,
+        "newUsers": 54,
+        "screenPageViews": 94,
+        "sessions": 77,
+        "engagedSessions": 25,
+        "userEngagementDuration": 1143,
+        "eventCount": 316,
         "keyEvents": 0,
-        "totalUsers": 48,
-        "averageEngagementTimeSeconds": 21.5106,
-        "engagementRate": 0.3492,
+        "totalUsers": 60,
+        "averageEngagementTimeSeconds": 19.3729,
+        "engagementRate": 0.3247,
         "returningUsers": 8
       },
       "previous": {
@@ -2433,6 +2662,21 @@
             "averageEngagementTimeSeconds": 12.3,
             "engagementRate": 0.4545,
             "returningUsers": 2
+          },
+          {
+            "date": "2026-11-11",
+            "activeUsers": 13,
+            "newUsers": 12,
+            "screenPageViews": 16,
+            "sessions": 14,
+            "engagedSessions": 3,
+            "userEngagementDuration": 132,
+            "eventCount": 50,
+            "keyEvents": 0,
+            "totalUsers": 13,
+            "averageEngagementTimeSeconds": 10.1538,
+            "engagementRate": 0.2143,
+            "returningUsers": 1
           }
         ],
         "previous": [
@@ -2575,6 +2819,20 @@
             "totalUsers": 1,
             "averageEngagementTimeSeconds": 0,
             "engagementRate": 0
+          },
+          {
+            "date": "2026-10-11",
+            "activeUsers": 0,
+            "newUsers": 0,
+            "screenPageViews": 0,
+            "sessions": 0,
+            "engagedSessions": 0,
+            "userEngagementDuration": 0,
+            "eventCount": 0,
+            "keyEvents": 0,
+            "totalUsers": 0,
+            "averageEngagementTimeSeconds": null,
+            "engagementRate": null
           }
         ]
       },
@@ -2583,13 +2841,18 @@
         "rows": [
           {
             "label": "New",
-            "activeUsers": 42,
-            "sessions": 42
+            "activeUsers": 54,
+            "sessions": 54
           },
           {
             "label": "Returning",
             "activeUsers": 8,
-            "sessions": 14
+            "sessions": 15
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
+            "sessions": 1
           },
           {
             "label": "Unclassified",
@@ -2606,13 +2869,13 @@
         "rows": [
           {
             "label": "Direct",
-            "activeUsers": 22,
-            "sessions": 28
+            "activeUsers": 33,
+            "sessions": 41
           },
           {
             "label": "Organic Search",
-            "activeUsers": 22,
-            "sessions": 31
+            "activeUsers": 23,
+            "sessions": 32
           },
           {
             "label": "Organic Social",
@@ -2631,13 +2894,13 @@
         "rows": [
           {
             "label": "desktop",
-            "activeUsers": 37,
-            "sessions": 53
+            "activeUsers": 46,
+            "sessions": 62
           },
           {
             "label": "mobile",
-            "activeUsers": 10,
-            "sessions": 10
+            "activeUsers": 13,
+            "sessions": 15
           }
         ]
       },
@@ -2646,18 +2909,18 @@
         "rows": [
           {
             "label": "Indonesia",
-            "activeUsers": 20,
-            "sessions": 36
+            "activeUsers": 24,
+            "sessions": 42
           },
           {
             "label": "United States",
-            "activeUsers": 12,
-            "sessions": 12
+            "activeUsers": 18,
+            "sessions": 18
           },
           {
             "label": "China",
-            "activeUsers": 7,
-            "sessions": 7
+            "activeUsers": 8,
+            "sessions": 8
           }
         ]
       },
@@ -2666,17 +2929,22 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 22,
-            "sessions": 29
+            "activeUsers": 33,
+            "sessions": 40
           },
           {
             "label": "google / organic",
-            "activeUsers": 21,
-            "sessions": 30
+            "activeUsers": 22,
+            "sessions": 31
           },
           {
             "label": "m.facebook.com / referral",
             "activeUsers": 2,
+            "sessions": 2
+          },
+          {
+            "label": "(not set)",
+            "activeUsers": 1,
             "sessions": 2
           },
           {
@@ -2696,13 +2964,13 @@
         "rows": [
           {
             "label": "(direct) / (none)",
-            "activeUsers": 22,
-            "sessions": 28
+            "activeUsers": 33,
+            "sessions": 41
           },
           {
             "label": "google / organic",
-            "activeUsers": 21,
-            "sessions": 30
+            "activeUsers": 22,
+            "sessions": 31
           },
           {
             "label": "m.facebook.com / referral",
@@ -2733,28 +3001,28 @@
             "path": "/",
             "title": "BA Medicale — Home",
             "type": "Other public pages",
-            "activeUsers": 15,
-            "views": 23,
-            "eventCount": 61,
-            "engagement": 5.0667
+            "activeUsers": 17,
+            "views": 25,
+            "eventCount": 66,
+            "engagement": 5.7059
           },
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "type": "Articles",
-            "activeUsers": 19,
-            "views": 22,
-            "eventCount": 106,
-            "engagement": 30.4211
+            "activeUsers": 20,
+            "views": 23,
+            "eventCount": 110,
+            "engagement": 28.9
           },
           {
             "path": "/library.html",
             "title": "Medical Library",
             "type": "Other public pages",
-            "activeUsers": 5,
-            "views": 6,
-            "eventCount": 18,
-            "engagement": 6.2
+            "activeUsers": 6,
+            "views": 7,
+            "eventCount": 21,
+            "engagement": 5.1667
           },
           {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
@@ -2766,6 +3034,33 @@
             "engagement": 5.5
           },
           {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "type": "Seminars / Events",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 9,
+            "engagement": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "type": "Presentations",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 12,
+            "engagement": 84.3333
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "type": "Other public pages",
+            "activeUsers": 3,
+            "views": 3,
+            "eventCount": 9,
+            "engagement": 0
+          },
+          {
             "path": "/team.html",
             "title": "BA Medicale Team | Physician-Led Medical Education",
             "type": "Other public pages",
@@ -2773,6 +3068,15 @@
             "views": 3,
             "eventCount": 6,
             "engagement": 9.6667
+          },
+          {
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "type": "Articles",
+            "activeUsers": 2,
+            "views": 3,
+            "eventCount": 11,
+            "engagement": 33.5
           },
           {
             "path": "/videos.html",
@@ -2784,6 +3088,15 @@
             "engagement": 0
           },
           {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "type": "Articles",
+            "activeUsers": 2,
+            "views": 2,
+            "eventCount": 7,
+            "engagement": 3
+          },
+          {
             "path": "/contact.html",
             "title": "Contact BA Medicale | Medical Education Enquiries",
             "type": "Other public pages",
@@ -2791,6 +3104,15 @@
             "views": 2,
             "eventCount": 5,
             "engagement": 2.5
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "type": "Other public pages",
+            "activeUsers": 1,
+            "views": 2,
+            "eventCount": 3,
+            "engagement": 0
           },
           {
             "path": "/dr-bob-profile.html",
@@ -2809,24 +3131,6 @@
             "views": 1,
             "eventCount": 2,
             "engagement": 12
-          },
-          {
-            "path": "/adlina-karisyah-profile.html",
-            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
-            "type": "Other public pages",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 1,
-            "engagement": 0
-          },
-          {
-            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
-            "title": "Tumor vs Cancer: Understanding the Difference",
-            "type": "Articles",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 4,
-            "engagement": 6
           },
           {
             "path": "/clinical.html",
@@ -2856,15 +3160,6 @@
             "engagement": 6
           },
           {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "type": "Seminars / Events",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 3,
-            "engagement": 0
-          },
-          {
             "path": "/healthcare-workers.html",
             "title": "Medical Education for Healthcare Professionals",
             "type": "Other public pages",
@@ -2874,18 +3169,9 @@
             "engagement": 0
           },
           {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "type": "Presentations",
-            "activeUsers": 1,
-            "views": 1,
-            "eventCount": 5,
-            "engagement": 209
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
-            "type": "Other public pages",
             "activeUsers": 1,
             "views": 1,
             "eventCount": 3,
@@ -2908,14 +3194,14 @@
           {
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
-            "sessions": 20,
-            "engagementRate": 0.65
+            "sessions": 21,
+            "engagementRate": 0.619
           },
           {
             "path": "/",
             "title": "BA Medicale | Medical Education for Public & Professionals",
-            "sessions": 15,
-            "engagementRate": 0.3333
+            "sessions": 16,
+            "engagementRate": 0.3125
           },
           {
             "path": "/articles/front-of-pack-nutri-level-labeling-for-metabolic-disease-prevention.html",
@@ -2926,7 +3212,25 @@
           {
             "path": "/library.html",
             "title": "Medical Library",
-            "sessions": 4,
+            "sessions": 5,
+            "engagementRate": 0
+          },
+          {
+            "path": "/events/management-thyroid-nodules-2026.html",
+            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
+            "sessions": 3,
+            "engagementRate": 0
+          },
+          {
+            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
+            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
+            "sessions": 3,
+            "engagementRate": 0.6667
+          },
+          {
+            "path": "/seminar.html",
+            "title": "Courses & Seminars",
+            "sessions": 3,
             "engagementRate": 0
           },
           {
@@ -2936,9 +3240,27 @@
             "engagementRate": 0.6667
           },
           {
+            "path": "/articles/targeted-oncology-anti-egfr-therapeutics.html",
+            "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",
+            "sessions": 2,
+            "engagementRate": 0.5
+          },
+          {
             "path": "/index.html",
             "title": "BA Medicale | Medical Education for Public & Professionals",
             "sessions": 2,
+            "engagementRate": 0
+          },
+          {
+            "path": "/adlina-karisyah-profile.html",
+            "title": "dr. Adlina Karisyah, SpB. | Professional Journey",
+            "sessions": 1,
+            "engagementRate": 1
+          },
+          {
+            "path": "/articles/tumor-vs-cancer-understanding-the-difference.html",
+            "title": "Tumor vs Cancer: Understanding the Difference",
+            "sessions": 1,
             "engagementRate": 0
           },
           {
@@ -2966,26 +3288,14 @@
             "engagementRate": 0
           },
           {
-            "path": "/events/management-thyroid-nodules-2026.html",
-            "title": "Management of Thyroid Nodules — How to Make a Good Diagnosis?",
-            "sessions": 1,
-            "engagementRate": 0
-          },
-          {
             "path": "/healthcare-workers.html",
             "title": "Medical Education for Healthcare Professionals",
             "sessions": 1,
             "engagementRate": 0
           },
           {
-            "path": "/presentations/ultrasound-imaging-and-tirads-classification-in-thyroid-nodules.html",
-            "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules",
-            "sessions": 1,
-            "engagementRate": 1
-          },
-          {
-            "path": "/seminar.html",
-            "title": "Courses & Seminars",
+            "path": "/presentations/current-diagnostic-approach-and-therapy-selection-for-thyroid-nodules.html",
+            "title": "Current Diagnostic Approach and Therapy Selection for Thyroid Nodules",
             "sessions": 1,
             "engagementRate": 0
           }
@@ -3006,7 +3316,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-11T13:08:14.978Z",
+      "generatedAt": "2026-11-11T23:48:29.600Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5258,11 +5568,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-11T13:08:14.978Z",
+  "generatedAt": "2026-11-11T23:48:29.600Z",
   "realtime": {
-    "status": "ok",
-    "generatedAt": "2026-11-11T13:08:14.978Z",
-    "activeUsers": 1,
+    "status": "unavailable",
+    "generatedAt": "2026-11-11T23:48:29.600Z",
     "windowMinutes": 30
   }
 }
