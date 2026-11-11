@@ -9,19 +9,19 @@
         "previousStartDate": "2026-11-09",
         "previousEndDate": "2026-11-09"
       },
-      "generatedAt": "2026-11-10T22:38:12.174Z",
+      "generatedAt": "2026-11-11T03:38:06.557Z",
       "summary": {
         "activeUsers": 10,
         "newUsers": 9,
         "screenPageViews": 12,
-        "sessions": 10,
+        "sessions": 11,
         "engagedSessions": 5,
         "userEngagementDuration": 123,
-        "eventCount": 42,
+        "eventCount": 44,
         "keyEvents": 0,
         "totalUsers": 10,
         "averageEngagementTimeSeconds": 12.3,
-        "engagementRate": 0.5,
+        "engagementRate": 0.4545,
         "returningUsers": 1
       },
       "previous": {
@@ -51,14 +51,14 @@
             "activeUsers": 10,
             "newUsers": 9,
             "screenPageViews": 12,
-            "sessions": 10,
+            "sessions": 11,
             "engagedSessions": 5,
             "userEngagementDuration": 123,
-            "eventCount": 42,
+            "eventCount": 44,
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 12.3,
-            "engagementRate": 0.5,
+            "engagementRate": 0.4545,
             "returningUsers": 1
           }
         ],
@@ -95,6 +95,11 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
+            "sessions": 1
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
             "sessions": 0
           }
         ]
@@ -113,7 +118,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 5,
-            "sessions": 5
+            "sessions": 6
           }
         ]
       },
@@ -123,7 +128,7 @@
           {
             "label": "desktop",
             "activeUsers": 6,
-            "sessions": 6
+            "sessions": 7
           },
           {
             "label": "mobile",
@@ -138,7 +143,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 7,
-            "sessions": 7
+            "sessions": 8
           }
         ]
       },
@@ -158,7 +163,7 @@
           {
             "label": "(not set)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           }
         ]
       },
@@ -173,7 +178,7 @@
           {
             "label": "google / organic",
             "activeUsers": 5,
-            "sessions": 5
+            "sessions": 6
           }
         ]
       },
@@ -231,19 +236,19 @@
         "previousStartDate": "2026-10-28",
         "previousEndDate": "2026-11-03"
       },
-      "generatedAt": "2026-11-10T22:38:12.174Z",
+      "generatedAt": "2026-11-11T03:38:06.557Z",
       "summary": {
         "activeUsers": 34,
         "newUsers": 30,
         "screenPageViews": 52,
-        "sessions": 45,
+        "sessions": 46,
         "engagedSessions": 12,
         "userEngagementDuration": 548,
-        "eventCount": 168,
+        "eventCount": 170,
         "keyEvents": 0,
         "totalUsers": 36,
         "averageEngagementTimeSeconds": 16.1176,
-        "engagementRate": 0.2667,
+        "engagementRate": 0.2609,
         "returningUsers": 5
       },
       "previous": {
@@ -363,14 +368,14 @@
             "activeUsers": 10,
             "newUsers": 9,
             "screenPageViews": 12,
-            "sessions": 10,
+            "sessions": 11,
             "engagedSessions": 5,
             "userEngagementDuration": 123,
-            "eventCount": 42,
+            "eventCount": 44,
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 12.3,
-            "engagementRate": 0.5,
+            "engagementRate": 0.4545,
             "returningUsers": 1
           }
         ],
@@ -491,6 +496,11 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
+            "sessions": 1
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
             "sessions": 6
           }
         ]
@@ -509,7 +519,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 14,
-            "sessions": 21
+            "sessions": 22
           }
         ]
       },
@@ -519,7 +529,7 @@
           {
             "label": "desktop",
             "activeUsers": 28,
-            "sessions": 39
+            "sessions": 40
           },
           {
             "label": "mobile",
@@ -534,7 +544,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 14,
-            "sessions": 25
+            "sessions": 26
           },
           {
             "label": "United States",
@@ -564,7 +574,7 @@
           {
             "label": "(not set)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           }
         ]
       },
@@ -579,7 +589,7 @@
           {
             "label": "google / organic",
             "activeUsers": 14,
-            "sessions": 21
+            "sessions": 22
           }
         ]
       },
@@ -601,7 +611,7 @@
             "type": "Articles",
             "activeUsers": 12,
             "views": 13,
-            "eventCount": 61,
+            "eventCount": 63,
             "engagement": 19.6667
           },
           {
@@ -830,19 +840,19 @@
         "previousStartDate": "2026-09-16",
         "previousEndDate": "2026-10-13"
       },
-      "generatedAt": "2026-11-10T22:38:12.174Z",
+      "generatedAt": "2026-11-11T03:38:06.557Z",
       "summary": {
         "activeUsers": 116,
         "newUsers": 109,
         "screenPageViews": 300,
-        "sessions": 186,
+        "sessions": 187,
         "engagedSessions": 78,
         "userEngagementDuration": 6743,
-        "eventCount": 925,
+        "eventCount": 927,
         "keyEvents": 0,
         "totalUsers": 120,
         "averageEngagementTimeSeconds": 58.1293,
-        "engagementRate": 0.4194,
+        "engagementRate": 0.4171,
         "returningUsers": 20
       },
       "previous": {
@@ -1277,14 +1287,14 @@
             "activeUsers": 10,
             "newUsers": 9,
             "screenPageViews": 12,
-            "sessions": 10,
+            "sessions": 11,
             "engagedSessions": 5,
             "userEngagementDuration": 123,
-            "eventCount": 42,
+            "eventCount": 44,
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 12.3,
-            "engagementRate": 0.5,
+            "engagementRate": 0.4545,
             "returningUsers": 1
           }
         ],
@@ -1699,6 +1709,11 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
+            "sessions": 1
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
             "sessions": 25
           }
         ]
@@ -1717,7 +1732,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 49,
-            "sessions": 84
+            "sessions": 85
           },
           {
             "label": "Organic Social",
@@ -1737,7 +1752,7 @@
           {
             "label": "desktop",
             "activeUsers": 78,
-            "sessions": 129
+            "sessions": 130
           },
           {
             "label": "mobile",
@@ -1752,7 +1767,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 54,
-            "sessions": 121
+            "sessions": 122
           },
           {
             "label": "United States",
@@ -1802,7 +1817,7 @@
           {
             "label": "(not set)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           }
         ]
       },
@@ -1817,7 +1832,7 @@
           {
             "label": "google / organic",
             "activeUsers": 47,
-            "sessions": 79
+            "sessions": 80
           },
           {
             "label": "facebook.com / referral",
@@ -1864,7 +1879,7 @@
             "type": "Articles",
             "activeUsers": 38,
             "views": 53,
-            "eventCount": 241,
+            "eventCount": 243,
             "engagement": 33.2895
           },
           {
@@ -2262,19 +2277,19 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-10"
       },
-      "generatedAt": "2026-11-10T22:38:12.174Z",
+      "generatedAt": "2026-11-11T03:38:06.557Z",
       "summary": {
         "activeUsers": 47,
         "newUsers": 42,
         "screenPageViews": 78,
-        "sessions": 62,
+        "sessions": 63,
         "engagedSessions": 22,
         "userEngagementDuration": 1011,
-        "eventCount": 264,
+        "eventCount": 266,
         "keyEvents": 0,
         "totalUsers": 48,
         "averageEngagementTimeSeconds": 21.5106,
-        "engagementRate": 0.3548,
+        "engagementRate": 0.3492,
         "returningUsers": 7
       },
       "previous": {
@@ -2439,14 +2454,14 @@
             "activeUsers": 10,
             "newUsers": 9,
             "screenPageViews": 12,
-            "sessions": 10,
+            "sessions": 11,
             "engagedSessions": 5,
             "userEngagementDuration": 123,
-            "eventCount": 42,
+            "eventCount": 44,
             "keyEvents": 0,
             "totalUsers": 10,
             "averageEngagementTimeSeconds": 12.3,
-            "engagementRate": 0.5,
+            "engagementRate": 0.4545,
             "returningUsers": 1
           }
         ],
@@ -2609,6 +2624,11 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
+            "sessions": 1
+          },
+          {
+            "label": "Unclassified",
+            "activeUsers": 0,
             "sessions": 7
           }
         ]
@@ -2627,7 +2647,7 @@
           {
             "label": "Organic Search",
             "activeUsers": 22,
-            "sessions": 30
+            "sessions": 31
           },
           {
             "label": "Organic Social",
@@ -2647,7 +2667,7 @@
           {
             "label": "desktop",
             "activeUsers": 37,
-            "sessions": 52
+            "sessions": 53
           },
           {
             "label": "mobile",
@@ -2662,7 +2682,7 @@
           {
             "label": "Indonesia",
             "activeUsers": 20,
-            "sessions": 35
+            "sessions": 36
           },
           {
             "label": "United States",
@@ -2697,7 +2717,7 @@
           {
             "label": "(not set)",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           },
           {
             "label": "bing / organic",
@@ -2722,7 +2742,7 @@
           {
             "label": "google / organic",
             "activeUsers": 21,
-            "sessions": 29
+            "sessions": 30
           },
           {
             "label": "m.facebook.com / referral",
@@ -2764,7 +2784,7 @@
             "type": "Articles",
             "activeUsers": 19,
             "views": 22,
-            "eventCount": 104,
+            "eventCount": 106,
             "engagement": 30.4211
           },
           {
@@ -3026,7 +3046,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-10T22:38:12.174Z",
+      "generatedAt": "2026-11-11T03:38:06.557Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5278,10 +5298,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-10T22:38:12.174Z",
+  "generatedAt": "2026-11-11T03:38:06.557Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-11-10T22:38:12.174Z",
+    "generatedAt": "2026-11-11T03:38:06.557Z",
     "windowMinutes": 30
   }
 }

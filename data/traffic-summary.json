@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T22:38:11.765Z",
+  "generatedAt": "2026-11-11T03:38:06.222Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-14",
@@ -9,7 +9,7 @@
     "activeUsers": 116,
     "newUsers": 109,
     "averageEngagementTimeSeconds": 58.508620689655174,
-    "eventCount": 934
+    "eventCount": 936
   },
   "topPages": [
     {
@@ -120,7 +120,7 @@
     },
     {
       "label": "google / organic",
-      "sessions": 79
+      "sessions": 80
     },
     {
       "label": "bing / organic",
