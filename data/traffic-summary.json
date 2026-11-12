@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T04:46:14.754Z",
+  "generatedAt": "2026-11-12T14:11:21.939Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-15",
@@ -107,10 +107,6 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [
@@ -150,7 +146,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 8
+      "activeUsers": 9
     },
     {
       "label": "Ashburn",
