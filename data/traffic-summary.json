@@ -1,37 +1,30 @@
 {
-  "generatedAt": "2026-11-13T13:35:30.708Z",
+  "generatedAt": "2026-11-13T22:59:15.633Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-16",
-    "endDate": "2026-11-12"
+    "startDate": "2026-10-17",
+    "endDate": "2026-11-13"
   },
   "summary": {
-    "activeUsers": 118,
-    "newUsers": 111,
-    "averageEngagementTimeSeconds": 56.67796610169491,
-    "eventCount": 866
+    "activeUsers": 108,
+    "newUsers": 98,
+    "averageEngagementTimeSeconds": 56.888888888888886,
+    "eventCount": 744
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 99,
-      "activeUsers": 49,
-      "eventCount": 288,
-      "bounceRate": 0.5238095238095238
+      "views": 74,
+      "activeUsers": 39,
+      "eventCount": 218,
+      "bounceRate": 0.5230769230769231
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 54,
-      "activeUsers": 40,
-      "eventCount": 238,
-      "bounceRate": 0.46938775510204084
-    },
-    {
-      "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 16,
-      "activeUsers": 6,
-      "eventCount": 30,
-      "bounceRate": 0.06666666666666667
+      "views": 51,
+      "activeUsers": 39,
+      "eventCount": 227,
+      "bounceRate": 0.46808510638297873
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -41,17 +34,17 @@
       "bounceRate": 0.6153846153846154
     },
     {
-      "title": "For Doctors | BA Medicale",
-      "views": 11,
-      "activeUsers": 7,
-      "eventCount": 28,
-      "bounceRate": 0.2727272727272727
+      "title": "BA Medicale Team | Physician-Led Medical Education",
+      "views": 8,
+      "activeUsers": 5,
+      "eventCount": 17,
+      "bounceRate": 0.1111111111111111
     },
     {
-      "title": "About BA Medicale | Medical Learning for Better Care",
-      "views": 7,
-      "activeUsers": 4,
-      "eventCount": 17,
+      "title": "For Doctors | BA Medicale",
+      "views": 8,
+      "activeUsers": 6,
+      "eventCount": 22,
       "bounceRate": 0.375
     },
     {
@@ -60,13 +53,6 @@
       "activeUsers": 4,
       "eventCount": 19,
       "bounceRate": 0.2
-    },
-    {
-      "title": "Nana Febrina | Operations & Digital Development | BA Medicale",
-      "views": 7,
-      "activeUsers": 2,
-      "eventCount": 10,
-      "bounceRate": 0
     },
     {
       "title": "Videos | BA Medicale",
@@ -81,16 +67,30 @@
       "activeUsers": 3,
       "eventCount": 14,
       "bounceRate": 0.16666666666666666
+    },
+    {
+      "title": "Nutri-Level Food Labels and Metabolic Disease Prevention | BA Medicale",
+      "views": 6,
+      "activeUsers": 4,
+      "eventCount": 22,
+      "bounceRate": 0.8333333333333334
+    },
+    {
+      "title": "Tumor vs Cancer: Understanding the Difference | BA Medicale",
+      "views": 5,
+      "activeUsers": 4,
+      "eventCount": 20,
+      "bounceRate": 0.4
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 60
+      "activeUsers": 53
     },
     {
       "label": "google / organic",
-      "activeUsers": 47
+      "activeUsers": 44
     },
     {
       "label": "facebook.com / referral",
@@ -116,15 +116,15 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 90
-    },
-    {
-      "label": "google / organic",
       "sessions": 74
     },
     {
+      "label": "google / organic",
+      "sessions": 69
+    },
+    {
       "label": "bing / organic",
-      "sessions": 5
+      "sessions": 4
     },
     {
       "label": "facebook.com / referral",
@@ -146,7 +146,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 27
+      "activeUsers": 22
     },
     {
       "label": "Not set",
@@ -158,10 +158,6 @@
     },
     {
       "label": "Bandung",
-      "activeUsers": 6
-    },
-    {
-      "label": "Depok",
       "activeUsers": 4
     },
     {
@@ -177,11 +173,15 @@
       "activeUsers": 3
     },
     {
-      "label": "Denpasar",
+      "label": "Depok",
       "activeUsers": 3
     },
     {
       "label": "Semarang",
+      "activeUsers": 3
+    },
+    {
+      "label": "Surabaya",
       "activeUsers": 3
     }
   ]
