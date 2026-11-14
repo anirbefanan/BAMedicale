@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-11-14T12:40:15.123Z",
+  "generatedAt": "2026-11-14T21:47:17.555Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-17",
-    "endDate": "2026-11-13"
+    "startDate": "2026-10-18",
+    "endDate": "2026-11-14"
   },
   "summary": {
-    "activeUsers": 108,
-    "newUsers": 98,
-    "averageEngagementTimeSeconds": 56.888888888888886,
-    "eventCount": 744
+    "activeUsers": 103,
+    "newUsers": 93,
+    "averageEngagementTimeSeconds": 57.699029126213595,
+    "eventCount": 713
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 74,
-      "activeUsers": 39,
-      "eventCount": 218,
-      "bounceRate": 0.5230769230769231
+      "views": 68,
+      "activeUsers": 36,
+      "eventCount": 201,
+      "bounceRate": 0.5333333333333333
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 51,
-      "activeUsers": 39,
-      "eventCount": 227,
-      "bounceRate": 0.46808510638297873
+      "views": 49,
+      "activeUsers": 37,
+      "eventCount": 218,
+      "bounceRate": 0.4888888888888889
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -34,25 +34,18 @@
       "bounceRate": 0.6153846153846154
     },
     {
-      "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 8,
-      "activeUsers": 5,
-      "eventCount": 17,
-      "bounceRate": 0.1111111111111111
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 8,
-      "activeUsers": 6,
-      "eventCount": 22,
-      "bounceRate": 0.375
-    },
-    {
       "title": "Contact BA Medicale | Medical Education Enquiries",
       "views": 7,
       "activeUsers": 4,
       "eventCount": 19,
       "bounceRate": 0.2
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 7,
+      "activeUsers": 5,
+      "eventCount": 20,
+      "bounceRate": 0.42857142857142855
     },
     {
       "title": "Videos | BA Medicale",
@@ -62,11 +55,11 @@
       "bounceRate": 0.14285714285714285
     },
     {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "title": "BA Medicale Team | Physician-Led Medical Education",
       "views": 6,
-      "activeUsers": 3,
-      "eventCount": 14,
-      "bounceRate": 0.16666666666666666
+      "activeUsers": 5,
+      "eventCount": 13,
+      "bounceRate": 0.14285714285714285
     },
     {
       "title": "Nutri-Level Food Labels and Metabolic Disease Prevention | BA Medicale",
@@ -76,28 +69,31 @@
       "bounceRate": 0.8333333333333334
     },
     {
-      "title": "Tumor vs Cancer: Understanding the Difference | BA Medicale",
+      "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules | dr. Achmad Fachri, Sp.Rad(K) | BA Medicale",
+      "views": 6,
+      "activeUsers": 5,
+      "eventCount": 24,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
       "views": 5,
-      "activeUsers": 4,
-      "eventCount": 20,
-      "bounceRate": 0.4
+      "activeUsers": 2,
+      "eventCount": 13,
+      "bounceRate": 0.2
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 53
+      "activeUsers": 51
     },
     {
       "label": "google / organic",
-      "activeUsers": 44
+      "activeUsers": 42
     },
     {
       "label": "facebook.com / referral",
-      "activeUsers": 3
-    },
-    {
-      "label": "l.instagram.com / referral",
       "activeUsers": 3
     },
     {
@@ -109,6 +105,10 @@
       "activeUsers": 2
     },
     {
+      "label": "l.instagram.com / referral",
+      "activeUsers": 2
+    },
+    {
       "label": "Not set",
       "activeUsers": 1
     }
@@ -116,11 +116,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 74
+      "sessions": 70
     },
     {
       "label": "google / organic",
-      "sessions": 69
+      "sessions": 67
     },
     {
       "label": "bing / organic",
@@ -131,22 +131,22 @@
       "sessions": 3
     },
     {
-      "label": "l.instagram.com / referral",
-      "sessions": 3
-    },
-    {
       "label": "m.facebook.com / referral",
       "sessions": 3
     },
     {
       "label": "Not set",
       "sessions": 2
+    },
+    {
+      "label": "l.instagram.com / referral",
+      "sessions": 2
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 22
+      "activeUsers": 21
     },
     {
       "label": "Not set",
@@ -157,10 +157,6 @@
       "activeUsers": 8
     },
     {
-      "label": "Bandung",
-      "activeUsers": 4
-    },
-    {
       "label": "San Jose",
       "activeUsers": 4
     },
@@ -169,7 +165,7 @@
       "activeUsers": 4
     },
     {
-      "label": "Boardman",
+      "label": "Bandung",
       "activeUsers": 3
     },
     {
@@ -183,6 +179,10 @@
     {
       "label": "Surabaya",
       "activeUsers": 3
+    },
+    {
+      "label": "Beijing",
+      "activeUsers": 2
     }
   ]
 }
