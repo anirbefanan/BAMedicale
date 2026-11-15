@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-11-15T03:39:32.050Z",
+  "generatedAt": "2026-11-15T13:06:21.820Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-18",
     "endDate": "2026-11-14"
   },
   "summary": {
-    "activeUsers": 103,
-    "newUsers": 93,
-    "averageEngagementTimeSeconds": 57.699029126213595,
-    "eventCount": 713
+    "activeUsers": 105,
+    "newUsers": 95,
+    "averageEngagementTimeSeconds": 58.2952380952381,
+    "eventCount": 728
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 68,
-      "activeUsers": 36,
-      "eventCount": 201,
-      "bounceRate": 0.5333333333333333
+      "views": 71,
+      "activeUsers": 37,
+      "eventCount": 209,
+      "bounceRate": 0.5161290322580645
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 49,
-      "activeUsers": 37,
-      "eventCount": 218,
-      "bounceRate": 0.4888888888888889
+      "views": 50,
+      "activeUsers": 38,
+      "eventCount": 222,
+      "bounceRate": 0.4782608695652174
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -34,18 +34,18 @@
       "bounceRate": 0.6153846153846154
     },
     {
+      "title": "For Doctors | BA Medicale",
+      "views": 8,
+      "activeUsers": 6,
+      "eventCount": 22,
+      "bounceRate": 0.375
+    },
+    {
       "title": "Contact BA Medicale | Medical Education Enquiries",
       "views": 7,
       "activeUsers": 4,
       "eventCount": 19,
       "bounceRate": 0.2
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 7,
-      "activeUsers": 5,
-      "eventCount": 20,
-      "bounceRate": 0.42857142857142855
     },
     {
       "title": "Videos | BA Medicale",
@@ -90,10 +90,14 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 42
+      "activeUsers": 43
     },
     {
       "label": "facebook.com / referral",
+      "activeUsers": 3
+    },
+    {
+      "label": "l.instagram.com / referral",
       "activeUsers": 3
     },
     {
@@ -102,10 +106,6 @@
     },
     {
       "label": "bing / organic",
-      "activeUsers": 2
-    },
-    {
-      "label": "l.instagram.com / referral",
       "activeUsers": 2
     },
     {
@@ -120,7 +120,7 @@
     },
     {
       "label": "google / organic",
-      "sessions": 67
+      "sessions": 69
     },
     {
       "label": "bing / organic",
@@ -131,22 +131,22 @@
       "sessions": 3
     },
     {
+      "label": "l.instagram.com / referral",
+      "sessions": 3
+    },
+    {
       "label": "m.facebook.com / referral",
       "sessions": 3
     },
     {
       "label": "Not set",
       "sessions": 2
-    },
-    {
-      "label": "l.instagram.com / referral",
-      "sessions": 2
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 21
+      "activeUsers": 22
     },
     {
       "label": "Not set",
@@ -157,16 +157,16 @@
       "activeUsers": 8
     },
     {
+      "label": "Bandung",
+      "activeUsers": 4
+    },
+    {
       "label": "San Jose",
       "activeUsers": 4
     },
     {
       "label": "Sydney",
       "activeUsers": 4
-    },
-    {
-      "label": "Bandung",
-      "activeUsers": 3
     },
     {
       "label": "Depok",
