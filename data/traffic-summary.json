@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-15T13:06:21.820Z",
+  "generatedAt": "2026-11-15T22:14:55.511Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-18",
-    "endDate": "2026-11-14"
+    "startDate": "2026-10-19",
+    "endDate": "2026-11-15"
   },
   "summary": {
-    "activeUsers": 105,
+    "activeUsers": 104,
     "newUsers": 95,
-    "averageEngagementTimeSeconds": 58.2952380952381,
-    "eventCount": 728
+    "averageEngagementTimeSeconds": 61.83653846153846,
+    "eventCount": 741
   },
   "topPages": [
     {
@@ -17,21 +17,28 @@
       "views": 71,
       "activeUsers": 37,
       "eventCount": 209,
-      "bounceRate": 0.5161290322580645
+      "bounceRate": 0.5
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 50,
+      "views": 51,
       "activeUsers": 38,
-      "eventCount": 222,
-      "bounceRate": 0.4782608695652174
+      "eventCount": 224,
+      "bounceRate": 0.48936170212765956
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 15,
+      "views": 16,
       "activeUsers": 8,
-      "eventCount": 36,
-      "bounceRate": 0.6153846153846154
+      "eventCount": 38,
+      "bounceRate": 0.5714285714285714
+    },
+    {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 8,
+      "activeUsers": 2,
+      "eventCount": 24,
+      "bounceRate": 0.16666666666666666
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -50,8 +57,8 @@
     {
       "title": "Videos | BA Medicale",
       "views": 7,
-      "activeUsers": 4,
-      "eventCount": 16,
+      "activeUsers": 3,
+      "eventCount": 14,
       "bounceRate": 0.14285714285714285
     },
     {
@@ -74,23 +81,16 @@
       "activeUsers": 5,
       "eventCount": 24,
       "bounceRate": 0.16666666666666666
-    },
-    {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 5,
-      "activeUsers": 2,
-      "eventCount": 13,
-      "bounceRate": 0.2
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 51
+      "activeUsers": 52
     },
     {
       "label": "google / organic",
-      "activeUsers": 43
+      "activeUsers": 41
     },
     {
       "label": "facebook.com / referral",
@@ -105,22 +105,22 @@
       "activeUsers": 3
     },
     {
-      "label": "bing / organic",
+      "label": "Not set",
       "activeUsers": 2
     },
     {
-      "label": "Not set",
-      "activeUsers": 1
+      "label": "bing / organic",
+      "activeUsers": 2
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 70
+      "sessions": 71
     },
     {
       "label": "google / organic",
-      "sessions": 69
+      "sessions": 68
     },
     {
       "label": "bing / organic",
@@ -146,7 +146,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 22
+      "activeUsers": 21
     },
     {
       "label": "Not set",
