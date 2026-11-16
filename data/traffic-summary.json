@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T22:14:55.511Z",
+  "generatedAt": "2026-11-16T14:12:28.867Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-19",
@@ -103,10 +103,6 @@
     {
       "label": "m.facebook.com / referral",
       "activeUsers": 3
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 2
     },
     {
       "label": "bing / organic",
