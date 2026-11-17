@@ -1,37 +1,44 @@
 {
-  "generatedAt": "2026-11-16T14:12:28.867Z",
+  "generatedAt": "2026-11-17T01:14:52.397Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-19",
-    "endDate": "2026-11-15"
+    "startDate": "2026-10-20",
+    "endDate": "2026-11-16"
   },
   "summary": {
-    "activeUsers": 104,
-    "newUsers": 95,
-    "averageEngagementTimeSeconds": 61.83653846153846,
-    "eventCount": 741
+    "activeUsers": 102,
+    "newUsers": 93,
+    "averageEngagementTimeSeconds": 60.64705882352941,
+    "eventCount": 730
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 71,
-      "activeUsers": 37,
-      "eventCount": 209,
-      "bounceRate": 0.5
+      "views": 69,
+      "activeUsers": 35,
+      "eventCount": 202,
+      "bounceRate": 0.4915254237288136
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
       "views": 51,
-      "activeUsers": 38,
-      "eventCount": 224,
-      "bounceRate": 0.48936170212765956
+      "activeUsers": 37,
+      "eventCount": 223,
+      "bounceRate": 0.46808510638297873
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 16,
+      "views": 18,
       "activeUsers": 8,
-      "eventCount": 38,
-      "bounceRate": 0.5714285714285714
+      "eventCount": 43,
+      "bounceRate": 0.5625
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 9,
+      "activeUsers": 7,
+      "eventCount": 25,
+      "bounceRate": 0.4444444444444444
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
@@ -41,31 +48,10 @@
       "bounceRate": 0.16666666666666666
     },
     {
-      "title": "For Doctors | BA Medicale",
-      "views": 8,
-      "activeUsers": 6,
-      "eventCount": 22,
-      "bounceRate": 0.375
-    },
-    {
-      "title": "Contact BA Medicale | Medical Education Enquiries",
-      "views": 7,
-      "activeUsers": 4,
-      "eventCount": 19,
-      "bounceRate": 0.2
-    },
-    {
       "title": "Videos | BA Medicale",
       "views": 7,
       "activeUsers": 3,
       "eventCount": 14,
-      "bounceRate": 0.14285714285714285
-    },
-    {
-      "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 6,
-      "activeUsers": 5,
-      "eventCount": 13,
       "bounceRate": 0.14285714285714285
     },
     {
@@ -81,16 +67,30 @@
       "activeUsers": 5,
       "eventCount": 24,
       "bounceRate": 0.16666666666666666
+    },
+    {
+      "title": "BA Medicale Team | Physician-Led Medical Education",
+      "views": 5,
+      "activeUsers": 4,
+      "eventCount": 11,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "title": "Contact BA Medicale | Medical Education Enquiries",
+      "views": 5,
+      "activeUsers": 4,
+      "eventCount": 12,
+      "bounceRate": 0.25
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 52
+      "activeUsers": 49
     },
     {
       "label": "google / organic",
-      "activeUsers": 41
+      "activeUsers": 42
     },
     {
       "label": "facebook.com / referral",
@@ -107,20 +107,24 @@
     {
       "label": "bing / organic",
       "activeUsers": 2
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
-      "label": "(direct) / (none)",
-      "sessions": 71
+      "label": "google / organic",
+      "sessions": 70
     },
     {
-      "label": "google / organic",
-      "sessions": 68
+      "label": "(direct) / (none)",
+      "sessions": 69
     },
     {
       "label": "bing / organic",
-      "sessions": 4
+      "sessions": 3
     },
     {
       "label": "facebook.com / referral",
@@ -142,7 +146,7 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 21
+      "activeUsers": 19
     },
     {
       "label": "Not set",
