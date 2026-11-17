@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T01:14:52.397Z",
+  "generatedAt": "2026-11-17T15:05:27.714Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-20",
@@ -107,10 +107,6 @@
     {
       "label": "bing / organic",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [

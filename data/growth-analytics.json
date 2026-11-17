@@ -9,7 +9,7 @@
         "previousStartDate": "2026-11-15",
         "previousEndDate": "2026-11-15"
       },
-      "generatedAt": "2026-11-17T01:14:52.752Z",
+      "generatedAt": "2026-11-17T15:05:28.118Z",
       "summary": {
         "activeUsers": 3,
         "newUsers": 2,
@@ -90,12 +90,12 @@
           {
             "label": "Returning",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 3
+            "sessions": 2
           }
         ]
       },
@@ -140,19 +140,14 @@
         "status": "ok",
         "rows": [
           {
+            "label": "google / organic",
+            "activeUsers": 2,
+            "sessions": 3
+          },
+          {
             "label": "(direct) / (none)",
             "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 4
-          },
-          {
-            "label": "google / organic",
-            "activeUsers": 1,
-            "sessions": 1
+            "sessions": 3
           }
         ]
       },
@@ -256,7 +251,7 @@
         "previousStartDate": "2026-11-03",
         "previousEndDate": "2026-11-09"
       },
-      "generatedAt": "2026-11-17T01:14:52.752Z",
+      "generatedAt": "2026-11-17T15:05:28.118Z",
       "summary": {
         "activeUsers": 31,
         "newUsers": 28,
@@ -291,214 +286,8 @@
         "sampled": false
       },
       "trend": {
-        "status": "ok",
-        "current": [
-          {
-            "date": "2026-11-10",
-            "activeUsers": 10,
-            "newUsers": 9,
-            "screenPageViews": 12,
-            "sessions": 11,
-            "engagedSessions": 5,
-            "userEngagementDuration": 123,
-            "eventCount": 44,
-            "keyEvents": 0,
-            "totalUsers": 10,
-            "averageEngagementTimeSeconds": 12.3,
-            "engagementRate": 0.4545,
-            "returningUsers": 2
-          },
-          {
-            "date": "2026-11-11",
-            "activeUsers": 13,
-            "newUsers": 12,
-            "screenPageViews": 16,
-            "sessions": 14,
-            "engagedSessions": 3,
-            "userEngagementDuration": 132,
-            "eventCount": 50,
-            "keyEvents": 0,
-            "totalUsers": 13,
-            "averageEngagementTimeSeconds": 10.1538,
-            "engagementRate": 0.2143,
-            "returningUsers": 1
-          },
-          {
-            "date": "2026-11-12",
-            "activeUsers": 3,
-            "newUsers": 2,
-            "screenPageViews": 5,
-            "sessions": 3,
-            "engagedSessions": 3,
-            "userEngagementDuration": 178,
-            "eventCount": 15,
-            "keyEvents": 0,
-            "totalUsers": 3,
-            "averageEngagementTimeSeconds": 59.3333,
-            "engagementRate": 1,
-            "returningUsers": 1
-          },
-          {
-            "date": "2026-11-13",
-            "activeUsers": 2,
-            "newUsers": 2,
-            "screenPageViews": 2,
-            "sessions": 3,
-            "engagedSessions": 1,
-            "userEngagementDuration": 17,
-            "eventCount": 12,
-            "keyEvents": 0,
-            "totalUsers": 3,
-            "averageEngagementTimeSeconds": 8.5,
-            "engagementRate": 0.3333,
-            "returningUsers": 0
-          },
-          {
-            "date": "2026-11-14",
-            "activeUsers": 1,
-            "newUsers": 0,
-            "screenPageViews": 1,
-            "sessions": 1,
-            "engagedSessions": 1,
-            "userEngagementDuration": 27,
-            "eventCount": 3,
-            "keyEvents": 0,
-            "totalUsers": 1,
-            "averageEngagementTimeSeconds": 27,
-            "engagementRate": 1,
-            "returningUsers": 1
-          },
-          {
-            "date": "2026-11-15",
-            "activeUsers": 2,
-            "newUsers": 1,
-            "screenPageViews": 8,
-            "sessions": 3,
-            "engagedSessions": 2,
-            "userEngagementDuration": 339,
-            "eventCount": 23,
-            "keyEvents": 0,
-            "totalUsers": 2,
-            "averageEngagementTimeSeconds": 169.5,
-            "engagementRate": 0.6667,
-            "returningUsers": 2
-          },
-          {
-            "date": "2026-11-16",
-            "activeUsers": 3,
-            "newUsers": 2,
-            "screenPageViews": 8,
-            "sessions": 6,
-            "engagedSessions": 2,
-            "userEngagementDuration": 25,
-            "eventCount": 23,
-            "keyEvents": 0,
-            "totalUsers": 5,
-            "averageEngagementTimeSeconds": 8.3333,
-            "engagementRate": 0.3333,
-            "returningUsers": 1
-          }
-        ],
-        "previous": [
-          {
-            "date": "2026-11-03",
-            "activeUsers": 7,
-            "newUsers": 6,
-            "screenPageViews": 11,
-            "sessions": 8,
-            "engagedSessions": 5,
-            "userEngagementDuration": 191,
-            "eventCount": 40,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 27.2857,
-            "engagementRate": 0.625
-          },
-          {
-            "date": "2026-11-04",
-            "activeUsers": 3,
-            "newUsers": 3,
-            "screenPageViews": 4,
-            "sessions": 4,
-            "engagedSessions": 0,
-            "userEngagementDuration": 0,
-            "eventCount": 11,
-            "keyEvents": 0,
-            "totalUsers": 4,
-            "averageEngagementTimeSeconds": 0,
-            "engagementRate": 0
-          },
-          {
-            "date": "2026-11-05",
-            "activeUsers": 5,
-            "newUsers": 3,
-            "screenPageViews": 10,
-            "sessions": 8,
-            "engagedSessions": 2,
-            "userEngagementDuration": 57,
-            "eventCount": 29,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 11.4,
-            "engagementRate": 0.25
-          },
-          {
-            "date": "2026-11-06",
-            "activeUsers": 5,
-            "newUsers": 5,
-            "screenPageViews": 6,
-            "sessions": 7,
-            "engagedSessions": 0,
-            "userEngagementDuration": 0,
-            "eventCount": 19,
-            "keyEvents": 0,
-            "totalUsers": 7,
-            "averageEngagementTimeSeconds": 0,
-            "engagementRate": 0
-          },
-          {
-            "date": "2026-11-07",
-            "activeUsers": 2,
-            "newUsers": 2,
-            "screenPageViews": 4,
-            "sessions": 2,
-            "engagedSessions": 1,
-            "userEngagementDuration": 42,
-            "eventCount": 15,
-            "keyEvents": 0,
-            "totalUsers": 2,
-            "averageEngagementTimeSeconds": 21,
-            "engagementRate": 0.5
-          },
-          {
-            "date": "2026-11-08",
-            "activeUsers": 10,
-            "newUsers": 8,
-            "screenPageViews": 14,
-            "sessions": 12,
-            "engagedSessions": 4,
-            "userEngagementDuration": 325,
-            "eventCount": 46,
-            "keyEvents": 0,
-            "totalUsers": 10,
-            "averageEngagementTimeSeconds": 32.5,
-            "engagementRate": 0.3333
-          },
-          {
-            "date": "2026-11-09",
-            "activeUsers": 1,
-            "newUsers": 0,
-            "screenPageViews": 2,
-            "sessions": 2,
-            "engagedSessions": 0,
-            "userEngagementDuration": 1,
-            "eventCount": 6,
-            "keyEvents": 0,
-            "totalUsers": 2,
-            "averageEngagementTimeSeconds": 1,
-            "engagementRate": 0
-          }
-        ]
+        "status": "unavailable",
+        "rows": []
       },
       "audience": {
         "status": "ok",
@@ -511,17 +300,12 @@
           {
             "label": "Returning",
             "activeUsers": 6,
-            "sessions": 9
+            "sessions": 10
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
             "sessions": 3
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 1
           }
         ]
       },
@@ -584,17 +368,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 19,
-            "sessions": 22
+            "sessions": 24
           },
           {
             "label": "google / organic",
             "activeUsers": 11,
-            "sessions": 14
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 4
+            "sessions": 16
           },
           {
             "label": "l.instagram.com / referral",
@@ -873,7 +652,7 @@
         "previousStartDate": "2026-09-22",
         "previousEndDate": "2026-10-19"
       },
-      "generatedAt": "2026-11-17T01:14:52.752Z",
+      "generatedAt": "2026-11-17T15:05:28.118Z",
       "summary": {
         "activeUsers": 102,
         "newUsers": 93,
@@ -1737,17 +1516,12 @@
           {
             "label": "Returning",
             "activeUsers": 18,
-            "sessions": 42
+            "sessions": 43
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 3
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 15
+            "sessions": 17
           }
         ]
       },
@@ -1820,12 +1594,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 49,
-            "sessions": 68
+            "sessions": 70
           },
           {
             "label": "google / organic",
             "activeUsers": 42,
-            "sessions": 69
+            "sessions": 71
           },
           {
             "label": "facebook.com / referral",
@@ -1846,11 +1620,6 @@
             "label": "bing / organic",
             "activeUsers": 2,
             "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 4
           }
         ]
       },
@@ -2316,7 +2085,7 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-16"
       },
-      "generatedAt": "2026-11-17T01:14:52.752Z",
+      "generatedAt": "2026-11-17T15:05:28.118Z",
       "summary": {
         "activeUsers": 66,
         "newUsers": 61,
@@ -2832,17 +2601,12 @@
           {
             "label": "Returning",
             "activeUsers": 10,
-            "sessions": 21
+            "sessions": 22
           },
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 3
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 8
+            "sessions": 10
           }
         ]
       },
@@ -2915,22 +2679,17 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 36,
-            "sessions": 46
+            "sessions": 48
           },
           {
             "label": "google / organic",
             "activeUsers": 25,
-            "sessions": 38
+            "sessions": 40
           },
           {
             "label": "m.facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 1,
-            "sessions": 4
           },
           {
             "label": "bing / organic",
@@ -3317,7 +3076,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-17T01:14:52.752Z",
+      "generatedAt": "2026-11-17T15:05:28.118Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -4297,19 +4056,8 @@
         ]
       },
       "devices": {
-        "status": "ok",
-        "rows": [
-          {
-            "label": "desktop",
-            "activeUsers": 57,
-            "sessions": 118
-          },
-          {
-            "label": "mobile",
-            "activeUsers": 33,
-            "sessions": 68
-          }
-        ]
+        "status": "unavailable",
+        "rows": []
       },
       "countries": {
         "status": "ok",
@@ -5569,10 +5317,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-17T01:14:52.752Z",
+  "generatedAt": "2026-11-17T15:05:28.118Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-11-17T01:14:52.752Z",
+    "generatedAt": "2026-11-17T15:05:28.118Z",
     "windowMinutes": 30
   }
 }
