@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-11-17T15:05:27.714Z",
+  "generatedAt": "2026-11-18T23:40:47.215Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-20",
-    "endDate": "2026-11-16"
+    "startDate": "2026-10-22",
+    "endDate": "2026-11-18"
   },
   "summary": {
-    "activeUsers": 102,
-    "newUsers": 93,
-    "averageEngagementTimeSeconds": 60.64705882352941,
-    "eventCount": 730
+    "activeUsers": 98,
+    "newUsers": 92,
+    "averageEngagementTimeSeconds": 56.59183673469388,
+    "eventCount": 664
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 69,
-      "activeUsers": 35,
-      "eventCount": 202,
-      "bounceRate": 0.4915254237288136
+      "views": 62,
+      "activeUsers": 32,
+      "eventCount": 179,
+      "bounceRate": 0.5370370370370371
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 51,
-      "activeUsers": 37,
-      "eventCount": 223,
-      "bounceRate": 0.46808510638297873
+      "views": 50,
+      "activeUsers": 36,
+      "eventCount": 213,
+      "bounceRate": 0.48936170212765956
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 18,
-      "activeUsers": 8,
-      "eventCount": 43,
-      "bounceRate": 0.5625
-    },
-    {
-      "title": "For Doctors | BA Medicale",
-      "views": 9,
+      "views": 16,
       "activeUsers": 7,
-      "eventCount": 25,
-      "bounceRate": 0.4444444444444444
-    },
-    {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 8,
-      "activeUsers": 2,
-      "eventCount": 24,
-      "bounceRate": 0.16666666666666666
+      "eventCount": 41,
+      "bounceRate": 0.6666666666666666
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 7,
-      "activeUsers": 3,
-      "eventCount": 14,
+      "views": 9,
+      "activeUsers": 4,
+      "eventCount": 20,
       "bounceRate": 0.14285714285714285
+    },
+    {
+      "title": "For Doctors | BA Medicale",
+      "views": 8,
+      "activeUsers": 7,
+      "eventCount": 23,
+      "bounceRate": 0.5
+    },
+    {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 6,
+      "activeUsers": 1,
+      "eventCount": 20,
+      "bounceRate": 0.25
     },
     {
       "title": "Nutri-Level Food Labels and Metabolic Disease Prevention | BA Medicale",
@@ -76,11 +76,11 @@
       "bounceRate": 0.16666666666666666
     },
     {
-      "title": "Contact BA Medicale | Medical Education Enquiries",
-      "views": 5,
+      "title": "Courses & Seminars | BA Medicale",
+      "views": 4,
       "activeUsers": 4,
-      "eventCount": 12,
-      "bounceRate": 0.25
+      "eventCount": 10,
+      "bounceRate": 0.75
     }
   ],
   "firstUserSources": [
@@ -90,11 +90,11 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 42
+      "activeUsers": 38
     },
     {
       "label": "facebook.com / referral",
-      "activeUsers": 3
+      "activeUsers": 4
     },
     {
       "label": "l.instagram.com / referral",
@@ -106,25 +106,21 @@
     },
     {
       "label": "bing / organic",
-      "activeUsers": 2
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
     {
-      "label": "google / organic",
+      "label": "(direct) / (none)",
       "sessions": 70
     },
     {
-      "label": "(direct) / (none)",
-      "sessions": 69
-    },
-    {
-      "label": "bing / organic",
-      "sessions": 3
+      "label": "google / organic",
+      "sessions": 65
     },
     {
       "label": "facebook.com / referral",
-      "sessions": 3
+      "sessions": 4
     },
     {
       "label": "l.instagram.com / referral",
@@ -137,20 +133,24 @@
     {
       "label": "Not set",
       "sessions": 2
+    },
+    {
+      "label": "bing / organic",
+      "sessions": 2
     }
   ],
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 19
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 8
+      "activeUsers": 16
     },
     {
       "label": "Ashburn",
       "activeUsers": 8
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 7
     },
     {
       "label": "Bandung",
@@ -169,16 +169,16 @@
       "activeUsers": 3
     },
     {
+      "label": "Prineville",
+      "activeUsers": 3
+    },
+    {
       "label": "Semarang",
       "activeUsers": 3
     },
     {
       "label": "Surabaya",
       "activeUsers": 3
-    },
-    {
-      "label": "Beijing",
-      "activeUsers": 2
     }
   ]
 }
