@@ -9,7 +9,7 @@
         "previousStartDate": "2026-11-17",
         "previousEndDate": "2026-11-17"
       },
-      "generatedAt": "2026-11-19T04:54:51.688Z",
+      "generatedAt": "2026-11-19T14:51:51.735Z",
       "summary": {
         "activeUsers": 4,
         "newUsers": 4,
@@ -91,11 +91,6 @@
             "label": "Unclassified",
             "activeUsers": 0,
             "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
           }
         ]
       },
@@ -142,17 +137,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 3,
-            "sessions": 3
+            "sessions": 5
           },
           {
             "label": "facebook.com / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 2
           }
         ]
       },
@@ -241,7 +231,7 @@
         "previousStartDate": "2026-11-05",
         "previousEndDate": "2026-11-11"
       },
-      "generatedAt": "2026-11-19T04:54:51.688Z",
+      "generatedAt": "2026-11-19T14:51:51.735Z",
       "summary": {
         "activeUsers": 14,
         "newUsers": 11,
@@ -501,12 +491,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 4
+            "sessions": 6
           }
         ]
       },
@@ -564,7 +549,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 6,
-            "sessions": 9
+            "sessions": 11
           },
           {
             "label": "google / organic",
@@ -580,11 +565,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 2
           }
         ]
       },
@@ -764,7 +744,7 @@
         "previousStartDate": "2026-09-24",
         "previousEndDate": "2026-10-21"
       },
-      "generatedAt": "2026-11-19T04:54:51.688Z",
+      "generatedAt": "2026-11-19T14:51:51.735Z",
       "summary": {
         "activeUsers": 98,
         "newUsers": 92,
@@ -1633,12 +1613,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 18
+            "sessions": 20
           }
         ]
       },
@@ -1711,7 +1686,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 49,
-            "sessions": 69
+            "sessions": 71
           },
           {
             "label": "google / organic",
@@ -1736,11 +1711,6 @@
           {
             "label": "bing / organic",
             "activeUsers": 1,
-            "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
             "sessions": 2
           }
         ]
@@ -2134,7 +2104,7 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-18"
       },
-      "generatedAt": "2026-11-19T04:54:51.688Z",
+      "generatedAt": "2026-11-19T14:51:51.735Z",
       "summary": {
         "activeUsers": 70,
         "newUsers": 65,
@@ -2713,12 +2683,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 11
+            "sessions": 13
           }
         ]
       },
@@ -2791,7 +2756,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 39,
-            "sessions": 51
+            "sessions": 53
           },
           {
             "label": "google / organic",
@@ -2817,11 +2782,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 2
           }
         ]
       },
@@ -3193,7 +3153,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-19T04:54:51.688Z",
+      "generatedAt": "2026-11-19T14:51:51.735Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5445,10 +5405,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-19T04:54:51.688Z",
+  "generatedAt": "2026-11-19T14:51:51.735Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-11-19T04:54:51.688Z",
+    "generatedAt": "2026-11-19T14:51:51.735Z",
     "windowMinutes": 30
   }
 }
