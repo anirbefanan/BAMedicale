@@ -1,44 +1,44 @@
 {
-  "generatedAt": "2026-11-19T14:51:51.403Z",
+  "generatedAt": "2026-11-19T23:59:22.613Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-22",
-    "endDate": "2026-11-18"
+    "startDate": "2026-10-23",
+    "endDate": "2026-11-19"
   },
   "summary": {
-    "activeUsers": 98,
-    "newUsers": 92,
-    "averageEngagementTimeSeconds": 56.59183673469388,
-    "eventCount": 664
+    "activeUsers": 99,
+    "newUsers": 93,
+    "averageEngagementTimeSeconds": 56.26262626262626,
+    "eventCount": 665
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 62,
-      "activeUsers": 32,
-      "eventCount": 179,
-      "bounceRate": 0.5370370370370371
+      "views": 60,
+      "activeUsers": 31,
+      "eventCount": 173,
+      "bounceRate": 0.5384615384615384
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
       "views": 50,
-      "activeUsers": 36,
-      "eventCount": 213,
-      "bounceRate": 0.48936170212765956
+      "activeUsers": 38,
+      "eventCount": 216,
+      "bounceRate": 0.5
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 16,
+      "views": 18,
       "activeUsers": 7,
-      "eventCount": 41,
-      "bounceRate": 0.6666666666666666
+      "eventCount": 47,
+      "bounceRate": 0.6111111111111112
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 9,
+      "views": 10,
       "activeUsers": 4,
-      "eventCount": 20,
-      "bounceRate": 0.14285714285714285
+      "eventCount": 21,
+      "bounceRate": 0.125
     },
     {
       "title": "For Doctors | BA Medicale",
@@ -49,10 +49,10 @@
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 6,
-      "activeUsers": 1,
-      "eventCount": 20,
-      "bounceRate": 0.25
+      "views": 7,
+      "activeUsers": 2,
+      "eventCount": 22,
+      "bounceRate": 0.2
     },
     {
       "title": "Nutri-Level Food Labels and Metabolic Disease Prevention | BA Medicale",
@@ -70,10 +70,10 @@
     },
     {
       "title": "BA Medicale Team | Physician-Led Medical Education",
-      "views": 5,
-      "activeUsers": 4,
-      "eventCount": 11,
-      "bounceRate": 0.16666666666666666
+      "views": 4,
+      "activeUsers": 3,
+      "eventCount": 8,
+      "bounceRate": 0
     },
     {
       "title": "Courses & Seminars | BA Medicale",
@@ -86,11 +86,11 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 49
+      "activeUsers": 50
     },
     {
       "label": "google / organic",
-      "activeUsers": 38
+      "activeUsers": 37
     },
     {
       "label": "facebook.com / referral",
@@ -105,22 +105,30 @@
       "activeUsers": 3
     },
     {
+      "label": "Not set",
+      "activeUsers": 2
+    },
+    {
       "label": "bing / organic",
-      "activeUsers": 1
+      "activeUsers": 2
     }
   ],
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 70
+      "sessions": 72
     },
     {
       "label": "google / organic",
-      "sessions": 65
+      "sessions": 63
     },
     {
       "label": "facebook.com / referral",
       "sessions": 4
+    },
+    {
+      "label": "bing / organic",
+      "sessions": 3
     },
     {
       "label": "l.instagram.com / referral",
@@ -132,10 +140,6 @@
     },
     {
       "label": "Not set",
-      "sessions": 2
-    },
-    {
-      "label": "bing / organic",
       "sessions": 2
     }
   ],
