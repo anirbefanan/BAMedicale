@@ -11,6 +11,14 @@ test("BAMI setup manifest requests the owner email scope", () => {
   assert.ok(manifest.oauthScopes.includes("https://www.googleapis.com/auth/userinfo.email"));
 });
 
+// Deterministic test clock: the fixture seminar is dated September 2026, so pin "now"
+// to October 2026 to keep current/previous-month QA scenarios independent of the real date.
+const FIXED_NOW = Date.parse("2026-10-15T03:00:00.000Z");
+class FixedDate extends Date {
+  constructor(...args) { if (args.length) super(...args); else super(FIXED_NOW); }
+  static now() { return FIXED_NOW; }
+}
+
 function service() {
   const props = new Map(), cache = new Map(), sheets = new Map(), fetches = [];
   let sequence = 0, active = "owner@example.com";
@@ -45,7 +53,7 @@ function service() {
       { id: "thyroid-seminar", type: "Seminar", family: "seminar", title: "Thyroid Nodules Seminar", summary: "Thyroid nodule diagnosis", status: "published", eventStart: "2026-09-19T09:00:00+07:00", eventEnd: "2026-09-19T11:00:00+07:00", url: "https://bamedicale.com/events/thyroid.html", topics: ["thyroid"], authors: [] }
     ] } : { candidates: [{ content: { parts: [{ text: options.payload.includes("Return ONLY JSON with kind DISCOVERY") ? JSON.stringify({ kind: options.payload.includes("Could I browse whatever you released most lately?") ? "DISCOVERY" : "UNKNOWN", family: options.payload.includes("Could I browse whatever you released most lately?") ? "article" : "", period: "", sort: "LATEST", action: "DISCOVER", topic: "" }) : options.payload.includes("natural Bahasa Indonesia") ? "BAMI menemukan video tiroid yang relevan." : "BAMI found a relevant thyroid video." }] } }] }; return { getResponseCode: () => 200, getContentText: () => JSON.stringify(body) }; } },
     HtmlService: { XFrameOptionsMode: { ALLOWALL: "ALLOWALL" }, createTemplateFromFile: () => ({ evaluate() { return { addMetaTag() { return this; }, setTitle() { return this; }, setXFrameOptionsMode(value) { assert.equal(value, "ALLOWALL"); return this; } }; } }) },
-    console: { log() {} }, Buffer, Date
+    console: { log() {} }, Buffer, Date: FixedDate
   };
   vm.createContext(context);
   vm.runInContext(fs.readFileSync(path.join(__dirname, "Code.gs"), "utf8"), context);
