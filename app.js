@@ -1408,7 +1408,10 @@ function renderVideoHub() {
     if (id) nextUrl.searchParams.set("video", id); else nextUrl.searchParams.delete("video");
     return `${nextUrl.pathname}${nextUrl.search}`;
   };
-  const setVideoRoute = (id) => history.pushState({}, "", videoUrlState(id));
+  // True only while the open video owns a history entry this page pushed; closing then
+  // steps back instead of stacking a new entry, so Back never reopens the closed video.
+  let videoRoutePushed = false;
+  const setVideoRoute = (id) => { history.pushState({}, "", videoUrlState(id)); videoRoutePushed = true; };
   const setDialogContext = (video, provenance) => {
     playerSource.textContent = provenance;
     playerTitle.textContent = String(video.title || "BA Medicale video");
@@ -1483,6 +1486,7 @@ function renderVideoHub() {
     hub.prepend(notice);
   };
   const syncViewerFromUrl = () => {
+    videoRoutePushed = false;
     hub?.querySelector("[data-video-link-status]")?.remove();
     const requestedVideo = new URLSearchParams(location.search).get("video");
     if (!requestedVideo) {
@@ -1517,7 +1521,11 @@ function renderVideoHub() {
   dialog.addEventListener("close", () => {
     player.replaceChildren();
     if (dialog.dataset.historySync === "true") delete dialog.dataset.historySync;
-    else if (new URLSearchParams(location.search).has("video")) history.pushState({}, "", videoUrlState(""));
+    else if (new URLSearchParams(location.search).has("video")) {
+      if (videoRoutePushed) history.back();
+      else history.replaceState(history.state, "", videoUrlState(""));
+    }
+    videoRoutePushed = false;
     videoReturnFocus?.focus();
     videoReturnFocus = null;
   });
