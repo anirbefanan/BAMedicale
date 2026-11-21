@@ -2,6 +2,70 @@
   "schemaVersion": 1,
   "items": [
     {
+      "id": "thyroid-cancer-staging-risk-stratification",
+      "contentId": "thyroid-cancer-staging-risk-stratification",
+      "type": "Article",
+      "contentType": "Article",
+      "family": "article",
+      "title": "Thyroid Cancer Staging & Risk Stratification",
+      "subtitle": "",
+      "summary": "A clinical guidance report on AJCC 8th edition TNM staging, stage grouping by subtype and age, pediatric ATA risk categories, and response-to-therapy assessment in thyroid cancer.",
+      "content": "BA MEDICALE | CLINICAL GUIDANCE REPORT THYROID CANCER STAGING & RISK STRATIFICATION A Comprehensive Clinical Framework for Adult and Pediatric Differentiated, Medullary, and Anaplastic Thyroid Carcinoma EXECUTIVE CLINICAL HIGHLIGHTS & PARADIGM SHIFTS Age Cutoff Shift (45 → 55 Years): Reclassified death risk in Differentiated Thyroid Cancer (DTC). Patients 4 cm limited to thyroid; T3b indicates gross ETE to strap muscles. Nodal Reclassification: Level VII (superior mediastinal) lymph nodes moved from N1b (lateral) to N1a (central compartment). N1 status no longer automatically advances patients ≥55 years to Stage III. The Pediatric Paradox (Age ≤ 18): Pediatric DTC presents with high rates of regional nodal involvement (60-80%) and lung metastasis (10-20%), yet maintains exceptional 20-year disease-specific survival (>98-99%). 1. INTRODUCTION & OBJECTIVES OF THYROID CANCER STAGING Accurate clinical and pathological staging of thyroid cancer serves three primary imperatives: (1) determining anatomical disease extent, (2) guiding optimal treatment strategies (extent of surgical resection, selective use of Radioactive Iodine [RAI] ablation, and TSH suppression depth), and (3) establishing a reliable cancer-specific mortality prognosis. Evaluation is grounded across four core diagnostic pillars: 2. AJCC 8TH EDITION TNM CLASSIFICATION FRAMEWORK 3. STAGE GROUPING BY HISTOPATHOLOGICAL SUBTYPE & AGE Thyroid carcinoma staging varies significantly based on histological differentiation. Differentiated Thyroid Cancer (DTC)—comprising Papillary, Follicular, and Hürthle Cell Carcinoma—incorporates patient age at diagnosis as a key prognostic variable. 4. PEDIATRIC THYROID CANCER STAGING (AGE ≤ 18 YEARS) Pediatric Differentiated Thyroid Cancer (pDTC) presents distinct biological characteristics compared to adult DTC. Although pediatric patients frequently present with extensive regional lymphadenopathy (up to 80%) and pulmonary metastases (10-20%), overall 20-year survival exceeds 98-99%. 5. CLINICAL AWARENESS POINTS & RESPONSE-TO-THERAPY UPDATE CRITICAL CLINICAL AWARENESS POINTS 1. Avoid Overtreatment in Low-Risk Disease: Microscopic ETE is no longer a criterion for T3 staging or routine RAI ablation. T1a/T1b N0 patients can be managed safely with thyroid lobectomy alone without compromising long-term survival. 2. Avoid Over-Reliance on AJCC Staging for Recurrence Prediction: AJCC 8th Edition strictly predicts cancer-specific mortality, NOT recurrence risk. Clinicians must apply the ATA 3-Tiered Risk Stratification System (Low, Intermediate, High) to estimate disease recurrence. 3. Dynamic Response-to-Therapy Assessment: Post-surgical evaluation must evolve beyond static baseline staging by categorizing treatment response at 6-24 months into 4 operational outcomes: 6. VALIDATED OFFICIAL REFERENCES 1. Tuttle RM, Haugen B, Perrier ND. (2017). The 8th Edition of the AJCC Cancer Staging Manual: Thyroid. Annals of Surgical Oncology, 24(5), 1162–1164. 2. Haugen BR, Alexander EK, Bible KC, et al. (2016). 2015 American Thyroid Association Management Guidelines for Adult Patients with Thyroid Nodules and Differentiated Thyroid Cancer. Thyroid, 26(1), 1–133. 3. Francis GL, Waguespack SG, Bauer AJ, et al. (2015). Management Guidelines for Children with Thyroid Nodules and Differentiated Thyroid Cancer: The ATA Guidelines Task Force on Pediatric Thyroid Cancer. Thyroid, 25(7), 716–759. 4. Lamartina L, Grani G, Durante C, Filetti S. (2017). 8th edition of the AJCC/TNM staging system of thyroid cancer: what to expect. Endocrine-Related Cancer, 24(3), L13–L15.",
+      "authors": [
+        "BA Medicale"
+      ],
+      "author": [
+        "BA Medicale"
+      ],
+      "audience": "DOCTOR",
+      "audiences": [
+        "DOCTOR"
+      ],
+      "disease": [
+        "endocrine-metabolic",
+        "cancer-neoplastic"
+      ],
+      "diseases": [
+        "endocrine-metabolic",
+        "cancer-neoplastic"
+      ],
+      "condition": "Thyroid cancer",
+      "categories": [
+        "staging",
+        "healthcare-clinical-context"
+      ],
+      "category": [
+        "staging",
+        "healthcare-clinical-context"
+      ],
+      "topics": [
+        "Staging",
+        "Thyroid Cancer",
+        "TNM",
+        "Risk Stratification",
+        "Pediatric Thyroid Cancer"
+      ],
+      "source": "BA Medicale clinical guidance report",
+      "date": "2026-11-21",
+      "publishedDate": "2026-11-21",
+      "status": "published",
+      "eventStart": "",
+      "eventEnd": "",
+      "eventDate": "",
+      "eventId": "",
+      "speakers": [],
+      "presenters": [],
+      "tags": [
+        "Thyroid Cancer",
+        "TNM",
+        "Risk Stratification",
+        "Pediatric Thyroid Cancer"
+      ],
+      "relatedContentIds": [],
+      "sourceMedia": "https://bamedicale.com/assets/articles/thyroid-cancer-staging-risk-stratification/poster.jpg",
+      "url": "https://bamedicale.com/articles/thyroid-cancer-staging-risk-stratification.html"
+    },
+    {
       "id": "targeted-oncology-anti-egfr-therapeutics",
       "contentId": "targeted-oncology-anti-egfr-therapeutics",
       "type": "Article",

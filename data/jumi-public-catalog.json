@@ -217,6 +217,21 @@
       "updatedAt": ""
     },
     {
+      "id": "thyroid-cancer-staging-risk-stratification",
+      "type": "Article",
+      "title": "Thyroid Cancer Staging & Risk Stratification",
+      "slug": "thyroid-cancer-staging-risk-stratification",
+      "status": "Published",
+      "publishedAt": "2026-11-21",
+      "publicUrl": "https://bamedicale.com/articles/thyroid-cancer-staging-risk-stratification.html",
+      "primaryAudience": "DOCTOR",
+      "secondaryAudiences": [],
+      "primaryTopic": "Staging",
+      "topics": [],
+      "primaryDiseaseGroup": "endocrine-metabolic",
+      "updatedAt": ""
+    },
+    {
       "id": "targeted-oncology-anti-egfr-therapeutics",
       "type": "Article",
       "title": "TARGETED ONCOLOGY: ANTI-EGFR THERAPEUTICS",

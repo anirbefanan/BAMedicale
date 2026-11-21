@@ -478,6 +478,48 @@ window.BAMEDICALE_DATA = {
         hashtags: ["#ThyroidCancer", "#MedicalEducation", "#BAMedicaleCom"]
       }
     },
+    "thyroid-cancer-staging-risk-stratification": {
+      id: "thyroid-cancer-staging-risk-stratification",
+      slug: "thyroid-cancer-staging-risk-stratification",
+      title: "Thyroid Cancer Staging & Risk Stratification",
+      seoTitle: "Thyroid Cancer Staging & Risk Stratification (AJCC 8th) | BA Medicale",
+      dek: "A comprehensive clinical framework for adult and pediatric differentiated, medullary, and anaplastic thyroid carcinoma.",
+      excerpt: "A clinical guidance report on AJCC 8th edition TNM staging, stage grouping by subtype and age, pediatric ATA risk categories, and response-to-therapy assessment in thyroid cancer.",
+      primaryAudience: "DOCTOR",
+      secondaryAudiences: [],
+      author: { name: "BA Medicale", type: "Organization" },
+      primaryTopic: "Staging",
+      professionalCategory: "staging",
+      professionalArea: "Staging",
+      tags: ["Thyroid Cancer", "TNM", "Risk Stratification", "Pediatric Thyroid Cancer"],
+      primaryDiseaseGroup: "endocrine-metabolic",
+      secondaryDiseaseGroups: ["cancer-neoplastic"],
+      diseaseCondition: "Thyroid cancer",
+      diseaseSite: "Thyroid gland",
+      contentType: "Article",
+      sourceAttribution: "BA Medicale clinical guidance report",
+      publishedDate: "2026-11-21",
+      updatedDate: "",
+      sortOrder: 6,
+      focalPosition: "50% 50%",
+      cover: "assets/articles/thyroid-cancer-staging-risk-stratification/poster.jpg",
+      sourceFile: "assets/articles/thyroid-cancer-staging-risk-stratification/source.docx",
+      sourceManifest: "assets/articles/thyroid-cancer-staging-risk-stratification/manuscript.json",
+      label: "Doctor education article",
+      intro: [],
+      sections: [],
+      takeaways: [],
+      references: [],
+      promotion: {
+        hook: "Microscopic extrathyroidal extension no longer makes a thyroid tumor T3.",
+        teaser: [
+          "AJCC 8th edition raised the DTC age cutoff from 45 to 55 years and moved Level VII nodes into N1a.",
+          "Staging predicts cancer-specific mortality, not recurrence: pair it with ATA risk stratification and response-to-therapy assessment."
+        ],
+        cta: "Read the clinical guidance report at BAMedicale.com",
+        hashtags: ["#ThyroidCancer", "#AJCC8", "#BAMedicaleCom"]
+      }
+    },
     "targeted-oncology-anti-egfr-therapeutics": {
       id: "targeted-oncology-anti-egfr-therapeutics",
       slug: "targeted-oncology-anti-egfr-therapeutics",

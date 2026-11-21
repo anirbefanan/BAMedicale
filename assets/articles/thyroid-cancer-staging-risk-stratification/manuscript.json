@@ -1,0 +1,283 @@
+{
+  "sourceSha256": "45e7cfaaac370df2c38717d94f10232e5bbe607d033391ffac74cf44285ad2c3",
+  "paragraphs": [
+    {
+      "tag": "p",
+      "text": "BA MEDICALE | CLINICAL GUIDANCE REPORT"
+    },
+    {
+      "tag": "p",
+      "text": "THYROID CANCER STAGING & RISK STRATIFICATION"
+    },
+    {
+      "tag": "p",
+      "text": "A Comprehensive Clinical Framework for Adult and Pediatric Differentiated, Medullary, and Anaplastic Thyroid Carcinoma"
+    },
+    {
+      "tag": "h3",
+      "text": "EXECUTIVE CLINICAL HIGHLIGHTS & PARADIGM SHIFTS"
+    },
+    {
+      "tag": "li",
+      "text": "Age Cutoff Shift (45 → 55 Years): Reclassified death risk in Differentiated Thyroid Cancer (DTC). Patients <55 years old are categorized strictly into Stage I (M0) or Stage II (M1)."
+    },
+    {
+      "tag": "li",
+      "text": "Extrathyroidal Extension (ETE) Revision: Microscopic ETE removed from T3 definition (prevents overstaging up to 28.3% of low-risk patients). T3a is now reserved for tumors >4 cm limited to thyroid; T3b indicates gross ETE to strap muscles."
+    },
+    {
+      "tag": "li",
+      "text": "Nodal Reclassification: Level VII (superior mediastinal) lymph nodes moved from N1b (lateral) to N1a (central compartment). N1 status no longer automatically advances patients ≥55 years to Stage III."
+    },
+    {
+      "tag": "li",
+      "text": "The Pediatric Paradox (Age ≤ 18): Pediatric DTC presents with high rates of regional nodal involvement (60-80%) and lung metastasis (10-20%), yet maintains exceptional 20-year disease-specific survival (>98-99%)."
+    },
+    {
+      "tag": "h2",
+      "text": "1. INTRODUCTION & OBJECTIVES OF THYROID CANCER STAGING"
+    },
+    {
+      "tag": "p",
+      "text": "Accurate clinical and pathological staging of thyroid cancer serves three primary imperatives: (1) determining anatomical disease extent, (2) guiding optimal treatment strategies (extent of surgical resection, selective use of Radioactive Iodine [RAI] ablation, and TSH suppression depth), and (3) establishing a reliable cancer-specific mortality prognosis. Evaluation is grounded across four core diagnostic pillars:"
+    },
+    {
+      "tag": "table",
+      "rows": [
+        [
+          "Pillar",
+          "Evaluation Parameters & Diagnostic Modalities",
+          "Clinical Significance"
+        ],
+        [
+          "Primary Tumor (T)",
+          "Maximum diameter (cm), multifocality, and presence of gross Extrathyroidal Extension (ETE) into strap muscles or vital neck structures.",
+          "Determines extent of primary surgery (Hemithyroidectomy vs. Total Thyroidectomy)."
+        ],
+        [
+          "Extrathyroidal Extension",
+          "Distinction between micro-ETE (histological only) vs. gross ETE (intraoperative visual invasion of larynx, trachea, esophagus, or RLN).",
+          "Gross ETE triggers higher T stage (T3b/T4) and post-op RAI indication; micro-ETE no longer alters T stage."
+        ],
+        [
+          "Regional Nodes (N)",
+          "Assessment of Level VI/VII (Central - N1a) vs. Level I-V/retropharyngeal (Lateral - N1b) lymph node compartments via US/CT.",
+          "Guides therapeutic neck dissection and post-surgical RAI dosing."
+        ],
+        [
+          "Distant Metastasis (M)",
+          "Identification of distant metastatic disease (M1 vs M0), predominantly affecting lungs, skeleton, and brain via SPECT/CT or PET.",
+          "Primary determinant of Stage II in DTC <55yo and Stage IVB/IVC in older/undifferentiated cancers."
+        ]
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "2. AJCC 8TH EDITION TNM CLASSIFICATION FRAMEWORK"
+    },
+    {
+      "tag": "table",
+      "rows": [
+        [
+          "Category",
+          "Anatomical Criteria (AJCC 8th Edition)"
+        ],
+        [
+          "T1a",
+          "Tumor ≤ 1.0 cm in greatest dimension, limited to the thyroid."
+        ],
+        [
+          "T1b",
+          "Tumor > 1.0 cm but ≤ 2.0 cm in greatest dimension, limited to the thyroid."
+        ],
+        [
+          "T2",
+          "Tumor > 2.0 cm but ≤ 4.0 cm in greatest dimension, limited to the thyroid."
+        ],
+        [
+          "T3a",
+          "Tumor > 4.0 cm in greatest dimension, limited strictly to the thyroid."
+        ],
+        [
+          "T3b",
+          "Tumor of any size with gross extrathyroidal extension invading strap muscles (sternohyoid, sternothyroid, thyrohyoid, omohyoid)."
+        ],
+        [
+          "T4a",
+          "Gross ETE invading subcutaneous soft tissues, larynx, trachea, esophagus, or recurrent laryngeal nerve."
+        ],
+        [
+          "T4b",
+          "Gross ETE invading prevertebral fascia, or encasing carotid artery or mediastinal vessels."
+        ],
+        [
+          "N0a / N0b",
+          "N0a: Cytologically/histologically confirmed negative nodes; N0b: No clinical/radiographic nodal metastasis."
+        ],
+        [
+          "N1a",
+          "Metastasis to Level VI (pretracheal, paratracheal, prelaryngeal/Delphian) or Level VII (superior mediastinal) nodes."
+        ],
+        [
+          "N1b",
+          "Metastasis to unilateral, bilateral, or contralateral lateral neck nodes (Levels I, II, III, IV, V) or retropharyngeal nodes."
+        ],
+        [
+          "M0 / M1",
+          "M0: No distant metastasis; M1: Distant metastasis present (lungs, bone, brain, etc.)."
+        ]
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "3. STAGE GROUPING BY HISTOPATHOLOGICAL SUBTYPE & AGE"
+    },
+    {
+      "tag": "p",
+      "text": "Thyroid carcinoma staging varies significantly based on histological differentiation. Differentiated Thyroid Cancer (DTC)—comprising Papillary, Follicular, and Hürthle Cell Carcinoma—incorporates patient age at diagnosis as a key prognostic variable."
+    },
+    {
+      "tag": "table",
+      "rows": [
+        [
+          "Age Group / Subtype",
+          "Stage I",
+          "Stage II",
+          "Stage III",
+          "Stage IV"
+        ],
+        [
+          "DTC < 55 Years",
+          "Any T, Any N, M0 (100% 10-year survival)",
+          "Any T, Any N, M1 (Distant metastases present)",
+          "Category Excluded",
+          "Category Excluded"
+        ],
+        [
+          "DTC ≥ 55 Years",
+          "T1a–T2, N0, M0",
+          "T1–T2 N1 M0 T3a/T3b Any N M0",
+          "T4a Any N M0",
+          "IVA: T4b Any N M0 IVB: Any T Any N M1"
+        ],
+        [
+          "Medullary (MTC) (All Ages)",
+          "T1, N0, M0",
+          "T2–T3, N0, M0",
+          "T1–T3, N1a, M0",
+          "IVA: T1-T3 N1b / T4a Any N IVB: T4b Any N M0 IVC: Any T Any N M1"
+        ],
+        [
+          "Anaplastic (ATC) (All Ages)",
+          "Category Excluded",
+          "Category Excluded",
+          "Category Excluded",
+          "IVA: T1–T3a, N0, M0 IVB: T3b–T4b or N1 IVC: Any T Any N M1"
+        ]
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "4. PEDIATRIC THYROID CANCER STAGING (AGE ≤ 18 YEARS)"
+    },
+    {
+      "tag": "p",
+      "text": "Pediatric Differentiated Thyroid Cancer (pDTC) presents distinct biological characteristics compared to adult DTC. Although pediatric patients frequently present with extensive regional lymphadenopathy (up to 80%) and pulmonary metastases (10-20%), overall 20-year survival exceeds 98-99%."
+    },
+    {
+      "tag": "table",
+      "rows": [
+        [
+          "ATA Pediatric Risk Category",
+          "Clinical & Pathological Criteria (Francis et al., 2015)",
+          "Recurrence Risk & Management Strategy"
+        ],
+        [
+          "Low Risk",
+          "Tumor strictly limited to thyroid (N0/NX or incidental microscopic N1a involvement).",
+          "Low recurrence (<5%). Lobectomy may suffice; minimal RAI indication."
+        ],
+        [
+          "Intermediate Risk",
+          "Extensive microscopic N1a involvement or limited macroscopic N1a / microscopic N1b metastasis.",
+          "Moderate recurrence (~15-25%). Total thyroidectomy + therapeutic central/lateral dissection ± RAI."
+        ],
+        [
+          "High Risk",
+          "Gross ETE (T4), extensive regional nodal metastasis (N1b), or distant metastasis (M1).",
+          "High persistent disease rate (>60%). Total thyroidectomy, comprehensive neck dissection, and post-op RAI."
+        ]
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "5. CLINICAL AWARENESS POINTS & RESPONSE-TO-THERAPY UPDATE"
+    },
+    {
+      "tag": "h3",
+      "text": "CRITICAL CLINICAL AWARENESS POINTS"
+    },
+    {
+      "tag": "p",
+      "text": "1. Avoid Overtreatment in Low-Risk Disease: Microscopic ETE is no longer a criterion for T3 staging or routine RAI ablation. T1a/T1b N0 patients can be managed safely with thyroid lobectomy alone without compromising long-term survival."
+    },
+    {
+      "tag": "p",
+      "text": "2. Avoid Over-Reliance on AJCC Staging for Recurrence Prediction: AJCC 8th Edition strictly predicts cancer-specific mortality, NOT recurrence risk. Clinicians must apply the ATA 3-Tiered Risk Stratification System (Low, Intermediate, High) to estimate disease recurrence."
+    },
+    {
+      "tag": "p",
+      "text": "3. Dynamic Response-to-Therapy Assessment: Post-surgical evaluation must evolve beyond static baseline staging by categorizing treatment response at 6-24 months into 4 operational outcomes:"
+    },
+    {
+      "tag": "table",
+      "rows": [
+        [
+          "Response Category",
+          "Biochemical & Imaging Criteria",
+          "Clinical Action Plan"
+        ],
+        [
+          "Excellent Response",
+          "Negative imaging; unstimulated Tg < 0.2 ng/mL or stimulated Tg < 1.0 ng/mL with negative TgAb.",
+          "De-escalate surveillance; relax TSH target to 0.5–2.0 mIU/L."
+        ],
+        [
+          "Biochemical Incomplete",
+          "Negative structural imaging; elevated or rising unstimulated/stimulated Tg or TgAb levels.",
+          "Active surveillance; maintain TSH suppression (0.1–0.5 mIU/L); hold empirical RAI."
+        ],
+        [
+          "Structural Incomplete",
+          "Persistent or newly identified structural disease regardless of Tg.",
+          "Targeted therapy (re-resection, RAI, targeted kinase inhibitors, local ablation)."
+        ],
+        [
+          "Indeterminate Response",
+          "Non-specific faint imaging foci or stable low-level Tg/TgAb.",
+          "Serial monitoring of Tg trends and ultrasound imaging without immediate intervention."
+        ]
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "6. VALIDATED OFFICIAL REFERENCES"
+    },
+    {
+      "tag": "p",
+      "text": "1. Tuttle RM, Haugen B, Perrier ND. (2017). The 8th Edition of the AJCC Cancer Staging Manual: Thyroid. Annals of Surgical Oncology, 24(5), 1162–1164."
+    },
+    {
+      "tag": "p",
+      "text": "2. Haugen BR, Alexander EK, Bible KC, et al. (2016). 2015 American Thyroid Association Management Guidelines for Adult Patients with Thyroid Nodules and Differentiated Thyroid Cancer. Thyroid, 26(1), 1–133."
+    },
+    {
+      "tag": "p",
+      "text": "3. Francis GL, Waguespack SG, Bauer AJ, et al. (2015). Management Guidelines for Children with Thyroid Nodules and Differentiated Thyroid Cancer: The ATA Guidelines Task Force on Pediatric Thyroid Cancer. Thyroid, 25(7), 716–759."
+    },
+    {
+      "tag": "p",
+      "text": "4. Lamartina L, Grani G, Durante C, Filetti S. (2017). 8th edition of the AJCC/TNM staging system of thyroid cancer: what to expect. Endocrine-Related Cancer, 24(3), L13–L15."
+    }
+  ]
+}
