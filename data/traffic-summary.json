@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T23:28:21.063Z",
+  "generatedAt": "2026-11-21T04:40:12.298Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-24",
@@ -24,7 +24,7 @@
       "views": 50,
       "activeUsers": 39,
       "eventCount": 216,
-      "bounceRate": 0.5106382978723404
+      "bounceRate": 0.48936170212765956
     },
     {
       "title": "Medical Library | BA Medicale",
@@ -119,16 +119,16 @@
       "sessions": 64
     },
     {
-      "label": "Not set",
-      "sessions": 4
-    },
-    {
       "label": "bing / organic",
       "sessions": 4
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "facebook.com / referral",
@@ -146,7 +146,7 @@
     },
     {
       "label": "Not set",
-      "activeUsers": 8
+      "activeUsers": 9
     },
     {
       "label": "Ashburn",

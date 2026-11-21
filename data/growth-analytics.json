@@ -9,20 +9,20 @@
         "previousStartDate": "2026-11-19",
         "previousEndDate": "2026-11-19"
       },
-      "generatedAt": "2026-11-20T23:28:21.444Z",
+      "generatedAt": "2026-11-21T04:40:12.728Z",
       "summary": {
         "activeUsers": 6,
         "newUsers": 6,
         "screenPageViews": 8,
         "sessions": 7,
-        "engagedSessions": 1,
+        "engagedSessions": 2,
         "userEngagementDuration": 95,
         "eventCount": 31,
         "keyEvents": 0,
         "totalUsers": 6,
         "averageEngagementTimeSeconds": 15.8333,
-        "engagementRate": 0.1429,
-        "returningUsers": 0
+        "engagementRate": 0.2857,
+        "returningUsers": 1
       },
       "previous": {
         "activeUsers": 5,
@@ -52,14 +52,14 @@
             "newUsers": 6,
             "screenPageViews": 8,
             "sessions": 7,
-            "engagedSessions": 1,
+            "engagedSessions": 2,
             "userEngagementDuration": 95,
             "eventCount": 31,
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 15.8333,
-            "engagementRate": 0.1429,
-            "returningUsers": 0
+            "engagementRate": 0.2857,
+            "returningUsers": 1
           }
         ],
         "previous": [
@@ -88,17 +88,12 @@
             "sessions": 6
           },
           {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
-          },
-          {
             "label": "Returning",
+            "activeUsers": 1,
+            "sessions": 1
+          },
+          {
+            "label": "Unclassified",
             "activeUsers": 0,
             "sessions": 0
           }
@@ -118,11 +113,6 @@
           {
             "label": "Direct",
             "activeUsers": 2,
-            "sessions": 2
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 0,
             "sessions": 2
           }
         ]
@@ -147,7 +137,7 @@
           {
             "label": "google / organic",
             "activeUsers": 3,
-            "sessions": 3
+            "sessions": 4
           },
           {
             "label": "(direct) / (none)",
@@ -158,11 +148,6 @@
             "label": "bing / organic",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 3
           }
         ]
       },
@@ -183,11 +168,6 @@
             "label": "bing / organic",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 2
           }
         ]
       },
@@ -221,7 +201,7 @@
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "sessions": 4,
-            "engagementRate": 0.25
+            "engagementRate": 0.5
           },
           {
             "path": "/",
@@ -246,20 +226,20 @@
         "previousStartDate": "2026-11-07",
         "previousEndDate": "2026-11-13"
       },
-      "generatedAt": "2026-11-20T23:28:21.444Z",
+      "generatedAt": "2026-11-21T04:40:12.728Z",
       "summary": {
         "activeUsers": 19,
         "newUsers": 16,
         "screenPageViews": 42,
         "sessions": 31,
-        "engagedSessions": 12,
+        "engagedSessions": 13,
         "userEngagementDuration": 665,
         "eventCount": 132,
         "keyEvents": 0,
         "totalUsers": 20,
         "averageEngagementTimeSeconds": 35,
-        "engagementRate": 0.3871,
-        "returningUsers": 4
+        "engagementRate": 0.4194,
+        "returningUsers": 5
       },
       "previous": {
         "activeUsers": 39,
@@ -379,14 +359,14 @@
             "newUsers": 6,
             "screenPageViews": 8,
             "sessions": 7,
-            "engagedSessions": 1,
+            "engagedSessions": 2,
             "userEngagementDuration": 95,
             "eventCount": 31,
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 15.8333,
-            "engagementRate": 0.1429,
-            "returningUsers": 0
+            "engagementRate": 0.2857,
+            "returningUsers": 1
           }
         ],
         "previous": [
@@ -500,13 +480,8 @@
           },
           {
             "label": "Returning",
-            "activeUsers": 4,
-            "sessions": 8
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
+            "activeUsers": 5,
+            "sessions": 9
           },
           {
             "label": "Unclassified",
@@ -535,11 +510,6 @@
             "label": "Organic Social",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "Unassigned",
-            "activeUsers": 0,
-            "sessions": 2
           }
         ]
       },
@@ -579,7 +549,7 @@
           {
             "label": "google / organic",
             "activeUsers": 8,
-            "sessions": 13
+            "sessions": 14
           },
           {
             "label": "bing / organic",
@@ -590,11 +560,6 @@
             "label": "facebook.com / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 3
           }
         ]
       },
@@ -620,11 +585,6 @@
             "label": "facebook.com / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 2
           }
         ]
       },
@@ -703,7 +663,7 @@
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "sessions": 15,
-            "engagementRate": 0.3333
+            "engagementRate": 0.4
           },
           {
             "path": "/",
@@ -764,20 +724,20 @@
         "previousStartDate": "2026-09-26",
         "previousEndDate": "2026-10-23"
       },
-      "generatedAt": "2026-11-20T23:28:21.444Z",
+      "generatedAt": "2026-11-21T04:40:12.728Z",
       "summary": {
         "activeUsers": 99,
         "newUsers": 93,
         "screenPageViews": 198,
         "sessions": 148,
-        "engagedSessions": 54,
+        "engagedSessions": 55,
         "userEngagementDuration": 5438,
         "eventCount": 648,
         "keyEvents": 0,
         "totalUsers": 103,
         "averageEngagementTimeSeconds": 54.9293,
-        "engagementRate": 0.3649,
-        "returningUsers": 13
+        "engagementRate": 0.3716,
+        "returningUsers": 14
       },
       "previous": {
         "activeUsers": 81,
@@ -1212,14 +1172,14 @@
             "newUsers": 6,
             "screenPageViews": 8,
             "sessions": 7,
-            "engagedSessions": 1,
+            "engagedSessions": 2,
             "userEngagementDuration": 95,
             "eventCount": 31,
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 15.8333,
-            "engagementRate": 0.1429,
-            "returningUsers": 0
+            "engagementRate": 0.2857,
+            "returningUsers": 1
           }
         ],
         "previous": [
@@ -1627,13 +1587,8 @@
           },
           {
             "label": "Returning",
-            "activeUsers": 13,
-            "sessions": 34
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
+            "activeUsers": 14,
+            "sessions": 35
           },
           {
             "label": "Unclassified",
@@ -1666,7 +1621,7 @@
           {
             "label": "Unassigned",
             "activeUsers": 2,
-            "sessions": 4
+            "sessions": 2
           }
         ]
       },
@@ -1716,7 +1671,7 @@
           {
             "label": "google / organic",
             "activeUsers": 38,
-            "sessions": 64
+            "sessions": 65
           },
           {
             "label": "bing / organic",
@@ -1737,11 +1692,6 @@
             "label": "m.facebook.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 3
           }
         ]
       },
@@ -1771,7 +1721,7 @@
           {
             "label": "(not set)",
             "activeUsers": 2,
-            "sessions": 4
+            "sessions": 2
           },
           {
             "label": "facebook.com / referral",
@@ -1995,7 +1945,7 @@
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "sessions": 45,
-            "engagementRate": 0.5111
+            "engagementRate": 0.5333
           },
           {
             "path": "/",
@@ -2134,20 +2084,20 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-20"
       },
-      "generatedAt": "2026-11-20T23:28:21.444Z",
+      "generatedAt": "2026-11-21T04:40:12.728Z",
       "summary": {
         "activeUsers": 79,
         "newUsers": 74,
         "screenPageViews": 143,
         "sessions": 114,
-        "engagedSessions": 41,
+        "engagedSessions": 42,
         "userEngagementDuration": 2003,
         "eventCount": 475,
         "keyEvents": 0,
         "totalUsers": 80,
         "averageEngagementTimeSeconds": 25.3544,
-        "engagementRate": 0.3596,
-        "returningUsers": 10
+        "engagementRate": 0.3684,
+        "returningUsers": 11
       },
       "previous": {
         "activeUsers": 59,
@@ -2462,14 +2412,14 @@
             "newUsers": 6,
             "screenPageViews": 8,
             "sessions": 7,
-            "engagedSessions": 1,
+            "engagedSessions": 2,
             "userEngagementDuration": 95,
             "eventCount": 31,
             "keyEvents": 0,
             "totalUsers": 6,
             "averageEngagementTimeSeconds": 15.8333,
-            "engagementRate": 0.1429,
-            "returningUsers": 0
+            "engagementRate": 0.2857,
+            "returningUsers": 1
           }
         ],
         "previous": [
@@ -2765,13 +2715,8 @@
           },
           {
             "label": "Returning",
-            "activeUsers": 10,
-            "sessions": 25
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
+            "activeUsers": 11,
+            "sessions": 26
           },
           {
             "label": "Unclassified",
@@ -2804,7 +2749,7 @@
           {
             "label": "Unassigned",
             "activeUsers": 1,
-            "sessions": 3
+            "sessions": 1
           }
         ]
       },
@@ -2854,7 +2799,7 @@
           {
             "label": "google / organic",
             "activeUsers": 29,
-            "sessions": 48
+            "sessions": 49
           },
           {
             "label": "bing / organic",
@@ -2875,11 +2820,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 1,
             "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 3
           }
         ]
       },
@@ -2914,7 +2854,7 @@
           {
             "label": "(not set)",
             "activeUsers": 1,
-            "sessions": 3
+            "sessions": 1
           },
           {
             "label": "l.instagram.com / referral",
@@ -3124,7 +3064,7 @@
             "path": "/articles/indonesia-cancer-tumor-statistics-2026-policy-update.html",
             "title": "Indonesia Cancer & Tumor Statistics: 2026 Policy Update",
             "sessions": 38,
-            "engagementRate": 0.5263
+            "engagementRate": 0.5526
           },
           {
             "path": "/",
@@ -3251,7 +3191,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-20T23:28:21.444Z",
+      "generatedAt": "2026-11-21T04:40:12.728Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5503,10 +5443,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-20T23:28:21.444Z",
+  "generatedAt": "2026-11-21T04:40:12.728Z",
   "realtime": {
     "status": "unavailable",
-    "generatedAt": "2026-11-20T23:28:21.444Z",
+    "generatedAt": "2026-11-21T04:40:12.728Z",
     "windowMinutes": 30
   }
 }
