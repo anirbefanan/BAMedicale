@@ -57,7 +57,9 @@ jobs:
           node scripts/fetch-ga4-traffic.js
           node scripts/fetch-ga4-traffic.js --validate data/traffic-summary.json
           node --test scripts/traffic-growth.test.js
-          node scripts/fetch-growth-analytics.js
+          # A transient growth-report failure keeps the prior validated cache and must not
+          # block publishing the already-validated traffic summary.
+          node scripts/fetch-growth-analytics.js || echo "::warning::Growth analytics unavailable; keeping the previous validated cache."
           node scripts/fetch-growth-analytics.js --validate
 
       - name: Commit changed traffic data

@@ -59,12 +59,14 @@ async function collect({propertyId, token, now = new Date(), old, custom, reques
     const result=await request(endpoint + (realtime ? ':runRealtimeReport' : ':runReport'), {
       method: 'POST', headers: {authorization: `Bearer ${token}`, 'content-type': 'application/json'}, body: JSON.stringify(body)
     });
-    if(!body.metrics.every(m=>result.metricHeaders?.some(h=>h.name===m.name)))throw new Error('Missing metric headers.');
+    // GA4 can omit headers on an empty report; headers are only needed to read rows.
+    if((result.rows||[]).length&&!body.metrics.every(m=>result.metricHeaders?.some(h=>h.name===m.name)))throw new Error('Missing metric headers.');
     for(const row of result.rows||[])if(row.metricValues?.length!==body.metrics.length||row.metricValues.some(v=>v.value==null||!Number.isFinite(Number(v.value))||Number(v.value)<0))throw new Error('Invalid metric values.');
     return result;
   }
   const probe = await query({ dateRanges:[{startDate:'yesterday',endDate:'yesterday'}], metrics:[{name:'activeUsers'}], dimensionFilter:filter });
-  const timeZone = probe.metadata?.timeZone;
+  // Reuse the previously validated property timezone when GA4 omits metadata on an empty probe.
+  const timeZone = probe.metadata?.timeZone || old?.timeZone;
   if (!timeZone) throw new Error('GA4 property timezone was not returned; refusing ambiguous periods.');
   const payload = old ? JSON.parse(JSON.stringify(old)) : {schemaVersion:1, source:'Google Analytics 4 Data API', periods:{}};
   payload.timeZone = timeZone;
