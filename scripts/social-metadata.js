@@ -28,7 +28,9 @@ const metaValue = (html, attributeName, attributeValue) => {
 };
 
 const isNoindex = (html) => metaTags(html).some((tag) => attribute(tag, "name").toLowerCase() === "robots" && /(?:^|[,\s])noindex(?:$|[,\s])/i.test(attribute(tag, "content")));
-const isPrivatePath = (relativePath) => PRIVATE_PREFIXES.some((prefix) => relativePath.replace(/\\/g, "/").startsWith(prefix));
+// Search-engine ownership verification files are bare tokens, not pages.
+const isVerificationFile = (relativePath) => /^google[0-9a-f]+\.html$/i.test(relativePath.replace(/\\/g, "/"));
+const isPrivatePath = (relativePath) => isVerificationFile(relativePath) || PRIVATE_PREFIXES.some((prefix) => relativePath.replace(/\\/g, "/").startsWith(prefix));
 const isPublicHtml = (relativePath, html) => relativePath.toLowerCase().endsWith(".html") && !isPrivatePath(relativePath) && !isNoindex(html);
 
 const imageBlock = () => [
