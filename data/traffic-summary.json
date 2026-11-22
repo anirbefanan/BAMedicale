@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T22:33:21.301Z",
+  "generatedAt": "2026-11-22T03:54:54.687Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-25",
@@ -99,10 +99,6 @@
     {
       "label": "m.facebook.com / referral",
       "activeUsers": 3
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 2
     },
     {
       "label": "facebook.com / referral",
