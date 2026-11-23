@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T22:55:47.099Z",
+  "generatedAt": "2026-11-23T04:35:09.467Z",
   "reportingPeriod": {
     "label": "Last 28 days",
     "startDate": "2026-10-26",
@@ -107,10 +107,6 @@
     {
       "label": "l.instagram.com / referral",
       "activeUsers": 2
-    },
-    {
-      "label": "Not set",
-      "activeUsers": 1
     }
   ],
   "sessionSources": [
@@ -123,16 +119,16 @@
       "sessions": 64
     },
     {
-      "label": "Not set",
-      "sessions": 3
-    },
-    {
       "label": "bing / organic",
       "sessions": 3
     },
     {
       "label": "m.facebook.com / referral",
       "sessions": 3
+    },
+    {
+      "label": "Not set",
+      "sessions": 2
     },
     {
       "label": "facebook.com / referral",
