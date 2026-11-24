@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-11-23T16:45:31.251Z",
+  "generatedAt": "2026-11-24T03:34:47.305Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-26",
-    "endDate": "2026-11-22"
+    "startDate": "2026-10-27",
+    "endDate": "2026-11-23"
   },
   "summary": {
-    "activeUsers": 95,
-    "newUsers": 90,
-    "averageEngagementTimeSeconds": 29.610526315789475,
-    "eventCount": 592
+    "activeUsers": 98,
+    "newUsers": 92,
+    "averageEngagementTimeSeconds": 29.06122448979592,
+    "eventCount": 614
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 55,
-      "activeUsers": 31,
-      "eventCount": 154,
-      "bounceRate": 0.6078431372549019
+      "views": 58,
+      "activeUsers": 34,
+      "eventCount": 164,
+      "bounceRate": 0.6111111111111112
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 43,
-      "activeUsers": 34,
-      "eventCount": 187,
-      "bounceRate": 0.4878048780487805
+      "views": 44,
+      "activeUsers": 35,
+      "eventCount": 191,
+      "bounceRate": 0.5
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 18,
-      "activeUsers": 7,
-      "eventCount": 45,
-      "bounceRate": 0.6111111111111112
+      "views": 22,
+      "activeUsers": 8,
+      "eventCount": 52,
+      "bounceRate": 0.5238095238095238
     },
     {
       "title": "Videos | BA Medicale",
@@ -39,6 +39,13 @@
       "activeUsers": 4,
       "eventCount": 22,
       "bounceRate": 0.125
+    },
+    {
+      "title": "BA Medicale Growth & Education Impact Dashboard",
+      "views": 7,
+      "activeUsers": 2,
+      "eventCount": 23,
+      "bounceRate": 0.16666666666666666
     },
     {
       "title": "Nutri-Level Food Labels and Metabolic Disease Prevention | BA Medicale",
@@ -55,13 +62,6 @@
       "bounceRate": 0.16666666666666666
     },
     {
-      "title": "BA Medicale Growth & Education Impact Dashboard",
-      "views": 5,
-      "activeUsers": 2,
-      "eventCount": 17,
-      "bounceRate": 0.25
-    },
-    {
       "title": "Anti-EGFR Therapeutics | BA Medicale",
       "views": 4,
       "activeUsers": 2,
@@ -69,28 +69,32 @@
       "bounceRate": 0.25
     },
     {
-      "title": "For Doctors | BA Medicale",
-      "views": 4,
-      "activeUsers": 4,
-      "eventCount": 11,
-      "bounceRate": 0.5
-    },
-    {
       "title": "BA Medicale Team | Physician-Led Medical Education",
       "views": 3,
       "activeUsers": 3,
       "eventCount": 6,
       "bounceRate": 0
+    },
+    {
+      "title": "Contact BA Medicale | Medical Education Enquiries",
+      "views": 3,
+      "activeUsers": 3,
+      "eventCount": 7,
+      "bounceRate": 0.3333333333333333
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 47
+      "activeUsers": 48
     },
     {
       "label": "google / organic",
-      "activeUsers": 38
+      "activeUsers": 39
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 3
     },
     {
       "label": "bing / organic",
@@ -112,11 +116,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 66
+      "sessions": 69
     },
     {
       "label": "google / organic",
-      "sessions": 64
+      "sessions": 66
     },
     {
       "label": "bing / organic",
@@ -154,14 +158,14 @@
     },
     {
       "label": "San Jose",
-      "activeUsers": 5
-    },
-    {
-      "label": "Bandung",
-      "activeUsers": 3
+      "activeUsers": 6
     },
     {
       "label": "Semarang",
+      "activeUsers": 4
+    },
+    {
+      "label": "Bandung",
       "activeUsers": 3
     },
     {
