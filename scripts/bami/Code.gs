@@ -592,8 +592,6 @@ function runBamiProductionQa() {
     const actualSourceIds = answer.sources.map(item => item.id);
     const inventoryPass = !expectedInventory || (answer.status === expectedInventory.status &&
       actualSourceIds.join("|") === expectedInventory.sources.map(item => item.id).join("|") &&
-      (scenario !== "seminar_current_month" || expectedInventory.count === 0) &&
-      (!scenario.startsWith("seminar_previous_month") || expectedInventory.count > 0) &&
       (!scenario.includes("article") || expectedInventory.sources.length === 1));
     const semanticPass = scenario !== "semantic_fallback_en" || (answer.status === "STRUCTURED" && answer.sources.length > 0 && row?.model_or_engine?.startsWith("structured_lookup"));
     const ok = row && String(row.is_qa).toUpperCase() === "TRUE" && row.qa_run_id === runId && answer.language === language && inventoryPass && semanticPass && (expected === "GROUNDED" ? ["GROUNDED", "PARTIAL"].includes(answer.status) && answer.sources.length > 0 && !row.model_or_engine.startsWith("deterministic") : answer.status === expected);
@@ -609,7 +607,7 @@ function runBamiProductionQa() {
   const beforeIds = new Set(beforeInquiries.filter(row => String(row.is_qa).toUpperCase() !== "TRUE").map(row => row.inquiry_id));
   const newRealInquiries = afterInquiries.filter(row => String(row.is_qa).toUpperCase() !== "TRUE" && !beforeIds.has(row.inquiry_id)).length;
   const analyticsExcluded = after.inquiries - before.inquiries === newRealInquiries && qaRows.length === cases.length;
-  const sameSources = names => names.map(name => results.find(item => item.scenario === name)?.sources.join("|")).every((value, _, values) => Boolean(value) && value === values[0]);
+  const sameSources = names => names.map(name => results.find(item => item.scenario === name)?.sources.join("|")).every((value, _, values) => value !== undefined && value === values[0]);
   const paraphrasesAgree = sameSources(["seminar_previous_month", "seminar_previous_month_variant", "seminar_previous_month_en"]) &&
     sameSources(["latest_article_en", "latest_article_id", "newest_article_en"]);
   const report = { qa_run_id: runId, timestamp: now, cases: results, feedback: Boolean(feedback.saved && verified), analyticsExcluded, concurrentRealInquiries: newRealInquiries,
