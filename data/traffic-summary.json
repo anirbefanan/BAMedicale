@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-11-24T16:40:10.626Z",
+  "generatedAt": "2026-11-25T01:43:32.455Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-27",
-    "endDate": "2026-11-23"
+    "startDate": "2026-10-28",
+    "endDate": "2026-11-24"
   },
   "summary": {
-    "activeUsers": 98,
-    "newUsers": 92,
-    "averageEngagementTimeSeconds": 29.06122448979592,
-    "eventCount": 614
+    "activeUsers": 102,
+    "newUsers": 96,
+    "averageEngagementTimeSeconds": 26.529411764705884,
+    "eventCount": 625
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 58,
-      "activeUsers": 34,
-      "eventCount": 164,
-      "bounceRate": 0.6111111111111112
+      "views": 59,
+      "activeUsers": 36,
+      "eventCount": 166,
+      "bounceRate": 0.6181818181818182
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 44,
-      "activeUsers": 35,
-      "eventCount": 191,
-      "bounceRate": 0.5
+      "views": 47,
+      "activeUsers": 37,
+      "eventCount": 203,
+      "bounceRate": 0.5111111111111111
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 22,
+      "views": 19,
       "activeUsers": 8,
-      "eventCount": 52,
-      "bounceRate": 0.5238095238095238
+      "eventCount": 46,
+      "bounceRate": 0.5263157894736842
     },
     {
       "title": "Videos | BA Medicale",
@@ -86,11 +86,11 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 49
+      "activeUsers": 51
     },
     {
       "label": "google / organic",
-      "activeUsers": 39
+      "activeUsers": 41
     },
     {
       "label": "bing / organic",
@@ -112,11 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 69
+      "sessions": 72
     },
     {
       "label": "google / organic",
-      "sessions": 66
+      "sessions": 67
     },
     {
       "label": "bing / organic",
@@ -127,16 +127,16 @@
       "sessions": 3
     },
     {
-      "label": "Not set",
-      "sessions": 2
-    },
-    {
       "label": "facebook.com / referral",
       "sessions": 2
     },
     {
       "label": "l.instagram.com / referral",
       "sessions": 2
+    },
+    {
+      "label": "Not set",
+      "sessions": 1
     }
   ],
   "cities": [
@@ -154,7 +154,7 @@
     },
     {
       "label": "San Jose",
-      "activeUsers": 6
+      "activeUsers": 7
     },
     {
       "label": "Semarang",
@@ -162,6 +162,10 @@
     },
     {
       "label": "Bandung",
+      "activeUsers": 3
+    },
+    {
+      "label": "Depok",
       "activeUsers": 3
     },
     {
@@ -174,10 +178,6 @@
     },
     {
       "label": "Beijing",
-      "activeUsers": 2
-    },
-    {
-      "label": "Depok",
       "activeUsers": 2
     }
   ]
