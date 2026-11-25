@@ -9,7 +9,7 @@
         "previousStartDate": "2026-11-23",
         "previousEndDate": "2026-11-23"
       },
-      "generatedAt": "2026-11-25T01:43:32.939Z",
+      "generatedAt": "2026-11-25T16:23:28.040Z",
       "summary": {
         "activeUsers": 4,
         "newUsers": 4,
@@ -142,17 +142,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 2,
-            "sessions": 2
+            "sessions": 3
           },
           {
             "label": "google / organic",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 1
           }
         ]
       },
@@ -278,7 +273,7 @@
         "previousStartDate": "2026-11-11",
         "previousEndDate": "2026-11-17"
       },
-      "generatedAt": "2026-11-25T01:43:32.939Z",
+      "generatedAt": "2026-11-25T16:23:28.040Z",
       "summary": {
         "activeUsers": 30,
         "newUsers": 26,
@@ -538,12 +533,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
+            "sessions": 4
           }
         ]
       },
@@ -606,7 +596,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 14,
-            "sessions": 18
+            "sessions": 19
           },
           {
             "label": "google / organic",
@@ -626,11 +616,6 @@
           {
             "label": "m.facebook.com / referral",
             "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
             "sessions": 1
           }
         ]
@@ -853,7 +838,7 @@
         "previousStartDate": "2026-09-30",
         "previousEndDate": "2026-10-27"
       },
-      "generatedAt": "2026-11-25T01:43:32.939Z",
+      "generatedAt": "2026-11-25T16:23:28.040Z",
       "summary": {
         "activeUsers": 102,
         "newUsers": 96,
@@ -1722,12 +1707,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 18
+            "sessions": 19
           }
         ]
       },
@@ -1800,7 +1780,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 51,
-            "sessions": 72
+            "sessions": 73
           },
           {
             "label": "google / organic",
@@ -1826,11 +1806,6 @@
             "label": "l.instagram.com / referral",
             "activeUsers": 2,
             "sessions": 2
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
-            "sessions": 1
           }
         ]
       },
@@ -2254,7 +2229,7 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-24"
       },
-      "generatedAt": "2026-11-25T01:43:32.939Z",
+      "generatedAt": "2026-11-25T16:23:28.040Z",
       "summary": {
         "activeUsers": 93,
         "newUsers": 87,
@@ -3007,12 +2982,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 1
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 14
+            "sessions": 15
           }
         ]
       },
@@ -3085,7 +3055,7 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 49,
-            "sessions": 66
+            "sessions": 67
           },
           {
             "label": "google / organic",
@@ -3110,11 +3080,6 @@
           {
             "label": "l.instagram.com / referral",
             "activeUsers": 1,
-            "sessions": 1
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 0,
             "sessions": 1
           }
         ]
@@ -3539,7 +3504,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-25T01:43:32.939Z",
+      "generatedAt": "2026-11-25T16:23:28.040Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5791,10 +5756,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-25T01:43:32.939Z",
+  "generatedAt": "2026-11-25T16:23:28.040Z",
   "realtime": {
     "status": "ok",
-    "generatedAt": "2026-11-25T01:43:32.939Z",
+    "generatedAt": "2026-11-25T16:23:28.040Z",
     "activeUsers": 0,
     "windowMinutes": 30
   }
