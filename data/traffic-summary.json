@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-11-25T16:23:27.653Z",
+  "generatedAt": "2026-11-26T01:16:47.408Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-28",
-    "endDate": "2026-11-24"
+    "startDate": "2026-10-29",
+    "endDate": "2026-11-25"
   },
   "summary": {
-    "activeUsers": 102,
-    "newUsers": 96,
-    "averageEngagementTimeSeconds": 26.529411764705884,
-    "eventCount": 625
+    "activeUsers": 101,
+    "newUsers": 95,
+    "averageEngagementTimeSeconds": 28.762376237623762,
+    "eventCount": 628
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 59,
-      "activeUsers": 36,
-      "eventCount": 166,
-      "bounceRate": 0.6181818181818182
+      "views": 57,
+      "activeUsers": 34,
+      "eventCount": 160,
+      "bounceRate": 0.6037735849056604
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 47,
+      "views": 48,
       "activeUsers": 37,
-      "eventCount": 203,
-      "bounceRate": 0.5111111111111111
+      "eventCount": 206,
+      "bounceRate": 0.5
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 19,
+      "views": 20,
       "activeUsers": 8,
-      "eventCount": 46,
-      "bounceRate": 0.5263157894736842
+      "eventCount": 48,
+      "bounceRate": 0.55
     },
     {
       "title": "Videos | BA Medicale",
@@ -56,10 +56,10 @@
     },
     {
       "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules | dr. Achmad Fachri, Sp.Rad(K) | BA Medicale",
-      "views": 6,
-      "activeUsers": 5,
-      "eventCount": 24,
-      "bounceRate": 0.16666666666666666
+      "views": 5,
+      "activeUsers": 4,
+      "eventCount": 19,
+      "bounceRate": 0.2
     },
     {
       "title": "Anti-EGFR Therapeutics | BA Medicale",
@@ -86,11 +86,11 @@
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 51
+      "activeUsers": 50
     },
     {
       "label": "google / organic",
-      "activeUsers": 41
+      "activeUsers": 42
     },
     {
       "label": "bing / organic",
@@ -105,8 +105,12 @@
       "activeUsers": 2
     },
     {
+      "label": "Not set",
+      "activeUsers": 1
+    },
+    {
       "label": "l.instagram.com / referral",
-      "activeUsers": 2
+      "activeUsers": 1
     }
   ],
   "sessionSources": [
@@ -116,7 +120,7 @@
     },
     {
       "label": "google / organic",
-      "sessions": 67
+      "sessions": 68
     },
     {
       "label": "bing / organic",
@@ -131,11 +135,11 @@
       "sessions": 2
     },
     {
-      "label": "l.instagram.com / referral",
-      "sessions": 2
+      "label": "Not set",
+      "sessions": 1
     },
     {
-      "label": "Not set",
+      "label": "l.instagram.com / referral",
       "sessions": 1
     }
   ],
@@ -145,11 +149,11 @@
       "activeUsers": 16
     },
     {
-      "label": "Ashburn",
-      "activeUsers": 8
+      "label": "Not set",
+      "activeUsers": 7
     },
     {
-      "label": "Not set",
+      "label": "Ashburn",
       "activeUsers": 7
     },
     {
@@ -157,15 +161,15 @@
       "activeUsers": 7
     },
     {
-      "label": "Semarang",
-      "activeUsers": 4
-    },
-    {
       "label": "Bandung",
       "activeUsers": 3
     },
     {
       "label": "Depok",
+      "activeUsers": 3
+    },
+    {
+      "label": "Semarang",
       "activeUsers": 3
     },
     {
