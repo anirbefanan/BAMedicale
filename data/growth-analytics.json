@@ -9,7 +9,7 @@
         "previousStartDate": "2026-11-25",
         "previousEndDate": "2026-11-25"
       },
-      "generatedAt": "2026-11-27T01:15:14.010Z",
+      "generatedAt": "2026-11-27T15:46:35.214Z",
       "summary": {
         "activeUsers": 3,
         "newUsers": 1,
@@ -96,11 +96,6 @@
             "label": "Unclassified",
             "activeUsers": 0,
             "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 0
           }
         ]
       },
@@ -145,14 +140,14 @@
         "status": "ok",
         "rows": [
           {
-            "label": "(not set)",
+            "label": "(direct) / (none)",
             "activeUsers": 2,
-            "sessions": 4
+            "sessions": 3
           },
           {
-            "label": "(direct) / (none)",
+            "label": "google / organic",
             "activeUsers": 1,
-            "sessions": 1
+            "sessions": 2
           }
         ]
       },
@@ -287,7 +282,7 @@
         "previousStartDate": "2026-11-13",
         "previousEndDate": "2026-11-19"
       },
-      "generatedAt": "2026-11-27T01:15:14.010Z",
+      "generatedAt": "2026-11-27T15:46:35.214Z",
       "summary": {
         "activeUsers": 26,
         "newUsers": 22,
@@ -547,12 +542,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 3
+            "sessions": 5
           }
         ]
       },
@@ -615,17 +605,12 @@
           {
             "label": "google / organic",
             "activeUsers": 13,
-            "sessions": 17
+            "sessions": 19
           },
           {
             "label": "(direct) / (none)",
             "activeUsers": 11,
-            "sessions": 15
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 4
+            "sessions": 17
           },
           {
             "label": "bing / organic",
@@ -882,7 +867,7 @@
         "previousStartDate": "2026-10-02",
         "previousEndDate": "2026-10-29"
       },
-      "generatedAt": "2026-11-27T01:15:14.010Z",
+      "generatedAt": "2026-11-27T15:46:35.214Z",
       "summary": {
         "activeUsers": 100,
         "newUsers": 94,
@@ -1751,12 +1736,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 18
+            "sessions": 20
           }
         ]
       },
@@ -1829,12 +1809,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 50,
-            "sessions": 71
+            "sessions": 73
           },
           {
             "label": "google / organic",
             "activeUsers": 41,
-            "sessions": 66
+            "sessions": 68
           },
           {
             "label": "bing / organic",
@@ -1845,11 +1825,6 @@
             "label": "m.facebook.com / referral",
             "activeUsers": 3,
             "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 4
           },
           {
             "label": "facebook.com / referral",
@@ -2298,7 +2273,7 @@
         "previousStartDate": "2026-10-01",
         "previousEndDate": "2026-10-26"
       },
-      "generatedAt": "2026-11-27T01:15:14.010Z",
+      "generatedAt": "2026-11-27T15:46:35.214Z",
       "summary": {
         "activeUsers": 96,
         "newUsers": 90,
@@ -3109,12 +3084,7 @@
           {
             "label": "Unclassified",
             "activeUsers": 0,
-            "sessions": 2
-          },
-          {
-            "label": "Unclassified",
-            "activeUsers": 0,
-            "sessions": 17
+            "sessions": 19
           }
         ]
       },
@@ -3187,12 +3157,12 @@
           {
             "label": "(direct) / (none)",
             "activeUsers": 50,
-            "sessions": 70
+            "sessions": 72
           },
           {
             "label": "google / organic",
             "activeUsers": 37,
-            "sessions": 62
+            "sessions": 64
           },
           {
             "label": "bing / organic",
@@ -3203,11 +3173,6 @@
             "label": "m.facebook.com / referral",
             "activeUsers": 3,
             "sessions": 3
-          },
-          {
-            "label": "(not set)",
-            "activeUsers": 2,
-            "sessions": 4
           },
           {
             "label": "facebook.com / referral",
@@ -3656,7 +3621,7 @@
         "previousStartDate": "2026-09-01",
         "previousEndDate": "2026-09-30"
       },
-      "generatedAt": "2026-11-27T01:15:14.010Z",
+      "generatedAt": "2026-11-27T15:46:35.214Z",
       "summary": {
         "activeUsers": 90,
         "newUsers": 82,
@@ -5908,10 +5873,10 @@
     "countryMinimumActiveUsers": 5,
     "scope": "Published public routes only; no private app or participant records."
   },
-  "generatedAt": "2026-11-27T01:15:14.010Z",
+  "generatedAt": "2026-11-27T15:46:35.214Z",
   "realtime": {
     "status": "ok",
-    "generatedAt": "2026-11-27T01:15:14.010Z",
+    "generatedAt": "2026-11-27T15:46:35.214Z",
     "activeUsers": 0,
     "windowMinutes": 30
   }
