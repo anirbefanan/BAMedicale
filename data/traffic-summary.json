@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-11-26T15:58:10.873Z",
+  "generatedAt": "2026-11-27T01:15:13.622Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-29",
-    "endDate": "2026-11-25"
+    "startDate": "2026-10-30",
+    "endDate": "2026-11-26"
   },
   "summary": {
-    "activeUsers": 101,
-    "newUsers": 95,
-    "averageEngagementTimeSeconds": 28.762376237623762,
-    "eventCount": 628
+    "activeUsers": 100,
+    "newUsers": 94,
+    "averageEngagementTimeSeconds": 28.76,
+    "eventCount": 623
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 57,
-      "activeUsers": 34,
-      "eventCount": 160,
-      "bounceRate": 0.6037735849056604
+      "views": 52,
+      "activeUsers": 33,
+      "eventCount": 148,
+      "bounceRate": 0.6
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
       "views": 48,
-      "activeUsers": 37,
-      "eventCount": 206,
+      "activeUsers": 36,
+      "eventCount": 203,
       "bounceRate": 0.5
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 20,
+      "views": 23,
       "activeUsers": 8,
-      "eventCount": 48,
-      "bounceRate": 0.55
+      "eventCount": 54,
+      "bounceRate": 0.5
     },
     {
       "title": "Videos | BA Medicale",
@@ -90,7 +90,7 @@
     },
     {
       "label": "google / organic",
-      "activeUsers": 42
+      "activeUsers": 41
     },
     {
       "label": "bing / organic",
@@ -99,6 +99,10 @@
     {
       "label": "m.facebook.com / referral",
       "activeUsers": 3
+    },
+    {
+      "label": "Not set",
+      "activeUsers": 2
     },
     {
       "label": "facebook.com / referral",
@@ -173,11 +177,11 @@
       "activeUsers": 3
     },
     {
-      "label": "Sydney",
-      "activeUsers": 3
+      "label": "Beijing",
+      "activeUsers": 2
     },
     {
-      "label": "Beijing",
+      "label": "Malang",
       "activeUsers": 2
     }
   ]
