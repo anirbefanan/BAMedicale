@@ -1,44 +1,44 @@
 {
-  "generatedAt": "2026-11-27T15:46:34.875Z",
+  "generatedAt": "2026-11-28T00:48:13.997Z",
   "reportingPeriod": {
     "label": "Last 28 days",
-    "startDate": "2026-10-30",
-    "endDate": "2026-11-26"
+    "startDate": "2026-10-31",
+    "endDate": "2026-11-27"
   },
   "summary": {
-    "activeUsers": 100,
-    "newUsers": 94,
-    "averageEngagementTimeSeconds": 28.76,
-    "eventCount": 623
+    "activeUsers": 99,
+    "newUsers": 93,
+    "averageEngagementTimeSeconds": 28.585858585858585,
+    "eventCount": 617
   },
   "topPages": [
     {
       "title": "BA Medicale | Medical Education for Public & Professionals",
-      "views": 52,
+      "views": 51,
       "activeUsers": 33,
-      "eventCount": 148,
-      "bounceRate": 0.6
+      "eventCount": 144,
+      "bounceRate": 0.6326530612244898
     },
     {
       "title": "Indonesia Cancer & Tumor Statistics 2026 | BA Medicale",
-      "views": 48,
-      "activeUsers": 36,
-      "eventCount": 203,
-      "bounceRate": 0.5
+      "views": 49,
+      "activeUsers": 37,
+      "eventCount": 209,
+      "bounceRate": 0.48936170212765956
     },
     {
       "title": "Medical Library | BA Medicale",
-      "views": 23,
+      "views": 24,
       "activeUsers": 8,
-      "eventCount": 54,
-      "bounceRate": 0.5
+      "eventCount": 56,
+      "bounceRate": 0.5217391304347826
     },
     {
       "title": "Videos | BA Medicale",
-      "views": 10,
-      "activeUsers": 4,
-      "eventCount": 22,
-      "bounceRate": 0.125
+      "views": 9,
+      "activeUsers": 3,
+      "eventCount": 18,
+      "bounceRate": 0.14285714285714285
     },
     {
       "title": "BA Medicale Growth & Education Impact Dashboard",
@@ -55,17 +55,17 @@
       "bounceRate": 0.8333333333333334
     },
     {
-      "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules | dr. Achmad Fachri, Sp.Rad(K) | BA Medicale",
-      "views": 5,
-      "activeUsers": 4,
-      "eventCount": 19,
-      "bounceRate": 0.2
-    },
-    {
       "title": "Anti-EGFR Therapeutics | BA Medicale",
       "views": 4,
       "activeUsers": 2,
       "eventCount": 14,
+      "bounceRate": 0.25
+    },
+    {
+      "title": "Ultrasound Imaging and TIRADS Classification in Thyroid Nodules | dr. Achmad Fachri, Sp.Rad(K) | BA Medicale",
+      "views": 4,
+      "activeUsers": 3,
+      "eventCount": 15,
       "bounceRate": 0.25
     },
     {
@@ -76,21 +76,21 @@
       "bounceRate": 0
     },
     {
-      "title": "Contact BA Medicale | Medical Education Enquiries",
+      "title": "Courses & Seminars | BA Medicale",
       "views": 3,
       "activeUsers": 3,
-      "eventCount": 7,
-      "bounceRate": 0.3333333333333333
+      "eventCount": 9,
+      "bounceRate": 1
     }
   ],
   "firstUserSources": [
     {
       "label": "(direct) / (none)",
-      "activeUsers": 50
+      "activeUsers": 52
     },
     {
       "label": "google / organic",
-      "activeUsers": 41
+      "activeUsers": 38
     },
     {
       "label": "bing / organic",
@@ -112,11 +112,11 @@
   "sessionSources": [
     {
       "label": "(direct) / (none)",
-      "sessions": 72
+      "sessions": 74
     },
     {
       "label": "google / organic",
-      "sessions": 68
+      "sessions": 65
     },
     {
       "label": "bing / organic",
@@ -142,7 +142,11 @@
   "cities": [
     {
       "label": "Jakarta",
-      "activeUsers": 16
+      "activeUsers": 15
+    },
+    {
+      "label": "San Jose",
+      "activeUsers": 8
     },
     {
       "label": "Not set",
@@ -150,10 +154,6 @@
     },
     {
       "label": "Ashburn",
-      "activeUsers": 7
-    },
-    {
-      "label": "San Jose",
       "activeUsers": 7
     },
     {
@@ -177,7 +177,7 @@
       "activeUsers": 2
     },
     {
-      "label": "Malang",
+      "label": "Boardman",
       "activeUsers": 2
     }
   ]
